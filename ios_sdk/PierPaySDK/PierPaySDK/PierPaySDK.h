@@ -16,7 +16,7 @@
 @end
 
 #pragma mark - -------------------- View Controller --------------------
-#pragma marl - navigationController
+#pragma mark - navigationController
 @interface PierCredit : UINavigationController
 
 @end

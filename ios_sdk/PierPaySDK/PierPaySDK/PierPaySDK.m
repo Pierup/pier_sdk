@@ -10,11 +10,11 @@
 
 static NSString *__bundlePath;
 
-/** 获取版本信息 */
+/** Get iPhone Version */
 double IPHONE_OS_MAIN_VERSION();
-/** 获取图片名 */
+/** Get ImageName in Bundle */
 NSString *getImagePath(NSString *imageName);
-/** 设置model视图关闭按钮 */
+/** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
 
 @implementation PierPaySDK
@@ -98,7 +98,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 @end
 
 #pragma mark - -------------------- Tools -------------------
-#pragma mark - 获取版本信息
+#pragma mark - Get iPhone Version
 double IPHONE_OS_MAIN_VERSION() {
     static double __iphone_os_main_version = 0.0;
     if(__iphone_os_main_version == 0.0) {
@@ -110,7 +110,7 @@ double IPHONE_OS_MAIN_VERSION() {
     return __iphone_os_main_version;
 }
 
-#pragma mark - 获取图片名
+#pragma mark - Get ImageName in Bundle
 NSString *getImagePath(NSString *imageName){
     NSString *path = @"";
     NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"PierResource" withExtension:@"bundle"]];
@@ -121,7 +121,7 @@ NSString *getImagePath(NSString *imageName){
     return path;
 }
 
-#pragma mark- 设置model视图关闭按钮
+#pragma mark- Model View Close Button
 void setCloseBarButtonWithTarget(id target, SEL selector)
 {
     UIButton *customButton = [UIButton buttonWithType:UIButtonTypeCustom];
