@@ -7,6 +7,7 @@
 //
 
 #import "PierPaySDK.h"
+#import "PIRHttpClient.h"
 
 static NSString *__bundlePath;
 
@@ -58,6 +59,16 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     }
 }
 
+- (IBAction)submitButtonAction:(id)sender{
+    NSString *testURL = @"http://101.44.12.69:8686/pier_api/v1/user/get_countries";
+    [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] GET:testURL saveToPath:nil parameters:nil progress:^(float progress) {
+        
+    } success:^(id response, NSHTTPURLResponse *urlResponse) {
+        NSLog(@"response:%@",response);
+    } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
+        NSLog(@"urlResponse:%@",urlResponse);
+    }];
+}
 
 @end
 

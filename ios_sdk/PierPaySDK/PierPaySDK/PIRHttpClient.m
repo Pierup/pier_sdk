@@ -11,6 +11,7 @@
 
 @interface PIRHttpClient ()
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
+@property (nonatomic, strong) NSMutableDictionary *HTTPHeaderFields;
 @end
 
 @implementation PIRHttpClient
@@ -42,45 +43,101 @@
 }
 
 #pragma mark - ------------------ HTTP Request ------------------
+#pragma mark - setting
+- (NSMutableDictionary *)HTTPHeaderFields {
+    if(_HTTPHeaderFields == nil)
+        _HTTPHeaderFields = [NSMutableDictionary new];
+    
+    return _HTTPHeaderFields;
+}
+
+- (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field {
+    [self.HTTPHeaderFields setValue:value forKey:field];
+}
+
+#pragma mark - HTTP GTE
 - (PIRHttpExecutor*)GET:(NSString*)path
+             saveToPath:(NSString*)savePath
              parameters:(NSDictionary*)parameters
+               progress:(void (^)(float))progressBlock
                 success:(PIRHttpSuccessBlock)success
                  failed:(PIRHttpFailedBlock)failed{
-    return [self queueRequest:path method:PIRHttpMethodGET parameters:parameters success:success failed:failed];
+    return [self queueRequest:path
+                       method:PIRHttpMethodGET
+                   saveToPath:savePath
+                   parameters:parameters
+                     progress:progressBlock
+                      success:success
+                       failed:failed];
 }
 
+#pragma mark - HTTP POST
 - (PIRHttpExecutor*)POST:(NSString*)path
               parameters:(NSDictionary*)parameters
+                progress:(void (^)(float))progressBlock
                  success:(PIRHttpSuccessBlock)success
                   failed:(PIRHttpFailedBlock)failed{
-    return [self queueRequest:path method:PIRHttpMethodPOST parameters:parameters success:success failed:failed];
+    return [self queueRequest:path
+                       method:PIRHttpMethodPOST
+                   saveToPath:nil
+                   parameters:parameters
+                     progress:progressBlock
+                      success:success
+                       failed:failed];
 }
 
+#pragma mark - HTTP Request
 - (PIRHttpExecutor*)queueRequest:(NSString*)path
                           method:(ePIRHttpMethod)method
+                      saveToPath:(NSString*)savePath
                       parameters:(NSDictionary*)parameters
+                        progress:(void (^)(float))progressBlock
                          success:(PIRHttpSuccessBlock)success
                           failed:(PIRHttpFailedBlock)failed {
-    return nil;
-//    NSString *completeURLString = [NSString stringWithFormat:@"%@%@", self.basePath, path];
-//    id mergedParameters;
-//    
-//    if((method == SVHTTPRequestMethodPOST || method == SVHTTPRequestMethodPUT) && self.sendParametersAsJSON && ![parameters isKindOfClass:[NSDictionary class]])
-//        mergedParameters = parameters;
-//    else {
-//        mergedParameters = [NSMutableDictionary dictionary];
-//        [mergedParameters addEntriesFromDictionary:parameters];
-//        [mergedParameters addEntriesFromDictionary:self.baseParameters];
-//    }
-//    
-//    SVHTTPRequest *requestOperation = [(id<SVHTTPRequestPrivateMethods>)[SVHTTPRequest alloc] initWithAddress:completeURLString
-//                                                                                                       method:method
-//                                                                                                   parameters:mergedParameters
-//                                                                                                   saveToPath:savePath
-//                                                                                                     progress:progressBlock
-//                                                                                                   completion:completionBlock];
-//    return [self queueRequest:requestOperation];
+    NSString *completeURLString = [NSString stringWithFormat:@"%@%@", self.basePath, path];
+    id mergedParameters;
+    
+    if((method == PIRHttpMethodPOST ) && self.sendParametersAsJSON && ![parameters isKindOfClass:[NSDictionary class]])
+        mergedParameters = parameters;
+    else {
+        mergedParameters = [NSMutableDictionary dictionary];
+        [mergedParameters addEntriesFromDictionary:parameters];
+        [mergedParameters addEntriesFromDictionary:self.baseParameters];
+    }
+    
+    PIRHttpExecutor *requestOperation = [(id<PIRHTTPRequestProtocol>)[PIRHttpExecutor alloc] initWithAddress:completeURLString method:method parameters:mergedParameters saveToPath:savePath progress:progressBlock success:success failed:failed];
+    return [self queueRequest:requestOperation];
 }
 
+#pragma mark - ------------------ HTTP Operqtions ------------------
+- (PIRHttpExecutor *)queueRequest:(PIRHttpExecutor *)requestOperation {
+    requestOperation.sendParametersAsJSON = self.sendParametersAsJSON;
+    requestOperation.cachePolicy = self.cachePolicy;
+    requestOperation.userAgent = self.userAgent;
+    requestOperation.timeoutInterval = self.timeoutInterval;
+    
+    [(id<PIRHTTPRequestProtocol>)requestOperation setClient:self];
+    
+    [self.HTTPHeaderFields enumerateKeysAndObjectsUsingBlock:^(NSString *field, NSString *value, BOOL *stop) {
+        [requestOperation setValue:value forHTTPHeaderField:field];
+    }];
+    
+    [self.operationQueue addOperation:requestOperation];
+    
+    return requestOperation;
+}
 
+#pragma mark - Operation Cancelling
+- (void)cancelRequestsWithPath:(NSString *)path {
+    [self.operationQueue.operations enumerateObjectsUsingBlock:^(id request, NSUInteger idx, BOOL *stop) {
+        NSString *requestPath = [request valueForKey:@"requestPath"];
+        if([requestPath isEqualToString:path])
+            [request cancel];
+    }];
+}
+
+#pragma mark - cancel all
+- (void)cancelAllRequests {
+    [self.operationQueue cancelAllOperations];
+}
 @end
