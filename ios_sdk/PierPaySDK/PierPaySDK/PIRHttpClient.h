@@ -60,4 +60,6 @@ typedef enum {
                      failed:(PIRHttpFailedBlock)failed;
 
 - (void)cancelAllRequests;
+
+- (void)cancelRequestsWithPath:(NSString *)path;
 @end
