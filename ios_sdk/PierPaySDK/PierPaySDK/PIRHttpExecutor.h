@@ -12,7 +12,8 @@
 
 typedef enum {
     PIRHttpMethodGET,
-    PIRHttpMethodPOST
+    PIRHttpMethodPOST,
+    PIRHttpMethodPUT
 }ePIRHttpMethod;
 
 @interface PIRHttpExecutor : NSOperation
@@ -38,6 +39,7 @@ typedef enum {
                          saveToPath:(NSString*)savePath
                            progress:(void (^)(float))progressBlock
                             success:(PIRHttpSuccessBlock)success
-                             failed:(PIRHttpFailedBlock)failed;
+                             failed:(PIRHttpFailedBlock)failed
+                         postAsJSON:(BOOL)postAsJSON;
 
 @end

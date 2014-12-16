@@ -27,9 +27,9 @@ typedef enum {
     PIRHTTPRequestStateFinished
 }PIRHTTPRequestState;
 
-static NSInteger SVHTTPRequestTaskCount = 0;
+static NSInteger PIRHTTPTaskCount = 0;
 static NSString *defaultUserAgent;
-static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
+static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
 
 @interface PIRHttpExecutor ()
 @property (nonatomic, strong) NSMutableData *operationData;
@@ -77,7 +77,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
 }
 
 + (void)setDefaultTimeoutInterval:(NSTimeInterval)interval {
-    SVHTTPRequestTimeoutInterval = interval;
+    PIRHTTPTimeoutInterval = interval;
 }
 
 + (void)setDefaultUserAgent:(NSString *)userAgent {
@@ -86,24 +86,24 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
 
 - (NSUInteger)timeoutInterval {
     if(_timeoutInterval == 0)
-        return SVHTTPRequestTimeoutInterval;
+        return PIRHTTPTimeoutInterval;
     return _timeoutInterval;
 }
 
-- (void)increaseSVHTTPRequestTaskCount {
-    SVHTTPRequestTaskCount++;
+- (void)increasePIRHTTPTaskCount {
+    PIRHTTPTaskCount++;
     [self toggleNetworkActivityIndicator];
 }
 
-- (void)decreaseSVHTTPRequestTaskCount {
-    SVHTTPRequestTaskCount = MAX(0, SVHTTPRequestTaskCount-1);
+- (void)decreasePIRHTTPTaskCount {
+    PIRHTTPTaskCount = MAX(0, PIRHTTPTaskCount-1);
     [self toggleNetworkActivityIndicator];
 }
 
 - (void)toggleNetworkActivityIndicator {
 #if TARGET_OS_IPHONE && !__has_feature(attribute_availability_app_extension)
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(SVHTTPRequestTaskCount > 0)];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(PIRHTTPTaskCount > 0)];
     });
 #endif
 }
@@ -114,7 +114,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
 }
 
 
-- (PIRHttpExecutor*)initWithAddress:(NSString*)urlString method:(ePIRHttpMethod)method parameters:(NSDictionary*)parameters saveToPath:(NSString*)savePath progress:(void (^)(float))progressBlock success:(PIRHttpSuccessBlock)success failed:(PIRHttpFailedBlock)failed  {
+- (PIRHttpExecutor*)initWithAddress:(NSString*)urlString method:(ePIRHttpMethod)method parameters:(NSDictionary*)parameters saveToPath:(NSString*)savePath progress:(void (^)(float))progressBlock success:(PIRHttpSuccessBlock)success failed:(PIRHttpFailedBlock)failed postAsJSON:(BOOL)postAsJSON {
     self = [super init];
     self.success = success;
     self.failed  = failed;
@@ -122,7 +122,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
     self.operationSavePath = savePath;
     
     self.saveDataDispatchGroup = dispatch_group_create();
-    self.saveDataDispatchQueue = dispatch_queue_create("com.samvermette.SVHTTPRequest", DISPATCH_QUEUE_SERIAL);
+    self.saveDataDispatchQueue = dispatch_queue_create("com.pier.httpRequest", DISPATCH_QUEUE_SERIAL);
     
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     self.operationRequest = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -141,9 +141,12 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
         [self.operationRequest setHTTPMethod:@"GET"];
     }else if(method == PIRHttpMethodPOST){
         [self.operationRequest setHTTPMethod:@"POST"];
+    }else if(method == PIRHttpMethodPUT){
+        [self.operationRequest setHTTPMethod:@"PUT"];
     }
     
     self.state = PIRTTPRequestStateReady;
+    self.sendParametersAsJSON = postAsJSON;
     
     if(parameters)
         [self addParametersToRequest:parameters];
@@ -184,7 +187,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
                 [self.operationRequest setHTTPBody:postData];
             }
             else {
-                NSString *boundary = @"SVHTTPRequestBoundary";
+                NSString *boundary = @"PIRHTTPBoundary";
                 NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
                 [self.operationRequest setValue:contentType forHTTPHeaderField: @"Content-Type"];
                 
@@ -293,7 +296,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
 #endif
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self increaseSVHTTPRequestTaskCount];
+        [self increasePIRHTTPTaskCount];
     });
     
     if(self.userAgent)
@@ -328,9 +331,8 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
     
     [self.operationConnection start];
     
-#if !(defined SVHTTPREQUEST_DISABLE_LOGGING)
-    NSLog(@"[%@] %@", self.operationRequest.HTTPMethod, self.operationRequest.URL.absoluteString);
-#endif
+    NSLog(@"[Header]\n%@",[self.operationRequest allHTTPHeaderFields]);
+    NSLog(@"[%@]\n%@", self.operationRequest.HTTPMethod, self.operationRequest.URL.absoluteString);
     
     // make NSRunLoop stick around until operation is finished
     if(inBackgroundAndInOperationQueue) {
@@ -344,7 +346,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
     [self.operationConnection cancel];
     self.operationConnection = nil;
     
-    [self decreaseSVHTTPRequestTaskCount];
+    [self decreasePIRHTTPTaskCount];
     
 #if TARGET_OS_IPHONE && !__has_feature(attribute_availability_app_extension)
     if(self.backgroundTaskIdentifier != UIBackgroundTaskInvalid) {
@@ -411,6 +413,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
     [self connection:nil didFailWithError:timeoutError];
 }
 
+#pragma mark - NSURLConnectionDataDelegate
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     self.expectedContentLength = response.expectedContentLength;
     self.receivedContentLength = 0;
@@ -425,7 +428,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
             }
             @catch (NSException *exception) {
                 [self.operationConnection cancel];
-                NSError *writeError = [NSError errorWithDomain:@"SVHTTPRequestWriteError" code:0 userInfo:exception.userInfo];
+                NSError *writeError = [NSError errorWithDomain:@"PIRHTTPWriteError" code:0 userInfo:exception.userInfo];
                 [self callCompletionBlockWithResponse:nil error:writeError];
             }
         }
@@ -503,6 +506,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
         }
         
         if (self.success && !self.isCancelled) {
+            NSLog(@"[Response] %@",self.operationURLResponse);
             self.success(response, self.operationURLResponse);
         }
         [self finish];
@@ -511,7 +515,7 @@ static NSTimeInterval SVHTTPRequestTimeoutInterval = 20;
 
 @end
 
-@implementation NSString (SVHTTPRequest)
+@implementation NSString (PIRHTTPRequest)
 
 - (NSString*)encodedURLParameterString {
     NSString *result = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
@@ -530,7 +534,7 @@ static char encodingTable[64] = {
     'g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v',
     'w','x','y','z','0','1','2','3','4','5','6','7','8','9','+','/' };
 
-@implementation NSData (SVHTTPRequest)
+@implementation NSData (PIRHTTPRequest)
 
 - (NSString *)base64EncodingWithLineLength:(unsigned int) lineLength {
     const unsigned char	*bytes = [self bytes];

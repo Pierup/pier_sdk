@@ -23,7 +23,6 @@ typedef enum {
 @property (nonatomic, strong) NSString *basePath;
 @property (nonatomic, strong) NSString *userAgent;
 
-@property (nonatomic, readwrite) BOOL sendParametersAsJSON;
 @property (nonatomic, strong) NSDictionary *baseParameters;
 @property (nonatomic, readwrite) NSUInteger timeoutInterval;
 @property (nonatomic, readwrite) NSURLRequestCachePolicy cachePolicy;
@@ -43,4 +42,15 @@ typedef enum {
                  success:(PIRHttpSuccessBlock)success
                   failed:(PIRHttpFailedBlock)failed;
 
+- (PIRHttpExecutor*)JSONPOST:(NSString*)path
+                  parameters:(NSDictionary*)parameters
+                    progress:(void (^)(float))progressBlock
+                     success:(PIRHttpSuccessBlock)success
+                      failed:(PIRHttpFailedBlock)failed;
+
+- (PIRHttpExecutor*)PUT:(NSString*)path
+              parameters:(NSDictionary*)parameters
+                progress:(void (^)(float))progressBlock
+                 success:(PIRHttpSuccessBlock)success
+                  failed:(PIRHttpFailedBlock)failed;
 @end

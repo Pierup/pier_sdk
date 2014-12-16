@@ -60,14 +60,39 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 - (IBAction)submitButtonAction:(id)sender{
-    NSString *testURL = @"http://101.44.12.69:8686/pier_api/v1/user/get_countries";
-    [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] GET:testURL saveToPath:nil parameters:nil progress:^(float progress) {
-        
+    /** get */
+//    NSString *testURL = @"http://101.44.12.69:8686/pier_api/v1/user/get_countries";
+//    [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] GET:testURL saveToPath:nil parameters:nil progress:^(float progress) {
+//        
+//    } success:^(id response, NSHTTPURLResponse *urlResponse) {
+//        NSLog(@"response:%@",response);
+//    } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
+//        NSLog(@"urlResponse:%@",urlResponse);
+//    }];
+    
+    /** post */
+    NSString *testAddUserURL = @"http://pierup.ddns.net:8686/user_api/v1/sdk/search_user?dev_info=0&platform=0";
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"18638998588",@"phone",
+                           @"18638998588",@"phone",
+                           @"CN",@"country_code",
+                           @"ertoiu@mial.com",@"email", nil];
+
+    
+//    NSString *testAddUserURL = @"http://pierup.ddns.net:8686/user_api/v1/manage/get_pier_accounts?dev_info=0&platform=0";
+//    //http://piermerchant.elasticbeanstalk.com/
+//    
+//    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"UR0000000002",@"user_id",
+//                           @"A46261D7-9B21-4209-A7D3-CDABC941FB5B@pierup.com",@"device_token",
+//                           @"a9d02305-7c49-11e4-8328-32913f86e6ed",@"session_token",nil];
+    
+    [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] JSONPOST:testAddUserURL parameters:param progress:^(float progress){
+        NSLog(@"progress:%f",progress);
     } success:^(id response, NSHTTPURLResponse *urlResponse) {
-        NSLog(@"response:%@",response);
+        NSLog(@"%@response",response);
     } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-        NSLog(@"urlResponse:%@",urlResponse);
+        NSLog(@"%@urlResponse",urlResponse);
     }];
+    
 }
 
 @end

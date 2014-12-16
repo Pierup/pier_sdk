@@ -68,7 +68,8 @@
                    parameters:parameters
                      progress:progressBlock
                       success:success
-                       failed:failed];
+                       failed:failed
+                   postAsJSON:NO];
 }
 
 #pragma mark - HTTP POST
@@ -83,7 +84,38 @@
                    parameters:parameters
                      progress:progressBlock
                       success:success
-                       failed:failed];
+                       failed:failed
+                   postAsJSON:NO];
+}
+
+- (PIRHttpExecutor*)JSONPOST:(NSString*)path
+                  parameters:(NSDictionary*)parameters
+                    progress:(void (^)(float))progressBlock
+                     success:(PIRHttpSuccessBlock)success
+                      failed:(PIRHttpFailedBlock)failed{
+    return [self queueRequest:path
+                       method:PIRHttpMethodPOST
+                   saveToPath:nil
+                   parameters:parameters
+                     progress:progressBlock
+                      success:success
+                       failed:failed
+                   postAsJSON:YES];
+}
+
+- (PIRHttpExecutor*)PUT:(NSString*)path
+             parameters:(NSDictionary*)parameters
+               progress:(void (^)(float))progressBlock
+                success:(PIRHttpSuccessBlock)success
+                 failed:(PIRHttpFailedBlock)failed{
+    return [self queueRequest:path
+                       method:PIRHttpMethodPUT
+                   saveToPath:nil
+                   parameters:parameters
+                     progress:progressBlock
+                      success:success
+                       failed:failed
+                   postAsJSON:NO];
 }
 
 #pragma mark - HTTP Request
@@ -93,11 +125,12 @@
                       parameters:(NSDictionary*)parameters
                         progress:(void (^)(float))progressBlock
                          success:(PIRHttpSuccessBlock)success
-                          failed:(PIRHttpFailedBlock)failed {
+                          failed:(PIRHttpFailedBlock)failed
+                      postAsJSON:(BOOL)postAsJSON{
     NSString *completeURLString = [NSString stringWithFormat:@"%@%@", self.basePath, path];
     id mergedParameters;
     
-    if((method == PIRHttpMethodPOST ) && self.sendParametersAsJSON && ![parameters isKindOfClass:[NSDictionary class]])
+    if((method == PIRHttpMethodPOST ) && ![parameters isKindOfClass:[NSDictionary class]])
         mergedParameters = parameters;
     else {
         mergedParameters = [NSMutableDictionary dictionary];
@@ -105,13 +138,12 @@
         [mergedParameters addEntriesFromDictionary:self.baseParameters];
     }
     
-    PIRHttpExecutor *requestOperation = [(id<PIRHTTPRequestProtocol>)[PIRHttpExecutor alloc] initWithAddress:completeURLString method:method parameters:mergedParameters saveToPath:savePath progress:progressBlock success:success failed:failed];
+    PIRHttpExecutor *requestOperation = [(id<PIRHTTPRequestProtocol>)[PIRHttpExecutor alloc] initWithAddress:completeURLString method:method parameters:mergedParameters saveToPath:savePath progress:progressBlock success:success failed:failed postAsJSON:postAsJSON];
     return [self queueRequest:requestOperation];
 }
 
 #pragma mark - ------------------ HTTP Operqtions ------------------
 - (PIRHttpExecutor *)queueRequest:(PIRHttpExecutor *)requestOperation {
-    requestOperation.sendParametersAsJSON = self.sendParametersAsJSON;
     requestOperation.cachePolicy = self.cachePolicy;
     requestOperation.userAgent = self.userAgent;
     requestOperation.timeoutInterval = self.timeoutInterval;
