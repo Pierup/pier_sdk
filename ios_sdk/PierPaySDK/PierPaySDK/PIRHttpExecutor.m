@@ -42,7 +42,7 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
 
 @property (nonatomic, copy) PIRHttpSuccessBlock success;
 @property (nonatomic, copy) PIRHttpFailedBlock failed;
-@property (nonatomic, strong) NSString *requestPath;
+//@property (nonatomic, strong) NSString *requestPath;
 @property (nonatomic, copy) void (^operationProgressBlock)(float progress);
 
 #if TARGET_OS_IPHONE
@@ -74,20 +74,6 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
 #endif
 }
 
-+ (void)setDefaultTimeoutInterval:(NSTimeInterval)interval {
-    PIRHTTPTimeoutInterval = interval;
-}
-
-+ (void)setDefaultUserAgent:(NSString *)userAgent {
-    defaultUserAgent = userAgent;
-}
-
-- (NSUInteger)timeoutInterval {
-    if(_timeoutInterval == 0)
-        return PIRHTTPTimeoutInterval;
-    return _timeoutInterval;
-}
-
 - (void)increasePIRHTTPTaskCount {
     PIRHTTPTaskCount++;
     [self toggleNetworkActivityIndicator];
@@ -106,14 +92,16 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
 #endif
 }
 
-
 - (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field {
     [self.operationRequest setValue:value forHTTPHeaderField:field];
 }
 
-
 - (PIRHttpExecutor*)initWithAddress:(NSString*)urlString method:(ePIRHttpMethod)method parameters:(NSDictionary*)parameters saveToPath:(NSString*)savePath progress:(void (^)(float))progressBlock success:(PIRHttpSuccessBlock)success failed:(PIRHttpFailedBlock)failed postAsJSON:(BOOL)postAsJSON {
     self = [super init];
+    self.timeoutInterval = PIRHTTPTimeoutInterval;
+    self.cachePolicy = self.cachePolicy;
+    self.userAgent = self.userAgent;
+    
     self.success = success;
     self.failed  = failed;
     self.operationProgressBlock = progressBlock;
@@ -125,11 +113,11 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     self.operationRequest = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *path = url.path;
-    if ([path hasPrefix:@"/"]) {
-        path = [path substringFromIndex:1];
-    }
-    [self setRequestPath:path];
+//    NSString *path = url.path;
+//    if ([path hasPrefix:@"/"]) {
+//        path = [path substringFromIndex:1];
+//    }
+//    [self setRequestPath:path];
     
     // pipeline all but POST and downloads
     if(method != PIRHttpMethodPOST && !savePath)
@@ -146,36 +134,36 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
     self.state = PIRTTPRequestStateReady;
     self.sendParametersAsJSON = postAsJSON;
     
-    if(parameters)
+    if(parameters){
         [self addParametersToRequest:parameters];
+    }
     
     return self;
 }
 
-- (void)addParametersToRequest:(NSObject*)parameters {
+- (void)addParametersToRequest:(NSDictionary*)paramsDict {
     
     NSString *method = self.operationRequest.HTTPMethod;
     
     if([method isEqualToString:@"POST"] || [method isEqualToString:@"PUT"]) {
         if(self.sendParametersAsJSON) {
-            if([parameters isKindOfClass:[NSArray class]] || [parameters isKindOfClass:[NSDictionary class]]) {
+            if([paramsDict isKindOfClass:[NSDictionary class]]) {
                 [self.operationRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
                 NSError *jsonError;
-                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&jsonError];
+                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramsDict options:0 error:&jsonError];
                 [self.operationRequest setHTTPBody:jsonData];
-            }
-            else
+            }else{
                 [NSException raise:NSInvalidArgumentException format:@"POST and PUT parameters must be provided as NSDictionary or NSArray when sendParametersAsJSON is set to YES."];
-        }
-        else if([parameters isKindOfClass:[NSDictionary class]]) {
+            }
+        }else if([paramsDict isKindOfClass:[NSDictionary class]]) {
             __block BOOL hasData = NO;
-            NSDictionary *paramsDict = (NSDictionary*)parameters;
             
             [paramsDict.allValues enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                if([obj isKindOfClass:[NSData class]] || [obj isKindOfClass:[NSURL class]])
+                if([obj isKindOfClass:[NSData class]] || [obj isKindOfClass:[NSURL class]]){
                     hasData = YES;
-                else if(![obj isKindOfClass:[NSString class]] && ![obj isKindOfClass:[NSNumber class]])
+                }else if(![obj isKindOfClass:[NSString class]] && ![obj isKindOfClass:[NSNumber class]]){
                     [NSException raise:NSInvalidArgumentException format:@"%@ requests only accept NSString and NSNumber parameters.", self.operationRequest.HTTPMethod];
+                }
             }];
             
             if(!hasData) {
@@ -183,9 +171,8 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                 NSMutableData *postData = [NSMutableData dataWithBytes:stringData length:strlen(stringData)];
                 [self.operationRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"]; //added by uzys
                 [self.operationRequest setHTTPBody:postData];
-            }
-            else {
-                NSString *boundary = @"PIRHTTPBoundary";
+            }else {
+                NSString *boundary = @"WebKitFormBoundaryPier";
                 NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
                 [self.operationRequest setValue:contentType forHTTPHeaderField: @"Content-Type"];
                 
@@ -205,12 +192,12 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                         if ([obj isKindOfClass:[NSURL class]]) {
                             fileName = [obj lastPathComponent];
                             data = [NSData dataWithContentsOfURL:obj];
-                        }
-                        else {
+                        }else {
                             imageExtension = [obj getImageType];
-                            fileName = [NSString stringWithFormat:@"userfile%d%x", dataIdx, (int)[[NSDate date] timeIntervalSince1970]];
-                            if (imageExtension != nil)
+                            fileName = [NSString stringWithFormat:@"pieruser%d%x", dataIdx, (int)[[NSDate date] timeIntervalSince1970]];
+                            if (imageExtension != nil){
                                 fileName = [fileName stringByAppendingPathExtension:imageExtension];
+                            }
                             data = obj;
                         }
                         
@@ -219,8 +206,7 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                         
                         if(imageExtension != nil) {
                             [postData appendData:[[NSString stringWithFormat:@"Content-Type: image/%@\r\n\r\n",imageExtension] dataUsingEncoding:NSUTF8StringEncoding]];
-                        }
-                        else {
+                        }else {
                             [postData appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
                         }
                         
@@ -232,13 +218,15 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                 
                 [postData appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
                 [self.operationRequest setHTTPBody:postData];
+                
+                NSString *bosyStr = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+                NSLog(@"[Body]%@",bosyStr);
             }
         }
         else
             [NSException raise:NSInvalidArgumentException format:@"POST and PUT parameters must be provided as NSDictionary when sendParametersAsJSON is set to NO."];
     }
-    else if([parameters isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *paramsDict = (NSDictionary*)parameters;
+    else if([paramsDict isKindOfClass:[NSDictionary class]]) {
         NSString *baseAddress = self.operationRequest.URL.absoluteString;
         if(paramsDict.count > 0)
             baseAddress = [baseAddress stringByAppendingFormat:@"?%@", [self parameterStringForDictionary:paramsDict]];
@@ -331,7 +319,6 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
     
     NSLog(@"[Header]\n%@",[self.operationRequest allHTTPHeaderFields]);
     NSLog(@"[%@]\n%@", self.operationRequest.HTTPMethod, self.operationRequest.URL.absoluteString);
-    
     // make NSRunLoop stick around until operation is finished
     if(inBackgroundAndInOperationQueue) {
         self.operationRunLoop = CFRunLoopGetCurrent();
@@ -503,9 +490,9 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
             }
         }
         
-        if (self.success && !self.isCancelled) {
+        if (self.failed && !self.isCancelled) {
             NSLog(@"[Response] %@",self.operationURLResponse);
-            self.success(response, self.operationURLResponse);
+            self.failed(self.operationURLResponse,response);
         }
         [self finish];
     });

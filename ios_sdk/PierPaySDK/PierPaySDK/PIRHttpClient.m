@@ -9,9 +9,17 @@
 #import "PIRHttpClient.h"
 #import "PIRHttpExecutor.h"
 
+#pragma mark - -------------------- Host --------------------
+NSString * const PIRHttpClientUserHost = @"http://pierup.ddns.net:8686/";//@"http://pierup.ddns.net:8686/";
+#pragma mark -
+
 @interface PIRHttpClient ()
+@property (nonatomic, strong) NSString *basePath;
+
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
 @property (nonatomic, strong) NSMutableDictionary *HTTPHeaderFields;
+@property (nonatomic, strong) NSDictionary *baseParameters;
+
 @end
 
 @implementation PIRHttpClient
@@ -26,11 +34,23 @@
         @synchronized(self){
             if (!__sharedInstance) {
                 __sharedInstance = [[self alloc] init];
+                __sharedInstance.basePath = [__sharedInstance getHostByType:type];
                 [__instanceMap setObject:__sharedInstance forKey:@(type)];
             }
         }
     }
     return __sharedInstance;
+}
+
+- (NSString *)getHostByType:(ePIRHttpClientType)type{
+    switch (type) {
+        case ePIRHttpClientType_User:
+            return PIRHttpClientUserHost;
+            break;
+        default:
+            return PIRHttpClientUserHost;
+            break;
+    }
 }
 
 - (id)init {
@@ -103,6 +123,21 @@
                    postAsJSON:YES];
 }
 
+- (PIRHttpExecutor*)UploadImage:(NSString*)path
+                     parameters:(NSDictionary*)parameters
+                       progress:(void (^)(float))progressBlock
+                        success:(PIRHttpSuccessBlock)success
+                         failed:(PIRHttpFailedBlock)failed{
+    return [self queueRequest:path
+                       method:PIRHttpMethodPOST
+                   saveToPath:nil
+                   parameters:parameters
+                     progress:progressBlock
+                      success:success
+                       failed:failed
+                   postAsJSON:NO];
+}
+
 - (PIRHttpExecutor*)PUT:(NSString*)path
              parameters:(NSDictionary*)parameters
                progress:(void (^)(float))progressBlock
@@ -158,9 +193,6 @@
 
 #pragma mark - ------------------ HTTP Operqtions ------------------
 - (PIRHttpExecutor *)queueRequest:(PIRHttpExecutor *)requestOperation {
-    requestOperation.cachePolicy = self.cachePolicy;
-    requestOperation.userAgent = self.userAgent;
-    requestOperation.timeoutInterval = self.timeoutInterval;
     
     [self.HTTPHeaderFields enumerateKeysAndObjectsUsingBlock:^(NSString *field, NSString *value, BOOL *stop) {
         [requestOperation setValue:value forHTTPHeaderField:field];

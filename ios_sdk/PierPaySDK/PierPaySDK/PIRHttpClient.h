@@ -20,13 +20,6 @@ typedef enum {
 
 @interface PIRHttpClient : NSObject
 
-@property (nonatomic, strong) NSString *basePath;
-@property (nonatomic, strong) NSString *userAgent;
-
-@property (nonatomic, strong) NSDictionary *baseParameters;
-@property (nonatomic, readwrite) NSUInteger timeoutInterval;
-@property (nonatomic, readwrite) NSURLRequestCachePolicy cachePolicy;
-
 + (PIRHttpClient *)sharedInstanceWithClientType:(ePIRHttpClientType)type;
 
 - (PIRHttpExecutor*)GET:(NSString*)path
@@ -47,6 +40,12 @@ typedef enum {
                     progress:(void (^)(float))progressBlock
                      success:(PIRHttpSuccessBlock)success
                       failed:(PIRHttpFailedBlock)failed;
+
+- (PIRHttpExecutor*)UploadImage:(NSString*)path
+                     parameters:(NSDictionary*)parameters
+                       progress:(void (^)(float))progressBlock
+                        success:(PIRHttpSuccessBlock)success
+                         failed:(PIRHttpFailedBlock)failed;
 
 - (PIRHttpExecutor*)PUT:(NSString*)path
               parameters:(NSDictionary*)parameters

@@ -60,14 +60,15 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 - (IBAction)submitButtonAction:(id)sender{
-    [self testGet];
-    [self testPost];
+//    [self testGet];
+//    [self testPost];
+    [self uploadFile];
 }
 
 
 - (void)testGet{
     /** get */
-        NSString *testURL = @"http://pierup.ddns.net:8686/pier_api/v1/user/get_countries";
+        NSString *testURL = @"pier_api/v1/user/get_countries";
         [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] GET:testURL saveToPath:nil parameters:nil progress:^(float progress) {
     
         } success:^(id response, NSHTTPURLResponse *urlResponse) {
@@ -79,7 +80,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (void)testPut{
     /** put */
-    NSString *testAddUserURL = @"http://pierup.ddns.net:8686/user_api/v1/sdk/dob_ssn?dev_info=0&platform=0";
+    NSString *testAddUserURL = @"user_api/v1/sdk/dob_ssn?dev_info=0&platform=0";
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            @"UR0000000062",@"user_id",
                            @"73ed40ff-804e-11e4-8328-32913f86e6ed",@"session_token",
@@ -97,22 +98,38 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (void)testPost{
     /** post */
-    NSString *testAddUserURL = @"http://pierup.ddns.net:8686/user_api/v1/sdk/search_user?dev_info=0&platform=0";
+    NSString *testAddUserURL = @"user_api/v1/sdk/search_user?dev_info=0&platform=0";
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            @"18638998588",@"phone",
                            @"18638998588",@"phone",
                            @"CN",@"country_code",
                            @"ertoiu@mial.com",@"email", nil];
-    
-    
-    //    NSString *testAddUserURL = @"http://pierup.ddns.net:8686/user_api/v1/manage/get_pier_accounts?dev_info=0&platform=0";
-    //    //http://piermerchant.elasticbeanstalk.com/
-    //
-    //    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:@"UR0000000002",@"user_id",
-    //                           @"A46261D7-9B21-4209-A7D3-CDABC941FB5B@pierup.com",@"device_token",
-    //                           @"a9d02305-7c49-11e4-8328-32913f86e6ed",@"session_token",nil];
-    
     [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] JSONPOST:testAddUserURL parameters:param progress:^(float progress){
+        NSLog(@"progress:%f",progress);
+    } success:^(id response, NSHTTPURLResponse *urlResponse) {
+        NSLog(@"%@response",response);
+    } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
+        NSLog(@"%@urlResponse",urlResponse);
+    }];
+}
+
+- (void)uploadFile{
+    PIRHttpClient *client = [PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User];
+    /** post */
+    UIImage *image = [UIImage imageWithContentsOfFile:getImagePath(@"btn_close")];
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.0f);
+    NSString *testAddUserURL = @"pier_api/v1/user/upload_file";//?content_type=image/jpeg
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           imageData,@"file",
+                           @"UR0000000001",@"user_id",
+                           @"6fd20dd7-84f5-11e4-8328-32913f86e6ed",@"session_token",
+                           @"8A412D29-F8E0-46D0-8BC6-3A6CCFD858B7",@"device_token",
+                           @"image/jpeg",@"content_type",
+                           @"UR0000000001_201412161533281.jpg",@"file_name",
+                           @"0",@"platform",
+                           nil];
+    
+    [client UploadImage:testAddUserURL parameters:param progress:^(float progress){
         NSLog(@"progress:%f",progress);
     } success:^(id response, NSHTTPURLResponse *urlResponse) {
         NSLog(@"%@response",response);
