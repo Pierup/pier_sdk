@@ -25,13 +25,6 @@ typedef enum {
 @property (nonatomic, strong) NSMutableURLRequest *operationRequest;
 
 - (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field;
-@end
-
-
-@protocol PIRHTTPRequestProtocol <NSObject>
-
-@property (nonatomic, strong) NSString *requestPath;
-@property (nonatomic, strong) PIRHttpClient *client;
 
 - (PIRHttpExecutor*)initWithAddress:(NSString*)urlString
                              method:(ePIRHttpMethod)method
@@ -41,5 +34,4 @@ typedef enum {
                             success:(PIRHttpSuccessBlock)success
                              failed:(PIRHttpFailedBlock)failed
                          postAsJSON:(BOOL)postAsJSON;
-
 @end

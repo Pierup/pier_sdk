@@ -53,4 +53,10 @@ typedef enum {
                 progress:(void (^)(float))progressBlock
                  success:(PIRHttpSuccessBlock)success
                   failed:(PIRHttpFailedBlock)failed;
+
+- (PIRHttpExecutor*)JSONPUT:(NSString*)path
+                 parameters:(NSDictionary*)parameters
+                   progress:(void (^)(float))progressBlock
+                    success:(PIRHttpSuccessBlock)success
+                     failed:(PIRHttpFailedBlock)failed;
 @end

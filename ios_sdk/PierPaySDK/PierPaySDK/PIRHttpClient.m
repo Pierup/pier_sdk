@@ -118,6 +118,21 @@
                    postAsJSON:NO];
 }
 
+- (PIRHttpExecutor*)JSONPUT:(NSString*)path
+                 parameters:(NSDictionary*)parameters
+                   progress:(void (^)(float))progressBlock
+                    success:(PIRHttpSuccessBlock)success
+                     failed:(PIRHttpFailedBlock)failed{
+    return [self queueRequest:path
+                       method:PIRHttpMethodPUT
+                   saveToPath:nil
+                   parameters:parameters
+                     progress:progressBlock
+                      success:success
+                       failed:failed
+                   postAsJSON:YES];
+}
+
 #pragma mark - HTTP Request
 - (PIRHttpExecutor*)queueRequest:(NSString*)path
                           method:(ePIRHttpMethod)method
@@ -137,8 +152,7 @@
         [mergedParameters addEntriesFromDictionary:parameters];
         [mergedParameters addEntriesFromDictionary:self.baseParameters];
     }
-    
-    PIRHttpExecutor *requestOperation = [(id<PIRHTTPRequestProtocol>)[PIRHttpExecutor alloc] initWithAddress:completeURLString method:method parameters:mergedParameters saveToPath:savePath progress:progressBlock success:success failed:failed postAsJSON:postAsJSON];
+    PIRHttpExecutor *requestOperation = [[PIRHttpExecutor alloc] initWithAddress:completeURLString method:method parameters:mergedParameters saveToPath:savePath progress:progressBlock success:success failed:failed postAsJSON:postAsJSON];
     return [self queueRequest:requestOperation];
 }
 
@@ -147,8 +161,6 @@
     requestOperation.cachePolicy = self.cachePolicy;
     requestOperation.userAgent = self.userAgent;
     requestOperation.timeoutInterval = self.timeoutInterval;
-    
-    [(id<PIRHTTPRequestProtocol>)requestOperation setClient:self];
     
     [self.HTTPHeaderFields enumerateKeysAndObjectsUsingBlock:^(NSString *field, NSString *value, BOOL *stop) {
         [requestOperation setValue:value forHTTPHeaderField:field];
