@@ -42,7 +42,7 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
 
 @property (nonatomic, copy) PIRHttpSuccessBlock success;
 @property (nonatomic, copy) PIRHttpFailedBlock failed;
-//@property (nonatomic, strong) NSString *requestPath;
+@property (nonatomic, strong) NSString *requestPath;//cancel server时候使用
 @property (nonatomic, copy) void (^operationProgressBlock)(float progress);
 
 #if TARGET_OS_IPHONE
@@ -113,13 +113,14 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     self.operationRequest = [[NSMutableURLRequest alloc] initWithURL:url];
     
-//    NSString *path = url.path;
-//    if ([path hasPrefix:@"/"]) {
-//        path = [path substringFromIndex:1];
-//    }
-//    [self setRequestPath:path];
+    NSString *path = url.path;
+    if ([path hasPrefix:@"/"]) {
+        path = [path substringFromIndex:1];
+    }
+    [self setRequestPath:path];
     
     // pipeline all but POST and downloads
+    
     if(method != PIRHttpMethodPOST && !savePath)
         self.operationRequest.HTTPShouldUsePipelining = YES;
     
@@ -172,7 +173,7 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                 [self.operationRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"]; //added by uzys
                 [self.operationRequest setHTTPBody:postData];
             }else {
-                NSString *boundary = @"WebKitFormBoundaryPier";
+                NSString *boundary = @"PierBoundary";
                 NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
                 [self.operationRequest setValue:contentType forHTTPHeaderField: @"Content-Type"];
                 
@@ -202,7 +203,7 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                         }
                         
                         [postData appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-                        [postData appendData:[[NSString stringWithFormat:@"Content-Disposition: attachment; name=\"%@\"; filename=\"%@\"\r\n", key, fileName] dataUsingEncoding:NSUTF8StringEncoding]];
+                        [postData appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", key, fileName] dataUsingEncoding:NSUTF8StringEncoding]];
                         
                         if(imageExtension != nil) {
                             [postData appendData:[[NSString stringWithFormat:@"Content-Type: image/%@\r\n\r\n",imageExtension] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -218,9 +219,6 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                 
                 [postData appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
                 [self.operationRequest setHTTPBody:postData];
-                
-                NSString *bosyStr = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
-                NSLog(@"[Body]%@",bosyStr);
             }
         }
         else
@@ -319,6 +317,7 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
     
     NSLog(@"[Header]\n%@",[self.operationRequest allHTTPHeaderFields]);
     NSLog(@"[%@]\n%@", self.operationRequest.HTTPMethod, self.operationRequest.URL.absoluteString);
+
     // make NSRunLoop stick around until operation is finished
     if(inBackgroundAndInOperationQueue) {
         self.operationRunLoop = CFRunLoopGetCurrent();
@@ -414,7 +413,7 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
             @catch (NSException *exception) {
                 [self.operationConnection cancel];
                 NSError *writeError = [NSError errorWithDomain:@"PIRHTTPWriteError" code:0 userInfo:exception.userInfo];
-                [self callCompletionBlockWithResponse:nil error:writeError];
+                [self callCompletionBlockWithResponse:nil error:writeError success:NO];
             }
         }
         else
@@ -454,15 +453,15 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
             }
         }
         
-        [self callCompletionBlockWithResponse:response error:error];
+        [self callCompletionBlockWithResponse:response error:error success:YES];
     });
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [self callCompletionBlockWithResponse:nil error:error];
+    [self callCompletionBlockWithResponse:nil error:error success:NO];
 }
 
-- (void)callCompletionBlockWithResponse:(id)response error:(NSError *)error {
+- (void)callCompletionBlockWithResponse:(id)response error:(NSError *)error success:(BOOL)isSuccess{
     self.timeoutTimer = nil;
     
     if(self.operationRunLoop)
@@ -489,11 +488,18 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                 
             }
         }
-        
-        if (self.failed && !self.isCancelled) {
-            NSLog(@"[Response] %@",self.operationURLResponse);
-            self.failed(self.operationURLResponse,response);
+        if (isSuccess) {
+            if (self.failed && !self.isCancelled) {
+                NSLog(@"[Error] %@",error);
+                self.failed(self.operationURLResponse,error);
+            }
+        }else{
+            if (self.success && !self.isCancelled) {
+                NSLog(@"[Response] %@",self.operationURLResponse);
+                self.success(response,self.operationURLResponse);
+            }
         }
+        
         [self finish];
     });
 }

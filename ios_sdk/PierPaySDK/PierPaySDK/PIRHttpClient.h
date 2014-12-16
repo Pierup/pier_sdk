@@ -58,4 +58,6 @@ typedef enum {
                    progress:(void (^)(float))progressBlock
                     success:(PIRHttpSuccessBlock)success
                      failed:(PIRHttpFailedBlock)failed;
+
+- (void)cancelAllRequests;
 @end

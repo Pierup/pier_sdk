@@ -65,6 +65,9 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     [self uploadFile];
 }
 
+- (IBAction)cancelService:(id)sender{
+    [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] cancelAllRequests];
+}
 
 - (void)testGet{
     /** get */
@@ -101,7 +104,6 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     NSString *testAddUserURL = @"user_api/v1/sdk/search_user?dev_info=0&platform=0";
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            @"18638998588",@"phone",
-                           @"18638998588",@"phone",
                            @"CN",@"country_code",
                            @"ertoiu@mial.com",@"email", nil];
     [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] JSONPOST:testAddUserURL parameters:param progress:^(float progress){
@@ -120,13 +122,13 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0f);
     NSString *testAddUserURL = @"pier_api/v1/user/upload_file";//?content_type=image/jpeg
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           imageData,@"file",
                            @"UR0000000001",@"user_id",
                            @"6fd20dd7-84f5-11e4-8328-32913f86e6ed",@"session_token",
                            @"8A412D29-F8E0-46D0-8BC6-3A6CCFD858B7",@"device_token",
                            @"image/jpeg",@"content_type",
-                           @"UR0000000001_201412161533281.jpg",@"file_name",
+                           @"UR0000000001_2014121615332sdsd81.jpg",@"file_name",
                            @"0",@"platform",
+                           imageData,@"file",
                            nil];
     
     [client UploadImage:testAddUserURL parameters:param progress:^(float progress){
