@@ -263,12 +263,10 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
 #pragma mark - NSOperation methods
 
 - (void)start {
-    
     if(self.isCancelled) {
         [self finish];
         return;
     }
-    
 #if TARGET_OS_IPHONE && !__has_feature(attribute_availability_app_extension)
     // all requests should complete and run completion block unless we explicitely cancel them.
     self.backgroundTaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
