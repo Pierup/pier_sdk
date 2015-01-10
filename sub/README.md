@@ -1,8 +1,11 @@
-#Pier JavaScript SDK
+#Pier Checkout
 
-This SDK is a wrapper of existing and exposed `pier` APIs. It supports both AMD and CommonJS modules.
+Pier Checkout is a UI contained widget which can be easily integrated into merchant existing E-Shop pages to facilitate user payment by Pier. 
 
-##List of API
+It must be used with Pier merchant server side SDK.
+
+##Usage
 TODO
+
 ##Examples
 TODO
