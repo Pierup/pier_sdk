@@ -27,6 +27,11 @@
 			return;
 		}
 
+		// API call
+		var url = {
+			getAuthToken: 'http://pierup.ddns.net:8686/user_api/v1/sdk/get_auth_token'
+		};
+
 		// create  CSS styles
 		var styleElem = document.createElement( 'style' );
 		// for WebKit
@@ -85,9 +90,49 @@
 		passwordInput.setAttribute( 'type', 'password' );
 		var	payButton = document.createElement( 'button' );
 		payButton.setAttribute( 'type', 'button' );
-		payButton.innerHTML = 'Pay ' + amount;
+		payButton.innerHTML = 'Pay $ ' + amount;
 		payButton.onclick = function() {
-			alert( 'click pay button' );
+			var phone = phoneNumberInput.value;
+			var pwd = passwordInput.value;
+
+			var xhrGetToken = null;
+
+			if ( window.XMLHttpRequest ) {
+				xhrGetToken = new XMLHttpRequest();
+			} else if ( window.ActiveXObject ) {
+				xhrGetToken = new ActiveXObject( 'Microsoft.XMLHTTP' );
+			} else {
+				alert( 'Your browser is too old to support pay by Pier...' );
+				return;
+			}
+
+			xhrGetToken.open( 'POST', url.getAuthToken, false );
+
+			xhrGetToken.onreadystatechange = function() {
+				if ( xhrGetToken.readyState == 4 ) {
+					console.log( xhrGetToken.responseText );
+					if ( xhrGetToken.status == 200 ) {
+						var token = JSON.parse( xhrGetToken.responseText ).result.auth_token;
+						console.log( 'Get token: ' + token );
+					}
+				}
+			};
+
+			xhrGetToken.setRequestHeader( 'Content-type', 'application/json' );
+
+			var message = {
+				phone: phone,
+				// hard code
+				country_code: 'CN',
+				password: pwd,
+				merchant_id: merchantId,
+				amount: amount,
+				// hard code
+				currency_code: 'USD'
+			};
+
+			console.log( message );
+			xhrGetToken.send( JSON.stringify( message ) );
 		};
 
 		// Pier button setting
