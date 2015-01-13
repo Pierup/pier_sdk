@@ -23,6 +23,7 @@ typedef enum {
 @property (nonatomic, readwrite) NSURLRequestCachePolicy cachePolicy;
 @property (nonatomic, readwrite) NSUInteger timeoutInterval;
 @property (nonatomic, strong) NSMutableURLRequest *operationRequest;
+@property (nonatomic, strong) NSHTTPURLResponse *operationURLResponse;
 
 - (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field;
 

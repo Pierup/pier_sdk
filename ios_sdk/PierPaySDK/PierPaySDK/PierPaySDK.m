@@ -60,9 +60,9 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 - (IBAction)submitButtonAction:(id)sender{
-//    [self testGet];
-//    [self testPost];
-    [self uploadFile];
+    [self testGet];
+    [self testPost];
+//    [self uploadFile];
 }
 
 - (IBAction)cancelService:(id)sender{
@@ -71,14 +71,15 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (void)testGet{
     /** get */
-        NSString *testURL = @"pier_api/v1/user/get_countries";
-        [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] GET:testURL saveToPath:nil parameters:nil progress:^(float progress) {
-    
-        } success:^(id response, NSHTTPURLResponse *urlResponse) {
-            NSLog(@"response:%@",response);
-        } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-            NSLog(@"urlResponse:%@",urlResponse);
-        }];
+    NSString *testURL = @"pier_api/v1/user/get_countries";
+
+    [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] GET:testURL saveToPath:nil parameters:nil progress:^(float progress) {
+
+    } success:^(id response, NSHTTPURLResponse *urlResponse) {
+        NSLog(@"response:%@",response);
+    } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
+        NSLog(@"urlResponse:%@",urlResponse);
+    }];
 }
 
 - (void)testPut{

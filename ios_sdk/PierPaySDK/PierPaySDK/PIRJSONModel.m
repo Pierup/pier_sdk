@@ -8,20 +8,8 @@
 
 #import "PIRJSONModel.h"
 #import <objc/runtime.h>
+#import "PIRConfig.h"
 
-#define DEBUG_ENV
-
-#ifdef DEBUG_ENV
-
-#define DLog(s,...) [PIRLogger logLevel:PIRLogLevelDebug file:__FILE__ methodName:NSStringFromSelector(_cmd) lineNumber:__LINE__ format:(s),##__VA_ARGS__]
-#define CLog(format, ...) NSLog((@"%s@%d: " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
-
-#else
-
-#define DLog(s,...)
-#define CLog(format, ...)
-
-#endif
 /**  **************序列化解析器************** */
 /** 序列化对象 */
 id serializeObject(id obj, NSString *clazz);
@@ -156,7 +144,7 @@ id  serializeObject(id obj, NSString *clazz){
             NSString *name_s = declatedModel.name;
             NSString *description_s = declatedModel.pramDescription;
             id object = [obj valueForKey:name_s];
-            CLog(@"propertytype = %@\nname= %@ \nvalue = %@",description_s,name_s,object);
+            DLog(@"propertytype = %@\nname= %@ \nvalue = %@",description_s,name_s,object);
             if (object == NULL || name_s == NULL || description_s == NULL) {
                 continue;
             }
@@ -182,7 +170,7 @@ id  serializeObject(id obj, NSString *clazz){
                 if ([enumIntFlagArray containsObject:propertyType]) {
                     serializeObj = object;
                 }else{
-                    CLog(@"warning 不支持的基础类型:obj=%@,clazz=%@,description=%@",object,name_s,description_s);
+                    DLog(@"warning 不支持的基础类型:obj=%@,clazz=%@,description=%@",object,name_s,description_s);
                     continue;
                 }
                 
@@ -196,7 +184,7 @@ id  serializeObject(id obj, NSString *clazz){
     }else if (stringTypeIsSet(clazz)){//解析set
         return serializeSet(obj, clazz);
     }else{
-        CLog(@"warning 不支持的基础类型:obj=%@,clazz=%@",obj,clazz);
+        DLog(@"warning 不支持的基础类型:obj=%@,clazz=%@",obj,clazz);
     }
     return result;
 }
@@ -216,7 +204,7 @@ id deserializeObject(id dic, NSString *clazz){
                 if ([getPrimaryKey(cla) isEqualToString:name_s]){
                     obj = dic;
                 }else{
-                    CLog(@"error model 命名和服务接口不一致dic=%@,name_s=%@",dic,name_s);
+                    DLog(@"error model 命名和服务接口不一致dic=%@,name_s=%@",dic,name_s);
 //                    assert(0);
 //                    assert([name_s isEqualToString:@"assert"]);
 //                    assert([name_s isEqualToString:@"status_code"]);
@@ -226,7 +214,7 @@ id deserializeObject(id dic, NSString *clazz){
             }
             
             if (obj == nil || (NSNull *)obj == [NSNull null] || name_s == nil || description_s == nil) {
-//                CLog(@"warning model字段为空 = %@\nname= %@ \nvalue = %@",description_s,name_s,obj);
+//                DLog(@"warning model字段为空 = %@\nname= %@ \nvalue = %@",description_s,name_s,obj);
                 continue;
             }
             id serializeObj = nil;
@@ -255,7 +243,7 @@ id deserializeObject(id dic, NSString *clazz){
                 if ([enumIntFlagArray containsObject:propertyType]) {
                     serializeObj = obj;
                 }else{
-                    CLog(@"warning 不支持的基础类型:dic=%@,clazz=%@,description=%@",obj,name_s,description_s);
+                    DLog(@"warning 不支持的基础类型:dic=%@,clazz=%@,description=%@",obj,name_s,description_s);
                     continue;
                 }
             }
@@ -268,7 +256,7 @@ id deserializeObject(id dic, NSString *clazz){
     }else if (stringTypeIsSet(clazz)){//解析set
         return deserializeSet(dic, clazz);
     }else{
-        CLog(@"warning 不支持的基础类型:dic=%@,clazz=%@",dic,clazz);
+        DLog(@"warning 不支持的基础类型:dic=%@,clazz=%@",dic,clazz);
     }
     return result;
 }
@@ -286,7 +274,7 @@ NSArray * serializeArray(id obj, NSString *clazz){
             [resultArray addObject:dic];
         }
     }else{
-        CLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
+        DLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
         return obj;
     }
     return resultArray;
@@ -304,7 +292,7 @@ NSArray * deserializeArray(id obj, NSString *clazz){
             [resultArray addObject:model];
         }
     }else{
-        CLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
+        DLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
         return obj;
     }
     return resultArray;
@@ -323,7 +311,7 @@ NSDictionary * serializeDictionary(id obj, NSString *clazz){
             [resultDic setObject:model forKey:key];
         }
     }else{
-        CLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
+        DLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
         return obj;
     }
     return resultDic;
@@ -342,7 +330,7 @@ NSDictionary *  deserializeDictionary(id obj, NSString *clazz){
             [resultDic setObject:model forKey:key];
         }
     }else{
-        CLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
+        DLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
         return obj;
     }
     return resultDic;
@@ -360,7 +348,7 @@ NSSet * serializeSet(id obj, NSString *clazz){
             [resultSet addObject:model];
         }
     }else{
-        CLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
+        DLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
         return obj;
     }
     return resultSet;
@@ -378,7 +366,7 @@ NSSet * deserializeSet(id obj, NSString *clazz){
             [resultSet addObject:model];
         }
     }else{
-        CLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
+        DLog(@"warning model没有设置泛型:obj=%@,propertyType=%@",obj,clazz);
         return obj;
     }
     return resultSet;

@@ -8,6 +8,11 @@
 
 #import "PIRHttpExecutor.h"
 #import <UIKit/UIKit.h>
+#import "JSONKit.h"
+#import "PIRConfig.h"
+
+//超时时间
+static NSTimeInterval PIRHTTPTimeoutInterval = 30;
 
 @interface NSData (PIRImageData)
 - (NSString *)getImageType;
@@ -28,13 +33,12 @@ typedef enum {
 
 static NSInteger PIRHTTPTaskCount = 0;
 static NSString *defaultUserAgent;
-static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
+
 
 @interface PIRHttpExecutor ()
 @property (nonatomic, strong) NSMutableData *operationData;
 @property (nonatomic, strong) NSFileHandle *operationFileHandle;
 @property (nonatomic, strong) NSURLConnection *operationConnection;
-@property (nonatomic, strong) NSHTTPURLResponse *operationURLResponse;
 @property (nonatomic, strong) NSString *operationSavePath;
 @property (nonatomic, assign) CFRunLoopRef operationRunLoop;
 
@@ -143,15 +147,14 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
 }
 
 - (void)addParametersToRequest:(NSDictionary*)paramsDict {
-    
     NSString *method = self.operationRequest.HTTPMethod;
     
     if([method isEqualToString:@"POST"] || [method isEqualToString:@"PUT"]) {
         if(self.sendParametersAsJSON) {
             if([paramsDict isKindOfClass:[NSDictionary class]]) {
                 [self.operationRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-                NSError *jsonError;
-                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramsDict options:0 error:&jsonError];
+//                NSData *jsonData = [paramsDict JSONData];
+                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramsDict options:0 error:nil];
                 [self.operationRequest setHTTPBody:jsonData];
             }else{
                 [NSException raise:NSInvalidArgumentException format:@"POST and PUT parameters must be provided as NSDictionary or NSArray when sendParametersAsJSON is set to YES."];
@@ -176,7 +179,7 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                 NSString *boundary = @"PierBoundary";
                 NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
                 [self.operationRequest setValue:contentType forHTTPHeaderField: @"Content-Type"];
-                
+                self.timeoutInterval = PIRHTTPTimeoutInterval*12;
                 __block NSMutableData *postData = [NSMutableData data];
                 __block int dataIdx = 0;
                 // add string parameters
@@ -263,63 +266,68 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
 #pragma mark - NSOperation methods
 
 - (void)start {
-    if(self.isCancelled) {
-        [self finish];
-        return;
-    }
-#if TARGET_OS_IPHONE && !__has_feature(attribute_availability_app_extension)
-    // all requests should complete and run completion block unless we explicitely cancel them.
-    self.backgroundTaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        if(self.backgroundTaskIdentifier != UIBackgroundTaskInvalid) {
-            [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTaskIdentifier];
-            self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+    @autoreleasepool {
+        if(self.isCancelled) {
+            [self finish];
+            return;
         }
-    }];
+#if TARGET_OS_IPHONE && !__has_feature(attribute_availability_app_extension)
+        // all requests should complete and run completion block unless we explicitely cancel them.
+        self.backgroundTaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+            if(self.backgroundTaskIdentifier != UIBackgroundTaskInvalid) {
+                [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTaskIdentifier];
+                self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+            }
+        }];
 #endif
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self increasePIRHTTPTaskCount];
-    });
-    
-    if(self.userAgent)
-        [self.operationRequest setValue:self.userAgent forHTTPHeaderField:@"User-Agent"];
-    else if(defaultUserAgent)
-        [self.operationRequest setValue:defaultUserAgent forHTTPHeaderField:@"User-Agent"];
-    
-    [self willChangeValueForKey:@"isExecuting"];
-    self.state = PIRTTPRequestStateExecuting;
-    [self didChangeValueForKey:@"isExecuting"];
-    
-    if(self.operationSavePath) {
-        [[NSFileManager defaultManager] createFileAtPath:self.operationSavePath contents:nil attributes:nil];
-        self.operationFileHandle = [NSFileHandle fileHandleForWritingAtPath:self.operationSavePath];
-    } else {
-        self.operationData = [[NSMutableData alloc] init];
-        self.timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeoutInterval target:self selector:@selector(requestTimeout) userInfo:nil repeats:NO];
-        [self.operationRequest setTimeoutInterval:self.timeoutInterval];
-    }
-    
-    [self.operationRequest setCachePolicy:self.cachePolicy];
-    self.operationConnection = [[NSURLConnection alloc] initWithRequest:self.operationRequest delegate:self startImmediately:NO];
-    
-    NSOperationQueue *currentQueue = [NSOperationQueue currentQueue];
-    BOOL inBackgroundAndInOperationQueue = (currentQueue != nil && currentQueue != [NSOperationQueue mainQueue]);
-    NSRunLoop *targetRunLoop = (inBackgroundAndInOperationQueue) ? [NSRunLoop currentRunLoop] : [NSRunLoop mainRunLoop];
-    
-    if(self.operationSavePath) // schedule on main run loop so scrolling doesn't prevent UI updates of the progress block
-        [self.operationConnection scheduleInRunLoop:targetRunLoop forMode:NSRunLoopCommonModes];
-    else
-        [self.operationConnection scheduleInRunLoop:targetRunLoop forMode:NSDefaultRunLoopMode];
-    
-    [self.operationConnection start];
-    
-    NSLog(@"[Header]\n%@",[self.operationRequest allHTTPHeaderFields]);
-    NSLog(@"[%@]\n%@", self.operationRequest.HTTPMethod, self.operationRequest.URL.absoluteString);
-
-    // make NSRunLoop stick around until operation is finished
-    if(inBackgroundAndInOperationQueue) {
-        self.operationRunLoop = CFRunLoopGetCurrent();
-        CFRunLoopRun();
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self increasePIRHTTPTaskCount];
+        });
+        
+        if(self.userAgent)
+            [self.operationRequest setValue:self.userAgent forHTTPHeaderField:@"User-Agent"];
+        else if(defaultUserAgent)
+            [self.operationRequest setValue:defaultUserAgent forHTTPHeaderField:@"User-Agent"];
+        
+        [self willChangeValueForKey:@"isExecuting"];
+        self.state = PIRTTPRequestStateExecuting;
+        [self didChangeValueForKey:@"isExecuting"];
+        
+        if(self.operationSavePath) {
+            [[NSFileManager defaultManager] createFileAtPath:self.operationSavePath contents:nil attributes:nil];
+            self.operationFileHandle = [NSFileHandle fileHandleForWritingAtPath:self.operationSavePath];
+        } else {
+            self.operationData = [[NSMutableData alloc] init];
+            self.timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeoutInterval target:self selector:@selector(requestTimeout) userInfo:nil repeats:NO];
+            [self.operationRequest setTimeoutInterval:self.timeoutInterval];
+        }
+        
+        [self.operationRequest setCachePolicy:self.cachePolicy];
+        self.operationConnection = [[NSURLConnection alloc] initWithRequest:self.operationRequest delegate:self startImmediately:NO];
+        
+        NSOperationQueue *currentQueue = [NSOperationQueue currentQueue];
+        BOOL inBackgroundAndInOperationQueue = (currentQueue != nil && currentQueue != [NSOperationQueue mainQueue]);
+        NSRunLoop *targetRunLoop = (inBackgroundAndInOperationQueue) ? [NSRunLoop currentRunLoop] : [NSRunLoop mainRunLoop];
+        
+        //修改NSURLConnection的运行模式,防止划定视图时候进度条不在更新
+        if(self.operationSavePath){
+            // schedule on main run loop so scrolling doesn't prevent UI updates of the progress block
+            [self.operationConnection scheduleInRunLoop:targetRunLoop forMode:NSRunLoopCommonModes];
+        }else{
+            [self.operationConnection scheduleInRunLoop:targetRunLoop forMode:NSDefaultRunLoopMode];
+        }
+        
+        [self.operationConnection start];
+        
+        DLog(@"[Header]\n%@",[self.operationRequest allHTTPHeaderFields]);
+        DLog(@"[%@]\n%@", self.operationRequest.HTTPMethod, self.operationRequest.URL.absoluteString);
+        
+        // make NSRunLoop stick around until operation is finished
+        if(inBackgroundAndInOperationQueue) {
+            self.operationRunLoop = CFRunLoopGetCurrent();
+            CFRunLoopRun();
+        }
     }
 }
 
@@ -449,6 +457,36 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                 if(jsonObject)
                     response = jsonObject;
             }
+        }else if ([[self.operationURLResponse MIMEType] isEqualToString:@"text/xml"]) {
+//#ifdef DEBUG_ENV
+//            NSString *text = [[NSString alloc] initWithData:self.operationData encoding:NSUTF8StringEncoding];
+//            DLog(@"text:%@", text);
+//#endif
+//            NSDictionary *jsonObject = [XMLReader dictionaryForXMLData:self.operationData
+//                                                               options:XMLReaderOptionsProcessNamespaces
+//                                                                 error:&error];
+//            if(jsonObject)
+//                response = jsonObject;
+            
+            NSString *text = [[NSString alloc] initWithData:self.operationData encoding:NSUTF8StringEncoding];
+            NSDictionary *jsonObject = [NSDictionary dictionaryWithObject:text forKey:@"result"];
+            if(jsonObject)
+                response = jsonObject;
+        }else if ([[self.operationURLResponse MIMEType] isEqualToString:@"text/html"]) {
+            NSString *text = [[NSString alloc] initWithData:self.operationData encoding:NSUTF8StringEncoding];
+            NSDictionary *jsonObject = [NSDictionary dictionaryWithObject:text forKey:@"result"];
+            if(jsonObject)
+                response = jsonObject;
+        }else if ([[self.operationURLResponse MIMEType] isEqualToString:@"text/plain"]){
+            NSString *text = [[NSString alloc] initWithData:self.operationData encoding:NSUTF8StringEncoding];
+            NSDictionary *jsonObject = [NSDictionary dictionaryWithObject:text forKey:@"result"];
+            if(jsonObject)
+                response = jsonObject;
+        }else{
+            NSString *text = [[NSString alloc] initWithData:self.operationData encoding:NSUTF8StringEncoding];
+            NSDictionary *jsonObject = [NSDictionary dictionaryWithObject:text forKey:@"result"];
+            if(jsonObject)
+                response = jsonObject;
         }
         
         [self callCompletionBlockWithResponse:response error:error success:YES];
@@ -462,8 +500,10 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
 - (void)callCompletionBlockWithResponse:(id)response error:(NSError *)error success:(BOOL)isSuccess{
     self.timeoutTimer = nil;
     
-    if(self.operationRunLoop)
+#warning TODO
+    if(self.operationRunLoop){//停止runloop
         CFRunLoopStop(self.operationRunLoop);
+    }
     
     dispatch_async(dispatch_get_main_queue(), ^{
         NSError *serverError = error;
@@ -486,14 +526,14 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 60*30;
                 
             }
         }
-        if (isSuccess) {
+        if (!isSuccess) {
             if (self.failed && !self.isCancelled) {
-                NSLog(@"[Error] %@",error);
+                DLog(@"[Error] %@",error);
                 self.failed(self.operationURLResponse,error);
             }
         }else{
             if (self.success && !self.isCancelled) {
-                NSLog(@"[Response] %@",self.operationURLResponse);
+                DLog(@"[Response] %@",self.operationURLResponse);
                 self.success(response,self.operationURLResponse);
             }
         }
