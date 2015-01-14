@@ -10,7 +10,7 @@
 #import "PIRHttpExecutor.h"
 
 #pragma mark - -------------------- Host --------------------
-NSString * const PIRHttpClientUserHost = @"http://pierup.ddns.net:8686/";//@"http://pierup.ddns.net:8686/";
+NSString * const PIRHttpClientUserHost = @"http://pierup.ddns.net:8686";
 #pragma mark -
 
 @interface PIRHttpClient ()

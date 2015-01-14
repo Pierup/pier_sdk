@@ -61,7 +61,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (IBAction)submitButtonAction:(id)sender{
     [self testGet];
-    [self testPost];
+//    [self testPost];
 //    [self uploadFile];
 }
 
@@ -71,7 +71,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (void)testGet{
     /** get */
-    NSString *testURL = @"pier_api/v1/user/get_countries";
+    NSString *testURL = @"/common_api/v1/query/get_countries";
 
     [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] GET:testURL saveToPath:nil parameters:nil progress:^(float progress) {
 
@@ -84,7 +84,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (void)testPut{
     /** put */
-    NSString *testAddUserURL = @"user_api/v1/sdk/dob_ssn?dev_info=0&platform=0";
+    NSString *testAddUserURL = @"/user_api/v1/sdk/dob_ssn?dev_info=0&platform=0";
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            @"UR0000000062",@"user_id",
                            @"73ed40ff-804e-11e4-8328-32913f86e6ed",@"session_token",
@@ -102,7 +102,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (void)testPost{
     /** post */
-    NSString *testAddUserURL = @"user_api/v1/sdk/search_user?dev_info=0&platform=0";
+    NSString *testAddUserURL = @"/user_api/v1/sdk/search_user?dev_info=0&platform=0";
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            @"18638998588",@"phone",
                            @"CN",@"country_code",
@@ -121,7 +121,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     /** post */
     UIImage *image = [UIImage imageWithContentsOfFile:getImagePath(@"btn_close")];
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0f);
-    NSString *testAddUserURL = @"pier_api/v1/user/upload_file";//?content_type=image/jpeg
+    NSString *testAddUserURL = @"/pier_api/v1/user/upload_file";//?content_type=image/jpeg
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            @"UR0000000001",@"user_id",
                            @"6fd20dd7-84f5-11e4-8328-32913f86e6ed",@"session_token",
