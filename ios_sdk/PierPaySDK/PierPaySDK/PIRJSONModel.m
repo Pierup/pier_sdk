@@ -144,7 +144,7 @@ id  serializeObject(id obj, NSString *clazz){
             NSString *name_s = declatedModel.name;
             NSString *description_s = declatedModel.pramDescription;
             id object = [obj valueForKey:name_s];
-            DLog(@"propertytype = %@\nname= %@ \nvalue = %@",description_s,name_s,object);
+//            DLog(@"propertytype = %@\nname= %@ \nvalue = %@",description_s,name_s,object);
             if (object == NULL || name_s == NULL || description_s == NULL) {
                 continue;
             }

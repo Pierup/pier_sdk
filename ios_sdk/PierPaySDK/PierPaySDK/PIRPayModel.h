@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PIRJSONModel.h"
 
-@interface PIRPayModel : NSObject
+@interface PIRPayModel : PIRJSONModel
+@property(nonatomic, copy, readonly) NSString *code;
+@property(nonatomic, copy, readonly) NSString *message;
 
 - (PIRPayModel *)getResponseByRequset:(PIRPayModel *)request;
 
@@ -26,7 +29,10 @@
 @end
 
 #pragma mark - Response
-@interface SearchUserResponse : PIRPayModel
+
+@protocol SearchUserResponseModel @end
+
+@interface SearchUserResponseModel : PIRPayModel
 
 @property(nonatomic, copy, readonly) NSString *id;
 @property(nonatomic, copy, readonly) NSString *first_name;
@@ -36,6 +42,11 @@
 @property(nonatomic, copy, readonly) NSString *last_name;
 @property(nonatomic, copy, readonly) NSString *country_code;
 
+@end
+
+@interface SearchUserResponse : PIRPayModel
+@property(nonatomic, copy, readonly) NSMutableArray<SearchUserResponseModel> *items;
+@property(nonatomic, copy, readonly) NSString *search_status;
 @end
 
 #pragma mark - -------------------PIER_API_HAS_CREDIT-------------------

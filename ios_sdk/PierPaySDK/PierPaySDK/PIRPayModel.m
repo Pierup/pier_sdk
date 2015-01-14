@@ -22,7 +22,7 @@
  */
 @implementation SearchUserRequest @end
 
-@interface SearchUserResponse ()
+@interface SearchUserResponseModel ()
 @property(nonatomic, copy, readwrite) NSString *id;
 @property(nonatomic, copy, readwrite) NSString *first_name;
 @property(nonatomic, copy, readwrite) NSString *phone;
@@ -30,6 +30,14 @@
 @property(nonatomic, copy, readwrite) NSString *ssn;
 @property(nonatomic, copy, readwrite) NSString *last_name;
 @property(nonatomic, copy, readwrite) NSString *country_code;
+@end
+
+@implementation SearchUserResponseModel
+
+@end
+
+@interface SearchUserResponse ()
+
 @end
 
 @implementation SearchUserResponse

@@ -8,6 +8,9 @@
 
 #import "PierPaySDK.h"
 #import "PIRHttpClient.h"
+#import "PIRService.h"
+#import "PIRPayModel.h"
+#import "PIRConfig.h"
 
 static NSString *__bundlePath;
 
@@ -60,8 +63,9 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 - (IBAction)submitButtonAction:(id)sender{
-    [self testGet];
-//    [self testPost];
+//    [self testGet];
+    [self testPost];
+//    [self testPut];
 //    [self uploadFile];
 }
 
@@ -69,50 +73,56 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] cancelAllRequests];
 }
 
+- (IBAction)addUser:(id)sender{
+    AddUserRequest *requestModel = [[AddUserRequest alloc] init];
+    requestModel.phone = @"13485773887";
+    requestModel.email = @"asfrgegger@gmail.com";
+    requestModel.first_name = @"frasda";
+    requestModel.last_name = @"laksdad";
+    requestModel.country_code = @"CN";
+    requestModel.merchant_id = @"MC0000000017";
+    [PIRService serverSend:ePIER_API_ADD_SUER resuest:requestModel successBlock:^(id responseModel) {
+        AddUserResponse *result = (AddUserResponse *)responseModel;
+        
+    } faliedBlock:^(NSError *error) {
+        
+    }];
+}
+
 - (void)testGet{
-    /** get */
-    NSString *testURL = @"/common_api/v1/query/get_countries";
+    GetAgreementRequest *requestModel = [[GetAgreementRequest alloc] init];
 
-    [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] GET:testURL saveToPath:nil parameters:nil progress:^(float progress) {
-
-    } success:^(id response, NSHTTPURLResponse *urlResponse) {
-        NSLog(@"response:%@",response);
-    } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-        NSLog(@"urlResponse:%@",urlResponse);
+    [PIRService serverSend:ePIER_API_GET_AGREEMENT resuest:requestModel successBlock:^(id responseModel) {
+        GetAgreementResponse *result = (GetAgreementResponse *)responseModel;
+        DLog(@"url:%@",result.url);
+    } faliedBlock:^(NSError *error) {
+        
     }];
 }
 
 - (void)testPut{
-    /** put */
-    NSString *testAddUserURL = @"/user_api/v1/sdk/dob_ssn?dev_info=0&platform=0";
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"UR0000000062",@"user_id",
-                           @"73ed40ff-804e-11e4-8328-32913f86e6ed",@"session_token",
-                           @"1990-12-11",@"dob",
-                           @"123456789",@"ssn", nil];
-    
-    [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] JSONPUT:testAddUserURL parameters:param progress:^(float progress){
-        NSLog(@"progress:%f",progress);
-    } success:^(id response, NSHTTPURLResponse *urlResponse) {
-        NSLog(@"%@response",response);
-    } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-        NSLog(@"%@urlResponse",urlResponse);
+    SaveDOBAndSSNRequest *requestModel = [[SaveDOBAndSSNRequest alloc] init];
+    requestModel.user_id = @"UR0000004525";
+    requestModel.session_token = @"0ba7c3ad-9bcb-11e4-aad2-0ea81fa3d43c";
+    requestModel.dob = @"1990-12-11";
+    requestModel.ssn = @"123456789";
+    [PIRService serverSend:ePIER_API_SAVE_DOB_SSN resuest:requestModel successBlock:^(id responseModel) {
+        
+    } faliedBlock:^(NSError *error) {
+        
     }];
 }
 
 - (void)testPost{
-    /** post */
-    NSString *testAddUserURL = @"/user_api/v1/sdk/search_user?dev_info=0&platform=0";
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"18638998588",@"phone",
-                           @"CN",@"country_code",
-                           @"ertoiu@mial.com",@"email", nil];
-    [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] JSONPOST:testAddUserURL parameters:param progress:^(float progress){
-        NSLog(@"progress:%f",progress);
-    } success:^(id response, NSHTTPURLResponse *urlResponse) {
-        NSLog(@"%@response",response);
-    } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-        NSLog(@"%@urlResponse",urlResponse);
+    SearchUserRequest *requestModel = [[SearchUserRequest alloc] init];
+    requestModel.phone = @"18638998588";
+    requestModel.country_code = @"CN";
+    requestModel.email = @"ertoiu@mial.com";
+    [PIRService serverSend:ePIER_API_SEARCH_USER resuest:requestModel successBlock:^(id responseModel) {
+        SearchUserResponse *result = (SearchUserResponse *)responseModel;
+        
+    } faliedBlock:^(NSError *error) {
+        
     }];
 }
 
