@@ -125,8 +125,6 @@
 				2A39BC251A2EE81300B9D551 /* PierPaySDK.h */,
 				2A39BC271A2EE81300B9D551 /* PierPaySDK.m */,
 				2A9EB3AA1A3048CC00CF40A4 /* PierUserInfuCheckViewController.xib */,
-				2ABF82571A65281C00BEEAF6 /* PIRService.h */,
-				2ABF82581A65281C00BEEAF6 /* PIRService.m */,
 			);
 			path = PierPaySDK;
 			sourceTree = "<group>";
@@ -160,6 +158,8 @@
 				2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */,
 				2AC84ED51A2EFCA600920073 /* PIRJSONModel.h */,
 				2AC84ED61A2EFCA600920073 /* PIRJSONModel.m */,
+				2ABF82571A65281C00BEEAF6 /* PIRService.h */,
+				2ABF82581A65281C00BEEAF6 /* PIRService.m */,
 			);
 			name = service;
 			sourceTree = "<group>";

@@ -105,8 +105,11 @@ static NSString *__user_id = @"";
         if ([resultModel.code integerValue] == 200) {
             success(resultModel);
         }else{
-            NSError *error = [NSError errorWithDomain:resultModel.message code:[resultModel.code integerValue] userInfo:nil];
-            DLog(@"[errov]:%@",error);
+            NSError *error = nil;
+            if (resultModel) {
+                error = [NSError errorWithDomain:resultModel.message code:[resultModel.code integerValue] userInfo:nil];
+                DLog(@"[errov]:%@",error);
+            }
             failed(error);
         }
         
@@ -136,7 +139,7 @@ static NSString *__user_id = @"";
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       PIER_API_GET_AUTH_TOKEN_V2,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"getAuthTokenV2Response",RESULT_MODEL,nil];
+                      @"GetAuthTokenV2Response",RESULT_MODEL,nil];
             break;
         default:
             break;

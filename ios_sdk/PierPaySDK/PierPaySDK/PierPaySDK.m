@@ -114,39 +114,27 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 - (void)testPost{
-//    SearchUserRequest *requestModel = [[SearchUserRequest alloc] init];
-//    requestModel.phone = @"18638998588";
-//    requestModel.country_code = @"CN";
-//    requestModel.email = @"ertoiu@mial.com";
-//    [PIRService serverSend:ePIER_API_SEARCH_USER resuest:requestModel successBlock:^(id responseModel) {
-//        SearchUserResponse *result = (SearchUserResponse *)responseModel;
-//        
-//    } faliedBlock:^(NSError *error) {
-//        
-//    }];
-    
-//    GetAuthTokenV2Request *requestModel = [[GetAuthTokenV2Request alloc] init];
-//    requestModel.phone = @"13621643896";
-//    requestModel.country_code = @"CN";
-//    requestModel.code = @"123456";
-//    requestModel.merchant_id = @"MC0000000017";
-//    requestModel.amount = @"199.00";
-//    requestModel.country_code = @"USD";
-//    [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:requestModel successBlock:^(id responseModel) {
-//        
-//    } faliedBlock:^(NSError *error) {
-//        
-//    }];
-
-    TransactionSMSRequest *requestSMS = [[TransactionSMSRequest alloc] init];
-    requestSMS.phone = @"18638998588";
-    requestSMS.country_code = @"CN";
-    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:requestSMS successBlock:^(id responseModel) {
+    GetAuthTokenV2Request *requestModel = [[GetAuthTokenV2Request alloc] init];
+    requestModel.phone = @"18638998588";
+    requestModel.country_code = @"CN";
+    requestModel.code = @"698366";
+    requestModel.merchant_id = @"MC0000000017";
+    requestModel.amount = @"199.00";
+    requestModel.country_code = @"USD";
+    [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:requestModel successBlock:^(id responseModel) {
         
     } faliedBlock:^(NSError *error) {
         
     }];
-    
+
+//    TransactionSMSRequest *requestSMS = [[TransactionSMSRequest alloc] init];
+//    requestSMS.phone = @"18638998588";
+//    requestSMS.country_code = @"CN";
+//    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:requestSMS successBlock:^(id responseModel) {
+//        
+//    } faliedBlock:^(NSError *error) {
+//        
+//    }];
 }
 
 - (void)uploadFile{
