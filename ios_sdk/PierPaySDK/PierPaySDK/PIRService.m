@@ -15,7 +15,7 @@
 #define HTTP_METHOD_POST        0   //@"post"
 #define HTTP_METHOD_POST_JSON   1   //@"post-json"
 #define HTTP_METHOD_PUT         2   //@"put"
-#define HTTP_METHOD_GET         3//@"get"
+#define HTTP_METHOD_GET         3   //@"get"
 
 #define HTTP_PATH               @"path"
 #define HTTP_METHOD             @"method"
@@ -28,7 +28,7 @@ static NSString *__user_id = @"";
 @implementation PIRService
 
 + (void)serverSend:(ePIER_API_Type)apiType
-           resuest:(PIRPayModel *)requestModel
+           resuest:(PIRPayModel1 *)requestModel
       successBlock:(PierPaySuccessBlock)success
        faliedBlock:(PierPayFailedBlock)failed{
     NSDictionary *param = [PIRJSONModel getDictionaryByObject:requestModel];
@@ -97,7 +97,7 @@ static NSString *__user_id = @"";
     Class resultClass          = NSClassFromString([param objectForKey:RESULT_MODEL]);
     NSDictionary *resultDic = result[@"result"];
     if (resultDic) {
-        PIRPayModel *resultModel   = [PIRJSONModel getObjectByDictionary:resultDic clazz:resultClass];
+        PIRPayModel1 *resultModel   = [PIRJSONModel getObjectByDictionary:resultDic clazz:resultClass];
         [resultModel setValue:result[@"code"] forKey:@"code"];
         [resultModel setValue:result[@"message"] forKey:@"message"];
         __session_token = [resultDic valueForKey:@"session_token"];

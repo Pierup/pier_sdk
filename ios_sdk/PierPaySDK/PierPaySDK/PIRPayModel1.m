@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Pier.Inc. All rights reserved.
 //
 
-#import "PIRPayModel.h"
+#import "PIRPayModel1.h"
 
-@implementation PIRPayModel
+@implementation PIRPayModel1
 
-- (PIRPayModel *)getResponseByRequset:(PIRPayModel *)request{
+- (PIRPayModel1 *)getResponseByRequset:(PIRPayModel1 *)request{
     /** child class @implementation */
     return nil;
 }
@@ -42,8 +42,8 @@
 
 @implementation SearchUserResponse
 
-- (PIRPayModel *)getResponseByRequset:(PIRPayModel *)request{
-    PIRPayModel *response = [[PIRPayModel alloc] init];
+- (PIRPayModel1 *)getResponseByRequset:(PIRPayModel1 *)request{
+    PIRPayModel1 *response = [[PIRPayModel1 alloc] init];
     
     return response;
 }

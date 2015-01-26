@@ -9,7 +9,7 @@
 #import "PierPaySDK.h"
 #import "PIRHttpClient.h"
 #import "PIRService.h"
-#import "PIRPayModel.h"
+#import "PIRPayModel1.h"
 #import "PIRConfig.h"
 
 static NSString *__bundlePath;
@@ -75,10 +75,10 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (IBAction)addUser:(id)sender{
     AddUserRequest *requestModel = [[AddUserRequest alloc] init];
-    requestModel.phone = @"13485773887";
-    requestModel.email = @"asfrgegger@gmail.com";
-    requestModel.first_name = @"frasda";
-    requestModel.last_name = @"laksdad";
+    requestModel.phone = @"13484573887";
+    requestModel.email = @"asfr2323gger@gmail.com";
+    requestModel.first_name = @"fra23sda";
+    requestModel.last_name = @"laksda23d";
     requestModel.country_code = @"CN";
     requestModel.merchant_id = @"MC0000000017";
     [PIRService serverSend:ePIER_API_ADD_SUER resuest:requestModel successBlock:^(id responseModel) {

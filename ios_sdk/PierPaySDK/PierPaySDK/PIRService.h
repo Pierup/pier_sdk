@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PIRPayModel.h"
+#import "PIRPayModel1.h"
 
 typedef enum {
     ePIER_API_SEARCH_USER,
@@ -31,7 +31,7 @@ typedef void (^PierPayFailedBlock)(NSError *error);
 @interface PIRService : NSObject
 
 + (void)serverSend:(ePIER_API_Type)apiType
-           resuest:(PIRPayModel *)requestModel
+           resuest:(PIRPayModel1 *)requestModel
       successBlock:(PierPaySuccessBlock)success
        faliedBlock:(PierPayFailedBlock)failed;
 

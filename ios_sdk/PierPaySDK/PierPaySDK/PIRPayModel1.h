@@ -9,18 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "PIRJSONModel.h"
 
-@interface PIRPayModel : PIRJSONModel
+@interface PIRPayModel1 : PIRJSONModel
 @property(nonatomic, copy, readonly) NSString *code;
 @property(nonatomic, copy, readonly) NSString *message;
 
-- (PIRPayModel *)getResponseByRequset:(PIRPayModel *)request;
+- (PIRPayModel1 *)getResponseByRequset:(PIRPayModel1 *)request;
 
 @end
 
 
 #pragma mark - -------------------PIER_API_SEARCH_USER-------------------
 #pragma mark - Request
-@interface SearchUserRequest : PIRPayModel
+@interface SearchUserRequest : PIRPayModel1
 
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *country_code;
@@ -32,7 +32,7 @@
 
 @protocol SearchUserResponseModel @end
 
-@interface SearchUserResponseModel : PIRPayModel
+@interface SearchUserResponseModel : PIRPayModel1
 
 @property(nonatomic, copy, readonly) NSString *id;
 @property(nonatomic, copy, readonly) NSString *first_name;
@@ -44,26 +44,26 @@
 
 @end
 
-@interface SearchUserResponse : PIRPayModel
+@interface SearchUserResponse : PIRPayModel1
 @property(nonatomic, copy, readonly) NSMutableArray<SearchUserResponseModel> *items;
 @property(nonatomic, copy, readonly) NSString *search_status;
 @end
 
 #pragma mark - -------------------PIER_API_HAS_CREDIT-------------------
 #pragma mark - Request
-@interface HasCreditRequest : PIRPayModel
+@interface HasCreditRequest : PIRPayModel1
 @property(nonatomic, copy, readwrite) NSString *user_id;
 @property(nonatomic, copy, readwrite) NSString *currency_code;
 @end
 
 #pragma mark - Response
-@interface HasCreditResponse : PIRPayModel
+@interface HasCreditResponse : PIRPayModel1
 @property(nonatomic, copy, readonly) NSString *has_credit;
 @end
 
 #pragma mark - -------------------PIER_API_ADD_SUER-------------------
 #pragma mark - Request
-@interface AddUserRequest : PIRPayModel
+@interface AddUserRequest : PIRPayModel1
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *email;
 @property(nonatomic, copy, readwrite) NSString *first_name;
@@ -73,7 +73,7 @@
 @end
 
 #pragma mark - Response
-@interface AddUserResponse : PIRPayModel
+@interface AddUserResponse : PIRPayModel1
 @property(nonatomic, copy, readonly) NSString *device_id;
 @property(nonatomic, copy, readonly) NSString *user_id;
 @property(nonatomic, copy, readonly) NSString *session_token;
@@ -81,14 +81,14 @@
 
 #pragma mark - -------------------PIER_API_ACTIVITE_DEVICE-------------------
 #pragma mark - Request
-@interface ActivityDeviceRequest : PIRPayModel @end
+@interface ActivityDeviceRequest : PIRPayModel1 @end
 
 #pragma mark - Response
-@interface ActivityDeviceResponse : PIRPayModel @end
+@interface ActivityDeviceResponse : PIRPayModel1 @end
 
 #pragma mark - -------------------PIER_API_ADD_ADDRESS-------------------
 #pragma mark - Request
-@interface AddAddressRequest : PIRPayModel
+@interface AddAddressRequest : PIRPayModel1
 @property(nonatomic, copy, readwrite) NSString *user_id;
 @property(nonatomic, copy, readwrite) NSString *session_token;
 @property(nonatomic, copy, readwrite) NSString *address;
@@ -101,18 +101,18 @@
 
 #pragma mark - Response
 @protocol AddAddressModel @end
-@interface AddAddressModel : PIRPayModel
+@interface AddAddressModel : PIRPayModel1
 @property(nonatomic, copy, readonly) NSString *address_id;//": "AD0000000066",
 @property(nonatomic, copy, readonly) NSString *session_token;//": "73ed40ff-804e-11e4-8328-32913f86e6ed"
 @end
 
-@interface AddAddressResponse : PIRPayModel
+@interface AddAddressResponse : PIRPayModel1
 @property(nonatomic, copy, readonly) NSMutableArray<AddAddressModel> *items;
 @end
 
 #pragma mark - -------------------PIER_API_SET_PASSWORD-------------------
 #pragma mark - Request
-@interface SetPasswordRequest : PIRPayModel
+@interface SetPasswordRequest : PIRPayModel1
 
 @property(nonatomic, copy, readwrite) NSString *user_id;
 @property(nonatomic, copy, readwrite) NSString *session_token;
@@ -122,14 +122,14 @@
 
 #pragma mark - Response
 
-@interface SetPasswordResponse : PIRPayModel
+@interface SetPasswordResponse : PIRPayModel1
 @property(nonatomic, copy, readonly) NSString * session_token;
 @end
 
 #pragma mark - -------------------PIER_API_GET_AUTH_TOKEN-------------------
 #pragma mark - Request
 
-@interface GetAuthTokenReuest : PIRPayModel
+@interface GetAuthTokenReuest : PIRPayModel1
 
 @property(nonatomic, copy, readwrite) NSString *phone;//": "13621643896",
 @property(nonatomic, copy, readwrite) NSString *country_code;//": "CN",
@@ -141,7 +141,7 @@
 @end
 
 #pragma mark - Response
-@interface GetAuthTokenResponse : PIRPayModel
+@interface GetAuthTokenResponse : PIRPayModel1
 
 @property(nonatomic, copy, readonly) NSString *auth_token;
 
@@ -150,7 +150,7 @@
 #pragma mark - -------------------PIER_API_SAVE_DOB_SSN-------------------
 #pragma mark - Request
 
-@interface SaveDOBAndSSNRequest : PIRPayModel
+@interface SaveDOBAndSSNRequest : PIRPayModel1
 @property(nonatomic, copy, readwrite) NSString *user_id;//
 @property(nonatomic, copy, readwrite) NSString *session_token;//
 @property(nonatomic, copy, readwrite) NSString *dob;//
@@ -159,19 +159,19 @@
 
 #pragma mark - Response
 
-@interface SaveDOBAndSSNResponse : PIRPayModel
+@interface SaveDOBAndSSNResponse : PIRPayModel1
 @property(nonatomic, copy, readonly) NSString *session_token;//
 @end
 
 #pragma mark - -------------------PIER_API_GET_AGREEMENT-------------------
 #pragma mark - Request
 
-@interface GetAgreementRequest : PIRPayModel
+@interface GetAgreementRequest : PIRPayModel1
 
 @end
 
 #pragma mark - Response
-@interface GetAgreementResponse : PIRPayModel
+@interface GetAgreementResponse : PIRPayModel1
 @property(nonatomic, copy, readonly) NSString *url;
 @end
 
@@ -179,7 +179,7 @@
 #pragma mark - -------------------PIER_API_CREDIT_APPLICATION-------------------
 #pragma mark - Request
 
-@interface ApplicationApproveRequest : PIRPayModel
+@interface ApplicationApproveRequest : PIRPayModel1
 @property(nonatomic, copy, readwrite) NSString *user_id;
 @property(nonatomic, copy, readwrite) NSString *session_token;
 @property(nonatomic, copy, readwrite) NSString *device_token;
@@ -187,7 +187,7 @@
 @end
 
 #pragma mark - Response
-@interface ApplicationApproveResponse : PIRPayModel
+@interface ApplicationApproveResponse : PIRPayModel1
 @property(nonatomic, copy, readonly) NSString *currency;
 @property(nonatomic, copy, readonly) NSString *category;
 @property(nonatomic, copy, readonly) NSString *credit_limit;
