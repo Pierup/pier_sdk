@@ -9,8 +9,8 @@
 #import "PIRJSONModel.h"
 
 @interface PIRPayModel : PIRJSONModel
-@property(nonatomic, copy, readonly) NSString *code;
-@property(nonatomic, copy, readonly) NSString *message;
+@property(nonatomic, copy, readwrite) NSString *code;
+@property(nonatomic, copy, readwrite) NSString *message;
 @end
 
 #pragma mark - -------------------PIER_API_TRANSACTION_SMS-------------------
@@ -30,7 +30,7 @@
 
 #pragma mark - -------------------PIER_API_GET_AUTH_TOKEN_V2-------------------
 #pragma mark - Request
-@interface getAuthTokenV2Request : PIRPayModel
+@interface GetAuthTokenV2Request : PIRPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *country_code;
 @property(nonatomic, copy, readwrite) NSString *merchant_id;
@@ -39,7 +39,7 @@
 @end
 
 #pragma mark - Response
-@interface getAuthTokenV2Response : PIRPayModel
+@interface GetAuthTokenV2Response : PIRPayModel
 
 @property(nonatomic, copy, readonly) NSString *auth_token;
 

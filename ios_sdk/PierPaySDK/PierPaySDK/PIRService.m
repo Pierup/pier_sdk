@@ -41,7 +41,7 @@ static NSString *__user_id = @"";
     switch (method) {
         case HTTP_METHOD_POST:
         {
-            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] POST:path parameters:param progress:^(float progress){
+            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User_V2] POST:path parameters:param progress:^(float progress){
                 DLog(@"progress:%f",progress);
             } success:^(id response, NSHTTPURLResponse *urlResponse) {
                 [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
@@ -52,7 +52,7 @@ static NSString *__user_id = @"";
         }
         case HTTP_METHOD_POST_JSON:
         {
-            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] JSONPOST:path parameters:param progress:^(float progress){
+            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User_V2] JSONPOST:path parameters:param progress:^(float progress){
                 DLog(@"progress:%f",progress);
             } success:^(id response, NSHTTPURLResponse *urlResponse) {
                 [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
@@ -63,7 +63,7 @@ static NSString *__user_id = @"";
         }
         case HTTP_METHOD_PUT:
         {
-            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] JSONPUT:path parameters:param progress:^(float progress){
+            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User_V2] JSONPUT:path parameters:param progress:^(float progress){
                 DLog(@"progress:%f",progress);
             } success:^(id response, NSHTTPURLResponse *urlResponse) {
                 [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
@@ -74,7 +74,7 @@ static NSString *__user_id = @"";
         }
         case HTTP_METHOD_GET:
         {
-            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User] GET:path saveToPath:nil parameters:nil progress:^(float progress) {
+            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User_V2] GET:path saveToPath:nil parameters:nil progress:^(float progress) {
                 
             } success:^(id response, NSHTTPURLResponse *urlResponse) {
                 [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];

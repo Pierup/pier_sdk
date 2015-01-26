@@ -65,6 +65,8 @@ static NSString *defaultUserAgent;
 @property (nonatomic, readwrite) float expectedContentLength;
 @property (nonatomic, readwrite) float receivedContentLength;
 
+@property (nonatomic, assign) BOOL ignoreHTTPSCertification;
+
 @end
 
 @implementation PIRHttpExecutor
@@ -116,6 +118,12 @@ static NSString *defaultUserAgent;
     
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     self.operationRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    if ([[url scheme] isEqualToString:@"https"]) {
+        self.ignoreHTTPSCertification = YES;
+    }else{
+        self.ignoreHTTPSCertification = NO;
+    }
     
     NSString *path = url.path;
     if ([path hasPrefix:@"/"]) {
@@ -495,6 +503,27 @@ static NSString *defaultUserAgent;
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     [self callCompletionBlockWithResponse:nil error:error success:NO];
+}
+
+#pragma mark - ---- NSURLConnection for https 服务器端单项HTTPS验证
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+    if (self.ignoreHTTPSCertification) {
+        return  [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+    }else{
+        return NO;
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    if (self.ignoreHTTPSCertification) {
+        if ([challenge previousFailureCount] == 0)
+        {
+            NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+            [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+        } else {
+            [[challenge sender] cancelAuthenticationChallenge:challenge];
+        }
+    }
 }
 
 - (void)callCompletionBlockWithResponse:(id)response error:(NSError *)error success:(BOOL)isSuccess{

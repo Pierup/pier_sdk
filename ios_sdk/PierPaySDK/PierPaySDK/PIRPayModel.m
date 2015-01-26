@@ -33,17 +33,17 @@
 
 #pragma mark - -------------------PIER_API_GET_AUTH_TOKEN_V2-------------------
 #pragma mark - Request
-@implementation getAuthTokenV2Request
+@implementation GetAuthTokenV2Request
 
 
 @end
 
 #pragma mark - Response
 
-@interface getAuthTokenV2Response ()
+@interface GetAuthTokenV2Response ()
 @property(nonatomic, copy, readwrite) NSString *auth_token;
 @end
 
-@implementation getAuthTokenV2Response
+@implementation GetAuthTokenV2Response
 
 @end
