@@ -10,7 +10,8 @@
 #import "PIRHttpExecutor.h"
 
 #pragma mark - -------------------- Host --------------------
-NSString * const PIRHttpClientUserHost = @"http://pierup.ddns.net:8686";
+NSString * const PIRHttpClientUserHost      = @"http://pierup.ddns.net:8686";
+NSString * const PIRHttpClientUserHostV2    = @"https://pierup.ddns.net:8686";
 #pragma mark -
 
 @interface PIRHttpClient ()
@@ -46,6 +47,9 @@ NSString * const PIRHttpClientUserHost = @"http://pierup.ddns.net:8686";
     switch (type) {
         case ePIRHttpClientType_User:
             return PIRHttpClientUserHost;
+            break;
+        case ePIRHttpClientType_User_V2:
+            return PIRHttpClientUserHostV2;
             break;
         default:
             return PIRHttpClientUserHost;

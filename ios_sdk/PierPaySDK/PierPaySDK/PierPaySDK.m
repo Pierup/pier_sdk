@@ -114,16 +114,17 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 - (void)testPost{
-    SearchUserRequest *requestModel = [[SearchUserRequest alloc] init];
-    requestModel.phone = @"18638998588";
-    requestModel.country_code = @"CN";
-    requestModel.email = @"ertoiu@mial.com";
-    [PIRService serverSend:ePIER_API_SEARCH_USER resuest:requestModel successBlock:^(id responseModel) {
-        SearchUserResponse *result = (SearchUserResponse *)responseModel;
-        
-    } faliedBlock:^(NSError *error) {
-        
-    }];
+//    SearchUserRequest *requestModel = [[SearchUserRequest alloc] init];
+//    requestModel.phone = @"18638998588";
+//    requestModel.country_code = @"CN";
+//    requestModel.email = @"ertoiu@mial.com";
+//    [PIRService serverSend:ePIER_API_SEARCH_USER resuest:requestModel successBlock:^(id responseModel) {
+//        SearchUserResponse *result = (SearchUserResponse *)responseModel;
+//        
+//    } faliedBlock:^(NSError *error) {
+//        
+//    }];
+    
 }
 
 - (void)uploadFile{

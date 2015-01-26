@@ -15,7 +15,8 @@ typedef void (^PIRHttpSuccessBlock)(id response, NSHTTPURLResponse *urlResponse)
 typedef void (^PIRHttpFailedBlock)(NSHTTPURLResponse *urlResponse, NSError *error);
 
 typedef enum {
-    ePIRHttpClientType_User
+    ePIRHttpClientType_User,
+    ePIRHttpClientType_User_V2
 }ePIRHttpClientType;
 
 @interface PIRHttpClient : NSObject

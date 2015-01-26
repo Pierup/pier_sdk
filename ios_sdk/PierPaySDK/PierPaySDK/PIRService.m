@@ -186,6 +186,18 @@ static NSString *__user_id = @"";
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"ApplicationApproveResponse",RESULT_MODEL,nil];
             break;
+        case ePIER_API_TRANSACTION_SMS:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      PIER_API_TRANSACTION_SMS,HTTP_PATH,
+                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
+                      @"TransactionSMSResponse",RESULT_MODEL,nil];
+            break;
+        case ePIER_API_GET_AUTH_TOKEN_V2:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      PIER_API_GET_AUTH_TOKEN_V2,HTTP_PATH,
+                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
+                      @"getAuthTokenV2Response",RESULT_MODEL,nil];
+            break;
         default:
             break;
     }
