@@ -9,7 +9,7 @@
 #import "PierPaySDK.h"
 #import "PIRHttpClient.h"
 #import "PIRService.h"
-#import "PIRPayModel1.h"
+#import "PIRPayModel.h"
 #import "PIRConfig.h"
 
 static NSString *__bundlePath;
@@ -74,43 +74,43 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 - (IBAction)addUser:(id)sender{
-    AddUserRequest *requestModel = [[AddUserRequest alloc] init];
-    requestModel.phone = @"13484573887";
-    requestModel.email = @"asfr2323gger@gmail.com";
-    requestModel.first_name = @"fra23sda";
-    requestModel.last_name = @"laksda23d";
-    requestModel.country_code = @"CN";
-    requestModel.merchant_id = @"MC0000000017";
-    [PIRService serverSend:ePIER_API_ADD_SUER resuest:requestModel successBlock:^(id responseModel) {
-        AddUserResponse *result = (AddUserResponse *)responseModel;
-        
-    } faliedBlock:^(NSError *error) {
-        
-    }];
+//    AddUserRequest *requestModel = [[AddUserRequest alloc] init];
+//    requestModel.phone = @"13484573887";
+//    requestModel.email = @"asfr2323gger@gmail.com";
+//    requestModel.first_name = @"fra23sda";
+//    requestModel.last_name = @"laksda23d";
+//    requestModel.country_code = @"CN";
+//    requestModel.merchant_id = @"MC0000000017";
+//    [PIRService serverSend:ePIER_API_ADD_SUER resuest:requestModel successBlock:^(id responseModel) {
+//        AddUserResponse *result = (AddUserResponse *)responseModel;
+//        
+//    } faliedBlock:^(NSError *error) {
+//        
+//    }];
 }
 
 - (void)testGet{
-    GetAgreementRequest *requestModel = [[GetAgreementRequest alloc] init];
-
-    [PIRService serverSend:ePIER_API_GET_AGREEMENT resuest:requestModel successBlock:^(id responseModel) {
-        GetAgreementResponse *result = (GetAgreementResponse *)responseModel;
-        DLog(@"url:%@",result.url);
-    } faliedBlock:^(NSError *error) {
-        
-    }];
+//    GetAgreementRequest *requestModel = [[GetAgreementRequest alloc] init];
+//
+//    [PIRService serverSend:ePIER_API_GET_AGREEMENT resuest:requestModel successBlock:^(id responseModel) {
+//        GetAgreementResponse *result = (GetAgreementResponse *)responseModel;
+//        DLog(@"url:%@",result.url);
+//    } faliedBlock:^(NSError *error) {
+//        
+//    }];
 }
 
 - (void)testPut{
-    SaveDOBAndSSNRequest *requestModel = [[SaveDOBAndSSNRequest alloc] init];
-    requestModel.user_id = @"UR0000004525";
-    requestModel.session_token = @"0ba7c3ad-9bcb-11e4-aad2-0ea81fa3d43c";
-    requestModel.dob = @"1990-12-11";
-    requestModel.ssn = @"123456789";
-    [PIRService serverSend:ePIER_API_SAVE_DOB_SSN resuest:requestModel successBlock:^(id responseModel) {
-        
-    } faliedBlock:^(NSError *error) {
-        
-    }];
+//    SaveDOBAndSSNRequest *requestModel = [[SaveDOBAndSSNRequest alloc] init];
+//    requestModel.user_id = @"UR0000004525";
+//    requestModel.session_token = @"0ba7c3ad-9bcb-11e4-aad2-0ea81fa3d43c";
+//    requestModel.dob = @"1990-12-11";
+//    requestModel.ssn = @"123456789";
+//    [PIRService serverSend:ePIER_API_SAVE_DOB_SSN resuest:requestModel successBlock:^(id responseModel) {
+//        
+//    } faliedBlock:^(NSError *error) {
+//        
+//    }];
 }
 
 - (void)testPost{

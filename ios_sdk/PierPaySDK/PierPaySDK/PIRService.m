@@ -28,7 +28,7 @@ static NSString *__user_id = @"";
 @implementation PIRService
 
 + (void)serverSend:(ePIER_API_Type)apiType
-           resuest:(PIRPayModel1 *)requestModel
+           resuest:(PIRPayModel *)requestModel
       successBlock:(PierPaySuccessBlock)success
        faliedBlock:(PierPayFailedBlock)failed{
     NSDictionary *param = [PIRJSONModel getDictionaryByObject:requestModel];
@@ -97,7 +97,7 @@ static NSString *__user_id = @"";
     Class resultClass          = NSClassFromString([param objectForKey:RESULT_MODEL]);
     NSDictionary *resultDic = result[@"result"];
     if (resultDic) {
-        PIRPayModel1 *resultModel   = [PIRJSONModel getObjectByDictionary:resultDic clazz:resultClass];
+        PIRPayModel *resultModel   = [PIRJSONModel getObjectByDictionary:resultDic clazz:resultClass];
         [resultModel setValue:result[@"code"] forKey:@"code"];
         [resultModel setValue:result[@"message"] forKey:@"message"];
         __session_token = [resultDic valueForKey:@"session_token"];
@@ -126,66 +126,6 @@ static NSString *__user_id = @"";
 + (NSDictionary *)getPathAndMethodByType:(ePIER_API_Type)apiType{
     NSDictionary *result = nil;
     switch (apiType) {
-        case ePIER_API_SEARCH_USER:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_SEARCH_USER,HTTP_PATH,
-                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"SearchUserResponse",RESULT_MODEL,nil];
-            break;
-        case ePIER_API_HAS_CREDIT:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_HAS_CREDIT,HTTP_PATH,
-                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"HasCreditResponse",RESULT_MODEL,nil];
-            break;
-        case ePIER_API_ADD_SUER:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_ADD_SUER,HTTP_PATH,
-                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"AddUserResponse",RESULT_MODEL, nil];
-            break;
-        case ePIER_API_ACTIVITE_DEVICE:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_ACTIVITE_DEVICE,HTTP_PATH,
-                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"ActivityDeviceResponse",RESULT_MODEL,nil];
-            break;
-        case ePIER_API_ADD_ADDRESS:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_ADD_ADDRESS,HTTP_PATH,
-                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"AddAddressResponse",RESULT_MODEL,nil];
-            break;
-        case ePIER_API_SET_PASSWORD:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_SET_PASSWORD,HTTP_PATH,
-                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"SetPasswordResponse",RESULT_MODEL,nil];
-            break;
-        case ePIER_API_GET_AUTH_TOKEN:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_GET_AUTH_TOKEN,HTTP_PATH,
-                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"GetAuthTokenResponse",RESULT_MODEL,nil];
-            break;
-        case ePIER_API_SAVE_DOB_SSN:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_SAVE_DOB_SSN,HTTP_PATH,
-                      @(HTTP_METHOD_PUT),HTTP_METHOD,
-                      @"SaveDOBAndSSNResponse",RESULT_MODEL,nil];
-            break;
-        case ePIER_API_GET_AGREEMENT:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_GET_AGREEMENT,HTTP_PATH,
-                      @(HTTP_METHOD_GET),HTTP_METHOD,
-                      @"GetAgreementResponse",RESULT_MODEL,nil];
-            break;
-        case ePIER_API_CREDIT_APPLICATION:
-            result = [NSDictionary dictionaryWithObjectsAndKeys:
-                      PIER_API_CREDIT_APPLICATION,HTTP_PATH,
-                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"ApplicationApproveResponse",RESULT_MODEL,nil];
-            break;
         case ePIER_API_TRANSACTION_SMS:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       PIER_API_TRANSACTION_SMS,HTTP_PATH,

@@ -500,7 +500,6 @@ static NSString *defaultUserAgent;
 - (void)callCompletionBlockWithResponse:(id)response error:(NSError *)error success:(BOOL)isSuccess{
     self.timeoutTimer = nil;
     
-#warning TODO
     if(self.operationRunLoop){//停止runloop
         CFRunLoopStop(self.operationRunLoop);
     }
