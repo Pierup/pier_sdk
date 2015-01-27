@@ -11,6 +11,8 @@
 #import "PIRService.h"
 #import "PIRPayModel.h"
 #import "PIRConfig.h"
+#import "PierLoginViewController.h"
+#import "PierTools.h"
 
 static NSString *__bundlePath;
 
@@ -24,11 +26,11 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 #pragma mark - -------------------- UI --------------------
 #pragma mark - viewController
 
-@interface PierPayRootNavigationController : UIViewController
+@interface PierPayRootViewController : UIViewController
 
 @end
 
-@implementation PierPayRootNavigationController
+@implementation PierPayRootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,6 +53,11 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     if ([self.navigationController.viewControllers count] == 1) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+- (IBAction)loginAction:(id)sender{
+    PierLoginViewController *loginPage = [[PierLoginViewController alloc] initWithNibName:@"PierLoginViewController" bundle:pierBoundle()];
+    [self.navigationController pushViewController:loginPage animated:YES];
 }
 
 - (IBAction)submitButtonAction:(id)sender{
@@ -165,6 +172,8 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        PierPayRootViewController *pierUserCheckVC = [[PierPayRootViewController alloc] initWithNibName:@"PierPayRootViewController" bundle:pierBoundle()];
+        [self addChildViewController:pierUserCheckVC];
     }
     return self;
 }
@@ -180,18 +189,15 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 //    NSArray *path1 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
 //    NSString *documentPath = [path1 objectAtIndex:0];
 //    NSLog(@"path=%@",documentPath);
-
-    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"PierResource" withExtension:@"bundle"]];
     
-    PierPayRootNavigationController *pierUserCheckVC = [[PierPayRootNavigationController alloc] initWithNibName:@"PierPayRootNavigationController" bundle:bundle];
-    [self addChildViewController:pierUserCheckVC];
 }
-
 
 @end
 
+
 #pragma mark - -------------------- Tools -------------------
 #pragma mark - Get iPhone Version
+
 double IPHONE_OS_MAIN_VERSION() {
     static double __iphone_os_main_version = 0.0;
     if(__iphone_os_main_version == 0.0) {
@@ -206,7 +212,7 @@ double IPHONE_OS_MAIN_VERSION() {
 #pragma mark - Get ImageName in Bundle
 NSString *getImagePath(NSString *imageName){
     NSString *path = @"";
-    NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"PierResource" withExtension:@"bundle"]];
+    NSBundle *bundle = pierBoundle();
     
 //    NSString *bindlePath = [[NSBundle mainBundle] pathForResource:@"PierResource" ofType:@"bundle"];
 //    NSBundle *bundle = [NSBundle bundleWithPath:bindlePath];
