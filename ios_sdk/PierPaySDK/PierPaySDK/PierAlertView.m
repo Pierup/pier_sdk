@@ -9,8 +9,9 @@
 #import "PierAlertView.h"
 #import "PierColor.h"
 #import "PierTools.h"
+#import "PIRKeyboard.h"
 
-@interface PierAlertView ()
+@interface PierAlertView ()<PIRKeyboardDelegate>
 
 @property (nonatomic, strong) UIView *bgView;
 @property (nonatomic, strong) NSDictionary *paramDic;
@@ -19,6 +20,12 @@
 
 @property (nonatomic, copy) approveBlock    approveBc;
 @property (nonatomic, copy) cancelBlock     cancelBc;
+
+@property (nonatomic, assign) ePierAlertViewType alertType;
+
+/** keyboard */
+@property (nonatomic, strong) PIRKeyboard *pirKeyBoard;
+
 @end
 
 @implementation PierAlertView
@@ -28,6 +35,7 @@
     confirmView.paramDic    = param;
     confirmView.approveBc   = approve;
     confirmView.cancelBc    = cancel;
+    confirmView.alertType   = type;
     [confirmView initData];
     [confirmView initView];
 }
@@ -67,6 +75,18 @@
     
     [currentWindow addSubview:self.bgView];
     [currentWindow addSubview:self];
+    
+    switch (self.alertType) {
+        case ePierAlertViewType_userInput:
+        {
+            self.pirKeyBoard = [PIRKeyboard getKeyboardWithType:keyboardTypeNormal delegate:self];
+            [self setCenter:CGPointMake(currentBound.size.width/2, currentBound.size.height/2 - 100)];
+            [currentWindow addSubview:self.pirKeyBoard];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (IBAction)approve:(id)sender{
@@ -88,8 +108,23 @@
 }
 
 - (void)viewRemoveFromSuperView{
-    [self.bgView removeFromSuperview];
+    [self.bgView        removeFromSuperview];
+    [self.pirKeyBoard   removeFromSuperview];
     [self removeFromSuperview];
+}
+
+#pragma mark - -----------------PIRKeyboardDelegate---------------
+
+- (void)numberKeyboardInput:(NSString *)number{
+    
+}
+
+- (void)numberKeyboardAllInput:(NSString *)number{
+    
+}
+
+- (void)numberKeyboardBackspace:(NSString *)number{
+    
 }
 
 @end

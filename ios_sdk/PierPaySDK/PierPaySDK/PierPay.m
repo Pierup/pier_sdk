@@ -14,12 +14,7 @@
 #import "PierLoginViewController.h"
 #import "PierTools.h"
 
-static NSString *__bundlePath;
 
-/** Get iPhone Version */
-double IPHONE_OS_MAIN_VERSION();
-/** Get ImageName in Bundle */
-NSString *getImagePath(NSString *imageName);
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
 
@@ -196,29 +191,6 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 
 #pragma mark - -------------------- Tools -------------------
-#pragma mark - Get iPhone Version
-
-double IPHONE_OS_MAIN_VERSION() {
-    static double __iphone_os_main_version = 0.0;
-    if(__iphone_os_main_version == 0.0) {
-        NSString *sv = [[UIDevice currentDevice] systemVersion];
-        NSScanner *sc = [[NSScanner alloc] initWithString:sv];
-        if(![sc scanDouble:&__iphone_os_main_version])
-            __iphone_os_main_version = -1.0;
-    }
-    return __iphone_os_main_version;
-}
-
-#pragma mark - Get ImageName in Bundle
-NSString *getImagePath(NSString *imageName){
-    NSString *path = @"";
-    NSBundle *bundle = pierBoundle();
-    
-//    NSString *bindlePath = [[NSBundle mainBundle] pathForResource:@"PierResource" ofType:@"bundle"];
-//    NSBundle *bundle = [NSBundle bundleWithPath:bindlePath];
-    path = [bundle pathForResource:imageName ofType:@"png"];
-    return path;
-}
 
 #pragma mark- Model View Close Button
 void setCloseBarButtonWithTarget(id target, SEL selector)

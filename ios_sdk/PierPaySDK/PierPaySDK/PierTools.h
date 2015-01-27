@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+
+@interface PierTools : NSObject
+
 /** get pir resources boundle */
 NSBundle *pierBoundle();
 
-/** static properities */
-static NSBundle *__pierBoundle;
+/** Get iPhone Version */
+double IPHONE_OS_MAIN_VERSION();
+/** Get ImageName in Bundle */
+NSString *getImagePath(NSString *imageName);
 
-@interface PierTools : NSObject
-NSBundle *pierBoundle();
 @end

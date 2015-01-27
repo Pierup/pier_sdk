@@ -12,7 +12,9 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vi8-nw-KJ9">
                     <rect key="frame" x="50" y="207" width="181" height="30"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="No now">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -21,15 +23,17 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCh-uA-vxA">
                     <rect key="frame" x="50" y="163" width="181" height="30"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Approve">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="approve:" destination="iN0-l3-epB" eventType="touchUpInside" id="uf4-Zm-i4J"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJg-s6-ccc">
-                    <rect key="frame" x="50" y="27" width="181" height="100"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJg-s6-ccc">
+                    <rect key="frame" x="50" y="27" width="181" height="74"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -41,7 +45,7 @@
                 <outlet property="approveButton" destination="XCh-uA-vxA" id="drV-5w-c1x"/>
                 <outlet property="cancelButton" destination="Vi8-nw-KJ9" id="8gE-ie-dWv"/>
             </connections>
-            <point key="canvasLocation" x="334.5" y="231.5"/>
+            <point key="canvasLocation" x="162.5" y="242.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
