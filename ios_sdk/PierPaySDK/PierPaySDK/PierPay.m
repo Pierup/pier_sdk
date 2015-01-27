@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Pier.Inc. All rights reserved.
 //
 
-#import "PierPaySDK.h"
+#import "PierPay.h"
 #import "PIRHttpClient.h"
 #import "PIRService.h"
 #import "PIRPayModel.h"
@@ -21,23 +21,14 @@ NSString *getImagePath(NSString *imageName);
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
 
-@implementation PierPaySDK
-
-+ (void)test:(NSString *)text{
-    NSLog(@"%@",text);
-    
-}
-
-@end
-
 #pragma mark - -------------------- UI --------------------
 #pragma mark - viewController
 
-@interface PierUserInfuCheckViewController : UIViewController
+@interface PierPayRootNavigationController : UIViewController
 
 @end
 
-@implementation PierUserInfuCheckViewController
+@implementation PierPayRootNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -120,7 +111,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     requestModel.code = @"698366";
     requestModel.merchant_id = @"MC0000000017";
     requestModel.amount = @"199.00";
-    requestModel.country_code = @"USD";
+    requestModel.currency_code = @"USD";
     [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:requestModel successBlock:^(id responseModel) {
         
     } faliedBlock:^(NSError *error) {
@@ -165,10 +156,10 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 #pragma mark - navigationController
 
-@interface PierCredit ()
+@interface PierPay ()
 @end
 
-@implementation PierCredit
+@implementation PierPay
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -192,7 +183,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
     NSBundle *bundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"PierResource" withExtension:@"bundle"]];
     
-    PierUserInfuCheckViewController *pierUserCheckVC = [[PierUserInfuCheckViewController alloc] initWithNibName:@"PierUserInfuCheckViewController" bundle:bundle];
+    PierPayRootNavigationController *pierUserCheckVC = [[PierPayRootNavigationController alloc] initWithNibName:@"PierPayRootNavigationController" bundle:bundle];
     [self addChildViewController:pierUserCheckVC];
 }
 

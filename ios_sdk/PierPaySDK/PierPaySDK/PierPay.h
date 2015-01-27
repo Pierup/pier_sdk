@@ -9,14 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface PierPaySDK : NSObject
-
-+ (void)test:(NSString *)text;
-
-@end
-
 #pragma mark - -------------------- View Controller --------------------
 #pragma mark - navigationController
-@interface PierCredit : UINavigationController
+@interface PierPay : UINavigationController
 
 @end

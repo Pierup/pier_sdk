@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "PierPaySDK.h"
+#import "PierPay.h"
 @interface ViewController ()
 @property (nonatomic, weak) IBOutlet UITextView *textView;
 @end
@@ -21,7 +21,7 @@
 
 - (IBAction)payByPier:(id)sender{
 //    [PierPaySDK test:self.textView.text];
-    PierCredit *pierpay = [[PierCredit alloc] init];
+    PierPay *pierpay = [[PierPay alloc] init];
     [self presentViewController:pierpay animated:YES completion:^{
         
     }];
