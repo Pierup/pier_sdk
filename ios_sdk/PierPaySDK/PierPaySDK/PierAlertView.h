@@ -15,7 +15,7 @@ typedef enum {
 }ePierAlertViewType;
 
 /** approve block */
-typedef void (^approveBlock)();
+typedef void (^approveBlock)(NSString *userInput);
 /** cancel block */
 typedef void (^cancelBlock)();
 

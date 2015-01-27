@@ -15,17 +15,20 @@ typedef NS_OPTIONS(NSInteger, keyboardTypeNumber)
 
 @protocol PIRKeyboardDelegate <NSObject>
 @optional
-- (void)numberKeyboardInput:(NSString *)number;
-- (void)numberKeyboardAllInput:(NSString *)number;
-- (void)numberKeyboardBackspace:(NSString *)number;
+
+- (void)numberKeyboardInput:(NSString *)number;            //单次输入的数字
+- (void)numberKeyboardAllInput:(NSString *)number;         //所有的输入数字
+- (void)numberKeyboardRemoveAllInput;   //删除了所有数字
 
 @end
 
 @interface PIRKeyboard : UIView
 
-@property (nonatomic, assign) keyboardTypeNumber type;
+@property (nonatomic, assign) keyboardTypeNumber type;           //键盘类型
 @property (nonatomic, assign) id<PIRKeyboardDelegate>delegate;
 
 + (PIRKeyboard *)getKeyboardWithType:(keyboardTypeNumber)types delegate:(id)delegate;
 
+//删除所有的输入的数据
+- (void)removeAllInput;
 @end

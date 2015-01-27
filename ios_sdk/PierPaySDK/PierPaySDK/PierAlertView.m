@@ -25,6 +25,7 @@
 
 /** keyboard */
 @property (nonatomic, strong) PIRKeyboard *pirKeyBoard;
+@property (nonatomic, weak) IBOutlet UILabel *userInputLabel;
 
 @end
 
@@ -91,7 +92,7 @@
 
 - (IBAction)approve:(id)sender{
     [self viewRemoveFromSuperView];
-    self.approveBc();
+    self.approveBc([self.userInputLabel text]);
 }
 
 - (IBAction)cancelAction:(id)sender{
@@ -120,11 +121,11 @@
 }
 
 - (void)numberKeyboardAllInput:(NSString *)number{
-    
+    [self.userInputLabel setText:number];
 }
 
 - (void)numberKeyboardBackspace:(NSString *)number{
-    
+    [self.userInputLabel setText:number];
 }
 
 @end

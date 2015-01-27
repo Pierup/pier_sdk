@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#pragma mark - -------------------- View Controller --------------------
+
 #pragma mark - navigationController
 @interface PierPay : UINavigationController
 
