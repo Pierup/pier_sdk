@@ -163,6 +163,14 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 @implementation PierPay
 
+- (instancetype)initWith:(NSDictionary *)userAttributes{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

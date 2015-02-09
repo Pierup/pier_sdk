@@ -21,10 +21,12 @@
 
 - (IBAction)payByPier:(id)sender{
 //    [PierPaySDK test:self.textView.text];
-    PierPay *pierpay = [[PierPay alloc] init];
-    [self presentViewController:pierpay animated:YES completion:^{
-        
-    }];
+    NSDictionary *userAttributrs = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"Peter",       @"name",
+                                    @"1234567890",  @"phone",
+                                    @"US",          @"country_code",nil];
+    PierPay *pierpay = [[PierPay alloc] initWith:userAttributrs];
+    [self presentViewController:pierpay animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
