@@ -31,10 +31,12 @@
 #pragma mark - navigationController
 @interface PierPay : UINavigationController
 
+@property (nonatomic, weak) id<PayByPierDelegate> pierDelegate;
+
 /**
  * userAttributes
  * name:            Required     Type       Description
- * 1.name           YES          NSStirng   user name
+ * 1.name           YES          NSString   user name
  * 2.phone          YES          NSString   user phone
  * 3.country_code   YES          NSString   the country code of user phone.
  */
