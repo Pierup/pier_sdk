@@ -43,7 +43,7 @@ NSString *getImagePath(NSString *imageName){
     
     //    NSString *bindlePath = [[NSBundle mainBundle] pathForResource:@"PierResource" ofType:@"bundle"];
     //    NSBundle *bundle = [NSBundle bundleWithPath:bindlePath];
-    path = [bundle pathForResource:imageName ofType:@"png"];
+    path = [bundle pathForResource:imageName ofType:@"tiff"];
     return path;
 }
 

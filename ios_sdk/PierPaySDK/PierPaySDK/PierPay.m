@@ -209,7 +209,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector)
     [customButton setImage:image forState:UIControlStateNormal];
     [customButton setImage:pressedImage forState:UIControlStateHighlighted];
     
-    [customButton setFrame:CGRectMake(0, 0, 20, 20)];
+    [customButton setFrame:CGRectMake(0, 0, 44, 44)];
     [customButton addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:customButton];
