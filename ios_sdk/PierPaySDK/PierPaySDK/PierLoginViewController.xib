@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -7,10 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PierLoginViewController">
             <connections>
-                <outlet property="phoneNumberLabel" destination="Drx-1Y-mjh" id="JQS-zE-XYo"/>
-                <outlet property="sepLine" destination="c7n-0V-5xg" id="7ar-gM-jyx"/>
-                <outlet property="submitButton" destination="vYx-yf-VQS" id="AMC-bZ-6Th"/>
-                <outlet property="textRemarkLabel" destination="zf5-TA-V38" id="x3d-5w-1X6"/>
+                <outlet property="passwordLabel" destination="CgD-zR-LEI" id="eqE-JL-V5X"/>
+                <outlet property="phoneNumberLabel" destination="3Kw-Ov-C8r" id="IAO-BM-SvK"/>
+                <outlet property="submitButton" destination="GLf-a8-oCS" id="3i7-bq-8Nk"/>
+                <outlet property="textRemarkLabel" destination="utt-OR-hS8" id="JBc-Vb-YGx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,46 +18,65 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <userGuides>
-                <userLayoutGuide location="352" affinity="minY"/>
-            </userGuides>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vYx-yf-VQS">
-                    <rect key="frame" x="0.0" y="300" width="320" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLf-a8-oCS">
+                    <rect key="frame" x="15" y="185" width="290" height="50"/>
                     <color key="backgroundColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="NG4-J5-5Ho"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="NEXT">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="submitPhone:" destination="-1" eventType="touchUpInside" id="qFa-6x-Upf"/>
-                    </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phone number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" id="Drx-1Y-mjh">
-                    <rect key="frame" x="0.0" y="230" width="320" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" id="c7n-0V-5xg">
-                    <rect key="frame" x="0.0" y="249" width="320" height="1"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p40-W5-Txm">
+                    <rect key="frame" x="0.0" y="270" width="320" height="1"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your registered phone number." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zf5-TA-V38">
-                    <rect key="frame" x="38" y="94" width="245" height="74"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your registered phone number." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utt-OR-hS8">
+                    <rect key="frame" x="28" y="243" width="265" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="RbQ-Hr-5Xm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Kw-Ov-C8r">
+                    <rect key="frame" x="15" y="70" width="290" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="4nS-n8-VCl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-zR-LEI">
+                    <rect key="frame" x="15" y="128" width="290" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="xsZ-dM-lJ9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="127" y="367"/>
+            <constraints>
+                <constraint firstItem="GLf-a8-oCS" firstAttribute="top" secondItem="CgD-zR-LEI" secondAttribute="bottom" constant="7" id="0XQ-ox-Ah2"/>
+                <constraint firstItem="CgD-zR-LEI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="7G1-6x-p9G"/>
+                <constraint firstItem="GLf-a8-oCS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="8Np-pU-frE"/>
+                <constraint firstAttribute="trailing" secondItem="GLf-a8-oCS" secondAttribute="trailing" constant="15" id="Bj0-Xv-A0i"/>
+                <constraint firstItem="CgD-zR-LEI" firstAttribute="top" secondItem="3Kw-Ov-C8r" secondAttribute="bottom" constant="8" id="Gml-HB-buv"/>
+                <constraint firstItem="utt-OR-hS8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="28" id="dkf-DZ-lwd"/>
+                <constraint firstAttribute="trailing" secondItem="utt-OR-hS8" secondAttribute="trailing" constant="27" id="dwP-52-oBt"/>
+                <constraint firstItem="3Kw-Ov-C8r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="mYA-sM-6v8"/>
+                <constraint firstItem="utt-OR-hS8" firstAttribute="top" secondItem="GLf-a8-oCS" secondAttribute="bottom" constant="8" id="oh8-Hc-6FH"/>
+                <constraint firstAttribute="trailing" secondItem="CgD-zR-LEI" secondAttribute="trailing" constant="15" id="s8x-DE-EEG"/>
+                <constraint firstItem="3Kw-Ov-C8r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="uBN-O1-StT"/>
+                <constraint firstAttribute="trailing" secondItem="3Kw-Ov-C8r" secondAttribute="trailing" constant="15" id="zyj-vm-PQM"/>
+            </constraints>
+            <point key="canvasLocation" x="304" y="396"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
