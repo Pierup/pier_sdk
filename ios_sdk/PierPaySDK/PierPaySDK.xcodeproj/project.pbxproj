@@ -36,6 +36,14 @@
 		2A252D3F1AA1BA58004BAB9C /* PierLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */; };
 		2A252D401AA1BA58004BAB9C /* PierLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */; };
 		2A252D411AA1BA58004BAB9C /* PierLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D3E1AA1BA58004BAB9C /* PierLoginViewController.xib */; };
+		2A252D451AA1C0EE004BAB9C /* PierSiginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D431AA1C0EE004BAB9C /* PierSiginViewController.m */; };
+		2A252D461AA1C0EE004BAB9C /* PierSiginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D431AA1C0EE004BAB9C /* PierSiginViewController.m */; };
+		2A252D471AA1C0EE004BAB9C /* PierSiginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D441AA1C0EE004BAB9C /* PierSiginViewController.xib */; };
+		2A252D4B1AA1C4D0004BAB9C /* PierSiginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D4A1AA1C4D0004BAB9C /* PierSiginViewModel.m */; };
+		2A252D4C1AA1C4D0004BAB9C /* PierSiginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D4A1AA1C4D0004BAB9C /* PierSiginViewModel.m */; };
+		2A252D4F1AA1C4E8004BAB9C /* PierSiginCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D4E1AA1C4E8004BAB9C /* PierSiginCells.m */; };
+		2A252D501AA1C4E8004BAB9C /* PierSiginCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D4E1AA1C4E8004BAB9C /* PierSiginCells.m */; };
+		2A252D521AA1C945004BAB9C /* PierSiginCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D511AA1C945004BAB9C /* PierSiginCells.xib */; };
 		2A39BC2E1A2EE81300B9D551 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A39BC221A2EE81300B9D551 /* libPierPaySDK.a */; };
 		2A77977A1A3E764F00F5DF36 /* PIRHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */; };
 		2A77977D1A3E865D00F5DF36 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */; };
@@ -117,6 +125,14 @@
 		2A252D3C1AA1BA58004BAB9C /* PierLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierLoginViewController.h; sourceTree = "<group>"; };
 		2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierLoginViewController.m; sourceTree = "<group>"; };
 		2A252D3E1AA1BA58004BAB9C /* PierLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierLoginViewController.xib; sourceTree = "<group>"; };
+		2A252D421AA1C0EE004BAB9C /* PierSiginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierSiginViewController.h; sourceTree = "<group>"; };
+		2A252D431AA1C0EE004BAB9C /* PierSiginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierSiginViewController.m; sourceTree = "<group>"; };
+		2A252D441AA1C0EE004BAB9C /* PierSiginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierSiginViewController.xib; sourceTree = "<group>"; };
+		2A252D491AA1C4D0004BAB9C /* PierSiginViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierSiginViewModel.h; sourceTree = "<group>"; };
+		2A252D4A1AA1C4D0004BAB9C /* PierSiginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierSiginViewModel.m; sourceTree = "<group>"; };
+		2A252D4D1AA1C4E8004BAB9C /* PierSiginCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierSiginCells.h; sourceTree = "<group>"; };
+		2A252D4E1AA1C4E8004BAB9C /* PierSiginCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierSiginCells.m; sourceTree = "<group>"; };
+		2A252D511AA1C945004BAB9C /* PierSiginCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierSiginCells.xib; sourceTree = "<group>"; };
 		2A39BC221A2EE81300B9D551 /* libPierPaySDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPierPaySDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC2D1A2EE81300B9D551 /* PierPaySDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierPaySDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC331A2EE81300B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,6 +195,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A252D481AA1C408004BAB9C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2A252D491AA1C4D0004BAB9C /* PierSiginViewModel.h */,
+				2A252D4A1AA1C4D0004BAB9C /* PierSiginViewModel.m */,
+				2A252D4D1AA1C4E8004BAB9C /* PierSiginCells.h */,
+				2A252D4E1AA1C4E8004BAB9C /* PierSiginCells.m */,
+				2A252D511AA1C945004BAB9C /* PierSiginCells.xib */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
 		2A39BC191A2EE81300B9D551 = {
 			isa = PBXGroup;
 			children = (
@@ -254,9 +282,13 @@
 		2ACCFEB51A775B2F00A5BAC5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A252D481AA1C408004BAB9C /* ViewModel */,
 				2A252D3C1AA1BA58004BAB9C /* PierLoginViewController.h */,
 				2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */,
 				2A252D3E1AA1BA58004BAB9C /* PierLoginViewController.xib */,
+				2A252D421AA1C0EE004BAB9C /* PierSiginViewController.h */,
+				2A252D431AA1C0EE004BAB9C /* PierSiginViewController.m */,
+				2A252D441AA1C0EE004BAB9C /* PierSiginViewController.xib */,
 				2ACCFEAF1A77340D00A5BAC5 /* PierLoginViewController1.h */,
 				2ACCFEB01A77340D00A5BAC5 /* PierLoginViewController1.m */,
 				2ACCFEB11A77340D00A5BAC5 /* PierLoginViewController1.xib */,
@@ -450,6 +482,8 @@
 				2A252D271AA19B82004BAB9C /* sdk-help@2x.png in Resources */,
 				2A252D0B1AA199A4004BAB9C /* keypaddelete@2x.png in Resources */,
 				2A252D241AA19B82004BAB9C /* icon_logowhite@3x.png in Resources */,
+				2A252D521AA1C945004BAB9C /* PierSiginCells.xib in Resources */,
+				2A252D471AA1C0EE004BAB9C /* PierSiginViewController.xib in Resources */,
 				2A252D081AA198BE004BAB9C /* btn_close@3x.png in Resources */,
 				2ACCFEBC1A775D4500A5BAC5 /* PierAlertView.xib in Resources */,
 				2AF42D931A306D9B0076DEC4 /* PierPayRootViewController.xib in Resources */,
@@ -478,13 +512,16 @@
 				2ACCFEB91A775B9000A5BAC5 /* PierAlertView.m in Sources */,
 				2ACCFEC01A775FA000A5BAC5 /* PierColor.m in Sources */,
 				2A252D3F1AA1BA58004BAB9C /* PierLoginViewController.m in Sources */,
+				2A252D4F1AA1C4E8004BAB9C /* PierSiginCells.m in Sources */,
 				2A77977A1A3E764F00F5DF36 /* PIRHttpClient.m in Sources */,
 				2ACCFEC81A776A4500A5BAC5 /* PierTools.m in Sources */,
+				2A252D4B1AA1C4D0004BAB9C /* PierSiginViewModel.m in Sources */,
 				2ACCFECC1A77722700A5BAC5 /* PIRKeyboard.m in Sources */,
 				2ABF82591A65281C00BEEAF6 /* PIRService.m in Sources */,
 				2ABF82451A64E28800BEEAF6 /* JSONKit.m in Sources */,
 				2A77977D1A3E865D00F5DF36 /* PIRHttpExecutor.m in Sources */,
 				2A252D361AA1B081004BAB9C /* NSString+Check.m in Sources */,
+				2A252D451AA1C0EE004BAB9C /* PierSiginViewController.m in Sources */,
 				2ACCFEB21A77340D00A5BAC5 /* PierLoginViewController1.m in Sources */,
 				2AC461E61A75FA0300DD2C49 /* PIRPayModel.m in Sources */,
 				2AC84ED71A2EFCA600920073 /* PIRJSONModel.m in Sources */,
@@ -506,13 +543,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A252D3B1AA1B0AB004BAB9C /* PIRDateUtil.m in Sources */,
+				2A252D501AA1C4E8004BAB9C /* PierSiginCells.m in Sources */,
 				2ACCFED61A7782F600A5BAC5 /* PIRHttpExecutor.m in Sources */,
 				2ACCFED51A7782EE00A5BAC5 /* PIRService.m in Sources */,
 				2ACCFED41A7782E100A5BAC5 /* PIRJSONModel.m in Sources */,
 				2ACCFED31A7782DC00A5BAC5 /* PIRHttpClient.m in Sources */,
 				2A252D371AA1B081004BAB9C /* NSString+Check.m in Sources */,
 				2ACCFED21A7782C700A5BAC5 /* JSONKit.m in Sources */,
+				2A252D461AA1C0EE004BAB9C /* PierSiginViewController.m in Sources */,
 				2ACCFED11A7782A800A5BAC5 /* PIRPayModel.m in Sources */,
+				2A252D4C1AA1C4D0004BAB9C /* PierSiginViewModel.m in Sources */,
 				2ACCFEB31A77340D00A5BAC5 /* PierLoginViewController1.m in Sources */,
 				2ACCFEC11A775FA000A5BAC5 /* PierColor.m in Sources */,
 				2ACCFECD1A77722700A5BAC5 /* PIRKeyboard.m in Sources */,

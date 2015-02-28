@@ -20,7 +20,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
 @property (nonatomic, weak) IBOutlet UITextField *phoneNumberLabel;
 @property (nonatomic, weak) IBOutlet UITextField *passwordLabel;
-@property (nonatomic, weak) IBOutlet UIView *sepLine;
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 
 /** servire model */
@@ -53,7 +52,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self.phoneNumberLabel becomeFirstResponder];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -66,7 +64,7 @@
     [self.submitButton.layer setCornerRadius:5];
     
     [self.phoneNumberLabel setTextColor:[PierColor darkPurpleColor]];
-    [self.sepLine setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.phoneNumberLabel becomeFirstResponder];
 }
 
 

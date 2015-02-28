@@ -13,7 +13,7 @@
 #import "PIRConfig.h"
 #import "PierLoginViewController.h"
 #import "PierTools.h"
-
+#import "PierSiginViewController.h"
 
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
@@ -53,6 +53,11 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 - (IBAction)loginAction:(id)sender{
     PierLoginViewController *loginPage = [[PierLoginViewController alloc] initWithNibName:@"PierLoginViewController" bundle:pierBoundle()];
     [self.navigationController pushViewController:loginPage animated:YES];
+}
+
+- (IBAction)creditApplay:(id)sender{
+    PierSiginViewController *creditApplay = [[PierSiginViewController alloc] initWithNibName:@"PierSiginViewController" bundle:pierBoundle()];
+    [self.navigationController pushViewController:creditApplay animated:YES];
 }
 
 - (IBAction)submitButtonAction:(id)sender{
