@@ -24,4 +24,9 @@
  */
 + (UIColor *)darkPurpleColor;
 
+/**
+ *  浅紫色 C1
+ */
++ (UIColor *)lightPurpleColor;
+
 @end

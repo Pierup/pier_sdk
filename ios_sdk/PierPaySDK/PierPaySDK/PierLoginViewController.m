@@ -30,7 +30,7 @@
 }
 
 - (void)initView{
-    self.pirKeyBoard = [PIRKeyboard getKeyboardWithType:keyboardTypeNormal delegate:self];
+    self.pirKeyBoard = [PIRKeyboard getKeyboardWithType:keyboardTypeNormal alpha:1 delegate:self];
     [self.view addSubview:self.pirKeyBoard];
 }
 
@@ -43,11 +43,11 @@
     TransactionSMSRequest *requestSMS = [[TransactionSMSRequest alloc] init];
     requestSMS.phone = self.phoneNumberLabel.text;
     requestSMS.country_code = @"CN";
-    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:requestSMS successBlock:^(id responseModel) {
-
-    } faliedBlock:^(NSError *error) {
-        
-    }];
+//    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:requestSMS successBlock:^(id responseModel) {
+//
+//    } faliedBlock:^(NSError *error) {
+//        
+//    }];
     
     [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:requestSMS successBlock:^(id responseModel) {
         [PierAlertView showPierAlertView:self param:nil type:ePierAlertViewType_userInput approve:^(NSString *userInput) {

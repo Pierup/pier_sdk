@@ -9,6 +9,12 @@
 #import "PierTools.h"
 #import <UIKit/UIKit.h>
 
+#define DEVICE_WIDTH    [UIScreen mainScreen].bounds.size.width
+#define DEVICE_HEIGHT   [UIScreen mainScreen].bounds.size.height
+
+#define KEYBOARD_HEIGHT     216.f
+#define KEYBOARD_HEIGHT_6p  226.f
+
 /** static properities */
 static NSBundle *__pierBoundle;
 
@@ -43,4 +49,46 @@ NSString *getImagePath(NSString *imageName){
     path = [bundle pathForResource:imageName ofType:@"png"];
     return path;
 }
+
++ (BOOL)isDeviceIPhone5
+{
+    if (((unsigned int)DEVICE_HEIGHT) == 568)
+    {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
++ (BOOL)isDeviceIPhone6
+{
+    if (((unsigned int)DEVICE_HEIGHT) == 667)
+    {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
++ (BOOL)isDeviceIPhone6Plus
+{
+    if (((unsigned int)DEVICE_HEIGHT) == 736)
+    {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
++ (CGFloat)keyboardHeight
+{
+    if ([self isDeviceIPhone6Plus]) {
+        return KEYBOARD_HEIGHT_6p;
+    }else{
+        return KEYBOARD_HEIGHT;
+    }
+}
+
+
+
 @end

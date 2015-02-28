@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface PierTools : NSObject
 
@@ -17,5 +18,8 @@ NSBundle *pierBoundle();
 double IPHONE_OS_MAIN_VERSION();
 /** Get ImageName in Bundle */
 NSString *getImagePath(NSString *imageName);
+
+/** --- */
++ (CGFloat)keyboardHeight;
 
 @end

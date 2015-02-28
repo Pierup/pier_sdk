@@ -14,4 +14,8 @@
     return PIRColorHex(0x571780);
 }
 
++ (UIColor *)lightPurpleColor{
+    return PIRColorHex(0x7b37a6);
+}
+
 @end

@@ -80,7 +80,7 @@
     switch (self.alertType) {
         case ePierAlertViewType_userInput:
         {
-            self.pirKeyBoard = [PIRKeyboard getKeyboardWithType:keyboardTypeNormal delegate:self];
+            self.pirKeyBoard = [PIRKeyboard getKeyboardWithType:keyboardTypeNormal alpha:1 delegate:self];
             [self setCenter:CGPointMake(currentBound.size.width/2, currentBound.size.height/2 - 100)];
             [currentWindow addSubview:self.pirKeyBoard];
             break;

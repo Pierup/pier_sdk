@@ -19,16 +19,23 @@ typedef NS_OPTIONS(NSInteger, keyboardTypeNumber)
 - (void)numberKeyboardInput:(NSString *)number;            //单次输入的数字
 - (void)numberKeyboardAllInput:(NSString *)number;         //所有的输入数字
 - (void)numberKeyboardRemoveAllInput;   //删除了所有数字
+/** 删除某一个 */
+- (void)numberKeyboardRemoveInput:(NSString *)number
+                     removeNumber:(NSString *)removeNumber;
 
 @end
 
 @interface PIRKeyboard : UIView
 
 @property (nonatomic, assign) keyboardTypeNumber type;           //键盘类型
-@property (nonatomic, assign) id<PIRKeyboardDelegate>delegate;
+@property (nonatomic, weak) id<PIRKeyboardDelegate>delegate;
+@property (nonatomic, assign) NSInteger limitLength;
+@property (nonatomic, strong) NSString *number;
 
-+ (PIRKeyboard *)getKeyboardWithType:(keyboardTypeNumber)types delegate:(id)delegate;
++ (PIRKeyboard *)getKeyboardWithType:(keyboardTypeNumber)types alpha:(CGFloat)alpha delegate:(id)delegate;
 
+//设置初始值
+- (void)setDefaultNumber:(NSString *)number;
 //删除所有的输入的数据
 - (void)removeAllInput;
 @end
