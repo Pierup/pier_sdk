@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PIRFont : UIFont
+@interface PierFont : UIFont
 
 + (UIFont *)customFontWithSize:(CGFloat)size;
 

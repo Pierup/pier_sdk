@@ -9,7 +9,7 @@
 #import "PIRKeyboard.h"
 #import "PierTools.h"
 #import "PierColor.h"
-#import "PIRFont.h"
+#import "PierFont.h"
 #import <limits.h>
 
 #define kKeyBoardWidth [[UIScreen mainScreen] bounds].size.width
@@ -125,9 +125,10 @@
     button.tag = num;
     [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchDown];
     [button addTarget:self action:@selector(animationButtonOutside:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(animationButtonOutside:) forControlEvents:UIControlEventTouchDragExit];
     
     //    [button setBackgroundColor:[PIRColor darkPurpleColor]];
-    button.titleLabel.font = [PIRFont customFontWithSize:25];
+    button.titleLabel.font = [PierFont customFontWithSize:25];
     //    [button setBackgroundImage:img forState:UIControlStateHighlighted];
     if (num < 10) {
         NSString *n = [NSString stringWithFormat:@"%ld",num];
@@ -151,7 +152,8 @@
         CGFloat x = (width - imageW)/2;
         CGFloat y = (height - imageH)/2;
         UIImageView *arrow = [[UIImageView alloc] initWithFrame:CGRectMake(x,y,imageW,imageH)];
-        arrow.image = [UIImage imageNamed:@"keypaddelete.png"];
+//        arrow.image = [UIImage imageNamed:@"keypaddelete@2x.png" inBundle:pierBoundle() compatibleWithTraitCollection:nil];
+        arrow.image = [UIImage imageWithContentsOfFile:getImagePath(@"keypaddelete")];
         [button addSubview:arrow];
     }
     button.backgroundColor = [UIColor clearColor];

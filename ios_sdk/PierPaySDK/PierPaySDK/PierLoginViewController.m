@@ -10,6 +10,7 @@
 #import "PierAlertView.h"
 #import "PIRKeyboard.h"
 #import "PIRService.h"
+#import "PierTools.h"
 //#import "PIRPayModel.h"
 
 @interface PierLoginViewController ()<PIRKeyboardDelegate>
@@ -32,6 +33,7 @@
 - (void)initView{
     self.pirKeyBoard = [PIRKeyboard getKeyboardWithType:keyboardTypeNormal alpha:1 delegate:self];
     [self.view addSubview:self.pirKeyBoard];
+    [self.pirKeyBoard setFrame:CGRectMake(0, DEVICE_HEIGHT-self.pirKeyBoard.frame.size.height, self.pirKeyBoard.frame.size.width, self.pirKeyBoard.frame.size.height)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +45,7 @@
     TransactionSMSRequest *requestSMS = [[TransactionSMSRequest alloc] init];
     requestSMS.phone = self.phoneNumberLabel.text;
     requestSMS.country_code = @"CN";
+    
 //    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:requestSMS successBlock:^(id responseModel) {
 //
 //    } faliedBlock:^(NSError *error) {
@@ -69,8 +72,6 @@
     } faliedBlock:^(NSError *error) {
         
     }];
-    
-
 }
 
 #pragma mark - -----------------PIRKeyboardDelegate---------------

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A252CDB1AA166A7004BAB9C /* PIRFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252CDA1AA166A7004BAB9C /* PIRFont.m */; };
-		2A252CDC1AA166A7004BAB9C /* PIRFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252CDA1AA166A7004BAB9C /* PIRFont.m */; };
+		2A252CDB1AA166A7004BAB9C /* PierFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252CDA1AA166A7004BAB9C /* PierFont.m */; };
+		2A252CDC1AA166A7004BAB9C /* PierFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252CDA1AA166A7004BAB9C /* PierFont.m */; };
+		2A252CFE1AA19703004BAB9C /* keypaddelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A252CFD1AA19703004BAB9C /* keypaddelete.png */; };
 		2A39BC2E1A2EE81300B9D551 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A39BC221A2EE81300B9D551 /* libPierPaySDK.a */; };
 		2A49685F1A30D365000708D9 /* btn_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AF42D9D1A3072B10076DEC4 /* btn_close.png */; };
 		2A77977A1A3E764F00F5DF36 /* PIRHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */; };
@@ -30,7 +31,6 @@
 		2ACCFEC91A776A4500A5BAC5 /* PierTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFEC71A776A4500A5BAC5 /* PierTools.m */; };
 		2ACCFECC1A77722700A5BAC5 /* PIRKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFECB1A77722700A5BAC5 /* PIRKeyboard.m */; };
 		2ACCFECD1A77722700A5BAC5 /* PIRKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFECB1A77722700A5BAC5 /* PIRKeyboard.m */; };
-		2ACCFECF1A77724400A5BAC5 /* arrowInKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ACCFECE1A77724400A5BAC5 /* arrowInKeyboard.png */; };
 		2ACCFED11A7782A800A5BAC5 /* PIRPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461E51A75FA0300DD2C49 /* PIRPayModel.m */; };
 		2ACCFED21A7782C700A5BAC5 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82441A64E28800BEEAF6 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2ACCFED31A7782DC00A5BAC5 /* PIRHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */; };
@@ -63,8 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2A252CD91AA166A7004BAB9C /* PIRFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRFont.h; sourceTree = "<group>"; };
-		2A252CDA1AA166A7004BAB9C /* PIRFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRFont.m; sourceTree = "<group>"; };
+		2A252CD91AA166A7004BAB9C /* PierFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierFont.h; sourceTree = "<group>"; };
+		2A252CDA1AA166A7004BAB9C /* PierFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierFont.m; sourceTree = "<group>"; };
+		2A252CFD1AA19703004BAB9C /* keypaddelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keypaddelete.png; sourceTree = "<group>"; };
 		2A39BC221A2EE81300B9D551 /* libPierPaySDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPierPaySDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC2D1A2EE81300B9D551 /* PierPaySDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierPaySDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC331A2EE81300B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		2ACCFEC71A776A4500A5BAC5 /* PierTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierTools.m; sourceTree = "<group>"; };
 		2ACCFECA1A77722700A5BAC5 /* PIRKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRKeyboard.h; sourceTree = "<group>"; };
 		2ACCFECB1A77722700A5BAC5 /* PIRKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRKeyboard.m; sourceTree = "<group>"; };
-		2ACCFECE1A77724400A5BAC5 /* arrowInKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowInKeyboard.png; sourceTree = "<group>"; };
 		2AF42D8C1A306CC90076DEC4 /* PierResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierResource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF42D8F1A306CC90076DEC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AF42D9D1A3072B10076DEC4 /* btn_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_close.png; sourceTree = "<group>"; };
@@ -226,8 +226,8 @@
 		2ACCFEBD1A775F5A00A5BAC5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				2A252CD91AA166A7004BAB9C /* PIRFont.h */,
-				2A252CDA1AA166A7004BAB9C /* PIRFont.m */,
+				2A252CD91AA166A7004BAB9C /* PierFont.h */,
+				2A252CDA1AA166A7004BAB9C /* PierFont.m */,
 				2ACCFEC61A776A4500A5BAC5 /* PierTools.h */,
 				2ACCFEC71A776A4500A5BAC5 /* PierTools.m */,
 				2ACCFEBE1A775FA000A5BAC5 /* PierColor.h */,
@@ -255,7 +255,7 @@
 		2AF42D9C1A3072B10076DEC4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2ACCFECE1A77724400A5BAC5 /* arrowInKeyboard.png */,
+				2A252CFD1AA19703004BAB9C /* keypaddelete.png */,
 				2AF42D9D1A3072B10076DEC4 /* btn_close.png */,
 			);
 			path = Images;
@@ -367,10 +367,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A252CFE1AA19703004BAB9C /* keypaddelete.png in Resources */,
 				2A49685F1A30D365000708D9 /* btn_close.png in Resources */,
 				2ACCFEBC1A775D4500A5BAC5 /* PierAlertView.xib in Resources */,
 				2AF42D931A306D9B0076DEC4 /* PierPayRootViewController.xib in Resources */,
-				2ACCFECF1A77724400A5BAC5 /* arrowInKeyboard.png in Resources */,
 				2ACCFEB41A77340D00A5BAC5 /* PierLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,7 +394,7 @@
 				2AC461E61A75FA0300DD2C49 /* PIRPayModel.m in Sources */,
 				2AC84ED71A2EFCA600920073 /* PIRJSONModel.m in Sources */,
 				2ACCFEAE1A772AD300A5BAC5 /* PierPay.m in Sources */,
-				2A252CDB1AA166A7004BAB9C /* PIRFont.m in Sources */,
+				2A252CDB1AA166A7004BAB9C /* PierFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +419,7 @@
 				2ACCFEC11A775FA000A5BAC5 /* PierColor.m in Sources */,
 				2ACCFECD1A77722700A5BAC5 /* PIRKeyboard.m in Sources */,
 				2ACCFEBA1A775B9000A5BAC5 /* PierAlertView.m in Sources */,
-				2A252CDC1AA166A7004BAB9C /* PIRFont.m in Sources */,
+				2A252CDC1AA166A7004BAB9C /* PierFont.m in Sources */,
 				2ACCFEC91A776A4500A5BAC5 /* PierTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

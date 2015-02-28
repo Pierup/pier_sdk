@@ -38,4 +38,5 @@ typedef NS_OPTIONS(NSInteger, keyboardTypeNumber)
 - (void)setDefaultNumber:(NSString *)number;
 //删除所有的输入的数据
 - (void)removeAllInput;
+
 @end

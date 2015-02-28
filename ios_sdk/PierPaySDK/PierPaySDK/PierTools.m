@@ -9,9 +9,6 @@
 #import "PierTools.h"
 #import <UIKit/UIKit.h>
 
-#define DEVICE_WIDTH    [UIScreen mainScreen].bounds.size.width
-#define DEVICE_HEIGHT   [UIScreen mainScreen].bounds.size.height
-
 #define KEYBOARD_HEIGHT     216.f
 #define KEYBOARD_HEIGHT_6p  226.f
 

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define DEVICE_WIDTH    [UIScreen mainScreen].bounds.size.width
+#define DEVICE_HEIGHT   [UIScreen mainScreen].bounds.size.height
+
 @interface PierTools : NSObject
 
 /** get pir resources boundle */

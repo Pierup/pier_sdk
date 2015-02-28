@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Pier.Inc. All rights reserved.
 //
 
-#import "PIRFont.h"
+#import "PierFont.h"
 
 #define CUSTOM_FONTNAME         @"Avenir"
 
-@implementation PIRFont
+@implementation PierFont
 
 + (UIFont *)customFontWithSize:(CGFloat)size
 {
