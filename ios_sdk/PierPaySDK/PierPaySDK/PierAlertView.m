@@ -83,6 +83,7 @@
             self.pirKeyBoard = [PIRKeyboard getKeyboardWithType:keyboardTypeNormal alpha:1 delegate:self];
             [self setCenter:CGPointMake(currentBound.size.width/2, currentBound.size.height/2 - 100)];
             [currentWindow addSubview:self.pirKeyBoard];
+            [self.pirKeyBoard setFrame:CGRectMake(0, DEVICE_HEIGHT-self.pirKeyBoard.frame.size.height, self.pirKeyBoard.frame.size.width, self.pirKeyBoard.frame.size.height)];
             break;
         }
         default:

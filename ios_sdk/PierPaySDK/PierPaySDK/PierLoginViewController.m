@@ -11,18 +11,37 @@
 #import "PIRKeyboard.h"
 #import "PIRService.h"
 #import "PierTools.h"
+#import "PierColor.h"
+#import "NSString+Check.h"
+#import "PIRViewUtil.h"
 //#import "PIRPayModel.h"
 
 @interface PierLoginViewController ()<PIRKeyboardDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
 @property (nonatomic, weak) IBOutlet UILabel *phoneNumberLabel;
+@property (nonatomic, weak) IBOutlet UIView *sepLine;
+@property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 /** keyboard */
 @property (nonatomic, strong) PIRKeyboard *pirKeyBoard;
+
+/** servire model */
+@property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
+@property (nonatomic, strong) GetAuthTokenV2Request *loginRequestModel;
 
 @end
 
 @implementation PierLoginViewController
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _smsRequestModel = [[TransactionSMSRequest alloc] init];
+        _loginRequestModel = [[GetAuthTokenV2Request alloc] init];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +53,23 @@
     self.pirKeyBoard = [PIRKeyboard getKeyboardWithType:keyboardTypeNormal alpha:1 delegate:self];
     [self.view addSubview:self.pirKeyBoard];
     [self.pirKeyBoard setFrame:CGRectMake(0, DEVICE_HEIGHT-self.pirKeyBoard.frame.size.height, self.pirKeyBoard.frame.size.width, self.pirKeyBoard.frame.size.height)];
+    [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.submitButton setFrame:CGRectMake(0,
+                                           self.pirKeyBoard.frame.origin.y-self.submitButton.bounds.size.height-0.5,
+                                           DEVICE_WIDTH,
+                                           self.submitButton.bounds.size.height)];
+    
+    [self.phoneNumberLabel setTextColor:[PierColor darkPurpleColor]];
+    [self.phoneNumberLabel setFrame:CGRectMake(0,
+                                               self.submitButton.frame.origin.y-self.phoneNumberLabel.bounds.size.height,
+                                               DEVICE_WIDTH,
+                                               self.phoneNumberLabel.bounds.size.height)];
+    
+    [self.sepLine setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.sepLine setFrame:CGRectMake(0, 0, DEVICE_WIDTH, 1)];
+    [self.phoneNumberLabel addSubview:self.sepLine];
+    
+    [self.textRemarkLabel setCenter:CGPointMake(DEVICE_WIDTH/2, self.phoneNumberLabel.frame.origin.y/2+20)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,26 +78,21 @@
 }
 
 - (IBAction)submitPhone:(id)sender{
-    TransactionSMSRequest *requestSMS = [[TransactionSMSRequest alloc] init];
-    requestSMS.phone = self.phoneNumberLabel.text;
-    requestSMS.country_code = @"CN";
+    if ([self.smsRequestModel.phone length] != 11 && [self.smsRequestModel.phone length] != 10) {
+        [PIRViewUtil shakeView:self.phoneNumberLabel];
+        return;
+    }
     
-//    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:requestSMS successBlock:^(id responseModel) {
-//
-//    } faliedBlock:^(NSError *error) {
-//        
-//    }];
+    self.smsRequestModel.country_code = @"CN";
     
-    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:requestSMS successBlock:^(id responseModel) {
+    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
         [PierAlertView showPierAlertView:self param:nil type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
-            GetAuthTokenV2Request *requestModel = [[GetAuthTokenV2Request alloc] init];
-            requestModel.phone = @"18638998588";
-            requestModel.country_code = @"CN";
-            requestModel.code = userInput;
-            requestModel.merchant_id = @"MC0000000017";
-            requestModel.amount = @"199.00";
-            requestModel.currency_code = @"USD";
-            [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:requestModel successBlock:^(id responseModel) {
+            self.loginRequestModel.country_code = @"CN";
+            self.loginRequestModel.code = userInput;
+            self.loginRequestModel.merchant_id = @"MC0000000017";
+            self.loginRequestModel.amount = @"199.00";
+            self.loginRequestModel.currency_code = @"USD";
+            [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:self.loginRequestModel successBlock:^(id responseModel) {
                 
             } faliedBlock:^(NSError *error) {
                 
@@ -81,7 +112,13 @@
 }
 
 - (void)numberKeyboardAllInput:(NSString *)number{
-    [self.phoneNumberLabel setText:number];
+    self.loginRequestModel.phone = number;
+    self.smsRequestModel.phone = number;
+    self.phoneNumberLabel.text = number;
+    //做字符转换
+    if (number.length == 11 || number.length == 10) {  //做字符转换
+        self.phoneNumberLabel.text = [number phoneFormat];
+    }
 }
 
 - (void)numberKeyboardBackspace:(NSString *)number{
