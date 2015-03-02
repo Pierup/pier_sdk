@@ -7,6 +7,7 @@
 //
 
 #import "PierSiginCells.h"
+#import "RPFloatingPlaceholderTextField.h"
 
 @implementation PIRSiginCellModel
 
@@ -24,6 +25,27 @@
 
 @end
 
+@implementation PIRSiginPhoneNumberCell
+
+@end
+
+@implementation PIRSiginAddressCell
+
+@end
+
+@implementation PIRSiginDobCell
+
+@end
+
+@implementation PIRSiginSSNCell
+
+@end
+
 @implementation PIRSiginPWDCell
+
+@end
+
+
+@implementation PIRSiginSubmitCell
 
 @end

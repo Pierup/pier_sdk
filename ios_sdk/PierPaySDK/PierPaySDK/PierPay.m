@@ -23,6 +23,8 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 @interface PierPayRootViewController : UIViewController
 
+@property (nonatomic, strong) IBOutlet UIButton *closeButton;
+
 @end
 
 @implementation PierPayRootViewController
@@ -35,7 +37,10 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (void)initView{
     [self setTitle:@"Pay By Pier"];
-    setCloseBarButtonWithTarget(self, @selector(closeBarButtonClicked:));
+    [self.closeButton setBackgroundColor:[UIColor clearColor]];
+    [self.closeButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"btn_close")] forState:UIControlStateNormal];
+    [self.closeButton addTarget:self action:@selector(closeBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    setCloseBarButtonWithTarget(self, @selector(closeBarButtonClicked:));
 }
 
 - (void)didReceiveMemoryWarning {
@@ -164,6 +169,9 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 #pragma mark - navigationController
 
 @interface PierPay ()
+
+@property (nonatomic, assign) BOOL merchantAppHasBar;
+
 @end
 
 @implementation PierPay
@@ -171,7 +179,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 - (instancetype)initWith:(NSDictionary *)userAttributes{
     self = [super init];
     if (self) {
-        
+        _merchantAppHasBar = NO;
     }
     return self;
 }
@@ -193,15 +201,24 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (void)initView{
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    
+    if (self.navigationBar.hidden == NO) {
+        _merchantAppHasBar = NO;
+        [self setNavigationBarHidden:YES animated:YES];
+    }else{
+        _merchantAppHasBar = YES;
+    }
 //    NSArray *path1 = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
 //    NSString *documentPath = [path1 objectAtIndex:0];
 //    NSLog(@"path=%@",documentPath);
-    
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    if (!_merchantAppHasBar) {
+        [self setNavigationBarHidden:NO animated:YES];
+    }
 }
 
 @end
-
 
 #pragma mark - -------------------- Tools -------------------
 

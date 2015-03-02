@@ -8,10 +8,13 @@
 
 #import "PierSiginViewController.h"
 #import "PierSiginViewModel.h"
+#import "PierTools.h"
 
 @interface PierSiginViewController ()<PIRSiginCellsDelegate>
 
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIButton *bacButton;
+@property (nonatomic, weak) IBOutlet UIButton *helpButton;
 @property (nonatomic, strong) PierSiginViewModel *infoViewModel;
 
 @end
@@ -39,6 +42,13 @@
 }
 
 - (void)initView{
+    [self.bacButton setBackgroundColor:[UIColor clearColor]];
+    [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"back")] forState:UIControlStateNormal];
+    [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.helpButton setBackgroundColor:[UIColor clearColor]];
+    [self.helpButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"sdk-help")] forState:UIControlStateNormal];
+
     [_infoViewModel createTableData];
     [_tableView reloadData];
 }
@@ -46,6 +56,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)popViewController{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - --------------------代理方法--------------------
@@ -83,6 +97,31 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    if (section == 0) {
+        PierSiginCells *cell = [self.infoViewModel footViewForRowAtSection:section];
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 60)];
+        [footerView addSubview:cell];
+        [footerView setBackgroundColor:[UIColor clearColor]];
+        
+        return footerView;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section == 0) {
+        return 60;
+    }else{
+        return 0;
+    }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
+
 /*
 #pragma mark - Navigation
 

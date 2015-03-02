@@ -18,4 +18,8 @@
     return PIRColorHex(0x7b37a6);
 }
 
++ (UIColor *)lightGreenColor{
+    return PIRColorHex(0x86eaeb);
+}
+
 @end

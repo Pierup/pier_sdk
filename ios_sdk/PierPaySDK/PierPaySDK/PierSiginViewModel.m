@@ -37,8 +37,10 @@
         {
             __block NSMutableArray *cells = [NSMutableArray array];
             [cells addObject:@(eSiginInputUserNameCell)];
-            [cells addObject:@(eSiginPWDCell)];
-            [cells addObject:@(eSiginPWDCell)];
+            [cells addObject:@(eSiginPhoneNumberCell)];
+            [cells addObject:@(eSiginAddressCell)];
+            [cells addObject:@(eSiginDobCell)];
+            [cells addObject:@(eSiginSSNCell)];
             [cells addObject:@(eSiginPWDCell)];
             [dictionary setObject:cells forKey:@(sectionType)];
             break;
@@ -67,12 +69,32 @@
     switch (type) {
         case eSiginInputUserNameCell:
         {
-            identifier = @"PIRLoginAccountNameCell";
+            identifier = @"PIRSiginNameCell";
+            break;
+        }
+        case eSiginPhoneNumberCell:{
+            identifier = @"PIRSiginPhoneNumberCell";
+            break;
+        }
+        case eSiginAddressCell:{
+            identifier = @"PIRSiginAddressCell";
+            break;
+        }
+        case eSiginDobCell:{
+            identifier = @"PIRSiginDobCell";
+            break;
+        }
+        case eSiginSSNCell:{
+            identifier = @"PIRSiginSSNCell";
             break;
         }
         case eSiginPWDCell:
         {
-            identifier = @"PIRLoginAccountPWDCell";
+            identifier = @"PIRSiginPWDCell";
+            break;
+        }
+        case eSiginSubmitCell:{
+            identifier = @"PIRSiginSubmitCell";
             break;
         }
         default:
@@ -93,9 +115,34 @@
             
             break;
         }
+        case eSiginPhoneNumberCell:{
+            PIRSiginPhoneNumberCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:1];
+            resultCell = cell;
+            break;
+        }
+        case eSiginAddressCell:{
+            PIRSiginAddressCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:2];
+            resultCell = cell;
+            break;
+        }
+        case eSiginDobCell:{
+            PIRSiginDobCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:3];
+            resultCell = cell;
+            break;
+        }
+        case eSiginSSNCell:{
+            PIRSiginSSNCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:4];
+            resultCell = cell;
+            break;
+        }
         case eSiginPWDCell:
         {
-            PIRSiginPWDCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:1];
+            PIRSiginPWDCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:5];
+            resultCell = cell;
+            break;
+        }
+        case eSiginSubmitCell:{
+            PIRSiginSubmitCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:6];
             resultCell = cell;
             break;
         }
@@ -131,20 +178,43 @@
     return [self getCellWithType:[self getCellType:indexPath]];
 }
 
+- (PierSiginCells *)footViewForRowAtSection:(NSInteger)section{
+    PIRSiginSubmitCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:6];
+    return cell;
+}
+
 - (void)configCell:(PierSiginCells *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.delegate = self.cellDelegate;
     eSiginCellType type = [self getCellType:indexPath];
     switch (type) {
         case eSiginInputUserNameCell:
+        {
+            break;
+        }
+        case eSiginPhoneNumberCell:{
+            break;
+        }
+        case eSiginAddressCell:{
+            break;
+        }
+        case eSiginDobCell:{
+            break;
+        }
+        case eSiginSSNCell:{
+            break;
+        }
         case eSiginPWDCell:
         {
-            [cell updateCell:self.cellModel indexPath:indexPath];
+            break;
+        }
+        case eSiginSubmitCell:{
             break;
         }
         default:
             break;
     }
+    [cell updateCell:self.cellModel indexPath:indexPath];
 }
 
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -153,9 +223,33 @@
     CGFloat height = 0.f;
     switch (type) {
         case eSiginInputUserNameCell:
+        {
+            height = 60;
+            break;
+        }
+        case eSiginPhoneNumberCell:{
+            height = 60;
+            break;
+        }
+        case eSiginAddressCell:{
+            height = 60;
+            break;
+        }
+        case eSiginDobCell:{
+            height = 60;
+            break;
+        }
+        case eSiginSSNCell:{
+            height = 60;
+            break;
+        }
         case eSiginPWDCell:
         {
-            height = 60.0f;
+            height = 60;
+            break;
+        }
+        case eSiginSubmitCell:{
+            height = 60;
             break;
         }
         default:

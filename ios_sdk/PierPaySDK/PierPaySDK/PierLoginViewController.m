@@ -17,6 +17,7 @@
 
 @interface PierLoginViewController ()
 
+@property (nonatomic, weak) IBOutlet UIButton *bacButton;
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
 @property (nonatomic, weak) IBOutlet UITextField *phoneNumberLabel;
 @property (nonatomic, weak) IBOutlet UITextField *passwordLabel;
@@ -65,8 +66,15 @@
     
     [self.phoneNumberLabel setTextColor:[PierColor darkPurpleColor]];
     [self.phoneNumberLabel becomeFirstResponder];
+    
+    [self.bacButton setBackgroundColor:[UIColor clearColor]];
+    [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"back")] forState:UIControlStateNormal];
+    [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)popViewController{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
 #pragma mark - Navigation

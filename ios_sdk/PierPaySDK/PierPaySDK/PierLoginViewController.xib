@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PierLoginViewController">
             <connections>
+                <outlet property="bacButton" destination="DJq-hc-7Wz" id="5ud-t9-yR3"/>
                 <outlet property="passwordLabel" destination="CgD-zR-LEI" id="eqE-JL-V5X"/>
                 <outlet property="phoneNumberLabel" destination="3Kw-Ov-C8r" id="IAO-BM-SvK"/>
                 <outlet property="submitButton" destination="GLf-a8-oCS" id="3i7-bq-8Nk"/>
@@ -60,6 +61,12 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJq-hc-7Wz">
+                    <rect key="frame" x="15" y="27" width="22" height="22"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -76,7 +83,7 @@
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="uBN-O1-StT"/>
                 <constraint firstAttribute="trailing" secondItem="3Kw-Ov-C8r" secondAttribute="trailing" constant="15" id="zyj-vm-PQM"/>
             </constraints>
-            <point key="canvasLocation" x="304" y="396"/>
+            <point key="canvasLocation" x="219" y="420"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

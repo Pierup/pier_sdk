@@ -29,6 +29,26 @@
 
 @end
 
+@interface PIRSiginPhoneNumberCell : PierSiginCells
+
+@end
+
+@interface PIRSiginAddressCell : PierSiginCells
+
+@end
+
+@interface PIRSiginDobCell : PierSiginCells
+
+@end
+
+@interface PIRSiginSSNCell : PierSiginCells
+
+@end
+
 @interface PIRSiginPWDCell : PierSiginCells
+
+@end
+
+@interface PIRSiginSubmitCell : PierSiginCells
 
 @end
