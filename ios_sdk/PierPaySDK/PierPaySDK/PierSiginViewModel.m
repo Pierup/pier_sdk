@@ -9,6 +9,20 @@
 #import "PierSiginViewModel.h"
 #import "PierTools.h"
 
+@interface PierSiginViewModel ()
+
+@property (nonatomic, strong) PIRSiginCellModel *cellModel;
+
+@property (nonatomic, strong) PIRSiginNameCell *nameCell;
+@property (nonatomic, strong) PIRSiginPhoneNumberCell *phoneCell;
+@property (nonatomic, strong) PIRSiginAddressCell *addressCell;
+@property (nonatomic, strong) PIRSiginDobCell *DOBCell;
+@property (nonatomic, strong) PIRSiginSSNCell *SSNCell;
+@property (nonatomic, strong) PIRSiginPWDCell *pwdCell;
+@property (nonatomic, strong) PIRSiginSubmitCell *submitCell;
+
+@end
+
 @implementation PierSiginViewModel
 
 #pragma mark - --------------------初始化--------------------
@@ -110,40 +124,40 @@
     switch (type) {
         case eSiginInputUserNameCell:
         {
-            PIRSiginNameCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:0];
-            resultCell = cell;
+            _nameCell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:0];
+            resultCell = _nameCell;
             
             break;
         }
         case eSiginPhoneNumberCell:{
-            PIRSiginPhoneNumberCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:1];
-            resultCell = cell;
+            _phoneCell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:1];
+            resultCell = _phoneCell;
             break;
         }
         case eSiginAddressCell:{
-            PIRSiginAddressCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:2];
-            resultCell = cell;
+            _addressCell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:2];
+            resultCell = _addressCell;
             break;
         }
         case eSiginDobCell:{
-            PIRSiginDobCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:3];
-            resultCell = cell;
+            _DOBCell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:3];
+            resultCell = _DOBCell;
             break;
         }
         case eSiginSSNCell:{
-            PIRSiginSSNCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:4];
-            resultCell = cell;
+            _SSNCell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:4];
+            resultCell = _SSNCell;
             break;
         }
         case eSiginPWDCell:
         {
-            PIRSiginPWDCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:5];
-            resultCell = cell;
+            _pwdCell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:5];
+            resultCell = _pwdCell;
             break;
         }
         case eSiginSubmitCell:{
-            PIRSiginSubmitCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:6];
-            resultCell = cell;
+            _submitCell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:6];
+            resultCell = _submitCell;
             break;
         }
         default:
@@ -180,6 +194,7 @@
 
 - (PierSiginCells *)footViewForRowAtSection:(NSInteger)section{
     PIRSiginSubmitCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:6];
+    cell.delegate = self.cellDelegate;
     return cell;
 }
 
@@ -259,4 +274,15 @@
     return height;
 }
 
+- (PIRSiginCellModel *)getSiginCellModel{
+    NSDictionary *nameDic = [self.nameCell getUserName];
+    self.cellModel.firstName = [nameDic objectForKey:@"firstName"];
+    self.cellModel.lastName = [nameDic objectForKey:@"lastName"];
+    self.cellModel.phone = [self.phoneCell getPhone];
+    self.cellModel.address = [self.addressCell getAddresss];
+    self.cellModel.dob = [self.DOBCell getDOB];
+    self.cellModel.ssn = [self.SSNCell getSSN];
+    self.cellModel.password = [self.pwdCell getPassword];
+    return self.cellModel;
+}
 @end

@@ -68,7 +68,7 @@
     [self.phoneNumberLabel becomeFirstResponder];
     
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
-    [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"back")] forState:UIControlStateNormal];
+    [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
 }
 

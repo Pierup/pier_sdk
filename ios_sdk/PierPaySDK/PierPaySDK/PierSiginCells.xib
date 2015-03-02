@@ -28,6 +28,10 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="firstNameLabel" destination="OLk-EV-2s7" id="kpc-Pz-79i"/>
+                <outlet property="lastNameLabel" destination="h9b-gw-sSW" id="ucb-DM-FOs"/>
+            </connections>
             <point key="canvasLocation" x="201" y="90"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PIRSiginPhoneNumberCell" id="D78-ob-RWH" customClass="PIRSiginPhoneNumberCell">
@@ -45,6 +49,9 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="phoneLabel" destination="Sgg-53-ng6" id="BD6-Fc-8dV"/>
+            </connections>
             <point key="canvasLocation" x="201" y="187"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PIRSiginAddressCell" id="NSD-HH-stu" customClass="PIRSiginAddressCell">
@@ -62,6 +69,9 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="addressLabel" destination="bjw-tm-388" id="ShA-Oo-fFn"/>
+            </connections>
             <point key="canvasLocation" x="201" y="295"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PIRSiginDobCell" id="FDA-Fh-h6j" customClass="PIRSiginDobCell">
@@ -79,6 +89,9 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="dobLabel" destination="kod-Uw-PZx" id="GXC-bq-oqp"/>
+            </connections>
             <point key="canvasLocation" x="201" y="411"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PIRSiginSSNCell" id="JRR-2x-xlc" customClass="PIRSiginSSNCell">
@@ -96,6 +109,9 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="ssnLabel" destination="85B-UL-vYt" id="SJT-A4-g0p"/>
+            </connections>
             <point key="canvasLocation" x="201" y="523"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PIRSiginPWDCell" id="vhE-YP-vbf" customClass="PIRSiginPWDCell">
@@ -113,6 +129,9 @@
                 </subviews>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="passwordLabel" destination="Y3M-fp-0hI" id="2WT-ZE-y3z"/>
+            </connections>
             <point key="canvasLocation" x="201" y="626"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PIRSiginSubmitCell" id="6pv-1h-hGZ" customClass="PIRSiginSubmitCell">
@@ -127,9 +146,15 @@
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="submitUserInfo:" destination="6pv-1h-hGZ" eventType="touchUpInside" id="VhJ-S9-gna"/>
+                        </connections>
                     </button>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="submitButton" destination="yoM-9j-aLC" id="wQy-gt-deq"/>
+            </connections>
             <point key="canvasLocation" x="201" y="738"/>
         </tableViewCell>
     </objects>

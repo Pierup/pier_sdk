@@ -11,9 +11,19 @@
 
 @interface PIRSiginCellModel : NSObject
 
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *lastName;
+@property (nonatomic, copy) NSString *phone;
+@property (nonatomic, copy) NSString *address;
+@property (nonatomic, copy) NSString *dob;
+@property (nonatomic, copy) NSString *ssn;
+@property (nonatomic, copy) NSString *password;
+
 @end
 
 @protocol PIRSiginCellsDelegate <NSObject>
+
+- (void)submitUserInfo;
 
 @end
 
@@ -27,25 +37,37 @@
 
 @interface PIRSiginNameCell : PierSiginCells
 
+- (NSDictionary *)getUserName;
+
 @end
 
 @interface PIRSiginPhoneNumberCell : PierSiginCells
+
+- (NSString *)getPhone;
 
 @end
 
 @interface PIRSiginAddressCell : PierSiginCells
 
+- (NSString *)getAddresss;
+
 @end
 
 @interface PIRSiginDobCell : PierSiginCells
+
+- (NSString *)getDOB;
 
 @end
 
 @interface PIRSiginSSNCell : PierSiginCells
 
+- (NSString *)getSSN;
+
 @end
 
 @interface PIRSiginPWDCell : PierSiginCells
+
+- (NSString *)getPassword;
 
 @end
 

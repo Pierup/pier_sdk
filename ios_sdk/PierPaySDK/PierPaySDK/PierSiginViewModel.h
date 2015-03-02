@@ -27,7 +27,6 @@ typedef NS_ENUM(NSInteger, eSiginCellType) {
 
 @property (nonatomic, strong) NSMutableArray *sectionArray;
 @property (nonatomic, weak) id<PIRSiginCellsDelegate> cellDelegate;
-@property (nonatomic, strong) PIRSiginCellModel *cellModel;
 
 - (void)createTableData;
 - (NSString *)getIdentifierByCellIndex:(NSIndexPath *)indexPath;
@@ -35,5 +34,6 @@ typedef NS_ENUM(NSInteger, eSiginCellType) {
 - (PierSiginCells *)footViewForRowAtSection:(NSInteger)section;
 - (void)configCell:(PierSiginCells *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (PIRSiginCellModel *)getSiginCellModel;
 
 @end

@@ -122,6 +122,14 @@
     [self.view endEditing:YES];
 }
 
+#pragma mark - PIRSiginCellsDelegate
+
+- (void)submitUserInfo{
+    PIRSiginCellModel *cellModel = [self.infoViewModel getSiginCellModel];
+    
+}
+
+
 /*
 #pragma mark - Navigation
 
