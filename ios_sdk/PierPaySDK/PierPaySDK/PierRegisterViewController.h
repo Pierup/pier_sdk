@@ -1,5 +1,5 @@
 //
-//  PierSiginViewController.h
+//  PierRegisterViewController.h
 //  PierPaySDK
 //
 //  Created by zyma on 3/2/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PierSiginViewController : UIViewController
+@interface PierRegisterViewController : UIViewController
 
 @end

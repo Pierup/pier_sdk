@@ -1,28 +1,28 @@
 //
-//  PierSiginViewController.m
+//  PierRegisterViewController.m
 //  PierPaySDK
 //
 //  Created by zyma on 3/2/15.
 //  Copyright (c) 2015 Pier.Inc. All rights reserved.
 //
 
-#import "PierSiginViewController.h"
+#import "PierRegisterViewController.h"
 #import "PIRService.h"
 #import "PierTools.h"
 #import "PierColor.h"
 #import "NSString+Check.h"
-#import "PierRegisterViewController.h"
+#import "PierCreditApplyController.h"
 
-@interface PierSiginViewController ()
+@interface PierRegisterViewController ()
 
 @property (nonatomic, weak) IBOutlet UIButton *bacButton;
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
-@property (nonatomic, weak) IBOutlet UITextField *phoneNumberLabel;
+@property (nonatomic, weak) IBOutlet UITextField *passwordLabel;
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 
 @end
 
-@implementation PierSiginViewController
+@implementation PierRegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,11 +32,16 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self.phoneNumberLabel becomeFirstResponder];
+    [self.passwordLabel becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-    [self.phoneNumberLabel resignFirstResponder];
+    [self.passwordLabel resignFirstResponder];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)initData{
@@ -50,18 +55,13 @@
 }
 
 - (void)popViewController{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)userRegisterAction:(id)sender{
-    PierRegisterViewController *registerVC = [[PierRegisterViewController alloc] initWithNibName:@"PierRegisterViewController" bundle:pierBoundle()];
-    [self.navigationController pushViewController:registerVC animated:NO];
+- (IBAction)userSetPasswordAction:(id)sender{
+    PierCreditApplyController *registerVC = [[PierCreditApplyController alloc] initWithNibName:@"PierCreditApplyController" bundle:pierBoundle()];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 /*

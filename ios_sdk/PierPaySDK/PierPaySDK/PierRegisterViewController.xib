@@ -5,12 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PierSiginViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PierRegisterViewController">
             <connections>
-                <outlet property="bacButton" destination="TYf-LD-9Vd" id="KGb-2Q-Osq"/>
-                <outlet property="phoneNumberLabel" destination="2HQ-nG-Ss0" id="2Ac-6s-aMm"/>
-                <outlet property="submitButton" destination="wyX-U0-W8w" id="dJx-2F-bkZ"/>
-                <outlet property="textRemarkLabel" destination="kPe-fX-bEs" id="aqI-zd-I4P"/>
+                <outlet property="bacButton" destination="0oC-L4-Rkx" id="o78-Po-xzp"/>
+                <outlet property="passwordLabel" destination="ofw-Qy-e5Y" id="nif-Wa-4Xy"/>
+                <outlet property="submitButton" destination="dqz-aF-QTy" id="p5G-4C-MoQ"/>
+                <outlet property="textRemarkLabel" destination="BT0-Ib-Xwf" id="0hD-um-8yR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,38 +19,38 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyX-U0-W8w">
-                    <rect key="frame" x="15" y="178" width="290" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqz-aF-QTy">
+                    <rect key="frame" x="15" y="181" width="290" height="50"/>
                     <color key="backgroundColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="NEXT">
+                    <state key="normal" title="SUBMIT">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="userRegisterAction:" destination="-1" eventType="touchUpInside" id="s7D-kF-Thh"/>
+                        <action selector="userSetPasswordAction:" destination="-1" eventType="touchUpInside" id="CPw-um-6nN"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPe-fX-bEs">
-                    <rect key="frame" x="28" y="236" width="265" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BT0-Ib-Xwf">
+                    <rect key="frame" x="28" y="239" width="265" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="phone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2HQ-nG-Ss0">
-                    <rect key="frame" x="15" y="121" width="290" height="50"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ofw-Qy-e5Y">
+                    <rect key="frame" x="15" y="124" width="290" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYf-LD-9Vd">
-                    <rect key="frame" x="15" y="20" width="22" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oC-L4-Rkx">
+                    <rect key="frame" x="15" y="23" width="22" height="22"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="5" y="286"/>
+            <point key="canvasLocation" x="274" y="322"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
