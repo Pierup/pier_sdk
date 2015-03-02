@@ -9,6 +9,8 @@
 #import "PierSiginViewController.h"
 #import "PierSiginViewModel.h"
 #import "PierTools.h"
+#import "PIRService.h"
+#import "PIRPayModel.h"
 
 @interface PierSiginViewController ()<PIRSiginCellsDelegate>
 
@@ -16,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *bacButton;
 @property (nonatomic, weak) IBOutlet UIButton *helpButton;
 @property (nonatomic, strong) PierSiginViewModel *infoViewModel;
+@property (nonatomic, strong) PIRSiginCellModel *cellModel;
 
 @end
 
@@ -125,10 +128,24 @@
 #pragma mark - PIRSiginCellsDelegate
 
 - (void)submitUserInfo{
-    PIRSiginCellModel *cellModel = [self.infoViewModel getSiginCellModel];
-    
+    if ([self.infoViewModel checkUserInfo]) {
+        self.cellModel = [self.infoViewModel getSiginCellModel];
+        [self serviceGetReigistSMS];
+    }
 }
 
+- (void)serviceGetReigistSMS{
+    GetRegisterCodeRequest *requestModel = [[GetRegisterCodeRequest alloc] init];
+    requestModel.phone = self.cellModel.phone;
+    requestModel.country_code = @"CN";
+    
+    [PIRService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
+        GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
+        
+    } faliedBlock:^(NSError *error) {
+        
+    }];
+}
 
 /*
 #pragma mark - Navigation

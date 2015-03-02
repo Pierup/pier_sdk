@@ -35,5 +35,6 @@ typedef NS_ENUM(NSInteger, eSiginCellType) {
 - (void)configCell:(PierSiginCells *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (PIRSiginCellModel *)getSiginCellModel;
+- (BOOL)checkUserInfo;
 
 @end

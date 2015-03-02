@@ -285,4 +285,13 @@
     self.cellModel.password = [self.pwdCell getPassword];
     return self.cellModel;
 }
+
+- (BOOL)checkUserInfo{
+//    BOOL checkName  = [self.nameCell checkUserName];
+//    BOOL checkPhone = [self.phoneCell checkPhone];
+    BOOL result = [self.nameCell checkUserName] && [self.phoneCell checkPhone] && [self.addressCell checkAddress] && [self.DOBCell checkDOB] && [self.SSNCell checkSSN];
+    
+    return result;
+}
+
 @end

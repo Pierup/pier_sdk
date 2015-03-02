@@ -38,36 +38,42 @@
 @interface PIRSiginNameCell : PierSiginCells
 
 - (NSDictionary *)getUserName;
+- (BOOL)checkUserName;
 
 @end
 
 @interface PIRSiginPhoneNumberCell : PierSiginCells
 
 - (NSString *)getPhone;
+- (BOOL)checkPhone;
 
 @end
 
 @interface PIRSiginAddressCell : PierSiginCells
 
 - (NSString *)getAddresss;
+- (BOOL)checkAddress;
 
 @end
 
 @interface PIRSiginDobCell : PierSiginCells
 
 - (NSString *)getDOB;
+- (BOOL)checkDOB;
 
 @end
 
 @interface PIRSiginSSNCell : PierSiginCells
 
 - (NSString *)getSSN;
+- (BOOL)checkSSN;
 
 @end
 
 @interface PIRSiginPWDCell : PierSiginCells
 
 - (NSString *)getPassword;
+- (BOOL)checkPWD;
 
 @end
 

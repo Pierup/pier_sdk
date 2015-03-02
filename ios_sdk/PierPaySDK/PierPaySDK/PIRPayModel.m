@@ -47,3 +47,18 @@
 @implementation GetAuthTokenV2Response
 
 @end
+
+#pragma mark - --------------------PIER_API_GET_ACTIVITY_CODE-------------------
+#pragma mark - Request
+@implementation GetRegisterCodeRequest
+
+@end
+
+@interface GetRegisterCodeResponse ()
+@property(nonatomic, copy, readwrite) NSString *expiration;
+@end
+
+@implementation GetRegisterCodeResponse
+
+@end
+

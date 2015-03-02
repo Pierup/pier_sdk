@@ -25,4 +25,6 @@ NSString * const PIER_API_CREDIT_APPLICATION    = @"/user_api/v1/sdk/application
 NSString * const PIER_API_TRANSACTION_SMS       = @"/user_api/v2/sdk/transaction_sms";
 NSString * const PIER_API_GET_AUTH_TOKEN_V2     = @"/user_api/v2/sdk/get_auth_token";
 
+NSString * const PIER_API_GET_ACTIVITY_CODE     = @"/user_api/v2/user/activation_code";
+
 #endif

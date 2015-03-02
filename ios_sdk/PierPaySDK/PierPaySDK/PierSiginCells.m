@@ -8,6 +8,8 @@
 
 #import "PierSiginCells.h"
 #import "RPFloatingPlaceholderTextField.h"
+#import "NSString+Check.h"
+#import "PIRViewUtil.h"
 
 @implementation PIRSiginCellModel
 
@@ -41,6 +43,19 @@
     return dic;
 }
 
+- (BOOL)checkUserName{
+    BOOL result = NO;
+    NSDictionary *nameDic = [self getUserName];
+    if (![NSString emptyOrNull:[nameDic objectForKey:@"firstName"]]
+        && ![NSString emptyOrNull:[nameDic objectForKey:@"lastName"]]) {
+        result = YES;
+    }else{
+        [PIRViewUtil shakeView:self.contentView];
+        result = NO;
+    }
+    return result;
+}
+
 @end
 
 @interface PIRSiginPhoneNumberCell ()
@@ -54,6 +69,18 @@
 - (NSString *)getPhone{
     NSString *phone = self.phoneLabel.text;
     return phone;
+}
+
+- (BOOL)checkPhone{
+    BOOL result = NO;
+    NSString *phone = [self getPhone];
+    if (phone.length == 10 || phone.length == 11) {
+        result = YES;
+    }else{
+        [PIRViewUtil shakeView:self.contentView];
+        result = NO;
+    }
+    return result;
 }
 
 @end
@@ -71,6 +98,18 @@
     return address;
 }
 
+- (BOOL)checkAddress{
+    BOOL result = NO;
+    NSString *address = [self getAddresss];
+    if (![NSString emptyOrNull:address]) {
+        result = YES;
+    }else{
+        [PIRViewUtil shakeView:self.contentView];
+        result = NO;
+    }
+    return result;
+}
+
 @end
 
 @interface PIRSiginDobCell ()
@@ -84,6 +123,18 @@
 - (NSString *)getDOB{
     NSString *dob = self.dobLabel.text;
     return dob;
+}
+
+- (BOOL)checkDOB{
+    BOOL result = NO;
+    NSString *dob = [self getDOB];
+    if (![NSString emptyOrNull:dob]) {
+        result = YES;
+    }else{
+        [PIRViewUtil shakeView:self.contentView];
+        result = NO;
+    }
+    return result;
 }
 
 @end
@@ -101,6 +152,18 @@
     return ssn;
 }
 
+- (BOOL)checkSSN{
+    BOOL result = NO;
+    NSString *ssn = [self getSSN];
+    if ([ssn isValudSSN]) {
+        result = YES;
+    }else{
+        [PIRViewUtil shakeView:self.contentView];
+        result = NO;
+    }
+    return result;
+}
+
 @end
 
 @interface PIRSiginPWDCell ()
@@ -114,6 +177,18 @@
 - (NSString *)getPassword{
     NSString *password = self.passwordLabel.text;
     return password;
+}
+
+- (BOOL)checkPWD{
+    BOOL result = NO;
+    NSString *pwd = [self getPassword];
+    if (pwd.length > 5) {
+        result = YES;
+    }else{
+        [PIRViewUtil shakeView:self.contentView];
+        result = NO;
+    }
+    return result;
 }
 
 @end

@@ -44,3 +44,14 @@
 @property(nonatomic, copy, readonly) NSString *auth_token;
 
 @end
+
+#pragma mark - --------------------PIER_API_GET_ACTIVITY_CODE-------------------
+#pragma mark - Request
+@interface GetRegisterCodeRequest : PIRPayModel
+@property(nonatomic, copy, readwrite) NSString *phone;
+@property(nonatomic, copy, readwrite) NSString *country_code;
+@end
+
+@interface GetRegisterCodeResponse : PIRPayModel
+@property(nonatomic, copy, readonly) NSString *expiration;
+@end
