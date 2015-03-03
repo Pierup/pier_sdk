@@ -157,5 +157,25 @@
             </connections>
             <point key="canvasLocation" x="201" y="738"/>
         </tableViewCell>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PIRSiginEmailNumberCell" id="Jox-bU-XMY" customClass="PIRSiginEmailNumberCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jox-bU-XMY" id="jIG-DB-qnE">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kyV-bS-s20" customClass="RPFloatingPlaceholderTextField">
+                        <rect key="frame" x="8" y="15" width="304" height="30"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                    </textField>
+                </subviews>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="emailLabel" destination="kyV-bS-s20" id="Urs-SB-S0y"/>
+            </connections>
+            <point key="canvasLocation" x="201" y="842"/>
+        </tableViewCell>
     </objects>
 </document>

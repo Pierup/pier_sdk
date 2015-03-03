@@ -90,7 +90,6 @@
 @interface RegisterResponse ()
 @property(nonatomic, copy, readwrite) NSString *user_id;
 @property(nonatomic, copy, readwrite) NSString *device_id;
-@property(nonatomic, copy, readwrite) NSString *session_token;
 @property(nonatomic, copy, readwrite) NSString *passcode_expiration;
 @end
 
@@ -98,3 +97,18 @@
 
 @end
 
+#pragma mark - --------------------PIER_API_GET_UPDATEUSER-------------------
+#pragma mark - Request
+@interface UpdateRequest ()
+@end
+
+@implementation UpdateRequest
+@end
+
+#pragma mark - Response
+@interface UpdateResponse ()
+@property(nonatomic, copy, readwrite) NSString *status_bit;
+@end
+
+@implementation UpdateResponse
+@end

@@ -184,6 +184,12 @@
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"RegisterResponse",RESULT_MODEL,nil];
             break;
+        case ePIER_API_GET_UPDATEUSER:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      PIER_API_GET_UPDATEUSER,HTTP_PATH,
+                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
+                      @"UpdateRequest",RESULT_MODEL,nil];
+            break;
         default:
             break;
     }

@@ -85,6 +85,33 @@
 
 @end
 
+@interface PIRSiginEmailNumberCell ()
+
+@property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *emailLabel;
+
+@end
+
+@implementation PIRSiginEmailNumberCell
+
+- (NSString *)getEmail{
+    NSString *email = [self.emailLabel text];
+    return email;
+}
+
+- (BOOL)checkEmail{
+    BOOL result = NO;
+    NSString *email = [self getEmail];
+    if ([email isValidEMail]) {
+        result = YES;
+    }else{
+        [PIRViewUtil shakeView:self.contentView];
+        result = NO;
+    }
+    return result;
+}
+
+@end
+
 @interface PIRSiginAddressCell ()
 
 @property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *addressLabel;

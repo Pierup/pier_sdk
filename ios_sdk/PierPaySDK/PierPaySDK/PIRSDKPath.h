@@ -28,5 +28,6 @@ NSString * const PIER_API_GET_AUTH_TOKEN_V2     = @"/user_api/v2/sdk/get_auth_to
 NSString * const PIER_API_GET_ACTIVITY_CODE     = @"/user_api/v2/user/activation_code";
 NSString * const PIER_API_GET_ACTIVITION        = @"/user_api/v2/user/activation";
 NSString * const PIER_API_GET_ACTIVITION_REGIST = @"/user_api/v2/user/register_user";
+NSString * const PIER_API_GET_UPDATEUSER        = @"/user_api/v2/user/update_user";
 
 #endif

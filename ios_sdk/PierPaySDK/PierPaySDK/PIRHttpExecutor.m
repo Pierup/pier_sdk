@@ -153,6 +153,8 @@ static NSString *defaultUserAgent;
         [self addParametersToRequest:parameters];
     }
     
+    DLog(@"[Request]\n%@",parameters);
+    
     return self;
 }
 

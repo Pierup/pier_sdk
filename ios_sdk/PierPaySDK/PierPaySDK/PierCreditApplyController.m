@@ -130,22 +130,25 @@
 - (void)submitUserInfo{
     if ([self.infoViewModel checkUserInfo]) {
         self.cellModel = [self.infoViewModel getSiginCellModel];
-        [self serviceGetReigistSMS];
+        [self serviceUpdataUser:self.cellModel];
     }
 }
 
-- (void)serviceGetReigistSMS{
-    GetRegisterCodeRequest *requestModel = [[GetRegisterCodeRequest alloc] init];
-    requestModel.phone = self.cellModel.phone;
-    requestModel.country_code = @"CN";
-    
-    [PIRService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
-        GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
-        
+- (void)serviceUpdataUser:(PIRSiginCellModel *)userModel{
+    UpdateRequest *requestModel = [[UpdateRequest alloc] init];
+    requestModel.first_name = userModel.firstName;
+    requestModel.last_name = userModel.lastName;
+    requestModel.email  =   userModel.email;
+    requestModel.dob    =   userModel.dob;
+    requestModel.ssn    =   userModel.ssn;
+    requestModel.address    =   userModel.address;
+    [PIRService serverSend:ePIER_API_GET_UPDATEUSER resuest:requestModel successBlock:^(id responseModel) {
+        UpdateResponse *response = (UpdateResponse *)responseModel;
     } faliedBlock:^(NSError *error) {
         
     }];
 }
+
 
 /*
 #pragma mark - Navigation

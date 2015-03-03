@@ -105,7 +105,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             PierRegisterViewController *loginPage = [[PierRegisterViewController alloc] initWithNibName:@"PierRegisterViewController" bundle:pierBoundle()];
             loginPage.token = reqponse.token;
-            [self.navigationController pushViewController:loginPage animated:YES];
+            [self.navigationController pushViewController:loginPage animated:NO];
         });
     } faliedBlock:^(NSError *error) {
         

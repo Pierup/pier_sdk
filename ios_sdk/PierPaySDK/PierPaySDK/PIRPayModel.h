@@ -88,3 +88,19 @@
 @property(nonatomic, copy, readonly) NSString *passcode_expiration;
 
 @end
+
+#pragma mark - --------------------PIER_API_GET_UPDATEUSER-------------------
+#pragma mark - Request
+@interface UpdateRequest : PIRPayModel
+@property(nonatomic, copy, readwrite) NSString *first_name;
+@property(nonatomic, copy, readwrite) NSString *last_name;
+@property(nonatomic, copy, readwrite) NSString *email;
+@property(nonatomic, copy, readwrite) NSString *dob;
+@property(nonatomic, copy, readwrite) NSString *ssn;
+@property(nonatomic, copy, readwrite) NSString *address;
+@end
+
+#pragma mark - Response
+@interface UpdateResponse : PIRPayModel
+@property(nonatomic, copy, readonly) NSString *status_bit;
+@end

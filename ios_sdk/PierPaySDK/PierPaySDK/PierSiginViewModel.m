@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) PIRSiginNameCell *nameCell;
 @property (nonatomic, strong) PIRSiginPhoneNumberCell *phoneCell;
+@property (nonatomic, strong) PIRSiginEmailNumberCell *emailCell;
 @property (nonatomic, strong) PIRSiginAddressCell *addressCell;
 @property (nonatomic, strong) PIRSiginDobCell *DOBCell;
 @property (nonatomic, strong) PIRSiginSSNCell *SSNCell;
@@ -51,11 +52,11 @@
         {
             __block NSMutableArray *cells = [NSMutableArray array];
             [cells addObject:@(eSiginInputUserNameCell)];
-            [cells addObject:@(eSiginPhoneNumberCell)];
+            [cells addObject:@(eSiginEmailCell)];
             [cells addObject:@(eSiginAddressCell)];
             [cells addObject:@(eSiginDobCell)];
             [cells addObject:@(eSiginSSNCell)];
-            [cells addObject:@(eSiginPWDCell)];
+//            [cells addObject:@(eSiginPWDCell)];
             [dictionary setObject:cells forKey:@(sectionType)];
             break;
         }
@@ -88,6 +89,10 @@
         }
         case eSiginPhoneNumberCell:{
             identifier = @"PIRSiginPhoneNumberCell";
+            break;
+        }
+        case eSiginEmailCell:{
+            identifier = @"PIRSiginEmailNumberCell";
             break;
         }
         case eSiginAddressCell:{
@@ -132,6 +137,11 @@
         case eSiginPhoneNumberCell:{
             _phoneCell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:1];
             resultCell = _phoneCell;
+            break;
+        }
+        case eSiginEmailCell:{
+            _emailCell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:7];
+            resultCell = _emailCell;
             break;
         }
         case eSiginAddressCell:{
@@ -210,6 +220,9 @@
         case eSiginPhoneNumberCell:{
             break;
         }
+        case eSiginEmailCell:{
+            break;
+        }
         case eSiginAddressCell:{
             break;
         }
@@ -246,6 +259,10 @@
             height = 60;
             break;
         }
+        case eSiginEmailCell:{
+            height = 60;
+            break;
+        }
         case eSiginAddressCell:{
             height = 60;
             break;
@@ -278,7 +295,7 @@
     NSDictionary *nameDic = [self.nameCell getUserName];
     self.cellModel.firstName = [nameDic objectForKey:@"firstName"];
     self.cellModel.lastName = [nameDic objectForKey:@"lastName"];
-    self.cellModel.phone = [self.phoneCell getPhone];
+    self.cellModel.email = [self.emailCell getEmail];
     self.cellModel.address = [self.addressCell getAddresss];
     self.cellModel.dob = [self.DOBCell getDOB];
     self.cellModel.ssn = [self.SSNCell getSSN];
@@ -289,7 +306,7 @@
 - (BOOL)checkUserInfo{
 //    BOOL checkName  = [self.nameCell checkUserName];
 //    BOOL checkPhone = [self.phoneCell checkPhone];
-    BOOL result = [self.nameCell checkUserName] && [self.phoneCell checkPhone] && [self.addressCell checkAddress] && [self.DOBCell checkDOB] && [self.SSNCell checkSSN];
+    BOOL result = [self.nameCell checkUserName] && [self.emailCell checkEmail] && [self.addressCell checkAddress] && [self.DOBCell checkDOB] && [self.SSNCell checkSSN];
     
     return result;
 }

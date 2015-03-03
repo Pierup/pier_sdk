@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, eSiginCellSection) {
 typedef NS_ENUM(NSInteger, eSiginCellType) {
     eSiginInputUserNameCell,
     eSiginPhoneNumberCell,
+    eSiginEmailCell,
     eSiginAddressCell,
     eSiginDobCell,
     eSiginSSNCell,

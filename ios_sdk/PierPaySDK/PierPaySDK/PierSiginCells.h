@@ -13,7 +13,7 @@
 
 @property (nonatomic, copy) NSString *firstName;
 @property (nonatomic, copy) NSString *lastName;
-@property (nonatomic, copy) NSString *phone;
+@property (nonatomic, copy) NSString *email;
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSString *dob;
 @property (nonatomic, copy) NSString *ssn;
@@ -46,6 +46,13 @@
 
 - (NSString *)getPhone;
 - (BOOL)checkPhone;
+
+@end
+
+@interface PIRSiginEmailNumberCell : PierSiginCells
+
+- (NSString *)getEmail;
+- (BOOL)checkEmail;
 
 @end
 
