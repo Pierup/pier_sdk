@@ -190,6 +190,13 @@
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"UpdateRequest",RESULT_MODEL,nil];
             break;
+        case ePIER_API_GET_APPLYCREDIT:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      PIER_API_GET_APPLYCREDIT,HTTP_PATH,
+                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
+                      @"UpdateRequest",RESULT_MODEL,nil];
+            break;
+            break;
         default:
             break;
     }

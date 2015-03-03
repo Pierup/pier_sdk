@@ -11,6 +11,7 @@
 #import "PierTools.h"
 #import "PIRService.h"
 #import "PIRPayModel.h"
+#import "PierCreditApproveViewController.h"
 
 @interface PierCreditApplyController ()<PIRSiginCellsDelegate>
 
@@ -144,11 +145,26 @@
     requestModel.address    =   userModel.address;
     [PIRService serverSend:ePIER_API_GET_UPDATEUSER resuest:requestModel successBlock:^(id responseModel) {
         UpdateResponse *response = (UpdateResponse *)responseModel;
+        
     } faliedBlock:^(NSError *error) {
         
     }];
 }
 
+
+- (void)serviceCredtiApply{
+    CreditApplyRequest *requestModel = [[CreditApplyRequest alloc] init];
+    [PIRService serverSend:ePIER_API_GET_APPLYCREDIT resuest:requestModel successBlock:^(id responseModel) {
+        CreditApplyResponse *response = (CreditApplyResponse *)responseModel;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            PierCreditApproveViewController *registerVC = [[PierCreditApproveViewController alloc] initWithNibName:@"PierCreditApproveViewController" bundle:pierBoundle()];
+            registerVC.responseModel = response;
+            [self.navigationController pushViewController:registerVC animated:YES];
+        });
+    } faliedBlock:^(NSError *error) {
+        
+    }];
+}
 
 /*
 #pragma mark - Navigation

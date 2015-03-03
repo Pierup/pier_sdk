@@ -112,3 +112,25 @@
 
 @implementation UpdateResponse
 @end
+
+#pragma mark - --------------------PIER_API_GET_APPLYCREDIT-------------------
+#pragma mark - Request
+@interface CreditApplyRequest()
+@end
+
+@implementation CreditApplyRequest
+
+@end
+
+#pragma mark - Response
+@interface CreditApplyResponse()
+@property(nonatomic, copy, readwrite) NSString *currency;
+@property(nonatomic, copy, readwrite) NSString *category;
+@property(nonatomic, copy, readwrite) NSString *credit_limit;
+@property(nonatomic, copy, readwrite) NSString *shadow_limit;
+@property(nonatomic, copy, readwrite) NSString *note;
+@end
+
+@implementation CreditApplyResponse
+
+@end

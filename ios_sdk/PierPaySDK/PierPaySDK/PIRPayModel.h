@@ -104,3 +104,17 @@
 @interface UpdateResponse : PIRPayModel
 @property(nonatomic, copy, readonly) NSString *status_bit;
 @end
+
+#pragma mark - --------------------PIER_API_GET_APPLYCREDIT-------------------
+#pragma mark - Request
+@interface CreditApplyRequest : PIRPayModel
+@end
+
+#pragma mark - Response
+@interface CreditApplyResponse : PIRPayModel
+@property(nonatomic, copy, readonly) NSString *currency;
+@property(nonatomic, copy, readonly) NSString *category;
+@property(nonatomic, copy, readonly) NSString *credit_limit;
+@property(nonatomic, copy, readonly) NSString *shadow_limit;
+@property(nonatomic, copy, readonly) NSString *note;
+@end

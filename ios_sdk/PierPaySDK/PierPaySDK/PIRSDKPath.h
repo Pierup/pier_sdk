@@ -29,5 +29,6 @@ NSString * const PIER_API_GET_ACTIVITY_CODE     = @"/user_api/v2/user/activation
 NSString * const PIER_API_GET_ACTIVITION        = @"/user_api/v2/user/activation";
 NSString * const PIER_API_GET_ACTIVITION_REGIST = @"/user_api/v2/user/register_user";
 NSString * const PIER_API_GET_UPDATEUSER        = @"/user_api/v2/user/update_user";
+NSString * const PIER_API_GET_APPLYCREDIT       = @"/user_api/v2/sdk/apply_credit";
 
 #endif
