@@ -68,14 +68,11 @@
     if ([self checkPhone]) {
         [self serviceGetReigistSMS];
     }
-//    PierRegisterViewController *registerVC = [[PierRegisterViewController alloc] initWithNibName:@"PierRegisterViewController" bundle:pierBoundle()];
-//    [self.navigationController pushViewController:registerVC animated:NO];
 }
 
 - (void)serviceGetReigistSMS{
     GetRegisterCodeRequest *requestModel = [[GetRegisterCodeRequest alloc] init];
     requestModel.phone = self.phone;
-    requestModel.country_code = @"CN";
     
     [PIRService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
         GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
@@ -101,12 +98,15 @@
 - (void)serviceSMSActivation:(NSString *)activation_code{
     RegSMSActiveRequest *requestModel = [[RegSMSActiveRequest alloc] init];
     requestModel.phone = self.phone;
-    requestModel.country_code = @"CN";
     requestModel.activation_code = activation_code;
     
     [PIRService serverSend:ePIER_API_GET_ACTIVITION resuest:requestModel successBlock:^(id responseModel) {
         RegSMSActiveResponse *reqponse = (RegSMSActiveResponse *)responseModel;
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            PierRegisterViewController *loginPage = [[PierRegisterViewController alloc] initWithNibName:@"PierRegisterViewController" bundle:pierBoundle()];
+            loginPage.token = reqponse.token;
+            [self.navigationController pushViewController:loginPage animated:YES];
+        });
     } faliedBlock:^(NSError *error) {
         
     }];

@@ -12,6 +12,7 @@
 #import "PierColor.h"
 #import "NSString+Check.h"
 #import "PierCreditApplyController.h"
+#import "PIRDataSource.h"
 
 @interface PierRegisterViewController ()
 
@@ -60,8 +61,24 @@
 
 
 - (IBAction)userSetPasswordAction:(id)sender{
-    PierCreditApplyController *registerVC = [[PierCreditApplyController alloc] initWithNibName:@"PierCreditApplyController" bundle:pierBoundle()];
-    [self.navigationController pushViewController:registerVC animated:YES];
+    NSString *password = self.passwordLabel.text;
+    [self serviceUserRegister:password];
+}
+
+- (void)serviceUserRegister:(NSString *)password{
+    RegisterRequest *requestModel = [[RegisterRequest alloc] init];
+    requestModel.phone = __dataSource.phone;
+    requestModel.token = self.token;
+    requestModel.password = password;
+    
+    [PIRService serverSend:ePIER_API_GET_ACTIVITION_REGIST resuest:requestModel successBlock:^(id responseModel) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            PierCreditApplyController *registerVC = [[PierCreditApplyController alloc] initWithNibName:@"PierCreditApplyController" bundle:pierBoundle()];
+            [self.navigationController pushViewController:registerVC animated:YES];
+        });
+    } faliedBlock:^(NSError *error) {
+        
+    }];
 }
 
 /*

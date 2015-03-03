@@ -78,3 +78,23 @@
 
 @end
 
+
+#pragma mark - --------------------PIER_API_GET_ACTIVITION_REGIST-------------------
+#pragma mark - Request
+@implementation RegisterRequest
+
+@end
+
+#pragma mark - Response
+
+@interface RegisterResponse ()
+@property(nonatomic, copy, readwrite) NSString *user_id;
+@property(nonatomic, copy, readwrite) NSString *device_id;
+@property(nonatomic, copy, readwrite) NSString *session_token;
+@property(nonatomic, copy, readwrite) NSString *passcode_expiration;
+@end
+
+@implementation RegisterResponse
+
+@end
+

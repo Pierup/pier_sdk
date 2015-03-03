@@ -14,6 +14,7 @@
 #import "PierLoginViewController.h"
 #import "PierTools.h"
 #import "PierSiginViewController.h"
+#import "PIRDataSource.h"
 
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
@@ -32,6 +33,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    initDataSource();
     [self initView];
 }
 

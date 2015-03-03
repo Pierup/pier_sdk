@@ -11,6 +11,9 @@
 #import "PIRHttpClient.h"
 #import "PIRJSONModel.h"
 #import "PIRConfig.h"
+#import "PierTools.h"
+#import "NSString+Check.h"
+#import "PIRDataSource.h"
 
 #define HTTP_METHOD_POST        0   //@"post"
 #define HTTP_METHOD_POST_JSON   1   //@"post-json"
@@ -21,20 +24,42 @@
 #define HTTP_METHOD             @"method"
 #define RESULT_MODEL            @"resultModel"
 
-static NSString *__session_token = @"";
-static NSString *__user_id = @"";
+//static NSString *__session_token = @"";
+//static NSString *__user_id = @"";
 
 
 @implementation PIRService
+
++ (void)setRequestHeader:(NSDictionary *)param requestModel:(PIRPayModel *)requestModel{
+    NSString *phone     = __dataSource.phone;
+    if ([NSString emptyOrNull:phone]) {
+        phone = [requestModel valueForKey:@"phone"];
+        __dataSource.phone = phone;
+    }
+    if (![NSString emptyOrNull:phone]) {
+        NSInteger phone_length = phone.length;
+        if (phone_length > 0) {
+            if (phone_length == 10) {
+                [param setValue:@"US" forKey:@"country_code"];
+            }else if (phone_length == 11){
+                [param setValue:@"CN" forKey:@"country_code"];
+            }else{
+                [param setValue:@"US" forKey:@"country_code"];
+            }
+            __dataSource.country_code = [param objectForKey:@"country_code"];
+        }
+    }
+    
+    [param setValue:__dataSource.session_token forKey:@"session_token"];
+    [param setValue:__dataSource.user_id forKey:@"user_id"];
+}
 
 + (void)serverSend:(ePIER_API_Type)apiType
            resuest:(PIRPayModel *)requestModel
       successBlock:(PierPaySuccessBlock)success
        faliedBlock:(PierPayFailedBlock)failed{
     NSDictionary *param = [PIRJSONModel getDictionaryByObject:requestModel];
-    [param setValue:__user_id forKey:@"user_id"];
-    [param setValue:__session_token forKey:@"session_token"];
-    
+    [PIRService setRequestHeader:param requestModel:requestModel];
     NSDictionary *pathAndMethod = [PIRService getPathAndMethodByType:apiType];
     NSString *path              = [pathAndMethod objectForKey:HTTP_PATH];
     NSInteger method            = [[pathAndMethod objectForKey:HTTP_METHOD] integerValue];
@@ -100,8 +125,8 @@ static NSString *__user_id = @"";
         PIRPayModel *resultModel   = [PIRJSONModel getObjectByDictionary:resultDic clazz:resultClass];
         [resultModel setValue:result[@"code"] forKey:@"code"];
         [resultModel setValue:result[@"message"] forKey:@"message"];
-        __session_token = [resultDic valueForKey:@"session_token"];
-        __user_id       = [resultDic valueForKey:@"user_id"];
+        __dataSource.session_token = [resultDic valueForKey:@"session_token"];
+        __dataSource.user_id       = [resultDic valueForKey:@"user_id"];
         if ([resultModel.code integerValue] == 200) {
             success(resultModel);
         }else{
@@ -152,6 +177,12 @@ static NSString *__user_id = @"";
                       PIER_API_GET_ACTIVITION,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"RegSMSActiveResponse",RESULT_MODEL,nil];
+            break;
+        case ePIER_API_GET_ACTIVITION_REGIST:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      PIER_API_GET_ACTIVITION_REGIST,HTTP_PATH,
+                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
+                      @"RegisterResponse",RESULT_MODEL,nil];
             break;
         default:
             break;

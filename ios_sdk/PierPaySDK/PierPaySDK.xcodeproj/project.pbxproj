@@ -47,6 +47,8 @@
 		2A39BC2E1A2EE81300B9D551 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A39BC221A2EE81300B9D551 /* libPierPaySDK.a */; };
 		2A6EA3011AA5583200E8B340 /* PIRStopWatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3001AA5583200E8B340 /* PIRStopWatchView.m */; };
 		2A6EA3021AA5583200E8B340 /* PIRStopWatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3001AA5583200E8B340 /* PIRStopWatchView.m */; };
+		2A6EA3051AA579CD00E8B340 /* PIRDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3041AA579CD00E8B340 /* PIRDataSource.m */; };
+		2A6EA3061AA579CD00E8B340 /* PIRDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3041AA579CD00E8B340 /* PIRDataSource.m */; };
 		2A77977A1A3E764F00F5DF36 /* PIRHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */; };
 		2A77977D1A3E865D00F5DF36 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */; };
 		2A96B55A1AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B5571AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m */; };
@@ -150,6 +152,8 @@
 		2A39BC331A2EE81300B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A6EA2FF1AA5583200E8B340 /* PIRStopWatchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRStopWatchView.h; sourceTree = "<group>"; };
 		2A6EA3001AA5583200E8B340 /* PIRStopWatchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRStopWatchView.m; sourceTree = "<group>"; };
+		2A6EA3031AA579CD00E8B340 /* PIRDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRDataSource.h; sourceTree = "<group>"; };
+		2A6EA3041AA579CD00E8B340 /* PIRDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRDataSource.m; sourceTree = "<group>"; };
 		2A7797781A3E764F00F5DF36 /* PIRHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRHttpClient.h; sourceTree = "<group>"; };
 		2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpClient.m; sourceTree = "<group>"; };
 		2A77977B1A3E865D00F5DF36 /* PIRHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRHttpExecutor.h; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 		2ACCFEBD1A775F5A00A5BAC5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2A6EA3031AA579CD00E8B340 /* PIRDataSource.h */,
+				2A6EA3041AA579CD00E8B340 /* PIRDataSource.m */,
 				2A252D381AA1B0AB004BAB9C /* PIRDateUtil.h */,
 				2A252D391AA1B0AB004BAB9C /* PIRDateUtil.m */,
 				2A252D341AA1B081004BAB9C /* NSString+Check.h */,
@@ -568,6 +574,7 @@
 				2A252D3F1AA1BA58004BAB9C /* PierLoginViewController.m in Sources */,
 				2A252D4F1AA1C4E8004BAB9C /* PierSiginCells.m in Sources */,
 				2A77977A1A3E764F00F5DF36 /* PIRHttpClient.m in Sources */,
+				2A6EA3051AA579CD00E8B340 /* PIRDataSource.m in Sources */,
 				2ACCFEC81A776A4500A5BAC5 /* PierTools.m in Sources */,
 				2A252D4B1AA1C4D0004BAB9C /* PierSiginViewModel.m in Sources */,
 				2ACCFECC1A77722700A5BAC5 /* PIRKeyboard.m in Sources */,
@@ -622,6 +629,7 @@
 				2A252D401AA1BA58004BAB9C /* PierLoginViewController.m in Sources */,
 				2ACCFEBA1A775B9000A5BAC5 /* PierAlertView.m in Sources */,
 				2A252CDC1AA166A7004BAB9C /* PierFont.m in Sources */,
+				2A6EA3061AA579CD00E8B340 /* PIRDataSource.m in Sources */,
 				2ACCFEC91A776A4500A5BAC5 /* PierTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

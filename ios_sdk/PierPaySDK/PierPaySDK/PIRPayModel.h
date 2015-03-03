@@ -9,9 +9,14 @@
 #import "PIRJSONModel.h"
 
 @interface PIRPayModel : PIRJSONModel
+//input
+@property(nonatomic, copy, readwrite) NSString *country_code;
+//output
+@property(nonatomic, copy, readwrite) NSString *user_id;
+@property(nonatomic, copy, readonly) NSString *session_token;
 @property(nonatomic, copy, readwrite) NSString *code;
 @property(nonatomic, copy, readwrite) NSString *message;
-@property(nonatomic, copy, readwrite) NSString *country_code;
+
 @end
 
 #pragma mark - -------------------PIER_API_TRANSACTION_SMS-------------------
@@ -68,3 +73,18 @@
 @property(nonatomic, copy, readonly) NSString *token;
 @end
 
+#pragma mark - --------------------PIER_API_GET_ACTIVITION_REGIST-------------------
+#pragma mark - Request
+@interface RegisterRequest : PIRPayModel
+@property(nonatomic, copy, readwrite) NSString *phone;
+@property(nonatomic, copy, readwrite) NSString *token;
+@property(nonatomic, copy, readwrite) NSString *country_code;
+@property(nonatomic, copy, readwrite) NSString *password;
+@end
+
+#pragma mark - Response
+@interface RegisterResponse : PIRPayModel
+@property(nonatomic, copy, readonly) NSString *device_id;
+@property(nonatomic, copy, readonly) NSString *passcode_expiration;
+
+@end

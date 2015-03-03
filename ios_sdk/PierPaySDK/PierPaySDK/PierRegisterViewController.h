@@ -10,4 +10,6 @@
 
 @interface PierRegisterViewController : UIViewController
 
+@property(nonatomic, copy) NSString *token;
+
 @end
