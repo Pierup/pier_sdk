@@ -16,6 +16,7 @@ void freeDataSource();
 
 @interface PIRDataSource : NSObject
 
+@property (nonatomic, strong) NSDictionary *merchantParam;
 @property (nonatomic, copy) NSString *country_code;         // 国家码
 @property (nonatomic, copy) NSString *session_token;        // session token
 @property (nonatomic, copy) NSString *device_id;            // device id

@@ -33,7 +33,6 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    initDataSource();
     [self initView];
 }
 
@@ -179,6 +178,8 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 @implementation PierPay
 
 - (instancetype)initWith:(NSDictionary *)userAttributes{
+    initDataSource();
+    __dataSource.merchantParam = userAttributes;
     self = [super init];
     if (self) {
         _merchantAppHasBar = NO;

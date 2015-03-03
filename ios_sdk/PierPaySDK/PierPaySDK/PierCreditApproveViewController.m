@@ -9,6 +9,7 @@
 #import "PierCreditApproveViewController.h"
 #import "PierColor.h"
 #import "PierTools.h"
+#import "PIRDataSource.h"
 
 @interface PierCreditApproveViewController ()
 
@@ -41,6 +42,7 @@
 
 - (void)initData{
     [self.creditLimitLabel setText:self.responseModel.credit_limit];
+    [self.costLabel setText:[__dataSource.merchantParam objectForKey:@"amount"]];
 }
 
 - (void)initView{

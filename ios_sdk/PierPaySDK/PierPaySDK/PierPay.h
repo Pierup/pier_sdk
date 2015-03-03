@@ -36,9 +36,12 @@
 /**
  * userAttributes
  * name:            Required     Type       Description
- * 1.name           YES          NSString   user name
- * 2.phone          YES          NSString   user phone
- * 3.country_code   YES          NSString   the country code of user phone.
+ * 1.phone           YES          NSString   user phone.
+ * 2.country_code    YES          NSString   the country code of user phone.
+ * 3.merchant_id     YES          NSString   your id in pier.
+ * 4.amount          YES          NSString   amount.
+ * 5.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
+ * 6.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  */
 - (instancetype)initWith:(NSDictionary *)userAttributes;
 

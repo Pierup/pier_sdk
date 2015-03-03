@@ -22,9 +22,12 @@
 - (IBAction)payByPier:(id)sender{
 //    [PierPaySDK test:self.textView.text];
     NSDictionary *userAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"Peter",       @"name",
-                                    @"1234567890",  @"phone",
-                                    @"US",          @"country_code",nil];
+                                    @"1879654567", @"phone",
+                                    @"US", @"country_code",
+                                    @"MC0000000134", @"merchant_id",
+                                    @"500", @"amount",
+                                    @"USD", @"currency",
+                                    @"http://192.168.1.96:8080/pier-merchant/merchant/server/sdk/pay/", @"server_url",nil];
     PierPay *pierpay = [[PierPay alloc] initWith:userAttributes];
     pierpay.pierDelegate = self;
     [self presentViewController:pierpay animated:YES completion:nil];
