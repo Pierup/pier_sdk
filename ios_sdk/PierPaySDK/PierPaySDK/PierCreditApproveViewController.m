@@ -43,6 +43,17 @@
 - (void)initData{
     [self.creditLimitLabel setText:self.responseModel.credit_limit];
     [self.costLabel setText:[__dataSource.merchantParam objectForKey:@"amount"]];
+    
+    [self.payButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.payButton.layer setMasksToBounds:YES];
+    [self.payButton.layer setCornerRadius:5];
+    [self.payButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [self.payButton.layer setBorderWidth:1];
+    
+    [self.cancleBUtton.layer setMasksToBounds:YES];
+    [self.cancleBUtton.layer setCornerRadius:5];
+    [self.cancleBUtton.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
+    [self.cancleBUtton.layer setBorderWidth:1];
 }
 
 - (void)initView{

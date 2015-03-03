@@ -145,7 +145,7 @@
     requestModel.address    =   userModel.address;
     [PIRService serverSend:ePIER_API_GET_UPDATEUSER resuest:requestModel successBlock:^(id responseModel) {
         UpdateResponse *response = (UpdateResponse *)responseModel;
-        
+        [self serviceCredtiApply];
     } faliedBlock:^(NSError *error) {
         
     }];

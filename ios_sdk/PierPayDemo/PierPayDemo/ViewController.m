@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "PierPay.h"
 @interface ViewController () <PayByPierDelegate>
-@property (nonatomic, weak) IBOutlet UITextView *textView;
 @end
 
 @implementation ViewController

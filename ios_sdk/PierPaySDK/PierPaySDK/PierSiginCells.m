@@ -10,6 +10,7 @@
 #import "RPFloatingPlaceholderTextField.h"
 #import "NSString+Check.h"
 #import "PIRViewUtil.h"
+#import "PIRDateUtil.h"
 
 @implementation PIRSiginCellModel
 
@@ -149,13 +150,15 @@
 
 - (NSString *)getDOB{
     NSString *dob = self.dobLabel.text;
-    return dob;
+    NSDate *dobData = [PIRDateUtil dateFromString:dob formate:@"MMddYYYY"];
+    NSString *resultFormateStr = [PIRDateUtil getStringFormateDate:dobData formatType:SIMPLEFORMATTYPESTRING14];
+    return resultFormateStr;
 }
 
 - (BOOL)checkDOB{
     BOOL result = NO;
     NSString *dob = [self getDOB];
-    if (![NSString emptyOrNull:dob]) {
+    if ([dob checkDOBFormate] == eDOBFormate_available) {
         result = YES;
     }else{
         [PIRViewUtil shakeView:self.contentView];
