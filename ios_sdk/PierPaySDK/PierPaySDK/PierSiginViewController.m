@@ -83,7 +83,9 @@
                                @"",@"titleImageName",
                                @"SMS",@"title",
                                @"Next",@"approveText",
-                               @"Dismiss",@"cancleText",nil];
+                               @"Dismiss",@"cancleText",
+                               self.phone,@"phone",
+                               response.expiration,@"expirationTime",nil];
         [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
             
         } cancel:^{

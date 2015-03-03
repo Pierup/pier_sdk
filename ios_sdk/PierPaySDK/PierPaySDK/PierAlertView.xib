@@ -7,49 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PierAlertView">
-            <rect key="frame" x="0.0" y="0.0" width="281" height="271"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vi8-nw-KJ9">
-                    <rect key="frame" x="50" y="207" width="181" height="30"/>
-                    <color key="backgroundColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="No now">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="cancelAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Zwz-ap-dd7"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCh-uA-vxA">
-                    <rect key="frame" x="50" y="163" width="181" height="30"/>
-                    <color key="backgroundColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Approve">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="approve:" destination="iN0-l3-epB" eventType="touchUpInside" id="uf4-Zm-i4J"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJg-s6-ccc">
-                    <rect key="frame" x="50" y="27" width="181" height="74"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="approveButton" destination="XCh-uA-vxA" id="drV-5w-c1x"/>
-                <outlet property="cancleButton" destination="Vi8-nw-KJ9" id="DJc-XP-wAN"/>
-                <outlet property="userInputLabel" destination="BJg-s6-ccc" id="ePA-jI-g4Q"/>
-            </connections>
-            <point key="canvasLocation" x="100.5" y="98.5"/>
-        </view>
-        <view contentMode="scaleToFill" id="os9-63-6fy" customClass="PierSMSAlertView">
+        <view contentMode="scaleToFill" id="os9-63-6fy" customClass="PierAlertView">
             <rect key="frame" x="0.0" y="0.0" width="281" height="265"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -61,7 +19,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="approve:" destination="os9-63-6fy" eventType="touchUpInside" id="4In-Qy-Ffo"/>
+                        <action selector="approve:" destination="os9-63-6fy" eventType="touchUpInside" id="f76-nB-qCo"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3C0-nX-78u">
@@ -87,19 +45,87 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="cancleAction:" destination="os9-63-6fy" eventType="touchUpInside" id="2YP-PX-aNE"/>
+                        <action selector="cancleAction:" destination="os9-63-6fy" eventType="touchUpInside" id="r20-MH-F2a"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="approveButton" destination="YoV-OY-Qom" id="Qre-wN-Wmv"/>
-                <outlet property="cancleButton" destination="WTB-Zu-TiX" id="Dc5-EZ-qpD"/>
-                <outlet property="textField" destination="lPc-Hr-Fgl" id="Oa4-vG-aeX"/>
-                <outlet property="titleLabel" destination="3C0-nX-78u" id="cLc-li-g4Z"/>
+                <outlet property="approveButton" destination="YoV-OY-Qom" id="vNX-NP-Ufs"/>
+                <outlet property="cancleButton" destination="WTB-Zu-TiX" id="Ghe-S7-ZH8"/>
+                <outlet property="textField" destination="lPc-Hr-Fgl" id="f7v-XL-bJ2"/>
+                <outlet property="titleLabel" destination="3C0-nX-78u" id="Sty-62-EAT"/>
             </connections>
-            <point key="canvasLocation" x="100.5" y="432.5"/>
+            <point key="canvasLocation" x="89.5" y="68.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="hub-Vz-60X" customClass="PierSMSAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="281" height="265"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LN5-GL-dxW">
+                    <rect key="frame" x="15" y="144" width="251" height="40"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="OK">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="approve:" destination="hub-Vz-60X" eventType="touchUpInside" id="AwL-SH-uff"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-Oe-jLa">
+                    <rect key="frame" x="0.0" y="19" width="281" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oaj-aH-mfR">
+                    <rect key="frame" x="15" y="69" width="251" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Text Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BH4-zV-OZI">
+                    <rect key="frame" x="15" y="84" width="251" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rd-zn-LV9">
+                    <rect key="frame" x="15" y="205" width="251" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Cancle">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancleAction:" destination="hub-Vz-60X" eventType="touchUpInside" id="9gI-oV-IZp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xa-H6-EU4">
+                    <rect key="frame" x="218" y="89" width="30" height="30"/>
+                    <connections>
+                        <action selector="resend:" destination="hub-Vz-60X" eventType="touchUpInside" id="Lj7-fT-oXI"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uLe-r8-4Xi" customClass="PIRStopWatchView">
+                    <rect key="frame" x="206" y="89" width="54" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NL6-fk-xdv">
+                    <rect key="frame" x="223" y="94" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="approveButton" destination="LN5-GL-dxW" id="eWe-rW-t8o"/>
+                <outlet property="cancleButton" destination="9rd-zn-LV9" id="59t-NQ-Tfg"/>
+                <outlet property="loadingView" destination="NL6-fk-xdv" id="JIe-9u-dk9"/>
+                <outlet property="refreshButton" destination="4xa-H6-EU4" id="bFV-aB-lv3"/>
+                <outlet property="stopWatch" destination="uLe-r8-4Xi" id="CwI-9C-GRu"/>
+                <outlet property="textField" destination="BH4-zV-OZI" id="yOI-dk-vUk"/>
+                <outlet property="titleLabel" destination="vbh-Oe-jLa" id="iOy-Xj-POd"/>
+            </connections>
+            <point key="canvasLocation" x="89.5" y="381.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PIRStopWatchView.h"
 
 typedef enum {
     ePierAlertViewType_userInput,
@@ -26,16 +27,6 @@ typedef void (^cancelBlock)();
 @end
 
 @interface PierAlertView : UIView
-
-+ (void)showPierAlertView:(id)delegate
-                    param:(id)param
-                     type:(ePierAlertViewType)type
-                  approve:(approveBlock)approve
-                   cancel:(cancelBlock)cancel;
-
-@end
-
-@interface PierSMSAlertView : UIView
 @property (nonatomic, copy) NSString *titleImageName;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *approveText;
@@ -49,3 +40,23 @@ typedef void (^cancelBlock)();
                             cancel:(cancelBlock)cancel;
 
 @end
+
+@interface PierSMSAlertView : PierAlertView
+
++ (void)showPierUserInputAlertView:(id)delegate
+                             param:(id)param
+                              type:(ePierAlertViewType)type
+                           approve:(approveBlock)approve
+                            cancel:(cancelBlock)cancel;
+
+@end
+
+//@interface PierCustomKeyboardAlertView : UIView
+//
+//+ (void)showPierAlertView:(id)delegate
+//                    param:(id)param
+//                     type:(ePierAlertViewType)type
+//                  approve:(approveBlock)approve
+//                   cancel:(cancelBlock)cancel;
+//
+//@end
