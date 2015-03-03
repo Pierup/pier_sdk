@@ -16,7 +16,7 @@
 @property (nonatomic, strong) UIView *bgView;
 @property (nonatomic, strong) NSDictionary *paramDic;
 @property (nonatomic, weak) IBOutlet UIButton *approveButton;
-@property (nonatomic, weak) IBOutlet UIButton *cancelButton;
+@property (nonatomic, weak) IBOutlet UIButton *cancleButton;
 
 @property (nonatomic, copy) approveBlock    approveBc;
 @property (nonatomic, copy) cancelBlock     cancelBc;
@@ -55,10 +55,10 @@
     [self.approveButton.layer setCornerRadius:5];
     [self.approveButton.layer setMasksToBounds:YES];
     
-    [self.cancelButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
-    [self.cancelButton.layer setBorderWidth:1];
-    [self.cancelButton.layer setCornerRadius:5];
-    [self.cancelButton.layer setMasksToBounds:YES];
+    [self.cancleButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+    [self.cancleButton.layer setBorderWidth:1];
+    [self.cancleButton.layer setCornerRadius:5];
+    [self.cancleButton.layer setMasksToBounds:YES];
     
     [self setCenter:CGPointMake(currentBound.size.width/2, currentBound.size.height/2)];
     
@@ -128,5 +128,118 @@
 - (void)numberKeyboardBackspace:(NSString *)number{
     [self.userInputLabel setText:number];
 }
+
+@end
+
+@interface PierSMSAlertView ()
+@property (nonatomic, weak) IBOutlet UIImageView *titleImage;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (nonatomic, weak) IBOutlet UIButton *approveButton;
+@property (nonatomic, weak) IBOutlet UIButton *cancleButton;
+
+@property (nonatomic, strong) UIView *bgView;
+@property (nonatomic, strong) NSDictionary *paramDic;
+@property (nonatomic, copy) approveBlock    approveBc;
+@property (nonatomic, copy) cancelBlock     cancelBc;
+
+@property (nonatomic, assign) ePierAlertViewType alertType;
+
+@end
+
+@implementation PierSMSAlertView
+
++ (void)showPierUserInputAlertView:(id)delegate
+                             param:(id)param
+                              type:(ePierAlertViewType)type
+                           approve:(approveBlock)approve
+                            cancel:(cancelBlock)cancel{
+    PierSMSAlertView *confirmView = (PierSMSAlertView *)[[pierBoundle() loadNibNamed:@"PierAlertView" owner:delegate options:nil] objectAtIndex:1];
+    confirmView.paramDic    = param;
+    confirmView.approveBc   = approve;
+    confirmView.cancelBc    = cancel;
+    confirmView.alertType   = type;
+    [confirmView.textField becomeFirstResponder];
+    [confirmView initData];
+    [confirmView initView];
+}
+
+- (void)initData{
+    if (self.paramDic) {
+        self.titleLabel = [self.paramDic objectForKey:@"title"];
+        [self.approveButton setTitle:[self.paramDic objectForKey:@"approveText"] forState:UIControlStateNormal];
+        [self.cancleButton setTitle:[self.paramDic objectForKey:@"cancleText"] forState:UIControlStateNormal];
+    }
+}
+
+- (void)initView{
+    UIWindow *currentWindow = [[UIApplication sharedApplication].delegate window];
+    
+    [self.approveButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [self.approveButton.layer setBorderWidth:1];
+    [self.approveButton.layer setCornerRadius:5];
+    [self.approveButton.layer setMasksToBounds:YES];
+    
+    [self.cancleButton.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
+    [self.cancleButton.layer setBorderWidth:1];
+    [self.cancleButton.layer setCornerRadius:5];
+    [self.cancleButton.layer setMasksToBounds:YES];
+    
+    [self.textField.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
+    [self.textField.layer setBorderWidth:1];
+    [self.textField.layer setCornerRadius:5];
+    [self.textField.layer setMasksToBounds:YES];
+    
+    [self setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-100)];
+    
+    [self.layer setCornerRadius:5];
+    [self.layer setMasksToBounds:YES];
+    
+    self.bgView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.bgView setBackgroundColor:[UIColor blackColor]];
+    [self.bgView setAlpha:0.1];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.bgView setAlpha:0.6];
+    }];
+    
+    
+    [currentWindow addSubview:self.bgView];
+    [currentWindow addSubview:self];
+    
+    switch (self.alertType) {
+        case ePierAlertViewType_userInput:
+        {
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (IBAction)approve:(id)sender{
+    [self viewRemoveFromSuperView];
+    self.approveBc([self.textField text]);
+}
+
+- (IBAction)cancleAction:(id)sender{
+    [UIView animateWithDuration:0.1 animations:^{
+        [self.bgView setAlpha:0.1];
+    } completion:^(BOOL finished) {
+        [self viewRemoveFromSuperView];
+        self.cancelBc();
+    }];
+}
+
+- (void)handleBgTapGesture{
+    [self viewRemoveFromSuperView];
+}
+
+- (void)viewRemoveFromSuperView{
+    [self.textField resignFirstResponder];
+    [self.bgView        removeFromSuperview];
+    [self removeFromSuperview];
+}
+
 
 @end

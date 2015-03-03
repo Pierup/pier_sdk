@@ -12,6 +12,8 @@
 #import "PierColor.h"
 #import "NSString+Check.h"
 #import "PierRegisterViewController.h"
+#import "PIRViewUtil.h"
+#import "PierAlertView.h"
 
 @interface PierSiginViewController ()
 
@@ -19,6 +21,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
 @property (nonatomic, weak) IBOutlet UITextField *phoneNumberLabel;
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
+
+@property (nonatomic, copy) NSString *phone;
 
 @end
 
@@ -60,9 +64,48 @@
 }
 
 - (IBAction)userRegisterAction:(id)sender{
-    PierRegisterViewController *registerVC = [[PierRegisterViewController alloc] initWithNibName:@"PierRegisterViewController" bundle:pierBoundle()];
-    [self.navigationController pushViewController:registerVC animated:NO];
+    self.phone = [self.phoneNumberLabel text];
+    if ([self checkPhone]) {
+        [self serviceGetReigistSMS];
+    }
+//    PierRegisterViewController *registerVC = [[PierRegisterViewController alloc] initWithNibName:@"PierRegisterViewController" bundle:pierBoundle()];
+//    [self.navigationController pushViewController:registerVC animated:NO];
 }
+
+- (void)serviceGetReigistSMS{
+    GetRegisterCodeRequest *requestModel = [[GetRegisterCodeRequest alloc] init];
+    requestModel.phone = self.phone;
+    requestModel.country_code = @"CN";
+    
+    [PIRService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
+        GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"",@"titleImageName",
+                               @"SMS",@"title",
+                               @"Next",@"approveText",
+                               @"Dismiss",@"cancleText",nil];
+        [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
+            
+        } cancel:^{
+            
+        }];
+    } faliedBlock:^(NSError *error) {
+        
+    }];
+}
+
+- (BOOL)checkPhone{
+    BOOL result = NO;
+    NSString *phone = self.phone;
+    if (phone.length == 10 || phone.length == 11) {
+        result = YES;
+    }else{
+        [PIRViewUtil shakeView:self.phoneNumberLabel];
+        result = NO;
+    }
+    return result;
+}
+
 
 /*
 #pragma mark - Navigation

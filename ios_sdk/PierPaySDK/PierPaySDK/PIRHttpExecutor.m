@@ -116,7 +116,9 @@ static NSString *defaultUserAgent;
     self.saveDataDispatchGroup = dispatch_group_create();
     self.saveDataDispatchQueue = dispatch_queue_create("com.pier.httpRequest", DISPATCH_QUEUE_SERIAL);
     
-    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    NSString *urlStr = [urlString stringByAppendingString:@"?platform=2"];
+    NSURL *url = [[NSURL alloc] initWithString:urlStr];
     self.operationRequest = [[NSMutableURLRequest alloc] initWithURL:url];
     
     if ([[url scheme] isEqualToString:@"https"]) {

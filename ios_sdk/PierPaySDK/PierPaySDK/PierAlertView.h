@@ -34,3 +34,18 @@ typedef void (^cancelBlock)();
                    cancel:(cancelBlock)cancel;
 
 @end
+
+@interface PierSMSAlertView : UIView
+@property (nonatomic, copy) NSString *titleImageName;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *approveText;
+@property (nonatomic, copy) NSString *cancleText;
+
+
++ (void)showPierUserInputAlertView:(id)delegate
+                             param:(id)param
+                              type:(ePierAlertViewType)type
+                           approve:(approveBlock)approve
+                            cancel:(cancelBlock)cancel;
+
+@end

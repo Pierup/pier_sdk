@@ -44,10 +44,62 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="approveButton" destination="XCh-uA-vxA" id="drV-5w-c1x"/>
-                <outlet property="cancelButton" destination="Vi8-nw-KJ9" id="8gE-ie-dWv"/>
+                <outlet property="cancleButton" destination="Vi8-nw-KJ9" id="DJc-XP-wAN"/>
                 <outlet property="userInputLabel" destination="BJg-s6-ccc" id="ePA-jI-g4Q"/>
             </connections>
-            <point key="canvasLocation" x="162.5" y="242.5"/>
+            <point key="canvasLocation" x="100.5" y="98.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="os9-63-6fy" customClass="PierSMSAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="281" height="265"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YoV-OY-Qom">
+                    <rect key="frame" x="15" y="144" width="251" height="40"/>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="OK">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="approve:" destination="os9-63-6fy" eventType="touchUpInside" id="4In-Qy-Ffo"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3C0-nX-78u">
+                    <rect key="frame" x="0.0" y="19" width="281" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tra-fg-Bdf">
+                    <rect key="frame" x="15" y="69" width="251" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Text Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPc-Hr-Fgl">
+                    <rect key="frame" x="15" y="84" width="251" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTB-Zu-TiX">
+                    <rect key="frame" x="15" y="205" width="251" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Cancle">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancleAction:" destination="os9-63-6fy" eventType="touchUpInside" id="2YP-PX-aNE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="approveButton" destination="YoV-OY-Qom" id="Qre-wN-Wmv"/>
+                <outlet property="cancleButton" destination="WTB-Zu-TiX" id="Dc5-EZ-qpD"/>
+                <outlet property="textField" destination="lPc-Hr-Fgl" id="Oa4-vG-aeX"/>
+                <outlet property="titleLabel" destination="3C0-nX-78u" id="cLc-li-g4Z"/>
+            </connections>
+            <point key="canvasLocation" x="100.5" y="432.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
