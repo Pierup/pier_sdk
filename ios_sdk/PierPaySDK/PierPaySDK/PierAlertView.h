@@ -22,8 +22,6 @@ typedef void (^cancelBlock)();
 
 @protocol PierAlertViewDelegate <NSObject>
 
-- (void)approveButton;
-
 @end
 
 @interface PierAlertView : UIView

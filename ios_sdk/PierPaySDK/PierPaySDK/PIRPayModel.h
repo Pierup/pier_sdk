@@ -11,13 +11,13 @@
 @interface PIRPayModel : PIRJSONModel
 @property(nonatomic, copy, readwrite) NSString *code;
 @property(nonatomic, copy, readwrite) NSString *message;
+@property(nonatomic, copy, readwrite) NSString *country_code;
 @end
 
 #pragma mark - -------------------PIER_API_TRANSACTION_SMS-------------------
 #pragma mark - Request
 @interface TransactionSMSRequest : PIRPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
-@property(nonatomic, copy, readwrite) NSString *country_code;
 @end
 
 #pragma mark - Response
@@ -32,7 +32,6 @@
 #pragma mark - Request
 @interface GetAuthTokenV2Request : PIRPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
-@property(nonatomic, copy, readwrite) NSString *country_code;
 @property(nonatomic, copy, readwrite) NSString *merchant_id;
 @property(nonatomic, copy, readwrite) NSString *amount;
 @property(nonatomic, copy, readwrite) NSString *currency_code;
@@ -49,9 +48,23 @@
 #pragma mark - Request
 @interface GetRegisterCodeRequest : PIRPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
-@property(nonatomic, copy, readwrite) NSString *country_code;
 @end
 
+#pragma mark - Response
 @interface GetRegisterCodeResponse : PIRPayModel
 @property(nonatomic, copy, readonly) NSString *expiration;
 @end
+
+#pragma mark - --------------------PIER_API_GET_ACTIVITION-------------------
+#pragma mark - Request
+
+@interface RegSMSActiveRequest : PIRPayModel
+@property(nonatomic, copy, readwrite) NSString *phone;
+@property(nonatomic, copy, readwrite) NSString *activation_code;
+@end
+
+#pragma mark - Response
+@interface RegSMSActiveResponse : PIRPayModel
+@property(nonatomic, copy, readonly) NSString *token;
+@end
+

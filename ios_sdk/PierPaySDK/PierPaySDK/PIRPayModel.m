@@ -62,3 +62,19 @@
 
 @end
 
+
+#pragma mark - --------------------PIER_API_GET_ACTIVITION-------------------
+#pragma mark - Request
+@implementation RegSMSActiveRequest
+
+@end
+
+#pragma mark - Response
+@interface RegSMSActiveResponse ()
+@property(nonatomic, copy, readwrite) NSString *token;
+@end
+
+@implementation RegSMSActiveResponse
+
+@end
+

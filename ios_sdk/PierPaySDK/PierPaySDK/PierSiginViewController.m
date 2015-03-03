@@ -86,11 +86,27 @@
                                @"Dismiss",@"cancleText",
                                self.phone,@"phone",
                                response.expiration,@"expirationTime",nil];
-        [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
-            
-        } cancel:^{
-            
-        }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
+                [self serviceSMSActivation:userInput];
+            } cancel:^{
+                
+            }];
+        });
+    } faliedBlock:^(NSError *error) {
+        
+    }];
+}
+
+- (void)serviceSMSActivation:(NSString *)activation_code{
+    RegSMSActiveRequest *requestModel = [[RegSMSActiveRequest alloc] init];
+    requestModel.phone = self.phone;
+    requestModel.country_code = @"CN";
+    requestModel.activation_code = activation_code;
+    
+    [PIRService serverSend:ePIER_API_GET_ACTIVITION resuest:requestModel successBlock:^(id responseModel) {
+        RegSMSActiveResponse *reqponse = (RegSMSActiveResponse *)responseModel;
+        
     } faliedBlock:^(NSError *error) {
         
     }];

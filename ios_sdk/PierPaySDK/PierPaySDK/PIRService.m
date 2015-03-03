@@ -147,6 +147,12 @@ static NSString *__user_id = @"";
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"GetRegisterCodeResponse",RESULT_MODEL,nil];
             break;
+        case ePIER_API_GET_ACTIVITION:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      PIER_API_GET_ACTIVITION,HTTP_PATH,
+                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
+                      @"RegSMSActiveResponse",RESULT_MODEL,nil];
+            break;
         default:
             break;
     }
