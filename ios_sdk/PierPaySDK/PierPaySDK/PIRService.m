@@ -122,14 +122,26 @@
           successBlock:(PierPaySuccessBlock)success
            faliedBlock:(PierPayFailedBlock)failed{
     DLog(@"%@Response",result);
-    Class resultClass          = NSClassFromString([param objectForKey:RESULT_MODEL]);
-    NSDictionary *resultDic = result[@"result"];
-    if (resultDic) {
+    Class resultClass = NSClassFromString([param objectForKey:RESULT_MODEL]);
+
+    NSDictionary *resultDic = nil;
+    if (result[@"result"] != nil) {
+        resultDic = result[@"result"];
+    }else{
+        resultDic = result;
+    }
+    
+    if (resultDic!=nil) {
+        if ([resultDic respondsToSelector:@selector(objectForKey:)]) {
+            __dataSource.session_token = [resultDic valueForKey:@"session_token"];
+            __dataSource.user_id       = [resultDic valueForKey:@"user_id"];
+        }else{
+            DLog(@"Result nil.");
+        }
         PIRPayModel *resultModel   = [PIRJSONModel getObjectByDictionary:resultDic clazz:resultClass];
-        [resultModel setValue:result[@"code"] forKey:@"code"];
-        [resultModel setValue:result[@"message"] forKey:@"message"];
-        __dataSource.session_token = [resultDic valueForKey:@"session_token"];
-        __dataSource.user_id       = [resultDic valueForKey:@"user_id"];
+        [resultModel setValue:[NSString getUnNilString:result[@"code"]] forKey:@"code"];
+        [resultModel setValue:[NSString getUnNilString:result[@"message"]] forKey:@"message"];
+        
         if ([resultModel.code integerValue] == 200) {
             success(resultModel);
         }else{
