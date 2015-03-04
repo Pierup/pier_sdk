@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PierPay.h"
+#import "DemoHttpExecutor.h"
 @interface ViewController () <PayByPierDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *phoneLabel;
@@ -93,7 +94,28 @@
  * 3.code       NSNumber        Showing the code of message from pier.
  * 4.result     NSDictionary    Showing the value of output params of pier.
  */
--(void)payByPierComplete:(NSDictionary *)result{
+- (void)payByPierComplete:(NSDictionary *)result{
     
 }
+
+- (IBAction)testBtn{
+    [self getMerchantList];
+}
+
+- (void)getMerchantList{
+    DemoHttpExecutor *httpConnect = [DemoHttpExecutor getInstance];
+    //{"email":"admin@qq.com","userPassword":"admin"}
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         @"5",@"page_no",
+                         @"2",@"platform",
+                         nil];
+    
+    [httpConnect sendMessage:^(NSString *respond) {
+        
+    } andRequestJson:dic andFailure:^(NSString *error, int errorCode) {
+        
+    } andPath:@"/merchant_api/v1/query/get_merchants" method:@"get"];
+}
+
+
 @end

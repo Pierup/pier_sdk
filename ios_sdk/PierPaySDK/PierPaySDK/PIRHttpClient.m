@@ -11,7 +11,7 @@
 
 #pragma mark - -------------------- Host --------------------
 NSString * const PIRHttpClientUserHost      = @"http://pierup.ddns.net:8686";
-NSString * const PIRHttpClientUserHostV2    = @"https://192.168.1.254:8443";//https://192.168.1.254:8443
+NSString * const PIRHttpClientUserHostV2    = @"https://pierup.ddns.net:8443";//https://192.168.1.254:8443
 NSString * const PIRHttpClientTypeEmptyHost = @"";
 #pragma mark -
 

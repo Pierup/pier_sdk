@@ -15,6 +15,7 @@
 		2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */; };
 		2A39BC8E1A2EEC6500B9D551 /* PierPayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */; };
 		2A49685E1A30D2E3000708D9 /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AF42D961A306E620076DEC4 /* PierResource.bundle */; };
+		2A6273B61AA6FE0E00BEC05C /* DemoHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */; };
 		2AC84ED41A2EF69300920073 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC84ECF1A2EF67100920073 /* libPierPaySDK.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		2A39BC871A2EEC6500B9D551 /* PierPayDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierPayDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC8C1A2EEC6500B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PierPayDemoTests.m; sourceTree = "<group>"; };
+		2A6273B41AA6FE0E00BEC05C /* DemoHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoHttpExecutor.h; sourceTree = "<group>"; };
+		2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoHttpExecutor.m; sourceTree = "<group>"; };
 		2AC84EC91A2EF67100920073 /* PierPaySDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PierPaySDK.xcodeproj; path = ../../PierPaySDK/PierPaySDK.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +129,8 @@
 				2A39BC781A2EEC6500B9D551 /* ViewController.h */,
 				2A39BC791A2EEC6500B9D551 /* ViewController.m */,
 				2A39BC7B1A2EEC6500B9D551 /* Main.storyboard */,
+				2A6273B41AA6FE0E00BEC05C /* DemoHttpExecutor.h */,
+				2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */,
 				2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */,
 				2A39BC711A2EEC6500B9D551 /* Supporting Files */,
 				2AC84EDC1A2F01D100920073 /* Resources */,
@@ -328,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A39BC7A1A2EEC6500B9D551 /* ViewController.m in Sources */,
+				2A6273B61AA6FE0E00BEC05C /* DemoHttpExecutor.m in Sources */,
 				2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */,
 				2A39BC741A2EEC6500B9D551 /* main.m in Sources */,
 			);
