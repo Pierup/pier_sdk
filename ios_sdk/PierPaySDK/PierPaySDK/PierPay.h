@@ -44,6 +44,6 @@
  * 5.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
  * 6.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  */
-- (instancetype)initWith:(NSDictionary *)userAttributes;
+- (instancetype)initWith:(NSDictionary *)userAttributes delegate:(id)delegate;
 
 @end

@@ -85,7 +85,6 @@
     [self serviceGetPaySMS];
 }
 
-
 - (void)serviceGetPaySMS{
     
     [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
@@ -119,10 +118,18 @@
     self.authTokenRequestModel.currency_code = [__dataSource.merchantParam objectForKey:@"currency_code"];
     
     [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:self.authTokenRequestModel successBlock:^(id responseModel) {
+        GetAuthTokenV2Response *response = (GetAuthTokenV2Response *)responseModel;
         
     } faliedBlock:^(NSError *error) {
         
     }];
+}
+
+/**
+ * pay by pier conmpete!
+ */
+- (void)pierPayComplete{
+    [__dataSource.pierDelegate payByPierComplete:[NSDictionary dictionaryWithObjectsAndKeys:@"asdasd",@"test", nil]];
 }
 
 /*

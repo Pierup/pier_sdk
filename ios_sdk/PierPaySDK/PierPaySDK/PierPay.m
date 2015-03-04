@@ -177,9 +177,10 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 @implementation PierPay
 
-- (instancetype)initWith:(NSDictionary *)userAttributes{
+- (instancetype)initWith:(NSDictionary *)userAttributes delegate:(id)delegate{
     initDataSource();
     __dataSource.merchantParam = userAttributes;
+    __dataSource.pierDelegate = delegate;
     self = [super init];
     if (self) {
         _merchantAppHasBar = NO;

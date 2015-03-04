@@ -62,8 +62,7 @@
 
 - (IBAction)payByPier:(id)sender{
     [self setMerchantParam];
-    PierPay *pierpay = [[PierPay alloc] initWith:_merchantParam];
-    pierpay.pierDelegate = self;
+    PierPay *pierpay = [[PierPay alloc] initWith:_merchantParam delegate:self];
     [self presentViewController:pierpay animated:YES completion:nil];
 }
 

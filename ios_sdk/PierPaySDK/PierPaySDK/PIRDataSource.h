@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "PIRConfig.h"
+#import "PierPay.h"
 
 @class PIRDataSource;
+
 extern PIRDataSource *__dataSource;
 void initDataSource();
 void freeDataSource();
@@ -23,5 +25,6 @@ void freeDataSource();
 @property (nonatomic, copy) NSString *user_id;              // user id
 @property (nonatomic, assign) BOOL hasCredit;               // 判断用户是否有credit
 @property (nonatomic, copy) NSString *phone;                // phone
+@property (nonatomic, weak) id<PayByPierDelegate> pierDelegate;
 
 @end
