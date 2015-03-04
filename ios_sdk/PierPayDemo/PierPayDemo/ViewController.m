@@ -108,6 +108,7 @@
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          @"5",@"page_no",
                          @"2",@"platform",
+                         @"5",@"limit",
                          nil];
     
     [httpConnect sendMessage:^(NSString *respond) {

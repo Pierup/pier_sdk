@@ -232,7 +232,11 @@
 }
 
 + (NSString *)getMerchantURL:(PIRPayModel *)requestModel{
-    NSString *result = [NSString stringWithFormat:@"%@%@",[__dataSource.merchantParam objectForKey:@"server_url"],[requestModel valueForKey:@"auth_token"]];
+    NSString *urlStr = [__dataSource.merchantParam objectForKey:@"server_url"];
+    NSString *amount = [__dataSource.merchantParam objectForKey:@"amount"];
+    NSString *authToken = [requestModel valueForKey:@"auth_token"];
+    NSString *currency = [__dataSource.merchantParam objectForKey:@"currency"];
+    NSString *result = [NSString stringWithFormat:@"%@/%@/%@/%@", urlStr,amount,authToken,currency];
     return result;
 }
 @end

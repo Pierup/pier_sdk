@@ -11,7 +11,22 @@
 #import "PierAlertView.h"
 #import "PIRDataSource.h"
 
+@interface PierPayService ()
+
+@property (nonatomic, strong) GetAuthTokenV2Request *authTokenRequestModel;
+
+@end
+
 @implementation PierPayService
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _authTokenRequestModel = [[GetAuthTokenV2Request alloc] init];
+    }
+    return self;
+}
 
 - (void)serviceGetPaySMS{
     [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {

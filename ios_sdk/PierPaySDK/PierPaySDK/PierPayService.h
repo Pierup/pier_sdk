@@ -13,7 +13,6 @@
 
 /** servire model */
 @property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
-@property (nonatomic, strong) GetAuthTokenV2Request *authTokenRequestModel;
 
 - (void)serviceGetPaySMS;
 
