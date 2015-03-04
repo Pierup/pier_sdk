@@ -14,6 +14,7 @@
 #import "PierColor.h"
 #import "NSString+Check.h"
 #import "PIRViewUtil.h"
+#import "PIRDataSource.h"
 
 @interface PierLoginViewController ()
 
@@ -25,7 +26,7 @@
 
 /** servire model */
 @property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
-@property (nonatomic, strong) GetAuthTokenV2Request *loginRequestModel;
+@property (nonatomic, strong) GetAuthTokenV2Request *authTokenRequestModel;
 
 @end
 
@@ -36,7 +37,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _smsRequestModel = [[TransactionSMSRequest alloc] init];
-        _loginRequestModel = [[GetAuthTokenV2Request alloc] init];
+        _authTokenRequestModel = [[GetAuthTokenV2Request alloc] init];
     }
     return self;
 }
@@ -74,6 +75,54 @@
 
 - (void)popViewController{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)submitPhoneAndPwd{
+    NSString *phoneNumber = self.phoneNumberLabel.text;
+    NSString *passWord = self.passwordLabel.text;
+    self.smsRequestModel.phone = phoneNumber;
+    self.smsRequestModel.password = passWord;
+    [self serviceGetPaySMS];
+}
+
+
+- (void)serviceGetPaySMS{
+    
+    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
+        
+        TransactionSMSResponse *response = (TransactionSMSResponse *)responseModel;
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"",@"titleImageName",
+                               @"SMS",@"title",
+                               @"Pay",@"approveText",
+                               @"Cancel",@"cancleText",
+                               self.smsRequestModel.phone,@"phone",
+                               response.expiration,@"expirationTime",nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
+                [self serviceGetAuthToken:userInput];
+            } cancel:^{
+                
+            }];
+        });
+    } faliedBlock:^(NSError *error) {
+        
+    }];
+}
+
+- (void)serviceGetAuthToken:(NSString *)userinput{
+    self.authTokenRequestModel.phone = __dataSource.phone;
+    self.authTokenRequestModel.pass_code = userinput;
+    self.authTokenRequestModel.pass_type = @"1";
+    self.authTokenRequestModel.merchant_id = [__dataSource.merchantParam objectForKey:@"merchant_id"];
+    self.authTokenRequestModel.amount = [__dataSource.merchantParam objectForKey:@"amount"];
+    self.authTokenRequestModel.currency_code = [__dataSource.merchantParam objectForKey:@"currency_code"];
+    
+    [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:self.authTokenRequestModel successBlock:^(id responseModel) {
+        
+    } faliedBlock:^(NSError *error) {
+        
+    }];
 }
 
 /*

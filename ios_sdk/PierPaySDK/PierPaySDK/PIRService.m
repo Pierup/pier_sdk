@@ -31,10 +31,11 @@
 @implementation PIRService
 
 + (void)setRequestHeader:(NSDictionary *)param requestModel:(PIRPayModel *)requestModel{
-    NSString *phone     = __dataSource.phone;
-    if ([NSString emptyOrNull:phone]) {
-        phone = [requestModel valueForKey:@"phone"];
+    NSString *phone = [param valueForKey:@"phone"];
+    if (![NSString emptyOrNull:phone]) {
         __dataSource.phone = phone;
+    }else {
+        phone = __dataSource.phone;
     }
     if (![NSString emptyOrNull:phone]) {
         NSInteger phone_length = phone.length;

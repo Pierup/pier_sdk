@@ -12,6 +12,7 @@
 @protocol PayByPierDelegate <NSObject>
 
 @required
+
 /**
  * Result
  * name:        Type            Description

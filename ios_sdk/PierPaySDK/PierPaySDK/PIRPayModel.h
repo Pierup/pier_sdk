@@ -23,6 +23,7 @@
 #pragma mark - Request
 @interface TransactionSMSRequest : PIRPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
+@property(nonatomic, copy, readwrite) NSString *password;
 @end
 
 #pragma mark - Response
@@ -37,6 +38,8 @@
 #pragma mark - Request
 @interface GetAuthTokenV2Request : PIRPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
+@property(nonatomic, copy, readwrite) NSString *pass_code;
+@property(nonatomic, copy, readwrite) NSString *pass_type;
 @property(nonatomic, copy, readwrite) NSString *merchant_id;
 @property(nonatomic, copy, readwrite) NSString *amount;
 @property(nonatomic, copy, readwrite) NSString *currency_code;
