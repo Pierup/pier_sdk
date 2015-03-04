@@ -10,6 +10,7 @@
 #import "PierColor.h"
 #import "PierTools.h"
 #import "PIRDataSource.h"
+#import "PierPayService.h"
 
 @interface PierCreditApproveViewController ()
 
@@ -20,6 +21,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *payButton;
 @property (nonatomic, weak) IBOutlet UIButton *cancleBUtton;
 
+/** servire model */
+@property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
 @end
 
 @implementation PierCreditApproveViewController
@@ -28,7 +31,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        _smsRequestModel = [[TransactionSMSRequest alloc] init];
     }
     return self;
 }
@@ -64,6 +67,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)payWithPier{
+    self.smsRequestModel.phone = __dataSource.phone;
+    PierPayService *pierService = [[PierPayService alloc] init];
+    pierService.smsRequestModel = self.smsRequestModel;
+    [pierService serviceGetPaySMS];
 }
 
 /*

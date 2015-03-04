@@ -26,7 +26,6 @@
 
 /** servire model */
 @property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
-@property (nonatomic, strong) GetAuthTokenV2Request *authTokenRequestModel;
 
 @end
 
@@ -37,7 +36,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _smsRequestModel = [[TransactionSMSRequest alloc] init];
-        _authTokenRequestModel = [[GetAuthTokenV2Request alloc] init];
     }
     return self;
 }
@@ -85,7 +83,6 @@
     
     PierPayService *pierService = [[PierPayService alloc] init];
     pierService.smsRequestModel = self.smsRequestModel;
-    pierService.authTokenRequestModel = self.authTokenRequestModel;
     [pierService serviceGetPaySMS];
 }
 
