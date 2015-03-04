@@ -12,6 +12,7 @@
 #pragma mark - -------------------- Host --------------------
 NSString * const PIRHttpClientUserHost      = @"http://pierup.ddns.net:8686";
 NSString * const PIRHttpClientUserHostV2    = @"https://192.168.1.254:8443";//https://192.168.1.254:8443
+NSString * const PIRHttpClientTypeEmptyHost = @"";
 #pragma mark -
 
 @interface PIRHttpClient ()
@@ -50,6 +51,9 @@ NSString * const PIRHttpClientUserHostV2    = @"https://192.168.1.254:8443";//ht
             break;
         case ePIRHttpClientType_User_V2:
             return PIRHttpClientUserHostV2;
+            break;
+        case ePIRHttpClientType_Empty:
+            return PIRHttpClientTypeEmptyHost;
             break;
         default:
             return PIRHttpClientUserHost;

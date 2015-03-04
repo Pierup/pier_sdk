@@ -13,7 +13,7 @@
 @property(nonatomic, copy, readwrite) NSString *country_code;
 //output
 @property(nonatomic, copy, readwrite) NSString *user_id;
-@property(nonatomic, copy, readonly) NSString *session_token;
+@property(nonatomic, copy, readonly)  NSString *session_token;
 @property(nonatomic, copy, readwrite) NSString *code;
 @property(nonatomic, copy, readwrite) NSString *message;
 
@@ -120,4 +120,14 @@
 @property(nonatomic, copy, readonly) NSString *credit_limit;
 @property(nonatomic, copy, readonly) NSString *shadow_limit;
 @property(nonatomic, copy, readonly) NSString *note;
+@end
+
+#pragma mark - --------------------ePIER_API_GET_MERCHANT-------------------
+#pragma mark - Request
+@interface MerchantRequest : PIRPayModel
+@property(nonatomic, copy, readwrite) NSString *auth_token;
+@end
+
+#pragma mark - Response
+@interface MerchantResponse : PIRPayModel
 @end

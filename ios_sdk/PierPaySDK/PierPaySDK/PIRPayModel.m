@@ -134,3 +134,12 @@
 @implementation CreditApplyResponse
 
 @end
+
+#pragma mark - --------------------ePIER_API_GET_MERCHANT-------------------
+#pragma mark - Request
+@implementation MerchantRequest
+@end
+
+#pragma mark - Response
+@implementation MerchantResponse
+@end

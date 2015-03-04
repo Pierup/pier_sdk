@@ -20,6 +20,7 @@
 #define HTTP_METHOD_PUT         2   //@"put"
 #define HTTP_METHOD_GET         3   //@"get"
 
+#define HTTP_HOST               @"host"
 #define HTTP_PATH               @"path"
 #define HTTP_METHOD             @"method"
 #define RESULT_MODEL            @"resultModel"
@@ -61,13 +62,14 @@
        faliedBlock:(PierPayFailedBlock)failed{
     NSDictionary *param = [PIRJSONModel getDictionaryByObject:requestModel];
     [PIRService setRequestHeader:param requestModel:requestModel];
-    NSDictionary *pathAndMethod = [PIRService getPathAndMethodByType:apiType];
+    NSDictionary *pathAndMethod = [PIRService getPathAndMethodByType:apiType requestModel:requestModel];
+    ePIRHttpClientType hostType = [[pathAndMethod objectForKey:HTTP_HOST] intValue];
     NSString *path              = [pathAndMethod objectForKey:HTTP_PATH];
     NSInteger method            = [[pathAndMethod objectForKey:HTTP_METHOD] integerValue];
     switch (method) {
         case HTTP_METHOD_POST:
         {
-            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User_V2] POST:path parameters:param progress:^(float progress){
+            [[PIRHttpClient sharedInstanceWithClientType:hostType] POST:path parameters:param progress:^(float progress){
                 DLog(@"progress:%f",progress);
             } success:^(id response, NSHTTPURLResponse *urlResponse) {
                 [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
@@ -78,7 +80,7 @@
         }
         case HTTP_METHOD_POST_JSON:
         {
-            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User_V2] JSONPOST:path parameters:param progress:^(float progress){
+            [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPOST:path parameters:param progress:^(float progress){
                 DLog(@"progress:%f",progress);
             } success:^(id response, NSHTTPURLResponse *urlResponse) {
                 [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
@@ -89,7 +91,7 @@
         }
         case HTTP_METHOD_PUT:
         {
-            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User_V2] JSONPUT:path parameters:param progress:^(float progress){
+            [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPUT:path parameters:param progress:^(float progress){
                 DLog(@"progress:%f",progress);
             } success:^(id response, NSHTTPURLResponse *urlResponse) {
                 [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
@@ -100,7 +102,7 @@
         }
         case HTTP_METHOD_GET:
         {
-            [[PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User_V2] GET:path saveToPath:nil parameters:nil progress:^(float progress) {
+            [[PIRHttpClient sharedInstanceWithClientType:hostType] GET:path saveToPath:nil parameters:nil progress:^(float progress) {
                 
             } success:^(id response, NSHTTPURLResponse *urlResponse) {
                 [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
@@ -152,55 +154,73 @@
     failed(error);
 }
 
-+ (NSDictionary *)getPathAndMethodByType:(ePIER_API_Type)apiType{
++ (NSDictionary *)getPathAndMethodByType:(ePIER_API_Type)apiType requestModel:(PIRPayModel *)requestModel{
     NSDictionary *result = nil;
     switch (apiType) {
         case ePIER_API_TRANSACTION_SMS:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
                       PIER_API_TRANSACTION_SMS,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"TransactionSMSResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_AUTH_TOKEN_V2:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
                       PIER_API_GET_AUTH_TOKEN_V2,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"GetAuthTokenV2Response",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_ACTIVITY_CODE:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
                       PIER_API_GET_ACTIVITY_CODE,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"GetRegisterCodeResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_ACTIVITION:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
                       PIER_API_GET_ACTIVITION,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"RegSMSActiveResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_ACTIVITION_REGIST:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
                       PIER_API_GET_ACTIVITION_REGIST,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"RegisterResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_UPDATEUSER:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
                       PIER_API_GET_UPDATEUSER,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"UpdateResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_APPLYCREDIT:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
                       PIER_API_GET_APPLYCREDIT,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"CreditApplyResponse",RESULT_MODEL,nil];
             break;
+        case ePIER_API_GET_MERCHANT:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"2",HTTP_HOST,
+                      [PIRService getMerchantURL:requestModel],HTTP_PATH,
+                      @(HTTP_METHOD_GET),HTTP_METHOD,
+                      @"MerchantResponse",RESULT_MODEL,nil];
             break;
         default:
             break;
     }
+    return result;
+}
+
++ (NSString *)getMerchantURL:(PIRPayModel *)requestModel{
+    NSString *result = [NSString stringWithFormat:@"%@%@",[__dataSource.merchantParam objectForKey:@"server_url"],[requestModel valueForKey:@"auth_token"]];
     return result;
 }
 @end
