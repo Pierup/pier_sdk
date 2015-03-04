@@ -28,6 +28,11 @@
 //static NSString *__session_token = @"";
 //static NSString *__user_id = @"";
 
+#define SESSION_EXPIRE      1001
+#define DEVICETOKEN_EXPOER  1002
+#define PUSSWORD_ERROR      1030
+#define USRT_INVALID        1007
+
 
 @implementation PIRService
 
@@ -60,60 +65,62 @@
            resuest:(PIRPayModel *)requestModel
       successBlock:(PierPaySuccessBlock)success
        faliedBlock:(PierPayFailedBlock)failed{
-    NSDictionary *param = [PIRJSONModel getDictionaryByObject:requestModel];
-    [PIRService setRequestHeader:param requestModel:requestModel];
-    NSDictionary *pathAndMethod = [PIRService getPathAndMethodByType:apiType requestModel:requestModel];
-    ePIRHttpClientType hostType = [[pathAndMethod objectForKey:HTTP_HOST] intValue];
-    NSString *path              = [pathAndMethod objectForKey:HTTP_PATH];
-    NSInteger method            = [[pathAndMethod objectForKey:HTTP_METHOD] integerValue];
-    switch (method) {
-        case HTTP_METHOD_POST:
-        {
-            [[PIRHttpClient sharedInstanceWithClientType:hostType] POST:path parameters:param progress:^(float progress){
-                DLog(@"progress:%f",progress);
-            } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
-            } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
-            }];
-            break;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSDictionary *param = [PIRJSONModel getDictionaryByObject:requestModel];
+        [PIRService setRequestHeader:param requestModel:requestModel];
+        NSDictionary *pathAndMethod = [PIRService getPathAndMethodByType:apiType requestModel:requestModel];
+        ePIRHttpClientType hostType = [[pathAndMethod objectForKey:HTTP_HOST] intValue];
+        NSString *path              = [pathAndMethod objectForKey:HTTP_PATH];
+        NSInteger method            = [[pathAndMethod objectForKey:HTTP_METHOD] integerValue];
+        switch (method) {
+            case HTTP_METHOD_POST:
+            {
+                [[PIRHttpClient sharedInstanceWithClientType:hostType] POST:path parameters:param progress:^(float progress){
+                    DLog(@"progress:%f",progress);
+                } success:^(id response, NSHTTPURLResponse *urlResponse) {
+                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
+                } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
+                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
+                }];
+                break;
+            }
+            case HTTP_METHOD_POST_JSON:
+            {
+                [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPOST:path parameters:param progress:^(float progress){
+                    DLog(@"progress:%f",progress);
+                } success:^(id response, NSHTTPURLResponse *urlResponse) {
+                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
+                } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
+                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
+                }];
+                break;
+            }
+            case HTTP_METHOD_PUT:
+            {
+                [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPUT:path parameters:param progress:^(float progress){
+                    DLog(@"progress:%f",progress);
+                } success:^(id response, NSHTTPURLResponse *urlResponse) {
+                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
+                } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
+                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
+                }];
+                break;
+            }
+            case HTTP_METHOD_GET:
+            {
+                [[PIRHttpClient sharedInstanceWithClientType:hostType] GET:path saveToPath:nil parameters:nil progress:^(float progress) {
+                    
+                } success:^(id response, NSHTTPURLResponse *urlResponse) {
+                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
+                } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
+                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
+                }];
+                break;
+            }
+            default:
+                break;
         }
-        case HTTP_METHOD_POST_JSON:
-        {
-            [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPOST:path parameters:param progress:^(float progress){
-                DLog(@"progress:%f",progress);
-            } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
-            } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
-            }];
-            break;
-        }
-        case HTTP_METHOD_PUT:
-        {
-            [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPUT:path parameters:param progress:^(float progress){
-                DLog(@"progress:%f",progress);
-            } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
-            } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
-            }];
-            break;
-        }
-        case HTTP_METHOD_GET:
-        {
-            [[PIRHttpClient sharedInstanceWithClientType:hostType] GET:path saveToPath:nil parameters:nil progress:^(float progress) {
-                
-            } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
-            } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
-            }];
-            break;
-        }
-        default:
-            break;
-    }
+    });
 }
 
 + (void)executeSuccess:(id)result
@@ -142,9 +149,26 @@
         [resultModel setValue:[NSString getUnNilString:result[@"code"]] forKey:@"code"];
         [resultModel setValue:[NSString getUnNilString:result[@"message"]] forKey:@"message"];
         
-        if ([resultModel.code integerValue] == 200) {
+        NSInteger code = [resultModel.code integerValue];
+        if (code == 200) {
             success(resultModel);
         }else{
+            switch (code) {
+                case SESSION_EXPIRE:
+                    
+                    break;
+                case DEVICETOKEN_EXPOER:
+                    
+                    break;
+                case PUSSWORD_ERROR:
+                    
+                    break;
+                case USRT_INVALID:
+                    
+                    break;
+                default:
+                    break;
+            }
             NSError *error = nil;
             if (resultModel) {
                 error = [NSError errorWithDomain:resultModel.message code:[resultModel.code integerValue] userInfo:nil];
@@ -157,6 +181,7 @@
         DLog(@"Result nil.");
     }
 }
+
 
 + (void)executeFailed:(NSDictionary *)param
           urlResponse:(NSHTTPURLResponse *)urlResponse

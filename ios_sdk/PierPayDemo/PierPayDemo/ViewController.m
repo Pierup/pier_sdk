@@ -46,7 +46,7 @@
                       @"MC0000000134", @"merchant_id",
                       @"500", @"amount",
                       @"USD", @"currency",
-                      @"http://192.168.1.96:8080/pier-merchant/merchant/server/sdk/pay/", @"server_url",nil];
+                      @"http://192.168.1.254:8080/pier-merchant/merchant/server/sdk/pay/", @"server_url",nil];
     
     [self.phoneLabel setText:[_merchantParam objectForKey:@"phone"]];
     [self.countryCodeLabel setText:[_merchantParam objectForKey:@"country_code"]];
@@ -79,11 +79,11 @@
 
 - (void)setMerchantParam{
     [_merchantParam setValue:self.phoneLabel.text forKey:@"phone"];
-    [_merchantParam setValue:self.countryCodeLabel.text forKey:@"phone"];
-    [_merchantParam setValue:self.merchantIDLabel.text forKey:@"phone"];
-    [_merchantParam setValue:self.amountLabel.text forKey:@"phone"];
-    [_merchantParam setValue:self.currencyLabel.text forKey:@"phone"];
-    [_merchantParam setValue:self.serviewURL.text forKey:@"phone"];
+    [_merchantParam setValue:self.countryCodeLabel.text forKey:@"country_code"];
+    [_merchantParam setValue:self.merchantIDLabel.text forKey:@"merchant_id"];
+    [_merchantParam setValue:self.amountLabel.text forKey:@"amount"];
+    [_merchantParam setValue:self.currencyLabel.text forKey:@"currency"];
+    [_merchantParam setValue:self.serviewURL.text forKey:@"server_url"];
 }
 
 /**

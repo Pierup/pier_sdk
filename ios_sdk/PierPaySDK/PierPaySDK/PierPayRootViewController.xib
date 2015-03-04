@@ -20,33 +20,6 @@
                 <userLayoutGuide location="305" affinity="minX"/>
             </userGuides>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h07-zG-FHO">
-                    <rect key="frame" x="144" y="352" width="33" height="30"/>
-                    <state key="normal" title="Start">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="submitButtonAction:" destination="-1" eventType="touchUpInside" id="Pqm-hw-gqW"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLf-fs-Pw9">
-                    <rect key="frame" x="138" y="390" width="45" height="30"/>
-                    <state key="normal" title="cancel">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="cancelService:" destination="-1" eventType="touchUpInside" id="eOk-Lr-EnS"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDd-6v-3Hr">
-                    <rect key="frame" x="128" y="428" width="65" height="30"/>
-                    <state key="normal" title="Add User">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="addUser:" destination="-1" eventType="touchUpInside" id="rsG-Kh-CMv"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09H-S5-rrJ">
                     <rect key="frame" x="27" y="147" width="267" height="43"/>
                     <color key="backgroundColor" red="0.40000000000000002" green="0.12549019607843137" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>

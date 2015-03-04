@@ -46,7 +46,7 @@
             }];
         });
     } faliedBlock:^(NSError *error) {
-        
+
     }];
 }
 
@@ -62,10 +62,7 @@
         GetAuthTokenV2Response *response = (GetAuthTokenV2Response *)responseModel;
         [self serviceMerchantService:response];
     } faliedBlock:^(NSError *error) {
-        NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"1",@"status",
-                                [error domain],@"message", nil];
-        [self pierPayComplete:result];
+
     }];
 }
 
@@ -89,6 +86,7 @@
  * pay by pier conmpete!
  */
 - (void)pierPayComplete:(NSDictionary *)result{
+    
     [__dataSource.pierDelegate payByPierComplete:result];
 }
 
