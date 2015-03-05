@@ -92,7 +92,6 @@
     cell.showsReorderControl = YES;
     cell.backgroundColor = [UIColor clearColor];
     UIImageView *imageView =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
-    imageView.image = [UIImage imageNamed:@"shop_default"];
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 115, [UIScreen mainScreen].bounds.size.width, 30)];
     view.alpha = 0.8;
     view.backgroundColor = [UIColor whiteColor];
@@ -106,14 +105,16 @@
         MerchantModel *merchant = self.merchantArray[indexPath.row];
         merchantNameLabel.text = merchant.business_name;
         NSURL *photourl = [NSURL URLWithString:merchant.product_small_url];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            UIImage *images = [UIImage imageWithData:[NSData dataWithContentsOfURL:photourl]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                imageView.image = images;
+        if (imageView.image == nil) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                UIImage *images = [UIImage imageWithData:[NSData dataWithContentsOfURL:photourl]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    imageView.image = images;
+                });
             });
-        });
+        }
     }
-            return cell;
+    return cell;
 }
 
 @end

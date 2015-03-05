@@ -10,6 +10,16 @@
 #import "PierPay.h"
 #import "DemoHttpExecutor.h"
 
+
+@interface ProductCell : UITableViewCell
+
+
+@end
+
+@implementation ProductCell
+
+@end
+
 @interface ProductViewController ()<UITableViewDataSource,UITableViewDelegate,PayByPierDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *productTableView;
 @property (nonatomic, strong) NSMutableArray *listArray;
@@ -141,12 +151,14 @@
             currencyLabel.text = shopListModel.currency;
         }
         NSURL *photourl = [NSURL URLWithString:shopListModel.image];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            UIImage *images = [UIImage imageWithData:[NSData dataWithContentsOfURL:photourl]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                imageView.image = images;
+        if (imageView.image == nil) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                UIImage *images = [UIImage imageWithData:[NSData dataWithContentsOfURL:photourl]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    imageView.image = images;
+                });
             });
-        });
+        }
     }
     return cell;
 }
