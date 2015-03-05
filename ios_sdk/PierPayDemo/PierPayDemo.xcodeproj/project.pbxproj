@@ -14,13 +14,14 @@
 		2A39BC7D1A2EEC6500B9D551 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A39BC7B1A2EEC6500B9D551 /* Main.storyboard */; };
 		2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */; };
 		2A39BC8E1A2EEC6500B9D551 /* PierPayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */; };
-		2A5E5E1F1AA7FEDA004B95C4 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5E5E161AA7FE93004B95C4 /* libPierPaySDK.a */; };
 		2A5E5E2C1AA84A10004B95C4 /* ShopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E5E251AA84A10004B95C4 /* ShopListViewController.m */; };
 		2A5E5E2D1AA84A10004B95C4 /* ShopListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E261AA84A10004B95C4 /* ShopListViewController.xib */; };
 		2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E5E281AA84A10004B95C4 /* ProductViewController.m */; };
 		2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */; };
 		2A5E5E301AA84A10004B95C4 /* shop_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E2A1AA84A10004B95C4 /* shop_default@2x.png */; };
 		2A5E5E311AA84A10004B95C4 /* shop_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E2B1AA84A10004B95C4 /* shop_default@3x.png */; };
+		2A5E5E5C1AA8548B004B95C4 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5E5E551AA8546C004B95C4 /* libPierPaySDK.a */; };
+		2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E571AA8546C004B95C4 /* PierResource.bundle */; };
 		2A6273B61AA6FE0E00BEC05C /* DemoHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */; };
 /* End PBXBuildFile section */
 
@@ -32,30 +33,30 @@
 			remoteGlobalIDString = 2A39BC6D1A2EEC6500B9D551;
 			remoteInfo = PierPayDemo;
 		};
-		2A5E5E151AA7FE93004B95C4 /* PBXContainerItemProxy */ = {
+		2A5E5E541AA8546C004B95C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A5E5E0F1AA7FE93004B95C4 /* PierPaySDK.xcodeproj */;
+			containerPortal = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2A39BC221A2EE81300B9D551;
 			remoteInfo = PierPaySDK;
 		};
-		2A5E5E171AA7FE93004B95C4 /* PBXContainerItemProxy */ = {
+		2A5E5E561AA8546C004B95C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A5E5E0F1AA7FE93004B95C4 /* PierPaySDK.xcodeproj */;
+			containerPortal = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2AF42D8C1A306CC90076DEC4;
 			remoteInfo = PierResource;
 		};
-		2A5E5E191AA7FE93004B95C4 /* PBXContainerItemProxy */ = {
+		2A5E5E581AA8546C004B95C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A5E5E0F1AA7FE93004B95C4 /* PierPaySDK.xcodeproj */;
+			containerPortal = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2A39BC2D1A2EE81300B9D551;
 			remoteInfo = PierPaySDKTests;
 		};
-		2A5E5E1B1AA7FEA3004B95C4 /* PBXContainerItemProxy */ = {
+		2A5E5E5A1AA85485004B95C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A5E5E0F1AA7FE93004B95C4 /* PierPaySDK.xcodeproj */;
+			containerPortal = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 2A39BC211A2EE81300B9D551;
 			remoteInfo = PierPaySDK;
@@ -76,7 +77,6 @@
 		2A39BC871A2EEC6500B9D551 /* PierPayDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierPayDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC8C1A2EEC6500B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PierPayDemoTests.m; sourceTree = "<group>"; };
-		2A5E5E0F1AA7FE93004B95C4 /* PierPaySDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PierPaySDK.xcodeproj; path = ../../PierPaySDK/PierPaySDK.xcodeproj; sourceTree = "<group>"; };
 		2A5E5E241AA84A10004B95C4 /* ShopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListViewController.h; sourceTree = "<group>"; };
 		2A5E5E251AA84A10004B95C4 /* ShopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListViewController.m; sourceTree = "<group>"; };
 		2A5E5E261AA84A10004B95C4 /* ShopListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopListViewController.xib; sourceTree = "<group>"; };
@@ -85,6 +85,7 @@
 		2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
 		2A5E5E2A1AA84A10004B95C4 /* shop_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@2x.png"; sourceTree = "<group>"; };
 		2A5E5E2B1AA84A10004B95C4 /* shop_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@3x.png"; sourceTree = "<group>"; };
+		2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PierPaySDK.xcodeproj; path = ../../../PierPaySDK/PierPaySDK.xcodeproj; sourceTree = "<group>"; };
 		2A6273B41AA6FE0E00BEC05C /* DemoHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoHttpExecutor.h; sourceTree = "<group>"; };
 		2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoHttpExecutor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A5E5E1F1AA7FEDA004B95C4 /* libPierPaySDK.a in Frameworks */,
+				2A5E5E5C1AA8548B004B95C4 /* libPierPaySDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +112,7 @@
 		2A39BC651A2EEC6500B9D551 = {
 			isa = PBXGroup;
 			children = (
-				2A5E5E0E1AA7FE7A004B95C4 /* Dependence */,
+				2A5E5E4D1AA85459004B95C4 /* Dependence */,
 				2A39BC701A2EEC6500B9D551 /* PierPayDemo */,
 				2A39BC8A1A2EEC6500B9D551 /* PierPayDemoTests */,
 				2A39BC6F1A2EEC6500B9D551 /* Products */,
@@ -178,20 +179,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2A5E5E0E1AA7FE7A004B95C4 /* Dependence */ = {
+		2A5E5E4D1AA85459004B95C4 /* Dependence */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E5E0F1AA7FE93004B95C4 /* PierPaySDK.xcodeproj */,
+				2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */,
 			);
-			path = Dependence;
+			name = Dependence;
+			path = PierPayDemo/Dependence;
 			sourceTree = "<group>";
 		};
-		2A5E5E101AA7FE93004B95C4 /* Products */ = {
+		2A5E5E4F1AA8546C004B95C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E5E161AA7FE93004B95C4 /* libPierPaySDK.a */,
-				2A5E5E181AA7FE93004B95C4 /* PierResource.bundle */,
-				2A5E5E1A1AA7FE93004B95C4 /* PierPaySDKTests.xctest */,
+				2A5E5E551AA8546C004B95C4 /* libPierPaySDK.a */,
+				2A5E5E571AA8546C004B95C4 /* PierResource.bundle */,
+				2A5E5E591AA8546C004B95C4 /* PierPaySDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,7 +228,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2A5E5E1C1AA7FEA3004B95C4 /* PBXTargetDependency */,
+				2A5E5E5B1AA85485004B95C4 /* PBXTargetDependency */,
 			);
 			name = PierPayDemo;
 			productName = PierPayDemo;
@@ -283,8 +285,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2A5E5E101AA7FE93004B95C4 /* Products */;
-					ProjectRef = 2A5E5E0F1AA7FE93004B95C4 /* PierPaySDK.xcodeproj */;
+					ProductGroup = 2A5E5E4F1AA8546C004B95C4 /* Products */;
+					ProjectRef = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -296,25 +298,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2A5E5E161AA7FE93004B95C4 /* libPierPaySDK.a */ = {
+		2A5E5E551AA8546C004B95C4 /* libPierPaySDK.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libPierPaySDK.a;
-			remoteRef = 2A5E5E151AA7FE93004B95C4 /* PBXContainerItemProxy */;
+			remoteRef = 2A5E5E541AA8546C004B95C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A5E5E181AA7FE93004B95C4 /* PierResource.bundle */ = {
+		2A5E5E571AA8546C004B95C4 /* PierResource.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = PierResource.bundle;
-			remoteRef = 2A5E5E171AA7FE93004B95C4 /* PBXContainerItemProxy */;
+			remoteRef = 2A5E5E561AA8546C004B95C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A5E5E1A1AA7FE93004B95C4 /* PierPaySDKTests.xctest */ = {
+		2A5E5E591AA8546C004B95C4 /* PierPaySDKTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = PierPaySDKTests.xctest;
-			remoteRef = 2A5E5E191AA7FE93004B95C4 /* PBXContainerItemProxy */;
+			remoteRef = 2A5E5E581AA8546C004B95C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -327,6 +329,7 @@
 				2A5E5E301AA84A10004B95C4 /* shop_default@2x.png in Resources */,
 				2A252D2F1AA1A902004BAB9C /* Launch Screen.xib in Resources */,
 				2A39BC7D1A2EEC6500B9D551 /* Main.storyboard in Resources */,
+				2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */,
 				2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */,
 				2A5E5E311AA84A10004B95C4 /* shop_default@3x.png in Resources */,
 				2A5E5E2D1AA84A10004B95C4 /* ShopListViewController.xib in Resources */,
@@ -373,10 +376,10 @@
 			target = 2A39BC6D1A2EEC6500B9D551 /* PierPayDemo */;
 			targetProxy = 2A39BC881A2EEC6500B9D551 /* PBXContainerItemProxy */;
 		};
-		2A5E5E1C1AA7FEA3004B95C4 /* PBXTargetDependency */ = {
+		2A5E5E5B1AA85485004B95C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PierPaySDK;
-			targetProxy = 2A5E5E1B1AA7FEA3004B95C4 /* PBXContainerItemProxy */;
+			targetProxy = 2A5E5E5A1AA85485004B95C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
