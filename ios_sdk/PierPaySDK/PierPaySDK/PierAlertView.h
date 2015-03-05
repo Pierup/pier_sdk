@@ -24,7 +24,24 @@ typedef void (^cancelBlock)();
 
 @end
 
+#pragma mark - ---------------------------- PierAlertView ----------------------------
 @interface PierAlertView : UIView
+
+@property (nonatomic, copy) NSString *titleImageName;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *alertText;
+@property (nonatomic, copy) NSString *doneText;
+
++ (void)showPierAlertView:(id)delegate
+                    param:(id)param
+                     type:(ePierAlertViewType)type
+                  approve:(approveBlock)approve;
+
+@end
+
+#pragma mark - ---------------------------- PierUserInputAlertView ----------------------------
+@interface PierUserInputAlertView : PierAlertView
+
 @property (nonatomic, copy) NSString *titleImageName;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *approveText;
@@ -39,7 +56,8 @@ typedef void (^cancelBlock)();
 
 @end
 
-@interface PierSMSAlertView : PierAlertView
+#pragma mark - ---------------------------- PierUserInputAlertView ----------------------------
+@interface PierSMSAlertView : PierUserInputAlertView
 
 + (void)showPierUserInputAlertView:(id)delegate
                              param:(id)param

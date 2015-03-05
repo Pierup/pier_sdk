@@ -14,8 +14,97 @@
 #import "PIRService.h"
 
 @interface PierAlertView ()
+
 @property (nonatomic, weak) IBOutlet UIImageView *titleImage;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *alertLabel;
+@property (nonatomic, weak) IBOutlet UIButton *doneButton;
+
+@property (nonatomic, strong) UIView *bgView;
+@property (nonatomic, strong) NSDictionary *paramDic;
+@property (nonatomic, copy) approveBlock    approveBc;
+
+@property (nonatomic, assign) ePierAlertViewType alertType;
+
+@end
+
+@implementation PierAlertView
+
+
++ (void)showPierAlertView:(id)delegate
+                    param:(id)param
+                     type:(ePierAlertViewType)type
+                  approve:(approveBlock)approve{
+    PierAlertView *confirmView = (PierAlertView *)[[pierBoundle() loadNibNamed:@"PierAlertView" owner:delegate options:nil] objectAtIndex:0];
+    confirmView.paramDic    = param;
+    confirmView.approveBc   = approve;
+    confirmView.alertType   = type;
+    [confirmView initData];
+    [confirmView initView];
+}
+
+- (void)initData{
+    if (self.paramDic) {
+        [self.titleLabel setText:[self.paramDic objectForKey:@"title"]];
+        [self.doneButton setTitle:@"OK" forState:UIControlStateNormal];
+        [self.alertLabel setText:[self.paramDic objectForKey:@"message"]];
+    }
+}
+
+- (void)initView{
+    UIWindow *currentWindow = [[UIApplication sharedApplication].delegate window];
+    
+    [self.doneButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [self.doneButton.layer setBorderWidth:1];
+    [self.doneButton.layer setCornerRadius:5];
+    [self.doneButton.layer setMasksToBounds:YES];
+    
+    [self setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-100)];
+    
+    [self.layer setCornerRadius:5];
+    [self.layer setMasksToBounds:YES];
+    
+    self.bgView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.bgView setBackgroundColor:[UIColor blackColor]];
+    [self.bgView setAlpha:0.1];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.bgView setAlpha:0.6];
+    }];
+    
+    
+    [currentWindow addSubview:self.bgView];
+    [currentWindow addSubview:self];
+    
+    switch (self.alertType) {
+        case ePierAlertViewType_userInput:
+        {
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (IBAction)doneButton:(id)sender{
+    [self viewRemoveFromSuperView];
+}
+
+- (void)handleBgTapGesture{
+    [self viewRemoveFromSuperView];
+}
+
+- (void)viewRemoveFromSuperView{
+    [self.bgView        removeFromSuperview];
+    [self removeFromSuperview];
+}
+
+@end
+
+@interface PierUserInputAlertView ()
+
+//@property (nonatomic, weak) IBOutlet UIImageView *titleImage;
+//@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UIButton *approveButton;
 @property (nonatomic, weak) IBOutlet UIButton *cancleButton;
@@ -29,14 +118,14 @@
 
 @end
 
-@implementation PierAlertView
+@implementation PierUserInputAlertView
 
 + (void)showPierUserInputAlertView:(id)delegate
                              param:(id)param
                               type:(ePierAlertViewType)type
                            approve:(approveBlock)approve
                             cancel:(cancelBlock)cancel{
-    PierAlertView *confirmView = (PierAlertView *)[[pierBoundle() loadNibNamed:@"PierAlertView" owner:delegate options:nil] objectAtIndex:0];
+    PierUserInputAlertView *confirmView = (PierUserInputAlertView *)[[pierBoundle() loadNibNamed:@"PierAlertView" owner:delegate options:nil] objectAtIndex:1];
     confirmView.paramDic    = param;
     confirmView.approveBc   = approve;
     confirmView.cancelBc    = cancel;
@@ -140,7 +229,7 @@
                               type:(ePierAlertViewType)type
                            approve:(approveBlock)approve
                             cancel:(cancelBlock)cancel{
-    PierSMSAlertView *confirmView = (PierSMSAlertView *)[[pierBoundle() loadNibNamed:@"PierAlertView" owner:delegate options:nil] objectAtIndex:1];
+    PierSMSAlertView *confirmView = (PierSMSAlertView *)[[pierBoundle() loadNibNamed:@"PierAlertView" owner:delegate options:nil] objectAtIndex:2];
     confirmView.paramDic    = param;
     confirmView.approveBc   = approve;
     confirmView.cancelBc    = cancel;

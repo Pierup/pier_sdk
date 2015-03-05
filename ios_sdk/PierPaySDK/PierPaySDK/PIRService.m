@@ -14,6 +14,7 @@
 #import "PierTools.h"
 #import "NSString+Check.h"
 #import "PIRDataSource.h"
+#import "PierAlertView.h"
 
 #define HTTP_METHOD_POST        0   //@"post"
 #define HTTP_METHOD_POST_JSON   1   //@"post-json"
@@ -152,6 +153,12 @@
         if (code == 200) {
             success(resultModel);
         }else{
+            NSError *error = nil;
+            if (resultModel) {
+                error = [NSError errorWithDomain:resultModel.message code:[resultModel.code integerValue] userInfo:nil];
+                DLog(@"[errov]:%@",error);
+            }
+            
             switch (code) {
                 case SESSION_EXPIRE://sesson 过期
                     
@@ -160,15 +167,26 @@
                     
                     break;
                 case USRT_INVALID://用户不存在
-                    
+                {
+                    NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                @"",@"titleImageName",
+                                                @"error",@"title",
+                                                [error domain],@"message",nil];
+                    [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
+                        
+                    }];
                     break;
+                }
                 default:
+                {
+                    NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
+                                           [error domain],@"titleImageName",
+                                           @"SMS",@"title",nil];
+                    [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
+                        
+                    }];
                     break;
-            }
-            NSError *error = nil;
-            if (resultModel) {
-                error = [NSError errorWithDomain:resultModel.message code:[resultModel.code integerValue] userInfo:nil];
-                DLog(@"[errov]:%@",error);
+                }
             }
             failed(error);
         }
