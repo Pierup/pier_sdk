@@ -98,13 +98,17 @@
     
 }
 
-- (IBAction)testBtn{
+- (IBAction)testBtnGetMerchantList{
     [self getMerchantList];
 }
 
+- (IBAction)testBtnGetProductList:(id)sender{
+    [self getMerchantProduct:@"MC0000000134"];
+}
+
+//Get Merchant List
 - (void)getMerchantList{
     DemoHttpExecutor *httpConnect = [DemoHttpExecutor getInstance];
-    //{"email":"admin@qq.com","userPassword":"admin"}
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          @"5",@"page_no",
                          @"2",@"platform",
@@ -116,6 +120,21 @@
     } andRequestJson:dic andFailure:^(NSString *error, int errorCode) {
         
     } andPath:@"/merchant_api/v1/query/get_merchants" method:@"get"];
+}
+
+//Get Products
+- (void)getMerchantProduct:(NSString *)merchant_id{
+    DemoHttpExecutor *httpConnect = [DemoHttpExecutor getInstance];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         @"2",@"platform",
+                         merchant_id,@"merchant_id",
+                         nil];
+    
+    [httpConnect sendMessage:^(NSString *respond) {
+        
+    } andRequestJson:dic andFailure:^(NSString *error, int errorCode) {
+        
+    } andPath:@"/merchant_api/v1/fake/products" method:@"get"];
 }
 
 

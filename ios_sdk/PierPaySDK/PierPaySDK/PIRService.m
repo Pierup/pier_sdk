@@ -29,7 +29,6 @@
 //static NSString *__user_id = @"";
 
 #define SESSION_EXPIRE      1001
-#define DEVICETOKEN_EXPOER  1002
 #define PUSSWORD_ERROR      1030
 #define USRT_INVALID        1007
 
@@ -154,16 +153,13 @@
             success(resultModel);
         }else{
             switch (code) {
-                case SESSION_EXPIRE:
+                case SESSION_EXPIRE://sesson 过期
                     
                     break;
-                case DEVICETOKEN_EXPOER:
+                case PUSSWORD_ERROR://账号密码错误
                     
                     break;
-                case PUSSWORD_ERROR:
-                    
-                    break;
-                case USRT_INVALID:
+                case USRT_INVALID://用户不存在
                     
                     break;
                 default:

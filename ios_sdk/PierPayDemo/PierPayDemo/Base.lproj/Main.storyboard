@@ -153,12 +153,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sv-Ks-hG8">
-                                <rect key="frame" x="126" y="359" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="38" y="358" width="61" height="30"/>
+                                <state key="normal" title="ShopList">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="testBtn" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iHx-wH-M0Y"/>
+                                    <action selector="testBtnGetMerchantList" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Cmk-qj-p2G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-Vg-bPJ">
+                                <rect key="frame" x="125" y="358" width="79" height="30"/>
+                                <state key="normal" title="ProductList">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testBtnGetProductList:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xuy-dc-ShU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -212,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-371" y="-18"/>
+            <point key="canvasLocation" x="-632" y="-29"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

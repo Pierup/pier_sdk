@@ -124,13 +124,13 @@
 		2A39BC701A2EEC6500B9D551 /* PierPayDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2A6273B41AA6FE0E00BEC05C /* DemoHttpExecutor.h */,
+				2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */,
 				2A39BC751A2EEC6500B9D551 /* AppDelegate.h */,
 				2A39BC761A2EEC6500B9D551 /* AppDelegate.m */,
 				2A39BC781A2EEC6500B9D551 /* ViewController.h */,
 				2A39BC791A2EEC6500B9D551 /* ViewController.m */,
 				2A39BC7B1A2EEC6500B9D551 /* Main.storyboard */,
-				2A6273B41AA6FE0E00BEC05C /* DemoHttpExecutor.h */,
-				2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */,
 				2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */,
 				2A39BC711A2EEC6500B9D551 /* Supporting Files */,
 				2AC84EDC1A2F01D100920073 /* Resources */,
