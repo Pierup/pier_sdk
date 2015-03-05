@@ -61,6 +61,9 @@
 		var UPDATE_INFO_FINIESHED = '141';
 		var APPLY_CREDIT_FINISHED = '6285';
 		var SIGN_UP = 'Sign Up';
+		var PAYMENT_SUCCESS = 'Payment Successful!';
+		var SUCCESS_BACK_PAGE = '<<<< Go on shopping!';
+		var DATE_OF_BIRTH = 'Date of Birth(MM/dd/YYYY)';
 
 
 		//Variable
@@ -81,10 +84,27 @@
 		// create  CSS styles
 		var styleElem = document.createElement( 'style' );
 		// for WebKit
-		styleElem.appendChild( document.createTextNode( '' ) );
+		// styleElem.appendChild( document.createTextNode( '' ) );
 		document.head.appendChild( styleElem );
 
 		var ss = styleElem.sheet;
+		
+        if( !ss.addRule ){
+        	ss.addRule = function( selector, style ){
+        		var index=document.styleSheets[0].cssRules.length; 
+
+        		ss.insertRule( selector+'{'+style+'}', index );
+
+        	}
+        }
+		// var addRule = function( selector, style ){
+		// 	if( sheet.addRule ){
+		// 		sheet.addRule( selector + "{" + rules + "}" );  
+		// 	}else{
+		// 		sheet.addRule( selector, style );
+		// 	}
+
+		// }
 
 		//checkout layout
 		ss.addRule( '.pier-btn', 'background-color:#428bca;border-color:#357ebd;color:#fff;text-align:center;white-space:nowrap;vertical-align:middle;cursor:pointer;padding:10px 16px;font-size:14px;border-radius:6px;border:1px solid transparent;' );
@@ -138,7 +158,7 @@
         ss.addRule( '.apply-input:focus', 'box-shadow:0px 0px 10px rgba(0,204,209,1);border-radius: 6px 6px 6px 6px;transition: box-shadow 1s;-moz-transition: box-shadow 1s;-webkit-transition: box-shadow 1s;-o-transition: box-shadow 1s;');
 		ss.addRule( '.apply-input-first-name', 'width: 32%;');
 		ss.addRule( '.apply-input-last-name', 'width:32%;margin-left: 3%;');
-		ss.addRule( '.apply-btn-submit', 'width:73%;height:42px;border:1px solid #CCC;font-size:16px;margin-left:15%;text-align: center;padding: 8px;margin-top: 10px;background: #52A552;border-radius: 5px;');
+		ss.addRule( '.apply-btn-submit', 'cursor:pointer;width:73%;height:42px;border:1px solid #CCC;font-size:16px;margin-left:15%;text-align: center;padding: 8px;margin-top: 10px;background: #52A552;border-radius: 5px;');
         ss.addRule( '.apply-back', 'width: 100%;font-size: 16px;font-weight: bold;text-align: left;margin-left: 20px;cursor: pointer;' );
 		ss.addRule( '.apply-back:hover', 'color: #22B8CB;' );
 		ss.addRule( '.apply-error-msg', 'width:100%; text-align:center; color:#FF0000;font-size:14px;' );
@@ -151,7 +171,7 @@
 		ss.addRule( '.credit-body', 'width:100%;height: auto;margin-top:1px;background:rgba(255,255,250,0.8);border-radius:0 0 5px 5px;');
 	    ss.addRule( '.credit-body-desc', 'width: 100%;text-align: center;');
 	    ss.addRule( '.credit-body-amount', 'width: 100%;text-align: center;color: #52A552;');
-		ss.addRule( '.credit-btn-submit', 'width:73%;height:42px;border:1px solid #CCC;font-size:16px;margin-left:15%;text-align: center;padding: 8px;margin-top: 10px;background: #52A552;border-radius: 5px;');
+		ss.addRule( '.credit-btn-submit', 'cursor:pointer;width:73%;height:42px;border:1px solid #CCC;font-size:16px;margin-left:15%;text-align: center;padding: 8px;margin-top: 10px;background: #52A552;border-radius: 5px;');
 
 		//Checkout success loading
 		ss.addRule( '.checkout-spinner', 'margin: 200px auto;width: 60px;height: 60px;position: relative;opacity: 1;');
@@ -174,8 +194,14 @@
 		ss.addRule( '.checkout-container1 .checkout-circle4', '-webkit-animation-delay: -0.3s;animation-delay: -0.3s;' );
 		ss.addRule( '.checkout-container2 .checkout-circle4', '-webkit-animation-delay: -0.2s;animation-delay: -0.2s;' );
 		ss.addRule( '.checkout-container3 .checkout-circle4', '-webkit-animation-delay: -0.1s;animation-delay: -0.1s;' );
-		ss.addRule( '@-webkit-keyframes checkout-bouncedelay', '0%, 80%, 100% { -webkit-transform: scale(0.0) }40% { -webkit-transform: scale(1.0) }' );
-		ss.addRule( '@-webkit-keyframes checkout-bouncedelay', '0%, 80%, 100% { transform: scale(0.0);-webkit-transform: scale(0.0);} 40% {transform: scale(1.0);-webkit-transform: scale(1.0);}' );
+		if( isFirefox=navigator.userAgent.indexOf("Firefox")!=-1 ){ 
+			ss.addRule( '@-moz-keyframes checkout-bouncedelay', '0%, 80%, 100% { transform: scale(0.0);-webkit-transform: scale(0.0);} 40% {transform: scale(1.0);-webkit-transform: scale(1.0);}' );
+	    }
+	    if(  (isChrome = navigator.userAgent.indexOf("Chrome")!= -1) || (isSafari=navigator.userAgent.indexOf("Safari")!=-1) ){ 
+		    ss.addRule( '@-webkit-keyframes checkout-bouncedelay', '0%, 80%, 100% { -webkit-transform: scale(0.0) }40% { -webkit-transform: scale(1.0) }' );
+        }  
+		//
+		//
 		ss.addRule( '.checkout-loading-page', 'width:302px;height:410px;z-index:999;background:rgb(229, 229, 208);color:#000;box-shadow:0px 3px 10px #000100;border-radius:5px 5px 5px 5px;border:1px solid #000011;position: relative;top:-395px; opacity: 0.7;display:none;' );
 
 		//payment success
@@ -334,7 +360,7 @@
         apply_address.setAttribute( 'required', 'required' );
         var apply_dob = document.createElement( 'input' );
         apply_dob.setAttribute( 'type', 'text' );
-        apply_dob.setAttribute( 'placeholder', 'Date of Birth' );
+        apply_dob.setAttribute( 'placeholder', DATE_OF_BIRTH );
         apply_dob.setAttribute( 'required', 'required' );
         var apply_ssn = document.createElement( 'input' );
         apply_ssn.setAttribute( 'type', 'text' );
@@ -374,8 +400,8 @@
         var success_des_content = document.createElement( 'p' );
         var success_back_shopping = document.createElement( 'div' );
         var success_back_link = document.createElement( 'a' );
-        success_des_content.innerHTML = 'Payment Successful!';
-        success_back_link.innerHTML = '<<<< Go on shopping!';
+        success_des_content.innerHTML = PAYMENT_SUCCESS;
+        success_back_link.innerHTML = SUCCESS_BACK_PAGE;
         success_back_link.setAttribute( 'href', successBackUrl );
 
 
@@ -923,6 +949,13 @@
         
 	 }
 
+	//validate DOB 
+	apply_dob.onblur = function(){
+		// var dobValue = apply_dob.value;
+		// var patrn =  /^\d{4}(\-|\/|\.)\d{1,2}\1\d{1,2}$/
+		// if( patrn.test( patrn ) ){ alert(); }
+	}
+
 	//Apply Credit submit
 	 apply_btn_submit.onclick = function( event ){
 	 	if( !applyCheckAllInfo() ) {
@@ -1037,6 +1070,9 @@
 	  	 apply_address.value = '';
 	  	 apply_dob.value = '';
 	  	 apply_ssn.value = '';
+	  	 apply_error.innerHTML = '';
+	  	 register_error.innerHTML = '';
+	  	 checkoutError.innerHTML = '';
 	  	 registerHasSendCode = false;
 	  	 clearTimeout( registerT );
 	  	 clearTimeout( checkoutT );
