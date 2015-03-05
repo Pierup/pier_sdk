@@ -39,9 +39,9 @@ static DemoHttpExecutor *__connect;
     return __connect;
 }
 
-- (void)sendMessage:(void(^)(NSString *respond))success
+- (void)sendMessage:(void(^)(id respond))success
      andRequestJson:(NSDictionary *)requestJson
-         andFailure:(void(^)(NSString *error, int errorCode))failure
+         andFailure:(void(^)(id error, int errorCode))failure
             andPath:(NSString *)path
              method:(NSString *)method{
     self.method = method;
@@ -88,9 +88,9 @@ static DemoHttpExecutor *__connect;
     NSDictionary *resultDic = [self dictionaryWithJsonData:self.responseData];
     NSLog(@"result:%@",responseJson);
 
-    NSNumber *result = [resultDic objectForKey:@"success"];
-    if ([result boolValue] == YES) {
-        self.success(responseJson);
+    NSNumber *result = [resultDic objectForKey:@"code"];
+    if ([result integerValue] == 200) {
+        self.success(resultDic);
     }else{
         self.failure([resultDic objectForKey:@"msg"],10000);
     }

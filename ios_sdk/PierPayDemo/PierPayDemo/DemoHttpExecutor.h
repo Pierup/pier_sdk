@@ -10,14 +10,14 @@
 
 @interface DemoHttpExecutor : NSObject
 
-typedef void(^httpCallBack)(NSString *respondJson);
-typedef void(^httpErrorBack)(NSString *error, int errorCode);
+typedef void(^httpCallBack)(id respondJson);
+typedef void(^httpErrorBack)(id error, int errorCode);
 
 + (DemoHttpExecutor *)getInstance;
 
-- (void)sendMessage:(void(^)(NSString *respond))success
+- (void)sendMessage:(void(^)(id respond))success
      andRequestJson:(NSDictionary *)requestJson
-         andFailure:(void(^)(NSString *error, int errorCode))failure
+         andFailure:(void(^)(id error, int errorCode))failure
             andPath:(NSString *)path
              method:(NSString *)method;
 
