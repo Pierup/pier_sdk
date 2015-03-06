@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *amount;         //amount
 @property (nonatomic, strong) NSString *image;          //image_url
 @property (nonatomic, strong) NSString *currency;       //currency of amount
-
+@property (nonatomic, strong)NSString  *server_url;     //server_url
 @end
 
 @interface MerchantModel : NSObject
