@@ -11,15 +11,59 @@
 #import "DemoHttpExecutor.h"
 #import "ProductViewController.h"
 
-@implementation ShopListmodel
+@implementation ShopListModel
+
 @end
 
 @implementation MerchantModel
+
+@end
+
+@interface ShopListCell : UITableViewCell
+
++ (instancetype)cellWithTableView:(UITableView *)tableView merchantModel:(NSArray *)merchantArray row:(NSUInteger)row;
+
+@end
+
+@implementation ShopListCell
+
++ (instancetype)cellWithTableView:(UITableView *)tableView merchantModel:(NSArray *)merchantArray row:(NSUInteger)row
+{
+    static NSString *identifier = @"ShopListCell";
+    ShopListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[ShopListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    UIImageView *imageView =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 115, [UIScreen mainScreen].bounds.size.width, 30)];
+    view.alpha = 0.8;
+    view.backgroundColor = [UIColor whiteColor];
+    UILabel *merchantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 115, 200, 30)];
+    merchantNameLabel.text = @"Merchant Name";
+    [cell.contentView addSubview:imageView];
+    [cell.contentView addSubview:view];
+    [cell.contentView addSubview:merchantNameLabel];
+    if (merchantArray) {
+        MerchantModel *merchant = merchantArray[row];
+        merchantNameLabel.text = merchant.business_name;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:merchant.product_small_url]]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                imageView.image = image;
+            });
+        });
+      }
+    return  cell;
+}
+
 @end
 
 @interface ShopListViewController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (nonatomic, weak) IBOutlet UITableView *merchantTableView;
 @property (nonatomic, strong) NSMutableArray *merchantArray;
+
 @end
 
 @implementation ShopListViewController
@@ -32,16 +76,15 @@
 }
 
 //Get Merchant List
-- (void)getMerchantList{
-    DemoHttpExecutor *httpConnect = [DemoHttpExecutor getInstance];
+- (void)getMerchantList
+{
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          @"1",@"page_no",
                          @"2",@"platform",
                          @"5",@"limit",
                          nil];
-    [httpConnect sendMessage:^(id respond) {
-        NSDictionary *dic = (NSDictionary *)respond;
-       NSArray *array =  [[dic objectForKey:@"result"] objectForKey:@"items"];
+    [[DemoHttpExecutor getInstance] sendMessage:^(id respond) {
+       NSArray *array =  [[(NSDictionary *)respond objectForKey:@"result"] objectForKey:@"items"];
         self.merchantArray = [NSMutableArray arrayWithCapacity:array.count];
         for (int i = 0; i < array.count; i++) {
             MerchantModel *merchant = [[MerchantModel alloc] init];
@@ -62,20 +105,23 @@
 {
     [self.merchantTableView reloadData];
 }
+
 #pragma mark ---------------------UITableViewDelegate------------------------
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 145;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.merchantArray > 0) {
+    if (self.merchantArray) {
         ProductViewController *productViewController = [[ProductViewController alloc]init];
         productViewController.merchantModel = self.merchantArray[indexPath.row];
         [self.navigationController pushViewController:productViewController animated:YES];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
+
 #pragma mark ---------------------UITableViewDatasource----------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -87,32 +133,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell.showsReorderControl = YES;
-    cell.backgroundColor = [UIColor clearColor];
-    UIImageView *imageView =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 115, [UIScreen mainScreen].bounds.size.width, 30)];
-    view.alpha = 0.8;
-    view.backgroundColor = [UIColor whiteColor];
-    UILabel *merchantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 115, 200, 30)];
-    merchantNameLabel.text = @"Merchant Name";
-    merchantNameLabel.backgroundColor = [UIColor clearColor];
-    [cell.contentView addSubview:imageView];
-    [cell.contentView addSubview:view];
-    [cell.contentView addSubview:merchantNameLabel];
-    if (self.merchantArray.count > 0) {
-        MerchantModel *merchant = self.merchantArray[indexPath.row];
-        merchantNameLabel.text = merchant.business_name;
-        NSURL *photourl = [NSURL URLWithString:merchant.product_small_url];
-        if (imageView.image == nil) {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                UIImage *images = [UIImage imageWithData:[NSData dataWithContentsOfURL:photourl]];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    imageView.image = images;
-                });
-            });
-        }
+    ShopListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShopListCell"];
+    if (!cell) {
+        cell = [ShopListCell cellWithTableView:tableView merchantModel:self.merchantArray row:indexPath.row];
     }
     return cell;
 }
