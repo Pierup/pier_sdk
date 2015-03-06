@@ -46,8 +46,6 @@
     [self.view addSubview:self.mainViewController.view];
 }
 
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

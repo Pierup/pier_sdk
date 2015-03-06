@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShopListmodel : NSObject
+@interface ShopListModel : NSObject
 
-@property (nonatomic, strong) NSString *amount;         //19.99
+@property (nonatomic, strong) NSString *amount;         //amount
 @property (nonatomic, strong) NSString *image;          //image_url
 @property (nonatomic, strong) NSString *currency;       //currency of amount
 
