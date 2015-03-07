@@ -36,6 +36,8 @@
 {
     [super viewDidLoad];
     [self setTitle:@"Country Code"];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismissCountryCodeViewController)];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -45,6 +47,7 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 

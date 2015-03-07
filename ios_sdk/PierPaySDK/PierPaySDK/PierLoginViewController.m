@@ -56,7 +56,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -111,7 +111,7 @@
 - (IBAction)countryCodeButtonAction:(UIButton *)sender {
     UINavigationController *countryNav = [[UINavigationController alloc] initWithRootViewController:self.countryCodeViewController];
     [self presentViewController:countryNav animated:YES completion:^{
-        
+        [self.navigationController setNavigationBarHidden:YES];
     }];
 }
 
