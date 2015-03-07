@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ShopListViewController.h"
+
 @interface ProductViewController : UIViewController
+
 @property (nonatomic, strong) MerchantModel *merchantModel;
+
 @end

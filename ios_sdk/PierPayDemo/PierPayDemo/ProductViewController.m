@@ -11,6 +11,7 @@
 #import "DemoHttpExecutor.h"
 
 #pragma mark ------------------- ProductCell ------------------------------
+
 @interface ProductCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *productImageView;
@@ -22,6 +23,7 @@
 
 @end
 
+
 @implementation ProductCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -29,8 +31,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145);
-        //添加控件
+
         _productImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 125, 125)];
         [self.contentView addSubview:_productImageView];
         
@@ -62,9 +63,13 @@
             });
         });
 }
+
 @end
+
+
 #pragma mark ------------------- ProductViewController --------------------
-@interface ProductViewController()<UITableViewDataSource,UITableViewDelegate,PayByPierDelegate>
+
+@interface ProductViewController()<UITableViewDataSource, UITableViewDelegate, PayByPierDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *productTableView;
 @property (nonatomic, strong) NSMutableArray *productsArray;
@@ -72,24 +77,23 @@
 
 @end
 
+
 @implementation ProductViewController
+
+#pragma mark -------------------------- System ----------------------------
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [self setTitle:@"Product"];
         _merchantParam = [[NSMutableDictionary alloc] init];
+        [self getMerchantProduct:self.merchantModel.merchant_id];
     }
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self setTitle:@"Product"];
-    [self getMerchantProduct:self.merchantModel.merchant_id];
-}
-
+#pragma mark ------------------- Service ----------------------------------
 //Get Products 
 - (void)getMerchantProduct:(NSString *)merchant_id
 {
@@ -118,11 +122,9 @@
     
 }
 
-- (void)refreshTable
-{
-   [self.productTableView reloadData];
-}
+#pragma mark ----------------------------- Button Action --------------------
 
+#pragma mark - payButton Action
 - (void)payByPier:(UIButton *)sender
 {
     if (self.merchantModel && self.merchantModel.shopListModelArray) {
@@ -139,7 +141,9 @@
     }
 }
 
-#pragma mark -------------------- PayByPierDelegate -----------------------
+#pragma mark ----------------------- Delegate ------------------------------
+
+#pragma mark - PayByPierDelegate
 /**
  * Result
  * name:        Type            Description
@@ -153,7 +157,7 @@
  
 }
 
-#pragma mark -------------------- UITableViewDelegate ---------------------
+#pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 145;
@@ -164,13 +168,14 @@
        [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-#pragma mark ------------------- UITableViewDatasource --------------------
+#pragma mark - UITableViewDatasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (!self.merchantModel.shopListModelArray.count) {
+    if (self.merchantModel.shopListModelArray.count > 0) {
+        return self.merchantModel.shopListModelArray.count;
+    }else {
         return 0;
     }
-    return self.merchantModel.shopListModelArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -179,8 +184,8 @@
     ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[ProductCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.payButton.tag = indexPath.row;
     }
-    cell.payButton.tag = indexPath.row;
     [cell.payButton addTarget:self action:@selector(payByPier:) forControlEvents:UIControlEventTouchDown];
     
     if (self.merchantModel.shopListModelArray) {
@@ -188,6 +193,13 @@
         [cell setAmountLabel:shopListModel.amount currencyLabel:shopListModel.currency productImageUrl:shopListModel.image];
     }
     return cell;
+}
+
+#pragma mark ----------------------- Functions -----------------------------
+
+- (void)refreshTable
+{
+    [self.productTableView reloadData];
 }
 
 @end

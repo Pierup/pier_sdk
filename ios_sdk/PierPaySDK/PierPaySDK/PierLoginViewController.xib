@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PierLoginViewController">
             <connections>
                 <outlet property="bacButton" destination="DJq-hc-7Wz" id="5ud-t9-yR3"/>
+                <outlet property="countryCodeButton" destination="TfQ-7c-Ju8" id="GqM-uF-kHN"/>
                 <outlet property="passwordLabel" destination="CgD-zR-LEI" id="eqE-JL-V5X"/>
                 <outlet property="phoneNumberLabel" destination="3Kw-Ov-C8r" id="IAO-BM-SvK"/>
                 <outlet property="submitButton" destination="GLf-a8-oCS" id="3i7-bq-8Nk"/>
@@ -49,7 +50,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Kw-Ov-C8r">
-                    <rect key="frame" x="15" y="70" width="290" height="50"/>
+                    <rect key="frame" x="55" y="70" width="250" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="4nS-n8-VCl"/>
                     </constraints>
@@ -70,6 +71,15 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfQ-7c-Ju8">
+                    <rect key="frame" x="15" y="70" width="32" height="50"/>
+                    <state key="normal" title="+1">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="countryCodeButtonAction:" destination="-1" eventType="touchUpInside" id="spT-rI-sSa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -83,10 +93,10 @@
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="mYA-sM-6v8"/>
                 <constraint firstItem="utt-OR-hS8" firstAttribute="top" secondItem="GLf-a8-oCS" secondAttribute="bottom" constant="8" id="oh8-Hc-6FH"/>
                 <constraint firstAttribute="trailing" secondItem="CgD-zR-LEI" secondAttribute="trailing" constant="15" id="s8x-DE-EEG"/>
-                <constraint firstItem="3Kw-Ov-C8r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="uBN-O1-StT"/>
+                <constraint firstItem="3Kw-Ov-C8r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="uBN-O1-StT"/>
                 <constraint firstAttribute="trailing" secondItem="3Kw-Ov-C8r" secondAttribute="trailing" constant="15" id="zyj-vm-PQM"/>
             </constraints>
-            <point key="canvasLocation" x="4" y="401"/>
+            <point key="canvasLocation" x="180" y="412"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
