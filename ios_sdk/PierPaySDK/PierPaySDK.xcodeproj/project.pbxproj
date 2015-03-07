@@ -350,9 +350,6 @@
 		2ACCFEB51A775B2F00A5BAC5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AD7974F41AAA9B7300AC26C4 /* PierCountryCodeViewController.h */,
-				AD7974F51AAA9B7300AC26C4 /* PierCountryCodeViewController.m */,
-				AD7974F61AAA9B7300AC26C4 /* PierCountryCodeViewController.xib */,
 				2A6273A41AA6EF8000BEC05C /* Service */,
 				2A252D481AA1C408004BAB9C /* ViewModel */,
 				2A252D3C1AA1BA58004BAB9C /* PierLoginViewController.h */,
@@ -361,6 +358,9 @@
 				2A96B5641AA464B600CDA7E9 /* PierSiginViewController.h */,
 				2A96B5651AA464B600CDA7E9 /* PierSiginViewController.m */,
 				2A96B5661AA464B600CDA7E9 /* PierSiginViewController.xib */,
+				AD7974F41AAA9B7300AC26C4 /* PierCountryCodeViewController.h */,
+				AD7974F51AAA9B7300AC26C4 /* PierCountryCodeViewController.m */,
+				AD7974F61AAA9B7300AC26C4 /* PierCountryCodeViewController.xib */,
 				2A96B56A1AA465CF00CDA7E9 /* PierRegisterViewController.h */,
 				2A96B56B1AA465CF00CDA7E9 /* PierRegisterViewController.m */,
 				2A96B56C1AA465CF00CDA7E9 /* PierRegisterViewController.xib */,
