@@ -86,11 +86,15 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setTitle:@"Product"];
         _merchantParam = [[NSMutableDictionary alloc] init];
-        [self getMerchantProduct:self.merchantModel.merchant_id];
     }
     return self;
+}
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    [self setTitle:@"Product"];
+    [self getMerchantProduct:self.merchantModel.merchant_id];
 }
 
 #pragma mark ------------------- Service ----------------------------------

@@ -109,7 +109,8 @@
 
 #pragma mark - countryCodeButton Action
 - (IBAction)countryCodeButtonAction:(UIButton *)sender {
-    [self.navigationController presentViewController:self.countryCodeViewController animated:YES completion:^{
+    UINavigationController *countryNav = [[UINavigationController alloc] initWithRootViewController:self.countryCodeViewController];
+    [self presentViewController:countryNav animated:YES completion:^{
         
     }];
 }
@@ -121,9 +122,6 @@
 {
     // 根据countryCode来限制字数
     [self checkCountryCode:countryCode countryName:countryName phoneNumber:self.phoneNumberLabel.text];
-    [countryCodeViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
 }
 
 #pragma mark - UITextFieldDelegate

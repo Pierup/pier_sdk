@@ -27,7 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.countryCodeDictionary = @{@"US" : @"+1",@"CHINA" : @"+86"};
-         self.countryType = eCountryType_US;   //初始为美国
+        self.countryType = eCountryType_US;   //初始为美国
     }
     return self;
 }
@@ -36,14 +36,16 @@
 {
     [super viewDidLoad];
     [self setTitle:@"Country Code"];
-  
-    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismissCountryCodeViewController)];
-    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 #pragma mark - --------------------手势事件--------------------
@@ -73,6 +75,7 @@
         NSString *countryName = self.countryCodeDictionary.allKeys[indexPath.row];
         NSString *countryCode = [self.countryCodeDictionary objectForKey:self.countryCodeDictionary.allKeys[indexPath.row]];
         [self.delegate countryCode:countryCode countryName:countryName countryCodeViewController:self];
+        [self dismissCountryCodeViewController];
     }
 }
 

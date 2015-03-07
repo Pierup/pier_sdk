@@ -93,10 +93,15 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setTitle:@"Merchant"];
-        [self getMerchantList];
+        
     }
     return self;
+}
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    [self setTitle:@"Merchant"];
+    [self getMerchantList];
 }
 
 #pragma mark ------------------- Service ----------------------------------
