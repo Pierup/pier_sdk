@@ -90,6 +90,9 @@
 		2ACCFED51A7782EE00A5BAC5 /* PIRService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82581A65281C00BEEAF6 /* PIRService.m */; };
 		2ACCFED61A7782F600A5BAC5 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */; };
 		2AF42D931A306D9B0076DEC4 /* PierPayRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9EB3AA1A3048CC00CF40A4 /* PierPayRootViewController.xib */; };
+		AD7974F71AAA9B7300AC26C4 /* PierCountryCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7974F51AAA9B7300AC26C4 /* PierCountryCodeViewController.m */; };
+		AD7974F81AAA9B7300AC26C4 /* PierCountryCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7974F51AAA9B7300AC26C4 /* PierCountryCodeViewController.m */; };
+		AD7974F91AAA9B7300AC26C4 /* PierCountryCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7974F61AAA9B7300AC26C4 /* PierCountryCodeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +211,9 @@
 		2ACCFECB1A77722700A5BAC5 /* PIRKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRKeyboard.m; sourceTree = "<group>"; };
 		2AF42D8C1A306CC90076DEC4 /* PierResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierResource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF42D8F1A306CC90076DEC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD7974F41AAA9B7300AC26C4 /* PierCountryCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierCountryCodeViewController.h; sourceTree = "<group>"; };
+		AD7974F51AAA9B7300AC26C4 /* PierCountryCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierCountryCodeViewController.m; sourceTree = "<group>"; };
+		AD7974F61AAA9B7300AC26C4 /* PierCountryCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierCountryCodeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +350,9 @@
 		2ACCFEB51A775B2F00A5BAC5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AD7974F41AAA9B7300AC26C4 /* PierCountryCodeViewController.h */,
+				AD7974F51AAA9B7300AC26C4 /* PierCountryCodeViewController.m */,
+				AD7974F61AAA9B7300AC26C4 /* PierCountryCodeViewController.xib */,
 				2A6273A41AA6EF8000BEC05C /* Service */,
 				2A252D481AA1C408004BAB9C /* ViewModel */,
 				2A252D3C1AA1BA58004BAB9C /* PierLoginViewController.h */,
@@ -567,6 +576,7 @@
 				2A252D471AA1C0EE004BAB9C /* PierCreditApplyController.xib in Resources */,
 				2A96B56F1AA465CF00CDA7E9 /* PierRegisterViewController.xib in Resources */,
 				2A252D081AA198BE004BAB9C /* btn_close@3x.png in Resources */,
+				AD7974F91AAA9B7300AC26C4 /* PierCountryCodeViewController.xib in Resources */,
 				2ACCFEBC1A775D4500A5BAC5 /* PierAlertView.xib in Resources */,
 				2AF42D931A306D9B0076DEC4 /* PierPayRootViewController.xib in Resources */,
 				2ACCFEB41A77340D00A5BAC5 /* PierLoginViewController1.xib in Resources */,
@@ -600,6 +610,7 @@
 				2A252D4F1AA1C4E8004BAB9C /* PierSiginCells.m in Sources */,
 				2A77977A1A3E764F00F5DF36 /* PIRHttpClient.m in Sources */,
 				2A6EA3051AA579CD00E8B340 /* PIRDataSource.m in Sources */,
+				AD7974F71AAA9B7300AC26C4 /* PierCountryCodeViewController.m in Sources */,
 				2ACCFEC81A776A4500A5BAC5 /* PierTools.m in Sources */,
 				2A252D4B1AA1C4D0004BAB9C /* PierSiginViewModel.m in Sources */,
 				2ACCFECC1A77722700A5BAC5 /* PIRKeyboard.m in Sources */,
@@ -650,6 +661,7 @@
 				2ACCFEB31A77340D00A5BAC5 /* PierLoginViewController1.m in Sources */,
 				2ACCFEC11A775FA000A5BAC5 /* PierColor.m in Sources */,
 				2A6EA3021AA5583200E8B340 /* PIRStopWatchView.m in Sources */,
+				AD7974F81AAA9B7300AC26C4 /* PierCountryCodeViewController.m in Sources */,
 				2A96B5681AA464B600CDA7E9 /* PierSiginViewController.m in Sources */,
 				2ACCFECD1A77722700A5BAC5 /* PIRKeyboard.m in Sources */,
 				2A6EA30B1AA5A14800E8B340 /* PierCreditApproveViewController.m in Sources */,

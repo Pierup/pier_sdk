@@ -10,48 +10,66 @@
 #import "PierPay.h"
 #import "DemoHttpExecutor.h"
 
+#pragma mark ------------------- ProductCell ------------------------------
+
 @interface ProductCell : UITableViewCell
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView merchantModel:(MerchantModel *)merchantModel row:(NSUInteger)row;
+@property (nonatomic, strong) UIImageView *productImageView;
+@property (nonatomic, strong) UILabel *currencyLabel;
+@property (nonatomic, strong) UILabel *amountLabel;
+@property (nonatomic, strong) UIButton *payButton;
+
+- (void)setAmountLabel:(NSString *)amountName currencyLabel:(NSString *)currencyName productImageUrl:(NSString *)productImageUrl;
 
 @end
 
+
 @implementation ProductCell
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView merchantModel:(MerchantModel *)merchantModel row:(NSUInteger)row
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    static NSString *identifier = @"ProductCell";
-    ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[ProductCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 125, 125)];
-    UILabel *currencyLabel = [[UILabel alloc]initWithFrame:CGRectMake(135, 22.5, 50, 100)];
-    currencyLabel.textAlignment =  NSTextAlignmentRight;
-    currencyLabel.text = @"$";
-    UILabel *amountLabel = [[UILabel alloc]initWithFrame:CGRectMake(190, 22.5, 60, 100)];
-    amountLabel.text = @"0.00";
-    [cell.contentView addSubview:imageView];
-    [cell.contentView addSubview:amountLabel];
-    [cell.contentView addSubview:currencyLabel];
-    if (merchantModel.shopListModelArray) {
-        ShopListModel  *shopListModel = merchantModel.shopListModelArray[row];
-        amountLabel.text = shopListModel.amount;
-        currencyLabel.text = [shopListModel.currency isEqualToString:@"USD"] ? @"$" : shopListModel.currency;
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        _productImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 125, 125)];
+        [self.contentView addSubview:_productImageView];
+        
+        _currencyLabel = [[UILabel alloc]initWithFrame:CGRectMake(135, 22.5, 50, 100)];
+        _currencyLabel.textAlignment =  NSTextAlignmentRight;
+        _currencyLabel.text = @"$";
+        [self.contentView addSubview:_currencyLabel];
+        
+        _amountLabel = [[UILabel alloc]initWithFrame:CGRectMake(190, 22.5, 60, 100)];
+        _amountLabel.text = @"0.00";
+        [self.contentView addSubview:_amountLabel];
+        
+        _payButton = [[UIButton alloc]initWithFrame:CGRectMake(250, 57.5, 110,30)];
+        [_payButton setBackgroundColor:[UIColor purpleColor]];
+        [_payButton setTitle:@"Pay by Pier" forState:UIControlStateNormal];
+        [self.contentView addSubview:_payButton];
+    }
+    return self;
+}
+
+- (void)setAmountLabel:(NSString *)amountName currencyLabel:(NSString *)currencyName productImageUrl:(NSString *)productImageUrl
+{
+        _amountLabel.text = amountName;
+        _currencyLabel.text = [currencyName isEqualToString:@"USD"] ? @"$" : currencyName;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:shopListModel.image]]];
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:productImageUrl]]];
             dispatch_async(dispatch_get_main_queue(), ^{
-                imageView.image = image;
+                _productImageView.image = image;
             });
         });
-     }
-    return cell;
 }
 
 @end
 
-@interface ProductViewController ()<UITableViewDataSource,UITableViewDelegate,PayByPierDelegate>
+
+#pragma mark ------------------- ProductViewController --------------------
+
+@interface ProductViewController()<UITableViewDataSource, UITableViewDelegate, PayByPierDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *productTableView;
 @property (nonatomic, strong) NSMutableArray *productsArray;
@@ -59,24 +77,23 @@
 
 @end
 
+
 @implementation ProductViewController
+
+#pragma mark -------------------------- System ----------------------------
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [self setTitle:@"Product"];
         _merchantParam = [[NSMutableDictionary alloc] init];
+        [self getMerchantProduct:self.merchantModel.merchant_id];
     }
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self setTitle:@"Product"];
-    [self getMerchantProduct:self.merchantModel.merchant_id];
-}
-
+#pragma mark ------------------- Service ----------------------------------
 //Get Products 
 - (void)getMerchantProduct:(NSString *)merchant_id
 {
@@ -87,11 +104,13 @@
     [[DemoHttpExecutor getInstance] sendMessage:^(id respond) {
         NSArray *array =  [(NSDictionary *)respond objectForKey:@"result"];
         self.productsArray = [NSMutableArray arrayWithCapacity:array.count];
+        NSString *server_url = [(NSDictionary *)respond objectForKey:@"server_url"];
         for (int i = 0; i < array.count; i++) {
             ShopListModel *shopListModel = [[ShopListModel alloc] init];
             shopListModel.amount = [array[i] objectForKey:@"amount"];
             shopListModel.image = [array[i] objectForKey:@"image"];
             shopListModel.currency = [array[i] objectForKey:@"currency"];
+            shopListModel.server_url = server_url;
             [self.productsArray addObject:shopListModel];
         }
         self.merchantModel.shopListModelArray = self.productsArray;
@@ -103,11 +122,9 @@
     
 }
 
-- (void)refreshTable
-{
-   [self.productTableView reloadData];
-}
+#pragma mark ----------------------------- Button Action --------------------
 
+#pragma mark - payButton Action
 - (void)payByPier:(UIButton *)sender
 {
     if (self.merchantModel && self.merchantModel.shopListModelArray) {
@@ -117,14 +134,16 @@
         [_merchantParam setValue:self.merchantModel.merchant_id forKey:@"merchant_id"];
         [_merchantParam setValue:shopListModel.amount forKey:@"amount"];
         [_merchantParam setValue:shopListModel.currency forKey:@"currency"];
-        [_merchantParam setValue:@"http://192.168.1.254:8080/pier-merchant/merchant/server/sdk/pay/" forKey:@"server_url"];
+        [_merchantParam setValue:shopListModel.server_url forKey:@"server_url"];
     
         PierPay *pierpay = [[PierPay alloc] initWith:_merchantParam delegate:self];
         [self presentViewController:pierpay animated:YES completion:nil];
     }
 }
 
-#pragma mark ---------------------PayByPierDelegate--------------------------
+#pragma mark ----------------------- Delegate ------------------------------
+
+#pragma mark - PayByPierDelegate
 /**
  * Result
  * name:        Type            Description
@@ -138,7 +157,7 @@
  
 }
 
-#pragma mark ---------------------UITableViewDelegate------------------------
+#pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 145;
@@ -149,28 +168,38 @@
        [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-#pragma mark ---------------------UITableViewDatasource----------------------
+#pragma mark - UITableViewDatasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (!self.merchantModel.shopListModelArray.count) {
+    if (self.merchantModel.shopListModelArray.count > 0) {
+        return self.merchantModel.shopListModelArray.count;
+    }else {
         return 0;
     }
-    return self.merchantModel.shopListModelArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProductCell"];
+    static NSString *identifier = @"ProductCell";
+    ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [ProductCell cellWithTableView:tableView merchantModel:self.merchantModel row:indexPath.row];
+        cell = [[ProductCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.payButton.tag = indexPath.row;
     }
-    UIButton *payButton = [[UIButton alloc]initWithFrame:CGRectMake(250, 57.5, 110,30)];
-    payButton.tag = indexPath.row;
-    [payButton setBackgroundColor:[UIColor purpleColor]];
-    [payButton setTitle:@"Pay by Pier" forState:UIControlStateNormal];
-    [payButton addTarget:self action:@selector(payByPier:) forControlEvents:UIControlEventTouchDown];
-    [cell.contentView addSubview:payButton];
+    [cell.payButton addTarget:self action:@selector(payByPier:) forControlEvents:UIControlEventTouchDown];
+    
+    if (self.merchantModel.shopListModelArray) {
+        ShopListModel *shopListModel = self.merchantModel.shopListModelArray[indexPath.row];
+        [cell setAmountLabel:shopListModel.amount currencyLabel:shopListModel.currency productImageUrl:shopListModel.image];
+    }
     return cell;
+}
+
+#pragma mark ----------------------- Functions -----------------------------
+
+- (void)refreshTable
+{
+    [self.productTableView reloadData];
 }
 
 @end

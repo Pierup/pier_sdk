@@ -11,71 +11,96 @@
 #import "DemoHttpExecutor.h"
 #import "ProductViewController.h"
 
+#pragma mark -------------------- ShopListModel -----------------------------
+
 @implementation ShopListModel
 
 @end
+
+
+#pragma mark -------------------- MerchantModel -----------------------------
 
 @implementation MerchantModel
 
 @end
 
+
+#pragma mark -------------------- ShopListCell ------------------------------
+
 @interface ShopListCell : UITableViewCell
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView merchantModel:(NSArray *)merchantArray row:(NSUInteger)row;
+@property (nonatomic, strong) UIImageView *merchantImageView;
+@property (nonatomic, strong) UIView *backdropView;
+@property (nonatomic, strong) UILabel *merchantNameLabel;
+
+- (void)setMerchantNameLabel:(NSString *)merchantName merchantImageViewUrl:(NSString *)merchantImageViewUrl;
 
 @end
 
+
 @implementation ShopListCell
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView merchantModel:(NSArray *)merchantArray row:(NSUInteger)row
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    static NSString *identifier = @"ShopListCell";
-    ShopListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[ShopListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        _merchantImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
+        _merchantImageView.image = [UIImage imageNamed:@"shop_default"];
+        [self.contentView addSubview:_merchantImageView];
+        
+        _backdropView = [[UIView alloc]initWithFrame:CGRectMake(0, 115, [UIScreen mainScreen].bounds.size.width, 30)];
+        _backdropView.backgroundColor = [UIColor whiteColor];
+        _backdropView.alpha = 0.8;
+        [self.contentView addSubview:_backdropView];
+        
+        _merchantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 115, 200, 30)];
+        _merchantNameLabel.text = @"Merchant Name";
+        [self.contentView addSubview:_merchantNameLabel];
     }
-    UIImageView *imageView =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 115, [UIScreen mainScreen].bounds.size.width, 30)];
-    view.alpha = 0.8;
-    view.backgroundColor = [UIColor whiteColor];
-    UILabel *merchantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 115, 200, 30)];
-    merchantNameLabel.text = @"Merchant Name";
-    [cell.contentView addSubview:imageView];
-    [cell.contentView addSubview:view];
-    [cell.contentView addSubview:merchantNameLabel];
-    if (merchantArray) {
-        MerchantModel *merchant = merchantArray[row];
-        merchantNameLabel.text = merchant.business_name;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:merchant.product_small_url]]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                imageView.image = image;
-            });
+    return self;
+}
+
+- (void)setMerchantNameLabel:(NSString *)merchantName merchantImageViewUrl:(NSString *)merchantImageViewUrl
+{
+    _merchantNameLabel.text = merchantName;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:merchantImageViewUrl]]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _merchantImageView.image = image;
         });
-      }
-    return  cell;
+    });
 }
 
 @end
 
-@interface ShopListViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+#pragma mark -------------------- ShopListViewController ------------------
+
+@interface ShopListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *merchantTableView;
 @property (nonatomic, strong) NSMutableArray *merchantArray;
 
 @end
 
+
 @implementation ShopListViewController
 
-- (void)viewWillAppear:(BOOL)animated
+#pragma mark -------------------------- System ----------------------------
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    [super viewWillAppear:animated];
-    [self setTitle:@"Merchant"];
-    [self getMerchantList];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self setTitle:@"Merchant"];
+        [self getMerchantList];
+    }
+    return self;
 }
 
-//Get Merchant List
+#pragma mark ------------------- Service ----------------------------------
+// Get Merchant List
 - (void)getMerchantList
 {
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -101,12 +126,9 @@
     } andPath:@"/merchant_api/v1/query/get_merchants" method:@"get"];
 }
 
-- (void)refreshTable
-{
-    [self.merchantTableView reloadData];
-}
+#pragma mark ----------------------- Delegate ------------------------------
 
-#pragma mark ---------------------UITableViewDelegate------------------------
+#pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 145;
@@ -122,22 +144,35 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-#pragma mark ---------------------UITableViewDatasource----------------------
+#pragma mark - UITableViewDatasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (!self.merchantArray.count) {
+    if (self.merchantArray.count > 0) {
+        return self.merchantArray.count;
+    }else {
         return 0;
     }
-    return self.merchantArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ShopListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShopListCell"];
+    static NSString *identifier = @"ShopListCell";
+    ShopListCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [ShopListCell cellWithTableView:tableView merchantModel:self.merchantArray row:indexPath.row];
+        cell = [[ShopListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    if (self.merchantArray) {
+        MerchantModel *merchant = self.merchantArray[indexPath.row];
+        [cell setMerchantNameLabel:merchant.business_name merchantImageViewUrl:merchant.product_small_url];
     }
     return cell;
+}
+
+#pragma mark ----------------------- Functions -----------------------------
+
+- (void)refreshTable
+{
+    [self.merchantTableView reloadData];
 }
 
 @end
