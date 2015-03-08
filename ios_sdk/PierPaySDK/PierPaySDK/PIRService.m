@@ -15,6 +15,7 @@
 #import "NSString+Check.h"
 #import "PIRDataSource.h"
 #import "PierAlertView.h"
+#import "PierLoadingView.h"
 
 #define HTTP_METHOD_POST        0   //@"post"
 #define HTTP_METHOD_POST_JSON   1   //@"post-json"
@@ -64,7 +65,14 @@
 + (void)serverSend:(ePIER_API_Type)apiType
            resuest:(PIRPayModel *)requestModel
       successBlock:(PierPaySuccessBlock)success
-       faliedBlock:(PierPayFailedBlock)failed{
+       faliedBlock:(PierPayFailedBlock)failed
+         attribute:(NSDictionary *)attribute{
+    BOOL showLoad = ([[attribute objectForKey:@"show_loading"] integerValue] == 1) ? NO:YES;
+    if (showLoad) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [PierLoadingView showLoadingView];
+        });
+    }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSDictionary *param = [PIRJSONModel getDictionaryByObject:requestModel];
         [PIRService setRequestHeader:param requestModel:requestModel];
@@ -78,9 +86,9 @@
                 [[PIRHttpClient sharedInstanceWithClientType:hostType] POST:path parameters:param progress:^(float progress){
                     DLog(@"progress:%f",progress);
                 } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
+                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
                 } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
+                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
                 }];
                 break;
             }
@@ -89,9 +97,9 @@
                 [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPOST:path parameters:param progress:^(float progress){
                     DLog(@"progress:%f",progress);
                 } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
+                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
                 } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
+                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
                 }];
                 break;
             }
@@ -100,9 +108,9 @@
                 [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPUT:path parameters:param progress:^(float progress){
                     DLog(@"progress:%f",progress);
                 } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
+                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
                 } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
+                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
                 }];
                 break;
             }
@@ -111,9 +119,9 @@
                 [[PIRHttpClient sharedInstanceWithClientType:hostType] GET:path saveToPath:nil parameters:nil progress:^(float progress) {
                     
                 } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed];
+                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
                 } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed];
+                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
                 }];
                 break;
             }
@@ -127,7 +135,16 @@
                  param:(NSDictionary *)param
            urlResponse:(NSHTTPURLResponse *)urlResponse
           successBlock:(PierPaySuccessBlock)success
-           faliedBlock:(PierPayFailedBlock)failed{
+           faliedBlock:(PierPayFailedBlock)failed
+             attribute:(NSDictionary *)attribute{
+    BOOL showLoad = ([[attribute objectForKey:@"show_loading"] integerValue] == 1) ? NO:YES;
+    BOOL showAlert = ([[attribute objectForKey:@"show_alert"] integerValue] == 1) ? NO:YES;
+    if (showLoad) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [PierLoadingView hindLoadingView];
+        });
+    }
+    
     DLog(@"%@Response",result);
     Class resultClass = NSClassFromString([param objectForKey:RESULT_MODEL]);
 
@@ -168,23 +185,28 @@
                     break;
                 case USRT_INVALID://用户不存在
                 {
-                    NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                @"",@"titleImageName",
-                                                @"error",@"title",
-                                                [error domain],@"message",nil];
-                    [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
-                        
-                    }];
+                    if (showAlert) {
+                        NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    @"",@"titleImageName",
+                                                    @"error",@"title",
+                                                    [error domain],@"message",nil];
+                        [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
+                            
+                        }];
+                    }
                     break;
                 }
                 default:
                 {
-                    NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           [error domain],@"titleImageName",
-                                           @"SMS",@"title",nil];
-                    [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
-                        
-                    }];
+                    if (showAlert) {
+                        NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    @"",@"titleImageName",
+                                                    @"error",@"title",
+                                                    [error domain],@"message",nil];
+                        [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
+                            
+                        }];
+                    }
                     break;
                 }
             }
@@ -200,8 +222,26 @@
 + (void)executeFailed:(NSDictionary *)param
           urlResponse:(NSHTTPURLResponse *)urlResponse
                 error:(NSError *)error
-           faliedBlock:(PierPayFailedBlock)failed{
+          faliedBlock:(PierPayFailedBlock)failed
+            attribute:(NSDictionary *)attribute{
+    BOOL showLoad = ([[attribute objectForKey:@"show_loading"] integerValue] == 1) ? NO:YES;
+    BOOL showAlert = ([[attribute objectForKey:@"show_alert"] integerValue] == 1) ? NO:YES;
+    if (showLoad) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [PierLoadingView hindLoadingView];
+        });
+    }
+    
     DLog(@"%@urlResponse",urlResponse);
+    if (showAlert) {
+        NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"",@"titleImageName",
+                                    @"error",@"title",
+                                    [error domain],@"message",nil];
+        [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
+            
+        }];
+    }
     failed(error);
 }
 
