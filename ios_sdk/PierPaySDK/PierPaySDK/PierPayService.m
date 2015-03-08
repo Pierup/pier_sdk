@@ -47,7 +47,7 @@
         });
     } faliedBlock:^(NSError *error) {
 
-    }];
+    } attribute:nil];
 }
 
 - (void)serviceGetAuthToken:(NSString *)userinput{
@@ -63,7 +63,7 @@
         [self serviceMerchantService:response];
     } faliedBlock:^(NSError *error) {
 
-    }];
+    } attribute:nil];
 }
 
 - (void)serviceMerchantService:(GetAuthTokenV2Response *)resultModel{
@@ -79,7 +79,7 @@
                                 @"1",@"status",
                                 [error domain],@"message", nil];
         [self pierPayComplete:result];
-    }];
+    } attribute:nil];
 }
 
 /**

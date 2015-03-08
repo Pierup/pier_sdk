@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "JSONKit.h"
 #import "PIRConfig.h"
+#import "NSString+Check.h"
 
 //超时时间
 static NSTimeInterval PIRHTTPTimeoutInterval = 30;
@@ -532,6 +533,7 @@ static NSString *defaultUserAgent;
 
 - (void)callCompletionBlockWithResponse:(id)response error:(NSError *)error success:(BOOL)isSuccess{
     self.timeoutTimer = nil;
+    __block BOOL __isSuccess = isSuccess;
     
     if(self.operationRunLoop){//停止runloop
         CFRunLoopStop(self.operationRunLoop);
@@ -542,26 +544,21 @@ static NSString *defaultUserAgent;
         
         if(!serverError) {
             if(self.operationURLResponse.statusCode == 500) {
-                serverError = [NSError errorWithDomain:NSURLErrorDomain
-                                                  code:NSURLErrorBadServerResponse
-                                              userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                        @"Bad Server Response.", NSLocalizedDescriptionKey,
-                                                        self.operationRequest.URL, NSURLErrorFailingURLErrorKey,
-                                                        self.operationRequest.URL.absoluteString, NSURLErrorFailingURLStringErrorKey, nil]];
+                __isSuccess = NO;
             }
             else if(self.operationURLResponse.statusCode > 299) {
-                serverError = [NSError errorWithDomain:NSURLErrorDomain
-                                                  code:self.operationURLResponse.statusCode
-                                              userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                        self.operationRequest.URL, NSURLErrorFailingURLErrorKey,
-                                                        self.operationRequest.URL.absoluteString, NSURLErrorFailingURLStringErrorKey, nil]];
-                
+                __isSuccess = NO;
             }
         }
         if (!isSuccess) {
             if (self.failed && !self.isCancelled) {
-                DLog(@"[Error] %@",error);
-                self.failed(self.operationURLResponse,error);
+                DLog(@"[Response] %@",response);
+                
+                serverError = [NSError errorWithDomain:[NSString getUnNilString:[response objectForKey:@"message"]]
+                                                  code:[[NSString getUnNilString:[response objectForKey:@"code"]] integerValue] userInfo:response];
+                
+                DLog(@"[Error] %@",serverError);
+                self.failed(self.operationURLResponse,serverError);
             }
         }else{
             if (self.success && !self.isCancelled) {

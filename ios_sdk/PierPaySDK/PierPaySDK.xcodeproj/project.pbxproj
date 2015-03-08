@@ -56,6 +56,8 @@
 		2A6EA30C1AA5A14800E8B340 /* PierCreditApproveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6EA3091AA5A14800E8B340 /* PierCreditApproveViewController.xib */; };
 		2A77977A1A3E764F00F5DF36 /* PIRHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */; };
 		2A77977D1A3E865D00F5DF36 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */; };
+		2A8BEB381AAC8B7B00D240CE /* PierLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */; };
+		2A8BEB391AAC8B7B00D240CE /* PierLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */; };
 		2A96B55A1AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B5571AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m */; };
 		2A96B55B1AA429CA00CDA7E9 /* RPFloatingPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B5591AA429CA00CDA7E9 /* RPFloatingPlaceholderTextView.m */; };
 		2A96B5621AA461C700CDA7E9 /* backpueple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A96B5601AA461C700CDA7E9 /* backpueple@2x.png */; };
@@ -171,6 +173,8 @@
 		2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpClient.m; sourceTree = "<group>"; };
 		2A77977B1A3E865D00F5DF36 /* PIRHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRHttpExecutor.h; sourceTree = "<group>"; };
 		2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpExecutor.m; sourceTree = "<group>"; };
+		2A8BEB361AAC8B7B00D240CE /* PierLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierLoadingView.h; sourceTree = "<group>"; };
+		2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierLoadingView.m; sourceTree = "<group>"; };
 		2A96B5551AA429CA00CDA7E9 /* RPFloatingPlaceholderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPFloatingPlaceholderConstants.h; sourceTree = "<group>"; };
 		2A96B5561AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPFloatingPlaceholderTextField.h; sourceTree = "<group>"; };
 		2A96B5571AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPFloatingPlaceholderTextField.m; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 				2ACCFEB71A775B9000A5BAC5 /* PierAlertView.h */,
 				2ACCFEB81A775B9000A5BAC5 /* PierAlertView.m */,
 				2ACCFEBB1A775D4500A5BAC5 /* PierAlertView.xib */,
+				2A8BEB361AAC8B7B00D240CE /* PierLoadingView.h */,
+				2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -627,6 +633,7 @@
 				2A96B56D1AA465CF00CDA7E9 /* PierRegisterViewController.m in Sources */,
 				2A6EA3011AA5583200E8B340 /* PIRStopWatchView.m in Sources */,
 				2ACCFEAE1A772AD300A5BAC5 /* PierPay.m in Sources */,
+				2A8BEB381AAC8B7B00D240CE /* PierLoadingView.m in Sources */,
 				2A252CDB1AA166A7004BAB9C /* PierFont.m in Sources */,
 				2A252D3A1AA1B0AB004BAB9C /* PIRDateUtil.m in Sources */,
 				2A96B5671AA464B600CDA7E9 /* PierSiginViewController.m in Sources */,
@@ -652,6 +659,7 @@
 				2ACCFED51A7782EE00A5BAC5 /* PIRService.m in Sources */,
 				2A96B56E1AA465CF00CDA7E9 /* PierRegisterViewController.m in Sources */,
 				2ACCFED41A7782E100A5BAC5 /* PIRJSONModel.m in Sources */,
+				2A8BEB391AAC8B7B00D240CE /* PierLoadingView.m in Sources */,
 				2ACCFED31A7782DC00A5BAC5 /* PIRHttpClient.m in Sources */,
 				2A252D371AA1B081004BAB9C /* NSString+Check.m in Sources */,
 				2ACCFED21A7782C700A5BAC5 /* JSONKit.m in Sources */,

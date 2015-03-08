@@ -148,7 +148,7 @@
         [self serviceCredtiApply];
     } faliedBlock:^(NSError *error) {
         
-    }];
+    } attribute:nil];
 }
 
 
@@ -163,7 +163,7 @@
         });
     } faliedBlock:^(NSError *error) {
         
-    }];
+    } attribute:nil];
 }
 
 /*

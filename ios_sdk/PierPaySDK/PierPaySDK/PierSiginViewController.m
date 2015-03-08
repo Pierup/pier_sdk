@@ -130,7 +130,7 @@
         });
     } faliedBlock:^(NSError *error) {
         
-    }];
+    } attribute:nil];
 }
 
 - (void)serviceSMSActivation:(NSString *)activation_code
@@ -148,7 +148,7 @@
         });
     } faliedBlock:^(NSError *error) {
         
-    }];
+    } attribute:nil];
 }
 
 #pragma mark -------------- delegate --------------------------------------

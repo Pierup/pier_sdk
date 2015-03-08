@@ -29,9 +29,14 @@ typedef void (^PierPayFailedBlock)(NSError *error);
 
 @interface PIRService : NSObject
 
+/**
+ * show_alert   0:show 1:not default:0
+ * show_loading 0:show 1:not default:0
+ */
 + (void)serverSend:(ePIER_API_Type)apiType
            resuest:(PIRPayModel *)requestModel
       successBlock:(PierPaySuccessBlock)success
-       faliedBlock:(PierPayFailedBlock)failed;
+       faliedBlock:(PierPayFailedBlock)failed
+         attribute:(NSDictionary *)attribute;
 
 @end

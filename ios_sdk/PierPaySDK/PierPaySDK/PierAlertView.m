@@ -288,7 +288,7 @@
         });
     } faliedBlock:^(NSError *error) {
         [self.loadingView stopAnimating];
-    }];
+    } attribute:nil];
 }
 
 @end
