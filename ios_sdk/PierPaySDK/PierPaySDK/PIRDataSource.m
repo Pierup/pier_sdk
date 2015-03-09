@@ -37,6 +37,7 @@ void freeDataSource()
         self.session_token = @"";
         self.device_id = @"";
         self.user_id = @"";
+        self.country_code = @"US";
     }
     
     return self;

@@ -15,6 +15,7 @@
 #import "PIRViewUtil.h"
 #import "PierAlertView.h"
 #import "PierCountryCodeViewController.h"
+#import "PIRDataSource.h"
 
 @interface PierSiginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate>
 
@@ -24,7 +25,9 @@
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
 @property (nonatomic, copy) NSString *phone;
+
 @property (nonatomic, strong) PierCountryCodeViewController *countryCodeViewController;
+@property (nonatomic, strong) CountryModel *country;
 
 @end
 
@@ -38,6 +41,7 @@
     if (self) {
         self.countryCodeViewController = [[PierCountryCodeViewController alloc]initWithNibName:@"PierCountryCodeViewController" bundle:pierBoundle()];
             self.countryCodeViewController.delegate = self;
+        _country = [[CountryModel alloc]init];
     }
     return self;
 }
@@ -62,22 +66,28 @@
 
 - (void)initData
 {
-    
+#warning ----------------------------- 硬编码 ------------------
+    NSString *countryCode = __dataSource.country_code;
+    self.country.country_code = countryCode;
+    if ([countryCode isEqualToString:@"US"]) {
+        self.country.phone_prefix = @"1";
+        self.country.phone_size = @"10";
+        self.country.name  = @"UNITED STATES";
+    }
+    [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
 
 - (void)initView
 {
+    [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.submitButton.layer setMasksToBounds:YES];
+    [self.submitButton.layer setCornerRadius:5];
+
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     
     self.phoneNumberLabel.delegate  = self;
-    
-    if (self.countryCodeViewController.countryType == eCountryType_US) {
-        [self.countryCodeButton setTitle:@"+1" forState:UIControlStateNormal];
-    }else if (self.countryCodeViewController.countryType == eCountryType_CHINA){
-        [self.countryCodeButton setTitle:@"+86" forState:UIControlStateNormal];
-    }
 }
 
 #pragma mark ------------------- button Action ------------------------
@@ -100,8 +110,9 @@
 #pragma makr - countryCodeButton Action
 - (IBAction)countryCodeButtonAction:(UIButton *)sender
 {
-    [self.navigationController presentViewController:self.countryCodeViewController animated:YES completion:^{
-        
+    UINavigationController *countryNav = [[UINavigationController alloc] initWithRootViewController:self.countryCodeViewController];
+    [self presentViewController:countryNav animated:YES completion:^{
+        [self.navigationController setNavigationBarHidden:YES];
     }];
 }
 
@@ -154,33 +165,23 @@
 #pragma mark -------------- delegate --------------------------------------
 
 #pragma mark - PierCountryCodeControllerDelegate
-- (void)countryCode:(NSString *)countryCode countryName:(NSString *)countryName countryCodeViewController:(PierCountryCodeViewController *)countryCodeViewController
+- (void)countryCodeWithCountry:(CountryModel *)country
 {
+    self.country = country;
     // 根据countryCode来限制字数
-    [self checkCountryCode:countryCode countryName:countryName phoneNumber:self.phoneNumberLabel.text];
-    [countryCodeViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    if (self.countryCodeViewController.countryType == eCountryType_CHINA) {
-        NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        if (toBeString.length > 11 && range.length!=1){
-            textField.text = [toBeString substringToIndex:11];
-            return NO;
-        }
-        return YES;
-    }else if (self.countryCodeViewController.countryType == eCountryType_US){
-        NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        if (toBeString.length > 10 && range.length!=1){
-            textField.text = [toBeString substringToIndex:10];
-            return NO;
-        }
-        return YES;
-    }else{
+    NSInteger phone_size = [self.country.phone_size integerValue];
+ 
+    NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (toBeString.length > phone_size && range.length != 1){
+        textField.text = [toBeString substringToIndex:phone_size];
+        return NO;
+    }else {
         return YES;
     }
 }
@@ -191,12 +192,9 @@
 {
     BOOL result = NO;
     NSString *phone = self.phone;
-    if (self.countryCodeViewController.countryType == eCountryType_US && phone.length == 10) {
+    if (phone.length == [self.country.phone_size integerValue]) {
         result = YES;
-    }else if (self.countryCodeViewController.countryType == eCountryType_CHINA && phone.length == 11){
-        result = YES;
-    }
-    else{
+    }else {
         [PIRViewUtil shakeView:self.phoneNumberLabel];
         result = NO;
     }
@@ -204,17 +202,13 @@
 }
 
 // 根据countryCode限定长度
-- (void)checkCountryCode:(NSString *)countryCode countryName:(NSString *)countryName phoneNumber:(NSString *)phoneNumber
+- (void)checkCountryCodeWithCountry:(CountryModel *)country phoneNumber:(NSString *)phoneNumber
 {
-    if ([countryName isEqualToString:@"CHINA"]) {
-        self.countryCodeViewController.countryType = eCountryType_CHINA;
-        [self.countryCodeButton setTitle:countryCode forState:UIControlStateNormal];
-    }else if([countryName isEqualToString:@"US"]){
-        if (phoneNumber.length > 10) {
-            self.phoneNumberLabel.text = [phoneNumber substringToIndex:10];
-        }
-        self.countryCodeViewController.countryType = eCountryType_US;
-        [self.countryCodeButton setTitle:countryCode forState:UIControlStateNormal];
+    NSString *phone_prefix = [NSString stringWithFormat:@"+%@",country.phone_prefix];
+    [self.countryCodeButton setTitle:phone_prefix forState:UIControlStateNormal];
+    
+    if (phoneNumber.length > [country.phone_size integerValue]) {
+        self.phoneNumberLabel.text = [phoneNumber substringToIndex:[country.phone_size integerValue]];
     }
 }
 

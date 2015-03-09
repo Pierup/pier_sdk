@@ -7,13 +7,17 @@
 //
 
 #import "PierCountryCodeViewController.h"
-#import "PIRPayModel.h"
 #import "PIRService.h"
 
-@interface PierCountryCodeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@implementation CountryModel
+
+@end
+
+
+@interface PierCountryCodeViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *countryCodeTableView;
-@property (nonatomic, strong) NSDictionary *countryCodeDictionary;
+@property (nonatomic, strong) NSMutableArray *countryArray;
 
 @end
 
@@ -28,8 +32,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.countryCodeDictionary = @{@"US" : @"+1",@"CHINA" : @"+86"};
-        self.countryType = eCountryType_US;   //初始为美国
+
+        self.countryArray = [NSMutableArray array];
+
     }
     return self;
 }
@@ -41,8 +46,9 @@
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismissCountryCodeViewController)];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
-    //test
-    [self serviceCountryService];
+    if (self.countryArray.count == 0) {
+        [self serviceCountryService];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -79,10 +85,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(countryCode:countryName:countryCodeViewController:)]) {
-        NSString *countryName = self.countryCodeDictionary.allKeys[indexPath.row];
-        NSString *countryCode = [self.countryCodeDictionary objectForKey:self.countryCodeDictionary.allKeys[indexPath.row]];
-        [self.delegate countryCode:countryCode countryName:countryName countryCodeViewController:self];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(countryCodeWithCountry:)]) {
+       Country *country =  self.countryArray[indexPath.row];
+        [self.delegate countryCodeWithCountry:country];
         [self dismissCountryCodeViewController];
     }
 }
@@ -90,7 +95,7 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.countryCodeDictionary.allKeys.count;
+    return self.countryArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,8 +104,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
-        cell.textLabel.text = self.countryCodeDictionary.allKeys[indexPath.row];
-        cell.detailTextLabel.text = [self.countryCodeDictionary objectForKey:self.countryCodeDictionary.allKeys[indexPath.row]];
+        Country *countryModel = self.countryArray[indexPath.row];
+        cell.textLabel.text = countryModel.name;
+        cell.detailTextLabel.text = countryModel.phone_prefix;
     }
     return cell;
 }
@@ -114,10 +120,26 @@
     CountryCodeRequest *requestModel = [[CountryCodeRequest alloc] init];
     [PIRService serverSend:ePIER_API_GET_COUNTRYS resuest:requestModel successBlock:^(id responseModel) {
         CountryCodeResponse *response = (CountryCodeResponse *)responseModel;
-        
+        // 转换成模型数组模型对象
+        for (Country *country in response.items) {
+            CountryModel *countryModel = [[CountryModel alloc]init];
+            countryModel.name = country.name;
+            countryModel.phone_prefix = country.phone_prefix;
+            countryModel.phone_size = country.phone_size;
+            countryModel.country_code = country.code;
+            [self.countryArray addObject:countryModel];
+        }
+        [self performSelectorOnMainThread:@selector(refreshTable) withObject:nil waitUntilDone:NO];
     } faliedBlock:^(NSError *error) {
 
     } attribute:nil];
 }
 
+#pragma mamrk ---------------- 功能函数 ----------------------
+- (void)refreshTable
+{
+    [self.countryCodeTableView reloadData];
+}
+
 @end
+
