@@ -7,6 +7,8 @@
 //
 
 #import "PierCountryCodeViewController.h"
+#import "PIRPayModel.h"
+#import "PIRService.h"
 
 @interface PierCountryCodeViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -38,6 +40,9 @@
     [self setTitle:@"Country Code"];
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(dismissCountryCodeViewController)];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    //test
+    [self serviceCountryService];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -105,6 +110,14 @@
 
 #pragma mark - --------------------接口API--------------------
 #pragma mark 分块内接口函数注释
+- (void)serviceCountryService{
+    CountryCodeRequest *requestModel = [[CountryCodeRequest alloc] init];
+    [PIRService serverSend:ePIER_API_GET_COUNTRYS resuest:requestModel successBlock:^(id responseModel) {
+        CountryCodeResponse *response = (CountryCodeResponse *)responseModel;
+        
+    } faliedBlock:^(NSError *error) {
 
+    } attribute:nil];
+}
 
 @end

@@ -131,3 +131,23 @@
 #pragma mark - Response
 @interface MerchantResponse : PIRPayModel
 @end
+
+#pragma mark - ---------------------ePIER_API_GET_COUNTRYS-------------------
+#pragma mark - Request
+
+@interface CountryCodeRequest : PIRPayModel
+@end
+
+@protocol Country @end
+@interface Country : PIRPayModel
+//@property (nonatomic, copy, readonly) NSString *code;
+@property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, copy, readonly) NSString *phone_prefix;
+@property (nonatomic, copy, readonly) NSString *phone_size;
+@end
+
+@interface CountryCodeResponse : PIRPayModel
+@property (nonatomic, strong) NSMutableArray<Country> *items;
+@end
+
+

@@ -18,7 +18,8 @@ typedef enum {
     ePIER_API_GET_UPDATEUSER,
     ePIER_API_GET_APPLYCREDIT,
     /** merchant */
-    ePIER_API_GET_MERCHANT
+    ePIER_API_GET_MERCHANT,
+    ePIER_API_GET_COUNTRYS
 }ePIER_API_Type;
 
 

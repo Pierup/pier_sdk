@@ -143,3 +143,27 @@
 #pragma mark - Response
 @implementation MerchantResponse
 @end
+
+#pragma mark - ---------------------ePIER_API_GET_COUNTRYS-------------------
+#pragma mark - Request
+
+@interface CountryCodeRequest ()
+@end
+
+@implementation CountryCodeRequest
+
+@end
+
+@interface Country()
+//@property (nonatomic, copy, readwrite) NSString *code;
+@property (nonatomic, copy, readwrite) NSString *name;
+@property (nonatomic, copy, readwrite) NSString *phone_prefix;
+@property (nonatomic, copy, readwrite) NSString *phone_size;
+@end
+
+@implementation Country
+
+@end
+
+@implementation CountryCodeResponse
+@end
