@@ -10,7 +10,7 @@
 #import "PIRPayModel.h"
 #import "PIRService.h"
 
-@interface PierCountryCodeViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface PierCountryCodeViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *countryCodeTableView;
 @property (nonatomic, strong) NSDictionary *countryCodeDictionary;
@@ -79,10 +79,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(countryCode:countryName:countryCodeViewController:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(countryCode:countryName:)]) {
         NSString *countryName = self.countryCodeDictionary.allKeys[indexPath.row];
         NSString *countryCode = [self.countryCodeDictionary objectForKey:self.countryCodeDictionary.allKeys[indexPath.row]];
-        [self.delegate countryCode:countryCode countryName:countryName countryCodeViewController:self];
+        [self.delegate countryCode:countryCode countryName:countryName];
         [self dismissCountryCodeViewController];
     }
 }
@@ -114,7 +114,7 @@
     CountryCodeRequest *requestModel = [[CountryCodeRequest alloc] init];
     [PIRService serverSend:ePIER_API_GET_COUNTRYS resuest:requestModel successBlock:^(id responseModel) {
         CountryCodeResponse *response = (CountryCodeResponse *)responseModel;
-        
+        //转换成国家模型数组模型对象
     } faliedBlock:^(NSError *error) {
 
     } attribute:nil];

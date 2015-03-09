@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, eCountryType) {
 @protocol PierCountryCodeViewControllerDelegate <NSObject>
 @optional
 
-- (void)countryCode:(NSString *)countryCode countryName:(NSString *)countryName countryCodeViewController:(PierCountryCodeViewController *)countryCodeViewController;
+- (void)countryCode:(NSString *)countryCode countryName:(NSString *)countryName;
 
 @end
 

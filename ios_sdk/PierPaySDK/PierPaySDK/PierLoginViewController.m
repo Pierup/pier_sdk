@@ -118,8 +118,7 @@
 #pragma mark ------------------- Delegate --------------------------------------
 
 #pragma mark - PierCountryCodeControllerDelegate
-- (void)countryCode:(NSString *)countryCode countryName:(NSString *)countryName countryCodeViewController:(PierCountryCodeViewController *)countryCodeViewController
-{
+- (void)countryCode:(NSString *)countryCode countryName:(NSString *)countryName{
     // 根据countryCode来限制字数
     [self checkCountryCode:countryCode countryName:countryName phoneNumber:self.phoneNumberLabel.text];
 }

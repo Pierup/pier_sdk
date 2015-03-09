@@ -100,8 +100,9 @@
 #pragma makr - countryCodeButton Action
 - (IBAction)countryCodeButtonAction:(UIButton *)sender
 {
-    [self.navigationController presentViewController:self.countryCodeViewController animated:YES completion:^{
-        
+    UINavigationController *countryNav = [[UINavigationController alloc] initWithRootViewController:self.countryCodeViewController];
+    [self presentViewController:countryNav animated:YES completion:^{
+        [self.navigationController setNavigationBarHidden:YES];
     }];
 }
 
@@ -154,13 +155,10 @@
 #pragma mark -------------- delegate --------------------------------------
 
 #pragma mark - PierCountryCodeControllerDelegate
-- (void)countryCode:(NSString *)countryCode countryName:(NSString *)countryName countryCodeViewController:(PierCountryCodeViewController *)countryCodeViewController
+- (void)countryCode:(NSString *)countryCode countryName:(NSString *)countryName
 {
     // 根据countryCode来限制字数
     [self checkCountryCode:countryCode countryName:countryName phoneNumber:self.phoneNumberLabel.text];
-    [countryCodeViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
 }
 
 #pragma mark - UITextFieldDelegate
