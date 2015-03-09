@@ -79,6 +79,10 @@
 
 - (void)initView
 {
+    [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.submitButton.layer setMasksToBounds:YES];
+    [self.submitButton.layer setCornerRadius:5];
+
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];

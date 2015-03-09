@@ -92,6 +92,8 @@
 		2ACCFED51A7782EE00A5BAC5 /* PIRService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82581A65281C00BEEAF6 /* PIRService.m */; };
 		2ACCFED61A7782F600A5BAC5 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */; };
 		2AF42D931A306D9B0076DEC4 /* PierPayRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9EB3AA1A3048CC00CF40A4 /* PierPayRootViewController.xib */; };
+		AD0C09E71AADC5170089B0BC /* btn_nextpurple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0C09E51AADC5170089B0BC /* btn_nextpurple@2x.png */; };
+		AD0C09E81AADC5170089B0BC /* btn_nextpurple@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0C09E61AADC5170089B0BC /* btn_nextpurple@3x.png */; };
 		AD7974F71AAA9B7300AC26C4 /* PierCountryCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7974F51AAA9B7300AC26C4 /* PierCountryCodeViewController.m */; };
 		AD7974F81AAA9B7300AC26C4 /* PierCountryCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD7974F51AAA9B7300AC26C4 /* PierCountryCodeViewController.m */; };
 		AD7974F91AAA9B7300AC26C4 /* PierCountryCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD7974F61AAA9B7300AC26C4 /* PierCountryCodeViewController.xib */; };
@@ -215,6 +217,8 @@
 		2ACCFECB1A77722700A5BAC5 /* PIRKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRKeyboard.m; sourceTree = "<group>"; };
 		2AF42D8C1A306CC90076DEC4 /* PierResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierResource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF42D8F1A306CC90076DEC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD0C09E51AADC5170089B0BC /* btn_nextpurple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_nextpurple@2x.png"; sourceTree = "<group>"; };
+		AD0C09E61AADC5170089B0BC /* btn_nextpurple@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_nextpurple@3x.png"; sourceTree = "<group>"; };
 		AD7974F41AAA9B7300AC26C4 /* PierCountryCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierCountryCodeViewController.h; sourceTree = "<group>"; };
 		AD7974F51AAA9B7300AC26C4 /* PierCountryCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierCountryCodeViewController.m; sourceTree = "<group>"; };
 		AD7974F61AAA9B7300AC26C4 /* PierCountryCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierCountryCodeViewController.xib; sourceTree = "<group>"; };
@@ -438,6 +442,8 @@
 		2AF42D9C1A3072B10076DEC4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AD0C09E51AADC5170089B0BC /* btn_nextpurple@2x.png */,
+				AD0C09E61AADC5170089B0BC /* btn_nextpurple@3x.png */,
 				2A96B5601AA461C700CDA7E9 /* backpueple@2x.png */,
 				2A96B5611AA461C700CDA7E9 /* backpueple@3x.png */,
 				2A252D0D1AA19B82004BAB9C /* back@2x.png */,
@@ -581,9 +587,11 @@
 				2A6EA30C1AA5A14800E8B340 /* PierCreditApproveViewController.xib in Resources */,
 				2A252D471AA1C0EE004BAB9C /* PierCreditApplyController.xib in Resources */,
 				2A96B56F1AA465CF00CDA7E9 /* PierRegisterViewController.xib in Resources */,
+				AD0C09E81AADC5170089B0BC /* btn_nextpurple@3x.png in Resources */,
 				2A252D081AA198BE004BAB9C /* btn_close@3x.png in Resources */,
 				AD7974F91AAA9B7300AC26C4 /* PierCountryCodeViewController.xib in Resources */,
 				2ACCFEBC1A775D4500A5BAC5 /* PierAlertView.xib in Resources */,
+				AD0C09E71AADC5170089B0BC /* btn_nextpurple@2x.png in Resources */,
 				2AF42D931A306D9B0076DEC4 /* PierPayRootViewController.xib in Resources */,
 				2ACCFEB41A77340D00A5BAC5 /* PierLoginViewController1.xib in Resources */,
 				2A96B5631AA461C700CDA7E9 /* backpueple@3x.png in Resources */,

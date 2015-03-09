@@ -88,7 +88,6 @@
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
     
-    [self.phoneNumberLabel setTextColor:[PierColor darkPurpleColor]];
     [self.phoneNumberLabel becomeFirstResponder];
     
     [self.bacButton setBackgroundColor:[UIColor clearColor]];

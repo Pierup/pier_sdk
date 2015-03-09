@@ -15,6 +15,7 @@
 #import "PierTools.h"
 #import "PierSiginViewController.h"
 #import "PIRDataSource.h"
+#import "PierColor.h"
 
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
@@ -24,7 +25,10 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 @interface PierPayRootViewController : UIViewController
 
-@property (nonatomic, strong) IBOutlet UIButton *closeButton;
+@property (nonatomic, weak) IBOutlet UIButton *closeButton;
+@property (nonatomic, weak) IBOutlet UIButton *payButton;
+@property (nonatomic, weak) IBOutlet UIButton *applyButton;
+@property (nonatomic, weak) IBOutlet UIImageView *arrorImageView;
 
 @end
 
@@ -42,6 +46,25 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     [self.closeButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"btn_close")] forState:UIControlStateNormal];
     [self.closeButton addTarget:self action:@selector(closeBarButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 //    setCloseBarButtonWithTarget(self, @selector(closeBarButtonClicked:));
+    
+    [self.arrorImageView setImage:[UIImage imageWithContentsOfFile:getImagePath(@"btn_next")]];
+    
+    [self.payButton setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_logowhite")] forState:UIControlStateNormal];
+//    [self.payButton sizeToFit];
+    
+    self.payButton.titleEdgeInsets = UIEdgeInsetsMake(0, -40, 0, 0);
+//    self.payButton.imageEdgeInsets = UIEdgeInsetsMake(0, 100, 7, 0);
+    
+    [self.payButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.payButton.layer setMasksToBounds:YES];
+    [self.payButton.layer setCornerRadius:5];
+
+    [self.applyButton setTitleColor:[PierColor darkPurpleColor] forState:UIControlStateNormal];
+    [self.applyButton.layer setBorderWidth:1.0];
+    [self.applyButton.layer  setBorderColor:[[PierColor darkPurpleColor] CGColor]];
+    [self.applyButton.layer setMasksToBounds:YES];
+    [self.applyButton.layer setCornerRadius:5];
+    
 }
 
 - (void)didReceiveMemoryWarning {
