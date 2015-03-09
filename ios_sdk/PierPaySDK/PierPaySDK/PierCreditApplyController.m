@@ -47,7 +47,7 @@
 
 - (void)initView{
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
-    [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"back")] forState:UIControlStateNormal];
+    [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     
     [self.helpButton setBackgroundColor:[UIColor clearColor]];
@@ -116,7 +116,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section == 0) {
-        return 60;
+        return 104;
     }else{
         return 0;
     }

@@ -105,10 +105,10 @@ static UIView * __loadingBgView;
 {
     int i;
     for (i = 1; i < 900; ++i) {
-        UIView *activityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+        UIView *activityView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 5)];
         activityView.layer.cornerRadius = activityView.frame.size.height / 2;
         activityView.backgroundColor = self.rotatorColor;
-        activityView.alpha = 1.0 / (i +0.5);
+        activityView.alpha = 1.0 / i;
         [self.activityViewArray addObject:activityView];
     }
     for (UIView *view in self.activityViewArray)

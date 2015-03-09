@@ -11,6 +11,7 @@
 #import "NSString+Check.h"
 #import "PIRViewUtil.h"
 #import "PIRDateUtil.h"
+#import "PierColor.h"
 
 @implementation PIRSiginCellModel
 
@@ -230,6 +231,11 @@
 @end
 
 @implementation PIRSiginSubmitCell
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
+}
 
 - (IBAction)submitUserInfo:(id)sender{
     if (self.delegate && [self.delegate respondsToSelector:@selector(submitUserInfo)]) {

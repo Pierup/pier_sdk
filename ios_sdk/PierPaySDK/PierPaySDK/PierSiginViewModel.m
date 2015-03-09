@@ -281,7 +281,7 @@
             break;
         }
         case eSiginSubmitCell:{
-            height = 60;
+            height = 104;
             break;
         }
         default:

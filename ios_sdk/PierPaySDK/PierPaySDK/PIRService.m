@@ -304,6 +304,13 @@
                       @(HTTP_METHOD_GET),HTTP_METHOD,
                       @"MerchantResponse",RESULT_MODEL,nil];
             break;
+        case ePIER_API_GET_COUNTRYS:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
+                      PIER_API_GET_COUNTRYS,HTTP_PATH,
+                      @(HTTP_METHOD_GET),HTTP_METHOD,
+                      @"CountryCodeResponse",RESULT_MODEL,nil];
+            break;
         default:
             break;
     }
