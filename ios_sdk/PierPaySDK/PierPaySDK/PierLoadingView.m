@@ -15,13 +15,15 @@ static PierLoadingView * __instances = nil;
 static UIView * __loadingBgView;
 
 @interface PierLoadingView ()
-@property (nonatomic, retain) NSMutableArray *activityViewArray;
-@property (nonatomic, retain) UIColor *rotatorColor;
+@property (nonatomic, strong) NSMutableArray *loadingViewQueue;
+@property (nonatomic, copy) NSString *token;
+@property (nonatomic, strong) NSMutableArray *activityViewArray;
+@property (nonatomic, strong) UIColor *rotatorColor;
 @property (nonatomic, assign) CGFloat *rotatorSize;
 @property (nonatomic, assign) CGFloat *rotatorSpeed;
 @property (nonatomic, assign) CGFloat *rotatorPadding;
-@property (nonatomic, retain) NSString *defaultTitle;
-@property (nonatomic, retain) NSString *activityTitle;
+@property (nonatomic, copy) NSString *defaultTitle;
+@property (nonatomic, copy) NSString *activityTitle;
 -(void)startActivity;
 -(void)stopActivity;
 @end
@@ -35,19 +37,26 @@ static UIView * __loadingBgView;
                 __instances = [[PierLoadingView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
                 [__instances setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-40)];
                 __instances.rotatorColor = [PierColor darkPurpleColor];
+                __instances.loadingViewQueue = [[NSMutableArray alloc] initWithCapacity:1];
+                
                 __loadingBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
                 [__loadingBgView setBackgroundColor:[UIColor blackColor]];
                 [__loadingBgView setAlpha:0.3];
             }
         }
     }
+    if (__instances.loadingViewQueue.count>0) {
+        [PierLoadingView hindLoadingView];
+    }
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     [__instances startActivity];
     [window addSubview:__loadingBgView];
     [window addSubview:__instances];
+    [__instances.loadingViewQueue addObject:@"TOKEN"];
 }
 
 + (void)hindLoadingView{
+    [__instances.loadingViewQueue removeAllObjects];
     [__instances stopActivity];
     [__loadingBgView removeFromSuperview];
     [__instances removeFromSuperview];
@@ -141,7 +150,14 @@ static UIView * __loadingBgView;
     return result;
 }
 
+#pragma mark - -------------- tools --------------
 
++ (long)getTimestamp{
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval timestamp=[date timeIntervalSince1970];
+    long timestamp_i = ceil(timestamp);
+    return timestamp_i;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
