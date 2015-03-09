@@ -16,6 +16,7 @@
 #import "PIRViewUtil.h"
 #import "PierPayService.h"
 #import "PierCountryCodeViewController.h"
+#import "PIRDataSource.h"
 
 @interface PierLoginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate>
 
@@ -27,6 +28,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
 
 @property (nonatomic, strong) PierCountryCodeViewController *countryCodeViewController;
+@property (nonatomic, strong) CountryModel *country;
 /** servire model */
 @property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
 
@@ -43,6 +45,7 @@
         // 初始化countryCodeViewController
         self.countryCodeViewController = [[PierCountryCodeViewController alloc]initWithNibName:@"PierCountryCodeViewController" bundle:pierBoundle()];
         self.countryCodeViewController.delegate = self;
+        _country = [[CountryModel alloc]init];
     }
     return self;
 }
@@ -51,6 +54,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self initData];
     [self initView];
 }
 
@@ -63,6 +67,20 @@
 {
     [self.view endEditing:YES];
 }
+
+- (void)initData
+{
+#warning  ---------------- 硬编码 -----------------------
+    NSString *countryCode = __dataSource.country_code;
+    self.country.country_code = countryCode;
+    if ([countryCode isEqualToString:@"US"]) {
+        self.country.phone_prefix = @"1";
+        self.country.phone_size = @"10";
+        self.country.name  = @"UNITED STATES";
+    }
+    [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
+}
+
 
 - (void)initView
 {
@@ -78,12 +96,6 @@
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     
      self.phoneNumberLabel.delegate = self;
-    
-    if (self.countryCodeViewController.countryType == eCountryType_US) {
-        [self.countryCodeButton setTitle:@"+1" forState:UIControlStateNormal];
-    }else if (self.countryCodeViewController.countryType == eCountryType_CHINA){
-        [self.countryCodeButton setTitle:@"+86" forState:UIControlStateNormal];
-    }
 }
 
 #pragma mark --------------------- Button Action -------------------------------
@@ -118,28 +130,23 @@
 #pragma mark ------------------- Delegate --------------------------------------
 
 #pragma mark - PierCountryCodeControllerDelegate
-- (void)countryCode:(NSString *)countryCode countryName:(NSString *)countryName{
+- (void)countryCodeWithCountry:(CountryModel *)country
+{
+    self.country = country;
     // 根据countryCode来限制字数
-    [self checkCountryCode:countryCode countryName:countryName phoneNumber:self.phoneNumberLabel.text];
+    [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
 
 #pragma mark - UITextFieldDelegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    if (self.countryCodeViewController.countryType == eCountryType_CHINA) {
-        NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        if (toBeString.length > 11 && range.length!=1){
-            textField.text = [toBeString substringToIndex:11];
-            return NO;
-        }
-        return YES;
-    }else if (self.countryCodeViewController.countryType == eCountryType_US){
-        NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        if (toBeString.length > 10 && range.length!=1){
-            textField.text = [toBeString substringToIndex:10];
-            return NO;
-        }
-        return YES;
-    }else{
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSInteger phone_size = [self.country.phone_size integerValue];
+    
+    NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (toBeString.length > phone_size && range.length != 1){
+        textField.text = [toBeString substringToIndex:phone_size];
+        return NO;
+    }else {
         return YES;
     }
 }
@@ -149,32 +156,25 @@
 // 检查号码长度
 - (BOOL)checkPhone:(NSString *)phoneNumber
 {
-    BOOL result = NO;
-    NSString *phone = phoneNumber;
-    if (self.countryCodeViewController.countryType == eCountryType_US && phone.length == 10) {
-        result = YES;
-    }else if (self.countryCodeViewController.countryType == eCountryType_CHINA && phone.length == 11){
-        result = YES;
-    }
-    else{
-        [PIRViewUtil shakeView:self.phoneNumberLabel];
-        result = NO;
-    }
-    return result;
+        BOOL result = NO;
+        NSString *phone = phoneNumber;
+        if (phone.length == [self.country.phone_size integerValue]) {
+            result = YES;
+        }else {
+            [PIRViewUtil shakeView:self.phoneNumberLabel];
+            result = NO;
+        }
+        return result;
 }
 
 // 根据countryCode限定长度
-- (void)checkCountryCode:(NSString *)countryCode countryName:(NSString *)countryName phoneNumber:(NSString *)phoneNumber
+- (void)checkCountryCodeWithCountry:(CountryModel *)country phoneNumber:(NSString *)phoneNumber
 {
-    if ([countryName isEqualToString:@"CHINA"]) {
-        self.countryCodeViewController.countryType = eCountryType_CHINA;
-        [self.countryCodeButton setTitle:countryCode forState:UIControlStateNormal];
-    }else if([countryName isEqualToString:@"US"]){
-        if (phoneNumber.length > 10) {
-            self.phoneNumberLabel.text = [phoneNumber substringToIndex:10];
-        }
-        self.countryCodeViewController.countryType = eCountryType_US;
-        [self.countryCodeButton setTitle:countryCode forState:UIControlStateNormal];
+    NSString *phone_prefix = [NSString stringWithFormat:@"+%@",country.phone_prefix];
+    [self.countryCodeButton setTitle:phone_prefix forState:UIControlStateNormal];
+    
+    if (phoneNumber.length > [country.phone_size integerValue]) {
+        self.phoneNumberLabel.text = [phoneNumber substringToIndex:[country.phone_size integerValue]];
     }
 }
 

@@ -7,24 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
-@class PierCountryCodeViewController;
+#import "PIRPayModel.h"
 
-typedef NS_ENUM(NSInteger, eCountryType) {
-    eCountryType_US,
-    eCountryType_CHINA
-};
+@interface CountryModel : NSObject
+
+@property (nonatomic, copy) NSString *name;                // UNITED STATES
+@property (nonatomic, copy) NSString *phone_prefix;        // 1
+@property (nonatomic, copy) NSString *phone_size;          // 10
+@property (nonatomic, copy) NSString *country_code;        // US
+
+@end
 
 @protocol PierCountryCodeViewControllerDelegate <NSObject>
 @optional
 
-- (void)countryCode:(NSString *)countryCode countryName:(NSString *)countryName;
+- (void)countryCodeWithCountry:(Country *)country;
 
 @end
 
 @interface PierCountryCodeViewController : UIViewController
 
 @property (nonatomic, weak) id<PierCountryCodeViewControllerDelegate>delegate;
-@property (nonatomic, assign) eCountryType countryType;
 
 @end
-
