@@ -15,7 +15,7 @@
 
 @interface PierAlertView ()
 
-@property (nonatomic, weak) IBOutlet UIImageView *titleImage;
+@property (nonatomic, strong) UIImageView *titleImage;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *alertLabel;
 @property (nonatomic, weak) IBOutlet UIButton *doneButton;
@@ -72,9 +72,13 @@
         [self.bgView setAlpha:0.6];
     }];
     
+    _titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55, 55)];
+    [_titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-8)];
+    [_titleImage setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_smscode")]];
     
     [currentWindow addSubview:self.bgView];
     [currentWindow addSubview:self];
+    [currentWindow addSubview:_titleImage];
     
     switch (self.alertType) {
         case ePierAlertViewType_userInput:
@@ -96,6 +100,7 @@
 
 - (void)viewRemoveFromSuperView{
     [self.bgView        removeFromSuperview];
+    [self.titleImage removeFromSuperview];
     [self removeFromSuperview];
 }
 
@@ -103,7 +108,7 @@
 
 @interface PierUserInputAlertView ()
 
-//@property (nonatomic, weak) IBOutlet UIImageView *titleImage;
+//@property (nonatomic, strong) UIImageView *titleImage;
 //@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UIButton *approveButton;
@@ -174,9 +179,13 @@
         [self.bgView setAlpha:0.6];
     }];
     
+    self.titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55, 55)];
+    [self.titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-8)];
+    [self.titleImage setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_smscode")]];
     
     [currentWindow addSubview:self.bgView];
     [currentWindow addSubview:self];
+    [currentWindow addSubview:self.titleImage];
     
     switch (self.alertType) {
         case ePierAlertViewType_userInput:
@@ -209,6 +218,7 @@
 - (void)viewRemoveFromSuperView{
     [self.textField resignFirstResponder];
     [self.bgView        removeFromSuperview];
+    [self.titleImage removeFromSuperview];
     [self removeFromSuperview];
 }
 
