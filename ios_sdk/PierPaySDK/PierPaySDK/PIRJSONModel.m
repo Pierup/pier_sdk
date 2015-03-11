@@ -383,9 +383,8 @@ NSString *getPropertyTypeWithDescription(NSString *description)
         if (endIndex != NSNotFound)
         {
             resultTypeString = [description substringWithRange:NSMakeRange(1, endIndex-1)];
-            
-            resultTypeString = [resultTypeString stringByReplacingOccurrencesOfString:@"@" withString:@""];
             resultTypeString = [resultTypeString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+            resultTypeString = [resultTypeString stringByReplacingOccurrencesOfString:@"@" withString:@""];
         }
     }
     
