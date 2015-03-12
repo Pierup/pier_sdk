@@ -112,10 +112,14 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FDA-Fh-h6j" id="Cbe-Tp-0BM">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kod-Uw-PZx" customClass="RPFloatingPlaceholderTextField">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth (MM/DD/YYYY)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kod-Uw-PZx" customClass="RPFloatingPlaceholderTextField">
                         <rect key="frame" x="13" y="15" width="294" height="30"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="EBL-P3-XEa"/>
+                        </connections>
                     </textField>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEf-Ov-Djl">
                         <rect key="frame" x="8" y="51" width="304" height="1"/>
@@ -132,7 +136,7 @@
             <connections>
                 <outlet property="dobLabel" destination="kod-Uw-PZx" id="GXC-bq-oqp"/>
             </connections>
-            <point key="canvasLocation" x="201" y="411"/>
+            <point key="canvasLocation" x="201" y="410"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PIRSiginSSNCell" id="JRR-2x-xlc" customClass="PIRSiginSSNCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>

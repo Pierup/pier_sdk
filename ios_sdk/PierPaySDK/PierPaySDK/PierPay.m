@@ -146,6 +146,15 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 @implementation PierPay
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (instancetype)initWith:(NSDictionary *)userAttributes delegate:(id)delegate
 {
     initDataSource();
@@ -154,19 +163,13 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     self = [super init];
     if (self) {
         _merchantAppHasBar = NO;
-    }
-    return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
         PierPayRootViewController *pierUserCheckVC = [[PierPayRootViewController alloc] initWithNibName:@"PierPayRootViewController" bundle:pierBoundle()];
         [self addChildViewController:pierUserCheckVC];
     }
     return self;
 }
+
+
 
 - (void)viewDidLoad
 {

@@ -141,13 +141,19 @@
 
 @end
 
-@interface PIRSiginDobCell ()
+@interface PIRSiginDobCell () <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *dobLabel;
+/**  */
 
 @end
 
 @implementation PIRSiginDobCell
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.dobLabel.delegate = self;
+}
 
 - (NSString *)getDOB{
     NSString *dob = self.dobLabel.text;
@@ -166,6 +172,42 @@
         result = NO;
     }
     return result;
+}
+
+#pragma mark -------------------delegate---------------------
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (newString.length > 10) {
+        return NO;
+    }
+    if (string.length > 0) {
+        textField.text = [self getDobShadowText:newString];
+    }else{
+        return YES;
+    }
+    return NO;
+}
+
+- (NSString *)getDobShadowText:(NSString *)inputStr{
+    NSString *currentStr = inputStr;
+    switch (inputStr.length) {
+        case 2:
+            currentStr = [NSString stringWithFormat:@"%@/",inputStr];
+            break;
+        case 5:
+            currentStr = [NSString stringWithFormat:@"%@/",inputStr];
+            break;
+        default:
+            currentStr = inputStr;
+            break;
+    }
+    return currentStr;
 }
 
 @end

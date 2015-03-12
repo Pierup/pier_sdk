@@ -31,4 +31,9 @@
 
 + (UIColor *)lightGreenColor;
 
+/**
+ *  灰色文字颜色
+ *  #9463b5
+ */
++ (UIColor *)whiteAlphaColor;
 @end
