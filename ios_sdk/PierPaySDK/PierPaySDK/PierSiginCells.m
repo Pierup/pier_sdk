@@ -176,12 +176,14 @@
 
 #pragma mark -------------------delegate---------------------
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    
-}
-
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if (string) {
+        if (![string isNumString]) {
+            return NO;
+        }
+    }
+    
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if (newString.length > 10) {
         return NO;
@@ -212,13 +214,18 @@
 
 @end
 
-@interface PIRSiginSSNCell ()
+@interface PIRSiginSSNCell () <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *ssnLabel;
 
 @end
 
 @implementation PIRSiginSSNCell
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.ssnLabel.delegate = self;
+}
 
 - (NSString *)getSSN{
     NSString *ssn = self.ssnLabel.text;
@@ -235,6 +242,44 @@
         result = NO;
     }
     return result;
+}
+
+#pragma mark -------------------delegate---------------------
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if (string) {
+        if (![string isNumString]) {
+            return NO;
+        }
+    }
+    
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (newString.length > 11) {
+        return NO;
+    }
+    if (string.length > 0) {
+        textField.text = [self getSSNShadowText:newString];
+    }else{
+        return YES;
+    }
+    return NO;
+}
+
+- (NSString *)getSSNShadowText:(NSString *)inputStr{
+    NSString *currentStr = inputStr;
+    switch (inputStr.length) {
+        case 3:
+            currentStr = [NSString stringWithFormat:@"%@ ",inputStr];
+            break;
+        case 6:
+            currentStr = [NSString stringWithFormat:@"%@ ",inputStr];
+            break;
+        default:
+            currentStr = inputStr;
+            break;
+    }
+    return currentStr;
 }
 
 @end
