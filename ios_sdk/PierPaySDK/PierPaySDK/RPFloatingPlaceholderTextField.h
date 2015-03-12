@@ -40,4 +40,12 @@
  */
 @property (nonatomic, strong) UIColor *floatingLabelInactiveTextColor;
 
+/**
+ The color of the floating label displayed above the text field when it is
+ place hodler.
+ 
+ @discussion Note: Tint color is used by default if this is nil.
+ */
+@property (nonatomic, strong) UIColor *floatingLabelPlaceholderColor;
+
 @end
