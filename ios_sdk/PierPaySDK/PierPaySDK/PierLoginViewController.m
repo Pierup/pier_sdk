@@ -18,7 +18,7 @@
 #import "PierCountryCodeViewController.h"
 #import "PIRDataSource.h"
 
-@interface PierLoginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate>
+@interface PierLoginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate, PierPayServiceDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *bacButton;
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
@@ -113,10 +113,19 @@
         self.smsRequestModel.password = passWord;
         
         PierPayService *pierService = [[PierPayService alloc] init];
+        pierService.delegate = self;
         pierService.smsRequestModel = self.smsRequestModel;
         [pierService serviceGetPaySMS];
     }
 }
+
+#pragma mark - ------------------------ PierPayServiceDelegate ------------------------
+
+- (void)pierPayServiceComplete:(NSDictionary *)result{
+    // Return to Merchant APP
+    [__dataSource.pierDelegate payByPierComplete:result];
+}
+
 
 #pragma mark - countryCodeButton Action
 - (IBAction)countryCodeButtonAction:(UIButton *)sender {

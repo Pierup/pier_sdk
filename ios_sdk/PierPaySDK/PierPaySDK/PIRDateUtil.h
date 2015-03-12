@@ -197,4 +197,5 @@ static NSString *SIMPLEFORMATTYPESTRING18 = @"yyyy/MM/dd HH:mm:ss";
  * 计算生日
  */
 + (NSInteger)calculateAgeWithBirthdate:(NSDate *)birthdate;
+
 @end

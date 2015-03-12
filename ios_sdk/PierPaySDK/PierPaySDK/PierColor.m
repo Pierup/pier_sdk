@@ -22,4 +22,8 @@
     return PIRColorHex(0x37d6cf);
 }
 
++ (UIColor *)whiteAlphaColor{
+    return PIRColorHex(0x9463b5);
+}
+
 @end

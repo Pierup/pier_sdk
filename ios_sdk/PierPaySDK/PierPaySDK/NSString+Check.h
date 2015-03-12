@@ -98,8 +98,10 @@ typedef NS_ENUM(NSInteger, eDOBFormate){
 
 /**
  * 金额字符串
+ * USD：@"$"  //en_US
+ * RMB：@"￥" //zh_CN
  */
-+ (NSString *)getNumberFormatterDecimalStyle:(NSString *)number;
++ (NSString *)getNumberFormatterDecimalStyle:(NSString *)number currency:(NSString *)currency;
 
 
 @end

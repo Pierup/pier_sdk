@@ -141,18 +141,24 @@
 
 @end
 
-@interface PIRSiginDobCell ()
+@interface PIRSiginDobCell () <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *dobLabel;
+/**  */
 
 @end
 
 @implementation PIRSiginDobCell
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.dobLabel.delegate = self;
+}
+
 - (NSString *)getDOB{
     NSString *dob = self.dobLabel.text;
-    NSDate *dobData = [PIRDateUtil dateFromString:dob formate:@"MMddYYYY"];
-    NSString *resultFormateStr = [PIRDateUtil getStringFormateDate:dobData formatType:SIMPLEFORMATTYPESTRING14];
+    NSDate *dobData = [PIRDateUtil dateFromString:dob formate:@"MM/dd/yyyy"];
+    NSString *resultFormateStr = [PIRDateUtil getStringFormateDate:dobData formatType:@"MM/dd/yyyy"];
     return resultFormateStr;
 }
 
@@ -168,15 +174,58 @@
     return result;
 }
 
+#pragma mark -------------------delegate---------------------
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if (string) {
+        if (![string isNumString] && ![NSString emptyOrNull:string]) {
+            return NO;
+        }
+    }
+    
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (newString.length > 10) {
+        return NO;
+    }
+    if (string.length > 0) {
+        textField.text = [self getDobShadowText:newString];
+    }else{
+        return YES;
+    }
+    return NO;
+}
+
+- (NSString *)getDobShadowText:(NSString *)inputStr{
+    NSString *currentStr = inputStr;
+    switch (inputStr.length) {
+        case 2:
+            currentStr = [NSString stringWithFormat:@"%@/",inputStr];
+            break;
+        case 5:
+            currentStr = [NSString stringWithFormat:@"%@/",inputStr];
+            break;
+        default:
+            currentStr = inputStr;
+            break;
+    }
+    return currentStr;
+}
+
 @end
 
-@interface PIRSiginSSNCell ()
+@interface PIRSiginSSNCell () <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *ssnLabel;
 
 @end
 
 @implementation PIRSiginSSNCell
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.ssnLabel.delegate = self;
+}
 
 - (NSString *)getSSN{
     NSString *ssn = self.ssnLabel.text;
@@ -193,6 +242,44 @@
         result = NO;
     }
     return result;
+}
+
+#pragma mark -------------------delegate---------------------
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if (string) {
+        if (![string isNumString]  && ![NSString emptyOrNull:string]) {
+            return NO;
+        }
+    }
+    
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (newString.length > 11) {
+        return NO;
+    }
+    if (string.length > 0) {
+        textField.text = [self getSSNShadowText:newString];
+    }else{
+        return YES;
+    }
+    return NO;
+}
+
+- (NSString *)getSSNShadowText:(NSString *)inputStr{
+    NSString *currentStr = inputStr;
+    switch (inputStr.length) {
+        case 3:
+            currentStr = [NSString stringWithFormat:@"%@ ",inputStr];
+            break;
+        case 6:
+            currentStr = [NSString stringWithFormat:@"%@ ",inputStr];
+            break;
+        default:
+            currentStr = inputStr;
+            break;
+    }
+    return currentStr;
 }
 
 @end

@@ -11,8 +11,9 @@
 #import "PierTools.h"
 #import "PIRDataSource.h"
 #import "PierPayService.h"
+#import "NSString+Check.h"
 
-@interface PierCreditApproveViewController ()
+@interface PierCreditApproveViewController () <PierPayServiceDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *bgView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
@@ -44,7 +45,8 @@
 }
 
 - (void)initData{
-    [self.creditLimitLabel setText:self.responseModel.credit_limit];
+    NSString *credtiLimit_currency = [NSString getNumberFormatterDecimalStyle:self.responseModel.credit_limit currency:self.responseModel.currency];
+    [self.creditLimitLabel setText:credtiLimit_currency];
     [self.costLabel setText:[__dataSource.merchantParam objectForKey:@"amount"]];
     
     [self.payButton setBackgroundColor:[PierColor darkPurpleColor]];
@@ -72,8 +74,19 @@
 - (IBAction)payWithPier{
     self.smsRequestModel.phone = __dataSource.phone;
     PierPayService *pierService = [[PierPayService alloc] init];
+    pierService.delegate = self;
     pierService.smsRequestModel = self.smsRequestModel;
     [pierService serviceGetPaySMS];
+}
+
+#pragma mark - ------------------------ PierPayServiceDelegate ------------------------
+
+- (void)pierPayServiceComplete:(NSDictionary *)result{
+    // Return to Merchant APP
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [__dataSource.pierDelegate payByPierComplete:result];
+    }];
+    
 }
 
 /*

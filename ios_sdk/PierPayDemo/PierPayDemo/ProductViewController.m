@@ -54,14 +54,14 @@
 
 - (void)setAmountLabel:(NSString *)amountName currencyLabel:(NSString *)currencyName productImageUrl:(NSString *)productImageUrl
 {
-        _amountLabel.text = amountName;
-        _currencyLabel.text = [currencyName isEqualToString:@"USD"] ? @"$" : currencyName;
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:productImageUrl]]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                _productImageView.image = image;
-            });
+    _amountLabel.text = amountName;
+    _currencyLabel.text = [currencyName isEqualToString:@"USD"] ? @"$" : currencyName;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:productImageUrl]]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _productImageView.image = image;
         });
+    });
 }
 
 @end
@@ -158,7 +158,7 @@
  */
 - (void)payByPierComplete:(NSDictionary *)result
 {
- 
+    
 }
 
 #pragma mark - UITableViewDelegate

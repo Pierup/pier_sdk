@@ -83,11 +83,12 @@
 }
 
 /**
- * pay by pier conmpete!
+ * pay by pier complete!
  */
 - (void)pierPayComplete:(NSDictionary *)result{
-    
-    [__dataSource.pierDelegate payByPierComplete:result];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pierPayServiceComplete:)]) {
+        [self.delegate pierPayServiceComplete:result];
+    }
 }
 
 
