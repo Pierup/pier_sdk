@@ -179,7 +179,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     if (string) {
-        if (![string isNumString]) {
+        if (![string isNumString] && ![NSString emptyOrNull:string]) {
             return NO;
         }
     }
@@ -249,7 +249,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     if (string) {
-        if (![string isNumString]) {
+        if (![string isNumString]  && ![NSString emptyOrNull:string]) {
             return NO;
         }
     }
