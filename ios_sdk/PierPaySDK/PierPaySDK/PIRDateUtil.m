@@ -183,7 +183,7 @@
 {
     NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
     [dateFormater setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
-    [dateFormater setTimeZone:[NSTimeZone timeZoneWithName:[PIRDateUtil displayTimeZone]]];
+    [dateFormater setTimeZone:[NSTimeZone timeZoneWithName:[PIRDateUtil storageTimeZone]]];
     
     return dateFormater;
 }

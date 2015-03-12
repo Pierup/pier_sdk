@@ -151,8 +151,8 @@
 
 - (NSString *)getDOB{
     NSString *dob = self.dobLabel.text;
-    NSDate *dobData = [PIRDateUtil dateFromString:dob formate:@"MMddYYYY"];
-    NSString *resultFormateStr = [PIRDateUtil getStringFormateDate:dobData formatType:SIMPLEFORMATTYPESTRING14];
+    NSDate *dobData = [PIRDateUtil dateFromString:dob formate:@"MM/dd/yyyy"];
+    NSString *resultFormateStr = [PIRDateUtil getStringFormateDate:dobData formatType:@"MM/dd/yyyy"];
     return resultFormateStr;
 }
 
