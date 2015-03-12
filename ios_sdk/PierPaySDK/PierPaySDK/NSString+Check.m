@@ -185,12 +185,25 @@
     return resultStr;
 }
 
-/**
- * 金额字符串
- */
-+ (NSString *)getNumberFormatterDecimalStyle:(NSString *)number{
+
++ (NSString *)getNumberFormatterDecimalStyle:(NSString *)number currency:(NSString *)currency{
     NSString *result = @"";
-    NSString *currencyStr = [NSNumberFormatter localizedStringFromNumber:[NSNumber numberWithDouble:[number doubleValue]]  numberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setFormatterBehavior: NSNumberFormatterBehavior10_4];
+    [numberFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
+    NSLocale *usLocale = nil;
+    if ([currency isEqualToString:@"USD"]) {
+        usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    }else if ([currency isEqualToString:@"RMB"]){
+        usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    }else {
+        usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    }
+    
+    [numberFormatter setLocale:usLocale];
+    
+    NSString *currencyStr = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:[number doubleValue]]];
     result = currencyStr;
     return result;
 }

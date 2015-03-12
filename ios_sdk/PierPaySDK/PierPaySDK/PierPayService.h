@@ -9,10 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "PIRPayModel.h"
 
+
+@protocol PierPayServiceDelegate <NSObject>
+
+- (void)pierPayServiceComplete:(NSDictionary *)result;
+
+@end
+
 @interface PierPayService : NSObject
 
 /** servire model */
 @property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
+
+/** delegate */
+@property (nonatomic, weak) id<PierPayServiceDelegate> delegate;
 
 - (void)serviceGetPaySMS;
 
