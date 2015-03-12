@@ -228,7 +228,7 @@
 }
 
 - (NSString *)getSSN{
-    NSString *ssn = self.ssnLabel.text;
+    NSString *ssn = [self.ssnLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     return ssn;
 }
 
