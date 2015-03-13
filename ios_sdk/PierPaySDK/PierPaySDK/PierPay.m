@@ -60,11 +60,31 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     [self.logoPurpleImageView setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_logopurple")]];
     [self.purpleArrorImageView setImage:[UIImage imageWithContentsOfFile:getImagePath(@"btn_nextpurple")]];
 
-    [self.payButton setBackgroundColor:[PierColor darkPurpleColor]];
+    CGRect rect = CGRectMake(0, 0, self.payButton.bounds.size.width, self.payButton.bounds.size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [[PierColor darkPurpleColor] CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *colorImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGRect bacRect = CGRectMake(0, 0, self.payButton.bounds.size.width, self.payButton.bounds.size.height);
+    UIGraphicsBeginImageContext(bacRect.size);
+    CGContextRef BacContext = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [[PierColor lightPurpleColor] CGColor]);
+    CGContextFillRect(BacContext, bacRect);
+    UIImage *BacColorImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.payButton setBackgroundImage:colorImg forState:UIControlStateNormal];
+    [self.payButton setBackgroundImage:BacColorImg forState:UIControlStateHighlighted];
+    
     [self.payButton.layer setMasksToBounds:YES];
     [self.payButton.layer setCornerRadius:5];
 
     [self.applyButton setTitleColor:[PierColor darkPurpleColor] forState:UIControlStateNormal];
+    [self.applyButton setTitleColor:[PierColor lightPurpleColor] forState:UIControlStateHighlighted];
+
     [self.applyButton.layer setBorderWidth:1.0];
     [self.applyButton.layer  setBorderColor:[[PierColor darkPurpleColor] CGColor]];
     [self.applyButton.layer setMasksToBounds:YES];

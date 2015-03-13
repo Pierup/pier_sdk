@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PierSiginViewController">
@@ -71,7 +71,7 @@
                         <constraint firstAttribute="width" constant="70" id="CSE-Oa-ucw"/>
                         <constraint firstAttribute="height" constant="21" id="OMM-05-iQu"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -123,7 +123,7 @@
                 <constraint firstAttribute="bottom" secondItem="kPe-fX-bEs" secondAttribute="bottom" constant="236" id="qxC-6b-Vy1"/>
                 <constraint firstAttribute="trailing" secondItem="fV8-EL-s4b" secondAttribute="trailing" constant="15" id="zSS-ew-YlA"/>
             </constraints>
-            <point key="canvasLocation" x="-13" y="248"/>
+            <point key="canvasLocation" x="195" y="131"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

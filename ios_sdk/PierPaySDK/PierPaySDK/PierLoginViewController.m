@@ -61,10 +61,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    [self.phoneNumberLabel becomeFirstResponder];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
+    [self.phoneNumberLabel resignFirstResponder];
     [self.view endEditing:YES];
 }
 
@@ -88,13 +91,15 @@
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
     
-    [self.phoneNumberLabel becomeFirstResponder];
+    [self.phoneNumberLabel setTintColor:[PierColor lightGreenColor]];
+    self.phoneNumberLabel.delegate = self;
+    
+    [self.passwordLabel setTintColor:[PierColor lightGreenColor]];
     
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     
-     self.phoneNumberLabel.delegate = self;
 }
 
 #pragma mark --------------------- Button Action -------------------------------
