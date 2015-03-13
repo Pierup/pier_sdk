@@ -239,6 +239,26 @@
 
 @implementation PierSMSAlertView
 
+- (id)initWith:(id)delegate param:(id)param type:(ePierAlertViewType)type{
+    self = (PierSMSAlertView *)[[pierBoundle() loadNibNamed:@"PierAlertView" owner:delegate options:nil] objectAtIndex:2];
+    if (self) {
+        self.paramDic    = param;
+        self.alertType   = type;
+        [self.textField becomeFirstResponder];
+        self.smsInputTextField.delegate = self;
+        [self initData];
+    }
+    return self;
+}
+
+- (void)show{
+    [self initView];
+}
+
+- (void)dismiss{
+    [self viewRemoveFromSuperView];
+}
+
 + (void)showPierUserInputAlertView:(id)delegate
                              param:(id)param
                               type:(ePierAlertViewType)type
@@ -289,6 +309,31 @@
     [self.refreshButton setHidden:YES];
     [self serviceGetReigistSMS];
 }
+
+- (IBAction)approve:(id)sender{
+    if (self.alertType == ePierAlertViewType_instance) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(userApprove:)]) {
+            [self.delegate userApprove:self.textField.text];
+        }
+    }else{
+        if (self.approveBc([self.textField text])) {
+            [self viewRemoveFromSuperView];
+        }
+    }
+}
+
+- (IBAction)cancleAction:(id)sender{
+    if (self.alertType == ePierAlertViewType_instance) {
+        
+    }
+    [UIView animateWithDuration:0.1 animations:^{
+        [self.bgView setAlpha:0.1];
+    } completion:^(BOOL finished) {
+        [self viewRemoveFromSuperView];
+        self.cancelBc();
+    }];
+}
+
 
 - (void)serviceGetReigistSMS{
     GetRegisterCodeRequest *requestModel = [[GetRegisterCodeRequest alloc] init];

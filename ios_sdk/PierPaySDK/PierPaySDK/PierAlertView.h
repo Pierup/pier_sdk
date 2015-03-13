@@ -12,7 +12,8 @@
 typedef enum {
     ePierAlertViewType_userInput,
     ePierAlertViewType_warning,
-    ePierAlertViewType_error
+    ePierAlertViewType_error,
+    ePierAlertViewType_instance
 }ePierAlertViewType;
 
 /** approve block */
@@ -72,10 +73,17 @@ typedef void (^cancelBlock)();
 
 #pragma mark - ---------------------------- PierSMSInputAlertView ----------------------------
 
+@protocol PierSMSInputAlertDelegate <NSObject>
+
+- (void)userApprove:(NSString *)userInput;
+
+@end
 
 @interface PierSMSAlertView : PierUserInputAlertView
 
-/**
+@property (nonatomic, weak) id<PierSMSInputAlertDelegate> delegate;
+
+/** static api
  * param
  * name:                Required     Type         Description
  * 1.expiration_time    YES          NSString     SMS ExpirationTime.
@@ -91,6 +99,23 @@ typedef void (^cancelBlock)();
                               type:(ePierAlertViewType)type
                            approve:(approveBlock)approve
                             cancel:(cancelBlock)cancel;
+
+/** instance api
+ * param
+ * name:                Required     Type         Description
+ * 1.expiration_time    YES          NSString     SMS ExpirationTime.
+ * 2.phone              YES          NSString     User Phone.
+ * 3.code_length        YES          NSString     message length.
+ * 4.title              YES          NSString     title.
+ * 5.approve_text       YES          NSString     approve_text.
+ * 6.cancle_text        YES          NSString     cancle_text.
+ * 7.title_image_name   YES          NSString     title_image_name.
+ */
+- (id)initWith:(id)delegate param:(id)param type:(ePierAlertViewType)type;
+
+- (void)show;
+
+- (void)dismiss;
 
 @end
 
