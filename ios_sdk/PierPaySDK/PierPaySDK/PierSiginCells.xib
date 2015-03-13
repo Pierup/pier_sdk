@@ -14,13 +14,12 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PnD-dC-7KN" id="QHa-Jf-jhs">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLk-EV-2s7" customClass="RPFloatingPlaceholderTextField">
-                        <rect key="frame" x="24" y="9" width="120" height="36.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
-                    </textField>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9b-gw-sSW" customClass="RPFloatingPlaceholderTextField">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9b-gw-sSW" customClass="RPFloatingPlaceholderTextField">
                         <rect key="frame" x="192" y="9" width="120" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="LpQ-4L-7z7"/>
+                            <constraint firstAttribute="height" constant="36" id="Tmr-uv-qMc"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                     </textField>
@@ -43,9 +42,16 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLk-EV-2s7" customClass="RPFloatingPlaceholderTextField">
+                        <rect key="frame" x="24" y="9" width="120" height="36.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                    </textField>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="h9b-gw-sSW" firstAttribute="top" secondItem="QHa-Jf-jhs" secondAttribute="topMargin" constant="1" id="TBc-tq-Rzf"/>
                     <constraint firstItem="dm7-Y3-5ic" firstAttribute="leading" secondItem="QHa-Jf-jhs" secondAttribute="leadingMargin" constant="16" id="dXc-2K-Ra5"/>
+                    <constraint firstItem="h9b-gw-sSW" firstAttribute="trailing" secondItem="QHa-Jf-jhs" secondAttribute="trailingMargin" id="ejD-TM-AZu"/>
                     <constraint firstItem="dm7-Y3-5ic" firstAttribute="trailing" secondItem="QHa-Jf-jhs" secondAttribute="trailingMargin" id="lnO-qd-R6Z"/>
                     <constraint firstItem="dm7-Y3-5ic" firstAttribute="bottom" secondItem="QHa-Jf-jhs" secondAttribute="bottomMargin" id="x6f-L3-5kV"/>
                 </constraints>

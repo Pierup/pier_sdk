@@ -11,9 +11,11 @@
 #import "PierAlertView.h"
 #import "PIRDataSource.h"
 
-@interface PierPayService ()
+@interface PierPayService () <PierSMSInputAlertDelegate>
 
 @property (nonatomic, strong) GetAuthTokenV2Request *authTokenRequestModel;
+
+@property (nonatomic, strong) PierSMSAlertView *smsAlertView;
 
 @end
 
@@ -31,6 +33,7 @@
 - (void)serviceGetPaySMS{
     [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
         TransactionSMSResponse *response = (TransactionSMSResponse *)responseModel;
+        
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"",@"title_image_name",
                                @"SMS",@"title",
@@ -39,18 +42,15 @@
                                self.smsRequestModel.phone,@"phone",
                                response.expiration,@"expiration_time",
                                @"6",@"code_length",nil];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
-                [self serviceGetAuthToken:userInput];
-                return YES;
-            } cancel:^{
-                
-            }];
-        });
+        _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
+        _smsAlertView.delegate = self;
+        [_smsAlertView show];
+        
     } faliedBlock:^(NSError *error) {
 
     } attribute:nil];
 }
+
 
 - (void)serviceGetAuthToken:(NSString *)userinput{
     self.authTokenRequestModel.phone = __dataSource.phone;
@@ -61,11 +61,12 @@
     self.authTokenRequestModel.currency_code = [__dataSource.merchantParam objectForKey:@"currency"];
     
     [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:self.authTokenRequestModel successBlock:^(id responseModel) {
+        [_smsAlertView dismiss];
         GetAuthTokenV2Response *response = (GetAuthTokenV2Response *)responseModel;
         [self serviceMerchantService:response];
     } faliedBlock:^(NSError *error) {
-
-    } attribute:nil];
+        [_smsAlertView showErrorMessage:[error domain]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
 }
 
 - (void)serviceMerchantService:(GetAuthTokenV2Response *)resultModel{
@@ -93,5 +94,10 @@
     }
 }
 
+#pragma mark - ---------------------------- PierSMSInputAlertView ----------------------------
+
+- (void)userApprove:(NSString *)userInput{
+    [self serviceGetAuthToken:userInput];
+}
 
 @end

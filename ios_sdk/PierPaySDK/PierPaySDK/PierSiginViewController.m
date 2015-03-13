@@ -17,7 +17,7 @@
 #import "PierCountryCodeViewController.h"
 #import "PIRDataSource.h"
 
-@interface PierSiginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate>
+@interface PierSiginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate, PierSMSInputAlertDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *bacButton;
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong) PierCountryCodeViewController *countryCodeViewController;
 @property (nonatomic, strong) CountryModel *country;
+
+@property (nonatomic, strong) PierSMSAlertView *smsAlertView;
 
 @end
 
@@ -133,14 +135,9 @@
                                self.phone,@"phone",
                                response.expiration,@"expiration_time",
                                @"6",@"code_length",nil];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
-                [self serviceSMSActivation:userInput];
-                return YES;
-            } cancel:^{
-                
-            }];
-        });
+        _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
+        _smsAlertView.delegate = self;
+        [_smsAlertView show];
     } faliedBlock:^(NSError *error) {
         
     } attribute:nil];
@@ -155,13 +152,14 @@
     [PIRService serverSend:ePIER_API_GET_ACTIVITION resuest:requestModel successBlock:^(id responseModel) {
         RegSMSActiveResponse *reqponse = (RegSMSActiveResponse *)responseModel;
         dispatch_async(dispatch_get_main_queue(), ^{
+            [_smsAlertView dismiss];
             PierRegisterViewController *loginPage = [[PierRegisterViewController alloc] initWithNibName:@"PierRegisterViewController" bundle:pierBoundle()];
             loginPage.token = reqponse.token;
             [self.navigationController pushViewController:loginPage animated:NO];
         });
     } faliedBlock:^(NSError *error) {
-        
-    } attribute:nil];
+        [_smsAlertView showErrorMessage:[error domain]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
 }
 
 #pragma mark -------------- delegate --------------------------------------
@@ -221,4 +219,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - ---------------------------- PierSMSInputAlertView ----------------------------
+
+- (void)userApprove:(NSString *)userInput{
+    [self serviceSMSActivation:userInput];
+}
 @end
