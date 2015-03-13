@@ -73,7 +73,7 @@
     }];
     
     _titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55, 55)];
-    [_titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-8)];
+    [_titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-6)];
     [_titleImage setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_smscode")]];
     
     [currentWindow addSubview:self.bgView];
@@ -115,7 +115,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *cancleButton;
 
 @property (nonatomic, strong) UIView *bgView;
-@property (nonatomic, strong) NSDictionary *paramDic;
+//@property (nonatomic, strong) NSDictionary *paramDic;
 @property (nonatomic, copy) approveBlock    approveBc;
 @property (nonatomic, copy) cancelBlock     cancelBc;
 
@@ -143,8 +143,8 @@
 - (void)initData{
     if (self.paramDic) {
         self.titleLabel = [self.paramDic objectForKey:@"title"];
-        [self.approveButton setTitle:[self.paramDic objectForKey:@"approveText"] forState:UIControlStateNormal];
-        [self.cancleButton setTitle:[self.paramDic objectForKey:@"cancleText"] forState:UIControlStateNormal];
+        [self.approveButton setTitle:[self.paramDic objectForKey:@"approve_text"] forState:UIControlStateNormal];
+        [self.cancleButton setTitle:[self.paramDic objectForKey:@"cancle_text"] forState:UIControlStateNormal];
     }
 }
 
@@ -180,7 +180,7 @@
     }];
     
     self.titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55, 55)];
-    [self.titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-8)];
+    [self.titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-6)];
     [self.titleImage setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_smscode")]];
     
     [currentWindow addSubview:self.bgView];
@@ -251,7 +251,7 @@
 
 - (void)initData{
     [super initData];
-    self.stopWatch.expirTime = [[self.paramDic objectForKey:@"expirationTime"] integerValue];
+    self.stopWatch.expirTime = [[self.paramDic objectForKey:@"expiration_time"] integerValue];
     [self.stopWatch startTimer];
     self.stopWatch.delegate = self;
 }

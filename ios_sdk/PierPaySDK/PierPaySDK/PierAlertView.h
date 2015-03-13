@@ -27,11 +27,17 @@ typedef void (^cancelBlock)();
 #pragma mark - ---------------------------- PierAlertView ----------------------------
 @interface PierAlertView : UIView
 
-@property (nonatomic, copy) NSString *titleImageName;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *alertText;
-@property (nonatomic, copy) NSString *doneText;
-
+/**
+ * param
+ * name:                Required     Type         Description
+ * 1.expiration_time    YES          NSString     SMS ExpirationTime.
+ * 2.phone              YES          NSString     User Phone.
+ * 3.code_length        YES          NSString     message length.
+ * 4.title              YES          NSString     title.
+ * 5.approve_text       YES          NSString     approve_text.
+ * 6.cancle_text        YES          NSString     cancle_text.
+ * 7.title_image_name   YES          NSString     title_image_name.
+ */
 + (void)showPierAlertView:(id)delegate
                     param:(id)param
                      type:(ePierAlertViewType)type
@@ -42,12 +48,17 @@ typedef void (^cancelBlock)();
 #pragma mark - ---------------------------- PierUserInputAlertView ----------------------------
 @interface PierUserInputAlertView : PierAlertView
 
-@property (nonatomic, copy) NSString *titleImageName;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *approveText;
-@property (nonatomic, copy) NSString *cancleText;
-
-
+/**
+ * param
+ * name:                Required     Type         Description
+ * 1.expiration_time    YES          NSString     SMS ExpirationTime.
+ * 2.phone              YES          NSString     User Phone.
+ * 3.code_length        YES          NSString     message length.
+ * 4.title              YES          NSString     title.
+ * 5.approve_text       YES          NSString     approve_text.
+ * 6.cancle_text        YES          NSString     cancle_text.
+ * 7.title_image_name   YES          NSString     title_image_name.
+ */
 + (void)showPierUserInputAlertView:(id)delegate
                              param:(id)param
                               type:(ePierAlertViewType)type
@@ -56,6 +67,17 @@ typedef void (^cancelBlock)();
 
 @end
 
+/**
+ * param
+ * name:                Required     Type         Description
+ * 1.expiration_time    YES          NSString     SMS ExpirationTime.
+ * 2.phone              YES          NSString     User Phone.
+ * 3.code_length        YES          NSString     message length.
+ * 4.title              YES          NSString     title.
+ * 5.approve_text       YES          NSString     approve_text.
+ * 6.cancle_text        YES          NSString     cancle_text.
+ * 7.title_image_name   YES          NSString     title_image_name.
+ */
 #pragma mark - ---------------------------- PierUserInputAlertView ----------------------------
 @interface PierSMSAlertView : PierUserInputAlertView
 
