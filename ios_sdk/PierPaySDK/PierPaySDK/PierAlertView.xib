@@ -162,6 +162,7 @@
                 <outlet property="cancleButton" destination="9rd-zn-LV9" id="59t-NQ-Tfg"/>
                 <outlet property="loadingView" destination="NL6-fk-xdv" id="JIe-9u-dk9"/>
                 <outlet property="refreshButton" destination="4xa-H6-EU4" id="bFV-aB-lv3"/>
+                <outlet property="smsInputTextField" destination="BH4-zV-OZI" id="flL-Qa-3wh"/>
                 <outlet property="stopWatch" destination="uLe-r8-4Xi" id="CwI-9C-GRu"/>
                 <outlet property="textField" destination="BH4-zV-OZI" id="yOI-dk-vUk"/>
                 <outlet property="titleLabel" destination="vbh-Oe-jLa" id="iOy-Xj-POd"/>

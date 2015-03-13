@@ -126,15 +126,17 @@
     [PIRService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
         GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                               @"",@"titleImageName",
+                               @"",@"title_image_name",
                                @"SMS",@"title",
-                               @"Next",@"approveText",
-                               @"Dismiss",@"cancleText",
+                               @"Next",@"approve_text",
+                               @"Dismiss",@"cancle_text",
                                self.phone,@"phone",
-                               response.expiration,@"expirationTime",nil];
+                               response.expiration,@"expiration_time",
+                               @"6",@"code_length",nil];
         dispatch_async(dispatch_get_main_queue(), ^{
             [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
                 [self serviceSMSActivation:userInput];
+                return YES;
             } cancel:^{
                 
             }];

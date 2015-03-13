@@ -12,6 +12,7 @@
 #import "PIRKeyboard.h"
 #import "PIRPayModel.h"
 #import "PIRService.h"
+#import "NSString+Check.h"
 
 @interface PierAlertView ()
 
@@ -73,7 +74,7 @@
     }];
     
     _titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55, 55)];
-    [_titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-8)];
+    [_titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-6)];
     [_titleImage setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_smscode")]];
     
     [currentWindow addSubview:self.bgView];
@@ -91,7 +92,9 @@
 }
 
 - (IBAction)doneButton:(id)sender{
-    [self viewRemoveFromSuperView];
+    if (self.approveBc) {
+        [self viewRemoveFromSuperView];
+    }
 }
 
 - (void)handleBgTapGesture{
@@ -115,7 +118,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *cancleButton;
 
 @property (nonatomic, strong) UIView *bgView;
-@property (nonatomic, strong) NSDictionary *paramDic;
+//@property (nonatomic, strong) NSDictionary *paramDic;
 @property (nonatomic, copy) approveBlock    approveBc;
 @property (nonatomic, copy) cancelBlock     cancelBc;
 
@@ -143,8 +146,8 @@
 - (void)initData{
     if (self.paramDic) {
         self.titleLabel = [self.paramDic objectForKey:@"title"];
-        [self.approveButton setTitle:[self.paramDic objectForKey:@"approveText"] forState:UIControlStateNormal];
-        [self.cancleButton setTitle:[self.paramDic objectForKey:@"cancleText"] forState:UIControlStateNormal];
+        [self.approveButton setTitle:[self.paramDic objectForKey:@"approve_text"] forState:UIControlStateNormal];
+        [self.cancleButton setTitle:[self.paramDic objectForKey:@"cancle_text"] forState:UIControlStateNormal];
     }
 }
 
@@ -180,7 +183,7 @@
     }];
     
     self.titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55, 55)];
-    [self.titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-8)];
+    [self.titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-6)];
     [self.titleImage setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_smscode")]];
     
     [currentWindow addSubview:self.bgView];
@@ -198,8 +201,9 @@
 }
 
 - (IBAction)approve:(id)sender{
-    [self viewRemoveFromSuperView];
-    self.approveBc([self.textField text]);
+    if (self.approveBc([self.textField text])) {
+        [self viewRemoveFromSuperView];
+    }
 }
 
 - (IBAction)cancleAction:(id)sender{
@@ -224,11 +228,12 @@
 
 @end
 
-@interface PierSMSAlertView ()<PIRStopWatchViewDelegate>
+@interface PierSMSAlertView ()<PIRStopWatchViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet PIRStopWatchView *stopWatch;
 @property (nonatomic, strong) IBOutlet UIButton *refreshButton;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loadingView;
+@property (nonatomic, strong) IBOutlet UITextField *smsInputTextField;
 
 @end
 
@@ -245,13 +250,14 @@
     confirmView.cancelBc    = cancel;
     confirmView.alertType   = type;
     [confirmView.textField becomeFirstResponder];
+    confirmView.smsInputTextField.delegate = confirmView;
     [confirmView initData];
     [confirmView initView];
 }
 
 - (void)initData{
     [super initData];
-    self.stopWatch.expirTime = [[self.paramDic objectForKey:@"expirationTime"] integerValue];
+    self.stopWatch.expirTime = [[self.paramDic objectForKey:@"expiration_time"] integerValue];
     [self.stopWatch startTimer];
     self.stopWatch.delegate = self;
 }
@@ -299,6 +305,21 @@
     } faliedBlock:^(NSError *error) {
         [self.loadingView stopAnimating];
     } attribute:nil];
+}
+
+#pragma mark - -------------------UITextFieldDelegate----------------
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (string) {
+        if (![string isNumString]  && ![NSString emptyOrNull:string]) {
+            return NO;
+        }
+    }
+    
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (newString.length > [[self.paramDic objectForKey:@"code_length"] integerValue]) {
+        return NO;
+    }
+    return YES;
 }
 
 @end
