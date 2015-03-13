@@ -58,11 +58,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [self.phoneNumberLabel becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [self.phoneNumberLabel resignFirstResponder];
 }
 
@@ -89,6 +91,7 @@
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     
+    [self.phoneNumberLabel setTintColor:[PierColor lightGreenColor]];
     self.phoneNumberLabel.delegate  = self;
 }
 

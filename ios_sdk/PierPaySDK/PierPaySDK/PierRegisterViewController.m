@@ -11,15 +11,17 @@
 #import "PierTools.h"
 #import "PierColor.h"
 #import "NSString+Check.h"
+#import "PIRViewUtil.h"
 #import "PierCreditApplyController.h"
 #import "PIRDataSource.h"
 
 @interface PierRegisterViewController ()
 
 @property (nonatomic, weak) IBOutlet UIButton *bacButton;
-@property (nonatomic, weak) IBOutlet UIButton *submitButton;
+@property (nonatomic, weak) IBOutlet UILabel *indicateLabel;
 @property (nonatomic, weak) IBOutlet UITextField *passwordLabel;
-@property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
+@property (nonatomic, weak) IBOutlet UITextField *verificationTextField;
+@property (nonatomic, weak) IBOutlet UIButton *submitButton;
 
 @end
 
@@ -32,12 +34,17 @@
     [self initView];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self.passwordLabel becomeFirstResponder];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
     [self.passwordLabel resignFirstResponder];
+    [self.verificationTextField resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +60,15 @@
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.indicateLabel.textColor = [PierColor lightGreenColor];
+    
+    [self.passwordLabel setTintColor:[PierColor lightGreenColor]];
+    [self.verificationTextField setTintColor:[PierColor lightGreenColor]];
+    
+    [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.submitButton.layer setMasksToBounds:YES];
+    [self.submitButton.layer setCornerRadius:5];
 }
 
 - (void)popViewController{
@@ -60,9 +76,11 @@
 }
 
 
-- (IBAction)userSetPasswordAction:(id)sender{
-    NSString *password = self.passwordLabel.text;
-    [self serviceUserRegister:password];
+- (IBAction)userSetPasswordAction:(id)sender
+{
+    if ([self checkPasswordAndverifyPassword]) {
+        [self serviceUserRegister:self.passwordLabel.text];
+    }
 }
 
 - (void)serviceUserRegister:(NSString *)password{
@@ -81,6 +99,19 @@
     } attribute:nil];
 }
 
+#pragma mark ------------------ function -------------------------
+- (BOOL)checkPasswordAndverifyPassword
+{
+    NSString *password = self.passwordLabel.text;
+    NSString *verifyPassword = self.verificationTextField.text;
+    if (![NSString emptyOrNull:password] && ![NSString emptyOrNull:verifyPassword] && [password isEqualToString:verifyPassword]) {
+        return YES;
+    }else {
+        [PIRViewUtil shakeView:self.passwordLabel];
+        [PIRViewUtil shakeView:self.verificationTextField];
+        return NO;
+    }
+}
 /*
 #pragma mark - Navigation
 
