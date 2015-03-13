@@ -138,15 +138,6 @@
         _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
         _smsAlertView.delegate = self;
         [_smsAlertView show];
-        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
-//                [self serviceSMSActivation:userInput];
-//                return YES;
-//            } cancel:^{
-//                
-//            }];
-//        });
     } faliedBlock:^(NSError *error) {
         
     } attribute:nil];
@@ -167,7 +158,6 @@
             [self.navigationController pushViewController:loginPage animated:NO];
         });
     } faliedBlock:^(NSError *error) {
-//        [_smsAlertView dismiss];
         [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
 }

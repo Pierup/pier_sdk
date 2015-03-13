@@ -10,6 +10,7 @@
 
 #import "RPFloatingPlaceholderTextField.h"
 #import "PierColor.h"
+#import "PierFont.h"
 
 @interface RPFloatingPlaceholderTextField ()
 
@@ -107,11 +108,11 @@
     
     // We draw the placeholder ourselves so we can control when it is shown
     // during the animations
-    if (self.textAlignment == NSTextAlignmentCenter) {
-        [super setPlaceholder:aPlaceholder];
-    }else{
-        [super setPlaceholder:nil];
-    }
+    //    if (self.textAlignment == NSTextAlignmentCenter) {
+    [super setPlaceholder:aPlaceholder];
+    //    }else{
+    //        [super setPlaceholder:nil];
+    //    }
     
     self.cachedPlaceholder = aPlaceholder;
     
@@ -147,7 +148,7 @@
     
     // Create the floating label instance and add it to the view
     self.floatingLabel = [[UILabel alloc] init];
-    self.floatingLabel.font = [UIFont systemFontOfSize:12];
+    self.floatingLabel.font = [PierFont customFontWithSize:12.f];
     self.floatingLabel.backgroundColor = [UIColor clearColor];
     self.floatingLabel.alpha = 1.f;
     self.floatingLabel.textAlignment = self.textAlignment;
@@ -171,7 +172,6 @@
         defaultActiveColor = [UIColor blueColor];
     }
     
-    self.tintColor = [PierColor lightGreenColor];
     // floating color
     if (self.floatingLabelActiveTextColor==nil) {
         self.floatingLabelActiveTextColor = [PierColor lightGreenColor];
@@ -182,7 +182,10 @@
     }
     
     if (self.floatingLabelPlaceholderColor==nil) {
-        self.floatingLabelPlaceholderColor = [UIColor colorWithWhite:0.7f alpha:1.f];
+        self.floatingLabelPlaceholderColor = [[UIColor alloc] initWithWhite:1.0f alpha:0.3f];
+        [self setValue:[[UIColor alloc] initWithWhite:1.0f alpha:0.3f] forKeyPath:@"_placeholderLabel.textColor"];
+    }else{
+        [self setValue:self.floatingLabelPlaceholderColor forKeyPath:@"_placeholderLabel.textColor"];
     }
     
     self.floatingLabel.textColor = self.floatingLabelActiveTextColor;
@@ -198,6 +201,8 @@
     if (![self isFirstResponder]) {
         [self checkForExistingText];
     }
+    
+    [self adjustFramesForNewPlaceholder];
 }
 
 - (void)drawRect:(CGRect)aRect
@@ -206,23 +211,23 @@
     
     // Check if we should draw the placeholder string.
     // Use RGB values found via Photoshop for placeholder color #c7c7cd.
-    if (self.shouldDrawPlaceholder && self.textAlignment != NSTextAlignmentCenter) {
-        
-        CGRect placeholderFrame = CGRectMake(5.f, floorf((self.frame.size.height - self.font.lineHeight) / 2.f), self.frame.size.width, self.frame.size.height);
-        NSDictionary *placeholderAttributes = @{NSFontAttributeName : self.font,
-                                                NSForegroundColorAttributeName : self.floatingLabelPlaceholderColor};
-        
-        if ([self respondsToSelector:@selector(tintColor)]) {
-            [self.cachedPlaceholder drawInRect:placeholderFrame
-                                withAttributes:placeholderAttributes];
-            
-        } else {
-            NSAttributedString *attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.cachedPlaceholder
-                                                                                        attributes:placeholderAttributes];
-            [attributedPlaceholder drawInRect:placeholderFrame];
-        } // iOS 6
-        
-    }
+    //    if (self.shouldDrawPlaceholder && self.textAlignment != NSTextAlignmentCenter) {
+    //
+    //        CGRect placeholderFrame = CGRectMake(5.f, floorf((self.frame.size.height - self.font.lineHeight) / 2.f), self.frame.size.width, self.frame.size.height);
+    //        NSDictionary *placeholderAttributes = @{NSFontAttributeName : self.font,
+    //                                                NSForegroundColorAttributeName : self.floatingLabelPlaceholderColor};
+    //
+    //        if ([self respondsToSelector:@selector(tintColor)]) {
+    //            [self.cachedPlaceholder drawInRect:placeholderFrame
+    //                                withAttributes:placeholderAttributes];
+    //
+    //        } else {
+    //            NSAttributedString *attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.cachedPlaceholder
+    //                                                                                        attributes:placeholderAttributes];
+    //            [attributedPlaceholder drawInRect:placeholderFrame];
+    //        } // iOS 6
+    //
+    //    }
 }
 
 - (void)didMoveToSuperview
@@ -298,26 +303,26 @@
     
     CGFloat offset = ceil(self.floatingLabel.font.lineHeight);
     
-    if (self.textAlignment == NSTextAlignmentCenter) {
-        self.originalFloatingLabelFrame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.bounds.size.width, offset);
-        self.floatingLabel.frame = self.originalFloatingLabelFrame;
-        
-        self.offsetFloatingLabelFrame = CGRectMake(self.originalFloatingLabelFrame.origin.x, self.originalFloatingLabelFrame.origin.y - offset,
-                                                   self.originalFloatingLabelFrame.size.width, self.originalFloatingLabelFrame.size.height);
-        
-        self.offsetTextFieldFrame = CGRectMake(self.originalTextFieldFrame.origin.x, self.originalTextFieldFrame.origin.y + offset,
-                                               self.originalTextFieldFrame.size.width, self.originalTextFieldFrame.size.height);
-    }else{
-        self.originalFloatingLabelFrame = CGRectMake(self.originalTextFieldFrame.origin.x + 5.f, self.originalTextFieldFrame.origin.y,
-                                                     self.originalTextFieldFrame.size.width - 10.f, self.floatingLabel.frame.size.height);
-        self.floatingLabel.frame = self.originalFloatingLabelFrame;
-        
-        self.offsetFloatingLabelFrame = CGRectMake(self.originalFloatingLabelFrame.origin.x, self.originalFloatingLabelFrame.origin.y - offset,
-                                                   self.originalFloatingLabelFrame.size.width, self.originalFloatingLabelFrame.size.height);
-        
-        self.offsetTextFieldFrame = CGRectMake(self.originalTextFieldFrame.origin.x, self.originalTextFieldFrame.origin.y + offset,
-                                               self.originalTextFieldFrame.size.width, self.originalTextFieldFrame.size.height);
-    }
+    //    if (self.textAlignment == NSTextAlignmentCenter) {
+    self.originalFloatingLabelFrame = CGRectMake(self.frame.origin.x+6, self.frame.origin.y-6, self.bounds.size.width, offset);
+    self.floatingLabel.frame = self.originalFloatingLabelFrame;
+    
+    self.offsetFloatingLabelFrame = CGRectMake(self.originalFloatingLabelFrame.origin.x, self.originalFloatingLabelFrame.origin.y - offset,
+                                               self.originalFloatingLabelFrame.size.width, self.originalFloatingLabelFrame.size.height);
+    
+    self.offsetTextFieldFrame = CGRectMake(self.originalTextFieldFrame.origin.x, self.originalTextFieldFrame.origin.y + offset,
+                                           self.originalTextFieldFrame.size.width, self.originalTextFieldFrame.size.height);
+    //    }else{
+    //        self.originalFloatingLabelFrame = CGRectMake(self.originalTextFieldFrame.origin.x + 5.f, self.originalTextFieldFrame.origin.y,
+    //                                                     self.originalTextFieldFrame.size.width - 10.f, self.floatingLabel.frame.size.height);
+    //        self.floatingLabel.frame = self.originalFloatingLabelFrame;
+    //
+    //        self.offsetFloatingLabelFrame = CGRectMake(self.originalFloatingLabelFrame.origin.x, self.originalFloatingLabelFrame.origin.y - offset,
+    //                                                   self.originalFloatingLabelFrame.size.width, self.originalFloatingLabelFrame.size.height);
+    //
+    //        self.offsetTextFieldFrame = CGRectMake(self.originalTextFieldFrame.origin.x, self.originalTextFieldFrame.origin.y + offset,
+    //                                               self.originalTextFieldFrame.size.width, self.originalTextFieldFrame.size.height);
+    //    }
 }
 
 // Adds padding so these text fields align with RPFloatingPlaceholderTextView's

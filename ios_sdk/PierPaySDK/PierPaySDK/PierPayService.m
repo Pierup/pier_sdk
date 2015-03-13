@@ -42,18 +42,10 @@
                                self.smsRequestModel.phone,@"phone",
                                response.expiration,@"expiration_time",
                                @"6",@"code_length",nil];
-        
         _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
+        _smsAlertView.delegate = self;
         [_smsAlertView show];
         
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
-//                [self serviceGetAuthToken:userInput];
-//                return YES;
-//            } cancel:^{
-//                
-//            }];
-//        });
     } faliedBlock:^(NSError *error) {
 
     } attribute:nil];
@@ -73,8 +65,8 @@
         GetAuthTokenV2Response *response = (GetAuthTokenV2Response *)responseModel;
         [self serviceMerchantService:response];
     } faliedBlock:^(NSError *error) {
-        [_smsAlertView dismiss];
-    } attribute:nil];
+        [_smsAlertView showErrorMessage:[error domain]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
 }
 
 - (void)serviceMerchantService:(GetAuthTokenV2Response *)resultModel{
