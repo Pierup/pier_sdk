@@ -42,6 +42,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
                 [self serviceGetAuthToken:userInput];
+                return YES;
             } cancel:^{
                 
             }];

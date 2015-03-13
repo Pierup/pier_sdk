@@ -191,7 +191,7 @@
                                                     @"error",@"title",
                                                     [error domain],@"message",nil];
                         [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
-                            
+                            return YES;
                         }];
                     }
                     break;
@@ -204,7 +204,7 @@
                                                     @"error",@"title",
                                                     [error domain],@"message",nil];
                         [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
-                            
+                            return YES;
                         }];
                     }
                     break;
@@ -239,7 +239,7 @@
                                     @"error",@"title",
                                     [error domain],@"message",nil];
         [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
-            
+            return YES;
         }];
     }
     failed(error);

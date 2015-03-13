@@ -92,7 +92,9 @@
 }
 
 - (IBAction)doneButton:(id)sender{
-    [self viewRemoveFromSuperView];
+    if (self.approveBc) {
+        [self viewRemoveFromSuperView];
+    }
 }
 
 - (void)handleBgTapGesture{
@@ -199,8 +201,9 @@
 }
 
 - (IBAction)approve:(id)sender{
-    [self viewRemoveFromSuperView];
-    self.approveBc([self.textField text]);
+    if (self.approveBc([self.textField text])) {
+        [self viewRemoveFromSuperView];
+    }
 }
 
 - (IBAction)cancleAction:(id)sender{
