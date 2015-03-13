@@ -131,7 +131,8 @@
                                @"Next",@"approve_text",
                                @"Dismiss",@"cancle_text",
                                self.phone,@"phone",
-                               response.expiration,@"expiration_time",nil];
+                               response.expiration,@"expiration_time",
+                               @"6",@"code_length",nil];
         dispatch_async(dispatch_get_main_queue(), ^{
             [PierSMSAlertView showPierUserInputAlertView:self param:param type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
                 [self serviceSMSActivation:userInput];

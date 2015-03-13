@@ -12,6 +12,7 @@
 #import "PIRKeyboard.h"
 #import "PIRPayModel.h"
 #import "PIRService.h"
+#import "NSString+Check.h"
 
 @interface PierAlertView ()
 
@@ -224,11 +225,12 @@
 
 @end
 
-@interface PierSMSAlertView ()<PIRStopWatchViewDelegate>
+@interface PierSMSAlertView ()<PIRStopWatchViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutlet PIRStopWatchView *stopWatch;
 @property (nonatomic, strong) IBOutlet UIButton *refreshButton;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loadingView;
+@property (nonatomic, strong) IBOutlet UITextField *smsInputTextField;
 
 @end
 
@@ -245,6 +247,7 @@
     confirmView.cancelBc    = cancel;
     confirmView.alertType   = type;
     [confirmView.textField becomeFirstResponder];
+    confirmView.smsInputTextField.delegate = confirmView;
     [confirmView initData];
     [confirmView initView];
 }
@@ -299,6 +302,21 @@
     } faliedBlock:^(NSError *error) {
         [self.loadingView stopAnimating];
     } attribute:nil];
+}
+
+#pragma mark - -------------------UITextFieldDelegate----------------
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (string) {
+        if (![string isNumString]  && ![NSString emptyOrNull:string]) {
+            return NO;
+        }
+    }
+    
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (newString.length > [[self.paramDic objectForKey:@"code_length"] integerValue]) {
+        return NO;
+    }
+    return YES;
 }
 
 @end

@@ -25,6 +25,7 @@ typedef void (^cancelBlock)();
 @end
 
 #pragma mark - ---------------------------- PierAlertView ----------------------------
+
 @interface PierAlertView : UIView
 
 /**
@@ -46,6 +47,7 @@ typedef void (^cancelBlock)();
 @end
 
 #pragma mark - ---------------------------- PierUserInputAlertView ----------------------------
+
 @interface PierUserInputAlertView : PierAlertView
 
 /**
@@ -67,6 +69,12 @@ typedef void (^cancelBlock)();
 
 @end
 
+
+#pragma mark - ---------------------------- PierSMSInputAlertView ----------------------------
+
+
+@interface PierSMSAlertView : PierUserInputAlertView
+
 /**
  * param
  * name:                Required     Type         Description
@@ -78,9 +86,6 @@ typedef void (^cancelBlock)();
  * 6.cancle_text        YES          NSString     cancle_text.
  * 7.title_image_name   YES          NSString     title_image_name.
  */
-#pragma mark - ---------------------------- PierUserInputAlertView ----------------------------
-@interface PierSMSAlertView : PierUserInputAlertView
-
 + (void)showPierUserInputAlertView:(id)delegate
                              param:(id)param
                               type:(ePierAlertViewType)type
