@@ -183,7 +183,7 @@
     
     if (self.floatingLabelPlaceholderColor==nil) {
         self.floatingLabelPlaceholderColor = [[UIColor alloc] initWithWhite:1.0f alpha:0.3f];
-        [self setValue:[[UIColor alloc] initWithWhite:1.0f alpha:0.3f] forKeyPath:@"_placeholderLabel.textColor"];
+        [self setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
     }else{
         [self setValue:self.floatingLabelPlaceholderColor forKeyPath:@"_placeholderLabel.textColor"];
     }

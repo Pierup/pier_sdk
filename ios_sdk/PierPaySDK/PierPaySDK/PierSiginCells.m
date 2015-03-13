@@ -225,6 +225,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.ssnLabel.delegate = self;
+    [self.ssnLabel setPlaceholder:@"Social Security Number"];
 }
 
 - (NSString *)getSSN{
