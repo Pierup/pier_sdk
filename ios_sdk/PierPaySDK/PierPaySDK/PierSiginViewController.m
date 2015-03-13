@@ -168,7 +168,8 @@
         });
     } faliedBlock:^(NSError *error) {
 //        [_smsAlertView dismiss];
-    } attribute:nil];
+        [_smsAlertView showErrorMessage:[error domain]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
 }
 
 #pragma mark -------------- delegate --------------------------------------

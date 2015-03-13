@@ -154,12 +154,19 @@
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NL6-fk-xdv">
                     <rect key="frame" x="223" y="94" width="20" height="20"/>
                 </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOt-Xi-kQD">
+                    <rect key="frame" x="15" y="122" width="251" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="approveButton" destination="LN5-GL-dxW" id="eWe-rW-t8o"/>
                 <outlet property="cancleButton" destination="9rd-zn-LV9" id="59t-NQ-Tfg"/>
+                <outlet property="errorMessageLabel" destination="vOt-Xi-kQD" id="YKx-0D-S49"/>
                 <outlet property="loadingView" destination="NL6-fk-xdv" id="JIe-9u-dk9"/>
                 <outlet property="refreshButton" destination="4xa-H6-EU4" id="bFV-aB-lv3"/>
                 <outlet property="smsInputTextField" destination="BH4-zV-OZI" id="flL-Qa-3wh"/>
@@ -167,7 +174,7 @@
                 <outlet property="textField" destination="BH4-zV-OZI" id="yOI-dk-vUk"/>
                 <outlet property="titleLabel" destination="vbh-Oe-jLa" id="iOy-Xj-POd"/>
             </connections>
-            <point key="canvasLocation" x="89.5" y="381.5"/>
+            <point key="canvasLocation" x="90.5" y="321.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

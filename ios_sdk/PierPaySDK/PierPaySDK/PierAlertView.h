@@ -117,6 +117,10 @@ typedef void (^cancelBlock)();
 
 - (void)dismiss;
 
+- (void)showErrorMessage:(NSString *)message;
+
+- (void)dismissErorMessage;
+
 @end
 
 //@interface PierCustomKeyboardAlertView : UIView

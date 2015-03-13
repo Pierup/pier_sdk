@@ -235,6 +235,8 @@
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loadingView;
 @property (nonatomic, strong) IBOutlet UITextField *smsInputTextField;
 
+@property (nonatomic, strong) IBOutlet UILabel *errorMessageLabel;
+
 @end
 
 @implementation PierSMSAlertView
@@ -257,6 +259,15 @@
 
 - (void)dismiss{
     [self viewRemoveFromSuperView];
+}
+
+- (void)showErrorMessage:(NSString *)message{
+    [self.errorMessageLabel setHidden:NO];
+    [self.errorMessageLabel setText:message];
+}
+
+- (void)dismissErorMessage{
+    [self.errorMessageLabel setHidden:YES];
 }
 
 + (void)showPierUserInputAlertView:(id)delegate
@@ -290,6 +301,7 @@
     [self.refreshButton setHidden:YES];
     [self.loadingView setHidesWhenStopped:YES];
     [self.loadingView stopAnimating];
+    [self dismissErorMessage];
 }
 
 - (void)viewRemoveFromSuperView{
@@ -324,14 +336,19 @@
 
 - (IBAction)cancleAction:(id)sender{
     if (self.alertType == ePierAlertViewType_instance) {
-        
+        [UIView animateWithDuration:0.1 animations:^{
+            [self.bgView setAlpha:0.1];
+        } completion:^(BOOL finished) {
+            [self viewRemoveFromSuperView];
+        }];
+    }else{
+        [UIView animateWithDuration:0.1 animations:^{
+            [self.bgView setAlpha:0.1];
+        } completion:^(BOOL finished) {
+            [self viewRemoveFromSuperView];
+            self.cancelBc();
+        }];
     }
-    [UIView animateWithDuration:0.1 animations:^{
-        [self.bgView setAlpha:0.1];
-    } completion:^(BOOL finished) {
-        [self viewRemoveFromSuperView];
-        self.cancelBc();
-    }];
 }
 
 
