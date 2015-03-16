@@ -129,6 +129,16 @@
     return view;
 }
 
++ (UIImage *)getImageByView:(UIView *)view{
+    CGRect rect = CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [view.backgroundColor CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *colorImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return colorImg;
+}
 @end
 
 @interface PIRLineView ()

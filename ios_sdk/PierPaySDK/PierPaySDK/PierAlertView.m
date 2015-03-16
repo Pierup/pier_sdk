@@ -13,6 +13,7 @@
 #import "PIRPayModel.h"
 #import "PIRService.h"
 #import "NSString+Check.h"
+#import "PIRViewUtil.h"
 
 @interface PierAlertView ()
 
@@ -56,7 +57,7 @@
     UIWindow *currentWindow = [[UIApplication sharedApplication].delegate window];
     
     [self.doneButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-    [self.doneButton.layer setBorderWidth:1];
+    [self.doneButton.layer setBorderWidth:0.5];
     [self.doneButton.layer setCornerRadius:5];
     [self.doneButton.layer setMasksToBounds:YES];
     
@@ -89,6 +90,9 @@
         default:
             break;
     }
+    
+    UIImage *btnImg = [PIRViewUtil getImageByView:self.doneButton];
+    [self.doneButton setBackgroundImage:btnImg forState:UIControlStateNormal];
 }
 
 - (IBAction)doneButton:(id)sender{
@@ -155,17 +159,17 @@
     UIWindow *currentWindow = [[UIApplication sharedApplication].delegate window];
     
     [self.approveButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-    [self.approveButton.layer setBorderWidth:1];
+    [self.approveButton.layer setBorderWidth:0.5];
     [self.approveButton.layer setCornerRadius:5];
     [self.approveButton.layer setMasksToBounds:YES];
     
-    [self.cancleButton.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
-    [self.cancleButton.layer setBorderWidth:1];
+    [self.cancleButton.layer setBorderColor:[self.cancleButton.titleLabel.textColor CGColor]];
+    [self.cancleButton.layer setBorderWidth:0.5];
     [self.cancleButton.layer setCornerRadius:5];
     [self.cancleButton.layer setMasksToBounds:YES];
     
     [self.textField.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
-    [self.textField.layer setBorderWidth:1];
+//    [self.textField.layer setBorderWidth:0.5];
     [self.textField.layer setCornerRadius:5];
     [self.textField.layer setMasksToBounds:YES];
     
@@ -198,6 +202,12 @@
         default:
             break;
     }
+    
+    UIImage *appbtnImg = [PIRViewUtil getImageByView:self.approveButton];
+    [self.approveButton setBackgroundImage:appbtnImg forState:UIControlStateNormal];
+    
+    UIImage *canclebtnImg = [PIRViewUtil getImageByView:self.approveButton];
+    [self.cancleButton setBackgroundImage:canclebtnImg forState:UIControlStateNormal];
 }
 
 - (IBAction)approve:(id)sender{
@@ -234,6 +244,7 @@
 @property (nonatomic, strong) IBOutlet UIButton *refreshButton;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loadingView;
 @property (nonatomic, strong) IBOutlet UITextField *smsInputTextField;
+@property (nonatomic, strong) IBOutlet UIView *smsInputBgView;
 
 @property (nonatomic, strong) IBOutlet UILabel *errorMessageLabel;
 
@@ -302,6 +313,17 @@
     [self.loadingView setHidesWhenStopped:YES];
     [self.loadingView stopAnimating];
     [self dismissErorMessage];
+    
+    UIImage *appbtnImg = [PIRViewUtil getImageByView:self.approveButton];
+    [self.approveButton setBackgroundImage:appbtnImg forState:UIControlStateNormal];
+    
+    UIImage *canclebtnImg = [PIRViewUtil getImageByView:self.cancleButton];
+    [self.cancleButton setBackgroundImage:canclebtnImg forState:UIControlStateNormal];
+    
+    [self.smsInputBgView.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
+    [self.textField.layer setBorderWidth:0.5];
+    [self.smsInputBgView.layer setCornerRadius:5];
+    [self.smsInputBgView.layer setMasksToBounds:YES];
 }
 
 - (void)viewRemoveFromSuperView{

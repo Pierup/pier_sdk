@@ -36,4 +36,10 @@
  *  #9463b5
  */
 + (UIColor *)whiteAlphaColor;
+
+/** 
+ *  #dcdcdc
+ */
++ (UIColor *)placeHolderColor;
+
 @end

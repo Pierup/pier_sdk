@@ -12,15 +12,14 @@
 #import "PIRDataSource.h"
 #import "PierPayService.h"
 #import "NSString+Check.h"
+#import "PIRViewUtil.h"
 
 @interface PierCreditApproveViewController () <PierPayServiceDelegate>
 
-@property (nonatomic, weak) IBOutlet UIView *bgView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *creditLimitLabel;
-@property (nonatomic, weak) IBOutlet UILabel *costLabel;
 @property (nonatomic, weak) IBOutlet UIButton *payButton;
-@property (nonatomic, weak) IBOutlet UIButton *cancleBUtton;
+@property (nonatomic, weak) IBOutlet UIButton *cancleButton;
 
 /** servire model */
 @property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
@@ -47,7 +46,6 @@
 - (void)initData{
     NSString *credtiLimit_currency = [NSString getNumberFormatterDecimalStyle:self.responseModel.credit_limit currency:self.responseModel.currency];
     [self.creditLimitLabel setText:credtiLimit_currency];
-    [self.costLabel setText:[__dataSource.merchantParam objectForKey:@"amount"]];
     
     [self.payButton setBackgroundColor:[PierColor darkPurpleColor]];
     [self.payButton.layer setMasksToBounds:YES];
@@ -55,15 +53,21 @@
     [self.payButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
     [self.payButton.layer setBorderWidth:1];
     
-    [self.cancleBUtton.layer setMasksToBounds:YES];
-    [self.cancleBUtton.layer setCornerRadius:5];
-    [self.cancleBUtton.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
-    [self.cancleBUtton.layer setBorderWidth:1];
+    [self.cancleButton.layer setMasksToBounds:YES];
+    [self.cancleButton.layer setCornerRadius:5];
+    [self.cancleButton.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
+    [self.cancleButton.layer setBorderWidth:1];
 }
 
 - (void)initView{
-    [self.bgView setBackgroundColor:[PierColor lightPurpleColor]];
+    NSString *amount = [NSString getNumberFormatterDecimalStyle:[__dataSource.merchantParam objectForKey:@"amount"] currency:[__dataSource.merchantParam objectForKey:@"currency"]];
+    [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@ with Pier",amount] forState:UIControlStateNormal];
     
+    UIImage *patBtnImg = [PIRViewUtil getImageByView:self.payButton];
+    [self.payButton setBackgroundImage:patBtnImg forState:UIControlStateNormal];
+    
+    UIImage *cancleBtnView = [PIRViewUtil getImageByView:self.cancleButton];
+    [self.cancleButton setBackgroundImage:cancleBtnView forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

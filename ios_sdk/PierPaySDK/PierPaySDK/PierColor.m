@@ -26,4 +26,11 @@
     return PIRColorHex(0x9463b5);
 }
 
+/**
+ *  #dcdcdc
+ */
++ (UIColor *)placeHolderColor{
+    return PIRColorHex(0xdcdcdc);
+}
+
 @end

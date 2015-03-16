@@ -56,7 +56,7 @@
             [cells addObject:@(eSiginAddressCell)];
             [cells addObject:@(eSiginDobCell)];
             [cells addObject:@(eSiginSSNCell)];
-//            [cells addObject:@(eSiginPWDCell)];
+            [cells addObject:@(eSiginSubmitCell)];
             [dictionary setObject:cells forKey:@(sectionType)];
             break;
         }
@@ -252,32 +252,32 @@
     switch (type) {
         case eSiginInputUserNameCell:
         {
-            height = 60;
+            height = 75;
             break;
         }
         case eSiginPhoneNumberCell:{
-            height = 60;
+            height = 75;
             break;
         }
         case eSiginEmailCell:{
-            height = 60;
+            height = 75;
             break;
         }
         case eSiginAddressCell:{
-            height = 60;
+            height = 75;
             break;
         }
         case eSiginDobCell:{
-            height = 60;
+            height = 75;
             break;
         }
         case eSiginSSNCell:{
-            height = 60;
+            height = 75;
             break;
         }
         case eSiginPWDCell:
         {
-            height = 60;
+            height = 75;
             break;
         }
         case eSiginSubmitCell:{

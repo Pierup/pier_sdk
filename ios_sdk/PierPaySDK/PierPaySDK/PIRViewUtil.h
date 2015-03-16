@@ -39,6 +39,9 @@ typedef enum {
 + (void)shakeView:(UIView *)view;
 /** 获取条纹纹理图片 */
 + (UIView *)getStriaView;
+
++ (UIImage *)getImageByView:(UIView *)view;
+
 @end
 
 
