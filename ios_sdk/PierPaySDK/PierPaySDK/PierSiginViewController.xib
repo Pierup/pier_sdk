@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="bacButton" destination="TYf-LD-9Vd" id="KGb-2Q-Osq"/>
                 <outlet property="countryCodeButton" destination="4Ev-Sk-BpE" id="aYy-Wt-x7v"/>
-                <outlet property="phoneLabel" destination="K31-Eh-SUf" id="iQt-sx-7RB"/>
                 <outlet property="phoneNumberLabel" destination="2HQ-nG-Ss0" id="2Ac-6s-aMm"/>
                 <outlet property="submitButton" destination="wyX-U0-W8w" id="dJx-2F-bkZ"/>
                 <outlet property="textRemarkLabel" destination="kPe-fX-bEs" id="aqI-zd-I4P"/>
@@ -102,16 +101,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K31-Eh-SUf">
-                    <rect key="frame" x="114" y="71" width="100" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="Uui-Fi-M1r"/>
-                        <constraint firstAttribute="width" constant="100" id="XIV-xo-vyW"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -122,13 +111,11 @@
                 <constraint firstItem="tlK-Jv-dZ0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="JHn-oP-I0M"/>
                 <constraint firstItem="ACP-ki-GEN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="Mho-Gq-zvm"/>
                 <constraint firstAttribute="trailing" secondItem="kPe-fX-bEs" secondAttribute="trailing" constant="15" id="Ocb-gd-X6n"/>
-                <constraint firstItem="K31-Eh-SUf" firstAttribute="leading" secondItem="tlK-Jv-dZ0" secondAttribute="trailing" constant="29" id="Qtb-oK-rGV"/>
                 <constraint firstItem="wyX-U0-W8w" firstAttribute="top" secondItem="fV8-EL-s4b" secondAttribute="bottom" constant="29" id="RT9-9l-2O3"/>
                 <constraint firstItem="2HQ-nG-Ss0" firstAttribute="leading" secondItem="ACP-ki-GEN" secondAttribute="trailing" constant="28" id="TCB-bg-SDM"/>
                 <constraint firstItem="wyX-U0-W8w" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="TQO-0Q-URX"/>
                 <constraint firstItem="4Ev-Sk-BpE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="VGF-I2-d4e"/>
                 <constraint firstItem="2HQ-nG-Ss0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="Wkp-fw-EQs"/>
-                <constraint firstItem="K31-Eh-SUf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="dqC-DJ-FMq"/>
                 <constraint firstItem="ACP-ki-GEN" firstAttribute="leading" secondItem="4Ev-Sk-BpE" secondAttribute="trailing" constant="18" id="fDn-iS-Wk4"/>
                 <constraint firstItem="fV8-EL-s4b" firstAttribute="top" secondItem="2HQ-nG-Ss0" secondAttribute="bottom" constant="5" id="jZO-7x-DTn"/>
                 <constraint firstItem="kPe-fX-bEs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="mCA-RO-Uev"/>

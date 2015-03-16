@@ -83,6 +83,13 @@
     [pierService serviceGetPaySMS];
 }
 
+- (IBAction)cancelPay:(id)sender{
+    // Return to Merchant APP
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [__dataSource.pierDelegate payByPierComplete:nil];
+    }];
+}
+
 #pragma mark - ------------------------ PierPayServiceDelegate ------------------------
 
 - (void)pierPayServiceComplete:(NSDictionary *)result{
@@ -90,7 +97,6 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         [__dataSource.pierDelegate payByPierComplete:result];
     }];
-    
 }
 
 /*

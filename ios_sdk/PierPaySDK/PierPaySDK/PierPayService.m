@@ -95,7 +95,6 @@
 }
 
 #pragma mark - ---------------------------- PierSMSInputAlertView ----------------------------
-
 - (void)userApprove:(NSString *)userInput{
     [self serviceGetAuthToken:userInput];
 }
