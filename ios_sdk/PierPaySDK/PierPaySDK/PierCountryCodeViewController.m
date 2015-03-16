@@ -106,7 +106,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         Country *countryModel = self.countryArray[indexPath.row];
         cell.textLabel.text = countryModel.name;
-        cell.detailTextLabel.text = countryModel.phone_prefix;
+        cell.detailTextLabel.text =[NSString stringWithFormat:@"+%@",countryModel.phone_prefix];
     }
     return cell;
 }

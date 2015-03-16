@@ -86,6 +86,11 @@ typedef NS_ENUM(NSInteger, eDOBFormate){
 - (NSString *)phoneFormat;
 
 /**
+ * 电话号码去除格式化
+ */
+- (NSString *)phoneClearFormat;
+
+/**
  * isValudSSN
  */
 - (BOOL)isValudSSN;
@@ -94,7 +99,6 @@ typedef NS_ENUM(NSInteger, eDOBFormate){
  * 获取字符串中的数字
  */
 + (NSString *)getNumbers:(NSString*)stirng;
-
 
 /**
  * 金额字符串

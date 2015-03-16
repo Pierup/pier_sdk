@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -55,20 +55,20 @@
                     <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p40-W5-Txm">
-                    <rect key="frame" x="85" y="100" width="1" height="30"/>
+                    <rect key="frame" x="85" y="100" width="0.5" height="30"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="1" id="3Zz-bi-tMO"/>
                         <constraint firstAttribute="height" constant="30" id="Cph-hz-ovr"/>
+                        <constraint firstAttribute="width" constant="0.5" id="Qxu-l0-uf3"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJz-UZ-Ln1">
-                    <rect key="frame" x="15" y="145" width="290" height="1"/>
+                    <rect key="frame" x="15" y="145" width="290" height="0.5"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="RSR-u7-Zhz"/>
+                        <constraint firstAttribute="height" constant="0.5" id="goH-Pc-8gN"/>
                     </constraints>
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-zR-LEI">
@@ -80,11 +80,11 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojn-9o-6k8">
-                    <rect key="frame" x="15" y="215" width="290" height="1"/>
+                    <rect key="frame" x="15" y="215" width="290" height="0.5"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="o7b-rL-y6C"/>
+                        <constraint firstAttribute="height" constant="0.5" id="VM8-03-RtP"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLf-a8-oCS">
@@ -107,7 +107,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="2gX-cr-YK5"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -145,7 +145,7 @@
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="leading" secondItem="CgD-zR-LEI" secondAttribute="leading" id="pkj-k6-XEa"/>
                 <constraint firstAttribute="trailing" secondItem="GLf-a8-oCS" secondAttribute="trailing" constant="15" id="x5C-kf-ZtJ"/>
             </constraints>
-            <point key="canvasLocation" x="202" y="387"/>
+            <point key="canvasLocation" x="272" y="210"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

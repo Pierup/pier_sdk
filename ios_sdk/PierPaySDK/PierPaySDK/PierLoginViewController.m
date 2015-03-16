@@ -91,10 +91,10 @@
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
     
-    [self.phoneNumberLabel setTintColor:[PierColor lightGreenColor]];
+    [self.phoneNumberLabel setTintColor:[PierColor lightPurpleColor]];
     self.phoneNumberLabel.delegate = self;
     
-    [self.passwordLabel setTintColor:[PierColor lightGreenColor]];
+    [self.passwordLabel setTintColor:[PierColor lightPurpleColor]];
     
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
@@ -153,13 +153,27 @@
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    if (string) {
+        if (![string isNumString] && ![NSString emptyOrNull:string]) {
+            return NO;
+        }
+    }
+
     NSInteger phone_size = [self.country.phone_size integerValue];
+
+    NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    //限制位数
     
-    NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    //根据位数格式化
+//    if (toBeString.length == phone_size) {
+//        textField.text = [toBeString phoneFormat];
+//    }else {
+//        textField.text = [toBeString phoneClearFormat];
+//    }
     if (toBeString.length > phone_size && range.length != 1){
-        textField.text = [toBeString substringToIndex:phone_size];
         return NO;
     }else {
+         textField.text = [textField.text phoneClearFormat];
         return YES;
     }
 }

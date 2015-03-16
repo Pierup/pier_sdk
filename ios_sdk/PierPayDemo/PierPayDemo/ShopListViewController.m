@@ -7,7 +7,6 @@
 //
 
 #import "ShopListViewController.h"
-#import "PierPay.h"
 #import "DemoHttpExecutor.h"
 #import "ProductViewController.h"
 

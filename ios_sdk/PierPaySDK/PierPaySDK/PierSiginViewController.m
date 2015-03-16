@@ -24,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *phoneNumberLabel;
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
+@property (nonatomic, weak) IBOutlet UILabel *phoneLabel;
 @property (nonatomic, copy) NSString *phone;
 
 @property (nonatomic, strong) PierCountryCodeViewController *countryCodeViewController;
@@ -91,7 +92,9 @@
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.phoneNumberLabel setTintColor:[PierColor lightGreenColor]];
+    [self.phoneLabel setTextColor:[PierColor lightGreenColor]];
+    
+    [self.phoneNumberLabel setTintColor:[PierColor lightPurpleColor]];
     self.phoneNumberLabel.delegate  = self;
 }
 
@@ -178,6 +181,12 @@
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    if (string) {
+        if (![string isNumString] && ![NSString emptyOrNull:string]) {
+            return NO;
+        }
+    }
+
     NSInteger phone_size = [self.country.phone_size integerValue];
  
     NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];

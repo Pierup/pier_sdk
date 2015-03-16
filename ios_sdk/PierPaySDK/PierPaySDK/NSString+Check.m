@@ -173,6 +173,14 @@
     return phoneFormat;
 }
 
+- (NSString *)phoneClearFormat
+{
+    NSString *result = [self stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    result = [result stringByReplacingOccurrencesOfString:@")" withString:@""];
+    result = [result stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    return result;
+}
+
 + (NSString *)getNumbers:(NSString*)stirng{
     NSUInteger len = [stirng length];
     NSMutableString *resultStr = [[NSMutableString alloc] init];

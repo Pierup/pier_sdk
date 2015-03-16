@@ -63,8 +63,8 @@
     
     self.indicateLabel.textColor = [PierColor lightGreenColor];
     
-    [self.passwordLabel setTintColor:[PierColor lightGreenColor]];
-    [self.verificationTextField setTintColor:[PierColor lightGreenColor]];
+    [self.passwordLabel setTintColor:[PierColor lightPurpleColor]];
+    [self.verificationTextField setTintColor:[PierColor lightPurpleColor]];
     
     [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
     [self.submitButton.layer setMasksToBounds:YES];
