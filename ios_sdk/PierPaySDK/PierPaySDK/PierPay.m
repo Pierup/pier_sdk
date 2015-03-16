@@ -103,32 +103,6 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 #pragma mark --------------------- Service ---------------------------
 
-- (void)uploadFile
-{
-    PIRHttpClient *client = [PIRHttpClient sharedInstanceWithClientType:ePIRHttpClientType_User];
-    /** post */
-    UIImage *image = [UIImage imageWithContentsOfFile:getImagePath(@"btn_close")];
-    NSData *imageData = UIImageJPEGRepresentation(image, 1.0f);
-    NSString *testAddUserURL = @"/pier_api/v1/user/upload_file";//?content_type=image/jpeg
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"UR0000000001",@"user_id",
-                           @"6fd20dd7-84f5-11e4-8328-32913f86e6ed",@"session_token",
-                           @"8A412D29-F8E0-46D0-8BC6-3A6CCFD858B7",@"device_token",
-                           @"image/jpeg",@"content_type",
-                           @"UR0000000001_2014121615332sdsd81.jpg",@"file_name",
-                           @"0",@"platform",
-                           imageData,@"file",
-                           nil];
-    
-    [client UploadImage:testAddUserURL parameters:param progress:^(float progress){
-        NSLog(@"progress:%f",progress);
-    } success:^(id response, NSHTTPURLResponse *urlResponse) {
-        NSLog(@"%@response",response);
-    } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-        NSLog(@"%@urlResponse",urlResponse);
-    }];
-}
-
 #pragma mark ----------------------退出清空 ------------------
 
 - (void)didReceiveMemoryWarning

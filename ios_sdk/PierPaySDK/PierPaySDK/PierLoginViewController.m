@@ -128,7 +128,9 @@
 
 - (void)pierPayServiceComplete:(NSDictionary *)result{
     // Return to Merchant APP
-    [__dataSource.pierDelegate payByPierComplete:result];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [__dataSource.pierDelegate payByPierComplete:result];
+    }];
 }
 
 

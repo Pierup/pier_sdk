@@ -178,8 +178,10 @@
             
             switch (code) {
                 case SESSION_EXPIRE://sesson 过期
+                {
                     
                     break;
+                }
                 case PUSSWORD_ERROR://账号密码错误
                     
                     break;
