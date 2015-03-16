@@ -102,25 +102,25 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    if (section == 0) {
-        PierSiginCells *cell = [self.infoViewModel footViewForRowAtSection:section];
-        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 60)];
-        [footerView addSubview:cell];
-        [footerView setBackgroundColor:[UIColor clearColor]];
-        
-        return footerView;
-    }
-    return nil;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//    if (section == 0) {
+//        PierSiginCells *cell = [self.infoViewModel footViewForRowAtSection:section];
+//        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 60)];
+//        [footerView addSubview:cell];
+//        [footerView setBackgroundColor:[UIColor clearColor]];
+//        
+//        return footerView;
+//    }
+//    return nil;
+//}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if (section == 0) {
-        return 104;
-    }else{
-        return 0;
-    }
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    if (section == 0) {
+//        return 104;
+//    }else{
+//        return 0;
+//    }
+//}
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.view endEditing:YES];
