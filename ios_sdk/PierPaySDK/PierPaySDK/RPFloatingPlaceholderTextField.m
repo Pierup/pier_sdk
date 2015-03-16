@@ -183,9 +183,9 @@
     
     if (self.floatingLabelPlaceholderColor==nil) {
         self.floatingLabelPlaceholderColor = [[UIColor alloc] initWithWhite:1.0f alpha:0.3f];
-        [self setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
+        [self setValue:[PierColor placeHolderColor] forKeyPath:@"_placeholderLabel.textColor"];
     }else{
-        [self setValue:self.floatingLabelPlaceholderColor forKeyPath:@"_placeholderLabel.textColor"];
+        [self setValue:[PierColor placeHolderColor] forKeyPath:@"_placeholderLabel.textColor"];
     }
     
     self.floatingLabel.textColor = self.floatingLabelActiveTextColor;
@@ -304,7 +304,7 @@
     CGFloat offset = ceil(self.floatingLabel.font.lineHeight);
     
     //    if (self.textAlignment == NSTextAlignmentCenter) {
-    self.originalFloatingLabelFrame = CGRectMake(self.frame.origin.x+6, self.frame.origin.y-6, self.bounds.size.width, offset);
+    self.originalFloatingLabelFrame = CGRectMake(self.frame.origin.x+6, self.frame.origin.y-10, self.bounds.size.width, offset);
     self.floatingLabel.frame = self.originalFloatingLabelFrame;
     
     self.offsetFloatingLabelFrame = CGRectMake(self.originalFloatingLabelFrame.origin.x, self.originalFloatingLabelFrame.origin.y - offset,

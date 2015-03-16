@@ -35,6 +35,10 @@
 
 @implementation PIRSiginNameCell
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+}
+
 - (NSDictionary *)getUserName{
     NSDictionary *dic = nil;
     NSString *firstName = self.firstNameLabel.text;

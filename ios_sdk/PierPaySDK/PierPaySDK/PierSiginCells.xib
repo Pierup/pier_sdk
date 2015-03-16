@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -14,21 +14,14 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PnD-dC-7KN" id="QHa-Jf-jhs">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9b-gw-sSW" customClass="RPFloatingPlaceholderTextField">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9b-gw-sSW" customClass="RPFloatingPlaceholderTextField">
                         <rect key="frame" x="192" y="9" width="120" height="36"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="120" id="LpQ-4L-7z7"/>
-                            <constraint firstAttribute="height" constant="36" id="Tmr-uv-qMc"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                     </textField>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dm7-Y3-5ic">
-                        <rect key="frame" x="24" y="51" width="288" height="1"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dm7-Y3-5ic">
+                        <rect key="frame" x="24" y="51" width="120" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="KIY-3I-OmR"/>
-                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTl-01-W2i">
                         <rect key="frame" x="183" y="15" width="7" height="30"/>
@@ -47,21 +40,18 @@
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                     </textField>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FYL-QE-I5S">
+                        <rect key="frame" x="192" y="51" width="120" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="h9b-gw-sSW" firstAttribute="top" secondItem="QHa-Jf-jhs" secondAttribute="topMargin" constant="1" id="TBc-tq-Rzf"/>
-                    <constraint firstItem="dm7-Y3-5ic" firstAttribute="leading" secondItem="QHa-Jf-jhs" secondAttribute="leadingMargin" constant="16" id="dXc-2K-Ra5"/>
-                    <constraint firstItem="h9b-gw-sSW" firstAttribute="trailing" secondItem="QHa-Jf-jhs" secondAttribute="trailingMargin" id="ejD-TM-AZu"/>
-                    <constraint firstItem="dm7-Y3-5ic" firstAttribute="trailing" secondItem="QHa-Jf-jhs" secondAttribute="trailingMargin" id="lnO-qd-R6Z"/>
-                    <constraint firstItem="dm7-Y3-5ic" firstAttribute="bottom" secondItem="QHa-Jf-jhs" secondAttribute="bottomMargin" id="x6f-L3-5kV"/>
-                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="firstNameLabel" destination="OLk-EV-2s7" id="kpc-Pz-79i"/>
                 <outlet property="lastNameLabel" destination="h9b-gw-sSW" id="ucb-DM-FOs"/>
             </connections>
-            <point key="canvasLocation" x="201" y="90"/>
+            <point key="canvasLocation" x="201" y="73"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PIRSiginPhoneNumberCell" id="D78-ob-RWH" customClass="PIRSiginPhoneNumberCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
