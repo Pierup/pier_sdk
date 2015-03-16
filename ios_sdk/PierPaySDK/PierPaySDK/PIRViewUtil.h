@@ -40,6 +40,8 @@ typedef enum {
 /** 获取条纹纹理图片 */
 + (UIView *)getStriaView;
 
++ (UIImage *)getImageByView:(UIView *)view;
+
 @end
 
 

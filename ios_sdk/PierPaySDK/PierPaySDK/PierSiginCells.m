@@ -329,6 +329,8 @@
     [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
     [self.submitButton.layer setCornerRadius:5.0f];
     [self.submitButton.layer setMasksToBounds:YES];
+    UIImage *subBtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    [self.submitButton setBackgroundImage:subBtnImg forState:UIControlStateNormal];
 }
 
 - (IBAction)submitUserInfo:(id)sender{
