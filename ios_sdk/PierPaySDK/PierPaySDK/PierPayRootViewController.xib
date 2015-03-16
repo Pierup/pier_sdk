@@ -111,7 +111,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-wO-xxZ">
-                    <rect key="frame" x="260" y="24" width="30" height="30"/>
+                    <rect key="frame" x="263" y="24" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="CNJ-tg-XKZ"/>
                         <constraint firstAttribute="width" constant="30" id="Fuz-f4-g0T"/>
@@ -127,7 +127,7 @@
                 <constraint firstAttribute="centerX" secondItem="DEy-XU-tHF" secondAttribute="centerX" id="APc-Mv-nTs"/>
                 <constraint firstAttribute="trailing" secondItem="09H-S5-rrJ" secondAttribute="trailing" constant="30" id="FBJ-RK-P7H"/>
                 <constraint firstAttribute="trailing" secondItem="Tje-GW-co8" secondAttribute="trailing" constant="30" id="FKb-S9-p3o"/>
-                <constraint firstAttribute="trailing" secondItem="hH2-wO-xxZ" secondAttribute="trailing" constant="30" id="J6m-t9-FD2"/>
+                <constraint firstAttribute="trailing" secondItem="hH2-wO-xxZ" secondAttribute="trailing" constant="27" id="J6m-t9-FD2"/>
                 <constraint firstItem="09H-S5-rrJ" firstAttribute="top" secondItem="hH2-wO-xxZ" secondAttribute="bottom" constant="146" id="Jt8-ck-Skj"/>
                 <constraint firstAttribute="trailing" secondItem="udt-xb-OrJ" secondAttribute="trailing" constant="36" id="L7Z-ac-oge"/>
                 <constraint firstItem="Tje-GW-co8" firstAttribute="top" secondItem="09H-S5-rrJ" secondAttribute="bottom" constant="30" id="PFP-Ay-p3j"/>
@@ -144,7 +144,7 @@
                 <constraint firstAttribute="bottom" secondItem="DEy-XU-tHF" secondAttribute="bottom" constant="33" id="wmM-Uh-2uB"/>
                 <constraint firstAttribute="centerX" secondItem="goA-eb-ETR" secondAttribute="centerX" id="xH1-cR-XW8"/>
             </constraints>
-            <point key="canvasLocation" x="111" y="389"/>
+            <point key="canvasLocation" x="-111" y="369"/>
         </view>
     </objects>
     <resources>

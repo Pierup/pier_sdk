@@ -139,6 +139,30 @@
     UIGraphicsEndImageContext();
     return colorImg;
 }
+
++ (UIImage *)getDarkPurpleColorImage:(CGRect)frame
+{
+    CGRect rect = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [[PierColor darkPurpleColor] CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *colorImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return colorImg;
+}
+
++ (UIImage *)getLightPurpleColorImage:(CGRect)frame{
+    CGRect bacRect = CGRectMake(0, 0, frame.size.width, frame.size.height);
+    UIGraphicsBeginImageContext(bacRect.size);
+    CGContextRef BacContext = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(BacContext, [[PierColor lightPurpleColor] CGColor]);
+    CGContextFillRect(BacContext, bacRect);
+    UIImage *BacColorImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return BacColorImg;
+}
+
 @end
 
 @interface PIRLineView ()

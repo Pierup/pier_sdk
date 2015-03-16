@@ -42,6 +42,12 @@ typedef enum {
 
 + (UIImage *)getImageByView:(UIView *)view;
 
+/** 按钮正常背景  */
++ (UIImage *)getDarkPurpleColorImage:(CGRect)frame;
+
+/** 按钮按下背景 */
++ (UIImage *)getLightPurpleColorImage:(CGRect)frame;
+
 @end
 
 
