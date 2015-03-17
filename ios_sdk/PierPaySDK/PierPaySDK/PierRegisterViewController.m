@@ -103,7 +103,8 @@
 {
     NSString *password = self.passwordLabel.text;
     NSString *verifyPassword = self.verificationTextField.text;
-    if (![NSString emptyOrNull:password] && ![NSString emptyOrNull:verifyPassword] && [password isEqualToString:verifyPassword]) {
+    if ([password isValudPWD] && ![NSString emptyOrNull:password] && [password isEqualToString:verifyPassword])
+    {
         return YES;
     }else {
         [PIRViewUtil shakeView:self.passwordLabel];

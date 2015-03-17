@@ -151,8 +151,10 @@
 #pragma mark - PierCountryCodeControllerDelegate
 - (void)countryCodeWithCountry:(CountryModel *)country
 {
-    self.country = country;
-    self.phoneNumberLabel.text = @"";
+    if (![self.country.name isEqualToString:country.name]) {
+        self.country = country;
+        self.phoneNumberLabel.text = @"";
+    }
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
 
@@ -198,9 +200,9 @@
     NSString *phone_prefix = [NSString stringWithFormat:@"+%@",country.phone_prefix];
     [self.countryCodeButton setTitle:phone_prefix forState:UIControlStateNormal];
     
-    if (phoneNumber.length > [country.phone_size integerValue]) {
-        self.phoneNumberLabel.text = [phoneNumber substringToIndex:[country.phone_size integerValue]];
-    }
+//    if (phoneNumber.length > [country.phone_size integerValue]) {
+//        self.phoneNumberLabel.text = [phoneNumber substringToIndex:[country.phone_size integerValue]];
+//    }
 }
 
 #pragma mark -------------------- 退出清空 -----------------------------
