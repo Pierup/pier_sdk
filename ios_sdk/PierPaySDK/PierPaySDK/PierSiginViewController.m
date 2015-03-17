@@ -26,7 +26,6 @@
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
 @property (nonatomic, copy) NSString *phone;
 
-@property (nonatomic, strong) PierCountryCodeViewController *countryCodeViewController;
 @property (nonatomic, strong) CountryModel *country;
 
 @property (nonatomic, strong) PierSMSAlertView *smsAlertView;
@@ -41,8 +40,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.countryCodeViewController = [[PierCountryCodeViewController alloc]initWithNibName:@"PierCountryCodeViewController" bundle:pierBoundle()];
-            self.countryCodeViewController.delegate = self;
         _country = [[CountryModel alloc]init];
     }
     return self;
@@ -87,7 +84,9 @@
 
 - (void)initView
 {
-    [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.submitButton setBackgroundColor:[PierColor lightPurpleColor]];
+    UIImage *submitbtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    [self.submitButton setBackgroundImage:submitbtnImg forState:UIControlStateNormal];
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
 
@@ -119,7 +118,11 @@
 #pragma makr - countryCodeButton Action
 - (IBAction)countryCodeButtonAction:(UIButton *)sender
 {
-    UINavigationController *countryNav = [[UINavigationController alloc] initWithRootViewController:self.countryCodeViewController];
+    PierCountryCodeViewController *countryCodeController = [[PierCountryCodeViewController alloc]initWithNibName:@"PierCountryCodeViewController" bundle:pierBoundle()];
+    countryCodeController.selectedCountryModel = self.country;
+    countryCodeController.delegate = self;
+    
+    UINavigationController *countryNav = [[UINavigationController alloc] initWithRootViewController:countryCodeController];
     [self presentViewController:countryNav animated:YES completion:^{
         [self.navigationController setNavigationBarHidden:YES];
     }];

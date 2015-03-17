@@ -326,7 +326,9 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
-    [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.submitButton setBackgroundColor:[PierColor lightPurpleColor]];
+    UIImage *submitbtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    [self.submitButton setBackgroundImage:submitbtnImg forState:UIControlStateNormal];
     [self.submitButton.layer setCornerRadius:5.0f];
     [self.submitButton.layer setMasksToBounds:YES];
     UIImage *subBtnImg = [PIRViewUtil getImageByView:self.submitButton];

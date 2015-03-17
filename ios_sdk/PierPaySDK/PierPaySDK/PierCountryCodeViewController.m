@@ -108,6 +108,12 @@
         Country *countryModel = self.countryArray[indexPath.row];
         cell.textLabel.text = countryModel.name;
         cell.detailTextLabel.text =[NSString stringWithFormat:@"+%@",countryModel.phone_prefix];
+        
+        if ([countryModel.country_code isEqualToString:self.selectedCountryModel.country_code]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     }
     return cell;
 }

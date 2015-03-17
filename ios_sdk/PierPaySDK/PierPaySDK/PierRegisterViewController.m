@@ -58,13 +58,13 @@
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.indicateLabel.textColor = [PierColor lightGreenColor];
-    
+        
     [self.passwordLabel setTintColor:[PierColor lightPurpleColor]];
     [self.verificationTextField setTintColor:[PierColor lightPurpleColor]];
     
-    [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.submitButton setBackgroundColor:[PierColor lightPurpleColor]];
+    UIImage *submitbtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    [self.submitButton setBackgroundImage:submitbtnImg forState:UIControlStateNormal];
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
 }

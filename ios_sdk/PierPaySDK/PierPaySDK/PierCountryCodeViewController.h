@@ -28,5 +28,6 @@
 @interface PierCountryCodeViewController : UIViewController
 
 @property (nonatomic, weak) id<PierCountryCodeViewControllerDelegate>delegate;
+@property (nonatomic, strong) CountryModel *selectedCountryModel;
 
 @end

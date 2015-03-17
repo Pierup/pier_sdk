@@ -27,7 +27,6 @@
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
 
-@property (nonatomic, strong) PierCountryCodeViewController *countryCodeViewController;
 @property (nonatomic, strong) CountryModel *country;
 /** servire model */
 @property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
@@ -43,8 +42,6 @@
     if (self) {
         _smsRequestModel = [[TransactionSMSRequest alloc] init];
       
-        self.countryCodeViewController = [[PierCountryCodeViewController alloc]initWithNibName:@"PierCountryCodeViewController" bundle:pierBoundle()];
-        self.countryCodeViewController.delegate = self;
         _country = [[CountryModel alloc]init];
     }
     return self;
@@ -91,7 +88,9 @@
 
 - (void)initView
 {
-    [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.submitButton setBackgroundColor:[PierColor lightPurpleColor]];
+    UIImage *submitbtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    [self.submitButton setBackgroundImage:submitbtnImg forState:UIControlStateNormal];
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
     
@@ -102,6 +101,7 @@
     
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
+//    [self.bacButton setContentMode:UIViewContentModeScaleAspectFit];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
     
 }
@@ -140,7 +140,13 @@
 
 #pragma mark - countryCodeButton Action
 - (IBAction)countryCodeButtonAction:(UIButton *)sender {
-    UINavigationController *countryNav = [[UINavigationController alloc] initWithRootViewController:self.countryCodeViewController];
+    
+    PierCountryCodeViewController *countryCodeController = [[PierCountryCodeViewController alloc]initWithNibName:@"PierCountryCodeViewController" bundle:pierBoundle()];
+    countryCodeController.selectedCountryModel = self.country;
+    countryCodeController.delegate = self;
+   //默认选中
+    
+    UINavigationController *countryNav = [[UINavigationController alloc] initWithRootViewController:countryCodeController];
     [self presentViewController:countryNav animated:YES completion:^{
         [self.navigationController setNavigationBarHidden:YES];
     }];
