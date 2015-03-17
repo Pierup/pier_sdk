@@ -24,7 +24,6 @@
 @property (nonatomic, weak) IBOutlet UITextField *phoneNumberLabel;
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
-@property (nonatomic, weak) IBOutlet UILabel *phoneLabel;
 @property (nonatomic, copy) NSString *phone;
 
 @property (nonatomic, strong) PierCountryCodeViewController *countryCodeViewController;
@@ -95,8 +94,6 @@
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.phoneLabel setTextColor:[PierColor lightGreenColor]];
     
     [self.phoneNumberLabel setTintColor:[PierColor lightPurpleColor]];
     self.phoneNumberLabel.delegate  = self;
@@ -178,7 +175,6 @@
 - (void)countryCodeWithCountry:(CountryModel *)country
 {
     self.country = country;
-    // 根据countryCode来限制字数
     self.phoneNumberLabel.text = @"";
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
@@ -206,7 +202,7 @@
 }
 
 #pragma mark --------------------- 功能函数 ------------------------------
-// 检查号码长度
+
 - (BOOL)checkPhone
 {
     BOOL result = NO;
@@ -220,7 +216,6 @@
     return result;
 }
 
-// 根据countryCode限定长度
 - (void)checkCountryCodeWithCountry:(CountryModel *)country phoneNumber:(NSString *)phoneNumber
 {
     NSString *phone_prefix = [NSString stringWithFormat:@"+%@",country.phone_prefix];
@@ -243,4 +238,5 @@
 - (void)userApprove:(NSString *)userInput{
     [self serviceSMSActivation:userInput];
 }
+
 @end

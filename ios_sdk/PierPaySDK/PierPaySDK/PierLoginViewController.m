@@ -42,7 +42,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _smsRequestModel = [[TransactionSMSRequest alloc] init];
-        // 初始化countryCodeViewController
+      
         self.countryCodeViewController = [[PierCountryCodeViewController alloc]initWithNibName:@"PierCountryCodeViewController" bundle:pierBoundle()];
         self.countryCodeViewController.delegate = self;
         _country = [[CountryModel alloc]init];
@@ -152,7 +152,6 @@
 - (void)countryCodeWithCountry:(CountryModel *)country
 {
     self.country = country;
-    // 根据countryCode来限制字数
     self.phoneNumberLabel.text = @"";
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
@@ -181,7 +180,6 @@
 
 #pragma mark --------------------- 功能函数 ------------------------------
 
-// 检查号码长度
 - (BOOL)checkPhone:(NSString *)phoneNumber
 {
         BOOL result = NO;
@@ -195,7 +193,6 @@
         return result;
 }
 
-// 根据countryCode限定长度
 - (void)checkCountryCodeWithCountry:(CountryModel *)country phoneNumber:(NSString *)phoneNumber
 {
     NSString *phone_prefix = [NSString stringWithFormat:@"+%@",country.phone_prefix];
@@ -212,4 +209,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 @end
