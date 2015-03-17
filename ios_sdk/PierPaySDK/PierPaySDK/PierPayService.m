@@ -10,6 +10,7 @@
 #import "PIRService.h"
 #import "PierAlertView.h"
 #import "PIRDataSource.h"
+#import "NSString+Check.h"
 
 @interface PierPayService () <PierSMSInputAlertDelegate>
 
@@ -36,7 +37,7 @@
         
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"",@"title_image_name",
-                               @"SMS",@"title",
+                               @"Passcode",@"title",
                                @"Pay",@"approve_text",
                                @"Cancel",@"cancle_text",
                                self.smsRequestModel.phone,@"phone",
@@ -73,9 +74,11 @@
     MerchantRequest *requestModel = [[MerchantRequest alloc] init];
     requestModel.auth_token = resultModel.auth_token;
     [PIRService serverSend:ePIER_API_GET_MERCHANT resuest:requestModel successBlock:^(id responseModel) {
+        NSString *amount = [NSString getNumberFormatterDecimalStyle:[__dataSource.merchantParam objectForKey:@"amount"] currency:[__dataSource.merchantParam objectForKey:@"currency"]];
         NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
                                 @"0",@"status",
-                                @"success",@"message", nil];
+                                @"success",@"message",
+                                amount ,@"spending", nil];
         [self pierPayComplete:result];
     } faliedBlock:^(NSError *error) {
         NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:

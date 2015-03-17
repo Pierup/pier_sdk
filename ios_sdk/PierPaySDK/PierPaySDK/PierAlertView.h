@@ -81,7 +81,7 @@ typedef void (^cancelBlock)();
 
 @interface PierSMSAlertView : PierUserInputAlertView
 
-@property (nonatomic, weak) id<PierSMSInputAlertDelegate> delegate;
+@property (nonatomic, strong) id<PierSMSInputAlertDelegate> delegate;
 
 /** static api
  * param

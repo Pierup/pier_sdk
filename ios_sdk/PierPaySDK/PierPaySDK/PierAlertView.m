@@ -76,7 +76,7 @@
     
     _titleImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 55, 55)];
     [_titleImage setCenter:CGPointMake(self.center.x, self.center.y-self.bounds.size.height/2-6)];
-    [_titleImage setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_smscode")]];
+    [_titleImage setImage:[UIImage imageWithContentsOfFile:getImagePath([self.paramDic objectForKey:@"title_image_name"])]];
     
     [currentWindow addSubview:self.bgView];
     [currentWindow addSubview:self];
@@ -91,6 +91,7 @@
             break;
     }
     
+    [self.doneButton setBackgroundColor:[PierColor lightPurpleColor]];
     UIImage *btnImg = [PIRViewUtil getImageByView:self.doneButton];
     [self.doneButton setBackgroundImage:btnImg forState:UIControlStateNormal];
 }
@@ -203,9 +204,11 @@
             break;
     }
     
+    [self.approveButton setBackgroundColor:[PierColor lightPurpleColor]];
     UIImage *appbtnImg = [PIRViewUtil getImageByView:self.approveButton];
     [self.approveButton setBackgroundImage:appbtnImg forState:UIControlStateNormal];
     
+    [self.cancleButton setBackgroundColor:[PierColor lightPurpleColor]];
     UIImage *canclebtnImg = [PIRViewUtil getImageByView:self.approveButton];
     [self.cancleButton setBackgroundImage:canclebtnImg forState:UIControlStateNormal];
 }
@@ -239,6 +242,8 @@
 @end
 
 @interface PierSMSAlertView ()<PIRStopWatchViewDelegate, UITextFieldDelegate>
+
+@property (nonatomic, weak) IBOutlet UILabel *smsTitleLabel;
 
 @property (nonatomic, strong) IBOutlet PIRStopWatchView *stopWatch;
 @property (nonatomic, strong) IBOutlet UIButton *refreshButton;
@@ -299,7 +304,11 @@
 
 - (void)initData{
     [super initData];
-    self.stopWatch.expirTime = [[self.paramDic objectForKey:@"expiration_time"] integerValue];
+    if (self.paramDic) {
+        self.stopWatch.expirTime = [[self.paramDic objectForKey:@"expiration_time"] integerValue];
+        NSString *title = [self.paramDic objectForKey:@"title"];
+        [self.smsTitleLabel setText:title];
+    }
     [self.stopWatch startTimer];
     self.stopWatch.delegate = self;
 }

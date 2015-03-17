@@ -136,7 +136,7 @@
         GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"",@"title_image_name",
-                               @"SMS",@"title",
+                               @"Passcode",@"title",
                                @"Next",@"approve_text",
                                @"Dismiss",@"cancle_text",
                                self.phone,@"phone",

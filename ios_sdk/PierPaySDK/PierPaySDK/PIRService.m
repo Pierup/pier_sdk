@@ -189,7 +189,7 @@
                 {
                     if (showAlert) {
                         NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                    @"",@"title_image_name",
+                                                    @"icon_error",@"title_image_name",
                                                     @"error",@"title",
                                                     [error domain],@"message",nil];
                         [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
@@ -202,7 +202,7 @@
                 {
                     if (showAlert) {
                         NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                    @"",@"title_image_name",
+                                                    @"icon_error",@"title_image_name",
                                                     @"error",@"title",
                                                     [error domain],@"message",nil];
                         [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
@@ -237,7 +237,7 @@
     DLog(@"%@urlResponse",urlResponse);
     if (showAlert) {
         NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"",@"title_image_name",
+                                    @"icon_error",@"title_image_name",
                                     @"error",@"title",
                                     [error domain],@"message",nil];
         [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
