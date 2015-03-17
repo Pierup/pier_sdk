@@ -61,9 +61,11 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     [self.logoPurpleImageView setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_logopurple")]];
     [self.purpleArrorImageView setImage:[UIImage imageWithContentsOfFile:getImagePath(@"btn_nextpurple")]];
     
-    [self.payButton setBackgroundColor:[PierColor darkPurpleColor]];
-    [self.payButton setBackgroundImage:[PIRViewUtil getDarkPurpleColorImage:self.payButton.frame] forState:UIControlStateNormal];
-    [self.payButton setBackgroundImage:[PIRViewUtil getLightPurpleColorImage:self.payButton.frame] forState:UIControlStateHighlighted];
+    [self.payButton setBackgroundColor:[PierColor lightPurpleColor]];
+    UIImage *payBtnImg = [PIRViewUtil getImageByView:self.payButton];
+    [self.payButton setBackgroundImage:payBtnImg forState:UIControlStateNormal];
+
+
     [self.payButton.layer setMasksToBounds:YES];
     [self.payButton.layer setCornerRadius:5];
     

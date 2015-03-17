@@ -47,11 +47,13 @@
     NSString *credtiLimit_currency = [NSString getNumberFormatterDecimalStyle:self.responseModel.credit_limit currency:self.responseModel.currency];
     [self.creditLimitLabel setText:credtiLimit_currency];
     
-    [self.payButton setBackgroundColor:[PierColor darkPurpleColor]];
+    [self.payButton setBackgroundColor:[PierColor lightPurpleColor]];
+    UIImage *payButtonImg = [PIRViewUtil getImageByView:self.payButton];
+    [self.payButton setBackgroundImage:payButtonImg forState:UIControlStateNormal];
     [self.payButton.layer setMasksToBounds:YES];
     [self.payButton.layer setCornerRadius:5];
-    [self.payButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-    [self.payButton.layer setBorderWidth:1];
+//    [self.payButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+//    [self.payButton.layer setBorderWidth:1];
     
     [self.cancleButton.layer setMasksToBounds:YES];
     [self.cancleButton.layer setCornerRadius:5];
