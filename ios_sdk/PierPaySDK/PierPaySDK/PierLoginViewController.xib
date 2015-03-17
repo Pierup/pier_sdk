@@ -111,8 +111,8 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJq-hc-7Wz">
-                    <rect key="frame" x="15" y="27" width="22" height="22"/>
+                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJq-hc-7Wz">
+                    <rect key="frame" x="15" y="27" width="35" height="35"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -145,7 +145,7 @@
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="leading" secondItem="CgD-zR-LEI" secondAttribute="leading" id="pkj-k6-XEa"/>
                 <constraint firstAttribute="trailing" secondItem="GLf-a8-oCS" secondAttribute="trailing" constant="15" id="x5C-kf-ZtJ"/>
             </constraints>
-            <point key="canvasLocation" x="272" y="210"/>
+            <point key="canvasLocation" x="130" y="210"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
