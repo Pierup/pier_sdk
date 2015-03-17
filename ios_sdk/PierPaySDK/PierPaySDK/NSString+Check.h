@@ -107,5 +107,9 @@ typedef NS_ENUM(NSInteger, eDOBFormate){
  */
 + (NSString *)getNumberFormatterDecimalStyle:(NSString *)number currency:(NSString *)currency;
 
+/**
+ * 是否是合格的密码
+ */
+- (BOOL)isValudPWD;
 
 @end

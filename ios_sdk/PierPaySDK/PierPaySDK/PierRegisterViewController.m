@@ -27,7 +27,8 @@
 
 @implementation PierRegisterViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initData];
@@ -47,16 +48,13 @@
     [self.verificationTextField resignFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)initData{
+- (void)initData
+{
     
 }
 
-- (void)initView{
+- (void)initView
+{
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
@@ -71,7 +69,8 @@
     [self.submitButton.layer setCornerRadius:5];
 }
 
-- (void)popViewController{
+- (void)popViewController
+{
     [self.navigationController popViewControllerAnimated:NO];
 }
 
@@ -104,7 +103,8 @@
 {
     NSString *password = self.passwordLabel.text;
     NSString *verifyPassword = self.verificationTextField.text;
-    if (![NSString emptyOrNull:password] && ![NSString emptyOrNull:verifyPassword] && [password isEqualToString:verifyPassword]) {
+    if ([password isValudPWD] && ![NSString emptyOrNull:password] && [password isEqualToString:verifyPassword])
+    {
         return YES;
     }else {
         [PIRViewUtil shakeView:self.passwordLabel];
@@ -112,14 +112,12 @@
         return NO;
     }
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark ---------------退出清空 -------------------------
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-*/
 
 @end

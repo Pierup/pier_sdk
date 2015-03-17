@@ -216,4 +216,14 @@
     return result;
 }
 
+- (BOOL)isValudPWD{
+    BOOL result = NO;
+    if (self.length < 6 || [self isEnString] || [self isNumString]) {
+        result = NO;
+    }else{
+        result = YES;
+    }
+    return result;
+}
+
 @end

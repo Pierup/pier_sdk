@@ -57,7 +57,8 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
+- (void)viewDidDisappear:(BOOL)animated
+{
     [super viewDidDisappear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
@@ -116,7 +117,8 @@
 
 #pragma mark - --------------------接口API--------------------
 #pragma mark 分块内接口函数注释
-- (void)serviceCountryService{
+- (void)serviceCountryService
+{
     CountryCodeRequest *requestModel = [[CountryCodeRequest alloc] init];
     [PIRService serverSend:ePIER_API_GET_COUNTRYS resuest:requestModel successBlock:^(id responseModel) {
         CountryCodeResponse *response = (CountryCodeResponse *)responseModel;

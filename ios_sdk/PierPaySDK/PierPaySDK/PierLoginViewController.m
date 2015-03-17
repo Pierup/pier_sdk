@@ -42,7 +42,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _smsRequestModel = [[TransactionSMSRequest alloc] init];
-        // 初始化countryCodeViewController
+      
         self.countryCodeViewController = [[PierCountryCodeViewController alloc]initWithNibName:@"PierCountryCodeViewController" bundle:pierBoundle()];
         self.countryCodeViewController.delegate = self;
         _country = [[CountryModel alloc]init];
@@ -80,6 +80,10 @@
         self.country.phone_prefix = @"1";
         self.country.phone_size = @"10";
         self.country.name  = @"UNITED STATES";
+    }else if ([countryCode isEqualToString:@"CN"]) {
+        self.country.phone_prefix = @"86";
+        self.country.phone_size = @"11";
+        self.country.name  = @"CHINA";
     }
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
@@ -111,7 +115,7 @@
 
 #pragma mark - submitButton Action
 - (IBAction)submitPhoneAndPwd{
-    NSString *phoneNumber = self.phoneNumberLabel.text;
+    NSString *phoneNumber = [self.phoneNumberLabel.text phoneClearFormat];
     if ([self checkPhone:phoneNumber]) {
         NSString *passWord = self.passwordLabel.text;
         self.smsRequestModel.phone = phoneNumber;
@@ -147,8 +151,10 @@
 #pragma mark - PierCountryCodeControllerDelegate
 - (void)countryCodeWithCountry:(CountryModel *)country
 {
-    self.country = country;
-    // 根据countryCode来限制字数
+    if (![self.country.name isEqualToString:country.name]) {
+        self.country = country;
+        self.phoneNumberLabel.text = @"";
+    }
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
 
@@ -163,16 +169,10 @@
 
     NSInteger phone_size = [self.country.phone_size integerValue];
 
-    NSString *toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    //限制位数
+    NSString *toBeString = [[textField.text stringByReplacingCharactersInRange:range withString:string] phoneClearFormat];
     
-    //根据位数格式化
-//    if (toBeString.length == phone_size) {
-//        textField.text = [toBeString phoneFormat];
-//    }else {
-//        textField.text = [toBeString phoneClearFormat];
-//    }
-    if (toBeString.length > phone_size && range.length != 1){
+    if (toBeString.length >= phone_size && range.length != 1){
+        textField.text = [[toBeString substringToIndex:phone_size] phoneFormat];
         return NO;
     }else {
          textField.text = [textField.text phoneClearFormat];
@@ -182,7 +182,6 @@
 
 #pragma mark --------------------- 功能函数 ------------------------------
 
-// 检查号码长度
 - (BOOL)checkPhone:(NSString *)phoneNumber
 {
         BOOL result = NO;
@@ -196,15 +195,14 @@
         return result;
 }
 
-// 根据countryCode限定长度
 - (void)checkCountryCodeWithCountry:(CountryModel *)country phoneNumber:(NSString *)phoneNumber
 {
     NSString *phone_prefix = [NSString stringWithFormat:@"+%@",country.phone_prefix];
     [self.countryCodeButton setTitle:phone_prefix forState:UIControlStateNormal];
     
-    if (phoneNumber.length > [country.phone_size integerValue]) {
-        self.phoneNumberLabel.text = [phoneNumber substringToIndex:[country.phone_size integerValue]];
-    }
+//    if (phoneNumber.length > [country.phone_size integerValue]) {
+//        self.phoneNumberLabel.text = [phoneNumber substringToIndex:[country.phone_size integerValue]];
+//    }
 }
 
 #pragma mark -------------------- 退出清空 -----------------------------
@@ -213,4 +211,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 @end
