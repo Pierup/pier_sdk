@@ -32,19 +32,21 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-        _productImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 125, 125)];
+        _productImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 100, 110)];
         [self.contentView addSubview:_productImageView];
         
-        _currencyLabel = [[UILabel alloc]initWithFrame:CGRectMake(135, 22.5, 50, 100)];
-        _currencyLabel.textAlignment =  NSTextAlignmentRight;
+        _currencyLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 22.5, 40, 100)];
+        _currencyLabel.textAlignment =  NSTextAlignmentCenter;
         _currencyLabel.text = @"$";
         [self.contentView addSubview:_currencyLabel];
         
-        _amountLabel = [[UILabel alloc]initWithFrame:CGRectMake(190, 22.5, 60, 100)];
+        _amountLabel = [[UILabel alloc]initWithFrame:CGRectMake(150, 22.5, 55, 100)];
         _amountLabel.text = @"0.00";
         [self.contentView addSubview:_amountLabel];
         
-        _payButton = [[UIButton alloc]initWithFrame:CGRectMake(250, 57.5, 110,30)];
+        _payButton = [[UIButton alloc]initWithFrame:CGRectMake(205, 57.5, 110,30)];
+        [_payButton.layer setMasksToBounds:YES];
+        [_payButton.layer setCornerRadius:5];
         [_payButton setBackgroundColor:[UIColor purpleColor]];
         [_payButton setTitle:@"Pay by Pier" forState:UIControlStateNormal];
         [self.contentView addSubview:_payButton];
@@ -190,7 +192,7 @@
         cell = [[ProductCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.payButton.tag = indexPath.row;
     }
-    [cell.payButton addTarget:self action:@selector(payByPier:) forControlEvents:UIControlEventTouchDown];
+    [cell.payButton addTarget:self action:@selector(payByPier:) forControlEvents:UIControlEventTouchUpInside];
     
     if (self.merchantModel.shopListModelArray) {
         ShopListModel *shopListModel = self.merchantModel.shopListModelArray[indexPath.row];

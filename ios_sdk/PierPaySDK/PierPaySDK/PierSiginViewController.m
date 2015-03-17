@@ -78,6 +78,10 @@
         self.country.phone_prefix = @"1";
         self.country.phone_size = @"10";
         self.country.name  = @"UNITED STATES";
+    }else if ([countryCode isEqualToString:@"CN"]) {
+        self.country.phone_prefix = @"86";
+        self.country.phone_size = @"11";
+        self.country.name  = @"CHINA";
     }
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
@@ -109,7 +113,7 @@
 #pragma mark - submitButton Action
 - (IBAction)userRegisterAction:(id)sender
 {
-    self.phone = [self.phoneNumberLabel text];
+    self.phone = [self.phoneNumberLabel.text phoneClearFormat];
     if ([self checkPhone]) {
         [self serviceGetReigistSMS];
     }
@@ -175,6 +179,7 @@
 {
     self.country = country;
     // 根据countryCode来限制字数
+    self.phoneNumberLabel.text = @"";
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
 
@@ -189,11 +194,13 @@
 
     NSInteger phone_size = [self.country.phone_size integerValue];
  
-    NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    if (toBeString.length > phone_size && range.length != 1){
-        textField.text = [toBeString substringToIndex:phone_size];
+    NSString * toBeString = [[textField.text stringByReplacingCharactersInRange:range withString:string]  phoneClearFormat];
+    
+    if (toBeString.length >= phone_size && range.length != 1){
+        textField.text = [[toBeString substringToIndex:phone_size] phoneFormat];
         return NO;
     }else {
+        textField.text = [textField.text phoneClearFormat];
         return YES;
     }
 }
