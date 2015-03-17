@@ -36,7 +36,7 @@
         
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"",@"title_image_name",
-                               @"SMS",@"title",
+                               @"Passcode",@"title",
                                @"Pay",@"approve_text",
                                @"Cancel",@"cancle_text",
                                self.smsRequestModel.phone,@"phone",

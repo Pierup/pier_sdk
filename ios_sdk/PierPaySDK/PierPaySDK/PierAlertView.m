@@ -240,6 +240,8 @@
 
 @interface PierSMSAlertView ()<PIRStopWatchViewDelegate, UITextFieldDelegate>
 
+@property (nonatomic, weak) IBOutlet UILabel *smsTitleLabel;
+
 @property (nonatomic, strong) IBOutlet PIRStopWatchView *stopWatch;
 @property (nonatomic, strong) IBOutlet UIButton *refreshButton;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loadingView;
@@ -299,7 +301,11 @@
 
 - (void)initData{
     [super initData];
-    self.stopWatch.expirTime = [[self.paramDic objectForKey:@"expiration_time"] integerValue];
+    if (self.paramDic) {
+        self.stopWatch.expirTime = [[self.paramDic objectForKey:@"expiration_time"] integerValue];
+        NSString *title = [self.paramDic objectForKey:@"title"];
+        [self.smsTitleLabel setText:title];
+    }
     [self.stopWatch startTimer];
     self.stopWatch.delegate = self;
 }

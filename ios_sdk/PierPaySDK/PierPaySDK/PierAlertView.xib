@@ -75,7 +75,7 @@
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPc-Hr-Fgl">
                     <rect key="frame" x="15" y="84" width="251" height="40"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTB-Zu-TiX">
@@ -134,7 +134,7 @@
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text Message" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BH4-zV-OZI">
                     <rect key="frame" x="15" y="91" width="251" height="40"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rd-zn-LV9">
@@ -178,9 +178,9 @@
                 <outlet property="refreshButton" destination="4xa-H6-EU4" id="bFV-aB-lv3"/>
                 <outlet property="smsInputBgView" destination="e7b-cr-Wrr" id="S2i-8o-hUd"/>
                 <outlet property="smsInputTextField" destination="BH4-zV-OZI" id="flL-Qa-3wh"/>
+                <outlet property="smsTitleLabel" destination="vbh-Oe-jLa" id="2Ca-mO-VX2"/>
                 <outlet property="stopWatch" destination="uLe-r8-4Xi" id="CwI-9C-GRu"/>
                 <outlet property="textField" destination="BH4-zV-OZI" id="yOI-dk-vUk"/>
-                <outlet property="titleLabel" destination="vbh-Oe-jLa" id="iOy-Xj-POd"/>
             </connections>
             <point key="canvasLocation" x="90.5" y="321.5"/>
         </view>
