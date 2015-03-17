@@ -16,11 +16,11 @@
 /**
  * Result
  * name:        Type            Description
- * 1.status     NSNumber        Showing the status of sdk execution.It means successful if is true,else means fail. '0' :success '1':failed.
+ * 1.status     NSNumber        Showing the status of sdk execution.It means successful if is '0',else means '1'.
  * 2.message    NSString        Showing the message from pier.
  * 3.code       NSNumber        Showing the code of message from pier.
  * 4.result     NSDictionary    Showing the value of output params of pier.
- * 5.Spending   NSString        Showing the value of output params of pier.
+ * 5.spending   NSString        spending.
  */
 -(void)payByPierComplete:(NSDictionary *)result;
 
