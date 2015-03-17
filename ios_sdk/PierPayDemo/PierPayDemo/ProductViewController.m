@@ -153,14 +153,22 @@
 /**
  * Result
  * name:        Type            Description
- * 1.status     NSNumber        Showing the status of sdk execution.It means successful if is true,else means fail.
+ * 1.status     NSNumber        Showing the status of sdk execution.It means successful if is true,else means fail. '0' :success '1':failed.
  * 2.message    NSString        Showing the message from pier.
  * 3.code       NSNumber        Showing the code of message from pier.
  * 4.result     NSDictionary    Showing the value of output params of pier.
  */
 - (void)payByPierComplete:(NSDictionary *)result
 {
-    
+    NSInteger status = [[result objectForKey:@"status"] integerValue];
+    if (status == 1) {
+        //failed
+        
+    }else if (status == 0){
+        //success
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay by Pier Success." message:[NSString stringWithFormat:@"spending:%@",[result objectForKey:@"spending"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 #pragma mark - UITableViewDelegate
