@@ -9,7 +9,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RPFloatingPlaceholderConstants.h"
+#import "RierFloatingPlaceholderConstants.h"
 
 @interface PierFloatingPlaceholderTextField : UITextField
 
