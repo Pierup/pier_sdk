@@ -59,7 +59,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.phoneNumberLabel becomeFirstResponder];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -84,6 +83,15 @@
         self.country.name  = @"CHINA";
     }
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
+    
+    NSString *formatePhone = [[__dataSource.merchantParam objectForKey:@"phone"] phoneFormat];
+    [self.phoneNumberLabel setText:formatePhone];
+    
+    if (![NSString emptyOrNull:formatePhone]) {
+        [self.passwordLabel becomeFirstResponder];
+    }else{
+        [self.phoneNumberLabel becomeFirstResponder];
+    }
 }
 
 

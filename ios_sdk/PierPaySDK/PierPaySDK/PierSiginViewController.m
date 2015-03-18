@@ -79,6 +79,10 @@
         self.country.phone_size = @"11";
         self.country.name  = @"CHINA";
     }
+    
+    NSString *formatePhone = [[__dataSource.merchantParam objectForKey:@"phone"] phoneFormat];
+    [self.phoneNumberLabel setText:formatePhone];
+    
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
 

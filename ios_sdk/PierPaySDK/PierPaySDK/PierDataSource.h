@@ -18,7 +18,16 @@ void freeDataSource();
 
 @interface PierDataSource : NSObject
 
-
+/**
+ * userAttributes
+ * name:            Required     Type       Description
+ * 1.phone           YES          NSString   user phone.
+ * 2.country_code    YES          NSString   the country code of user phone.
+ * 3.merchant_id     YES          NSString   your id in pier.
+ * 4.amount          YES          NSString   amount.
+ * 5.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
+ * 6.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ */
 @property (nonatomic, strong) NSDictionary *merchantParam;
 @property (nonatomic, copy) NSString *country_code;         // 国家码
 @property (nonatomic, copy) NSString *session_token;        // session token
