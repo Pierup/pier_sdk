@@ -16,13 +16,13 @@
 		2A5E5E2D1AA84A10004B95C4 /* ShopListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E261AA84A10004B95C4 /* ShopListViewController.xib */; };
 		2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E5E281AA84A10004B95C4 /* ProductViewController.m */; };
 		2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */; };
-		2A5E5E301AA84A10004B95C4 /* shop_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E2A1AA84A10004B95C4 /* shop_default@2x.png */; };
-		2A5E5E311AA84A10004B95C4 /* shop_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E2B1AA84A10004B95C4 /* shop_default@3x.png */; };
 		2A5E5E5C1AA8548B004B95C4 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5E5E551AA8546C004B95C4 /* libPierPaySDK.a */; };
 		2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E571AA8546C004B95C4 /* PierResource.bundle */; };
-		2A6273B61AA6FE0E00BEC05C /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6273B51AA6FE0E00BEC05C /* PIRHttpExecutor.m */; };
-		2A6D86CD1AB9244C00B113D3 /* PIRURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86CC1AB9244C00B113D3 /* PIRURLDispatcher.m */; };
-		2A6D86D21AB9279200B113D3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86D11AB9279200B113D3 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2A6D86EC1AB95CA700B113D3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86E71AB95CA700B113D3 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2A6D86ED1AB95CA700B113D3 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86E91AB95CA700B113D3 /* PIRHttpExecutor.m */; };
+		2A6D86EE1AB95CA700B113D3 /* PIRURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */; };
+		2A6D86F11AB95CCD00B113D3 /* shop_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6D86EF1AB95CCD00B113D3 /* shop_default@2x.png */; };
+		2A6D86F21AB95CCD00B113D3 /* shop_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6D86F01AB95CCD00B113D3 /* shop_default@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,15 +80,15 @@
 		2A5E5E271AA84A10004B95C4 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
 		2A5E5E281AA84A10004B95C4 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 		2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
-		2A5E5E2A1AA84A10004B95C4 /* shop_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@2x.png"; sourceTree = "<group>"; };
-		2A5E5E2B1AA84A10004B95C4 /* shop_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@3x.png"; sourceTree = "<group>"; };
 		2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PierPaySDK.xcodeproj; path = ../../../PierPaySDK/PierPaySDK.xcodeproj; sourceTree = "<group>"; };
-		2A6273B41AA6FE0E00BEC05C /* PIRHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRHttpExecutor.h; sourceTree = "<group>"; };
-		2A6273B51AA6FE0E00BEC05C /* PIRHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpExecutor.m; sourceTree = "<group>"; };
-		2A6D86CB1AB9244C00B113D3 /* PIRURLDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRURLDispatcher.h; sourceTree = "<group>"; };
-		2A6D86CC1AB9244C00B113D3 /* PIRURLDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRURLDispatcher.m; sourceTree = "<group>"; };
-		2A6D86D01AB9279200B113D3 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		2A6D86D11AB9279200B113D3 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		2A6D86E61AB95CA700B113D3 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		2A6D86E71AB95CA700B113D3 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		2A6D86E81AB95CA700B113D3 /* PIRHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRHttpExecutor.h; sourceTree = "<group>"; };
+		2A6D86E91AB95CA700B113D3 /* PIRHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpExecutor.m; sourceTree = "<group>"; };
+		2A6D86EA1AB95CA700B113D3 /* PIRURLDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRURLDispatcher.h; sourceTree = "<group>"; };
+		2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRURLDispatcher.m; sourceTree = "<group>"; };
+		2A6D86EF1AB95CCD00B113D3 /* shop_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@2x.png"; sourceTree = "<group>"; };
+		2A6D86F01AB95CCD00B113D3 /* shop_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,14 +132,7 @@
 		2A39BC701A2EEC6500B9D551 /* PierPayDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2A5E5E2A1AA84A10004B95C4 /* shop_default@2x.png */,
-				2A5E5E2B1AA84A10004B95C4 /* shop_default@3x.png */,
-				2A6D86D01AB9279200B113D3 /* JSONKit.h */,
-				2A6D86D11AB9279200B113D3 /* JSONKit.m */,
-				2A6D86CB1AB9244C00B113D3 /* PIRURLDispatcher.h */,
-				2A6D86CC1AB9244C00B113D3 /* PIRURLDispatcher.m */,
-				2A6273B41AA6FE0E00BEC05C /* PIRHttpExecutor.h */,
-				2A6273B51AA6FE0E00BEC05C /* PIRHttpExecutor.m */,
+				2A6D86E51AB95CA700B113D3 /* PIRService */,
 				2A5E5E241AA84A10004B95C4 /* ShopListViewController.h */,
 				2A5E5E251AA84A10004B95C4 /* ShopListViewController.m */,
 				2A5E5E261AA84A10004B95C4 /* ShopListViewController.xib */,
@@ -200,20 +193,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2A6D86E51AB95CA700B113D3 /* PIRService */ = {
+			isa = PBXGroup;
+			children = (
+				2A6D86E61AB95CA700B113D3 /* JSONKit.h */,
+				2A6D86E71AB95CA700B113D3 /* JSONKit.m */,
+				2A6D86E81AB95CA700B113D3 /* PIRHttpExecutor.h */,
+				2A6D86E91AB95CA700B113D3 /* PIRHttpExecutor.m */,
+				2A6D86EA1AB95CA700B113D3 /* PIRURLDispatcher.h */,
+				2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */,
+			);
+			path = PIRService;
+			sourceTree = "<group>";
+		};
 		2AC84EDC1A2F01D100920073 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2AC84EDD1A2F01D100920073 /* Image */,
+				2A6D86EF1AB95CCD00B113D3 /* shop_default@2x.png */,
+				2A6D86F01AB95CCD00B113D3 /* shop_default@3x.png */,
 				2A252D2E1AA1A902004BAB9C /* Launch Screen.xib */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		2AC84EDD1A2F01D100920073 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,11 +328,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A5E5E301AA84A10004B95C4 /* shop_default@2x.png in Resources */,
+				2A6D86F11AB95CCD00B113D3 /* shop_default@2x.png in Resources */,
 				2A252D2F1AA1A902004BAB9C /* Launch Screen.xib in Resources */,
 				2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */,
 				2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */,
-				2A5E5E311AA84A10004B95C4 /* shop_default@3x.png in Resources */,
+				2A6D86F21AB95CCD00B113D3 /* shop_default@3x.png in Resources */,
 				2A5E5E2D1AA84A10004B95C4 /* ShopListViewController.xib in Resources */,
 				2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */,
 			);
@@ -352,13 +352,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6D86ED1AB95CA700B113D3 /* PIRHttpExecutor.m in Sources */,
 				2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */,
-				2A6273B61AA6FE0E00BEC05C /* PIRHttpExecutor.m in Sources */,
 				2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */,
 				2A5E5E2C1AA84A10004B95C4 /* ShopListViewController.m in Sources */,
-				2A6D86CD1AB9244C00B113D3 /* PIRURLDispatcher.m in Sources */,
-				2A6D86D21AB9279200B113D3 /* JSONKit.m in Sources */,
 				2A39BC741A2EEC6500B9D551 /* main.m in Sources */,
+				2A6D86EE1AB95CA700B113D3 /* PIRURLDispatcher.m in Sources */,
+				2A6D86EC1AB95CA700B113D3 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
