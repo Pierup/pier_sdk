@@ -10,8 +10,6 @@
 		2A252D2F1AA1A902004BAB9C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D2E1AA1A902004BAB9C /* Launch Screen.xib */; };
 		2A39BC741A2EEC6500B9D551 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC731A2EEC6500B9D551 /* main.m */; };
 		2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC761A2EEC6500B9D551 /* AppDelegate.m */; };
-		2A39BC7A1A2EEC6500B9D551 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC791A2EEC6500B9D551 /* ViewController.m */; };
-		2A39BC7D1A2EEC6500B9D551 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A39BC7B1A2EEC6500B9D551 /* Main.storyboard */; };
 		2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */; };
 		2A39BC8E1A2EEC6500B9D551 /* PierPayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */; };
 		2A5E5E2C1AA84A10004B95C4 /* ShopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E5E251AA84A10004B95C4 /* ShopListViewController.m */; };
@@ -72,9 +70,6 @@
 		2A39BC731A2EEC6500B9D551 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A39BC751A2EEC6500B9D551 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2A39BC761A2EEC6500B9D551 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2A39BC781A2EEC6500B9D551 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2A39BC791A2EEC6500B9D551 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2A39BC7C1A2EEC6500B9D551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2A39BC871A2EEC6500B9D551 /* PierPayDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierPayDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC8C1A2EEC6500B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,9 +148,6 @@
 				2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */,
 				2A39BC751A2EEC6500B9D551 /* AppDelegate.h */,
 				2A39BC761A2EEC6500B9D551 /* AppDelegate.m */,
-				2A39BC781A2EEC6500B9D551 /* ViewController.h */,
-				2A39BC791A2EEC6500B9D551 /* ViewController.m */,
-				2A39BC7B1A2EEC6500B9D551 /* Main.storyboard */,
 				2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */,
 				2A39BC711A2EEC6500B9D551 /* Supporting Files */,
 				2AC84EDC1A2F01D100920073 /* Resources */,
@@ -338,7 +330,6 @@
 			files = (
 				2A5E5E301AA84A10004B95C4 /* shop_default@2x.png in Resources */,
 				2A252D2F1AA1A902004BAB9C /* Launch Screen.xib in Resources */,
-				2A39BC7D1A2EEC6500B9D551 /* Main.storyboard in Resources */,
 				2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */,
 				2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */,
 				2A5E5E311AA84A10004B95C4 /* shop_default@3x.png in Resources */,
@@ -362,7 +353,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */,
-				2A39BC7A1A2EEC6500B9D551 /* ViewController.m in Sources */,
 				2A6273B61AA6FE0E00BEC05C /* DemoHttpExecutor.m in Sources */,
 				2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */,
 				2A5E5E2C1AA84A10004B95C4 /* ShopListViewController.m in Sources */,
@@ -394,17 +384,6 @@
 			targetProxy = 2A5E5E5A1AA85485004B95C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		2A39BC7B1A2EEC6500B9D551 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A39BC7C1A2EEC6500B9D551 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2A39BC8F1A2EEC6500B9D551 /* Debug */ = {

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PIRURLDispatcher.h"
+#import "ShopListViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +19,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    ShopListViewController *mainController = [[ShopListViewController alloc] init];
+    UINavigationController *roorNavigation = [[UINavigationController alloc] initWithRootViewController:mainController];
+    self.window.rootViewController = roorNavigation;
+    [[PIRURLDispatcher shareInstance] setMainNavigationController:roorNavigation];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -48,7 +59,7 @@
     if(![[url scheme] isEqualToString:@"piermerchant"]) {
         return NO;
     }else{
-        [PIRURLDispatcher dispatchURL:url];
+        [[PIRURLDispatcher shareInstance] dispatchURL:url];
         return YES;
     }
     return YES;

@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface PIRURLDispatcher : NSObject
+
+@property (nonatomic, strong) UINavigationController *mainNavigationController;
+
++ (PIRURLDispatcher *)shareInstance;
 
 /**
  * userAttributes
@@ -17,6 +22,6 @@
  * 2.country_code    YES          NSString   the country code of user phone.
  * 3.merchant_id     YES          NSString   your id in pier.
  */
-+ (void)dispatchURL:(NSURL *)url;
+- (void)dispatchURL:(NSURL *)url;
 
 @end
