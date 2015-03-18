@@ -10,7 +10,7 @@
 #import "PierHttpClient.h"
 #import "PierService.h"
 #import "PierPayModel.h"
-#import "PIRConfig.h"
+#import "PierConfig.h"
 #import "PierLoginViewController.h"
 #import "PierTools.h"
 #import "PierSiginViewController.h"

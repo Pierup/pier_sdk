@@ -11,7 +11,7 @@
 #import "PierTools.h"
 #import "PierDataSource.h"
 #import "PierPayService.h"
-#import "NSString+Check.h"
+#import "NSString+PierCheck.h"
 #import "PierViewUtil.h"
 
 @interface PierCreditApproveViewController () <PierPayServiceDelegate>

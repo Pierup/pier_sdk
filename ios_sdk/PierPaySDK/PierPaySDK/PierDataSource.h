@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PIRConfig.h"
+#import "PierConfig.h"
 #import "PierPay.h"
 
 @class PierDataSource;

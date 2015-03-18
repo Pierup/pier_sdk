@@ -7,7 +7,7 @@
 //
 
 #import "PierDataSource.h"
-#import "NSString+Check.h"
+#import "NSString+PierCheck.h"
 
 PierDataSource *__dataSource;
 

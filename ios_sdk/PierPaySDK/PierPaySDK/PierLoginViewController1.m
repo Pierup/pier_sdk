@@ -12,7 +12,7 @@
 #import "PierService.h"
 #import "PierTools.h"
 #import "PierColor.h"
-#import "NSString+Check.h"
+#import "NSString+PierCheck.h"
 #import "PierViewUtil.h"
 //#import "PIRPayModel.h"
 

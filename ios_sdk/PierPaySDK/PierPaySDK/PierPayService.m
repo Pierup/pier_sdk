@@ -10,7 +10,7 @@
 #import "PierService.h"
 #import "PierAlertView.h"
 #import "PierDataSource.h"
-#import "NSString+Check.h"
+#import "NSString+PierCheck.h"
 
 @interface PierPayService () <PierSMSInputAlertDelegate>
 

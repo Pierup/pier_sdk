@@ -8,7 +8,7 @@
 
 #import "PierSiginCells.h"
 #import "PierFloatingPlaceholderTextField.h"
-#import "NSString+Check.h"
+#import "NSString+PierCheck.h"
 #import "PierViewUtil.h"
 #import "PierDateUtil.h"
 #import "PierColor.h"

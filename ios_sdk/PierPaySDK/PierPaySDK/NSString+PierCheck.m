@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 PIER. All rights reserved.
 //
 
-#import "NSString+Check.h"
+#import "NSString+PierCheck.h"
 #import "PierDateUtil.h"
 
 @implementation NSString (PierCheck)

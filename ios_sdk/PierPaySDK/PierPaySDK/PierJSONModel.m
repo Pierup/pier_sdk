@@ -8,7 +8,7 @@
 
 #import "PierJSONModel.h"
 #import <objc/runtime.h>
-#import "PIRConfig.h"
+#import "PierConfig.h"
 
 /**  **************序列化解析器************** */
 /** 序列化对象 */

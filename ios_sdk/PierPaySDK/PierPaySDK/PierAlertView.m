@@ -12,7 +12,7 @@
 #import "PierKeyboard.h"
 #import "PierPayModel.h"
 #import "PierService.h"
-#import "NSString+Check.h"
+#import "NSString+PierCheck.h"
 #import "PierViewUtil.h"
 
 @interface PierAlertView ()

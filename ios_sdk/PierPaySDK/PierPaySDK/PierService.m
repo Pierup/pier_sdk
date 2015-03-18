@@ -7,12 +7,12 @@
 //
 
 #import "PierService.h"
-#import "PIRSDKPath.h"
+#import "PierSDKPath.h"
 #import "PierHttpClient.h"
 #import "PierJSONModel.h"
-#import "PIRConfig.h"
+#import "PierConfig.h"
 #import "PierTools.h"
-#import "NSString+Check.h"
+#import "NSString+PierCheck.h"
 #import "PierDataSource.h"
 #import "PierAlertView.h"
 #import "PierLoadingView.h"
