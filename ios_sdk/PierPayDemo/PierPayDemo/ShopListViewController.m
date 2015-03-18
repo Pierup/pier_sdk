@@ -7,7 +7,7 @@
 //
 
 #import "ShopListViewController.h"
-#import "DemoHttpExecutor.h"
+#import "PIRHttpExecutor.h"
 #import "ProductViewController.h"
 
 #pragma mark -------------------- ShopListModel -----------------------------
@@ -112,7 +112,7 @@
                          @"2",@"platform",
                          @"5",@"limit",
                          nil];
-    [[DemoHttpExecutor getInstance] sendMessage:^(id respond) {
+    [[PIRHttpExecutor getInstance] sendMessage:^(id respond) {
        NSArray *array =  [[(NSDictionary *)respond objectForKey:@"result"] objectForKey:@"items"];
         self.merchantArray = [NSMutableArray arrayWithCapacity:array.count];
         for (int i = 0; i < array.count; i++) {

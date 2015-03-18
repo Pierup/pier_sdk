@@ -20,7 +20,7 @@
 		2A5E5E311AA84A10004B95C4 /* shop_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E2B1AA84A10004B95C4 /* shop_default@3x.png */; };
 		2A5E5E5C1AA8548B004B95C4 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5E5E551AA8546C004B95C4 /* libPierPaySDK.a */; };
 		2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E571AA8546C004B95C4 /* PierResource.bundle */; };
-		2A6273B61AA6FE0E00BEC05C /* DemoHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */; };
+		2A6273B61AA6FE0E00BEC05C /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6273B51AA6FE0E00BEC05C /* PIRHttpExecutor.m */; };
 		2A6D86CD1AB9244C00B113D3 /* PIRURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86CC1AB9244C00B113D3 /* PIRURLDispatcher.m */; };
 		2A6D86D21AB9279200B113D3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86D11AB9279200B113D3 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
@@ -83,8 +83,8 @@
 		2A5E5E2A1AA84A10004B95C4 /* shop_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@2x.png"; sourceTree = "<group>"; };
 		2A5E5E2B1AA84A10004B95C4 /* shop_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@3x.png"; sourceTree = "<group>"; };
 		2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PierPaySDK.xcodeproj; path = ../../../PierPaySDK/PierPaySDK.xcodeproj; sourceTree = "<group>"; };
-		2A6273B41AA6FE0E00BEC05C /* DemoHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoHttpExecutor.h; sourceTree = "<group>"; };
-		2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoHttpExecutor.m; sourceTree = "<group>"; };
+		2A6273B41AA6FE0E00BEC05C /* PIRHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRHttpExecutor.h; sourceTree = "<group>"; };
+		2A6273B51AA6FE0E00BEC05C /* PIRHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpExecutor.m; sourceTree = "<group>"; };
 		2A6D86CB1AB9244C00B113D3 /* PIRURLDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRURLDispatcher.h; sourceTree = "<group>"; };
 		2A6D86CC1AB9244C00B113D3 /* PIRURLDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRURLDispatcher.m; sourceTree = "<group>"; };
 		2A6D86D01AB9279200B113D3 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -138,14 +138,14 @@
 				2A6D86D11AB9279200B113D3 /* JSONKit.m */,
 				2A6D86CB1AB9244C00B113D3 /* PIRURLDispatcher.h */,
 				2A6D86CC1AB9244C00B113D3 /* PIRURLDispatcher.m */,
+				2A6273B41AA6FE0E00BEC05C /* PIRHttpExecutor.h */,
+				2A6273B51AA6FE0E00BEC05C /* PIRHttpExecutor.m */,
 				2A5E5E241AA84A10004B95C4 /* ShopListViewController.h */,
 				2A5E5E251AA84A10004B95C4 /* ShopListViewController.m */,
 				2A5E5E261AA84A10004B95C4 /* ShopListViewController.xib */,
 				2A5E5E271AA84A10004B95C4 /* ProductViewController.h */,
 				2A5E5E281AA84A10004B95C4 /* ProductViewController.m */,
 				2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */,
-				2A6273B41AA6FE0E00BEC05C /* DemoHttpExecutor.h */,
-				2A6273B51AA6FE0E00BEC05C /* DemoHttpExecutor.m */,
 				2A39BC751A2EEC6500B9D551 /* AppDelegate.h */,
 				2A39BC761A2EEC6500B9D551 /* AppDelegate.m */,
 				2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */,
@@ -353,7 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */,
-				2A6273B61AA6FE0E00BEC05C /* DemoHttpExecutor.m in Sources */,
+				2A6273B61AA6FE0E00BEC05C /* PIRHttpExecutor.m in Sources */,
 				2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */,
 				2A5E5E2C1AA84A10004B95C4 /* ShopListViewController.m in Sources */,
 				2A6D86CD1AB9244C00B113D3 /* PIRURLDispatcher.m in Sources */,

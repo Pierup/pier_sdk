@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DemoHttpExecutor : NSObject
+@interface PIRHttpExecutor : NSObject
 
 typedef void(^httpCallBack)(id respondJson);
 typedef void(^httpErrorBack)(id error, int errorCode);
 
-+ (DemoHttpExecutor *)getInstance;
++ (PIRHttpExecutor *)getInstance;
 
 - (void)sendMessage:(void(^)(id respond))success
      andRequestJson:(NSDictionary *)requestJson
