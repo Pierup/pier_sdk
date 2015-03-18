@@ -323,9 +323,11 @@
     [self.loadingView stopAnimating];
     [self dismissErorMessage];
     
+    [self.approveButton setBackgroundColor:[PierColor lightPurpleColor]];
     UIImage *appbtnImg = [PierViewUtil getImageByView:self.approveButton];
     [self.approveButton setBackgroundImage:appbtnImg forState:UIControlStateNormal];
     
+    [self.cancleButton setBackgroundColor:[UIColor whiteColor]];
     UIImage *canclebtnImg = [PierViewUtil getImageByView:self.cancleButton];
     [self.cancleButton setBackgroundImage:canclebtnImg forState:UIControlStateNormal];
     
