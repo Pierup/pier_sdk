@@ -71,7 +71,7 @@
 - (void)initData
 {
 #warning  ---------------- 硬编码 -----------------------
-    NSString *countryCode = __dataSource.country_code;
+    NSString *countryCode = [__dataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE];
     self.country.country_code = countryCode;
     if ([countryCode isEqualToString:@"US"]) {
         self.country.phone_prefix = @"1";

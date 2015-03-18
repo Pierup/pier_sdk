@@ -37,27 +37,8 @@
 
 @implementation PierService
 
-+ (void)setRequestHeader:(NSDictionary *)param requestModel:(PierPayModel *)requestModel{
-    NSString *phone = [param valueForKey:@"phone"];
-    if (![NSString emptyOrNull:phone]) {
-        __dataSource.phone = phone;
-    }else {
-        phone = __dataSource.phone;
-    }
-    if (![NSString emptyOrNull:phone]) {
-        NSInteger phone_length = phone.length;
-        if (phone_length > 0) {
-            if (phone_length == 10) {
-                [param setValue:@"US" forKey:@"country_code"];
-            }else if (phone_length == 11){
-                [param setValue:@"CN" forKey:@"country_code"];
-            }else{
-                [param setValue:@"US" forKey:@"country_code"];
-            }
-            __dataSource.country_code = [param objectForKey:@"country_code"];
-        }
-    }
-    
++ (void)setRequestHeader:(NSDictionary *)param requestModel:(PierPayModel *)requestModel{    
+    [param setValue:[__dataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE] forKey:@"country_code"];
     [param setValue:__dataSource.session_token forKey:@"session_token"];
     [param setValue:__dataSource.user_id forKey:@"user_id"];
 }

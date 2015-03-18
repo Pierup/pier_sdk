@@ -54,7 +54,7 @@
 
 
 - (void)serviceGetAuthToken:(NSString *)userinput{
-    self.authTokenRequestModel.phone = __dataSource.phone;
+    self.authTokenRequestModel.phone = [__dataSource.merchantParam objectForKey:DATASOURCES_PHONE];
     self.authTokenRequestModel.pass_code = userinput;
     self.authTokenRequestModel.pass_type = @"1";
     self.authTokenRequestModel.merchant_id = [__dataSource.merchantParam objectForKey:@"merchant_id"];

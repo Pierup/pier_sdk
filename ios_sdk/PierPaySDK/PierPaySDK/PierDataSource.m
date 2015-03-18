@@ -37,17 +37,9 @@ void freeDataSource()
         self.session_token = @"";
         self.device_id = @"";
         self.user_id = @"";
-        self.country_code = @"US";
     }
     
     return self;
-}
-
-
-- (void)setCountry_code:(NSString *)country_code{
-    if (![NSString emptyOrNull:country_code]) {
-        _country_code = country_code;
-    }
 }
 
 - (void)setSession_token:(NSString *)sessionToken{
@@ -59,12 +51,6 @@ void freeDataSource()
 - (void)setUser_id:(NSString *)user_id{
     if (![NSString emptyOrNull:user_id]) {
         _user_id = user_id;
-    }
-}
-
-- (void)setPhone:(NSString *)phone{
-    if (![NSString emptyOrNull:phone]) {
-        _phone = phone;
     }
 }
 

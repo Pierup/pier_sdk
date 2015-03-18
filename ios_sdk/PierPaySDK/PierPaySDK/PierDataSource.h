@@ -16,6 +16,14 @@ extern PierDataSource *__dataSource;
 void initDataSource();
 void freeDataSource();
 
+
+#define DATASOURCES_PHONE               @"phone"
+#define DATASOURCES_COUNTRY_CODE        @"country_code"
+#define DATASOURCES_MERCHANT_ID         @"merchant_id"
+#define DATASOURCES_AMOUNT              @"amount"
+#define DATASOURCES_CURRENCY            @"currency"
+#define DATASOURCES_SERVER_URL          @"server_url"
+
 @interface PierDataSource : NSObject
 
 /**
@@ -29,12 +37,10 @@ void freeDataSource();
  * 6.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  */
 @property (nonatomic, strong) NSDictionary *merchantParam;
-@property (nonatomic, copy) NSString *country_code;         // 国家码
 @property (nonatomic, copy) NSString *session_token;        // session token
 @property (nonatomic, copy) NSString *device_id;            // device id
 @property (nonatomic, copy) NSString *user_id;              // user id
 @property (nonatomic, assign) BOOL hasCredit;               // 判断用户是否有credit
-@property (nonatomic, copy) NSString *phone;                // phone
 @property (nonatomic, weak) id<PayByPierDelegate> pierDelegate;
 
 @end
