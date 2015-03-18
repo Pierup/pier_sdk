@@ -14,6 +14,8 @@
 
 - (void)pierPayServiceComplete:(NSDictionary *)result;
 
+- (void)pierPayServiceFailed:(NSError *)error;
+
 @end
 
 @interface PierPayService : NSObject
