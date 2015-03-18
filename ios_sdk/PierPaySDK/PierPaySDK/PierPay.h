@@ -36,6 +36,7 @@
 @property (nonatomic, weak) id<PayByPierDelegate> pierDelegate;
 
 /**
+ * pay by pier with password
  * userAttributes
  * name:            Required     Type       Description
  * 1.phone           YES          NSString   user phone.
@@ -46,5 +47,18 @@
  * 6.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  */
 - (instancetype)initWith:(NSDictionary *)userAttributes delegate:(id)delegate;
+
+
+/**
+ * pay by pier without password
+ * name:            Required     Type       Description
+ * 1.phone           YES          NSString   user phone.
+ * 2.merchant_id     YES          NSString   your id in pier.
+ * 3.amount          YES          NSString   amount.
+ * 4.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
+ * 5.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ * 6.session_token   YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ */
++ (void)payWith:(NSDictionary *)userAttributes delegate:(id)delegate;
 
 @end

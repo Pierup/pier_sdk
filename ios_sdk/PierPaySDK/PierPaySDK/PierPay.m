@@ -17,6 +17,7 @@
 #import "PierDataSource.h"
 #import "PierColor.h"
 #import "PierViewUtil.h"
+#import "PierPayService.h"
 
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
@@ -148,7 +149,19 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     return self;
 }
 
-
++ (void)payWith:(NSDictionary *)userAttributes delegate:(id)delegate{
+    initDataSource();
+    __dataSource.merchantParam = userAttributes;
+    __dataSource.pierDelegate = delegate;
+    __dataSource.session_token = [userAttributes objectForKey:@"session_token"];
+    
+    TransactionSMSRequest *smsRequestModel = [[TransactionSMSRequest alloc] init];
+    smsRequestModel.phone = [__dataSource.merchantParam objectForKey:DATASOURCES_PHONE];
+    PierPayService *pierService = [[PierPayService alloc] init];
+    pierService.delegate = delegate;
+    pierService.smsRequestModel = smsRequestModel;
+    [pierService serviceGetPaySMS:YES];
+}
 
 - (void)viewDidLoad
 {
