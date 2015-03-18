@@ -150,7 +150,7 @@
         [_smsAlertView show];
     } faliedBlock:^(NSError *error) {
         
-    } attribute:nil];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
 }
 
 - (void)serviceSMSActivation:(NSString *)activation_code

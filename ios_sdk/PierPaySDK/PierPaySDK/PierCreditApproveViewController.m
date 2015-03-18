@@ -101,6 +101,9 @@
     }];
 }
 
+- (void)pierPayServiceFailed:(NSError *)error{
+    
+}
 /*
 #pragma mark - Navigation
 

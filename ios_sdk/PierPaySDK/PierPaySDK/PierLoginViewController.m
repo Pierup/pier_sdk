@@ -26,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *passwordLabel;
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
+@property (nonatomic, weak) IBOutlet UILabel *errorMsgLabel;
 
 @property (nonatomic, strong) CountryModel *country;
 /** servire model */
@@ -138,6 +139,10 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         [__dataSource.pierDelegate payByPierComplete:result];
     }];
+}
+
+- (void)pierPayServiceFailed:(NSError *)error{
+    [self.errorMsgLabel setText:[error domain]];
 }
 
 

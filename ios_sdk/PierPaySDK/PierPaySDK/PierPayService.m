@@ -48,8 +48,8 @@
         [_smsAlertView show];
         
     } faliedBlock:^(NSError *error) {
-
-    } attribute:nil];
+        [self.delegate pierPayServiceFailed:error];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
 }
 
 
