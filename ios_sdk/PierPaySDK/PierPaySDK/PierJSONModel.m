@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 zyma. All rights reserved.
 //
 
-#import "PIRJSONModel.h"
+#import "PierJSONModel.h"
 #import <objc/runtime.h>
 #import "PIRConfig.h"
 
@@ -62,7 +62,7 @@ NSString *getPrimaryKey(Class clazz);
 /** 获取model的属性，包括父类的 */
 NSArray *getPropertyDeclared(Class clazz);
 
-@implementation PIRJSONModel
+@implementation PierJSONModel
 
 static NSArray *enumIntFlagArray = NULL;
 
@@ -407,7 +407,7 @@ NSString *getGenericType(NSString *propertyType){
 #pragma mark 判断Class类型是否是JsonModel
 BOOL stringTypeIsJsonModel(Class clazz)
 {
-    if ([clazz isSubclassOfClass:NSClassFromString(@"PIRJSONModel")]) {
+    if ([clazz isSubclassOfClass:NSClassFromString(@"PierJSONModel")]) {
         return YES;
     }else{
         return NO;

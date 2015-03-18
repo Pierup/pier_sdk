@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PIRPayModel.h"
+#import "PierPayModel.h"
 
 typedef enum {
     ePIER_API_TRANSACTION_SMS,
@@ -28,14 +28,14 @@ typedef void (^PierPaySuccessBlock)(id responseModel);
 /** failed block */
 typedef void (^PierPayFailedBlock)(NSError *error);
 
-@interface PIRService : NSObject
+@interface PierService : NSObject
 
 /**
  * show_alert   0:show 1:not default:0
  * show_loading 0:show 1:not default:0
  */
 + (void)serverSend:(ePIER_API_Type)apiType
-           resuest:(PIRPayModel *)requestModel
+           resuest:(PierPayModel *)requestModel
       successBlock:(PierPaySuccessBlock)success
        faliedBlock:(PierPayFailedBlock)failed
          attribute:(NSDictionary *)attribute;

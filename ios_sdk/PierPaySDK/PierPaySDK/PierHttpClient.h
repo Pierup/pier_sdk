@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class PIRHttpExecutor;
+@class PierHttpExecutor;
 
 /** success block */
 typedef void (^PIRHttpSuccessBlock)(id response, NSHTTPURLResponse *urlResponse);
@@ -20,42 +20,42 @@ typedef enum {
     ePIRHttpClientType_Empty        =   2
 }ePIRHttpClientType;
 
-@interface PIRHttpClient : NSObject
+@interface PierHttpClient : NSObject
 
-+ (PIRHttpClient *)sharedInstanceWithClientType:(ePIRHttpClientType)type;
++ (PierHttpClient *)sharedInstanceWithClientType:(ePIRHttpClientType)type;
 
-- (PIRHttpExecutor*)GET:(NSString*)path
+- (PierHttpExecutor*)GET:(NSString*)path
              saveToPath:(NSString*)savePath
              parameters:(NSDictionary*)parameters
                progress:(void (^)(float))progressBlock
                 success:(PIRHttpSuccessBlock)success
                  failed:(PIRHttpFailedBlock)failed;
 
-- (PIRHttpExecutor*)POST:(NSString*)path
+- (PierHttpExecutor*)POST:(NSString*)path
               parameters:(NSDictionary*)parameters
                 progress:(void (^)(float))progressBlock
                  success:(PIRHttpSuccessBlock)success
                   failed:(PIRHttpFailedBlock)failed;
 
-- (PIRHttpExecutor*)JSONPOST:(NSString*)path
+- (PierHttpExecutor*)JSONPOST:(NSString*)path
                   parameters:(NSDictionary*)parameters
                     progress:(void (^)(float))progressBlock
                      success:(PIRHttpSuccessBlock)success
                       failed:(PIRHttpFailedBlock)failed;
 
-- (PIRHttpExecutor*)UploadImage:(NSString*)path
+- (PierHttpExecutor*)UploadImage:(NSString*)path
                      parameters:(NSDictionary*)parameters
                        progress:(void (^)(float))progressBlock
                         success:(PIRHttpSuccessBlock)success
                          failed:(PIRHttpFailedBlock)failed;
 
-- (PIRHttpExecutor*)PUT:(NSString*)path
+- (PierHttpExecutor*)PUT:(NSString*)path
               parameters:(NSDictionary*)parameters
                 progress:(void (^)(float))progressBlock
                  success:(PIRHttpSuccessBlock)success
                   failed:(PIRHttpFailedBlock)failed;
 
-- (PIRHttpExecutor*)JSONPUT:(NSString*)path
+- (PierHttpExecutor*)JSONPUT:(NSString*)path
                  parameters:(NSDictionary*)parameters
                    progress:(void (^)(float))progressBlock
                     success:(PIRHttpSuccessBlock)success

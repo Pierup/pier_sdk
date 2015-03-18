@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Pier.Inc. All rights reserved.
 //
 
-#import "PIRPayModel.h"
+#import "PierPayModel.h"
 
-@implementation PIRPayModel
+@implementation PierPayModel
 
 @end
 

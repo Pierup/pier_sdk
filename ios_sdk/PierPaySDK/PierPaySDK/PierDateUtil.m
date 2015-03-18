@@ -6,19 +6,19 @@
 //  Copyright (c) 2014 PIER. All rights reserved.
 //
 
-#import "PIRDateUtil.h"
+#import "PierDateUtil.h"
 
 // 日历使用到的时区信息
 #define kPierCalendarTimeZone_CN   @"Asia/Shanghai"
 #define kPierCalendarTimeZone_GMT  @"GMT"
 
-@interface PIRDateUtil ()
+@interface PierDateUtil ()
 
 
 
 @end
 
-@implementation PIRDateUtil
+@implementation PierDateUtil
 
 + (NSString *)storageTimeZone
 {
@@ -109,11 +109,11 @@
 
 + (NSString *)getCurrentTime
 {
-    NSDate *date = [PIRDateUtil getCurrentDate];
-    NSDateFormatter *dateFormater = [PIRDateUtil getCurrentDateFormatter];
+    NSDate *date = [PierDateUtil getCurrentDate];
+    NSDateFormatter *dateFormater = [PierDateUtil getCurrentDateFormatter];
     [dateFormater setDateFormat:@"yyyy-MM-dd"];
     
-    return [PIRDateUtil getStringDate:date formatType:SIMPLEFORMATTYPE1];
+    return [PierDateUtil getStringDate:date formatType:SIMPLEFORMATTYPE1];
 }
 
 + (long)getTimestamp{
@@ -135,16 +135,16 @@
     
     if(dateStr.length == 8)
     {
-        date = [PIRDateUtil dateFromString:dateStr formate:@"yyyyMMdd"];
+        date = [PierDateUtil dateFromString:dateStr formate:@"yyyyMMdd"];
     }else if(dateStr.length == 10)
     {
-        date = [PIRDateUtil dateFromString:dateStr formate:@"yyyyMMddHH"];
+        date = [PierDateUtil dateFromString:dateStr formate:@"yyyyMMddHH"];
     }else if(dateStr.length == 12)
     {
-        date = [PIRDateUtil dateFromString:dateStr formate:@"yyyyMMddHHmm"];
+        date = [PierDateUtil dateFromString:dateStr formate:@"yyyyMMddHHmm"];
     }else if(dateStr.length == 14)
     {
-        date = [PIRDateUtil dateFromString:dateStr formate:@"yyyyMMddHHmmss"];
+        date = [PierDateUtil dateFromString:dateStr formate:@"yyyyMMddHHmmss"];
     }
     
     return date;
@@ -153,7 +153,7 @@
 #pragma mark 日期字符串转换为日期对象
 + (NSDate *)dateFromString:(NSString *)dateString formate:(NSString *)formate
 {
-    NSDateFormatter *dateFormater = [PIRDateUtil getCurrentDateFormatter];
+    NSDateFormatter *dateFormater = [PierDateUtil getCurrentDateFormatter];
     
     if(formate == nil || [formate isEqualToString:@""])
     {
@@ -165,8 +165,8 @@
     NSDate *retDate = [dateFormater dateFromString:dateString];
     
     if (!retDate) {
-        NSTimeZone *displayTimeZone = [NSTimeZone timeZoneWithName:[PIRDateUtil displayTimeZone]];
-        NSTimeZone *storageTimeZone = [NSTimeZone timeZoneWithName:[PIRDateUtil storageTimeZone]];
+        NSTimeZone *displayTimeZone = [NSTimeZone timeZoneWithName:[PierDateUtil displayTimeZone]];
+        NSTimeZone *storageTimeZone = [NSTimeZone timeZoneWithName:[PierDateUtil storageTimeZone]];
         
         [dateFormater setTimeZone:storageTimeZone];
         retDate = [dateFormater dateFromString:dateString];
@@ -183,7 +183,7 @@
 {
     NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
     [dateFormater setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
-    [dateFormater setTimeZone:[NSTimeZone timeZoneWithName:[PIRDateUtil storageTimeZone]]];
+    [dateFormater setTimeZone:[NSTimeZone timeZoneWithName:[PierDateUtil storageTimeZone]]];
     
     return dateFormater;
 }
@@ -257,7 +257,7 @@
     
     if (type != nil && type.length != 0 && date != nil) 
     {
-        NSDateFormatter *dateFormater = [PIRDateUtil getCurrentDateFormatter];
+        NSDateFormatter *dateFormater = [PierDateUtil getCurrentDateFormatter];
         [dateFormater setDateFormat:type];
         str = [dateFormater stringFromDate:date];
     }
@@ -272,7 +272,7 @@
     
     if (type != nil && type.length != 0 && date != nil)
     {
-        NSDateFormatter *dateFormater = [PIRDateUtil getCurrentDateFormatter];
+        NSDateFormatter *dateFormater = [PierDateUtil getCurrentDateFormatter];
         [dateFormater setDateFormat:type];
         str = [dateFormater stringFromDate:date];
     }
@@ -285,7 +285,7 @@
     
     if (timestamp!=0) {
         NSDate* date = [[NSDate alloc] initWithTimeIntervalSince1970:timestamp/1000];
-        result = [PIRDateUtil getStringFormateDate:date formatType:formate];
+        result = [PierDateUtil getStringFormateDate:date formatType:formate];
     }else{
         result = @"";
     }
@@ -295,14 +295,14 @@
 
 + (NSInteger)calculateAgeWithBirthdate:(NSDate *)birthdate
 {
-    return [PIRDateUtil calculateAgeWithBirthdate:birthdate toNowDate:[PIRDateUtil getCurrentDate]];
+    return [PierDateUtil calculateAgeWithBirthdate:birthdate toNowDate:[PierDateUtil getCurrentDate]];
 }
 
 + (NSInteger)calculateAgeWithBirthdate:(NSDate *)birthdate toNowDate:(NSDate *)nowDate
 {
     NSInteger ageResult = 0;
     
-    NSCalendar *calendar = [PIRDateUtil getCurrentCalendar];
+    NSCalendar *calendar = [PierDateUtil getCurrentCalendar];
     NSDateComponents *ageDateComponents = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:birthdate toDate:nowDate options:0];
     ageResult = ageDateComponents.year;
     

@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 PIER. All rights reserved.
 //
 
-#import "PIRDataSource.h"
+#import "PierDataSource.h"
 #import "NSString+Check.h"
 
-PIRDataSource *__dataSource;
+PierDataSource *__dataSource;
 
 void initDataSource()
 {
     if (__dataSource == nil) {
-        __dataSource = [[PIRDataSource alloc] init];
+        __dataSource = [[PierDataSource alloc] init];
     }
 }
 
@@ -23,11 +23,11 @@ void freeDataSource()
     __dataSource = nil;
 }
 
-@interface PIRDataSource ()
+@interface PierDataSource ()
 
 @end
 
-@implementation PIRDataSource
+@implementation PierDataSource
 
 #pragma mark - PIRDataSource init & dealloc
 - (id)init

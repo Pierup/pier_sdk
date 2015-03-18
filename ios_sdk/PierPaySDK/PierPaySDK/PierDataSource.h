@@ -10,13 +10,13 @@
 #import "PIRConfig.h"
 #import "PierPay.h"
 
-@class PIRDataSource;
+@class PierDataSource;
 
-extern PIRDataSource *__dataSource;
+extern PierDataSource *__dataSource;
 void initDataSource();
 void freeDataSource();
 
-@interface PIRDataSource : NSObject
+@interface PierDataSource : NSObject
 
 
 @property (nonatomic, strong) NSDictionary *merchantParam;

@@ -14,7 +14,7 @@
 
 @end
 
-@interface PIRStopWatchView : UIView
+@interface PierStopWatchView : UIView
 
 @property (nonatomic, assign) NSInteger expirTime;
 @property (nonatomic, weak) id<PIRStopWatchViewDelegate> delegate;

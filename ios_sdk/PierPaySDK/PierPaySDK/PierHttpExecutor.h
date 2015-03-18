@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AvailabilityMacros.h>
-#import "PIRHttpClient.h"
+#import "PierHttpClient.h"
 
 typedef enum {
     PIRHttpMethodGET,
@@ -16,7 +16,7 @@ typedef enum {
     PIRHttpMethodPUT
 }ePIRHttpMethod;
 
-@interface PIRHttpExecutor : NSOperation
+@interface PierHttpExecutor : NSOperation
 
 @property (nonatomic, strong) NSString *userAgent;
 @property (nonatomic, readwrite) BOOL sendParametersAsJSON;
@@ -27,7 +27,7 @@ typedef enum {
 
 - (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field;
 
-- (PIRHttpExecutor*)initWithAddress:(NSString*)urlString
+- (PierHttpExecutor*)initWithAddress:(NSString*)urlString
                              method:(ePIRHttpMethod)method
                          parameters:(NSObject*)parameters
                          saveToPath:(NSString*)savePath

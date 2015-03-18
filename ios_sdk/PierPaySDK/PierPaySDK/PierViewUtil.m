@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 PIER. All rights reserved.
 //
 
-#import "PIRViewUtil.h"
+#import "PierViewUtil.h"
 #import <CoreImage/CoreImage.h>
 #import "PierColor.h"
 #import "PierTools.h"
 #import <math.h>
 
-@implementation PIRViewUtil
+@implementation PierViewUtil
 
 + (void)horizonView:(UIView *)view{
     CGAffineTransform at_scanRemark =CGAffineTransformMakeRotation(M_PI/2);

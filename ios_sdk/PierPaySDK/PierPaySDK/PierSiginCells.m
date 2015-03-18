@@ -7,10 +7,10 @@
 //
 
 #import "PierSiginCells.h"
-#import "RPFloatingPlaceholderTextField.h"
+#import "PierFloatingPlaceholderTextField.h"
 #import "NSString+Check.h"
-#import "PIRViewUtil.h"
-#import "PIRDateUtil.h"
+#import "PierViewUtil.h"
+#import "PierDateUtil.h"
 #import "PierColor.h"
 
 @implementation PIRSiginCellModel
@@ -28,8 +28,8 @@
 
 @interface PIRSiginNameCell ()
 
-@property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *firstNameLabel;
-@property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *lastNameLabel;
+@property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *firstNameLabel;
+@property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *lastNameLabel;
 
 @end
 
@@ -56,7 +56,7 @@
         && ![NSString emptyOrNull:[nameDic objectForKey:@"lastName"]]) {
         result = YES;
     }else{
-        [PIRViewUtil shakeView:self.contentView];
+        [PierViewUtil shakeView:self.contentView];
         result = NO;
     }
     return result;
@@ -66,7 +66,7 @@
 
 @interface PIRSiginPhoneNumberCell ()
 
-@property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *phoneLabel;
+@property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *phoneLabel;
 
 @end
 
@@ -83,7 +83,7 @@
     if (phone.length == 10 || phone.length == 11) {
         result = YES;
     }else{
-        [PIRViewUtil shakeView:self.contentView];
+        [PierViewUtil shakeView:self.contentView];
         result = NO;
     }
     return result;
@@ -93,7 +93,7 @@
 
 @interface PIRSiginEmailNumberCell ()
 
-@property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *emailLabel;
+@property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *emailLabel;
 
 @end
 
@@ -110,7 +110,7 @@
     if ([email isValidEMail]) {
         result = YES;
     }else{
-        [PIRViewUtil shakeView:self.contentView];
+        [PierViewUtil shakeView:self.contentView];
         result = NO;
     }
     return result;
@@ -120,7 +120,7 @@
 
 @interface PIRSiginAddressCell ()
 
-@property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *addressLabel;
+@property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *addressLabel;
 
 @end
 
@@ -137,7 +137,7 @@
     if (![NSString emptyOrNull:address]) {
         result = YES;
     }else{
-        [PIRViewUtil shakeView:self.contentView];
+        [PierViewUtil shakeView:self.contentView];
         result = NO;
     }
     return result;
@@ -147,7 +147,7 @@
 
 @interface PIRSiginDobCell () <UITextFieldDelegate>
 
-@property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *dobLabel;
+@property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *dobLabel;
 /**  */
 
 @end
@@ -161,8 +161,8 @@
 
 - (NSString *)getDOB{
     NSString *dob = self.dobLabel.text;
-    NSDate *dobData = [PIRDateUtil dateFromString:dob formate:@"MM/dd/yyyy"];
-    NSString *resultFormateStr = [PIRDateUtil getStringFormateDate:dobData formatType:@"MM/dd/yyyy"];
+    NSDate *dobData = [PierDateUtil dateFromString:dob formate:@"MM/dd/yyyy"];
+    NSString *resultFormateStr = [PierDateUtil getStringFormateDate:dobData formatType:@"MM/dd/yyyy"];
     return resultFormateStr;
 }
 
@@ -172,7 +172,7 @@
     if ([dob checkDOBFormate] == eDOBFormate_available) {
         result = YES;
     }else{
-        [PIRViewUtil shakeView:self.contentView];
+        [PierViewUtil shakeView:self.contentView];
         result = NO;
     }
     return result;
@@ -220,7 +220,7 @@
 
 @interface PIRSiginSSNCell () <UITextFieldDelegate>
 
-@property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *ssnLabel;
+@property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *ssnLabel;
 
 @end
 
@@ -243,7 +243,7 @@
     if ([ssn isValudSSN]) {
         result = YES;
     }else{
-        [PIRViewUtil shakeView:self.contentView];
+        [PierViewUtil shakeView:self.contentView];
         result = NO;
     }
     return result;
@@ -291,7 +291,7 @@
 
 @interface PIRSiginPWDCell ()
 
-@property (nonatomic, weak) IBOutlet RPFloatingPlaceholderTextField *passwordLabel;
+@property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *passwordLabel;
 
 @end
 
@@ -308,7 +308,7 @@
     if (pwd.length > 5) {
         result = YES;
     }else{
-        [PIRViewUtil shakeView:self.contentView];
+        [PierViewUtil shakeView:self.contentView];
         result = NO;
     }
     return result;
@@ -327,11 +327,11 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     [self.submitButton setBackgroundColor:[PierColor lightPurpleColor]];
-    UIImage *submitbtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    UIImage *submitbtnImg = [PierViewUtil getImageByView:self.submitButton];
     [self.submitButton setBackgroundImage:submitbtnImg forState:UIControlStateNormal];
     [self.submitButton.layer setCornerRadius:5.0f];
     [self.submitButton.layer setMasksToBounds:YES];
-    UIImage *subBtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    UIImage *subBtnImg = [PierViewUtil getImageByView:self.submitButton];
     [self.submitButton setBackgroundImage:subBtnImg forState:UIControlStateNormal];
 }
 

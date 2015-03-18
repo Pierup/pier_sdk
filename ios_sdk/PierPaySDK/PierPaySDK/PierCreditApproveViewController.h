@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PIRPayModel.h"
+#import "PierPayModel.h"
 
 @interface PierCreditApproveViewController : UIViewController
 

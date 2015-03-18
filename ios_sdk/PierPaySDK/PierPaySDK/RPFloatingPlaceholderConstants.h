@@ -8,7 +8,7 @@
 //  See LICENSE for full license agreement.
 //
 
-typedef NS_ENUM(NSInteger, RPFloatingPlaceholderAnimationOptions) {
+typedef NS_ENUM(NSInteger, PierFloatingPlaceholderAnimationOptions) {
     RPFloatingPlaceholderAnimateUpward,
     RPFloatingPlaceholderAnimateDownward
 };

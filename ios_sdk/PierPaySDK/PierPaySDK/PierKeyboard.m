@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 com.homeboy. All rights reserved.
 //
 
-#import "PIRKeyboard.h"
+#import "PierKeyboard.h"
 #import "PierTools.h"
 #import "PierColor.h"
 #import "PierFont.h"
@@ -17,13 +17,13 @@
 #define kHangShu  4
 #define kLieShu   3
 #define kLineWidth .3
-@interface PIRKeyboard()
+@interface PierKeyboard()
 
-@property (nonatomic, strong) PIRKeyboard *view;
+@property (nonatomic, strong) PierKeyboard *view;
 
 @end
 
-@implementation PIRKeyboard
+@implementation PierKeyboard
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -34,11 +34,11 @@
     return self;
 }
 
-+ (PIRKeyboard *)getKeyboardWithType:(keyboardTypeNumber)type alpha:(CGFloat)alpha delegate:(id)delegate
++ (PierKeyboard *)getKeyboardWithType:(keyboardTypeNumber)type alpha:(CGFloat)alpha delegate:(id)delegate
 {
-    PIRKeyboard *view;
+    PierKeyboard *view;
     if (!view) {
-        view = [[PIRKeyboard alloc] initWithFrame:CGRectMake(0,0, kKeyBoardWidth, [PierTools keyboardHeight])];
+        view = [[PierKeyboard alloc] initWithFrame:CGRectMake(0,0, kKeyBoardWidth, [PierTools keyboardHeight])];
     }
     
     if (view) {
@@ -56,7 +56,7 @@
 }
 
 
-- (void)addButton:(PIRKeyboard *)view alpha:(CGFloat)alpha
+- (void)addButton:(PierKeyboard *)view alpha:(CGFloat)alpha
 {
     //    CGRect rect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     //    UIGraphicsBeginImageContext(rect.size);

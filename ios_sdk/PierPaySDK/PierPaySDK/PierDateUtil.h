@@ -127,7 +127,7 @@ static NSString *SIMPLEFORMATTYPESTRING18 = @"yyyy/MM/dd HH:mm:ss";
 
 
 /** 日期工具类 */
-@interface PIRDateUtil : NSObject
+@interface PierDateUtil : NSObject
 
 /**
 	时间存储时区，默认GMT+00

@@ -9,11 +9,11 @@
 #import "PierAlertView.h"
 #import "PierColor.h"
 #import "PierTools.h"
-#import "PIRKeyboard.h"
-#import "PIRPayModel.h"
-#import "PIRService.h"
+#import "PierKeyboard.h"
+#import "PierPayModel.h"
+#import "PierService.h"
 #import "NSString+Check.h"
-#import "PIRViewUtil.h"
+#import "PierViewUtil.h"
 
 @interface PierAlertView ()
 
@@ -92,7 +92,7 @@
     }
     
     [self.doneButton setBackgroundColor:[PierColor lightPurpleColor]];
-    UIImage *btnImg = [PIRViewUtil getImageByView:self.doneButton];
+    UIImage *btnImg = [PierViewUtil getImageByView:self.doneButton];
     [self.doneButton setBackgroundImage:btnImg forState:UIControlStateNormal];
 }
 
@@ -205,11 +205,11 @@
     }
     
     [self.approveButton setBackgroundColor:[PierColor lightPurpleColor]];
-    UIImage *appbtnImg = [PIRViewUtil getImageByView:self.approveButton];
+    UIImage *appbtnImg = [PierViewUtil getImageByView:self.approveButton];
     [self.approveButton setBackgroundImage:appbtnImg forState:UIControlStateNormal];
     
     [self.cancleButton setBackgroundColor:[PierColor lightPurpleColor]];
-    UIImage *canclebtnImg = [PIRViewUtil getImageByView:self.approveButton];
+    UIImage *canclebtnImg = [PierViewUtil getImageByView:self.approveButton];
     [self.cancleButton setBackgroundImage:canclebtnImg forState:UIControlStateNormal];
 }
 
@@ -245,7 +245,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *smsTitleLabel;
 
-@property (nonatomic, strong) IBOutlet PIRStopWatchView *stopWatch;
+@property (nonatomic, strong) IBOutlet PierStopWatchView *stopWatch;
 @property (nonatomic, strong) IBOutlet UIButton *refreshButton;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loadingView;
 @property (nonatomic, strong) IBOutlet UITextField *smsInputTextField;
@@ -323,10 +323,10 @@
     [self.loadingView stopAnimating];
     [self dismissErorMessage];
     
-    UIImage *appbtnImg = [PIRViewUtil getImageByView:self.approveButton];
+    UIImage *appbtnImg = [PierViewUtil getImageByView:self.approveButton];
     [self.approveButton setBackgroundImage:appbtnImg forState:UIControlStateNormal];
     
-    UIImage *canclebtnImg = [PIRViewUtil getImageByView:self.cancleButton];
+    UIImage *canclebtnImg = [PierViewUtil getImageByView:self.cancleButton];
     [self.cancleButton setBackgroundImage:canclebtnImg forState:UIControlStateNormal];
     
     [self.smsInputBgView.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
@@ -388,7 +388,7 @@
     requestModel.phone = [self.paramDic objectForKey:@"phone"] ;
     requestModel.country_code = @"CN";
     
-    [PIRService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
+    [PierService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
         GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
         dispatch_async(dispatch_get_main_queue(), ^{
             self.stopWatch.expirTime = [response.expiration integerValue];

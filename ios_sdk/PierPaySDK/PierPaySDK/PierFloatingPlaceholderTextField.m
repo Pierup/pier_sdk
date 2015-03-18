@@ -8,11 +8,11 @@
 //  See LICENSE for full license agreement.
 //
 
-#import "RPFloatingPlaceholderTextField.h"
+#import "PierFloatingPlaceholderTextField.h"
 #import "PierColor.h"
 #import "PierFont.h"
 
-@interface RPFloatingPlaceholderTextField ()
+@interface PierFloatingPlaceholderTextField ()
 
 /**
  Used to cache the placeholder string.
@@ -37,7 +37,7 @@
 
 @end
 
-@implementation RPFloatingPlaceholderTextField
+@implementation PierFloatingPlaceholderTextField
 
 #pragma mark - Programmatic Initializer
 

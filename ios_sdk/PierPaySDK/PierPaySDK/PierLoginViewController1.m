@@ -8,12 +8,12 @@
 
 #import "PierLoginViewController1.h"
 #import "PierAlertView.h"
-#import "PIRKeyboard.h"
-#import "PIRService.h"
+#import "PierKeyboard.h"
+#import "PierService.h"
 #import "PierTools.h"
 #import "PierColor.h"
 #import "NSString+Check.h"
-#import "PIRViewUtil.h"
+#import "PierViewUtil.h"
 //#import "PIRPayModel.h"
 
 @interface PierLoginViewController1 ()<PIRKeyboardDelegate>
@@ -23,7 +23,7 @@
 @property (nonatomic, weak) IBOutlet UIView *sepLine;
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 /** keyboard */
-@property (nonatomic, strong) PIRKeyboard *pirKeyBoard;
+@property (nonatomic, strong) PierKeyboard *pirKeyBoard;
 
 /** servire model */
 @property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
@@ -50,7 +50,7 @@
 }
 
 - (void)initView{
-    self.pirKeyBoard = [PIRKeyboard getKeyboardWithType:keyboardTypeNormal alpha:1 delegate:self];
+    self.pirKeyBoard = [PierKeyboard getKeyboardWithType:keyboardTypeNormal alpha:1 delegate:self];
     [self.view addSubview:self.pirKeyBoard];
     [self.pirKeyBoard setFrame:CGRectMake(0, DEVICE_HEIGHT-self.pirKeyBoard.frame.size.height, self.pirKeyBoard.frame.size.width, self.pirKeyBoard.frame.size.height)];
     [self.submitButton setBackgroundColor:[PierColor darkPurpleColor]];
@@ -79,7 +79,7 @@
 
 - (IBAction)submitPhone:(id)sender{
     if ([self.smsRequestModel.phone length] != 11 && [self.smsRequestModel.phone length] != 10) {
-        [PIRViewUtil shakeView:self.phoneNumberLabel];
+        [PierViewUtil shakeView:self.phoneNumberLabel];
         return;
     }
     

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 PIER. All rights reserved.
 //
 
-#import "PIRStopWatchView.h"
+#import "PierStopWatchView.h"
 
-@interface PIRStopWatchView ()
+@interface PierStopWatchView ()
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger totalSecs;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation PIRStopWatchView
+@implementation PierStopWatchView
 
 - (void)dealloc{
     [self.timer invalidate];
