@@ -7,13 +7,13 @@
 //
 
 #import "PierRegisterViewController.h"
-#import "PIRService.h"
+#import "PierService.h"
 #import "PierTools.h"
 #import "PierColor.h"
-#import "NSString+Check.h"
-#import "PIRViewUtil.h"
+#import "NSString+PierCheck.h"
+#import "PierViewUtil.h"
 #import "PierCreditApplyController.h"
-#import "PIRDataSource.h"
+#import "PierDataSource.h"
 
 @interface PierRegisterViewController ()
 
@@ -63,7 +63,7 @@
     [self.verificationTextField setTintColor:[PierColor lightPurpleColor]];
     
     [self.submitButton setBackgroundColor:[PierColor lightPurpleColor]];
-    UIImage *submitbtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    UIImage *submitbtnImg = [PierViewUtil getImageByView:self.submitButton];
     [self.submitButton setBackgroundImage:submitbtnImg forState:UIControlStateNormal];
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
@@ -88,7 +88,7 @@
     requestModel.token = self.token;
     requestModel.password = password;
     
-    [PIRService serverSend:ePIER_API_GET_ACTIVITION_REGIST resuest:requestModel successBlock:^(id responseModel) {
+    [PierService serverSend:ePIER_API_GET_ACTIVITION_REGIST resuest:requestModel successBlock:^(id responseModel) {
         dispatch_async(dispatch_get_main_queue(), ^{
             PierCreditApplyController *registerVC = [[PierCreditApplyController alloc] initWithNibName:@"PierCreditApplyController" bundle:pierBoundle()];
             [self.navigationController pushViewController:registerVC animated:YES];
@@ -107,8 +107,8 @@
     {
         return YES;
     }else {
-        [PIRViewUtil shakeView:self.passwordLabel];
-        [PIRViewUtil shakeView:self.verificationTextField];
+        [PierViewUtil shakeView:self.passwordLabel];
+        [PierViewUtil shakeView:self.verificationTextField];
         return NO;
     }
 }

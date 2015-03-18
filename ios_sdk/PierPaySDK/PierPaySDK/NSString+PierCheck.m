@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 PIER. All rights reserved.
 //
 
-#import "NSString+Check.h"
-#import "PIRDateUtil.h"
+#import "NSString+PierCheck.h"
+#import "PierDateUtil.h"
 
-@implementation NSString (Check)
+@implementation NSString (PierCheck)
 
 + (BOOL)emptyOrNull:(NSString *)str
 {
@@ -76,8 +76,8 @@
 
 - (eDOBFormate)checkDOBFormate{
     eDOBFormate result = eDOBFormate_invalid;
-    NSDate *dobData = [PIRDateUtil dateFromString:self formate:SIMPLEFORMATTYPESTRING14];
-    NSInteger age = [PIRDateUtil calculateAgeWithBirthdate:dobData];
+    NSDate *dobData = [PierDateUtil dateFromString:self formate:SIMPLEFORMATTYPESTRING14];
+    NSInteger age = [PierDateUtil calculateAgeWithBirthdate:dobData];
     
     if (dobData) {
         if (age < 18) {

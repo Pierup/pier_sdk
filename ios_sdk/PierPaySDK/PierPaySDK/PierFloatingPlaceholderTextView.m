@@ -8,9 +8,9 @@
 //  See LICENSE for full license agreement.
 //
 
-#import "RPFloatingPlaceholderTextView.h"
+#import "PierFloatingPlaceholderTextView.h"
 
-@interface RPFloatingPlaceholderTextView ()
+@interface PierFloatingPlaceholderTextView ()
 
 /**
  Used to draw the placeholder string if necessary.
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation RPFloatingPlaceholderTextView
+@implementation PierFloatingPlaceholderTextView
 
 #pragma mark - Programmatic Initializer
 

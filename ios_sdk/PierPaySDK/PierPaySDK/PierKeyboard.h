@@ -25,14 +25,14 @@ typedef NS_OPTIONS(NSInteger, keyboardTypeNumber)
 
 @end
 
-@interface PIRKeyboard : UIView
+@interface PierKeyboard : UIView
 
 @property (nonatomic, assign) keyboardTypeNumber type;           //键盘类型
 @property (nonatomic, weak) id<PIRKeyboardDelegate>delegate;
 @property (nonatomic, assign) NSInteger limitLength;
 @property (nonatomic, strong) NSString *number;
 
-+ (PIRKeyboard *)getKeyboardWithType:(keyboardTypeNumber)types alpha:(CGFloat)alpha delegate:(id)delegate;
++ (PierKeyboard *)getKeyboardWithType:(keyboardTypeNumber)types alpha:(CGFloat)alpha delegate:(id)delegate;
 
 //设置初始值
 - (void)setDefaultNumber:(NSString *)number;

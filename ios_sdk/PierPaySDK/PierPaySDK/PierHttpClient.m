@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Pier.Inc. All rights reserved.
 //
 
-#import "PIRHttpClient.h"
-#import "PIRHttpExecutor.h"
+#import "PierHttpClient.h"
+#import "PierHttpExecutor.h"
 
 #pragma mark - -------------------- Host --------------------
 NSString * const PIRHttpClientUserHost      = @"http://pierup.ddns.net:8686";
@@ -15,7 +15,7 @@ NSString * const PIRHttpClientUserHostV2    = @"https://pierup.ddns.net:8443";//
 NSString * const PIRHttpClientTypeEmptyHost = @"";
 #pragma mark -
 
-@interface PIRHttpClient ()
+@interface PierHttpClient ()
 @property (nonatomic, copy) NSString *basePath;
 
 @property (nonatomic, strong) NSOperationQueue *operationQueue;
@@ -24,14 +24,14 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 
 @end
 
-@implementation PIRHttpClient
+@implementation PierHttpClient
 
 #pragma mark - ------------------ initial ------------------
-+ (PIRHttpClient *)sharedInstanceWithClientType:(ePIRHttpClientType)type{
++ (PierHttpClient *)sharedInstanceWithClientType:(ePIRHttpClientType)type{
     static NSMutableDictionary *__instanceMap = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{ __instanceMap = [[NSMutableDictionary alloc] init]; });
-    PIRHttpClient *__sharedInstance = [__instanceMap objectForKey:@(type)];
+    PierHttpClient *__sharedInstance = [__instanceMap objectForKey:@(type)];
     if(!__sharedInstance) {
         @synchronized(self){
             if (!__sharedInstance) {
@@ -84,7 +84,7 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 }
 
 #pragma mark - HTTP GTE
-- (PIRHttpExecutor*)GET:(NSString*)path
+- (PierHttpExecutor*)GET:(NSString*)path
              saveToPath:(NSString*)savePath
              parameters:(NSDictionary*)parameters
                progress:(void (^)(float))progressBlock
@@ -101,7 +101,7 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 }
 
 #pragma mark - HTTP POST
-- (PIRHttpExecutor*)POST:(NSString*)path
+- (PierHttpExecutor*)POST:(NSString*)path
               parameters:(NSDictionary*)parameters
                 progress:(void (^)(float))progressBlock
                  success:(PIRHttpSuccessBlock)success
@@ -116,7 +116,7 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
                    postAsJSON:NO];
 }
 
-- (PIRHttpExecutor*)JSONPOST:(NSString*)path
+- (PierHttpExecutor*)JSONPOST:(NSString*)path
                   parameters:(NSDictionary*)parameters
                     progress:(void (^)(float))progressBlock
                      success:(PIRHttpSuccessBlock)success
@@ -131,7 +131,7 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
                    postAsJSON:YES];
 }
 
-- (PIRHttpExecutor*)UploadImage:(NSString*)path
+- (PierHttpExecutor*)UploadImage:(NSString*)path
                      parameters:(NSDictionary*)parameters
                        progress:(void (^)(float))progressBlock
                         success:(PIRHttpSuccessBlock)success
@@ -146,7 +146,7 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
                    postAsJSON:NO];
 }
 
-- (PIRHttpExecutor*)PUT:(NSString*)path
+- (PierHttpExecutor*)PUT:(NSString*)path
              parameters:(NSDictionary*)parameters
                progress:(void (^)(float))progressBlock
                 success:(PIRHttpSuccessBlock)success
@@ -161,7 +161,7 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
                    postAsJSON:NO];
 }
 
-- (PIRHttpExecutor*)JSONPUT:(NSString*)path
+- (PierHttpExecutor*)JSONPUT:(NSString*)path
                  parameters:(NSDictionary*)parameters
                    progress:(void (^)(float))progressBlock
                     success:(PIRHttpSuccessBlock)success
@@ -177,7 +177,7 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 }
 
 #pragma mark - HTTP Request
-- (PIRHttpExecutor*)queueRequest:(NSString*)path
+- (PierHttpExecutor*)queueRequest:(NSString*)path
                           method:(ePIRHttpMethod)method
                       saveToPath:(NSString*)savePath
                       parameters:(NSDictionary*)parameters
@@ -195,12 +195,12 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
         [mergedParameters addEntriesFromDictionary:parameters];
         [mergedParameters addEntriesFromDictionary:self.baseParameters];
     }
-    PIRHttpExecutor *requestOperation = [[PIRHttpExecutor alloc] initWithAddress:completeURLString method:method parameters:mergedParameters saveToPath:savePath progress:progressBlock success:success failed:failed postAsJSON:postAsJSON];
+    PierHttpExecutor *requestOperation = [[PierHttpExecutor alloc] initWithAddress:completeURLString method:method parameters:mergedParameters saveToPath:savePath progress:progressBlock success:success failed:failed postAsJSON:postAsJSON];
     return [self queueRequest:requestOperation];
 }
 
 #pragma mark - ------------------ HTTP Operqtions ------------------
-- (PIRHttpExecutor *)queueRequest:(PIRHttpExecutor *)requestOperation {
+- (PierHttpExecutor *)queueRequest:(PierHttpExecutor *)requestOperation {
     
     [self.HTTPHeaderFields enumerateKeysAndObjectsUsingBlock:^(NSString *field, NSString *value, BOOL *stop) {
         [requestOperation setValue:value forHTTPHeaderField:field];

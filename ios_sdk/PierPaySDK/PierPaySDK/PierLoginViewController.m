@@ -8,15 +8,15 @@
 
 #import "PierLoginViewController.h"
 #import "PierAlertView.h"
-#import "PIRKeyboard.h"
-#import "PIRService.h"
+#import "PierKeyboard.h"
+#import "PierService.h"
 #import "PierTools.h"
 #import "PierColor.h"
-#import "NSString+Check.h"
-#import "PIRViewUtil.h"
+#import "NSString+PierCheck.h"
+#import "PierViewUtil.h"
 #import "PierPayService.h"
 #import "PierCountryCodeViewController.h"
-#import "PIRDataSource.h"
+#import "PierDataSource.h"
 
 @interface PierLoginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate, PierPayServiceDelegate>
 
@@ -89,7 +89,7 @@
 - (void)initView
 {
     [self.submitButton setBackgroundColor:[PierColor lightPurpleColor]];
-    UIImage *submitbtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    UIImage *submitbtnImg = [PierViewUtil getImageByView:self.submitButton];
     [self.submitButton setBackgroundImage:submitbtnImg forState:UIControlStateNormal];
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
@@ -199,7 +199,7 @@
         if (phone.length == [self.country.phone_size integerValue]) {
             result = YES;
         }else {
-            [PIRViewUtil shakeView:self.phoneNumberLabel];
+            [PierViewUtil shakeView:self.phoneNumberLabel];
             result = NO;
         }
         return result;

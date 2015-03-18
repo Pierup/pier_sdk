@@ -7,16 +7,16 @@
 //
 
 #import "PierPay.h"
-#import "PIRHttpClient.h"
-#import "PIRService.h"
-#import "PIRPayModel.h"
-#import "PIRConfig.h"
+#import "PierHttpClient.h"
+#import "PierService.h"
+#import "PierPayModel.h"
+#import "PierConfig.h"
 #import "PierLoginViewController.h"
 #import "PierTools.h"
 #import "PierSiginViewController.h"
-#import "PIRDataSource.h"
+#import "PierDataSource.h"
 #import "PierColor.h"
-#import "PIRViewUtil.h"
+#import "PierViewUtil.h"
 
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
@@ -62,14 +62,14 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     [self.purpleArrorImageView setImage:[UIImage imageWithContentsOfFile:getImagePath(@"btn_nextpurple")]];
     
     [self.payButton setBackgroundColor:[PierColor lightPurpleColor]];
-    UIImage *payBtnImg = [PIRViewUtil getImageByView:self.payButton];
+    UIImage *payBtnImg = [PierViewUtil getImageByView:self.payButton];
     [self.payButton setBackgroundImage:payBtnImg forState:UIControlStateNormal];
 
 
     [self.payButton.layer setMasksToBounds:YES];
     [self.payButton.layer setCornerRadius:5];
     
-    [self.applyButton setBackgroundImage:[PIRViewUtil getImageByView:self.applyButton] forState:UIControlStateNormal];
+    [self.applyButton setBackgroundImage:[PierViewUtil getImageByView:self.applyButton] forState:UIControlStateNormal];
     [self.applyButton.layer setBorderWidth:1.0];
     [self.applyButton.layer setBorderColor:[[PierColor darkPurpleColor] CGColor]];
     [self.applyButton.layer setMasksToBounds:YES];

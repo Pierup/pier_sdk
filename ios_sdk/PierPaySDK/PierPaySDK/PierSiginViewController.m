@@ -7,15 +7,15 @@
 //
 
 #import "PierSiginViewController.h"
-#import "PIRService.h"
+#import "PierService.h"
 #import "PierTools.h"
 #import "PierColor.h"
-#import "NSString+Check.h"
+#import "NSString+PierCheck.h"
 #import "PierRegisterViewController.h"
-#import "PIRViewUtil.h"
+#import "PierViewUtil.h"
 #import "PierAlertView.h"
 #import "PierCountryCodeViewController.h"
-#import "PIRDataSource.h"
+#import "PierDataSource.h"
 
 @interface PierSiginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate, PierSMSInputAlertDelegate>
 
@@ -85,7 +85,7 @@
 - (void)initView
 {
     [self.submitButton setBackgroundColor:[PierColor lightPurpleColor]];
-    UIImage *submitbtnImg = [PIRViewUtil getImageByView:self.submitButton];
+    UIImage *submitbtnImg = [PierViewUtil getImageByView:self.submitButton];
     [self.submitButton setBackgroundImage:submitbtnImg forState:UIControlStateNormal];
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
@@ -135,7 +135,7 @@
     GetRegisterCodeRequest *requestModel = [[GetRegisterCodeRequest alloc] init];
     requestModel.phone = self.phone;
     
-    [PIRService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
+    [PierService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
         GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"",@"title_image_name",
@@ -159,7 +159,7 @@
     requestModel.phone = self.phone;
     requestModel.activation_code = activation_code;
     
-    [PIRService serverSend:ePIER_API_GET_ACTIVITION resuest:requestModel successBlock:^(id responseModel) {
+    [PierService serverSend:ePIER_API_GET_ACTIVITION resuest:requestModel successBlock:^(id responseModel) {
         RegSMSActiveResponse *reqponse = (RegSMSActiveResponse *)responseModel;
         dispatch_async(dispatch_get_main_queue(), ^{
             [_smsAlertView dismiss];
@@ -215,7 +215,7 @@
     if (phone.length == [self.country.phone_size integerValue]) {
         result = YES;
     }else {
-        [PIRViewUtil shakeView:self.phoneNumberLabel];
+        [PierViewUtil shakeView:self.phoneNumberLabel];
         result = NO;
     }
     return result;

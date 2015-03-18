@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PIRJSONModel : NSObject
+@interface PierJSONModel : NSObject
 
 + (id)getObjectByDictionary:(NSDictionary *)dic clazz:(Class)clazz;
 

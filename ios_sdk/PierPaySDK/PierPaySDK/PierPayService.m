@@ -7,10 +7,10 @@
 //
 
 #import "PierPayService.h"
-#import "PIRService.h"
+#import "PierService.h"
 #import "PierAlertView.h"
-#import "PIRDataSource.h"
-#import "NSString+Check.h"
+#import "PierDataSource.h"
+#import "NSString+PierCheck.h"
 
 @interface PierPayService () <PierSMSInputAlertDelegate>
 
@@ -32,7 +32,7 @@
 }
 
 - (void)serviceGetPaySMS{
-    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
+    [PierService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
         TransactionSMSResponse *response = (TransactionSMSResponse *)responseModel;
         
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -61,7 +61,7 @@
     self.authTokenRequestModel.amount = [__dataSource.merchantParam objectForKey:@"amount"];
     self.authTokenRequestModel.currency_code = [__dataSource.merchantParam objectForKey:@"currency"];
     
-    [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:self.authTokenRequestModel successBlock:^(id responseModel) {
+    [PierService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:self.authTokenRequestModel successBlock:^(id responseModel) {
         [_smsAlertView dismiss];
         GetAuthTokenV2Response *response = (GetAuthTokenV2Response *)responseModel;
         [self serviceMerchantService:response];
@@ -73,7 +73,7 @@
 - (void)serviceMerchantService:(GetAuthTokenV2Response *)resultModel{
     MerchantRequest *requestModel = [[MerchantRequest alloc] init];
     requestModel.auth_token = resultModel.auth_token;
-    [PIRService serverSend:ePIER_API_GET_MERCHANT resuest:requestModel successBlock:^(id responseModel) {
+    [PierService serverSend:ePIER_API_GET_MERCHANT resuest:requestModel successBlock:^(id responseModel) {
         NSString *amount = [NSString getNumberFormatterDecimalStyle:[__dataSource.merchantParam objectForKey:@"amount"] currency:[__dataSource.merchantParam objectForKey:@"currency"]];
         NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
                                 @"0",@"status",

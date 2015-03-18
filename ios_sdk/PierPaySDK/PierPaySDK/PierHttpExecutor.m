@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Pier.Inc. All rights reserved.
 //
 
-#import "PIRHttpExecutor.h"
+#import "PierHttpExecutor.h"
 #import <UIKit/UIKit.h>
-#import "JSONKit.h"
-#import "PIRConfig.h"
-#import "NSString+Check.h"
+#import "PierJSONKit.h"
+#import "PierConfig.h"
+#import "NSString+PierCheck.h"
 
 //超时时间
 static NSTimeInterval PIRHTTPTimeoutInterval = 30;
@@ -36,7 +36,7 @@ static NSInteger PIRHTTPTaskCount = 0;
 static NSString *defaultUserAgent;
 
 
-@interface PIRHttpExecutor ()
+@interface PierHttpExecutor ()
 @property (nonatomic, strong) NSMutableData *operationData;
 @property (nonatomic, strong) NSFileHandle *operationFileHandle;
 @property (nonatomic, strong) NSURLConnection *operationConnection;
@@ -70,7 +70,7 @@ static NSString *defaultUserAgent;
 
 @end
 
-@implementation PIRHttpExecutor
+@implementation PierHttpExecutor
 @synthesize state = _state;
 
 - (void)dealloc {
@@ -103,7 +103,7 @@ static NSString *defaultUserAgent;
     [self.operationRequest setValue:value forHTTPHeaderField:field];
 }
 
-- (PIRHttpExecutor*)initWithAddress:(NSString*)urlString method:(ePIRHttpMethod)method parameters:(NSDictionary*)parameters saveToPath:(NSString*)savePath progress:(void (^)(float))progressBlock success:(PIRHttpSuccessBlock)success failed:(PIRHttpFailedBlock)failed postAsJSON:(BOOL)postAsJSON {
+- (PierHttpExecutor*)initWithAddress:(NSString*)urlString method:(ePIRHttpMethod)method parameters:(NSDictionary*)parameters saveToPath:(NSString*)savePath progress:(void (^)(float))progressBlock success:(PIRHttpSuccessBlock)success failed:(PIRHttpFailedBlock)failed postAsJSON:(BOOL)postAsJSON {
     self = [super init];
     self.timeoutInterval = PIRHTTPTimeoutInterval;
     self.cachePolicy = self.cachePolicy;

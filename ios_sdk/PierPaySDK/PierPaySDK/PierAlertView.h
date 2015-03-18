@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PIRStopWatchView.h"
+#import "PierStopWatchView.h"
 
 typedef enum {
     ePierAlertViewType_userInput,

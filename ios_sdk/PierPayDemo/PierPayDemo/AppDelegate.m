@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PIRURLDispatcher.h"
 
 @interface AppDelegate ()
 
@@ -43,10 +44,12 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    
     if(![[url scheme] isEqualToString:@"piermerchant"]) {
         return NO;
     }else{
-        
+        [PIRURLDispatcher dispatchURL:url];
+        return YES;
     }
     return YES;
 }

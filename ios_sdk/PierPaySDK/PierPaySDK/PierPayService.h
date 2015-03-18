@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PIRPayModel.h"
+#import "PierPayModel.h"
 
 
 @protocol PierPayServiceDelegate <NSObject>

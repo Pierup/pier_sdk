@@ -9,10 +9,10 @@
 #import "PierCreditApproveViewController.h"
 #import "PierColor.h"
 #import "PierTools.h"
-#import "PIRDataSource.h"
+#import "PierDataSource.h"
 #import "PierPayService.h"
-#import "NSString+Check.h"
-#import "PIRViewUtil.h"
+#import "NSString+PierCheck.h"
+#import "PierViewUtil.h"
 
 @interface PierCreditApproveViewController () <PierPayServiceDelegate>
 
@@ -48,7 +48,7 @@
     [self.creditLimitLabel setText:credtiLimit_currency];
     
     [self.payButton setBackgroundColor:[PierColor lightPurpleColor]];
-    UIImage *payButtonImg = [PIRViewUtil getImageByView:self.payButton];
+    UIImage *payButtonImg = [PierViewUtil getImageByView:self.payButton];
     [self.payButton setBackgroundImage:payButtonImg forState:UIControlStateNormal];
     [self.payButton.layer setMasksToBounds:YES];
     [self.payButton.layer setCornerRadius:5];
@@ -65,10 +65,10 @@
     NSString *amount = [NSString getNumberFormatterDecimalStyle:[__dataSource.merchantParam objectForKey:@"amount"] currency:[__dataSource.merchantParam objectForKey:@"currency"]];
     [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@ with Pier",amount] forState:UIControlStateNormal];
     
-    UIImage *patBtnImg = [PIRViewUtil getImageByView:self.payButton];
+    UIImage *patBtnImg = [PierViewUtil getImageByView:self.payButton];
     [self.payButton setBackgroundImage:patBtnImg forState:UIControlStateNormal];
     
-    UIImage *cancleBtnView = [PIRViewUtil getImageByView:self.cancleButton];
+    UIImage *cancleBtnView = [PierViewUtil getImageByView:self.cancleButton];
     [self.cancleButton setBackgroundImage:cancleBtnView forState:UIControlStateNormal];
 }
 

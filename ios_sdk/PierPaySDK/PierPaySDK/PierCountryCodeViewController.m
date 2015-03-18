@@ -7,7 +7,7 @@
 //
 
 #import "PierCountryCodeViewController.h"
-#import "PIRService.h"
+#import "PierService.h"
 
 @implementation CountryModel
 
@@ -126,7 +126,7 @@
 - (void)serviceCountryService
 {
     CountryCodeRequest *requestModel = [[CountryCodeRequest alloc] init];
-    [PIRService serverSend:ePIER_API_GET_COUNTRYS resuest:requestModel successBlock:^(id responseModel) {
+    [PierService serverSend:ePIER_API_GET_COUNTRYS resuest:requestModel successBlock:^(id responseModel) {
         CountryCodeResponse *response = (CountryCodeResponse *)responseModel;
         // 转换成模型数组模型对象
         for (Country *country in response.items) {

@@ -21,7 +21,7 @@ typedef enum {
 
 #define TEXTFIELD_PLACEHOLDER_TEXTCOLOR @"_placeholderLabel.textColor"
 
-@interface PIRViewUtil : NSObject
+@interface PierViewUtil : NSObject
 
 + (void)horizonView:(UIView *)view;
 

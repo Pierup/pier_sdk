@@ -27,12 +27,12 @@
 		2A252D271AA19B82004BAB9C /* sdk-help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D191AA19B82004BAB9C /* sdk-help@2x.png */; };
 		2A252D281AA19B82004BAB9C /* sdk-help@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D1A1AA19B82004BAB9C /* sdk-help@3x.png */; };
 		2A252D2A1AA19BC3004BAB9C /* icon_smscode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D291AA19BC3004BAB9C /* icon_smscode@3x.png */; };
-		2A252D321AA1AF4C004BAB9C /* PIRViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D311AA1AF4C004BAB9C /* PIRViewUtil.m */; };
-		2A252D331AA1AF4C004BAB9C /* PIRViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D311AA1AF4C004BAB9C /* PIRViewUtil.m */; };
-		2A252D361AA1B081004BAB9C /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D351AA1B081004BAB9C /* NSString+Check.m */; };
-		2A252D371AA1B081004BAB9C /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D351AA1B081004BAB9C /* NSString+Check.m */; };
-		2A252D3A1AA1B0AB004BAB9C /* PIRDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D391AA1B0AB004BAB9C /* PIRDateUtil.m */; };
-		2A252D3B1AA1B0AB004BAB9C /* PIRDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D391AA1B0AB004BAB9C /* PIRDateUtil.m */; };
+		2A252D321AA1AF4C004BAB9C /* PierViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D311AA1AF4C004BAB9C /* PierViewUtil.m */; };
+		2A252D331AA1AF4C004BAB9C /* PierViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D311AA1AF4C004BAB9C /* PierViewUtil.m */; };
+		2A252D361AA1B081004BAB9C /* NSString+PierCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D351AA1B081004BAB9C /* NSString+PierCheck.m */; };
+		2A252D371AA1B081004BAB9C /* NSString+PierCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D351AA1B081004BAB9C /* NSString+PierCheck.m */; };
+		2A252D3A1AA1B0AB004BAB9C /* PierDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D391AA1B0AB004BAB9C /* PierDateUtil.m */; };
+		2A252D3B1AA1B0AB004BAB9C /* PierDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D391AA1B0AB004BAB9C /* PierDateUtil.m */; };
 		2A252D3F1AA1BA58004BAB9C /* PierLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */; };
 		2A252D401AA1BA58004BAB9C /* PierLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */; };
 		2A252D411AA1BA58004BAB9C /* PierLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D3E1AA1BA58004BAB9C /* PierLoginViewController.xib */; };
@@ -47,19 +47,19 @@
 		2A39BC2E1A2EE81300B9D551 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A39BC221A2EE81300B9D551 /* libPierPaySDK.a */; };
 		2A6273B21AA6F1D400BEC05C /* PierPayService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6273B11AA6F1D400BEC05C /* PierPayService.m */; };
 		2A6273B31AA6F1D400BEC05C /* PierPayService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6273B11AA6F1D400BEC05C /* PierPayService.m */; };
-		2A6EA3011AA5583200E8B340 /* PIRStopWatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3001AA5583200E8B340 /* PIRStopWatchView.m */; };
-		2A6EA3021AA5583200E8B340 /* PIRStopWatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3001AA5583200E8B340 /* PIRStopWatchView.m */; };
-		2A6EA3051AA579CD00E8B340 /* PIRDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3041AA579CD00E8B340 /* PIRDataSource.m */; };
-		2A6EA3061AA579CD00E8B340 /* PIRDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3041AA579CD00E8B340 /* PIRDataSource.m */; };
+		2A6EA3011AA5583200E8B340 /* PierStopWatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3001AA5583200E8B340 /* PierStopWatchView.m */; };
+		2A6EA3021AA5583200E8B340 /* PierStopWatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3001AA5583200E8B340 /* PierStopWatchView.m */; };
+		2A6EA3051AA579CD00E8B340 /* PierDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3041AA579CD00E8B340 /* PierDataSource.m */; };
+		2A6EA3061AA579CD00E8B340 /* PierDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3041AA579CD00E8B340 /* PierDataSource.m */; };
 		2A6EA30A1AA5A14800E8B340 /* PierCreditApproveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3081AA5A14800E8B340 /* PierCreditApproveViewController.m */; };
 		2A6EA30B1AA5A14800E8B340 /* PierCreditApproveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6EA3081AA5A14800E8B340 /* PierCreditApproveViewController.m */; };
 		2A6EA30C1AA5A14800E8B340 /* PierCreditApproveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6EA3091AA5A14800E8B340 /* PierCreditApproveViewController.xib */; };
-		2A77977A1A3E764F00F5DF36 /* PIRHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */; };
-		2A77977D1A3E865D00F5DF36 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */; };
+		2A77977A1A3E764F00F5DF36 /* PierHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PierHttpClient.m */; };
+		2A77977D1A3E865D00F5DF36 /* PierHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PierHttpExecutor.m */; };
 		2A8BEB381AAC8B7B00D240CE /* PierLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */; };
 		2A8BEB391AAC8B7B00D240CE /* PierLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */; };
-		2A96B55A1AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B5571AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m */; };
-		2A96B55B1AA429CA00CDA7E9 /* RPFloatingPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B5591AA429CA00CDA7E9 /* RPFloatingPlaceholderTextView.m */; };
+		2A96B55A1AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B5571AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.m */; };
+		2A96B55B1AA429CA00CDA7E9 /* PierFloatingPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B5591AA429CA00CDA7E9 /* PierFloatingPlaceholderTextView.m */; };
 		2A96B5621AA461C700CDA7E9 /* backpueple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A96B5601AA461C700CDA7E9 /* backpueple@2x.png */; };
 		2A96B5631AA461C700CDA7E9 /* backpueple@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A96B5611AA461C700CDA7E9 /* backpueple@3x.png */; };
 		2A96B5671AA464B600CDA7E9 /* PierSiginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B5651AA464B600CDA7E9 /* PierSiginViewController.m */; };
@@ -68,10 +68,10 @@
 		2A96B56D1AA465CF00CDA7E9 /* PierRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B56B1AA465CF00CDA7E9 /* PierRegisterViewController.m */; };
 		2A96B56E1AA465CF00CDA7E9 /* PierRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B56B1AA465CF00CDA7E9 /* PierRegisterViewController.m */; };
 		2A96B56F1AA465CF00CDA7E9 /* PierRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A96B56C1AA465CF00CDA7E9 /* PierRegisterViewController.xib */; };
-		2ABF82451A64E28800BEEAF6 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82441A64E28800BEEAF6 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2ABF82591A65281C00BEEAF6 /* PIRService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82581A65281C00BEEAF6 /* PIRService.m */; };
-		2AC461E61A75FA0300DD2C49 /* PIRPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461E51A75FA0300DD2C49 /* PIRPayModel.m */; };
-		2AC84ED71A2EFCA600920073 /* PIRJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC84ED61A2EFCA600920073 /* PIRJSONModel.m */; };
+		2ABF82451A64E28800BEEAF6 /* PierJSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82441A64E28800BEEAF6 /* PierJSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2ABF82591A65281C00BEEAF6 /* PierService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82581A65281C00BEEAF6 /* PierService.m */; };
+		2AC461E61A75FA0300DD2C49 /* PierPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461E51A75FA0300DD2C49 /* PierPayModel.m */; };
+		2AC84ED71A2EFCA600920073 /* PierJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC84ED61A2EFCA600920073 /* PierJSONModel.m */; };
 		2ACCFEAE1A772AD300A5BAC5 /* PierPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFEAD1A772AD300A5BAC5 /* PierPay.m */; };
 		2ACCFEB21A77340D00A5BAC5 /* PierLoginViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFEB01A77340D00A5BAC5 /* PierLoginViewController1.m */; };
 		2ACCFEB31A77340D00A5BAC5 /* PierLoginViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFEB01A77340D00A5BAC5 /* PierLoginViewController1.m */; };
@@ -83,14 +83,14 @@
 		2ACCFEC11A775FA000A5BAC5 /* PierColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFEBF1A775FA000A5BAC5 /* PierColor.m */; };
 		2ACCFEC81A776A4500A5BAC5 /* PierTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFEC71A776A4500A5BAC5 /* PierTools.m */; };
 		2ACCFEC91A776A4500A5BAC5 /* PierTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFEC71A776A4500A5BAC5 /* PierTools.m */; };
-		2ACCFECC1A77722700A5BAC5 /* PIRKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFECB1A77722700A5BAC5 /* PIRKeyboard.m */; };
-		2ACCFECD1A77722700A5BAC5 /* PIRKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFECB1A77722700A5BAC5 /* PIRKeyboard.m */; };
-		2ACCFED11A7782A800A5BAC5 /* PIRPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461E51A75FA0300DD2C49 /* PIRPayModel.m */; };
-		2ACCFED21A7782C700A5BAC5 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82441A64E28800BEEAF6 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2ACCFED31A7782DC00A5BAC5 /* PIRHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */; };
-		2ACCFED41A7782E100A5BAC5 /* PIRJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC84ED61A2EFCA600920073 /* PIRJSONModel.m */; };
-		2ACCFED51A7782EE00A5BAC5 /* PIRService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82581A65281C00BEEAF6 /* PIRService.m */; };
-		2ACCFED61A7782F600A5BAC5 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */; };
+		2ACCFECC1A77722700A5BAC5 /* PierKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFECB1A77722700A5BAC5 /* PierKeyboard.m */; };
+		2ACCFECD1A77722700A5BAC5 /* PierKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACCFECB1A77722700A5BAC5 /* PierKeyboard.m */; };
+		2ACCFED11A7782A800A5BAC5 /* PierPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC461E51A75FA0300DD2C49 /* PierPayModel.m */; };
+		2ACCFED21A7782C700A5BAC5 /* PierJSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82441A64E28800BEEAF6 /* PierJSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2ACCFED31A7782DC00A5BAC5 /* PierHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PierHttpClient.m */; };
+		2ACCFED41A7782E100A5BAC5 /* PierJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC84ED61A2EFCA600920073 /* PierJSONModel.m */; };
+		2ACCFED51A7782EE00A5BAC5 /* PierService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF82581A65281C00BEEAF6 /* PierService.m */; };
+		2ACCFED61A7782F600A5BAC5 /* PierHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PierHttpExecutor.m */; };
 		2ACE622D1AB7CB4900359D22 /* icon_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ACE622B1AB7CB4900359D22 /* icon_error@2x.png */; };
 		2ACE622E1AB7CB4900359D22 /* icon_error@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ACE622C1AB7CB4900359D22 /* icon_error@3x.png */; };
 		2AF42D931A306D9B0076DEC4 /* PierPayRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9EB3AA1A3048CC00CF40A4 /* PierPayRootViewController.xib */; };
@@ -144,12 +144,12 @@
 		2A252D191AA19B82004BAB9C /* sdk-help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sdk-help@2x.png"; sourceTree = "<group>"; };
 		2A252D1A1AA19B82004BAB9C /* sdk-help@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sdk-help@3x.png"; sourceTree = "<group>"; };
 		2A252D291AA19BC3004BAB9C /* icon_smscode@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_smscode@3x.png"; sourceTree = "<group>"; };
-		2A252D301AA1AF4C004BAB9C /* PIRViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRViewUtil.h; sourceTree = "<group>"; };
-		2A252D311AA1AF4C004BAB9C /* PIRViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRViewUtil.m; sourceTree = "<group>"; };
-		2A252D341AA1B081004BAB9C /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
-		2A252D351AA1B081004BAB9C /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
-		2A252D381AA1B0AB004BAB9C /* PIRDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRDateUtil.h; sourceTree = "<group>"; };
-		2A252D391AA1B0AB004BAB9C /* PIRDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRDateUtil.m; sourceTree = "<group>"; };
+		2A252D301AA1AF4C004BAB9C /* PierViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierViewUtil.h; sourceTree = "<group>"; };
+		2A252D311AA1AF4C004BAB9C /* PierViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierViewUtil.m; sourceTree = "<group>"; };
+		2A252D341AA1B081004BAB9C /* NSString+PierCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PierCheck.h"; sourceTree = "<group>"; };
+		2A252D351AA1B081004BAB9C /* NSString+PierCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PierCheck.m"; sourceTree = "<group>"; };
+		2A252D381AA1B0AB004BAB9C /* PierDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierDateUtil.h; sourceTree = "<group>"; };
+		2A252D391AA1B0AB004BAB9C /* PierDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierDateUtil.m; sourceTree = "<group>"; };
 		2A252D3C1AA1BA58004BAB9C /* PierLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierLoginViewController.h; sourceTree = "<group>"; };
 		2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierLoginViewController.m; sourceTree = "<group>"; };
 		2A252D3E1AA1BA58004BAB9C /* PierLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierLoginViewController.xib; sourceTree = "<group>"; };
@@ -166,24 +166,24 @@
 		2A39BC331A2EE81300B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A6273B01AA6F1D400BEC05C /* PierPayService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierPayService.h; sourceTree = "<group>"; };
 		2A6273B11AA6F1D400BEC05C /* PierPayService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierPayService.m; sourceTree = "<group>"; };
-		2A6EA2FF1AA5583200E8B340 /* PIRStopWatchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRStopWatchView.h; sourceTree = "<group>"; };
-		2A6EA3001AA5583200E8B340 /* PIRStopWatchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRStopWatchView.m; sourceTree = "<group>"; };
-		2A6EA3031AA579CD00E8B340 /* PIRDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRDataSource.h; sourceTree = "<group>"; };
-		2A6EA3041AA579CD00E8B340 /* PIRDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRDataSource.m; sourceTree = "<group>"; };
+		2A6EA2FF1AA5583200E8B340 /* PierStopWatchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierStopWatchView.h; sourceTree = "<group>"; };
+		2A6EA3001AA5583200E8B340 /* PierStopWatchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierStopWatchView.m; sourceTree = "<group>"; };
+		2A6EA3031AA579CD00E8B340 /* PierDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierDataSource.h; sourceTree = "<group>"; };
+		2A6EA3041AA579CD00E8B340 /* PierDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierDataSource.m; sourceTree = "<group>"; };
 		2A6EA3071AA5A14800E8B340 /* PierCreditApproveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierCreditApproveViewController.h; sourceTree = "<group>"; };
 		2A6EA3081AA5A14800E8B340 /* PierCreditApproveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierCreditApproveViewController.m; sourceTree = "<group>"; };
 		2A6EA3091AA5A14800E8B340 /* PierCreditApproveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierCreditApproveViewController.xib; sourceTree = "<group>"; };
-		2A7797781A3E764F00F5DF36 /* PIRHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRHttpClient.h; sourceTree = "<group>"; };
-		2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpClient.m; sourceTree = "<group>"; };
-		2A77977B1A3E865D00F5DF36 /* PIRHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRHttpExecutor.h; sourceTree = "<group>"; };
-		2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpExecutor.m; sourceTree = "<group>"; };
+		2A7797781A3E764F00F5DF36 /* PierHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierHttpClient.h; sourceTree = "<group>"; };
+		2A7797791A3E764F00F5DF36 /* PierHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierHttpClient.m; sourceTree = "<group>"; };
+		2A77977B1A3E865D00F5DF36 /* PierHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierHttpExecutor.h; sourceTree = "<group>"; };
+		2A77977C1A3E865D00F5DF36 /* PierHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierHttpExecutor.m; sourceTree = "<group>"; };
 		2A8BEB361AAC8B7B00D240CE /* PierLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierLoadingView.h; sourceTree = "<group>"; };
 		2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierLoadingView.m; sourceTree = "<group>"; };
 		2A96B5551AA429CA00CDA7E9 /* RPFloatingPlaceholderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPFloatingPlaceholderConstants.h; sourceTree = "<group>"; };
-		2A96B5561AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPFloatingPlaceholderTextField.h; sourceTree = "<group>"; };
-		2A96B5571AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPFloatingPlaceholderTextField.m; sourceTree = "<group>"; };
-		2A96B5581AA429CA00CDA7E9 /* RPFloatingPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPFloatingPlaceholderTextView.h; sourceTree = "<group>"; };
-		2A96B5591AA429CA00CDA7E9 /* RPFloatingPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPFloatingPlaceholderTextView.m; sourceTree = "<group>"; };
+		2A96B5561AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierFloatingPlaceholderTextField.h; sourceTree = "<group>"; };
+		2A96B5571AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierFloatingPlaceholderTextField.m; sourceTree = "<group>"; };
+		2A96B5581AA429CA00CDA7E9 /* PierFloatingPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierFloatingPlaceholderTextView.h; sourceTree = "<group>"; };
+		2A96B5591AA429CA00CDA7E9 /* PierFloatingPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierFloatingPlaceholderTextView.m; sourceTree = "<group>"; };
 		2A96B5601AA461C700CDA7E9 /* backpueple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backpueple@2x.png"; sourceTree = "<group>"; };
 		2A96B5611AA461C700CDA7E9 /* backpueple@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backpueple@3x.png"; sourceTree = "<group>"; };
 		2A96B5641AA464B600CDA7E9 /* PierSiginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierSiginViewController.h; sourceTree = "<group>"; };
@@ -193,16 +193,16 @@
 		2A96B56B1AA465CF00CDA7E9 /* PierRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierRegisterViewController.m; sourceTree = "<group>"; };
 		2A96B56C1AA465CF00CDA7E9 /* PierRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierRegisterViewController.xib; sourceTree = "<group>"; };
 		2A9EB3AA1A3048CC00CF40A4 /* PierPayRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierPayRootViewController.xib; sourceTree = "<group>"; };
-		2ABF82431A64E28800BEEAF6 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
-		2ABF82441A64E28800BEEAF6 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		2ABF82461A64E39C00BEEAF6 /* PIRConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRConfig.h; sourceTree = "<group>"; };
-		2ABF82561A65071D00BEEAF6 /* PIRSDKPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRSDKPath.h; sourceTree = "<group>"; };
-		2ABF82571A65281C00BEEAF6 /* PIRService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRService.h; sourceTree = "<group>"; };
-		2ABF82581A65281C00BEEAF6 /* PIRService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRService.m; sourceTree = "<group>"; };
-		2AC461E41A75FA0300DD2C49 /* PIRPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRPayModel.h; sourceTree = "<group>"; };
-		2AC461E51A75FA0300DD2C49 /* PIRPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRPayModel.m; sourceTree = "<group>"; };
-		2AC84ED51A2EFCA600920073 /* PIRJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRJSONModel.h; sourceTree = "<group>"; };
-		2AC84ED61A2EFCA600920073 /* PIRJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRJSONModel.m; sourceTree = "<group>"; };
+		2ABF82431A64E28800BEEAF6 /* PierJSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierJSONKit.h; sourceTree = "<group>"; };
+		2ABF82441A64E28800BEEAF6 /* PierJSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierJSONKit.m; sourceTree = "<group>"; };
+		2ABF82461A64E39C00BEEAF6 /* PierConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierConfig.h; sourceTree = "<group>"; };
+		2ABF82561A65071D00BEEAF6 /* PierSDKPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierSDKPath.h; sourceTree = "<group>"; };
+		2ABF82571A65281C00BEEAF6 /* PierService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierService.h; sourceTree = "<group>"; };
+		2ABF82581A65281C00BEEAF6 /* PierService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierService.m; sourceTree = "<group>"; };
+		2AC461E41A75FA0300DD2C49 /* PierPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierPayModel.h; sourceTree = "<group>"; };
+		2AC461E51A75FA0300DD2C49 /* PierPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierPayModel.m; sourceTree = "<group>"; };
+		2AC84ED51A2EFCA600920073 /* PierJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierJSONModel.h; sourceTree = "<group>"; };
+		2AC84ED61A2EFCA600920073 /* PierJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierJSONModel.m; sourceTree = "<group>"; };
 		2ACCFEAC1A772AD300A5BAC5 /* PierPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierPay.h; sourceTree = "<group>"; };
 		2ACCFEAD1A772AD300A5BAC5 /* PierPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierPay.m; sourceTree = "<group>"; };
 		2ACCFEAF1A77340D00A5BAC5 /* PierLoginViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierLoginViewController1.h; sourceTree = "<group>"; };
@@ -215,8 +215,8 @@
 		2ACCFEBF1A775FA000A5BAC5 /* PierColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierColor.m; sourceTree = "<group>"; };
 		2ACCFEC61A776A4500A5BAC5 /* PierTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierTools.h; sourceTree = "<group>"; };
 		2ACCFEC71A776A4500A5BAC5 /* PierTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierTools.m; sourceTree = "<group>"; };
-		2ACCFECA1A77722700A5BAC5 /* PIRKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRKeyboard.h; sourceTree = "<group>"; };
-		2ACCFECB1A77722700A5BAC5 /* PIRKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRKeyboard.m; sourceTree = "<group>"; };
+		2ACCFECA1A77722700A5BAC5 /* PierKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierKeyboard.h; sourceTree = "<group>"; };
+		2ACCFECB1A77722700A5BAC5 /* PierKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierKeyboard.m; sourceTree = "<group>"; };
 		2ACE622B1AB7CB4900359D22 /* icon_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_error@2x.png"; sourceTree = "<group>"; };
 		2ACE622C1AB7CB4900359D22 /* icon_error@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_error@3x.png"; sourceTree = "<group>"; };
 		2AF42D8C1A306CC90076DEC4 /* PierResource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierResource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,20 +329,20 @@
 		2A8ECBFE1A6667A20040A2C2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				2ABF82561A65071D00BEEAF6 /* PIRSDKPath.h */,
-				2ABF82461A64E39C00BEEAF6 /* PIRConfig.h */,
-				2ABF82431A64E28800BEEAF6 /* JSONKit.h */,
-				2ABF82441A64E28800BEEAF6 /* JSONKit.m */,
-				2A7797781A3E764F00F5DF36 /* PIRHttpClient.h */,
-				2A7797791A3E764F00F5DF36 /* PIRHttpClient.m */,
-				2A77977B1A3E865D00F5DF36 /* PIRHttpExecutor.h */,
-				2A77977C1A3E865D00F5DF36 /* PIRHttpExecutor.m */,
-				2AC84ED51A2EFCA600920073 /* PIRJSONModel.h */,
-				2AC84ED61A2EFCA600920073 /* PIRJSONModel.m */,
-				2ABF82571A65281C00BEEAF6 /* PIRService.h */,
-				2ABF82581A65281C00BEEAF6 /* PIRService.m */,
-				2AC461E41A75FA0300DD2C49 /* PIRPayModel.h */,
-				2AC461E51A75FA0300DD2C49 /* PIRPayModel.m */,
+				2ABF82561A65071D00BEEAF6 /* PierSDKPath.h */,
+				2ABF82461A64E39C00BEEAF6 /* PierConfig.h */,
+				2ABF82431A64E28800BEEAF6 /* PierJSONKit.h */,
+				2ABF82441A64E28800BEEAF6 /* PierJSONKit.m */,
+				2A7797781A3E764F00F5DF36 /* PierHttpClient.h */,
+				2A7797791A3E764F00F5DF36 /* PierHttpClient.m */,
+				2A77977B1A3E865D00F5DF36 /* PierHttpExecutor.h */,
+				2A77977C1A3E865D00F5DF36 /* PierHttpExecutor.m */,
+				2AC84ED51A2EFCA600920073 /* PierJSONModel.h */,
+				2AC84ED61A2EFCA600920073 /* PierJSONModel.m */,
+				2ABF82571A65281C00BEEAF6 /* PierService.h */,
+				2ABF82581A65281C00BEEAF6 /* PierService.m */,
+				2AC461E41A75FA0300DD2C49 /* PierPayModel.h */,
+				2AC461E51A75FA0300DD2C49 /* PierPayModel.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -351,10 +351,10 @@
 			isa = PBXGroup;
 			children = (
 				2A96B5551AA429CA00CDA7E9 /* RPFloatingPlaceholderConstants.h */,
-				2A96B5561AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.h */,
-				2A96B5571AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m */,
-				2A96B5581AA429CA00CDA7E9 /* RPFloatingPlaceholderTextView.h */,
-				2A96B5591AA429CA00CDA7E9 /* RPFloatingPlaceholderTextView.m */,
+				2A96B5561AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.h */,
+				2A96B5571AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.m */,
+				2A96B5581AA429CA00CDA7E9 /* PierFloatingPlaceholderTextView.h */,
+				2A96B5591AA429CA00CDA7E9 /* PierFloatingPlaceholderTextView.m */,
 			);
 			name = RPFloatingPlaceholders;
 			sourceTree = "<group>";
@@ -393,10 +393,10 @@
 			isa = PBXGroup;
 			children = (
 				2A96B5541AA429AB00CDA7E9 /* RPFloatingPlaceholders */,
-				2A6EA2FF1AA5583200E8B340 /* PIRStopWatchView.h */,
-				2A6EA3001AA5583200E8B340 /* PIRStopWatchView.m */,
-				2ACCFECA1A77722700A5BAC5 /* PIRKeyboard.h */,
-				2ACCFECB1A77722700A5BAC5 /* PIRKeyboard.m */,
+				2A6EA2FF1AA5583200E8B340 /* PierStopWatchView.h */,
+				2A6EA3001AA5583200E8B340 /* PierStopWatchView.m */,
+				2ACCFECA1A77722700A5BAC5 /* PierKeyboard.h */,
+				2ACCFECB1A77722700A5BAC5 /* PierKeyboard.m */,
 				2ACCFEB71A775B9000A5BAC5 /* PierAlertView.h */,
 				2ACCFEB81A775B9000A5BAC5 /* PierAlertView.m */,
 				2ACCFEBB1A775D4500A5BAC5 /* PierAlertView.xib */,
@@ -409,14 +409,14 @@
 		2ACCFEBD1A775F5A00A5BAC5 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				2A6EA3031AA579CD00E8B340 /* PIRDataSource.h */,
-				2A6EA3041AA579CD00E8B340 /* PIRDataSource.m */,
-				2A252D381AA1B0AB004BAB9C /* PIRDateUtil.h */,
-				2A252D391AA1B0AB004BAB9C /* PIRDateUtil.m */,
-				2A252D341AA1B081004BAB9C /* NSString+Check.h */,
-				2A252D351AA1B081004BAB9C /* NSString+Check.m */,
-				2A252D301AA1AF4C004BAB9C /* PIRViewUtil.h */,
-				2A252D311AA1AF4C004BAB9C /* PIRViewUtil.m */,
+				2A6EA3031AA579CD00E8B340 /* PierDataSource.h */,
+				2A6EA3041AA579CD00E8B340 /* PierDataSource.m */,
+				2A252D381AA1B0AB004BAB9C /* PierDateUtil.h */,
+				2A252D391AA1B0AB004BAB9C /* PierDateUtil.m */,
+				2A252D341AA1B081004BAB9C /* NSString+PierCheck.h */,
+				2A252D351AA1B081004BAB9C /* NSString+PierCheck.m */,
+				2A252D301AA1AF4C004BAB9C /* PierViewUtil.h */,
+				2A252D311AA1AF4C004BAB9C /* PierViewUtil.m */,
 				2A252CD91AA166A7004BAB9C /* PierFont.h */,
 				2A252CDA1AA166A7004BAB9C /* PierFont.m */,
 				2ACCFEC61A776A4500A5BAC5 /* PierTools.h */,
@@ -624,34 +624,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A252D321AA1AF4C004BAB9C /* PIRViewUtil.m in Sources */,
+				2A252D321AA1AF4C004BAB9C /* PierViewUtil.m in Sources */,
 				2ACCFEB91A775B9000A5BAC5 /* PierAlertView.m in Sources */,
 				2A6273B21AA6F1D400BEC05C /* PierPayService.m in Sources */,
 				2ACCFEC01A775FA000A5BAC5 /* PierColor.m in Sources */,
 				2A252D3F1AA1BA58004BAB9C /* PierLoginViewController.m in Sources */,
 				2A252D4F1AA1C4E8004BAB9C /* PierSiginCells.m in Sources */,
-				2A77977A1A3E764F00F5DF36 /* PIRHttpClient.m in Sources */,
-				2A6EA3051AA579CD00E8B340 /* PIRDataSource.m in Sources */,
+				2A77977A1A3E764F00F5DF36 /* PierHttpClient.m in Sources */,
+				2A6EA3051AA579CD00E8B340 /* PierDataSource.m in Sources */,
 				AD7974F71AAA9B7300AC26C4 /* PierCountryCodeViewController.m in Sources */,
 				2ACCFEC81A776A4500A5BAC5 /* PierTools.m in Sources */,
 				2A252D4B1AA1C4D0004BAB9C /* PierSiginViewModel.m in Sources */,
-				2ACCFECC1A77722700A5BAC5 /* PIRKeyboard.m in Sources */,
-				2A96B55B1AA429CA00CDA7E9 /* RPFloatingPlaceholderTextView.m in Sources */,
-				2ABF82591A65281C00BEEAF6 /* PIRService.m in Sources */,
-				2ABF82451A64E28800BEEAF6 /* JSONKit.m in Sources */,
-				2A77977D1A3E865D00F5DF36 /* PIRHttpExecutor.m in Sources */,
-				2A96B55A1AA429CA00CDA7E9 /* RPFloatingPlaceholderTextField.m in Sources */,
-				2A252D361AA1B081004BAB9C /* NSString+Check.m in Sources */,
+				2ACCFECC1A77722700A5BAC5 /* PierKeyboard.m in Sources */,
+				2A96B55B1AA429CA00CDA7E9 /* PierFloatingPlaceholderTextView.m in Sources */,
+				2ABF82591A65281C00BEEAF6 /* PierService.m in Sources */,
+				2ABF82451A64E28800BEEAF6 /* PierJSONKit.m in Sources */,
+				2A77977D1A3E865D00F5DF36 /* PierHttpExecutor.m in Sources */,
+				2A96B55A1AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.m in Sources */,
+				2A252D361AA1B081004BAB9C /* NSString+PierCheck.m in Sources */,
 				2A252D451AA1C0EE004BAB9C /* PierCreditApplyController.m in Sources */,
 				2ACCFEB21A77340D00A5BAC5 /* PierLoginViewController1.m in Sources */,
-				2AC461E61A75FA0300DD2C49 /* PIRPayModel.m in Sources */,
-				2AC84ED71A2EFCA600920073 /* PIRJSONModel.m in Sources */,
+				2AC461E61A75FA0300DD2C49 /* PierPayModel.m in Sources */,
+				2AC84ED71A2EFCA600920073 /* PierJSONModel.m in Sources */,
 				2A96B56D1AA465CF00CDA7E9 /* PierRegisterViewController.m in Sources */,
-				2A6EA3011AA5583200E8B340 /* PIRStopWatchView.m in Sources */,
+				2A6EA3011AA5583200E8B340 /* PierStopWatchView.m in Sources */,
 				2ACCFEAE1A772AD300A5BAC5 /* PierPay.m in Sources */,
 				2A8BEB381AAC8B7B00D240CE /* PierLoadingView.m in Sources */,
 				2A252CDB1AA166A7004BAB9C /* PierFont.m in Sources */,
-				2A252D3A1AA1B0AB004BAB9C /* PIRDateUtil.m in Sources */,
+				2A252D3A1AA1B0AB004BAB9C /* PierDateUtil.m in Sources */,
 				2A96B5671AA464B600CDA7E9 /* PierSiginViewController.m in Sources */,
 				2A6EA30A1AA5A14800E8B340 /* PierCreditApproveViewController.m in Sources */,
 			);
@@ -668,32 +668,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A252D3B1AA1B0AB004BAB9C /* PIRDateUtil.m in Sources */,
+				2A252D3B1AA1B0AB004BAB9C /* PierDateUtil.m in Sources */,
 				2A252D501AA1C4E8004BAB9C /* PierSiginCells.m in Sources */,
 				2A6273B31AA6F1D400BEC05C /* PierPayService.m in Sources */,
-				2ACCFED61A7782F600A5BAC5 /* PIRHttpExecutor.m in Sources */,
-				2ACCFED51A7782EE00A5BAC5 /* PIRService.m in Sources */,
+				2ACCFED61A7782F600A5BAC5 /* PierHttpExecutor.m in Sources */,
+				2ACCFED51A7782EE00A5BAC5 /* PierService.m in Sources */,
 				2A96B56E1AA465CF00CDA7E9 /* PierRegisterViewController.m in Sources */,
-				2ACCFED41A7782E100A5BAC5 /* PIRJSONModel.m in Sources */,
+				2ACCFED41A7782E100A5BAC5 /* PierJSONModel.m in Sources */,
 				2A8BEB391AAC8B7B00D240CE /* PierLoadingView.m in Sources */,
-				2ACCFED31A7782DC00A5BAC5 /* PIRHttpClient.m in Sources */,
-				2A252D371AA1B081004BAB9C /* NSString+Check.m in Sources */,
-				2ACCFED21A7782C700A5BAC5 /* JSONKit.m in Sources */,
+				2ACCFED31A7782DC00A5BAC5 /* PierHttpClient.m in Sources */,
+				2A252D371AA1B081004BAB9C /* NSString+PierCheck.m in Sources */,
+				2ACCFED21A7782C700A5BAC5 /* PierJSONKit.m in Sources */,
 				2A252D461AA1C0EE004BAB9C /* PierCreditApplyController.m in Sources */,
-				2ACCFED11A7782A800A5BAC5 /* PIRPayModel.m in Sources */,
+				2ACCFED11A7782A800A5BAC5 /* PierPayModel.m in Sources */,
 				2A252D4C1AA1C4D0004BAB9C /* PierSiginViewModel.m in Sources */,
 				2ACCFEB31A77340D00A5BAC5 /* PierLoginViewController1.m in Sources */,
 				2ACCFEC11A775FA000A5BAC5 /* PierColor.m in Sources */,
-				2A6EA3021AA5583200E8B340 /* PIRStopWatchView.m in Sources */,
+				2A6EA3021AA5583200E8B340 /* PierStopWatchView.m in Sources */,
 				AD7974F81AAA9B7300AC26C4 /* PierCountryCodeViewController.m in Sources */,
 				2A96B5681AA464B600CDA7E9 /* PierSiginViewController.m in Sources */,
-				2ACCFECD1A77722700A5BAC5 /* PIRKeyboard.m in Sources */,
+				2ACCFECD1A77722700A5BAC5 /* PierKeyboard.m in Sources */,
 				2A6EA30B1AA5A14800E8B340 /* PierCreditApproveViewController.m in Sources */,
-				2A252D331AA1AF4C004BAB9C /* PIRViewUtil.m in Sources */,
+				2A252D331AA1AF4C004BAB9C /* PierViewUtil.m in Sources */,
 				2A252D401AA1BA58004BAB9C /* PierLoginViewController.m in Sources */,
 				2ACCFEBA1A775B9000A5BAC5 /* PierAlertView.m in Sources */,
 				2A252CDC1AA166A7004BAB9C /* PierFont.m in Sources */,
-				2A6EA3061AA579CD00E8B340 /* PIRDataSource.m in Sources */,
+				2A6EA3061AA579CD00E8B340 /* PierDataSource.m in Sources */,
 				2ACCFEC91A776A4500A5BAC5 /* PierTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

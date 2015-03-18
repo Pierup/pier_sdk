@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, eDOBFormate){
 };
 
 
-@interface NSString (Check)
+@interface NSString (PierCheck)
 
 /**
  * 判断字串是否是空

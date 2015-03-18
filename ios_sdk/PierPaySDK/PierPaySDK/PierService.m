@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Pier.Inc. All rights reserved.
 //
 
-#import "PIRService.h"
-#import "PIRSDKPath.h"
-#import "PIRHttpClient.h"
-#import "PIRJSONModel.h"
-#import "PIRConfig.h"
+#import "PierService.h"
+#import "PierSDKPath.h"
+#import "PierHttpClient.h"
+#import "PierJSONModel.h"
+#import "PierConfig.h"
 #import "PierTools.h"
-#import "NSString+Check.h"
-#import "PIRDataSource.h"
+#import "NSString+PierCheck.h"
+#import "PierDataSource.h"
 #import "PierAlertView.h"
 #import "PierLoadingView.h"
 
@@ -35,9 +35,9 @@
 #define USRT_INVALID        1007
 
 
-@implementation PIRService
+@implementation PierService
 
-+ (void)setRequestHeader:(NSDictionary *)param requestModel:(PIRPayModel *)requestModel{
++ (void)setRequestHeader:(NSDictionary *)param requestModel:(PierPayModel *)requestModel{
     NSString *phone = [param valueForKey:@"phone"];
     if (![NSString emptyOrNull:phone]) {
         __dataSource.phone = phone;
@@ -63,7 +63,7 @@
 }
 
 + (void)serverSend:(ePIER_API_Type)apiType
-           resuest:(PIRPayModel *)requestModel
+           resuest:(PierPayModel *)requestModel
       successBlock:(PierPaySuccessBlock)success
        faliedBlock:(PierPayFailedBlock)failed
          attribute:(NSDictionary *)attribute{
@@ -74,54 +74,54 @@
         });
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSDictionary *param = [PIRJSONModel getDictionaryByObject:requestModel];
-        [PIRService setRequestHeader:param requestModel:requestModel];
-        NSDictionary *pathAndMethod = [PIRService getPathAndMethodByType:apiType requestModel:requestModel];
+        NSDictionary *param = [PierJSONModel getDictionaryByObject:requestModel];
+        [PierService setRequestHeader:param requestModel:requestModel];
+        NSDictionary *pathAndMethod = [PierService getPathAndMethodByType:apiType requestModel:requestModel];
         ePIRHttpClientType hostType = [[pathAndMethod objectForKey:HTTP_HOST] intValue];
         NSString *path              = [pathAndMethod objectForKey:HTTP_PATH];
         NSInteger method            = [[pathAndMethod objectForKey:HTTP_METHOD] integerValue];
         switch (method) {
             case HTTP_METHOD_POST:
             {
-                [[PIRHttpClient sharedInstanceWithClientType:hostType] POST:path parameters:param progress:^(float progress){
+                [[PierHttpClient sharedInstanceWithClientType:hostType] POST:path parameters:param progress:^(float progress){
                     DLog(@"progress:%f",progress);
                 } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
+                    [PierService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
                 } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
+                    [PierService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
                 }];
                 break;
             }
             case HTTP_METHOD_POST_JSON:
             {
-                [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPOST:path parameters:param progress:^(float progress){
+                [[PierHttpClient sharedInstanceWithClientType:hostType] JSONPOST:path parameters:param progress:^(float progress){
                     DLog(@"progress:%f",progress);
                 } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
+                    [PierService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
                 } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
+                    [PierService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
                 }];
                 break;
             }
             case HTTP_METHOD_PUT:
             {
-                [[PIRHttpClient sharedInstanceWithClientType:hostType] JSONPUT:path parameters:param progress:^(float progress){
+                [[PierHttpClient sharedInstanceWithClientType:hostType] JSONPUT:path parameters:param progress:^(float progress){
                     DLog(@"progress:%f",progress);
                 } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
+                    [PierService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
                 } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
+                    [PierService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
                 }];
                 break;
             }
             case HTTP_METHOD_GET:
             {
-                [[PIRHttpClient sharedInstanceWithClientType:hostType] GET:path saveToPath:nil parameters:nil progress:^(float progress) {
+                [[PierHttpClient sharedInstanceWithClientType:hostType] GET:path saveToPath:nil parameters:nil progress:^(float progress) {
                     
                 } success:^(id response, NSHTTPURLResponse *urlResponse) {
-                    [PIRService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
+                    [PierService executeSuccess:response param:pathAndMethod urlResponse:urlResponse successBlock:success faliedBlock:failed attribute:attribute];
                 } failed:^(NSHTTPURLResponse *urlResponse, NSError *error) {
-                    [PIRService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
+                    [PierService executeFailed:pathAndMethod urlResponse:urlResponse error:error faliedBlock:failed attribute:attribute];
                 }];
                 break;
             }
@@ -162,7 +162,7 @@
         }else{
             DLog(@"Result nil.");
         }
-        PIRPayModel *resultModel   = [PIRJSONModel getObjectByDictionary:resultDic clazz:resultClass];
+        PierPayModel *resultModel   = [PierJSONModel getObjectByDictionary:resultDic clazz:resultClass];
         [resultModel setValue:[NSString getUnNilString:result[@"code"]] forKey:@"code"];
         [resultModel setValue:[NSString getUnNilString:result[@"message"]] forKey:@"message"];
         
@@ -247,7 +247,7 @@
     failed(error);
 }
 
-+ (NSDictionary *)getPathAndMethodByType:(ePIER_API_Type)apiType requestModel:(PIRPayModel *)requestModel{
++ (NSDictionary *)getPathAndMethodByType:(ePIER_API_Type)apiType requestModel:(PierPayModel *)requestModel{
     NSDictionary *result = nil;
     switch (apiType) {
         case ePIER_API_TRANSACTION_SMS:
@@ -302,7 +302,7 @@
         case ePIER_API_GET_MERCHANT:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"2",HTTP_HOST,
-                      [PIRService getMerchantURL:requestModel],HTTP_PATH,
+                      [PierService getMerchantURL:requestModel],HTTP_PATH,
                       @(HTTP_METHOD_GET),HTTP_METHOD,
                       @"MerchantResponse",RESULT_MODEL,nil];
             break;
@@ -319,7 +319,7 @@
     return result;
 }
 
-+ (NSString *)getMerchantURL:(PIRPayModel *)requestModel{
++ (NSString *)getMerchantURL:(PierPayModel *)requestModel{
     NSString *urlStr = [__dataSource.merchantParam objectForKey:@"server_url"];
     NSString *amount = [__dataSource.merchantParam objectForKey:@"amount"];
     NSString *authToken = [requestModel valueForKey:@"auth_token"];
