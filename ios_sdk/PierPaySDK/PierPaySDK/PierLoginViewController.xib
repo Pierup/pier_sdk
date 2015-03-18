@@ -107,15 +107,12 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJq-hc-7Wz">
-                    <rect key="frame" x="15" y="30" width="25" height="25"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJq-hc-7Wz">
+                    <rect key="frame" x="15" y="30" width="22" height="22"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="E6q-0l-tCx"/>
-                        <constraint firstAttribute="width" constant="25" id="xdr-1x-Gue"/>
+                        <constraint firstAttribute="height" constant="22" id="E6q-0l-tCx"/>
+                        <constraint firstAttribute="width" constant="22" id="xdr-1x-Gue"/>
                     </constraints>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -145,7 +142,7 @@
                 <constraint firstItem="RJz-UZ-Ln1" firstAttribute="top" secondItem="3Kw-Ov-C8r" secondAttribute="bottom" constant="5" id="sqz-ho-DKm"/>
                 <constraint firstItem="p40-W5-Txm" firstAttribute="leading" secondItem="TfQ-7c-Ju8" secondAttribute="trailing" constant="18" id="vDo-dg-odx"/>
             </constraints>
-            <point key="canvasLocation" x="130" y="210"/>
+            <point key="canvasLocation" x="275" y="107"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
