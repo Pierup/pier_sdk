@@ -101,20 +101,22 @@
     
     [self.bacButton setBackgroundColor:[UIColor clearColor]];
     [self.bacButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"backpueple")] forState:UIControlStateNormal];
-//    [self.bacButton setContentMode:UIViewContentModeScaleAspectFit];
+//    [self.bacButton setContentMode:UIViewContentModeCenter];
+//    [self.bacButton setImageEdgeInsets:UIEdgeInsetsMake(6.5, 6.5, 6.5, 6.5)];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 #pragma mark --------------------- Button Action -------------------------------
 
 #pragma mark - bacButton Action
-- (void)popViewController{
+- (void)popViewController
+{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - submitButton Action
-- (IBAction)submitPhoneAndPwd{
+- (IBAction)submitPhoneAndPwd
+{
     NSString *phoneNumber = [self.phoneNumberLabel.text phoneClearFormat];
     if ([self checkPhone:phoneNumber]) {
         NSString *passWord = self.passwordLabel.text;
@@ -130,7 +132,8 @@
 
 #pragma mark - ------------------------ PierPayServiceDelegate ------------------------
 
-- (void)pierPayServiceComplete:(NSDictionary *)result{
+- (void)pierPayServiceComplete:(NSDictionary *)result
+{
     // Return to Merchant APP
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         [__dataSource.pierDelegate payByPierComplete:result];
@@ -139,7 +142,8 @@
 
 
 #pragma mark - countryCodeButton Action
-- (IBAction)countryCodeButtonAction:(UIButton *)sender {
+- (IBAction)countryCodeButtonAction:(UIButton *)sender
+{
     
     PierCountryCodeViewController *countryCodeController = [[PierCountryCodeViewController alloc]initWithNibName:@"PierCountryCodeViewController" bundle:pierBoundle()];
     countryCodeController.selectedCountryModel = self.country;
@@ -213,7 +217,8 @@
 
 #pragma mark -------------------- 退出清空 -----------------------------
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

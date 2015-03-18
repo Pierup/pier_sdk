@@ -36,10 +36,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYf-LD-9Vd">
-                    <rect key="frame" x="15" y="30" width="25" height="25"/>
+                    <rect key="frame" x="15" y="30" width="22" height="22"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Eph-xw-9bV"/>
-                        <constraint firstAttribute="height" constant="25" id="tgM-Ev-8IZ"/>
+                        <constraint firstAttribute="width" constant="22" id="Eph-xw-9bV"/>
+                        <constraint firstAttribute="height" constant="22" id="tgM-Ev-8IZ"/>
                     </constraints>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
