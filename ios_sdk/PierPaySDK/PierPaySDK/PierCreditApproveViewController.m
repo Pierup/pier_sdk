@@ -82,7 +82,7 @@
     PierPayService *pierService = [[PierPayService alloc] init];
     pierService.delegate = self;
     pierService.smsRequestModel = self.smsRequestModel;
-    [pierService serviceGetPaySMS];
+    [pierService serviceGetPaySMS:YES];
 }
 
 - (IBAction)cancelPay:(id)sender{

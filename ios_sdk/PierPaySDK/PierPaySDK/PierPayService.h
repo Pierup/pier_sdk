@@ -26,6 +26,6 @@
 /** delegate */
 @property (nonatomic, weak) id<PierPayServiceDelegate> delegate;
 
-- (void)serviceGetPaySMS;
+- (void)serviceGetPaySMS:(BOOL)rememberuser;
 
 @end

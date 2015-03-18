@@ -24,10 +24,15 @@ void freeDataSource();
 #define DATASOURCES_CURRENCY            @"currency"
 #define DATASOURCES_SERVER_URL          @"server_url"
 
+extern NSString * const  pier_userdefaults_userinfo;
+extern NSString * const  pier_userdefaults_phone;
+extern NSString * const  pier_userdefaults_countrycode;
+extern NSString * const  pier_userdefaults_password;
+
 @interface PierDataSource : NSObject
 
 /**
- * userAttributes
+ * merchantParam
  * name:            Required     Type       Description
  * 1.phone           YES          NSString   user phone.
  * 2.country_code    YES          NSString   the country code of user phone.
@@ -42,5 +47,17 @@ void freeDataSource();
 @property (nonatomic, copy) NSString *user_id;              // user id
 @property (nonatomic, assign) BOOL hasCredit;               // 判断用户是否有credit
 @property (nonatomic, weak) id<PayByPierDelegate> pierDelegate;
+
+/**
+ * userInfo
+ * name:            Required     Type       Description
+ * 1.phone           YES          NSString   user phone.
+ * 2.country_code    YES          NSString   the country code of user phone.
+ * 3.passwoed
+ */
+- (void)saveUserInfo:(NSDictionary *)userInfo;
+- (NSDictionary *)getUserInfo;
+- (NSString *)getPassword:(NSDictionary *)userInfo;
+- (void)clearUserInfo;
 
 @end

@@ -27,6 +27,7 @@
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
 @property (nonatomic, weak) IBOutlet UILabel *errorMsgLabel;
+@property (nonatomic, weak) IBOutlet UISwitch *rememberSwitchBtn;
 
 @property (nonatomic, strong) CountryModel *country;
 /** servire model */
@@ -87,13 +88,20 @@
     NSString *formatePhone = [[__dataSource.merchantParam objectForKey:@"phone"] phoneFormat];
     [self.phoneNumberLabel setText:formatePhone];
     
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         [__dataSource.merchantParam objectForKey:@"phone"], pier_userdefaults_phone,
+                         countryCode, pier_userdefaults_countrycode,nil];
+    NSString *password = [__dataSource getPassword:dic];
+
     if (![NSString emptyOrNull:formatePhone]) {
+        if (![NSString emptyOrNull:password]) {
+            [self.passwordLabel setText:password];
+        }
         [self.passwordLabel becomeFirstResponder];
     }else{
         [self.phoneNumberLabel becomeFirstResponder];
     }
 }
-
 
 - (void)initView
 {
@@ -113,6 +121,11 @@
 //    [self.bacButton setContentMode:UIViewContentModeCenter];
 //    [self.bacButton setImageEdgeInsets:UIEdgeInsetsMake(6.5, 6.5, 6.5, 6.5)];
     [self.bacButton addTarget:self action:@selector(popViewController) forControlEvents:UIControlEventTouchUpInside];
+    
+    /** remember switch button */
+    [self.rememberSwitchBtn setOnTintColor:[PierColor lightPurpleColor]];
+    [self.rememberSwitchBtn setThumbTintColor:[PierColor lightGreenColor]];
+    [self.rememberSwitchBtn setOn:YES];
 }
 
 #pragma mark --------------------- Button Action -------------------------------
@@ -132,10 +145,16 @@
         self.smsRequestModel.phone = phoneNumber;
         self.smsRequestModel.password = passWord;
         
+        BOOL remember = YES;
+        if (self.rememberSwitchBtn.isOn) {
+            remember = YES;
+        }else{
+            remember = NO;
+        }
         PierPayService *pierService = [[PierPayService alloc] init];
         pierService.delegate = self;
         pierService.smsRequestModel = self.smsRequestModel;
-        [pierService serviceGetPaySMS];
+        [pierService serviceGetPaySMS:remember];
     }
 }
 
