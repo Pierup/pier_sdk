@@ -62,7 +62,7 @@
 }
 
 - (void)initView{
-    NSString *amount = [NSString getNumberFormatterDecimalStyle:[__dataSource.merchantParam objectForKey:@"amount"] currency:[__dataSource.merchantParam objectForKey:@"currency"]];
+    NSString *amount = [NSString getNumberFormatterDecimalStyle:[__dataSource.merchantParam objectForKey:DATASOURCES_AMOUNT] currency:[__dataSource.merchantParam objectForKey:DATASOURCES_CURRENCY]];
     [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@ with Pier",amount] forState:UIControlStateNormal];
     
     UIImage *patBtnImg = [PierViewUtil getImageByView:self.payButton];
@@ -78,11 +78,11 @@
 }
 
 - (IBAction)payWithPier{
-    self.smsRequestModel.phone = __dataSource.phone;
+    self.smsRequestModel.phone = [__dataSource.merchantParam objectForKey:DATASOURCES_PHONE];
     PierPayService *pierService = [[PierPayService alloc] init];
     pierService.delegate = self;
     pierService.smsRequestModel = self.smsRequestModel;
-    [pierService serviceGetPaySMS];
+    [pierService serviceGetPaySMS:YES];
 }
 
 - (IBAction)cancelPay:(id)sender{

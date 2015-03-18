@@ -31,8 +31,18 @@
     return self;
 }
 
-- (void)serviceGetPaySMS{
+- (void)serviceGetPaySMS:(BOOL)rememberuser{
     [PierService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
+        if (rememberuser) {
+            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 self.smsRequestModel.phone, pier_userdefaults_phone,
+                                 [__dataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE], pier_userdefaults_countrycode,
+                                 self.smsRequestModel.password, pier_userdefaults_password,nil];
+            [__dataSource saveUserInfo:dic];
+        }else{
+            [__dataSource clearUserInfo];
+        }
+        
         TransactionSMSResponse *response = (TransactionSMSResponse *)responseModel;
         
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -54,7 +64,7 @@
 
 
 - (void)serviceGetAuthToken:(NSString *)userinput{
-    self.authTokenRequestModel.phone = __dataSource.phone;
+    self.authTokenRequestModel.phone = [__dataSource.merchantParam objectForKey:DATASOURCES_PHONE];
     self.authTokenRequestModel.pass_code = userinput;
     self.authTokenRequestModel.pass_type = @"1";
     self.authTokenRequestModel.merchant_id = [__dataSource.merchantParam objectForKey:@"merchant_id"];

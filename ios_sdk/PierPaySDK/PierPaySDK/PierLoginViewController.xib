@@ -12,6 +12,7 @@
                 <outlet property="errorMsgLabel" destination="w8f-Jt-GvX" id="WaR-wE-oBw"/>
                 <outlet property="passwordLabel" destination="CgD-zR-LEI" id="eqE-JL-V5X"/>
                 <outlet property="phoneNumberLabel" destination="3Kw-Ov-C8r" id="IAO-BM-SvK"/>
+                <outlet property="rememberSwitchBtn" destination="ajG-7D-Fox" id="IOZ-GK-IcX"/>
                 <outlet property="submitButton" destination="GLf-a8-oCS" id="3i7-bq-8Nk"/>
                 <outlet property="textRemarkLabel" destination="utt-OR-hS8" id="JBc-Vb-YGx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -121,6 +122,17 @@
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajG-7D-Fox">
+                    <rect key="frame" x="15" y="176" width="51" height="31"/>
+                    <color key="onTintColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="thumbTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remember" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvn-Uk-ygQ">
+                    <rect key="frame" x="15" y="160" width="85" height="16.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -149,7 +161,7 @@
                 <constraint firstItem="RJz-UZ-Ln1" firstAttribute="top" secondItem="3Kw-Ov-C8r" secondAttribute="bottom" constant="5" id="sqz-ho-DKm"/>
                 <constraint firstItem="p40-W5-Txm" firstAttribute="leading" secondItem="TfQ-7c-Ju8" secondAttribute="trailing" constant="18" id="vDo-dg-odx"/>
             </constraints>
-            <point key="canvasLocation" x="26" y="95"/>
+            <point key="canvasLocation" x="26" y="95.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

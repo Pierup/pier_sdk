@@ -9,6 +9,11 @@
 #import "PierDataSource.h"
 #import "NSString+PierCheck.h"
 
+NSString * const  pier_userdefaults_userinfo    = @"pier_pay_user_info";
+NSString * const  pier_userdefaults_phone       = @"pier_pay_user_phone";
+NSString * const  pier_userdefaults_countrycode = @"pier_pay_user_country_code";
+NSString * const  pier_userdefaults_password    = @"pier_pay_user_password";
+
 PierDataSource *__dataSource;
 
 void initDataSource()
@@ -37,17 +42,9 @@ void freeDataSource()
         self.session_token = @"";
         self.device_id = @"";
         self.user_id = @"";
-        self.country_code = @"US";
     }
     
     return self;
-}
-
-
-- (void)setCountry_code:(NSString *)country_code{
-    if (![NSString emptyOrNull:country_code]) {
-        _country_code = country_code;
-    }
 }
 
 - (void)setSession_token:(NSString *)sessionToken{
@@ -62,10 +59,32 @@ void freeDataSource()
     }
 }
 
-- (void)setPhone:(NSString *)phone{
-    if (![NSString emptyOrNull:phone]) {
-        _phone = phone;
+- (void)saveUserInfo:(NSDictionary *)userInfo{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:userInfo forKey:pier_userdefaults_userinfo];
+}
+
+- (NSDictionary *)getUserInfo{
+    NSDictionary *userinfo = [[NSUserDefaults standardUserDefaults] objectForKey:pier_userdefaults_userinfo];
+    return userinfo;
+}
+
+- (NSString *)getPassword:(NSDictionary *)userInfo{
+    NSString *pwd = @"";
+    NSDictionary *info = [self getUserInfo];
+    if ([[info objectForKey:pier_userdefaults_phone] isEqualToString:[userInfo objectForKey:pier_userdefaults_phone]] &&
+        [[info objectForKey:pier_userdefaults_countrycode] isEqualToString:[userInfo objectForKey:pier_userdefaults_countrycode]]) {
+        pwd = [info objectForKey:pier_userdefaults_password];
     }
+    return pwd;
+}
+
+- (void)clearUserInfo{
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                         @"", pier_userdefaults_phone,
+                         @"", pier_userdefaults_countrycode,
+                         @"", pier_userdefaults_password,nil];
+    [[NSUserDefaults standardUserDefaults] setValue:dic forKey:pier_userdefaults_userinfo];
 }
 
 @end

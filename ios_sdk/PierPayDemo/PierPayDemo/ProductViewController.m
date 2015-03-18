@@ -96,6 +96,10 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self setTitle:@"Product"];
+    [self initData];
+}
+
+- (void)initData{
     [self getMerchantProduct:self.merchantModel.merchant_id];
 }
 

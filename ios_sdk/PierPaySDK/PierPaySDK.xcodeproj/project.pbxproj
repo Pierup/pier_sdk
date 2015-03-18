@@ -179,7 +179,7 @@
 		2A77977C1A3E865D00F5DF36 /* PierHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierHttpExecutor.m; sourceTree = "<group>"; };
 		2A8BEB361AAC8B7B00D240CE /* PierLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierLoadingView.h; sourceTree = "<group>"; };
 		2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierLoadingView.m; sourceTree = "<group>"; };
-		2A96B5551AA429CA00CDA7E9 /* RPFloatingPlaceholderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPFloatingPlaceholderConstants.h; sourceTree = "<group>"; };
+		2A96B5551AA429CA00CDA7E9 /* RierFloatingPlaceholderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RierFloatingPlaceholderConstants.h; sourceTree = "<group>"; };
 		2A96B5561AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierFloatingPlaceholderTextField.h; sourceTree = "<group>"; };
 		2A96B5571AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierFloatingPlaceholderTextField.m; sourceTree = "<group>"; };
 		2A96B5581AA429CA00CDA7E9 /* PierFloatingPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierFloatingPlaceholderTextView.h; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 		2A96B5541AA429AB00CDA7E9 /* RPFloatingPlaceholders */ = {
 			isa = PBXGroup;
 			children = (
-				2A96B5551AA429CA00CDA7E9 /* RPFloatingPlaceholderConstants.h */,
+				2A96B5551AA429CA00CDA7E9 /* RierFloatingPlaceholderConstants.h */,
 				2A96B5561AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.h */,
 				2A96B5571AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.m */,
 				2A96B5581AA429CA00CDA7E9 /* PierFloatingPlaceholderTextView.h */,
