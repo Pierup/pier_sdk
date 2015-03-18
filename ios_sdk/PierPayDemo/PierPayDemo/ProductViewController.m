@@ -8,7 +8,7 @@
 
 #import "ProductViewController.h"
 #import "PierPay.h"
-#import "DemoHttpExecutor.h"
+#import "PIRHttpExecutor.h"
 
 #pragma mark ------------------- ProductCell ------------------------------
 
@@ -107,7 +107,7 @@
                          @"2",@"platform",
                          merchant_id,@"merchant_id",
                          nil];
-    [[DemoHttpExecutor getInstance] sendMessage:^(id respond) {
+    [[PIRHttpExecutor getInstance] sendMessage:^(id respond) {
         NSArray *array =  [(NSDictionary *)respond objectForKey:@"result"];
         self.productsArray = [NSMutableArray arrayWithCapacity:array.count];
         NSString *server_url = [(NSDictionary *)respond objectForKey:@"server_url"];

@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Pier.Inc. All rights reserved.
 //
 
-#import "DemoHttpExecutor.h"
+#import "PIRHttpExecutor.h"
 
 NSString * const PIRMERCHANTHOST = @"http://pierup.ddns.net:8686";
 
-@interface DemoHttpExecutor ()
+@interface PIRHttpExecutor ()
 @property(nonatomic, assign) BOOL isFinished;
 @property(nonatomic, strong) NSURL *url;
 @property(nonatomic, strong) NSURLConnection* connection;
@@ -23,16 +23,16 @@ NSString * const PIRMERCHANTHOST = @"http://pierup.ddns.net:8686";
 
 @end
 
-static DemoHttpExecutor *__connect;
+static PIRHttpExecutor *__connect;
 
-@implementation DemoHttpExecutor
+@implementation PIRHttpExecutor
 
-+ (DemoHttpExecutor *)getInstance
++ (PIRHttpExecutor *)getInstance
 {
     if (!__connect) {
         @synchronized(self){
             if (!__connect) {
-                __connect = [[DemoHttpExecutor alloc] init];
+                __connect = [[PIRHttpExecutor alloc] init];
             }
         }
     }
