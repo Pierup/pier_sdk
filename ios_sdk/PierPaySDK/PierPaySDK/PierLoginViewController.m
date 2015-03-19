@@ -26,7 +26,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *passwordLabel;
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
-@property (nonatomic, weak) IBOutlet UILabel *errorMsgLabel;
+@property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
 @property (nonatomic, weak) IBOutlet UISwitch *rememberSwitchBtn;
 
 @property (nonatomic, strong) CountryModel *country;
@@ -168,8 +168,9 @@
     }];
 }
 
-- (void)pierPayServiceFailed:(NSError *)error{
-    [self.errorMsgLabel setText:[error domain]];
+- (void)pierPayServiceFailed:(NSError *)error
+{
+    [self.errorMessageLabel setText:[error domain]];
 }
 
 
