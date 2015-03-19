@@ -178,11 +178,12 @@
          * 4.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
          * 5.scheme          YES          NSString   merchant App scheme
          */
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?amount=%@&currency=%@&merchant_id=%@&server_url=%@", @"paywithpier",
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?amount=%@&currency=%@&merchant_id=%@&server_url=%@&scheme=%@", @"paywithpier",
                                            [_merchantParam objectForKey:@"amount"],
                                            [_merchantParam objectForKey:@"currency"],
                                            [_merchantParam objectForKey:@"merchant_id"],
-                                           [_merchantParam objectForKey:@"server_url"]]];
+                                           [_merchantParam objectForKey:@"server_url"],
+                                           @"piermerchant"]];
         if ([[UIApplication sharedApplication] canOpenURL:url]) {
             [[UIApplication sharedApplication] openURL:url];
         }else{
@@ -223,7 +224,6 @@
 {
     NSInteger status = [[result objectForKey:@"status"] integerValue];
     if (status == 1) {
-        //failed
         //failed
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Failed." message:[NSString stringWithFormat:@"%@",[result objectForKey:@"message"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
