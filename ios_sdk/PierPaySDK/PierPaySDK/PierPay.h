@@ -16,11 +16,12 @@
 /**
  * Result
  * name:        Type            Description
- * 1.status     NSNumber        Showing the status of sdk execution.It means successful if is '0',else means '1'.
+ * 1.status     NSNumber        Showing the status of sdk execution.It means successful if is '0', else is '1'.
  * 2.message    NSString        Showing the message from pier.
  * 3.code       NSNumber        Showing the code of message from pier.
  * 4.result     NSDictionary    Showing the value of output params of pier.
  * 5.spending   NSString        spending.
+ * 6.order_id   NSString   merchant orderID
  */
 -(void)payWithPierComplete:(NSDictionary *)result;
 
@@ -41,6 +42,8 @@
  * 4.amount          YES          NSString   amount.
  * 5.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
  * 6.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ * 7.order_id        YES          NSString   merchant orderID
+ *
  */
 - (instancetype)initWith:(NSDictionary *)userAttributes delegate:(id)delegate;
 
@@ -54,6 +57,8 @@
  * 4.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
  * 5.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  * 6.session_token   YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ * 7.order_id        YES          NSString   merchant orderID
+ *
  */
 + (void)payWith:(NSDictionary *)userAttributes delegate:(id)delegate;
 

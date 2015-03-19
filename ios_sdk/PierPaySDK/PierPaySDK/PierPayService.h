@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "PierPayModel.h"
 
+typedef enum {
+    ePierPayWith_PierApp,
+    ePierPayWith_Merchant
+}ePierPayWith;
 
 @protocol PierPayServiceDelegate <NSObject>
 
@@ -26,6 +30,6 @@
 /** delegate */
 @property (nonatomic, weak) id<PierPayServiceDelegate> delegate;
 
-- (void)serviceGetPaySMS:(BOOL)rememberuser;
+- (void)serviceGetPaySMS:(BOOL)rememberuser payWith:(ePierPayWith)payWith;
 
 @end

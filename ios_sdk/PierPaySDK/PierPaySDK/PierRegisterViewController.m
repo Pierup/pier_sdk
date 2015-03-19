@@ -85,7 +85,7 @@
 
 - (void)serviceUserRegister:(NSString *)password{
     PierRegisterRequest *requestModel = [[PierRegisterRequest alloc] init];
-    requestModel.phone = [__dataSource.merchantParam objectForKey:DATASOURCES_PHONE];
+    requestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
     requestModel.token = self.token;
     requestModel.password = password;
     

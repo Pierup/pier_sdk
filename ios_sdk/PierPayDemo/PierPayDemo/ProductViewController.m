@@ -48,7 +48,7 @@
         [_payButton.layer setMasksToBounds:YES];
         [_payButton.layer setCornerRadius:5];
         [_payButton setBackgroundColor:[UIColor purpleColor]];
-        [_payButton setTitle:@"Pay by Pier" forState:UIControlStateNormal];
+        [_payButton setTitle:@"Pay With Pier" forState:UIControlStateNormal];
         [self.contentView addSubview:_payButton];
     }
     return self;
@@ -71,7 +71,7 @@
 
 #pragma mark ------------------- ProductViewController --------------------
 
-@interface ProductViewController()<UITableViewDataSource, UITableViewDelegate, PierPayDelegate>
+@interface ProductViewController()<UITableViewDataSource, UITableViewDelegate, PierPayDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *productTableView;
 @property (nonatomic, strong) NSMutableArray *productsArray;
@@ -145,15 +145,70 @@
         [_merchantParam setValue:shopListModel.amount forKey:@"amount"];
         [_merchantParam setValue:shopListModel.currency forKey:@"currency"];
         [_merchantParam setValue:shopListModel.server_url forKey:@"server_url"];
-    
-        PierPay *pierpay = [[PierPay alloc] initWith:_merchantParam delegate:self];
-        [self presentViewController:pierpay animated:YES completion:nil];
+        [self showSheet];
+
     }
 }
 
+- (void)showSheet {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"Pay with Pier"
+                                  delegate:self
+                                  cancelButtonTitle:@"Cancel"
+                                  destructiveButtonTitle:@"Please choose the payment method"
+                                  otherButtonTitles:@"Pay now", @"Pay by Pier App",nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        
+    }else if (buttonIndex == 1) {
+        PierPay *pierpay = [[PierPay alloc] initWith:_merchantParam delegate:self];
+        [self presentViewController:pierpay animated:YES completion:nil];
+    }else if(buttonIndex == 2) {
+        /**
+         * userAttributes
+         * name:            Required     Type       Description
+         * 1.phone           YES          NSString   user phone.
+         * 2.country_code    YES          NSString   the country code of user phone.
+         * 3.merchant_id     YES          NSString   your id in pier.
+         * 4.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+         * 5.scheme          YES          NSString   merchant App scheme
+         */
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?amount=%@&currency=%@&merchant_id=%@&server_url=%@", @"paywithpier",
+                                           [_merchantParam objectForKey:@"amount"],
+                                           [_merchantParam objectForKey:@"currency"],
+                                           [_merchantParam objectForKey:@"merchant_id"],
+                                           [_merchantParam objectForKey:@"server_url"]]];
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            [[UIApplication sharedApplication] openURL:url];
+        }else{
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://beta.itunes.apple.com/v1/invite/8f2643ef1c9747ac80332f76120c9f496977c937aa2a44648e6022a5fbf1c2e739c7fa37?ct=9KW7KNZ4KU&pt=2003"]];
+        }
+    }else if(buttonIndex == 3) {
+        
+    }
+}
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet{
+    
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex{
+    
+}
+    
+
 #pragma mark ----------------------- Delegate ------------------------------
 
-#pragma mark - PayByPierDelegate
+#pragma mark - PierPayDelegate
 
 /**
  * Result
@@ -164,15 +219,17 @@
  * 4.result     NSDictionary    Showing the value of output params of pier.
  * 5.spending   NSString        spending.
  */
-- (void)payByPierComplete:(NSDictionary *)result
+- (void)payWithPierComplete:(NSDictionary *)result
 {
     NSInteger status = [[result objectForKey:@"status"] integerValue];
     if (status == 1) {
         //failed
-        
+        //failed
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Failed." message:[NSString stringWithFormat:@"%@",[result objectForKey:@"message"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
     }else if (status == 0){
         //success
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay by Pier Success." message:[NSString stringWithFormat:@"spending:%@",[result objectForKey:@"spending"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Success." message:[NSString stringWithFormat:@"Total Amount:%@",[result objectForKey:@"spending"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
 }
