@@ -8,6 +8,7 @@
 
 #import "PierCountryCodeViewController.h"
 #import "PierService.h"
+#import "PierDataSource.h"
 
 @implementation CountryModel
 
@@ -88,6 +89,7 @@
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(countryCodeWithCountry:)]) {
        Country *country =  self.countryArray[indexPath.row];
+        [__dataSource.merchantParam setValue:country.country_code forKey:DATASOURCES_COUNTRY_CODE];
         [self.delegate countryCodeWithCountry:country];
         [self dismissCountryCodeViewController];
     }

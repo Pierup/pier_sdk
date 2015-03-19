@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PierRegisterViewController">
             <connections>
                 <outlet property="bacButton" destination="0oC-L4-Rkx" id="o78-Po-xzp"/>
+                <outlet property="errorMessageLabel" destination="21N-4I-gsf" id="OI1-oE-OJt"/>
                 <outlet property="indicateLabel" destination="Gek-BG-k4L" id="aOr-1Z-7fI"/>
                 <outlet property="passwordLabel" destination="ofw-Qy-e5Y" id="nif-Wa-4Xy"/>
                 <outlet property="submitButton" destination="dqz-aF-QTy" id="p5G-4C-MoQ"/>
@@ -85,6 +86,15 @@
                         <action selector="userSetPasswordAction:" destination="-1" eventType="touchUpInside" id="CPw-um-6nN"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21N-4I-gsf">
+                    <rect key="frame" x="15" y="218" width="290" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="pm8-ct-PXP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -95,9 +105,11 @@
                 <constraint firstItem="ofw-Qy-e5Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="CzJ-zl-uR7"/>
                 <constraint firstAttribute="trailing" secondItem="YQk-Bt-iPW" secondAttribute="trailing" constant="15" id="FRq-tb-yTa"/>
                 <constraint firstItem="z2o-Oi-2SJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="IFP-JT-EwC"/>
+                <constraint firstItem="21N-4I-gsf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Jid-aw-Fkd"/>
                 <constraint firstItem="Gek-BG-k4L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Juf-0P-qrD"/>
                 <constraint firstAttribute="trailing" secondItem="LLG-S6-Xac" secondAttribute="trailing" constant="15" id="ZZH-FP-4kM"/>
                 <constraint firstItem="0oC-L4-Rkx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="dfZ-km-PO2"/>
+                <constraint firstItem="21N-4I-gsf" firstAttribute="top" secondItem="LLG-S6-Xac" secondAttribute="bottom" constant="2.5" id="hE1-6g-NJb"/>
                 <constraint firstAttribute="trailing" secondItem="z2o-Oi-2SJ" secondAttribute="trailing" constant="15" id="iDU-qw-LBj"/>
                 <constraint firstItem="z2o-Oi-2SJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="160" id="jCf-mb-Fr7"/>
                 <constraint firstItem="ofw-Qy-e5Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="jXn-Dx-PxA"/>
@@ -105,6 +117,7 @@
                 <constraint firstItem="0oC-L4-Rkx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="ojH-O8-iyf"/>
                 <constraint firstAttribute="trailing" secondItem="dqz-aF-QTy" secondAttribute="trailing" constant="15" id="pwO-Ga-e4p"/>
                 <constraint firstItem="LLG-S6-Xac" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="215" id="q3I-zH-bCd"/>
+                <constraint firstAttribute="trailing" secondItem="21N-4I-gsf" secondAttribute="trailing" constant="15" id="w08-rf-S27"/>
                 <constraint firstItem="Gek-BG-k4L" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="zPG-HJ-z1Q"/>
                 <constraint firstItem="YQk-Bt-iPW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="zlx-AM-Rep"/>
             </constraints>

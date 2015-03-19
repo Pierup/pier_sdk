@@ -24,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *phoneNumberLabel;
 @property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
+@property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
 @property (nonatomic, copy) NSString *phone;
 
 @property (nonatomic, strong) CountryModel *country;
@@ -153,7 +154,7 @@
         _smsAlertView.delegate = self;
         [_smsAlertView show];
     } faliedBlock:^(NSError *error) {
-        
+        [self showFailedMessageLabel:error];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
 }
 
@@ -211,6 +212,12 @@
 }
 
 #pragma mark --------------------- 功能函数 ------------------------------
+
+- (void)showFailedMessageLabel:(NSError *)error
+{
+    [self.errorMessageLabel setText:[error domain]];
+}
+
 
 - (BOOL)checkPhone
 {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="bacButton" destination="DJq-hc-7Wz" id="5ud-t9-yR3"/>
                 <outlet property="countryCodeButton" destination="TfQ-7c-Ju8" id="GqM-uF-kHN"/>
-                <outlet property="errorMsgLabel" destination="w8f-Jt-GvX" id="WaR-wE-oBw"/>
+                <outlet property="errorMessageLabel" destination="bGd-44-OWx" id="3as-Mt-djS"/>
                 <outlet property="passwordLabel" destination="CgD-zR-LEI" id="eqE-JL-V5X"/>
                 <outlet property="phoneNumberLabel" destination="3Kw-Ov-C8r" id="IAO-BM-SvK"/>
                 <outlet property="rememberSwitchBtn" destination="ajG-7D-Fox" id="IOZ-GK-IcX"/>
@@ -116,12 +116,6 @@
                         <constraint firstAttribute="width" constant="22" id="xdr-1x-Gue"/>
                     </constraints>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="w8f-Jt-GvX">
-                    <rect key="frame" x="15" y="216" width="290" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajG-7D-Fox">
                     <rect key="frame" x="15" y="176" width="51" height="31"/>
                     <color key="onTintColor" red="0.40000000000000002" green="0.12549019610000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -133,11 +127,21 @@
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGd-44-OWx">
+                    <rect key="frame" x="15" y="218" width="290" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="diJ-RN-wgJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="GLf-a8-oCS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="2Q9-EZ-rLh"/>
                 <constraint firstAttribute="trailing" secondItem="RJz-UZ-Ln1" secondAttribute="trailing" constant="15" id="6qh-yh-6D3"/>
+                <constraint firstItem="bGd-44-OWx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="9Nq-kg-cMI"/>
                 <constraint firstItem="GLf-a8-oCS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="245" id="9aA-3L-FF9"/>
                 <constraint firstItem="RJz-UZ-Ln1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="9on-yB-Mvn"/>
                 <constraint firstAttribute="trailing" secondItem="ojn-9o-6k8" secondAttribute="trailing" constant="15" id="Arj-IR-OCF"/>
@@ -146,6 +150,7 @@
                 <constraint firstItem="TfQ-7c-Ju8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="JV7-uU-G41"/>
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="leading" secondItem="CgD-zR-LEI" secondAttribute="leading" id="MJy-d7-33S"/>
                 <constraint firstItem="p40-W5-Txm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="Nr7-9q-Mng"/>
+                <constraint firstAttribute="trailing" secondItem="bGd-44-OWx" secondAttribute="trailing" constant="15" id="OCn-gy-g6w"/>
                 <constraint firstItem="utt-OR-hS8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Oyp-m7-l1I"/>
                 <constraint firstItem="TfQ-7c-Ju8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="P6A-P3-86p"/>
                 <constraint firstItem="ojn-9o-6k8" firstAttribute="top" secondItem="CgD-zR-LEI" secondAttribute="bottom" constant="5" id="S6N-TD-qGT"/>
@@ -160,8 +165,9 @@
                 <constraint firstItem="DJq-hc-7Wz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="sde-uU-P8z"/>
                 <constraint firstItem="RJz-UZ-Ln1" firstAttribute="top" secondItem="3Kw-Ov-C8r" secondAttribute="bottom" constant="5" id="sqz-ho-DKm"/>
                 <constraint firstItem="p40-W5-Txm" firstAttribute="leading" secondItem="TfQ-7c-Ju8" secondAttribute="trailing" constant="18" id="vDo-dg-odx"/>
+                <constraint firstItem="bGd-44-OWx" firstAttribute="top" secondItem="ojn-9o-6k8" secondAttribute="bottom" constant="2.5" id="wHT-f7-Wvc"/>
             </constraints>
-            <point key="canvasLocation" x="26" y="95.5"/>
+            <point key="canvasLocation" x="26" y="95"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

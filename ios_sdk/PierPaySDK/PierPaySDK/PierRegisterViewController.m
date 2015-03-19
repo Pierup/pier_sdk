@@ -22,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *passwordLabel;
 @property (nonatomic, weak) IBOutlet UITextField *verificationTextField;
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
+@property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
 
 @end
 
@@ -94,16 +95,22 @@
             [self.navigationController pushViewController:registerVC animated:YES];
         });
     } faliedBlock:^(NSError *error) {
-        
+        [self showFailedMessageLabel:error];
     } attribute:nil];
 }
 
 #pragma mark ------------------ function -------------------------
+
+- (void)showFailedMessageLabel:(NSError *)error
+{
+    [self.errorMessageLabel setText:[error domain]];
+}
+
 - (BOOL)checkPasswordAndverifyPassword
 {
     NSString *password = self.passwordLabel.text;
     NSString *verifyPassword = self.verificationTextField.text;
-    if ([password isValudPWD] && ![NSString emptyOrNull:password] && [password isEqualToString:verifyPassword])
+    if (![NSString emptyOrNull:password] && [password isEqualToString:verifyPassword])
     {
         return YES;
     }else {
