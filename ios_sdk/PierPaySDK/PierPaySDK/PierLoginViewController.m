@@ -154,7 +154,7 @@
         PierPayService *pierService = [[PierPayService alloc] init];
         pierService.delegate = self;
         pierService.smsRequestModel = self.smsRequestModel;
-        [pierService serviceGetPaySMS:remember];
+        [pierService serviceGetPaySMS:remember payWith:ePierPayWith_Merchant];
     }
 }
 

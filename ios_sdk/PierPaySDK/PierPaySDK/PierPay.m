@@ -160,7 +160,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     PierPayService *pierService = [[PierPayService alloc] init];
     pierService.delegate = delegate;
     pierService.smsRequestModel = smsRequestModel;
-    [pierService serviceGetPaySMS:YES];
+    [pierService serviceGetPaySMS:YES payWith:ePierPayWith_PierApp];
 }
 
 - (void)viewDidLoad

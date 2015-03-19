@@ -11,12 +11,15 @@
 #import "PierAlertView.h"
 #import "PierDataSource.h"
 #import "NSString+PierCheck.h"
+#import "PierDataSource.h"
 
 @interface PierPayService () <PierSMSInputAlertDelegate>
 
 @property (nonatomic, strong) PierGetAuthTokenV2Request *authTokenRequestModel;
 
 @property (nonatomic, strong) PierSMSAlertView *smsAlertView;
+
+@property (nonatomic, assign) ePierPayWith payWithType;
 
 @end
 
@@ -31,7 +34,8 @@
     return self;
 }
 
-- (void)serviceGetPaySMS:(BOOL)rememberuser{
+- (void)serviceGetPaySMS:(BOOL)rememberuser payWith:(ePierPayWith)payWith{
+    self.payWithType = payWith;
     [PierService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
         if (rememberuser) {
             NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -58,7 +62,13 @@
         [_smsAlertView show];
         
     } faliedBlock:^(NSError *error) {
-        [self.delegate pierPayServiceFailed:error];
+        if (payWith == ePierPayWith_Merchant) {
+            [self.delegate pierPayServiceFailed:error];
+        }else{
+            if (__pierDataSource.pierDelegate && [__pierDataSource.pierDelegate respondsToSelector:@selector(payWithPierComplete:)]) {
+                [__pierDataSource.pierDelegate payWithPierComplete:[NSDictionary dictionaryWithObjectsAndKeys:@"1", @"status", [error domain], @"message", [error code], @"code", nil]];
+            }
+        }
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
 }
 
@@ -102,8 +112,15 @@
  * pay by pier complete!
  */
 - (void)pierPayComplete:(NSDictionary *)result{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(pierPayServiceComplete:)]) {
-        [self.delegate pierPayServiceComplete:result];
+    
+    if (self.payWithType == ePierPayWith_Merchant) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(pierPayServiceComplete:)]) {
+            [self.delegate pierPayServiceComplete:result];
+        }
+    }else{
+        if (__pierDataSource.pierDelegate && [__pierDataSource.pierDelegate respondsToSelector:@selector(payWithPierComplete:)]) {
+            [__pierDataSource.pierDelegate payWithPierComplete:[NSDictionary dictionaryWithObjectsAndKeys:@"0", @"status", result,@"result", nil]];
+        }
     }
 }
 
