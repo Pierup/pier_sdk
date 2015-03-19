@@ -1,5 +1,5 @@
 //
-//  PIRPayModel.h
+//  PierPayModel.h
 //  PierPaySDK
 //
 //  Created by zyma on 1/26/15.

@@ -14,9 +14,9 @@
 #import "PierColor.h"
 #import "NSString+PierCheck.h"
 #import "PierViewUtil.h"
-//#import "PIRPayModel.h"
+//#import "PierPayModel.h"
 
-@interface PierLoginViewController1 ()<PIRKeyboardDelegate>
+@interface PierLoginViewController1 ()<PierKeyboardDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
 @property (nonatomic, weak) IBOutlet UILabel *phoneNumberLabel;
@@ -85,14 +85,14 @@
     
     self.smsRequestModel.country_code = @"CN";
     
-//    [PIRService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
+//    [PierService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
 //        [PierCustomKeyboardAlertView showPierAlertView:self param:nil type:ePierAlertViewType_userInput approve:^(NSString *userInput) {
 //            self.loginRequestModel.country_code = @"CN";
 //            self.loginRequestModel.code = userInput;
 //            self.loginRequestModel.merchant_id = @"MC0000000017";
 //            self.loginRequestModel.amount = @"199.00";
 //            self.loginRequestModel.currency_code = @"USD";
-//            [PIRService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:self.loginRequestModel successBlock:^(id responseModel) {
+//            [PierService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:self.loginRequestModel successBlock:^(id responseModel) {
 //                
 //            } faliedBlock:^(NSError *error) {
 //                
@@ -105,7 +105,7 @@
 //    }];
 }
 
-#pragma mark - -----------------PIRKeyboardDelegate---------------
+#pragma mark - -----------------PierKeyboardDelegate---------------
 
 - (void)numberKeyboardInput:(NSString *)number{
     

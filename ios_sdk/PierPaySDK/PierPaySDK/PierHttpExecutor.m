@@ -1,5 +1,5 @@
 //
-//  PIRHttpExecutor.m
+//  PierHttpExecutor.m
 //  PierPaySDK
 //
 //  Created by zyma on 12/15/14.
@@ -13,9 +13,9 @@
 #import "NSString+PierCheck.h"
 
 //超时时间
-static NSTimeInterval PIRHTTPTimeoutInterval = 30;
+static NSTimeInterval PierHTTPTimeoutInterval = 30;
 
-@interface NSData (PIRImageData)
+@interface NSData (PierImageData)
 - (NSString *)getImageType;
 - (BOOL)isJPG;
 - (BOOL)isPNG;
@@ -27,12 +27,12 @@ static NSTimeInterval PIRHTTPTimeoutInterval = 30;
 @end
 
 typedef enum {
-    PIRTTPRequestStateReady,
-    PIRTTPRequestStateExecuting,
-    PIRHTTPRequestStateFinished
-}PIRHTTPRequestState;
+    PierTTPRequestStateReady,
+    PierTTPRequestStateExecuting,
+    PierHTTPRequestStateFinished
+}PierHTTPRequestState;
 
-static NSInteger PIRHTTPTaskCount = 0;
+static NSInteger PierHTTPTaskCount = 0;
 static NSString *defaultUserAgent;
 
 
@@ -43,10 +43,10 @@ static NSString *defaultUserAgent;
 @property (nonatomic, strong) NSString *operationSavePath;
 @property (nonatomic, assign) CFRunLoopRef operationRunLoop;
 
-@property (nonatomic, readwrite) PIRHTTPRequestState state;
+@property (nonatomic, readwrite) PierHTTPRequestState state;
 
-@property (nonatomic, copy) PIRHttpSuccessBlock success;
-@property (nonatomic, copy) PIRHttpFailedBlock failed;
+@property (nonatomic, copy) PierHttpSuccessBlock success;
+@property (nonatomic, copy) PierHttpFailedBlock failed;
 @property (nonatomic, strong) NSString *requestPath;//cancel server时候使用
 @property (nonatomic, copy) void (^operationProgressBlock)(float progress);
 
@@ -82,19 +82,19 @@ static NSString *defaultUserAgent;
 }
 
 - (void)increasePIRHTTPTaskCount {
-    PIRHTTPTaskCount++;
+    PierHTTPTaskCount++;
     [self toggleNetworkActivityIndicator];
 }
 
 - (void)decreasePIRHTTPTaskCount {
-    PIRHTTPTaskCount = MAX(0, PIRHTTPTaskCount-1);
+    PierHTTPTaskCount = MAX(0, PierHTTPTaskCount-1);
     [self toggleNetworkActivityIndicator];
 }
 
 - (void)toggleNetworkActivityIndicator {
 #if TARGET_OS_IPHONE && !__has_feature(attribute_availability_app_extension)
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(PIRHTTPTaskCount > 0)];
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(PierHTTPTaskCount > 0)];
     });
 #endif
 }
@@ -103,9 +103,9 @@ static NSString *defaultUserAgent;
     [self.operationRequest setValue:value forHTTPHeaderField:field];
 }
 
-- (PierHttpExecutor*)initWithAddress:(NSString*)urlString method:(ePIRHttpMethod)method parameters:(NSDictionary*)parameters saveToPath:(NSString*)savePath progress:(void (^)(float))progressBlock success:(PIRHttpSuccessBlock)success failed:(PIRHttpFailedBlock)failed postAsJSON:(BOOL)postAsJSON {
+- (PierHttpExecutor*)initWithAddress:(NSString*)urlString method:(ePIRHttpMethod)method parameters:(NSDictionary*)parameters saveToPath:(NSString*)savePath progress:(void (^)(float))progressBlock success:(PierHttpSuccessBlock)success failed:(PierHttpFailedBlock)failed postAsJSON:(BOOL)postAsJSON {
     self = [super init];
-    self.timeoutInterval = PIRHTTPTimeoutInterval;
+    self.timeoutInterval = PierHTTPTimeoutInterval;
     self.cachePolicy = self.cachePolicy;
     self.userAgent = self.userAgent;
     
@@ -136,18 +136,18 @@ static NSString *defaultUserAgent;
     
     // pipeline all but POST and downloads
     
-    if(method != PIRHttpMethodPOST && !savePath)
+    if(method != PierHttpMethodPOST && !savePath)
         self.operationRequest.HTTPShouldUsePipelining = YES;
     
-    if(method == PIRHttpMethodGET){
+    if(method == PierHttpMethodGET){
         [self.operationRequest setHTTPMethod:@"GET"];
-    }else if(method == PIRHttpMethodPOST){
+    }else if(method == PierHttpMethodPOST){
         [self.operationRequest setHTTPMethod:@"POST"];
-    }else if(method == PIRHttpMethodPUT){
+    }else if(method == PierHttpMethodPUT){
         [self.operationRequest setHTTPMethod:@"PUT"];
     }
     
-    self.state = PIRTTPRequestStateReady;
+    self.state = PierTTPRequestStateReady;
     self.sendParametersAsJSON = postAsJSON;
     
     if(parameters){
@@ -192,7 +192,7 @@ static NSString *defaultUserAgent;
                 NSString *boundary = @"PierBoundary";
                 NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
                 [self.operationRequest setValue:contentType forHTTPHeaderField: @"Content-Type"];
-                self.timeoutInterval = PIRHTTPTimeoutInterval*12;
+                self.timeoutInterval = PierHTTPTimeoutInterval*12;
                 __block NSMutableData *postData = [NSMutableData data];
                 __block int dataIdx = 0;
                 // add string parameters
@@ -304,7 +304,7 @@ static NSString *defaultUserAgent;
             [self.operationRequest setValue:defaultUserAgent forHTTPHeaderField:@"User-Agent"];
         
         [self willChangeValueForKey:@"isExecuting"];
-        self.state = PIRTTPRequestStateExecuting;
+        self.state = PierTTPRequestStateExecuting;
         [self didChangeValueForKey:@"isExecuting"];
         
         if(self.operationSavePath) {
@@ -360,7 +360,7 @@ static NSString *defaultUserAgent;
     
     [self willChangeValueForKey:@"isExecuting"];
     [self willChangeValueForKey:@"isFinished"];
-    self.state = PIRHTTPRequestStateFinished;
+    self.state = PierHTTPRequestStateFinished;
     [self didChangeValueForKey:@"isExecuting"];
     [self didChangeValueForKey:@"isFinished"];
 }
@@ -379,20 +379,20 @@ static NSString *defaultUserAgent;
 }
 
 - (BOOL)isFinished {
-    return self.state == PIRHTTPRequestStateFinished;
+    return self.state == PierHTTPRequestStateFinished;
 }
 
 - (BOOL)isExecuting {
-    return self.state == PIRTTPRequestStateExecuting;
+    return self.state == PierTTPRequestStateExecuting;
 }
 
-- (PIRHTTPRequestState)state {
+- (PierHTTPRequestState)state {
     @synchronized(self) {
         return _state;
     }
 }
 
-- (void)setState:(PIRHTTPRequestState)newState {
+- (void)setState:(PierHTTPRequestState)newState {
     @synchronized(self) {
         [self willChangeValueForKey:@"state"];
         _state = newState;
@@ -431,7 +431,7 @@ static NSString *defaultUserAgent;
             }
             @catch (NSException *exception) {
                 [self.operationConnection cancel];
-                NSError *writeError = [NSError errorWithDomain:@"PIRHTTPWriteError" code:0 userInfo:exception.userInfo];
+                NSError *writeError = [NSError errorWithDomain:@"PierHTTPWriteError" code:0 userInfo:exception.userInfo];
                 [self callCompletionBlockWithResponse:nil error:writeError success:NO];
             }
         }
@@ -573,7 +573,7 @@ static NSString *defaultUserAgent;
 
 @end
 
-@implementation NSString (PIRHTTPRequest)
+@implementation NSString (PierHTTPRequest)
 
 - (NSString*)encodedURLParameterString {
     NSString *result = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
@@ -586,7 +586,7 @@ static NSString *defaultUserAgent;
 
 @end
 
-@implementation NSData (PIRImageData)
+@implementation NSData (PierImageData)
 
 - (BOOL)isJPG {
     if (self.length > 4) {

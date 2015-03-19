@@ -1,5 +1,5 @@
 //
-//  PIRViewUtil.h
+//  PierViewUtil.h
 //  Pier
 //
 //  Created by zyma on 11/19/14.
@@ -12,12 +12,12 @@
 typedef enum {
     LS_DEFAULT,     //实线
     LS_DASH         //虚线
-} PIRLineStyle;
+} PierLineStyle;
 
 typedef enum {
     LD_HORIZONTAL,  //横向
     LD_VERTICAL     //纵向
-} PIRLineDirection;
+} PierLineDirection;
 
 #define TEXTFIELD_PLACEHOLDER_TEXTCOLOR @"_placeholderLabel.textColor"
 
@@ -51,36 +51,20 @@ typedef enum {
 @end
 
 
-@interface PIRLineView : UIView
+@interface PierLineView : UIView
 
-@property (nonatomic, assign) PIRLineStyle style;
-@property (nonatomic, assign) PIRLineDirection direction;
+@property (nonatomic, assign) PierLineStyle style;
+@property (nonatomic, assign) PierLineDirection direction;
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, strong) UIColor *lineColor;
 
-+ (PIRLineView *)getLineWithDirection:(PIRLineDirection)direction
++ (PierLineView *)getLineWithDirection:(PierLineDirection)direction
                                 color:(UIColor *)color
-                                style:(PIRLineStyle)style;
+                                style:(PierLineStyle)style;
 
-+ (PIRLineView *)getLineWithDirection:(PIRLineDirection)direction
++ (PierLineView *)getLineWithDirection:(PierLineDirection)direction
                                 color:(UIColor *)color
-                                style:(PIRLineStyle)style
+                                style:(PierLineStyle)style
                             lineWidth:(CGFloat)width;
-@end
-
-@interface UIView (Effects)
-
-- (void)blur;
-- (void)unBlur;
-
-@end
-
-@interface PIRBlockSchemeView : UIView
-@property (nonatomic, strong)UIColor *color;
-@property (nonatomic, strong)UIColor *lineColor;
-@property (nonatomic, strong)UIView *schemeView;
-
-+ (PIRBlockSchemeView *)getBlockSchemWithHeight:(CGFloat)height OriginX:(CGFloat)x OriginY:(CGFloat)y LineWidth:(CGFloat)width;
-- (void)setSchemeLineColor:(UIColor *)color;
 @end
 

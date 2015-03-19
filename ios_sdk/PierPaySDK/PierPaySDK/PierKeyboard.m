@@ -1,5 +1,5 @@
 //
-//  PIRKeyboard.m
+//  PierKeyboard.m
 //  keyboard
 //
 //  Created by JHR on 15/1/27.
@@ -61,7 +61,7 @@
     //    CGRect rect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     //    UIGraphicsBeginImageContext(rect.size);
     //    CGContextRef context = UIGraphicsGetCurrentContext();
-    //    CGContextSetFillColorWithColor(context, [[PIRColor lightPurpleColor] CGColor]);
+    //    CGContextSetFillColorWithColor(context, [[PierColor lightPurpleColor] CGColor]);
     //    CGContextFillRect(context, rect);
     //    UIImage *ColorImg = UIGraphicsGetImageFromCurrentImageContext();
     //    UIGraphicsEndImageContext();
@@ -85,7 +85,7 @@
     UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0,0, kKeyBoardWidth, kLineWidth)];
     line.backgroundColor = color;
     [view addSubview:line];
-    //    UIColor *color = [PIRColor lineColor];
+    //    UIColor *color = [PierColor lineColor];
     //    UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(buttonWidth,0, kLineWidth, kKeyBoardHeight)];
     //    line1.backgroundColor = color;
     //    [view addSubview:line1];
@@ -127,7 +127,7 @@
     [button addTarget:self action:@selector(animationButtonOutside:) forControlEvents:UIControlEventTouchUpInside];
     [button addTarget:self action:@selector(animationButtonOutside:) forControlEvents:UIControlEventTouchDragExit];
     
-    //    [button setBackgroundColor:[PIRColor darkPurpleColor]];
+    //    [button setBackgroundColor:[PierColor darkPurpleColor]];
     button.titleLabel.font = [PierFont customFontWithSize:25];
     //    [button setBackgroundImage:img forState:UIControlStateHighlighted];
     if (num < 10) {

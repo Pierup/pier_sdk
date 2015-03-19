@@ -1,6 +1,6 @@
 //
-//  PIRJsonModel.m
-//  PIRJsonModel
+//  PierJsonModel.m
+//  PierJsonModel
 //
 //  Created by zyma on 10/30/14.
 //  Copyright (c) 2014 zyma. All rights reserved.

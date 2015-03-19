@@ -1,5 +1,5 @@
 //
-//  PIRStopWatchView.m
+//  PierStopWatchView.m
 //  Pier
 //
 //  Created by zyma on 2/3/15.

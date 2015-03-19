@@ -13,13 +13,13 @@
 #import "PierPayModel.h"
 #import "PierCreditApproveViewController.h"
 
-@interface PierCreditApplyController ()<PIRSiginCellsDelegate>
+@interface PierCreditApplyController ()<PierSiginCellsDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIButton *bacButton;
 @property (nonatomic, weak) IBOutlet UIButton *helpButton;
 @property (nonatomic, strong) PierSiginViewModel *infoViewModel;
-@property (nonatomic, strong) PIRSiginCellModel *cellModel;
+@property (nonatomic, strong) PierSiginCellModel *cellModel;
 
 @end
 
@@ -126,7 +126,7 @@
     [self.view endEditing:YES];
 }
 
-#pragma mark - PIRSiginCellsDelegate
+#pragma mark - PierSiginCellsDelegate
 
 - (void)submitUserInfo{
     if ([self.infoViewModel checkUserInfo]) {
@@ -135,7 +135,7 @@
     }
 }
 
-- (void)serviceUpdataUser:(PIRSiginCellModel *)userModel{
+- (void)serviceUpdataUser:(PierSiginCellModel *)userModel{
     UpdateRequest *requestModel = [[UpdateRequest alloc] init];
     requestModel.first_name = userModel.firstName;
     requestModel.last_name = userModel.lastName;

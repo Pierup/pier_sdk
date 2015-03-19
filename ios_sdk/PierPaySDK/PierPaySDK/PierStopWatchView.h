@@ -1,5 +1,5 @@
 //
-//  PIRStopWatchView.h
+//  PierStopWatchView.h
 //  Pier
 //
 //  Created by zyma on 2/3/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol PIRStopWatchViewDelegate <NSObject>
+@protocol PierStopWatchViewDelegate <NSObject>
 
 - (void)timerStop;
 
@@ -17,7 +17,7 @@
 @interface PierStopWatchView : UIView
 
 @property (nonatomic, assign) NSInteger expirTime;
-@property (nonatomic, weak) id<PIRStopWatchViewDelegate> delegate;
+@property (nonatomic, weak) id<PierStopWatchViewDelegate> delegate;
 
 - (void)startTimer;
 - (void)stopTimer;

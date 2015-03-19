@@ -1,5 +1,5 @@
 //
-//  PIRHttpExecutor.h
+//  PierHttpExecutor.h
 //  PierPaySDK
 //
 //  Created by zyma on 12/15/14.
@@ -11,9 +11,9 @@
 #import "PierHttpClient.h"
 
 typedef enum {
-    PIRHttpMethodGET,
-    PIRHttpMethodPOST,
-    PIRHttpMethodPUT
+    PierHttpMethodGET,
+    PierHttpMethodPOST,
+    PierHttpMethodPUT
 }ePIRHttpMethod;
 
 @interface PierHttpExecutor : NSOperation
@@ -32,7 +32,7 @@ typedef enum {
                          parameters:(NSObject*)parameters
                          saveToPath:(NSString*)savePath
                            progress:(void (^)(float))progressBlock
-                            success:(PIRHttpSuccessBlock)success
-                             failed:(PIRHttpFailedBlock)failed
+                            success:(PierHttpSuccessBlock)success
+                             failed:(PierHttpFailedBlock)failed
                          postAsJSON:(BOOL)postAsJSON;
 @end

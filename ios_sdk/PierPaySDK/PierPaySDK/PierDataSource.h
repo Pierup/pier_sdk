@@ -1,5 +1,5 @@
 //
-//  PIRDataSource.h
+//  PierDataSource.h
 //  Pier
 //
 //  Created by Bei Wang  on 10/15/14.

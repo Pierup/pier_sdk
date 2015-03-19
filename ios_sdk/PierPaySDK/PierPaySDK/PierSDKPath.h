@@ -1,5 +1,5 @@
 //
-//  PIRSDKPath.h
+//  PierSDKPath.h
 //  PierPaySDK
 //
 //  Created by zyma on 1/13/15.

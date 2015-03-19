@@ -11,26 +11,26 @@
 @implementation PierColor
 
 + (UIColor *)darkPurpleColor{
-    return PIRColorHex(0x571780);
+    return PierColorHex(0x571780);
 }
 
 + (UIColor *)lightPurpleColor{
-    return PIRColorHex(0x7b37a6);
+    return PierColorHex(0x7b37a6);
 }
 
 + (UIColor *)lightGreenColor{
-    return PIRColorHex(0x37d6cf);
+    return PierColorHex(0x37d6cf);
 }
 
 + (UIColor *)whiteAlphaColor{
-    return PIRColorHex(0x9463b5);
+    return PierColorHex(0x9463b5);
 }
 
 /**
  *  #dcdcdc
  */
 + (UIColor *)placeHolderColor{
-    return PIRColorHex(0xdcdcdc);
+    return PierColorHex(0xdcdcdc);
 }
 
 @end

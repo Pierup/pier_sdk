@@ -1,5 +1,5 @@
 //
-//  PIRHttpClient.m
+//  PierHttpClient.m
 //  PierPaySDK
 //
 //  Created by zyma on 12/15/14.
@@ -10,9 +10,9 @@
 #import "PierHttpExecutor.h"
 
 #pragma mark - -------------------- Host --------------------
-NSString * const PIRHttpClientUserHost      = @"http://pierup.ddns.net:8686";
-NSString * const PIRHttpClientUserHostV2    = @"https://pierup.ddns.net:8443";//https://pierup.ddns.net:8443 192.168.1.254
-NSString * const PIRHttpClientTypeEmptyHost = @"";
+NSString * const PierHttpClientUserHost      = @"http://pierup.ddns.net:8686";
+NSString * const PierHttpClientUserHostV2    = @"https://pierup.ddns.net:8443";//https://pierup.ddns.net:8443 192.168.1.254
+NSString * const PierHttpClientTypeEmptyHost = @"";
 #pragma mark -
 
 @interface PierHttpClient ()
@@ -47,16 +47,16 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 - (NSString *)getHostByType:(ePIRHttpClientType)type{
     switch (type) {
         case ePIRHttpClientType_User:
-            return PIRHttpClientUserHost;
+            return PierHttpClientUserHost;
             break;
         case ePIRHttpClientType_User_V2:
-            return PIRHttpClientUserHostV2;
+            return PierHttpClientUserHostV2;
             break;
         case ePIRHttpClientType_Empty:
-            return PIRHttpClientTypeEmptyHost;
+            return PierHttpClientTypeEmptyHost;
             break;
         default:
-            return PIRHttpClientUserHost;
+            return PierHttpClientUserHost;
             break;
     }
 }
@@ -88,10 +88,10 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
              saveToPath:(NSString*)savePath
              parameters:(NSDictionary*)parameters
                progress:(void (^)(float))progressBlock
-                success:(PIRHttpSuccessBlock)success
-                 failed:(PIRHttpFailedBlock)failed{
+                success:(PierHttpSuccessBlock)success
+                 failed:(PierHttpFailedBlock)failed{
     return [self queueRequest:path
-                       method:PIRHttpMethodGET
+                       method:PierHttpMethodGET
                    saveToPath:savePath
                    parameters:parameters
                      progress:progressBlock
@@ -104,10 +104,10 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 - (PierHttpExecutor*)POST:(NSString*)path
               parameters:(NSDictionary*)parameters
                 progress:(void (^)(float))progressBlock
-                 success:(PIRHttpSuccessBlock)success
-                  failed:(PIRHttpFailedBlock)failed{
+                 success:(PierHttpSuccessBlock)success
+                  failed:(PierHttpFailedBlock)failed{
     return [self queueRequest:path
-                       method:PIRHttpMethodPOST
+                       method:PierHttpMethodPOST
                    saveToPath:nil
                    parameters:parameters
                      progress:progressBlock
@@ -119,10 +119,10 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 - (PierHttpExecutor*)JSONPOST:(NSString*)path
                   parameters:(NSDictionary*)parameters
                     progress:(void (^)(float))progressBlock
-                     success:(PIRHttpSuccessBlock)success
-                      failed:(PIRHttpFailedBlock)failed{
+                     success:(PierHttpSuccessBlock)success
+                      failed:(PierHttpFailedBlock)failed{
     return [self queueRequest:path
-                       method:PIRHttpMethodPOST
+                       method:PierHttpMethodPOST
                    saveToPath:nil
                    parameters:parameters
                      progress:progressBlock
@@ -134,10 +134,10 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 - (PierHttpExecutor*)UploadImage:(NSString*)path
                      parameters:(NSDictionary*)parameters
                        progress:(void (^)(float))progressBlock
-                        success:(PIRHttpSuccessBlock)success
-                         failed:(PIRHttpFailedBlock)failed{
+                        success:(PierHttpSuccessBlock)success
+                         failed:(PierHttpFailedBlock)failed{
     return [self queueRequest:path
-                       method:PIRHttpMethodPOST
+                       method:PierHttpMethodPOST
                    saveToPath:nil
                    parameters:parameters
                      progress:progressBlock
@@ -149,10 +149,10 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 - (PierHttpExecutor*)PUT:(NSString*)path
              parameters:(NSDictionary*)parameters
                progress:(void (^)(float))progressBlock
-                success:(PIRHttpSuccessBlock)success
-                 failed:(PIRHttpFailedBlock)failed{
+                success:(PierHttpSuccessBlock)success
+                 failed:(PierHttpFailedBlock)failed{
     return [self queueRequest:path
-                       method:PIRHttpMethodPUT
+                       method:PierHttpMethodPUT
                    saveToPath:nil
                    parameters:parameters
                      progress:progressBlock
@@ -164,10 +164,10 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
 - (PierHttpExecutor*)JSONPUT:(NSString*)path
                  parameters:(NSDictionary*)parameters
                    progress:(void (^)(float))progressBlock
-                    success:(PIRHttpSuccessBlock)success
-                     failed:(PIRHttpFailedBlock)failed{
+                    success:(PierHttpSuccessBlock)success
+                     failed:(PierHttpFailedBlock)failed{
     return [self queueRequest:path
-                       method:PIRHttpMethodPUT
+                       method:PierHttpMethodPUT
                    saveToPath:nil
                    parameters:parameters
                      progress:progressBlock
@@ -182,13 +182,13 @@ NSString * const PIRHttpClientTypeEmptyHost = @"";
                       saveToPath:(NSString*)savePath
                       parameters:(NSDictionary*)parameters
                         progress:(void (^)(float))progressBlock
-                         success:(PIRHttpSuccessBlock)success
-                          failed:(PIRHttpFailedBlock)failed
+                         success:(PierHttpSuccessBlock)success
+                          failed:(PierHttpFailedBlock)failed
                       postAsJSON:(BOOL)postAsJSON{
     NSString *completeURLString = [NSString stringWithFormat:@"%@%@", self.basePath, path];
     id mergedParameters;
     
-    if((method == PIRHttpMethodPOST ) && ![parameters isKindOfClass:[NSDictionary class]])
+    if((method == PierHttpMethodPOST ) && ![parameters isKindOfClass:[NSDictionary class]])
         mergedParameters = parameters;
     else {
         mergedParameters = [NSMutableDictionary dictionary];

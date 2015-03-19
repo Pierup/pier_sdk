@@ -11,16 +11,16 @@
 
 @interface PierSiginViewModel ()
 
-@property (nonatomic, strong) PIRSiginCellModel *cellModel;
+@property (nonatomic, strong) PierSiginCellModel *cellModel;
 
-@property (nonatomic, strong) PIRSiginNameCell *nameCell;
-@property (nonatomic, strong) PIRSiginPhoneNumberCell *phoneCell;
-@property (nonatomic, strong) PIRSiginEmailNumberCell *emailCell;
-@property (nonatomic, strong) PIRSiginAddressCell *addressCell;
-@property (nonatomic, strong) PIRSiginDobCell *DOBCell;
-@property (nonatomic, strong) PIRSiginSSNCell *SSNCell;
-@property (nonatomic, strong) PIRSiginPWDCell *pwdCell;
-@property (nonatomic, strong) PIRSiginSubmitCell *submitCell;
+@property (nonatomic, strong) PierSiginNameCell *nameCell;
+@property (nonatomic, strong) PierSiginPhoneNumberCell *phoneCell;
+@property (nonatomic, strong) PierSiginEmailNumberCell *emailCell;
+@property (nonatomic, strong) PierSiginAddressCell *addressCell;
+@property (nonatomic, strong) PierSiginDobCell *DOBCell;
+@property (nonatomic, strong) PierSiginSSNCell *SSNCell;
+@property (nonatomic, strong) PierSiginPWDCell *pwdCell;
+@property (nonatomic, strong) PierSiginSubmitCell *submitCell;
 
 @end
 
@@ -32,7 +32,7 @@
     self = [super self];
     if (self) {
         _sectionArray = [[NSMutableArray alloc] init];
-        _cellModel = [[PIRSiginCellModel alloc] init];
+        _cellModel = [[PierSiginCellModel alloc] init];
     }
     
     return self;
@@ -84,36 +84,36 @@
     switch (type) {
         case eSiginInputUserNameCell:
         {
-            identifier = @"PIRSiginNameCell";
+            identifier = @"PierSiginNameCell";
             break;
         }
         case eSiginPhoneNumberCell:{
-            identifier = @"PIRSiginPhoneNumberCell";
+            identifier = @"PierSiginPhoneNumberCell";
             break;
         }
         case eSiginEmailCell:{
-            identifier = @"PIRSiginEmailNumberCell";
+            identifier = @"PierSiginEmailNumberCell";
             break;
         }
         case eSiginAddressCell:{
-            identifier = @"PIRSiginAddressCell";
+            identifier = @"PierSiginAddressCell";
             break;
         }
         case eSiginDobCell:{
-            identifier = @"PIRSiginDobCell";
+            identifier = @"PierSiginDobCell";
             break;
         }
         case eSiginSSNCell:{
-            identifier = @"PIRSiginSSNCell";
+            identifier = @"PierSiginSSNCell";
             break;
         }
         case eSiginPWDCell:
         {
-            identifier = @"PIRSiginPWDCell";
+            identifier = @"PierSiginPWDCell";
             break;
         }
         case eSiginSubmitCell:{
-            identifier = @"PIRSiginSubmitCell";
+            identifier = @"PierSiginSubmitCell";
             break;
         }
         default:
@@ -203,7 +203,7 @@
 }
 
 - (PierSiginCells *)footViewForRowAtSection:(NSInteger)section{
-    PIRSiginSubmitCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:6];
+    PierSiginSubmitCell *cell = [[pierBoundle() loadNibNamed:@"PierSiginCells" owner:self options:nil] objectAtIndex:6];
     cell.delegate = self.cellDelegate;
     return cell;
 }
@@ -291,7 +291,7 @@
     return height;
 }
 
-- (PIRSiginCellModel *)getSiginCellModel{
+- (PierSiginCellModel *)getSiginCellModel{
     NSDictionary *nameDic = [self.nameCell getUserName];
     self.cellModel.firstName = [nameDic objectForKey:@"firstName"];
     self.cellModel.lastName = [nameDic objectForKey:@"lastName"];

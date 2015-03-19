@@ -1,5 +1,5 @@
 //
-//  PIRKeyboard.h
+//  PierKeyboard.h
 //  keyboard
 //
 //  Created by JHR on 15/1/27.
@@ -13,7 +13,7 @@ typedef NS_OPTIONS(NSInteger, keyboardTypeNumber)
     keyboardTypePoint
 };
 
-@protocol PIRKeyboardDelegate <NSObject>
+@protocol PierKeyboardDelegate <NSObject>
 @optional
 
 - (void)numberKeyboardInput:(NSString *)number;            //单次输入的数字
@@ -28,7 +28,7 @@ typedef NS_OPTIONS(NSInteger, keyboardTypeNumber)
 @interface PierKeyboard : UIView
 
 @property (nonatomic, assign) keyboardTypeNumber type;           //键盘类型
-@property (nonatomic, weak) id<PIRKeyboardDelegate>delegate;
+@property (nonatomic, weak) id<PierKeyboardDelegate>delegate;
 @property (nonatomic, assign) NSInteger limitLength;
 @property (nonatomic, strong) NSString *number;
 

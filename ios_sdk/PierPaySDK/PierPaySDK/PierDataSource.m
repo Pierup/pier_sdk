@@ -1,5 +1,5 @@
 //
-//  PIRDataSource.m
+//  PierDataSource.m
 //  Pier
 //
 //  Created by Bei Wang on 10/15/14.
@@ -34,7 +34,7 @@ void freeDataSource()
 
 @implementation PierDataSource
 
-#pragma mark - PIRDataSource init & dealloc
+#pragma mark - PierDataSource init & dealloc
 - (id)init
 {
     self = [super init];

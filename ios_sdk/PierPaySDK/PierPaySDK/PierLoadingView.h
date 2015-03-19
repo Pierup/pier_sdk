@@ -1,5 +1,5 @@
 //
-//  PIRLoadingView.h
+//  PierLoadingView.h
 //  PierPaySDK
 //
 //  Created by zyma on 3/8/15.
