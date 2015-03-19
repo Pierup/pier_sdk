@@ -14,6 +14,10 @@
 
 static PIRURLDispatcher * __instance;
 
+@interface PIRURLDispatcher () <PierPayDelegate>
+
+@end
+
 @implementation PIRURLDispatcher
 
 + (PIRURLDispatcher *)shareInstance{
@@ -41,6 +45,7 @@ static PIRURLDispatcher * __instance;
     NSString *country_code = [dicQuery objectForKey:@"country_code"];
     NSString *merchant_id = [dicQuery objectForKey:@"merchant_id"];
     
+    
     MerchantModel *merchantModel = [[MerchantModel alloc] init];
     merchantModel.phone = phone;
     merchantModel.country_code = country_code;
@@ -53,13 +58,39 @@ static PIRURLDispatcher * __instance;
 #pragma mark - --------------------- Test ---------------------
     NSString *session_token = [dicQuery objectForKey:@"session_token"];
     if (session_token != nil && session_token.length > 0) {
-        [PierPay payWith:dicQuery delegate:self];
+        NSMutableDictionary *dic_dicQuery = [NSMutableDictionary dictionaryWithDictionary:dicQuery];
+        [dic_dicQuery setValue:@"http://pierup.ddns.net:8686/pier-merchant/server/sdk/pay/AAA000000001" forKey:@"server_url"];
+        [dic_dicQuery setValue:@"65.59" forKey:@"amount"];
+        [dic_dicQuery setValue:@"USD" forKey:@"currency"];
+        [dic_dicQuery setValue:[self getRandomNumber:1000000000 to:10000000000] forKey:@"order_id"];
+        [PierPay payWith:dic_dicQuery delegate:self];
     }
 #pragma mark - --------------------- Test ---------------------
 }
 
+#pragma mark - ------------------ PierPayDelegate -------------
+
+-(void)payWithPierComplete:(NSDictionary *)result{
+    NSInteger status = [[result objectForKey:@"status"] integerValue];
+    if (status == 1) {
+        //failed
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Failed." message:[NSString stringWithFormat:@"%@",[result objectForKey:@"message"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }else if (status == 0){
+        //success
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Success." message:[NSString stringWithFormat:@"Total Amount:%@",[result objectForKey:@"spending"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
 + (void)parseURL:(NSURL *)url{
     
+}
+
+-(NSString *)getRandomNumber:(NSInteger)from to:(NSInteger)to
+{
+    NSInteger randomInt = (NSInteger)(from+(arc4random() % (to-from+1)));//+1,result is [from to]; else is [from, to)
+    return [NSString stringWithFormat:@"%ld",randomInt];
 }
 
 + (NSDictionary *)parseURLQueryString:(NSString *)query

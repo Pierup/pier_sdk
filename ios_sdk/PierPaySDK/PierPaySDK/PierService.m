@@ -301,11 +301,12 @@
 }
 
 + (NSString *)getMerchantURL:(PierPayModel *)requestModel{
-    NSString *urlStr = [__pierDataSource.merchantParam objectForKey:@"server_url"];
-    NSString *amount = [__pierDataSource.merchantParam objectForKey:@"amount"];
+    NSString *urlStr = [__pierDataSource.merchantParam objectForKey:DATASOURCES_SERVER_URL];
+    NSString *amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
     NSString *authToken = [requestModel valueForKey:@"auth_token"];
-    NSString *currency = [__pierDataSource.merchantParam objectForKey:@"currency"];
-    NSString *result = [NSString stringWithFormat:@"%@/%@/%@/%@", urlStr,amount,authToken,currency];
+    NSString *currency = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
+    NSString *orderid = [__pierDataSource.merchantParam objectForKey:DATASOURCES_ORDERID];
+    NSString *result = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", urlStr,amount,authToken,currency,orderid];
     return result;
 }
 @end

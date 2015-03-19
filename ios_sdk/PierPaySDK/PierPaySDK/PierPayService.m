@@ -66,7 +66,11 @@
             [self.delegate pierPayServiceFailed:error];
         }else{
             if (__pierDataSource.pierDelegate && [__pierDataSource.pierDelegate respondsToSelector:@selector(payWithPierComplete:)]) {
-                [__pierDataSource.pierDelegate payWithPierComplete:[NSDictionary dictionaryWithObjectsAndKeys:@"1", @"status", [error domain], @"message", [error code], @"code", nil]];
+                NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     @"1", @"status",
+                                     [error domain], @"message",
+                                     @([error code]), @"code", nil];
+                [__pierDataSource.pierDelegate payWithPierComplete:dic];
             }
         }
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
@@ -119,7 +123,12 @@
         }
     }else{
         if (__pierDataSource.pierDelegate && [__pierDataSource.pierDelegate respondsToSelector:@selector(payWithPierComplete:)]) {
-            [__pierDataSource.pierDelegate payWithPierComplete:[NSDictionary dictionaryWithObjectsAndKeys:@"0", @"status", result,@"result", nil]];
+            NSString *amount = [NSString getNumberFormatterDecimalStyle:[__pierDataSource.merchantParam objectForKey:@"amount"] currency:[__pierDataSource.merchantParam objectForKey:@"currency"]];
+            NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"0",@"status",
+                                    @"success",@"message",
+                                    amount ,@"spending", nil];
+            [__pierDataSource.pierDelegate payWithPierComplete:result];
         }
     }
 }
