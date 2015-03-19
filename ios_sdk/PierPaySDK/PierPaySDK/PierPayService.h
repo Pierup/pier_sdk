@@ -21,7 +21,7 @@
 @interface PierPayService : NSObject
 
 /** servire model */
-@property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
+@property (nonatomic, strong) PierTransactionSMSRequest *smsRequestModel;
 
 /** delegate */
 @property (nonatomic, weak) id<PierPayServiceDelegate> delegate;

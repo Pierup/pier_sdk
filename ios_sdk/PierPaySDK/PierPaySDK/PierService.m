@@ -1,5 +1,5 @@
 //
-//  PIRService.m
+//  PierService.m
 //  PierPaySDK
 //
 //  Created by zyma on 1/13/15.

@@ -13,27 +13,27 @@
 #import "PierDateUtil.h"
 #import "PierColor.h"
 
-@implementation PIRSiginCellModel
+@implementation PierSiginCellModel
 
 @end
 
 @implementation PierSiginCells
 
-- (void)updateCell:(PIRSiginCellModel *)model indexPath:(NSIndexPath *)index{
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
     
 }
 
 @end
 
 
-@interface PIRSiginNameCell ()
+@interface PierSiginNameCell ()
 
 @property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *firstNameLabel;
 @property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *lastNameLabel;
 
 @end
 
-@implementation PIRSiginNameCell
+@implementation PierSiginNameCell
 
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -64,13 +64,13 @@
 
 @end
 
-@interface PIRSiginPhoneNumberCell ()
+@interface PierSiginPhoneNumberCell ()
 
 @property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *phoneLabel;
 
 @end
 
-@implementation PIRSiginPhoneNumberCell
+@implementation PierSiginPhoneNumberCell
 
 - (NSString *)getPhone{
     NSString *phone = self.phoneLabel.text;
@@ -91,13 +91,13 @@
 
 @end
 
-@interface PIRSiginEmailNumberCell ()
+@interface PierSiginEmailNumberCell ()
 
 @property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *emailLabel;
 
 @end
 
-@implementation PIRSiginEmailNumberCell
+@implementation PierSiginEmailNumberCell
 
 - (NSString *)getEmail{
     NSString *email = [self.emailLabel text];
@@ -118,13 +118,13 @@
 
 @end
 
-@interface PIRSiginAddressCell ()
+@interface PierSiginAddressCell ()
 
 @property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *addressLabel;
 
 @end
 
-@implementation PIRSiginAddressCell
+@implementation PierSiginAddressCell
 
 - (NSString *)getAddresss{
     NSString *address = self.addressLabel.text;
@@ -145,14 +145,14 @@
 
 @end
 
-@interface PIRSiginDobCell () <UITextFieldDelegate>
+@interface PierSiginDobCell () <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *dobLabel;
 /**  */
 
 @end
 
-@implementation PIRSiginDobCell
+@implementation PierSiginDobCell
 
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -218,13 +218,13 @@
 
 @end
 
-@interface PIRSiginSSNCell () <UITextFieldDelegate>
+@interface PierSiginSSNCell () <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *ssnLabel;
 
 @end
 
-@implementation PIRSiginSSNCell
+@implementation PierSiginSSNCell
 
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -289,13 +289,13 @@
 
 @end
 
-@interface PIRSiginPWDCell ()
+@interface PierSiginPWDCell ()
 
 @property (nonatomic, weak) IBOutlet PierFloatingPlaceholderTextField *passwordLabel;
 
 @end
 
-@implementation PIRSiginPWDCell
+@implementation PierSiginPWDCell
 
 - (NSString *)getPassword{
     NSString *password = self.passwordLabel.text;
@@ -316,13 +316,13 @@
 
 @end
 
-@interface PIRSiginSubmitCell ()
+@interface PierSiginSubmitCell ()
 
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
 
 @end
 
-@implementation PIRSiginSubmitCell
+@implementation PierSiginSubmitCell
 
 - (void)awakeFromNib{
     [super awakeFromNib];

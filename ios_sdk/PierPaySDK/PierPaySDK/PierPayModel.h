@@ -1,5 +1,5 @@
 //
-//  PIRPayModel.h
+//  PierPayModel.h
 //  PierPaySDK
 //
 //  Created by zyma on 1/26/15.
@@ -21,13 +21,13 @@
 
 #pragma mark - -------------------PIER_API_TRANSACTION_SMS-------------------
 #pragma mark - Request
-@interface TransactionSMSRequest : PierPayModel
+@interface PierTransactionSMSRequest : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *password;
 @end
 
 #pragma mark - Response
-@interface TransactionSMSResponse : PierPayModel
+@interface PierTransactionSMSResponse : PierPayModel
 
 @property(nonatomic, copy, readonly) NSString *expiration;
 @property(nonatomic, copy, readonly) NSString *sms_no;
@@ -36,7 +36,7 @@
 
 #pragma mark - -------------------PIER_API_GET_AUTH_TOKEN_V2-------------------
 #pragma mark - Request
-@interface GetAuthTokenV2Request : PierPayModel
+@interface PierGetAuthTokenV2Request : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *pass_code;
 @property(nonatomic, copy, readwrite) NSString *pass_type;
@@ -46,7 +46,7 @@
 @end
 
 #pragma mark - Response
-@interface GetAuthTokenV2Response : PierPayModel
+@interface PierGetAuthTokenV2Response : PierPayModel
 
 @property(nonatomic, copy, readonly) NSString *auth_token;
 
@@ -54,31 +54,31 @@
 
 #pragma mark - --------------------PIER_API_GET_ACTIVITY_CODE-------------------
 #pragma mark - Request
-@interface GetRegisterCodeRequest : PierPayModel
+@interface PierGetRegisterCodeRequest : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
 @end
 
 #pragma mark - Response
-@interface GetRegisterCodeResponse : PierPayModel
+@interface PierGetRegisterCodeResponse : PierPayModel
 @property(nonatomic, copy, readonly) NSString *expiration;
 @end
 
 #pragma mark - --------------------PIER_API_GET_ACTIVITION-------------------
 #pragma mark - Request
 
-@interface RegSMSActiveRequest : PierPayModel
+@interface PierRegSMSActiveRequest : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *activation_code;
 @end
 
 #pragma mark - Response
-@interface RegSMSActiveResponse : PierPayModel
+@interface PierRegSMSActiveResponse : PierPayModel
 @property(nonatomic, copy, readonly) NSString *token;
 @end
 
 #pragma mark - --------------------PIER_API_GET_ACTIVITION_REGIST-------------------
 #pragma mark - Request
-@interface RegisterRequest : PierPayModel
+@interface PierRegisterRequest : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *token;
 @property(nonatomic, copy, readwrite) NSString *country_code;
@@ -86,7 +86,7 @@
 @end
 
 #pragma mark - Response
-@interface RegisterResponse : PierPayModel
+@interface PierRegisterResponse : PierPayModel
 @property(nonatomic, copy, readonly) NSString *device_id;
 @property(nonatomic, copy, readonly) NSString *passcode_expiration;
 
@@ -94,7 +94,7 @@
 
 #pragma mark - --------------------PIER_API_GET_UPDATEUSER-------------------
 #pragma mark - Request
-@interface UpdateRequest : PierPayModel
+@interface PierUpdateRequest : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *first_name;
 @property(nonatomic, copy, readwrite) NSString *last_name;
 @property(nonatomic, copy, readwrite) NSString *email;
@@ -104,17 +104,17 @@
 @end
 
 #pragma mark - Response
-@interface UpdateResponse : PierPayModel
+@interface PierUpdateResponse : PierPayModel
 @property(nonatomic, copy, readonly) NSString *status_bit;
 @end
 
 #pragma mark - --------------------PIER_API_GET_APPLYCREDIT-------------------
 #pragma mark - Request
-@interface CreditApplyRequest : PierPayModel
+@interface PierCreditApplyRequest : PierPayModel
 @end
 
 #pragma mark - Response
-@interface CreditApplyResponse : PierPayModel
+@interface PierCreditApplyResponse : PierPayModel
 @property(nonatomic, copy, readonly) NSString *currency;
 @property(nonatomic, copy, readonly) NSString *category;
 @property(nonatomic, copy, readonly) NSString *credit_limit;
@@ -124,30 +124,30 @@
 
 #pragma mark - --------------------ePIER_API_GET_MERCHANT-------------------
 #pragma mark - Request
-@interface MerchantRequest : PierPayModel
+@interface PierMerchantRequest : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *auth_token;
 @end
 
 #pragma mark - Response
-@interface MerchantResponse : PierPayModel
+@interface PierMerchantResponse : PierPayModel
 @end
 
 #pragma mark - ---------------------ePIER_API_GET_COUNTRYS-------------------
 #pragma mark - Request
 
-@interface CountryCodeRequest : PierPayModel
+@interface PierCountryCodeRequest : PierPayModel
 @end
 
-@protocol Country @end
-@interface Country : PierPayModel
+@protocol PierCountry @end
+@interface PierCountry : PierPayModel
 //@property (nonatomic, copy, readonly) NSString *code;
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSString *phone_prefix;
 @property (nonatomic, copy, readonly) NSString *phone_size;
 @end
 
-@interface CountryCodeResponse : PierPayModel
-@property (nonatomic, strong) NSMutableArray<Country> *items;
+@interface PierCountryCodeResponse : PierPayModel
+@property (nonatomic, strong) NSMutableArray<PierCountry> *items;
 @end
 
 

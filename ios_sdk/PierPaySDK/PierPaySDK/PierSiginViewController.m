@@ -27,7 +27,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
 @property (nonatomic, copy) NSString *phone;
 
-@property (nonatomic, strong) CountryModel *country;
+@property (nonatomic, strong) PierCountryModel *country;
 
 @property (nonatomic, strong) PierSMSAlertView *smsAlertView;
 
@@ -41,7 +41,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _country = [[CountryModel alloc]init];
+        _country = [[PierCountryModel alloc]init];
     }
     return self;
 }
@@ -137,11 +137,11 @@
 
 - (void)serviceGetReigistSMS
 {
-    GetRegisterCodeRequest *requestModel = [[GetRegisterCodeRequest alloc] init];
+    PierGetRegisterCodeRequest *requestModel = [[PierGetRegisterCodeRequest alloc] init];
     requestModel.phone = self.phone;
     
     [PierService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
-        GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
+        PierGetRegisterCodeResponse *response = (PierGetRegisterCodeResponse *)responseModel;
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"",@"title_image_name",
                                @"Passcode",@"title",
@@ -160,12 +160,12 @@
 
 - (void)serviceSMSActivation:(NSString *)activation_code
 {
-    RegSMSActiveRequest *requestModel = [[RegSMSActiveRequest alloc] init];
+    PierRegSMSActiveRequest *requestModel = [[PierRegSMSActiveRequest alloc] init];
     requestModel.phone = self.phone;
     requestModel.activation_code = activation_code;
     
     [PierService serverSend:ePIER_API_GET_ACTIVITION resuest:requestModel successBlock:^(id responseModel) {
-        RegSMSActiveResponse *reqponse = (RegSMSActiveResponse *)responseModel;
+        PierRegSMSActiveResponse *reqponse = (PierRegSMSActiveResponse *)responseModel;
         dispatch_async(dispatch_get_main_queue(), ^{
             [_smsAlertView dismiss];
             PierRegisterViewController *loginPage = [[PierRegisterViewController alloc] initWithNibName:@"PierRegisterViewController" bundle:pierBoundle()];
@@ -180,7 +180,7 @@
 #pragma mark -------------- delegate --------------------------------------
 
 #pragma mark - PierCountryCodeControllerDelegate
-- (void)countryCodeWithCountry:(CountryModel *)country
+- (void)countryCodeWithCountry:(PierCountryModel *)country
 {
     if (![self.country.name isEqualToString:country.name]) {
         self.country = country;
@@ -232,7 +232,7 @@
     return result;
 }
 
-- (void)checkCountryCodeWithCountry:(CountryModel *)country phoneNumber:(NSString *)phoneNumber
+- (void)checkCountryCodeWithCountry:(PierCountryModel *)country phoneNumber:(NSString *)phoneNumber
 {
     NSString *phone_prefix = [NSString stringWithFormat:@"+%@",country.phone_prefix];
     [self.countryCodeButton setTitle:phone_prefix forState:UIControlStateNormal];

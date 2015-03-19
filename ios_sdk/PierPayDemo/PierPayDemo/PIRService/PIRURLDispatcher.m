@@ -41,20 +41,21 @@ static PIRURLDispatcher * __instance;
     NSString *country_code = [dicQuery objectForKey:@"country_code"];
     NSString *merchant_id = [dicQuery objectForKey:@"merchant_id"];
     
-    NSString *session_token = [dicQuery objectForKey:@"session_token"];
-    if (session_token != nil && session_token.length > 0) {
-        [PierPay payWith:dicQuery delegate:self];
-    }else{
-        MerchantModel *merchantModel = [[MerchantModel alloc] init];
-        merchantModel.phone = phone;
-        merchantModel.country_code = country_code;
-        merchantModel.merchant_id = merchant_id;
-        if (merchantModel.merchant_id!=nil && merchantModel.merchant_id.length>0) {
-            ProductViewController *productViewController = [[ProductViewController alloc]init];
-            productViewController.merchantModel = merchantModel;
-            [self.mainNavigationController pushViewController:productViewController animated:NO];
-        }
+    MerchantModel *merchantModel = [[MerchantModel alloc] init];
+    merchantModel.phone = phone;
+    merchantModel.country_code = country_code;
+    merchantModel.merchant_id = merchant_id;
+    if (merchantModel.merchant_id!=nil && merchantModel.merchant_id.length>0) {
+        ProductViewController *productViewController = [[ProductViewController alloc]init];
+        productViewController.merchantModel = merchantModel;
+        [self.mainNavigationController pushViewController:productViewController animated:NO];
     }
+//    /** Test Pay Withput Password. */
+//    NSString *session_token = [dicQuery objectForKey:@"session_token"];
+//    if (session_token != nil && session_token.length > 0) {
+//        [PierPay payWith:dicQuery delegate:self];
+//    }
+    
 }
 
 + (void)parseURL:(NSURL *)url{

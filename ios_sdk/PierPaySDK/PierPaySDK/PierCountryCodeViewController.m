@@ -10,7 +10,7 @@
 #import "PierService.h"
 #import "PierDataSource.h"
 
-@implementation CountryModel
+@implementation PierCountryModel
 
 @end
 
@@ -88,7 +88,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(countryCodeWithCountry:)]) {
-       Country *country =  self.countryArray[indexPath.row];
+       PierCountry *country =  self.countryArray[indexPath.row];
         [__dataSource.merchantParam setValue:country.country_code forKey:DATASOURCES_COUNTRY_CODE];
         [self.delegate countryCodeWithCountry:country];
         [self dismissCountryCodeViewController];
@@ -107,7 +107,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
-        Country *countryModel = self.countryArray[indexPath.row];
+        PierCountry *countryModel = self.countryArray[indexPath.row];
         cell.textLabel.text = countryModel.name;
         cell.detailTextLabel.text =[NSString stringWithFormat:@"+%@",countryModel.phone_prefix];
         
@@ -127,12 +127,12 @@
 #pragma mark 分块内接口函数注释
 - (void)serviceCountryService
 {
-    CountryCodeRequest *requestModel = [[CountryCodeRequest alloc] init];
+    PierCountryCodeRequest *requestModel = [[PierCountryCodeRequest alloc] init];
     [PierService serverSend:ePIER_API_GET_COUNTRYS resuest:requestModel successBlock:^(id responseModel) {
-        CountryCodeResponse *response = (CountryCodeResponse *)responseModel;
+        PierCountryCodeResponse *response = (PierCountryCodeResponse *)responseModel;
         // 转换成模型数组模型对象
-        for (Country *country in response.items) {
-            CountryModel *countryModel = [[CountryModel alloc]init];
+        for (PierCountry *country in response.items) {
+            PierCountryModel *countryModel = [[PierCountryModel alloc]init];
             countryModel.name = country.name;
             countryModel.phone_prefix = country.phone_prefix;
             countryModel.phone_size = country.phone_size;

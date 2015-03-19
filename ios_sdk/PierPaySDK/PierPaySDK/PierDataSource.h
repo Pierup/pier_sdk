@@ -1,5 +1,5 @@
 //
-//  PIRDataSource.h
+//  PierDataSource.h
 //  Pier
 //
 //  Created by Bei Wang  on 10/15/14.
@@ -13,8 +13,8 @@
 @class PierDataSource;
 
 extern PierDataSource *__dataSource;
-void initDataSource();
-void freeDataSource();
+void pierInitDataSource();
+void pierFreeDataSource();
 
 
 #define DATASOURCES_PHONE               @"phone"
@@ -46,7 +46,7 @@ extern NSString * const  pier_userdefaults_password;
 @property (nonatomic, copy) NSString *device_id;            // device id
 @property (nonatomic, copy) NSString *user_id;              // user id
 @property (nonatomic, assign) BOOL hasCredit;               // 判断用户是否有credit
-@property (nonatomic, weak) id<PayByPierDelegate> pierDelegate;
+@property (nonatomic, weak) id<PierPayDelegate> pierDelegate;
 
 /**
  * userInfo

@@ -1,5 +1,5 @@
 //
-//  PIRDataSource.m
+//  PierDataSource.m
 //  Pier
 //
 //  Created by Bei Wang on 10/15/14.
@@ -16,14 +16,14 @@ NSString * const  pier_userdefaults_password    = @"pier_pay_user_password";
 
 PierDataSource *__dataSource;
 
-void initDataSource()
+void pierInitDataSource()
 {
     if (__dataSource == nil) {
         __dataSource = [[PierDataSource alloc] init];
     }
 }
 
-void freeDataSource()
+void pierFreeDataSource()
 {
     __dataSource = nil;
 }
@@ -34,7 +34,7 @@ void freeDataSource()
 
 @implementation PierDataSource
 
-#pragma mark - PIRDataSource init & dealloc
+#pragma mark - PierDataSource init & dealloc
 - (id)init
 {
     self = [super init];

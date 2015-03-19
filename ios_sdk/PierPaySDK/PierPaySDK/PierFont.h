@@ -1,5 +1,5 @@
 //
-//  PIRFont.h
+//  PierFont.h
 //  PierPaySDK
 //
 //  Created by zyma on 2/28/15.

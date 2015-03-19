@@ -137,7 +137,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (instancetype)initWith:(NSDictionary *)userAttributes delegate:(id)delegate
 {
-    initDataSource();
+    pierInitDataSource();
     __dataSource.merchantParam = userAttributes;
     __dataSource.pierDelegate = delegate;
     self = [super init];
@@ -150,12 +150,12 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 + (void)payWith:(NSDictionary *)userAttributes delegate:(id)delegate{
-    initDataSource();
+    pierInitDataSource();
     __dataSource.merchantParam = userAttributes;
     __dataSource.pierDelegate = delegate;
     __dataSource.session_token = [userAttributes objectForKey:@"session_token"];
     
-    TransactionSMSRequest *smsRequestModel = [[TransactionSMSRequest alloc] init];
+    PierTransactionSMSRequest *smsRequestModel = [[PierTransactionSMSRequest alloc] init];
     smsRequestModel.phone = [__dataSource.merchantParam objectForKey:DATASOURCES_PHONE];
     PierPayService *pierService = [[PierPayService alloc] init];
     pierService.delegate = delegate;

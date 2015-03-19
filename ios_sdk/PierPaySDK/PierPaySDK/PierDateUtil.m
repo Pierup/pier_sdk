@@ -1,5 +1,5 @@
 //
-//  PIRDateUtil.m
+//  PierDateUtil.m
 //  Pier
 //
 //  Created by zyma on 10/27/14.

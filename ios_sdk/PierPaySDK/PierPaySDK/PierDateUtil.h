@@ -1,5 +1,5 @@
 //
-//  PIRDateUtil.h
+//  PierDateUtil.h
 //  Pier
 //
 //  Created by zyma on 10/27/14.

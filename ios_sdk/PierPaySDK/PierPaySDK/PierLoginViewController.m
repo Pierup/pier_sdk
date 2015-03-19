@@ -29,9 +29,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
 @property (nonatomic, weak) IBOutlet UISwitch *rememberSwitchBtn;
 
-@property (nonatomic, strong) CountryModel *country;
+@property (nonatomic, strong) PierCountryModel *country;
 /** servire model */
-@property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
+@property (nonatomic, strong) PierTransactionSMSRequest *smsRequestModel;
 
 @end
 
@@ -42,9 +42,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _smsRequestModel = [[TransactionSMSRequest alloc] init];
+        _smsRequestModel = [[PierTransactionSMSRequest alloc] init];
       
-        _country = [[CountryModel alloc]init];
+        _country = [[PierCountryModel alloc]init];
     }
     return self;
 }
@@ -164,7 +164,7 @@
 {
     // Return to Merchant APP
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        [__dataSource.pierDelegate payByPierComplete:result];
+        [__dataSource.pierDelegate payWithPierComplete:result];
     }];
 }
 
@@ -192,7 +192,7 @@
 #pragma mark ------------------- Delegate --------------------------------------
 
 #pragma mark - PierCountryCodeControllerDelegate
-- (void)countryCodeWithCountry:(CountryModel *)country
+- (void)countryCodeWithCountry:(PierCountryModel *)country
 {
     if (![self.country.name isEqualToString:country.name]) {
         self.country = country;
@@ -238,7 +238,7 @@
         return result;
 }
 
-- (void)checkCountryCodeWithCountry:(CountryModel *)country phoneNumber:(NSString *)phoneNumber
+- (void)checkCountryCodeWithCountry:(PierCountryModel *)country phoneNumber:(NSString *)phoneNumber
 {
     NSString *phone_prefix = [NSString stringWithFormat:@"+%@",country.phone_prefix];
     [self.countryCodeButton setTitle:phone_prefix forState:UIControlStateNormal];

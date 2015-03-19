@@ -71,7 +71,7 @@
 
 #pragma mark ------------------- ProductViewController --------------------
 
-@interface ProductViewController()<UITableViewDataSource, UITableViewDelegate, PayByPierDelegate>
+@interface ProductViewController()<UITableViewDataSource, UITableViewDelegate, PierPayDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *productTableView;
 @property (nonatomic, strong) NSMutableArray *productsArray;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PierPayModel.h"
 
-@interface CountryModel : NSObject
+@interface PierCountryModel : NSObject
 
 @property (nonatomic, copy) NSString *name;                // UNITED STATES
 @property (nonatomic, copy) NSString *phone_prefix;        // 1
@@ -21,13 +21,13 @@
 @protocol PierCountryCodeViewControllerDelegate <NSObject>
 @optional
 
-- (void)countryCodeWithCountry:(Country *)country;
+- (void)countryCodeWithCountry:(PierCountry *)country;
 
 @end
 
 @interface PierCountryCodeViewController : UIViewController
 
 @property (nonatomic, weak) id<PierCountryCodeViewControllerDelegate>delegate;
-@property (nonatomic, strong) CountryModel *selectedCountryModel;
+@property (nonatomic, strong) PierCountryModel *selectedCountryModel;
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface PIRSiginCellModel : NSObject
+@interface PierSiginCellModel : NSObject
 
 @property (nonatomic, copy) NSString *firstName;
 @property (nonatomic, copy) NSString *lastName;
@@ -21,7 +21,7 @@
 
 @end
 
-@protocol PIRSiginCellsDelegate <NSObject>
+@protocol PierSiginCellsDelegate <NSObject>
 
 - (void)submitUserInfo;
 
@@ -30,60 +30,60 @@
 
 @interface PierSiginCells : UITableViewCell
 
-@property (nonatomic, weak) id<PIRSiginCellsDelegate> delegate;
-- (void)updateCell:(PIRSiginCellModel *)model indexPath:(NSIndexPath *)index;
+@property (nonatomic, weak) id<PierSiginCellsDelegate> delegate;
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index;
 
 @end
 
-@interface PIRSiginNameCell : PierSiginCells
+@interface PierSiginNameCell : PierSiginCells
 
 - (NSDictionary *)getUserName;
 - (BOOL)checkUserName;
 
 @end
 
-@interface PIRSiginPhoneNumberCell : PierSiginCells
+@interface PierSiginPhoneNumberCell : PierSiginCells
 
 - (NSString *)getPhone;
 - (BOOL)checkPhone;
 
 @end
 
-@interface PIRSiginEmailNumberCell : PierSiginCells
+@interface PierSiginEmailNumberCell : PierSiginCells
 
 - (NSString *)getEmail;
 - (BOOL)checkEmail;
 
 @end
 
-@interface PIRSiginAddressCell : PierSiginCells
+@interface PierSiginAddressCell : PierSiginCells
 
 - (NSString *)getAddresss;
 - (BOOL)checkAddress;
 
 @end
 
-@interface PIRSiginDobCell : PierSiginCells
+@interface PierSiginDobCell : PierSiginCells
 
 - (NSString *)getDOB;
 - (BOOL)checkDOB;
 
 @end
 
-@interface PIRSiginSSNCell : PierSiginCells
+@interface PierSiginSSNCell : PierSiginCells
 
 - (NSString *)getSSN;
 - (BOOL)checkSSN;
 
 @end
 
-@interface PIRSiginPWDCell : PierSiginCells
+@interface PierSiginPWDCell : PierSiginCells
 
 - (NSString *)getPassword;
 - (BOOL)checkPWD;
 
 @end
 
-@interface PIRSiginSubmitCell : PierSiginCells
+@interface PierSiginSubmitCell : PierSiginCells
 
 @end
