@@ -69,7 +69,7 @@
 - (void)initData
 {
 #warning ----------------------------- 硬编码 ------------------
-    NSString *countryCode = [__dataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE];
+    NSString *countryCode = [__pierDataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE];
     self.country.country_code = countryCode;
     if ([countryCode isEqualToString:@"US"]) {
         self.country.phone_prefix = @"1";
@@ -81,7 +81,7 @@
         self.country.name  = @"CHINA";
     }
     
-    NSString *formatePhone = [[__dataSource.merchantParam objectForKey:@"phone"] phoneFormat];
+    NSString *formatePhone = [[__pierDataSource.merchantParam objectForKey:@"phone"] phoneFormat];
     [self.phoneNumberLabel setText:formatePhone];
     
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];

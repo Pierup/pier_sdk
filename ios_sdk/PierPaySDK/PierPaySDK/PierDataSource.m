@@ -14,18 +14,18 @@ NSString * const  pier_userdefaults_phone       = @"pier_pay_user_phone";
 NSString * const  pier_userdefaults_countrycode = @"pier_pay_user_country_code";
 NSString * const  pier_userdefaults_password    = @"pier_pay_user_password";
 
-PierDataSource *__dataSource;
+PierDataSource *__pierDataSource;
 
 void pierInitDataSource()
 {
-    if (__dataSource == nil) {
-        __dataSource = [[PierDataSource alloc] init];
+    if (__pierDataSource == nil) {
+        __pierDataSource = [[PierDataSource alloc] init];
     }
 }
 
 void pierFreeDataSource()
 {
-    __dataSource = nil;
+    __pierDataSource = nil;
 }
 
 @interface PierDataSource ()

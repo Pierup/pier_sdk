@@ -89,7 +89,7 @@
 {
     if (self.delegate && [self.delegate respondsToSelector:@selector(countryCodeWithCountry:)]) {
        PierCountry *country =  self.countryArray[indexPath.row];
-        [__dataSource.merchantParam setValue:country.country_code forKey:DATASOURCES_COUNTRY_CODE];
+        [__pierDataSource.merchantParam setValue:country.country_code forKey:DATASOURCES_COUNTRY_CODE];
         [self.delegate countryCodeWithCountry:country];
         [self dismissCountryCodeViewController];
     }

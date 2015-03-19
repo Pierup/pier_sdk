@@ -156,7 +156,7 @@
                                   delegate:self
                                   cancelButtonTitle:@"Cancel"
                                   destructiveButtonTitle:@"Please choose the payment method"
-                                  otherButtonTitles:@"Pay Immediate", @"Pay in PierAPP",nil];
+                                  otherButtonTitles:@"Pay now", @"Pay by Pier App",nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];
 }
@@ -175,6 +175,8 @@
          * 1.phone           YES          NSString   user phone.
          * 2.country_code    YES          NSString   the country code of user phone.
          * 3.merchant_id     YES          NSString   your id in pier.
+         * 4.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+         * 5.scheme          YES          NSString   merchant App scheme
          */
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?amount=%@&currency=%@&merchant_id=%@&server_url=%@", @"paywithpier",
                                            [_merchantParam objectForKey:@"amount"],

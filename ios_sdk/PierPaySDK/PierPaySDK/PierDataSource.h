@@ -12,7 +12,7 @@
 
 @class PierDataSource;
 
-extern PierDataSource *__dataSource;
+extern PierDataSource *__pierDataSource;
 void pierInitDataSource();
 void pierFreeDataSource();
 

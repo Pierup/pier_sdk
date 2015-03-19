@@ -38,9 +38,9 @@
 @implementation PierService
 
 + (void)setRequestHeader:(NSDictionary *)param requestModel:(PierPayModel *)requestModel{    
-    [param setValue:[__dataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE] forKey:@"country_code"];
-    [param setValue:__dataSource.session_token forKey:@"session_token"];
-    [param setValue:__dataSource.user_id forKey:@"user_id"];
+    [param setValue:[__pierDataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE] forKey:@"country_code"];
+    [param setValue:__pierDataSource.session_token forKey:@"session_token"];
+    [param setValue:__pierDataSource.user_id forKey:@"user_id"];
 }
 
 + (void)serverSend:(ePIER_API_Type)apiType
@@ -138,8 +138,8 @@
     
     if (resultDic!=nil) {
         if ([resultDic respondsToSelector:@selector(objectForKey:)]) {
-            __dataSource.session_token = [resultDic valueForKey:@"session_token"];
-            __dataSource.user_id       = [resultDic valueForKey:@"user_id"];
+            __pierDataSource.session_token = [resultDic valueForKey:@"session_token"];
+            __pierDataSource.user_id       = [resultDic valueForKey:@"user_id"];
         }else{
             DLog(@"Result nil.");
         }
@@ -301,10 +301,10 @@
 }
 
 + (NSString *)getMerchantURL:(PierPayModel *)requestModel{
-    NSString *urlStr = [__dataSource.merchantParam objectForKey:@"server_url"];
-    NSString *amount = [__dataSource.merchantParam objectForKey:@"amount"];
+    NSString *urlStr = [__pierDataSource.merchantParam objectForKey:@"server_url"];
+    NSString *amount = [__pierDataSource.merchantParam objectForKey:@"amount"];
     NSString *authToken = [requestModel valueForKey:@"auth_token"];
-    NSString *currency = [__dataSource.merchantParam objectForKey:@"currency"];
+    NSString *currency = [__pierDataSource.merchantParam objectForKey:@"currency"];
     NSString *result = [NSString stringWithFormat:@"%@/%@/%@/%@", urlStr,amount,authToken,currency];
     return result;
 }

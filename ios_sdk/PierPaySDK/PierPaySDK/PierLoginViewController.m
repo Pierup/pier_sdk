@@ -72,7 +72,7 @@
 - (void)initData
 {
 #warning  ---------------- 硬编码 -----------------------
-    NSString *countryCode = [__dataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE];
+    NSString *countryCode = [__pierDataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE];
     self.country.country_code = countryCode;
     if ([countryCode isEqualToString:@"US"]) {
         self.country.phone_prefix = @"1";
@@ -85,13 +85,13 @@
     }
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
     
-    NSString *formatePhone = [[__dataSource.merchantParam objectForKey:@"phone"] phoneFormat];
+    NSString *formatePhone = [[__pierDataSource.merchantParam objectForKey:@"phone"] phoneFormat];
     [self.phoneNumberLabel setText:formatePhone];
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [__dataSource.merchantParam objectForKey:@"phone"], pier_userdefaults_phone,
+                         [__pierDataSource.merchantParam objectForKey:@"phone"], pier_userdefaults_phone,
                          countryCode, pier_userdefaults_countrycode,nil];
-    NSString *password = [__dataSource getPassword:dic];
+    NSString *password = [__pierDataSource getPassword:dic];
 
     if (![NSString emptyOrNull:formatePhone]) {
         if (![NSString emptyOrNull:password]) {
@@ -164,7 +164,7 @@
 {
     // Return to Merchant APP
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        [__dataSource.pierDelegate payWithPierComplete:result];
+        [__pierDataSource.pierDelegate payWithPierComplete:result];
     }];
 }
 
