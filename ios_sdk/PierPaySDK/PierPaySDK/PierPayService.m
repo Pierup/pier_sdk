@@ -73,7 +73,7 @@
                 [__pierDataSource.pierDelegate payWithPierComplete:dic];
             }
         }
-    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"show_alert",@"0",@"show_loading", nil]];
 }
 
 

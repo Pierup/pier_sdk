@@ -55,17 +55,17 @@ static PIRURLDispatcher * __instance;
         productViewController.merchantModel = merchantModel;
         [self.mainNavigationController pushViewController:productViewController animated:NO];
     }
-#pragma mark - --------------------- Test ---------------------
-    NSString *session_token = [dicQuery objectForKey:@"session_token"];
-    if (session_token != nil && session_token.length > 0) {
-        NSMutableDictionary *dic_dicQuery = [NSMutableDictionary dictionaryWithDictionary:dicQuery];
-        [dic_dicQuery setValue:@"http://pierup.ddns.net:8686/pier-merchant/server/sdk/pay/AAA000000001" forKey:@"server_url"];
-        [dic_dicQuery setValue:@"65.59" forKey:@"amount"];
-        [dic_dicQuery setValue:@"USD" forKey:@"currency"];
-        [dic_dicQuery setValue:[self getRandomNumber:1000000000 to:10000000000] forKey:@"order_id"];
-        [PierPay payWith:dic_dicQuery delegate:self];
-    }
-#pragma mark - --------------------- Test ---------------------
+//#pragma mark - --------------------- Test ---------------------
+//    NSString *session_token = [dicQuery objectForKey:@"session_token"];
+//    if (session_token != nil && session_token.length > 0) {
+//        NSMutableDictionary *dic_dicQuery = [NSMutableDictionary dictionaryWithDictionary:dicQuery];
+//        [dic_dicQuery setValue:@"http://pierup.ddns.net:8686/pier-merchant/server/sdk/pay/AAA000000001" forKey:@"server_url"];
+//        [dic_dicQuery setValue:@"65.59" forKey:@"amount"];
+//        [dic_dicQuery setValue:@"USD" forKey:@"currency"];
+//        [dic_dicQuery setValue:[self getRandomNumber:1000000000 to:10000000000] forKey:@"order_id"];
+//        [PierPay payWith:dic_dicQuery delegate:self];
+//    }
+//#pragma mark - --------------------- Test ---------------------
 }
 
 #pragma mark - ------------------ PierPayDelegate -------------
