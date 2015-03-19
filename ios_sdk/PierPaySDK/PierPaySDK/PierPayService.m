@@ -14,7 +14,7 @@
 
 @interface PierPayService () <PierSMSInputAlertDelegate>
 
-@property (nonatomic, strong) GetAuthTokenV2Request *authTokenRequestModel;
+@property (nonatomic, strong) PierGetAuthTokenV2Request *authTokenRequestModel;
 
 @property (nonatomic, strong) PierSMSAlertView *smsAlertView;
 
@@ -26,7 +26,7 @@
 {
     self = [super init];
     if (self) {
-        _authTokenRequestModel = [[GetAuthTokenV2Request alloc] init];
+        _authTokenRequestModel = [[PierGetAuthTokenV2Request alloc] init];
     }
     return self;
 }
@@ -43,7 +43,7 @@
             [__dataSource clearUserInfo];
         }
         
-        TransactionSMSResponse *response = (TransactionSMSResponse *)responseModel;
+        PierTransactionSMSResponse *response = (PierTransactionSMSResponse *)responseModel;
         
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"",@"title_image_name",
@@ -73,15 +73,15 @@
     
     [PierService serverSend:ePIER_API_GET_AUTH_TOKEN_V2 resuest:self.authTokenRequestModel successBlock:^(id responseModel) {
         [_smsAlertView dismiss];
-        GetAuthTokenV2Response *response = (GetAuthTokenV2Response *)responseModel;
+        PierGetAuthTokenV2Response *response = (PierGetAuthTokenV2Response *)responseModel;
         [self serviceMerchantService:response];
     } faliedBlock:^(NSError *error) {
         [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
 }
 
-- (void)serviceMerchantService:(GetAuthTokenV2Response *)resultModel{
-    MerchantRequest *requestModel = [[MerchantRequest alloc] init];
+- (void)serviceMerchantService:(PierGetAuthTokenV2Response *)resultModel{
+    PierMerchantRequest *requestModel = [[PierMerchantRequest alloc] init];
     requestModel.auth_token = resultModel.auth_token;
     [PierService serverSend:ePIER_API_GET_MERCHANT resuest:requestModel successBlock:^(id responseModel) {
         NSString *amount = [NSString getNumberFormatterDecimalStyle:[__dataSource.merchantParam objectForKey:@"amount"] currency:[__dataSource.merchantParam objectForKey:@"currency"]];

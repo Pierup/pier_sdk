@@ -25,7 +25,7 @@ NSBundle *pierBoundle(){
 }
 
 #pragma mark - Get iPhone Version
-double IPHONE_OS_MAIN_VERSION() {
+double PIER_IPHONE_OS_MAIN_VERSION() {
     static double __iphone_os_main_version = 0.0;
     if(__iphone_os_main_version == 0.0) {
         NSString *sv = [[UIDevice currentDevice] systemVersion];

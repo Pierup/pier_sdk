@@ -15,115 +15,115 @@
 #pragma mark - -------------------PIER_API_TRANSACTION_SMS-------------------
 #pragma mark - Request
 
-@implementation TransactionSMSRequest
+@implementation PierTransactionSMSRequest
 
 @end
 
 #pragma mark - Response
 
-@interface TransactionSMSResponse ()
+@interface PierTransactionSMSResponse ()
 @property(nonatomic, copy, readwrite) NSString *expiration;
 @property(nonatomic, copy, readwrite) NSString *sms_no;
 @end
 
-@implementation TransactionSMSResponse
+@implementation PierTransactionSMSResponse
 
 @end
 
 
 #pragma mark - -------------------PIER_API_GET_AUTH_TOKEN_V2-------------------
 #pragma mark - Request
-@implementation GetAuthTokenV2Request
+@implementation PierGetAuthTokenV2Request
 
 
 @end
 
 #pragma mark - Response
 
-@interface GetAuthTokenV2Response ()
+@interface PierGetAuthTokenV2Response ()
 @property(nonatomic, copy, readwrite) NSString *auth_token;
 @end
 
-@implementation GetAuthTokenV2Response
+@implementation PierGetAuthTokenV2Response
 
 @end
 
 #pragma mark - --------------------PIER_API_GET_ACTIVITY_CODE-------------------
 #pragma mark - Request
-@implementation GetRegisterCodeRequest
+@implementation PierGetRegisterCodeRequest
 
 @end
 
-@interface GetRegisterCodeResponse ()
+@interface PierGetRegisterCodeResponse ()
 @property(nonatomic, copy, readwrite) NSString *expiration;
 @end
 
-@implementation GetRegisterCodeResponse
+@implementation PierGetRegisterCodeResponse
 
 @end
 
 
 #pragma mark - --------------------PIER_API_GET_ACTIVITION-------------------
 #pragma mark - Request
-@implementation RegSMSActiveRequest
+@implementation PierRegSMSActiveRequest
 
 @end
 
 #pragma mark - Response
-@interface RegSMSActiveResponse ()
+@interface PierRegSMSActiveResponse ()
 @property(nonatomic, copy, readwrite) NSString *token;
 @end
 
-@implementation RegSMSActiveResponse
+@implementation PierRegSMSActiveResponse
 
 @end
 
 
 #pragma mark - --------------------PIER_API_GET_ACTIVITION_REGIST-------------------
 #pragma mark - Request
-@implementation RegisterRequest
+@implementation PierRegisterRequest
 
 @end
 
 #pragma mark - Response
 
-@interface RegisterResponse ()
+@interface PierRegisterResponse ()
 @property(nonatomic, copy, readwrite) NSString *user_id;
 @property(nonatomic, copy, readwrite) NSString *device_id;
 @property(nonatomic, copy, readwrite) NSString *passcode_expiration;
 @end
 
-@implementation RegisterResponse
+@implementation PierRegisterResponse
 
 @end
 
 #pragma mark - --------------------PIER_API_GET_UPDATEUSER-------------------
 #pragma mark - Request
-@interface UpdateRequest ()
+@interface PierUpdateRequest ()
 @end
 
-@implementation UpdateRequest
+@implementation PierUpdateRequest
 @end
 
 #pragma mark - Response
-@interface UpdateResponse ()
+@interface PierUpdateResponse ()
 @property(nonatomic, copy, readwrite) NSString *status_bit;
 @end
 
-@implementation UpdateResponse
+@implementation PierUpdateResponse
 @end
 
 #pragma mark - --------------------PIER_API_GET_APPLYCREDIT-------------------
 #pragma mark - Request
-@interface CreditApplyRequest()
+@interface PierCreditApplyRequest()
 @end
 
-@implementation CreditApplyRequest
+@implementation PierCreditApplyRequest
 
 @end
 
 #pragma mark - Response
-@interface CreditApplyResponse()
+@interface PierCreditApplyResponse()
 @property(nonatomic, copy, readwrite) NSString *currency;
 @property(nonatomic, copy, readwrite) NSString *category;
 @property(nonatomic, copy, readwrite) NSString *credit_limit;
@@ -131,39 +131,39 @@
 @property(nonatomic, copy, readwrite) NSString *note;
 @end
 
-@implementation CreditApplyResponse
+@implementation PierCreditApplyResponse
 
 @end
 
 #pragma mark - --------------------ePIER_API_GET_MERCHANT-------------------
 #pragma mark - Request
-@implementation MerchantRequest
+@implementation PierMerchantRequest
 @end
 
 #pragma mark - Response
-@implementation MerchantResponse
+@implementation PierMerchantResponse
 @end
 
 #pragma mark - ---------------------ePIER_API_GET_COUNTRYS-------------------
 #pragma mark - Request
 
-@interface CountryCodeRequest ()
+@interface PierCountryCodeRequest ()
 @end
 
-@implementation CountryCodeRequest
+@implementation PierCountryCodeRequest
 
 @end
 
-@interface Country()
+@interface PierCountry()
 //@property (nonatomic, copy, readwrite) NSString *code;
 @property (nonatomic, copy, readwrite) NSString *name;
 @property (nonatomic, copy, readwrite) NSString *phone_prefix;
 @property (nonatomic, copy, readwrite) NSString *phone_size;
 @end
 
-@implementation Country
+@implementation PierCountry
 
 @end
 
-@implementation CountryCodeResponse
+@implementation PierCountryCodeResponse
 @end

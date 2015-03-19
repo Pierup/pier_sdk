@@ -26,8 +26,8 @@
 @property (nonatomic, strong) PierKeyboard *pirKeyBoard;
 
 /** servire model */
-@property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
-@property (nonatomic, strong) GetAuthTokenV2Request *loginRequestModel;
+@property (nonatomic, strong) PierTransactionSMSRequest *smsRequestModel;
+@property (nonatomic, strong) PierGetAuthTokenV2Request *loginRequestModel;
 
 @end
 
@@ -37,8 +37,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _smsRequestModel = [[TransactionSMSRequest alloc] init];
-        _loginRequestModel = [[GetAuthTokenV2Request alloc] init];
+        _smsRequestModel = [[PierTransactionSMSRequest alloc] init];
+        _loginRequestModel = [[PierGetAuthTokenV2Request alloc] init];
     }
     return self;
 }

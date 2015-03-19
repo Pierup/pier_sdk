@@ -12,55 +12,55 @@
 
 /**  **************序列化解析器************** */
 /** 序列化对象 */
-id serializeObject(id obj, NSString *clazz);
+id pierSerializeObject(id obj, NSString *clazz);
 /** 反序列化对象 */
-id deserializeObject(id dic, NSString *clazz);
+id pierDeserializeObject(id dic, NSString *clazz);
 /** 序列化数组对象 */
-NSArray * serializeArray(id obj, NSString *clazz);
+NSArray * pierSerializeArray(id obj, NSString *clazz);
 /** 反序列化数组对象 */
-NSArray * deserializeArray(id obj, NSString *clazz);
+NSArray * pierDeserializeArray(id obj, NSString *clazz);
 /** 序列化字典对象 */
-NSDictionary * serializeDictionary(id obj, NSString *clazz);
+NSDictionary * pierSerializeDictionary(id obj, NSString *clazz);
 /** 反序列化字典对象 */
-NSDictionary * deserializeDictionary(id obj, NSString *clazz);
+NSDictionary * pierDeserializeDictionary(id obj, NSString *clazz);
 /** 序列化集合对象 */
-NSSet * serializeSet(id obj, NSString *clazz);
+NSSet * pierSerializeSet(id obj, NSString *clazz);
 /** 反序列化集合对象 */
-NSSet * deserializeSet(id obj, NSString *clazz);
+NSSet * pierDeserializeSet(id obj, NSString *clazz);
 
 /** **************类型判断工具************** */
 /** 获取类型符号 */
-NSString *getPropertyTypeWithDescription(NSString *description);
+NSString *pierGetPropertyTypeWithDescription(NSString *description);
 /** 获取容器的泛型类型 */
-NSString *getGenericType(NSString *propertyType);
+NSString *pierGetGenericType(NSString *propertyType);
 /** 判断字CLass类型是否是JsonModel*/
-BOOL stringTypeIsJsonModel(Class clazz);
+BOOL pierStringTypeIsJsonModel(Class clazz);
 /** 判断字符串类型是否是NSArray */
-BOOL stringTypeIsArray(NSString *type);
+BOOL pierStringTypeIsArray(NSString *type);
 /** 判断对象是否是NSArray类型 */
-BOOL objectTypeIsArray(id obj);
+BOOL pierObjectTypeIsArray(id obj);
 /** 判断字符串是否是NSDictionary类型 */
-BOOL stringTypeIsDictionary(NSString *type);
+BOOL pierStringTypeIsDictionary(NSString *type);
 /** 判断对象是否是NSDictionary类型 */
-BOOL objectTypeIsDictionary(id obj);
+BOOL pierObjectTypeIsDictionary(id obj);
 /** 判断字符串是否是NSSset类型 */
-BOOL stringTypeIsSet(NSString *type);
+BOOL pierStringTypeIsSet(NSString *type);
 /** 判断对象是否是NSSset类型 */
-BOOL objectTypeIsSet(id obj);
+BOOL pierObjectTypeIsSet(id obj);
 
 /** **************classinfo tools************** */
 static NSMutableDictionary *__classDeclatedCacheMap;
 
-@interface ModelDeclated : NSObject
+@interface PierModelDeclated : NSObject
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *pramDescription;
 @end
-@implementation ModelDeclated @end
+@implementation PierModelDeclated @end
 
 /**获取第一层model，的第一个字段作为主键*/
-NSString *getPrimaryKey(Class clazz);
+NSString *pierGetPrimaryKey(Class clazz);
 /** 获取model的属性，包括父类的 */
-NSArray *getPropertyDeclared(Class clazz);
+NSArray *pierGetPropertyDeclared(Class clazz);
 
 @implementation PierJSONModel
 
@@ -68,8 +68,8 @@ static NSArray *enumIntFlagArray = NULL;
 
 + (id)getObjectByDictionary:(NSDictionary *)dic clazz:(Class)clazz{
     id result = nil;
-    if (stringTypeIsJsonModel(clazz)) {
-        result = deserializeObject(dic, NSStringFromClass(clazz));
+    if (pierStringTypeIsJsonModel(clazz)) {
+        result = pierDeserializeObject(dic, NSStringFromClass(clazz));
     }
     return result;
 }
@@ -78,26 +78,26 @@ static NSArray *enumIntFlagArray = NULL;
 + (NSDictionary *)getDictionaryByObject:(id)object{
     Class clazz = [object class];
     id result = nil;
-    if (stringTypeIsJsonModel(clazz)) {
-        result = serializeObject(object, NSStringFromClass(clazz));
+    if (pierStringTypeIsJsonModel(clazz)) {
+        result = pierSerializeObject(object, NSStringFromClass(clazz));
     }
     return result;
 }
 
 #pragma mark - --------------------classinfo tools--------------------
 #pragma mark 获取第一层model，的第一个字段作为主键
-NSString *getPrimaryKey(Class clazz){
+NSString *pierGetPrimaryKey(Class clazz){
     NSString *clazz_s = NSStringFromClass(clazz);
     NSArray *classDeclates = [__classDeclatedCacheMap objectForKey:clazz_s];
     NSString *result = @"";
     if (classDeclates && [classDeclates count]>0) {
-        ModelDeclated *declatedModel = [classDeclates objectAtIndex:0];
+        PierModelDeclated *declatedModel = [classDeclates objectAtIndex:0];
         result = declatedModel.name;
     }
     return result;
 }
 #pragma mark 获取model的属性，包括父类的
-NSArray *getPropertyDeclared(Class clazz){
+NSArray *pierGetPropertyDeclared(Class clazz){
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         __classDeclatedCacheMap = [[NSMutableDictionary alloc] init];
@@ -109,7 +109,7 @@ NSArray *getPropertyDeclared(Class clazz){
         resultArray = [NSMutableArray arrayWithArray:cache];
     }else{
         resultArray = [[NSMutableArray alloc] init];
-        while (stringTypeIsJsonModel(clazz)){
+        while (pierStringTypeIsJsonModel(clazz)){
             unsigned int numberOfProperties = 0;
             objc_property_t *properties = class_copyPropertyList(clazz, &numberOfProperties);
             for (int i = 0; i < numberOfProperties; i++) {
@@ -118,7 +118,7 @@ NSArray *getPropertyDeclared(Class clazz){
                 const char *description_c = property_getAttributes(property);
                 NSString *name_s = [NSString stringWithUTF8String:name_c];
                 NSString *description_s = [NSString stringWithUTF8String:description_c];
-                ModelDeclated *declatedModel = [[ModelDeclated alloc] init];
+                PierModelDeclated *declatedModel = [[PierModelDeclated alloc] init];
                 declatedModel.name = name_s;
                 declatedModel.pramDescription = description_s;
                 [resultArray addObject:declatedModel];
@@ -135,12 +135,12 @@ NSArray *getPropertyDeclared(Class clazz){
 
 #pragma mark - --------------------serialize--------------------
 #pragma mark 序列化对象
-id  serializeObject(id obj, NSString *clazz){
+id  pierSerializeObject(id obj, NSString *clazz){
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
     Class cla = NSClassFromString(clazz);
-    if (stringTypeIsJsonModel(cla)) {
-        NSArray *propertyDeclareds = getPropertyDeclared(cla);
-        for (ModelDeclated *declatedModel in propertyDeclareds) {
+    if (pierStringTypeIsJsonModel(cla)) {
+        NSArray *propertyDeclareds = pierGetPropertyDeclared(cla);
+        for (PierModelDeclated *declatedModel in propertyDeclareds) {
             NSString *name_s = declatedModel.name;
             NSString *description_s = declatedModel.pramDescription;
             id object = [obj valueForKey:name_s];
@@ -148,17 +148,17 @@ id  serializeObject(id obj, NSString *clazz){
             if (object == NULL || name_s == NULL || description_s == NULL) {
                 continue;
             }
-            NSString *propertyType = getPropertyTypeWithDescription(description_s);
+            NSString *propertyType = pierGetPropertyTypeWithDescription(description_s);
             id serializeObj = nil;
-            if (stringTypeIsJsonModel(NSClassFromString(propertyType))) {
-                serializeObj = serializeObject(object, propertyType);
+            if (pierStringTypeIsJsonModel(NSClassFromString(propertyType))) {
+                serializeObj = pierSerializeObject(object, propertyType);
             }else if ([description_s hasPrefix:@"T@\""]) {
-                if (stringTypeIsArray(propertyType)) {//序列化Array
-                    serializeObj = serializeArray(object, propertyType);
-                }else if (stringTypeIsDictionary(propertyType)){//序列化Dictionary
-                    serializeObj = serializeDictionary(object, propertyType);
-                }else if (stringTypeIsSet(propertyType)){//序列化set
-                    serializeObj = serializeSet(object, propertyType);
+                if (pierStringTypeIsArray(propertyType)) {//序列化Array
+                    serializeObj = pierSerializeArray(object, propertyType);
+                }else if (pierStringTypeIsDictionary(propertyType)){//序列化Dictionary
+                    serializeObj = pierSerializeDictionary(object, propertyType);
+                }else if (pierStringTypeIsSet(propertyType)){//序列化set
+                    serializeObj = pierSerializeSet(object, propertyType);
                 }else{
                     serializeObj = object;
                 }
@@ -177,31 +177,31 @@ id  serializeObject(id obj, NSString *clazz){
             }
             [result setValue:serializeObj forKey:name_s];
         }
-    }else if (stringTypeIsArray(clazz)) {//解析Array
-        return serializeArray(obj, clazz);
-    }else if (stringTypeIsDictionary(clazz)){//解析Dictionary
-        return serializeDictionary(obj, clazz);
-    }else if (stringTypeIsSet(clazz)){//解析set
-        return serializeSet(obj, clazz);
+    }else if (pierStringTypeIsArray(clazz)) {//解析Array
+        return pierSerializeArray(obj, clazz);
+    }else if (pierStringTypeIsDictionary(clazz)){//解析Dictionary
+        return pierSerializeDictionary(obj, clazz);
+    }else if (pierStringTypeIsSet(clazz)){//解析set
+        return pierSerializeSet(obj, clazz);
     }else{
         DLog(@"warning 不支持的基础类型:obj=%@,clazz=%@",obj,clazz);
     }
     return result;
 }
 #pragma mark 反序列化对象
-id deserializeObject(id dic, NSString *clazz){
+id pierDeserializeObject(id dic, NSString *clazz){
     Class cla = NSClassFromString(clazz);
     id result = [cla new];
-    if (stringTypeIsJsonModel(cla)) {
-        NSArray *propertyDeclareds = getPropertyDeclared(cla);
-        for (ModelDeclated *declatedModel in propertyDeclareds) {
+    if (pierStringTypeIsJsonModel(cla)) {
+        NSArray *propertyDeclareds = pierGetPropertyDeclared(cla);
+        for (PierModelDeclated *declatedModel in propertyDeclareds) {
             NSString *name_s = declatedModel.name;
             NSString *description_s = declatedModel.pramDescription;
             id obj = nil;
             if ([dic respondsToSelector:@selector(objectForKey:)]) {
                 obj = [dic objectForKey:name_s];
             }else{//如果不支持KVC说明 是一个Array、dic、set等容器类的对象，直接赋给obj
-                if ([getPrimaryKey(cla) isEqualToString:name_s]){
+                if ([pierGetPrimaryKey(cla) isEqualToString:name_s]){
                     obj = dic;
                 }else{
                     DLog(@"error model 命名和服务接口不一致dic=%@,name_s=%@",dic,name_s);
@@ -218,19 +218,19 @@ id deserializeObject(id dic, NSString *clazz){
                 continue;
             }
             id serializeObj = nil;
-            NSString *propertyType = getPropertyTypeWithDescription(description_s);
+            NSString *propertyType = pierGetPropertyTypeWithDescription(description_s);
             /** object */
-            if (stringTypeIsJsonModel(NSClassFromString(propertyType))) {
-                serializeObj = deserializeObject(dic,propertyType);
+            if (pierStringTypeIsJsonModel(NSClassFromString(propertyType))) {
+                serializeObj = pierDeserializeObject(dic,propertyType);
             }else if ([description_s hasPrefix:@"T@\""]) {
-                if (stringTypeIsArray(propertyType)) {//解析Array
-                    NSArray *array = deserializeArray(obj, propertyType);
+                if (pierStringTypeIsArray(propertyType)) {//解析Array
+                    NSArray *array = pierDeserializeArray(obj, propertyType);
                     serializeObj = array;
-                }else if (stringTypeIsDictionary(propertyType)){//解析Dictionary
-                    NSDictionary *dic = deserializeDictionary(obj, propertyType);
+                }else if (pierStringTypeIsDictionary(propertyType)){//解析Dictionary
+                    NSDictionary *dic = pierDeserializeDictionary(obj, propertyType);
                     serializeObj = dic;
-                }else if (stringTypeIsSet(propertyType)){//解析set
-                    NSSet *set = deserializeSet(obj, propertyType);
+                }else if (pierStringTypeIsSet(propertyType)){//解析set
+                    NSSet *set = pierDeserializeSet(obj, propertyType);
                     serializeObj = set;
                 }else{
                     serializeObj = obj;
@@ -249,12 +249,12 @@ id deserializeObject(id dic, NSString *clazz){
             }
             [result setValue:serializeObj forKey:name_s];
         }
-    }else if (stringTypeIsArray(clazz)) {//解析Array
-        return deserializeArray(dic, clazz);
-    }else if (stringTypeIsDictionary(clazz)){//解析Dictionary
-        return deserializeDictionary(dic, clazz);
-    }else if (stringTypeIsSet(clazz)){//解析set
-        return deserializeSet(dic, clazz);
+    }else if (pierStringTypeIsArray(clazz)) {//解析Array
+        return pierDeserializeArray(dic, clazz);
+    }else if (pierStringTypeIsDictionary(clazz)){//解析Dictionary
+        return pierDeserializeDictionary(dic, clazz);
+    }else if (pierStringTypeIsSet(clazz)){//解析set
+        return pierDeserializeSet(dic, clazz);
     }else{
         DLog(@"warning 不支持的基础类型:dic=%@,clazz=%@",dic,clazz);
     }
@@ -262,15 +262,15 @@ id deserializeObject(id dic, NSString *clazz){
 }
 
 #pragma mark 序列化数组对象
-NSArray * serializeArray(id obj, NSString *clazz){
+NSArray * pierSerializeArray(id obj, NSString *clazz){
     /** 是否有泛型 */
-    NSString *genericType = getGenericType(clazz);
+    NSString *genericType = pierGetGenericType(clazz);
     NSArray *array = [NSArray arrayWithArray:obj];
     NSMutableArray *resultArray = [[NSMutableArray alloc] initWithCapacity:[array count]];
     if (genericType.length>0) {
         for (int i = 0; i < [array count]; i++) {
             id item = [array objectAtIndex:i];
-            NSDictionary *dic = serializeObject(item, genericType);
+            NSDictionary *dic = pierSerializeObject(item, genericType);
             [resultArray addObject:dic];
         }
     }else{
@@ -281,14 +281,14 @@ NSArray * serializeArray(id obj, NSString *clazz){
 }
 
 #pragma mark 反序列化数组对象
-NSArray * deserializeArray(id obj, NSString *clazz){
+NSArray * pierDeserializeArray(id obj, NSString *clazz){
     /** 是否有泛型 */
-    NSString *genericType = getGenericType(clazz);
+    NSString *genericType = pierGetGenericType(clazz);
     NSMutableArray *resultArray = [[NSMutableArray alloc] initWithCapacity:[obj count]];
     if (genericType.length>0) {
         for (int i = 0; i < [obj count]; i++) {
             id item = [obj objectAtIndex:i];
-            id model = deserializeObject(item, genericType);
+            id model = pierDeserializeObject(item, genericType);
             [resultArray addObject:model];
         }
     }else{
@@ -299,15 +299,15 @@ NSArray * deserializeArray(id obj, NSString *clazz){
 }
 
 #pragma mark 序列化字典对象
-NSDictionary * serializeDictionary(id obj, NSString *clazz){
+NSDictionary * pierSerializeDictionary(id obj, NSString *clazz){
     /** 是否有泛型 */
-    NSString *genericType = getGenericType(clazz);
+    NSString *genericType = pierGetGenericType(clazz);
     NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
     if (genericType.length>0) {
         NSArray *keys = [obj allKeys];
         for (NSString * key in keys) {
             id item = [obj objectForKey:key];
-            id model = serializeObject(item, genericType);
+            id model = pierSerializeObject(item, genericType);
             [resultDic setObject:model forKey:key];
         }
     }else{
@@ -318,15 +318,15 @@ NSDictionary * serializeDictionary(id obj, NSString *clazz){
 }
 
 #pragma mark 反序列化字典对象
-NSDictionary *  deserializeDictionary(id obj, NSString *clazz){
+NSDictionary *  pierDeserializeDictionary(id obj, NSString *clazz){
     /** 是否有泛型 */
-    NSString *genericType = getGenericType(clazz);
+    NSString *genericType = pierGetGenericType(clazz);
     NSMutableDictionary *resultDic = [NSMutableDictionary dictionary];
     if (genericType.length>0) {
         NSArray *keys = [obj allKeys];
         for (NSString * key in keys) {
             id item = [obj objectForKey:key];
-            id model = deserializeObject(item, genericType);
+            id model = pierDeserializeObject(item, genericType);
             [resultDic setObject:model forKey:key];
         }
     }else{
@@ -337,14 +337,14 @@ NSDictionary *  deserializeDictionary(id obj, NSString *clazz){
 }
 
 #pragma mark 序列化集合对象
-NSSet * serializeSet(id obj, NSString *clazz){
+NSSet * pierSerializeSet(id obj, NSString *clazz){
     /** 是否有泛型 */
-    NSString *genericType = getGenericType(clazz);
+    NSString *genericType = pierGetGenericType(clazz);
     NSMutableSet *resultSet = [NSMutableSet set];
     if (genericType.length>0) {
         NSEnumerator *enumerator = [obj objectEnumerator];
         for (id item in enumerator) {
-            id model = serializeObject(item, genericType);
+            id model = pierSerializeObject(item, genericType);
             [resultSet addObject:model];
         }
     }else{
@@ -355,14 +355,14 @@ NSSet * serializeSet(id obj, NSString *clazz){
 }
 
 #pragma mark 反序列化集合对象
-NSSet * deserializeSet(id obj, NSString *clazz){
+NSSet * pierDeserializeSet(id obj, NSString *clazz){
     /** 是否有泛型 */
-    NSString *genericType = getGenericType(clazz);
+    NSString *genericType = pierGetGenericType(clazz);
     NSMutableSet *resultSet = [NSMutableSet set];
     if (genericType.length>0) {
         NSEnumerator *enumerator = [obj objectEnumerator];
         for (id item in enumerator) {
-            id model = deserializeObject(item, genericType);
+            id model = pierDeserializeObject(item, genericType);
             [resultSet addObject:model];
         }
     }else{
@@ -374,7 +374,7 @@ NSSet * deserializeSet(id obj, NSString *clazz){
 
 #pragma mark - --------------------tools--------------------
 #pragma mark - 获取类型符号
-NSString *getPropertyTypeWithDescription(NSString *description)
+NSString *pierGetPropertyTypeWithDescription(NSString *description)
 {
     NSString *resultTypeString = nil;
     
@@ -394,7 +394,7 @@ NSString *getPropertyTypeWithDescription(NSString *description)
 
 #pragma mark - 判断类型
 #pragma mark 获取容器的泛型类型
-NSString *getGenericType(NSString *propertyType){
+NSString *pierGetGenericType(NSString *propertyType){
     NSString *genericType = @"";
     if ([propertyType rangeOfString:@"<"].location != NSNotFound) {
         NSUInteger startIndex = [propertyType rangeOfString:@"<"].location;
@@ -405,7 +405,7 @@ NSString *getGenericType(NSString *propertyType){
 }
 
 #pragma mark 判断Class类型是否是JsonModel
-BOOL stringTypeIsJsonModel(Class clazz)
+BOOL pierStringTypeIsJsonModel(Class clazz)
 {
     if ([clazz isSubclassOfClass:NSClassFromString(@"PierJSONModel")]) {
         return YES;
@@ -415,7 +415,7 @@ BOOL stringTypeIsJsonModel(Class clazz)
 }
 
 #pragma mark 判断字符串类型是否是NSArray
-BOOL stringTypeIsArray(NSString *type)
+BOOL pierStringTypeIsArray(NSString *type)
 {
     if ([type rangeOfString:@"<"].location == NSNotFound) {
         if ([type rangeOfString:@"NSArray"].location != NSNotFound ||
@@ -437,7 +437,7 @@ BOOL stringTypeIsArray(NSString *type)
 }
 
 #pragma mark 判断对象是否是NSArray类型
-BOOL objectTypeIsArray(id obj)
+BOOL pierObjectTypeIsArray(id obj)
 {
     if ([obj isKindOfClass:[NSArray class]] || [obj isKindOfClass:[NSMutableArray class]]) {
         return YES;
@@ -447,7 +447,7 @@ BOOL objectTypeIsArray(id obj)
 }
 
 #pragma mark 判断字符串是否是NSDictionary类型
-BOOL stringTypeIsDictionary(NSString *type)
+BOOL pierStringTypeIsDictionary(NSString *type)
 {
     if ([type rangeOfString:@"<"].location == NSNotFound){
         if ([type rangeOfString:@"NSDictionary"].location != NSNotFound ||
@@ -468,7 +468,7 @@ BOOL stringTypeIsDictionary(NSString *type)
     }
 }
 #pragma mark 判断对象是否是NSDictionary类型
-BOOL objectTypeIsDictionary(id obj)
+BOOL pierObjectTypeIsDictionary(id obj)
 {
     if ([obj isKindOfClass:[NSDictionary class]] || [obj isKindOfClass:[NSMutableDictionary class]]) {
         return YES;
@@ -478,7 +478,7 @@ BOOL objectTypeIsDictionary(id obj)
 }
 
 #pragma mark 判断字符串是否是NSSset类型
-BOOL stringTypeIsSet(NSString *type)
+BOOL pierStringTypeIsSet(NSString *type)
 {
     if ([type rangeOfString:@"<"].location == NSNotFound){
         if ([type rangeOfString:@"NSSet"].location != NSNotFound || [type rangeOfString:@"NSMutableSet"].location != NSNotFound) {
@@ -498,7 +498,7 @@ BOOL stringTypeIsSet(NSString *type)
     }
 }
 #pragma mark 判断对象是否是NSSset类型
-BOOL objectTypeIsSet(id obj)
+BOOL pierObjectTypeIsSet(id obj)
 {
     if ([obj isKindOfClass:[NSSet class]] || [obj isKindOfClass:[NSMutableSet class]]) {
         return YES;

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@protocol PayByPierDelegate <NSObject>
+@protocol PierPayDelegate <NSObject>
 
 @required
 
@@ -22,18 +22,14 @@
  * 4.result     NSDictionary    Showing the value of output params of pier.
  * 5.spending   NSString        spending.
  */
--(void)payByPierComplete:(NSDictionary *)result;
-
-@end
-
-@interface UserAttribute : NSObject
+-(void)payWithPierComplete:(NSDictionary *)result;
 
 @end
 
 #pragma mark - navigationController
 @interface PierPay : UINavigationController
 
-@property (nonatomic, weak) id<PayByPierDelegate> pierDelegate;
+@property (nonatomic, weak) id<PierPayDelegate> pierDelegate;
 
 /**
  * pay by pier with password

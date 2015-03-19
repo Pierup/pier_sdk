@@ -22,7 +22,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *cancleButton;
 
 /** servire model */
-@property (nonatomic, strong) TransactionSMSRequest *smsRequestModel;
+@property (nonatomic, strong) PierTransactionSMSRequest *smsRequestModel;
 @end
 
 @implementation PierCreditApproveViewController
@@ -31,7 +31,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _smsRequestModel = [[TransactionSMSRequest alloc] init];
+        _smsRequestModel = [[PierTransactionSMSRequest alloc] init];
     }
     return self;
 }
@@ -88,7 +88,7 @@
 - (IBAction)cancelPay:(id)sender{
     // Return to Merchant APP
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        [__dataSource.pierDelegate payByPierComplete:nil];
+        [__dataSource.pierDelegate payWithPierComplete:nil];
     }];
 }
 
@@ -97,7 +97,7 @@
 - (void)pierPayServiceComplete:(NSDictionary *)result{
     // Return to Merchant APP
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        [__dataSource.pierDelegate payByPierComplete:result];
+        [__dataSource.pierDelegate payWithPierComplete:result];
     }];
 }
 

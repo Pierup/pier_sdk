@@ -136,7 +136,7 @@
 }
 
 - (void)serviceUpdataUser:(PierSiginCellModel *)userModel{
-    UpdateRequest *requestModel = [[UpdateRequest alloc] init];
+    PierUpdateRequest *requestModel = [[PierUpdateRequest alloc] init];
     requestModel.first_name = userModel.firstName;
     requestModel.last_name = userModel.lastName;
     requestModel.email  =   userModel.email;
@@ -144,7 +144,7 @@
     requestModel.ssn    =   userModel.ssn;
     requestModel.address    =   userModel.address;
     [PierService serverSend:ePIER_API_GET_UPDATEUSER resuest:requestModel successBlock:^(id responseModel) {
-        UpdateResponse *response = (UpdateResponse *)responseModel;
+        PierUpdateResponse *response = (PierUpdateResponse *)responseModel;
         [self serviceCredtiApply];
     } faliedBlock:^(NSError *error) {
         
@@ -153,9 +153,9 @@
 
 
 - (void)serviceCredtiApply{
-    CreditApplyRequest *requestModel = [[CreditApplyRequest alloc] init];
+    PierCreditApplyRequest *requestModel = [[PierCreditApplyRequest alloc] init];
     [PierService serverSend:ePIER_API_GET_APPLYCREDIT resuest:requestModel successBlock:^(id responseModel) {
-        CreditApplyResponse *response = (CreditApplyResponse *)responseModel;
+        PierCreditApplyResponse *response = (PierCreditApplyResponse *)responseModel;
         dispatch_async(dispatch_get_main_queue(), ^{
             PierCreditApproveViewController *registerVC = [[PierCreditApproveViewController alloc] initWithNibName:@"PierCreditApproveViewController" bundle:pierBoundle()];
             registerVC.responseModel = response;

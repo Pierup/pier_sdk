@@ -16,14 +16,14 @@ NSString * const  pier_userdefaults_password    = @"pier_pay_user_password";
 
 PierDataSource *__dataSource;
 
-void initDataSource()
+void pierInitDataSource()
 {
     if (__dataSource == nil) {
         __dataSource = [[PierDataSource alloc] init];
     }
 }
 
-void freeDataSource()
+void pierFreeDataSource()
 {
     __dataSource = nil;
 }

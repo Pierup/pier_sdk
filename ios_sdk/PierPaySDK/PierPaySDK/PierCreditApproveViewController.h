@@ -11,6 +11,6 @@
 
 @interface PierCreditApproveViewController : UIViewController
 
-@property (nonatomic, strong) CreditApplyResponse *responseModel;
+@property (nonatomic, strong) PierCreditApplyResponse *responseModel;
 
 @end

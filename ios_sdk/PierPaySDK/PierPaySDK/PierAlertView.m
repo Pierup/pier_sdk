@@ -386,12 +386,12 @@
 
 
 - (void)serviceGetReigistSMS{
-    GetRegisterCodeRequest *requestModel = [[GetRegisterCodeRequest alloc] init];
+    PierGetRegisterCodeRequest *requestModel = [[PierGetRegisterCodeRequest alloc] init];
     requestModel.phone = [self.paramDic objectForKey:@"phone"] ;
     requestModel.country_code = @"CN";
     
     [PierService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
-        GetRegisterCodeResponse *response = (GetRegisterCodeResponse *)responseModel;
+        PierGetRegisterCodeResponse *response = (PierGetRegisterCodeResponse *)responseModel;
         dispatch_async(dispatch_get_main_queue(), ^{
             self.stopWatch.expirTime = [response.expiration integerValue];
             [self.stopWatch startTimer];

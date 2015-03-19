@@ -18,7 +18,7 @@
 NSBundle *pierBoundle();
 
 /** Get iPhone Version */
-double IPHONE_OS_MAIN_VERSION();
+double PIER_IPHONE_OS_MAIN_VERSION();
 /** Get ImageName in Bundle */
 NSString *getImagePath(NSString *imageName);
 
