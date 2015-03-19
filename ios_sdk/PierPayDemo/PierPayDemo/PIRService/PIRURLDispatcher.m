@@ -50,12 +50,12 @@ static PIRURLDispatcher * __instance;
         productViewController.merchantModel = merchantModel;
         [self.mainNavigationController pushViewController:productViewController animated:NO];
     }
-//    /** Test Pay Withput Password. */
-//    NSString *session_token = [dicQuery objectForKey:@"session_token"];
-//    if (session_token != nil && session_token.length > 0) {
-//        [PierPay payWith:dicQuery delegate:self];
-//    }
-    
+#pragma mark - --------------------- Test ---------------------
+    NSString *session_token = [dicQuery objectForKey:@"session_token"];
+    if (session_token != nil && session_token.length > 0) {
+        [PierPay payWith:dicQuery delegate:self];
+    }
+#pragma mark - --------------------- Test ---------------------
 }
 
 + (void)parseURL:(NSURL *)url{

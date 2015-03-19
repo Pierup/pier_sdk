@@ -236,63 +236,63 @@
                       @"1",HTTP_HOST,
                       PIER_API_TRANSACTION_SMS,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"TransactionSMSResponse",RESULT_MODEL,nil];
+                      @"PierTransactionSMSResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_AUTH_TOKEN_V2:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"1",HTTP_HOST,
                       PIER_API_GET_AUTH_TOKEN_V2,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"GetAuthTokenV2Response",RESULT_MODEL,nil];
+                      @"PierGetAuthTokenV2Response",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_ACTIVITY_CODE:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"1",HTTP_HOST,
                       PIER_API_GET_ACTIVITY_CODE,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"GetRegisterCodeResponse",RESULT_MODEL,nil];
+                      @"PierGetRegisterCodeResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_ACTIVITION:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"1",HTTP_HOST,
                       PIER_API_GET_ACTIVITION,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"RegSMSActiveResponse",RESULT_MODEL,nil];
+                      @"PierRegSMSActiveResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_ACTIVITION_REGIST:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"1",HTTP_HOST,
                       PIER_API_GET_ACTIVITION_REGIST,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"RegisterResponse",RESULT_MODEL,nil];
+                      @"PierRegisterResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_UPDATEUSER:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"1",HTTP_HOST,
                       PIER_API_GET_UPDATEUSER,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"UpdateResponse",RESULT_MODEL,nil];
+                      @"PierUpdateResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_APPLYCREDIT:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"1",HTTP_HOST,
                       PIER_API_GET_APPLYCREDIT,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"CreditApplyResponse",RESULT_MODEL,nil];
+                      @"PierCreditApplyResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_MERCHANT:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"2",HTTP_HOST,
                       [PierService getMerchantURL:requestModel],HTTP_PATH,
                       @(HTTP_METHOD_GET),HTTP_METHOD,
-                      @"MerchantResponse",RESULT_MODEL,nil];
+                      @"PierMerchantResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_COUNTRYS:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"1",HTTP_HOST,
                       PIER_API_GET_COUNTRYS,HTTP_PATH,
                       @(HTTP_METHOD_GET),HTTP_METHOD,
-                      @"CountryCodeResponse",RESULT_MODEL,nil];
+                      @"PierCountryCodeResponse",RESULT_MODEL,nil];
             break;
         default:
             break;
