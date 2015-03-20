@@ -9,6 +9,7 @@
 #import "ProductViewController.h"
 #import "PierPay.h"
 #import "PIRHttpExecutor.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 #pragma mark ------------------- ProductCell ------------------------------
 
@@ -58,12 +59,7 @@
 {
     _amountLabel.text = amountName;
     _currencyLabel.text = [currencyName isEqualToString:@"USD"] ? @"$" : currencyName;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:productImageUrl]]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _productImageView.image = image;
-        });
-    });
+    [_productImageView sd_setImageWithURL:[NSURL URLWithString:productImageUrl]];
 }
 
 @end
@@ -145,9 +141,16 @@
         [_merchantParam setValue:shopListModel.amount forKey:@"amount"];
         [_merchantParam setValue:shopListModel.currency forKey:@"currency"];
         [_merchantParam setValue:shopListModel.server_url forKey:@"server_url"];
+        [_merchantParam setValue:[self getRandomNumber:1000000000 to:10000000000] forKey:@"order_id"];
         [self showSheet];
 
     }
+}
+
+-(NSString *)getRandomNumber:(NSInteger)from to:(NSInteger)to
+{
+    NSInteger randomInt = (NSInteger)(from+(arc4random() % (to-from+1)));//+1,result is [from to]; else is [from, to)
+    return [NSString stringWithFormat:@"%ld",randomInt];
 }
 
 - (void)showSheet {
@@ -156,7 +159,7 @@
                                   delegate:self
                                   cancelButtonTitle:@"Cancel"
                                   destructiveButtonTitle:@"Please choose the payment method"
-                                  otherButtonTitles:@"Pay now", @"Pay by Pier App",nil];
+                                  otherButtonTitles:@"Pay now", @"Pay With Pier App",nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];
 }

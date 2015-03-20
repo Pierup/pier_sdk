@@ -144,7 +144,7 @@
         NSString *passWord = self.passwordLabel.text;
         self.smsRequestModel.phone = phoneNumber;
         self.smsRequestModel.password = passWord;
-        
+        [__pierDataSource.merchantParam setObject:phoneNumber forKeyedSubscript:DATASOURCES_PHONE];
         BOOL remember = YES;
         if (self.rememberSwitchBtn.isOn) {
             remember = YES;
@@ -198,6 +198,7 @@
         self.country = country;
         self.phoneNumberLabel.text = @"";
     }
+    [__pierDataSource.merchantParam setObject:country.country_code forKeyedSubscript:DATASOURCES_COUNTRY_CODE];
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
 }
 

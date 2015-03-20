@@ -7,13 +7,14 @@
 //
 
 #import "MerchantCollectionViewCell.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @implementation MerchantCollectionViewCell
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.merchantImageView.layer.cornerRadius = 5;
+    self.merchantImageView.layer.cornerRadius =  5;
     self.merchantImageView.layer.masksToBounds = YES;
     
     self.merchantNameLabel.layer.cornerRadius = 5;
@@ -23,12 +24,7 @@
 - (void)setMerchantNameLabel:(NSString *)merchantName merchantImageViewUrl:(NSString *)merchantImageViewUrl
 {
     _merchantNameLabel.text = merchantName;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:merchantImageViewUrl]]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _merchantImageView.image = image;
-        });
-    });
+    [_merchantImageView sd_setImageWithURL:[NSURL URLWithString:merchantImageViewUrl]];
 }
 
 @end

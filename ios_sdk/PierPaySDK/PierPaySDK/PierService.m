@@ -51,7 +51,7 @@
     BOOL showLoad = ([[attribute objectForKey:@"show_loading"] integerValue] == 1) ? NO:YES;
     if (showLoad) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [PierLoadingView showLoadingView];
+            [PierLoadingView showLoadingView:@"Loading..."];
         });
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
