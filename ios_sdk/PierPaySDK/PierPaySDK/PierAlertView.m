@@ -70,7 +70,7 @@
     [self.bgView setBackgroundColor:[UIColor blackColor]];
     [self.bgView setAlpha:0.1];
     
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         [self.bgView setAlpha:0.6];
     }];
     
@@ -181,9 +181,9 @@
     
     self.bgView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.bgView setBackgroundColor:[UIColor blackColor]];
-    [self.bgView setAlpha:0.1];
+    [self.bgView setAlpha:0.01];
     
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         [self.bgView setAlpha:0.6];
     }];
     

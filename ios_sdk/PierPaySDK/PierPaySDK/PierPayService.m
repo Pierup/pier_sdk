@@ -73,7 +73,10 @@
                 [__pierDataSource.pierDelegate payWithPierComplete:dic];
             }
         }
-    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"show_alert",@"0",@"show_loading", nil]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
+                 @"0", @"show_alert",
+                 @"0", @"show_loading",
+                 @"Pier Payment", @"show_message", nil]];
 }
 
 
@@ -91,7 +94,10 @@
         [self serviceMerchantService:response];
     } faliedBlock:^(NSError *error) {
         [_smsAlertView showErrorMessage:[error domain]];
-    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
+                 @"1", @"show_alert",
+                 @"0", @"show_loading",
+                 @"Pier Payment", @"show_message", nil]];
 }
 
 - (void)serviceMerchantService:(PierGetAuthTokenV2Response *)resultModel{
@@ -109,7 +115,10 @@
                                 @"1",@"status",
                                 [error domain],@"message", nil];
         [self pierPayComplete:result];
-    } attribute:nil];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
+                 @"0", @"show_alert",
+                 @"0", @"show_loading",
+                 @"Pier Payment", @"show_message", nil]];
 }
 
 /**
