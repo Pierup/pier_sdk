@@ -11,7 +11,11 @@
 
 #pragma mark - -------------------- Host --------------------
 NSString * const PierHttpClientUserHost      = @"http://pierup.ddns.net:8686";
-NSString * const PierHttpClientUserHostV2    = @"https://pierup.ddns.net:8443";//https://pierup.ddns.net:8443 192.168.1.254
+NSString * const PierHttpClientUserHostV2    = @"https://user-api.elasticbeanstalk.com";
+//https://user-api.elasticbeanstalk.com
+//https://pierup.ddns.net:8443
+
+
 NSString * const PierHttpClientTypeEmptyHost = @"";
 #pragma mark -
 

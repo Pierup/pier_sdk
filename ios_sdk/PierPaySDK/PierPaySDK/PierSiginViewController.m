@@ -115,6 +115,7 @@
 - (IBAction)userRegisterAction:(id)sender
 {
     self.phone = [self.phoneNumberLabel.text phoneClearFormat];
+    [__pierDataSource.merchantParam setObject:self.phone forKeyedSubscript:DATASOURCES_PHONE];
     if ([self checkPhone]) {
         [self serviceGetReigistSMS];
     }
@@ -174,7 +175,7 @@
         });
     } faliedBlock:^(NSError *error) {
         [_smsAlertView showErrorMessage:[error domain]];
-    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"1",@"show_loading", nil]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
 }
 
 #pragma mark -------------- delegate --------------------------------------
@@ -187,6 +188,7 @@
         self.phoneNumberLabel.text = @"";
     }
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
+    [__pierDataSource.merchantParam setObject:country.country_code forKeyedSubscript:DATASOURCES_COUNTRY_CODE];
 }
 
 #pragma mark - UITextFieldDelegate

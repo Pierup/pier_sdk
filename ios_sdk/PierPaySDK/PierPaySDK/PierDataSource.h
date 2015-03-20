@@ -44,7 +44,7 @@ extern NSString * const  pier_userdefaults_password;
  * 7.order_id        YES          NSString   merchant orderID
  *
  */
-@property (nonatomic, strong) NSDictionary *merchantParam;
+@property (nonatomic, strong) NSMutableDictionary *merchantParam;
 @property (nonatomic, copy) NSString *session_token;        // session token
 @property (nonatomic, copy) NSString *device_id;            // device id
 @property (nonatomic, copy) NSString *user_id;              // user id

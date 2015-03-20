@@ -141,9 +141,16 @@
         [_merchantParam setValue:shopListModel.amount forKey:@"amount"];
         [_merchantParam setValue:shopListModel.currency forKey:@"currency"];
         [_merchantParam setValue:shopListModel.server_url forKey:@"server_url"];
+        [_merchantParam setValue:[self getRandomNumber:1000000000 to:10000000000] forKey:@"order_id"];
         [self showSheet];
 
     }
+}
+
+-(NSString *)getRandomNumber:(NSInteger)from to:(NSInteger)to
+{
+    NSInteger randomInt = (NSInteger)(from+(arc4random() % (to-from+1)));//+1,result is [from to]; else is [from, to)
+    return [NSString stringWithFormat:@"%ld",randomInt];
 }
 
 - (void)showSheet {
