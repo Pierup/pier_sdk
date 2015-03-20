@@ -44,7 +44,7 @@
         _amountLabel.text = @"0.00";
         [self.contentView addSubview:_amountLabel];
         
-        _payButton = [[UIButton alloc]initWithFrame:CGRectMake(205, 57.5, 110,30)];
+        _payButton = [[UIButton alloc]initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 125), 57.5, 110,30)];
         [_payButton.layer setMasksToBounds:YES];
         [_payButton.layer setCornerRadius:5];
         [_payButton setBackgroundColor:[UIColor purpleColor]];
