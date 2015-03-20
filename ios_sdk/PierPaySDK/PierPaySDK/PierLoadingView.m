@@ -45,7 +45,7 @@ static UIView * __loadingBgView;
                 [__instances.largeLargeView setColor:[UIColor whiteColor]];
                 
                 __instances.contextLabel = [[UILabel alloc] initWithFrame:CGRectMake(__instances.frame.origin.x,
-                                                                                     __instances.frame.origin.y+(__instances.frame.size.height-18),
+                                                                                     __instances.frame.origin.y+(__instances.frame.size.height-22),
                                                                                      __instances.frame.size.width, 20)];
                 [__instances.contextLabel setAdjustsFontSizeToFitWidth:YES];
                 [__instances.contextLabel setFont:[UIFont systemFontOfSize:12]];
