@@ -56,8 +56,8 @@ static UIView * __loadingBgView;
                 __instances.loadingViewQueue = [[NSMutableArray alloc] initWithCapacity:1];
                 
                 __loadingBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, DEVICE_HEIGHT)];
-                [__loadingBgView setBackgroundColor:[UIColor blackColor]];
-                [__loadingBgView setAlpha:0.3];
+                [__loadingBgView setBackgroundColor:[UIColor clearColor]];
+//                [__loadingBgView setAlpha:0.3];
             }
         }
     }
