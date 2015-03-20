@@ -8,7 +8,6 @@
 
 #import "PIRURLDispatcher.h"
 #import "JSONKit.h"
-#import "ShopListViewController.h"
 #import "ProductViewController.h"
 #import "PierPay.h"
 

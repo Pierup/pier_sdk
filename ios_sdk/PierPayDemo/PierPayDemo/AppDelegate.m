@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PIRURLDispatcher.h"
-#import "ShopListViewController.h"
+#import "MerchantViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +21,7 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ShopListViewController *mainController = [[ShopListViewController alloc] init];
+    MerchantViewController *mainController = [[MerchantViewController alloc] init];
     UINavigationController *roorNavigation = [[UINavigationController alloc] initWithRootViewController:mainController];
     self.window.rootViewController = roorNavigation;
     [[PIRURLDispatcher shareInstance] setMainNavigationController:roorNavigation];
