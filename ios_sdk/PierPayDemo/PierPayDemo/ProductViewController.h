@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ShopListViewController.h"
+#import "MerchantViewController.h"
 
 @interface ProductViewController : UIViewController
 

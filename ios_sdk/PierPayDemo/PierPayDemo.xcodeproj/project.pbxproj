@@ -12,8 +12,6 @@
 		2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC761A2EEC6500B9D551 /* AppDelegate.m */; };
 		2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */; };
 		2A39BC8E1A2EEC6500B9D551 /* PierPayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */; };
-		2A5E5E2C1AA84A10004B95C4 /* ShopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E5E251AA84A10004B95C4 /* ShopListViewController.m */; };
-		2A5E5E2D1AA84A10004B95C4 /* ShopListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E261AA84A10004B95C4 /* ShopListViewController.xib */; };
 		2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E5E281AA84A10004B95C4 /* ProductViewController.m */; };
 		2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */; };
 		2A5E5E5C1AA8548B004B95C4 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5E5E551AA8546C004B95C4 /* libPierPaySDK.a */; };
@@ -23,6 +21,10 @@
 		2A6D86EE1AB95CA700B113D3 /* PIRURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */; };
 		2A6D86F11AB95CCD00B113D3 /* shop_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6D86EF1AB95CCD00B113D3 /* shop_default@2x.png */; };
 		2A6D86F21AB95CCD00B113D3 /* shop_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6D86F01AB95CCD00B113D3 /* shop_default@3x.png */; };
+		ADBAC8101ABBCEC400AB50C1 /* MerchantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC80E1ABBCEC400AB50C1 /* MerchantViewController.m */; };
+		ADBAC8111ABBCEC400AB50C1 /* MerchantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADBAC80F1ABBCEC400AB50C1 /* MerchantViewController.xib */; };
+		ADBAC8171ABBCFD500AB50C1 /* MerchantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC8151ABBCFD500AB50C1 /* MerchantCollectionViewCell.m */; };
+		ADBAC8181ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADBAC8161ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,9 +76,6 @@
 		2A39BC871A2EEC6500B9D551 /* PierPayDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierPayDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC8C1A2EEC6500B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PierPayDemoTests.m; sourceTree = "<group>"; };
-		2A5E5E241AA84A10004B95C4 /* ShopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListViewController.h; sourceTree = "<group>"; };
-		2A5E5E251AA84A10004B95C4 /* ShopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListViewController.m; sourceTree = "<group>"; };
-		2A5E5E261AA84A10004B95C4 /* ShopListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopListViewController.xib; sourceTree = "<group>"; };
 		2A5E5E271AA84A10004B95C4 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
 		2A5E5E281AA84A10004B95C4 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 		2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
@@ -89,6 +88,12 @@
 		2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRURLDispatcher.m; sourceTree = "<group>"; };
 		2A6D86EF1AB95CCD00B113D3 /* shop_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@2x.png"; sourceTree = "<group>"; };
 		2A6D86F01AB95CCD00B113D3 /* shop_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@3x.png"; sourceTree = "<group>"; };
+		ADBAC80D1ABBCEC400AB50C1 /* MerchantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantViewController.h; sourceTree = "<group>"; };
+		ADBAC80E1ABBCEC400AB50C1 /* MerchantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantViewController.m; sourceTree = "<group>"; };
+		ADBAC80F1ABBCEC400AB50C1 /* MerchantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantViewController.xib; sourceTree = "<group>"; };
+		ADBAC8141ABBCFD500AB50C1 /* MerchantCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantCollectionViewCell.h; sourceTree = "<group>"; };
+		ADBAC8151ABBCFD500AB50C1 /* MerchantCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantCollectionViewCell.m; sourceTree = "<group>"; };
+		ADBAC8161ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +138,12 @@
 			isa = PBXGroup;
 			children = (
 				2A6D86E51AB95CA700B113D3 /* PIRService */,
-				2A5E5E241AA84A10004B95C4 /* ShopListViewController.h */,
-				2A5E5E251AA84A10004B95C4 /* ShopListViewController.m */,
-				2A5E5E261AA84A10004B95C4 /* ShopListViewController.xib */,
+				ADBAC80D1ABBCEC400AB50C1 /* MerchantViewController.h */,
+				ADBAC80E1ABBCEC400AB50C1 /* MerchantViewController.m */,
+				ADBAC80F1ABBCEC400AB50C1 /* MerchantViewController.xib */,
+				ADBAC8141ABBCFD500AB50C1 /* MerchantCollectionViewCell.h */,
+				ADBAC8151ABBCFD500AB50C1 /* MerchantCollectionViewCell.m */,
+				ADBAC8161ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib */,
 				2A5E5E271AA84A10004B95C4 /* ProductViewController.h */,
 				2A5E5E281AA84A10004B95C4 /* ProductViewController.m */,
 				2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */,
@@ -331,9 +339,10 @@
 				2A6D86F11AB95CCD00B113D3 /* shop_default@2x.png in Resources */,
 				2A252D2F1AA1A902004BAB9C /* Launch Screen.xib in Resources */,
 				2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */,
+				ADBAC8181ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib in Resources */,
 				2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */,
+				ADBAC8111ABBCEC400AB50C1 /* MerchantViewController.xib in Resources */,
 				2A6D86F21AB95CCD00B113D3 /* shop_default@3x.png in Resources */,
-				2A5E5E2D1AA84A10004B95C4 /* ShopListViewController.xib in Resources */,
 				2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,9 +362,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A6D86ED1AB95CA700B113D3 /* PIRHttpExecutor.m in Sources */,
+				ADBAC8171ABBCFD500AB50C1 /* MerchantCollectionViewCell.m in Sources */,
 				2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */,
 				2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */,
-				2A5E5E2C1AA84A10004B95C4 /* ShopListViewController.m in Sources */,
+				ADBAC8101ABBCEC400AB50C1 /* MerchantViewController.m in Sources */,
 				2A39BC741A2EEC6500B9D551 /* main.m in Sources */,
 				2A6D86EE1AB95CA700B113D3 /* PIRURLDispatcher.m in Sources */,
 				2A6D86EC1AB95CA700B113D3 /* JSONKit.m in Sources */,
