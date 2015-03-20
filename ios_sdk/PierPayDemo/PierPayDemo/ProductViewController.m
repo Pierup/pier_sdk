@@ -155,10 +155,10 @@
 
 - (void)showSheet {
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                  initWithTitle:@"Pay with Pier"
+                                  initWithTitle:@"Pier Payment"
                                   delegate:self
                                   cancelButtonTitle:@"Cancel"
-                                  destructiveButtonTitle:@"Please choose the payment method"
+                                  destructiveButtonTitle:@"Select Payment Model"
                                   otherButtonTitles:@"Pay now", @"Pay With Pier App",nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];

@@ -32,6 +32,7 @@ typedef void (^PierPayFailedBlock)(NSError *error);
 
 /**
  * show_alert   0:show 1:not default:0
+ * show_message NSString 
  * show_loading 0:show 1:not default:0
  */
 + (void)serverSend:(ePIER_API_Type)apiType

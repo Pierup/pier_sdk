@@ -33,19 +33,19 @@ static UIView * __loadingBgView;
     if (__instances == nil) {
         @synchronized(self){
             if (__instances == nil) {
-                __instances = [[PierLoadingView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+                __instances = [[PierLoadingView alloc] initWithFrame:CGRectMake(0, 0, 90, 90)];
                 [__instances setAlpha:0.8];
                 [__instances setBackgroundColor:[UIColor blackColor]];
                
                 __instances.largeLargeView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
                 [__instances.largeLargeView hidesWhenStopped];
-                [__instances.largeLargeView setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2)];
+                [__instances.largeLargeView setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-20)];
                  [__instances setCenter:__instances.largeLargeView.center];
-                [__instances.largeLargeView setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-8)];
+                [__instances.largeLargeView setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-30)];
                 [__instances.largeLargeView setColor:[UIColor whiteColor]];
                 
                 __instances.contextLabel = [[UILabel alloc] initWithFrame:CGRectMake(__instances.frame.origin.x,
-                                                                                     __instances.frame.origin.y+(__instances.frame.size.height-22),
+                                                                                     __instances.frame.origin.y+(__instances.frame.size.height-30),
                                                                                      __instances.frame.size.width, 20)];
                 [__instances.contextLabel setAdjustsFontSizeToFitWidth:YES];
                 [__instances.contextLabel setFont:[UIFont systemFontOfSize:12]];
