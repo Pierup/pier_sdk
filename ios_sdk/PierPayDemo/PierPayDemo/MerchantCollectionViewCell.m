@@ -13,7 +13,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.merchantImageView.layer.cornerRadius = 5;
+    self.merchantImageView.layer.cornerRadius =  5;
     self.merchantImageView.layer.masksToBounds = YES;
     
     self.merchantNameLabel.layer.cornerRadius = 5;

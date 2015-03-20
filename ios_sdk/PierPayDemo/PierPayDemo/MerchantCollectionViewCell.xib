@@ -42,7 +42,7 @@
                 <outlet property="merchantImageView" destination="GGc-IP-B65" id="Ufj-dr-Y6M"/>
                 <outlet property="merchantNameLabel" destination="5XA-WV-iQk" id="Fe7-qp-ERF"/>
             </connections>
-            <point key="canvasLocation" x="303" y="282"/>
+            <point key="canvasLocation" x="215" y="279"/>
         </collectionViewCell>
     </objects>
 </document>

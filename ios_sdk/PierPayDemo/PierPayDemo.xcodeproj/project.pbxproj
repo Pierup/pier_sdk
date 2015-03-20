@@ -19,8 +19,6 @@
 		2A6D86EC1AB95CA700B113D3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86E71AB95CA700B113D3 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2A6D86ED1AB95CA700B113D3 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86E91AB95CA700B113D3 /* PIRHttpExecutor.m */; };
 		2A6D86EE1AB95CA700B113D3 /* PIRURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */; };
-		2A6D86F11AB95CCD00B113D3 /* shop_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6D86EF1AB95CCD00B113D3 /* shop_default@2x.png */; };
-		2A6D86F21AB95CCD00B113D3 /* shop_default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6D86F01AB95CCD00B113D3 /* shop_default@3x.png */; };
 		ADBAC8101ABBCEC400AB50C1 /* MerchantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC80E1ABBCEC400AB50C1 /* MerchantViewController.m */; };
 		ADBAC8111ABBCEC400AB50C1 /* MerchantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADBAC80F1ABBCEC400AB50C1 /* MerchantViewController.xib */; };
 		ADBAC8171ABBCFD500AB50C1 /* MerchantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC8151ABBCFD500AB50C1 /* MerchantCollectionViewCell.m */; };
@@ -86,8 +84,6 @@
 		2A6D86E91AB95CA700B113D3 /* PIRHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpExecutor.m; sourceTree = "<group>"; };
 		2A6D86EA1AB95CA700B113D3 /* PIRURLDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRURLDispatcher.h; sourceTree = "<group>"; };
 		2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRURLDispatcher.m; sourceTree = "<group>"; };
-		2A6D86EF1AB95CCD00B113D3 /* shop_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@2x.png"; sourceTree = "<group>"; };
-		2A6D86F01AB95CCD00B113D3 /* shop_default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shop_default@3x.png"; sourceTree = "<group>"; };
 		ADBAC80D1ABBCEC400AB50C1 /* MerchantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantViewController.h; sourceTree = "<group>"; };
 		ADBAC80E1ABBCEC400AB50C1 /* MerchantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantViewController.m; sourceTree = "<group>"; };
 		ADBAC80F1ABBCEC400AB50C1 /* MerchantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantViewController.xib; sourceTree = "<group>"; };
@@ -217,8 +213,6 @@
 		2AC84EDC1A2F01D100920073 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2A6D86EF1AB95CCD00B113D3 /* shop_default@2x.png */,
-				2A6D86F01AB95CCD00B113D3 /* shop_default@3x.png */,
 				2A252D2E1AA1A902004BAB9C /* Launch Screen.xib */,
 			);
 			path = Resources;
@@ -336,13 +330,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A6D86F11AB95CCD00B113D3 /* shop_default@2x.png in Resources */,
 				2A252D2F1AA1A902004BAB9C /* Launch Screen.xib in Resources */,
 				2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */,
 				ADBAC8181ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib in Resources */,
 				2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */,
 				ADBAC8111ABBCEC400AB50C1 /* MerchantViewController.xib in Resources */,
-				2A6D86F21AB95CCD00B113D3 /* shop_default@3x.png in Resources */,
 				2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
