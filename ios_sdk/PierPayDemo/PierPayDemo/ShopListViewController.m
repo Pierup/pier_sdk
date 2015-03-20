@@ -44,16 +44,17 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        _merchantImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 145)];
+        _merchantImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 198)];
         _merchantImageView.image = [UIImage imageNamed:@"shop_default"];
+        [_merchantImageView setContentMode:UIViewContentModeScaleToFill];
         [self.contentView addSubview:_merchantImageView];
         
-        _backdropView = [[UIView alloc]initWithFrame:CGRectMake(0, 115, [UIScreen mainScreen].bounds.size.width, 30)];
+        _backdropView = [[UIView alloc]initWithFrame:CGRectMake(0, 168, [UIScreen mainScreen].bounds.size.width, 30)];
         _backdropView.backgroundColor = [UIColor whiteColor];
         _backdropView.alpha = 0.8;
         [self.contentView addSubview:_backdropView];
         
-        _merchantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 115, 200, 30)];
+        _merchantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 168, 200, 30)];
         _merchantNameLabel.text = @"Merchant Name";
         [self.contentView addSubview:_merchantNameLabel];
     }
@@ -110,7 +111,7 @@
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
                          @"1",@"page_no",
                          @"2",@"platform",
-                         @"5",@"limit",
+                         @"10",@"limit",
                          nil];
     [[PIRHttpExecutor getInstance] sendMessage:^(id respond) {
        NSArray *array =  [[(NSDictionary *)respond objectForKey:@"result"] objectForKey:@"items"];
@@ -135,7 +136,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 145;
+    return 198;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
