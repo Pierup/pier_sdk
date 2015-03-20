@@ -9,6 +9,7 @@
 #import "ProductViewController.h"
 #import "PierPay.h"
 #import "PIRHttpExecutor.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 #pragma mark ------------------- ProductCell ------------------------------
 
@@ -58,12 +59,7 @@
 {
     _amountLabel.text = amountName;
     _currencyLabel.text = [currencyName isEqualToString:@"USD"] ? @"$" : currencyName;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:productImageUrl]]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _productImageView.image = image;
-        });
-    });
+    [_productImageView sd_setImageWithURL:[NSURL URLWithString:productImageUrl]];
 }
 
 @end
