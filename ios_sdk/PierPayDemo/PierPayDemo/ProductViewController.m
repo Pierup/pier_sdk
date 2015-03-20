@@ -156,7 +156,7 @@
                                   delegate:self
                                   cancelButtonTitle:@"Cancel"
                                   destructiveButtonTitle:@"Please choose the payment method"
-                                  otherButtonTitles:@"Pay now", @"Pay by Pier App",nil];
+                                  otherButtonTitles:@"Pay now", @"Pay With Pier App",nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];
 }

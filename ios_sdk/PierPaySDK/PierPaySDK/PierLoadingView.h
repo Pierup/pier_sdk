@@ -10,7 +10,7 @@
 
 @interface PierLoadingView : UIButton
 
-+ (void)showLoadingView;
++ (void)showLoadingView:(NSString *)context;
 + (void)hindLoadingView;
 
 @end
