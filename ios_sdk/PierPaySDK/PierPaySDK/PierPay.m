@@ -138,7 +138,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 - (instancetype)initWith:(NSDictionary *)userAttributes delegate:(id)delegate
 {
     pierInitDataSource();
-    __pierDataSource.merchantParam = userAttributes;
+    __pierDataSource.merchantParam = [userAttributes mutableCopy];
     __pierDataSource.pierDelegate = delegate;
     self = [super init];
     if (self) {
@@ -151,7 +151,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 + (void)payWith:(NSDictionary *)userAttributes delegate:(id)delegate{
     pierInitDataSource();
-    __pierDataSource.merchantParam = userAttributes;
+    __pierDataSource.merchantParam = [userAttributes mutableCopy];
     __pierDataSource.pierDelegate = delegate;
     __pierDataSource.session_token = [userAttributes objectForKey:@"session_token"];
     
