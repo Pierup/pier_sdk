@@ -231,11 +231,11 @@
     NSInteger status = [[result objectForKey:@"status"] integerValue];
     if (status == 1) {
         //failed
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Failed!" message:[NSString stringWithFormat:@"%@",[result objectForKey:@"message"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Failed" message:[NSString stringWithFormat:@"%@",[result objectForKey:@"message"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }else if (status == 0){
         //success
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Was Processed Successfully!" message:[NSString stringWithFormat:@"Total Amount:%@",[result objectForKey:@"spending"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Succeeded" message:[NSString stringWithFormat:@"Total Amount:%@",[result objectForKey:@"spending"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
 }
