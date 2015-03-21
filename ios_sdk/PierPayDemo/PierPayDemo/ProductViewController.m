@@ -33,23 +33,26 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-        _productImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 100, 110)];
+        _productImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 130, 130)];
         [self.contentView addSubview:_productImageView];
         
-        _currencyLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 22.5, 40, 100)];
-        _currencyLabel.textAlignment =  NSTextAlignmentCenter;
+        _currencyLabel = [[UILabel alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 135, 30, 40, 40)];
+        _currencyLabel.font = [UIFont systemFontOfSize:25];
+        _currencyLabel.textAlignment =  NSTextAlignmentRight;
         _currencyLabel.text = @"$";
         [self.contentView addSubview:_currencyLabel];
         
-        _amountLabel = [[UILabel alloc]initWithFrame:CGRectMake(150, 22.5, 55, 100)];
+        _amountLabel = [[UILabel alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 90, 30, 80, 40)];
+        _amountLabel.font = [UIFont systemFontOfSize:25];
         _amountLabel.text = @"0.00";
         [self.contentView addSubview:_amountLabel];
         
-        _payButton = [[UIButton alloc]initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 125), 57.5, 110,30)];
-        [_payButton.layer setMasksToBounds:YES];
+        _payButton = [[UIButton alloc]initWithFrame:CGRectMake(([UIScreen mainScreen].bounds.size.width - 120), 80, 110,40)];
         [_payButton.layer setCornerRadius:5];
-        [_payButton setBackgroundColor:[UIColor purpleColor]];
+        [_payButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
+        [_payButton setBackgroundColor:[UIColor colorWithRed:23/255.0 green:126/255.0 blue:251/255.0 alpha:1.0]];
         [_payButton setTitle:@"Pay With Pier" forState:UIControlStateNormal];
+        [_payButton.layer setMasksToBounds:YES];
         [self.contentView addSubview:_payButton];
     }
     return self;
@@ -240,7 +243,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 145;
+    return 150;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

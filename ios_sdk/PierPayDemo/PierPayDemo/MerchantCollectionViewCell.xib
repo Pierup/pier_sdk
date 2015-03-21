@@ -13,9 +13,6 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="200" height="230"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GGc-IP-B65">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchant Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XA-WV-iQk">
                         <rect key="frame" x="0.0" y="200" width="200" height="30"/>
                         <constraints>
@@ -24,21 +21,27 @@
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1Q-wX-Lqc">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="h1Q-wX-Lqc" secondAttribute="trailing" id="0Gf-qJ-mbG"/>
                 <constraint firstItem="5XA-WV-iQk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Bkg-bt-sc9"/>
-                <constraint firstAttribute="bottom" secondItem="GGc-IP-B65" secondAttribute="bottom" constant="30" id="Kfr-DU-cdo"/>
+                <constraint firstItem="5XA-WV-iQk" firstAttribute="top" secondItem="h1Q-wX-Lqc" secondAttribute="bottom" id="Jxd-Sc-WM3"/>
                 <constraint firstAttribute="trailing" secondItem="5XA-WV-iQk" secondAttribute="trailing" id="T0y-HL-7JX"/>
-                <constraint firstItem="GGc-IP-B65" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bjc-lv-GLP"/>
-                <constraint firstAttribute="trailing" secondItem="GGc-IP-B65" secondAttribute="trailing" id="jrb-TY-XCp"/>
-                <constraint firstItem="GGc-IP-B65" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="l94-rL-o1S"/>
+                <constraint firstItem="h1Q-wX-Lqc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="elw-wC-Bjv"/>
+                <constraint firstItem="h1Q-wX-Lqc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wt2-o9-yuI"/>
                 <constraint firstAttribute="bottom" secondItem="5XA-WV-iQk" secondAttribute="bottom" id="xGc-es-t1x"/>
             </constraints>
             <size key="customSize" width="249" height="279"/>
             <connections>
-                <outlet property="merchantImageView" destination="GGc-IP-B65" id="Ufj-dr-Y6M"/>
+                <outlet property="imageButton" destination="h1Q-wX-Lqc" id="2FR-aI-1t4"/>
                 <outlet property="merchantNameLabel" destination="5XA-WV-iQk" id="Fe7-qp-ERF"/>
             </connections>
             <point key="canvasLocation" x="215" y="279"/>
