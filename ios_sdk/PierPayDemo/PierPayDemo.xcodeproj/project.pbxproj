@@ -362,6 +362,7 @@
 					};
 					2A39BC861A2EEC6500B9D551 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 9KW7KNZ4KU;
 						TestTargetID = 2A39BC6D1A2EEC6500B9D551;
 					};
 				};
@@ -532,7 +533,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ec23d784-9b1c-4a66-9b44-9e7d303ee702";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -568,7 +569,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ec23d784-9b1c-4a66-9b44-9e7d303ee702";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -582,6 +583,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: ma yan (9EM569XD45)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ma yan (9EM569XD45)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -594,7 +596,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ec23d784-9b1c-4a66-9b44-9e7d303ee702";
 				WARNING_LDFLAGS = "";
 			};
 			name = Debug;
@@ -607,6 +609,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: ma yan (9EM569XD45)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ma yan (9EM569XD45)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -619,7 +622,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ec23d784-9b1c-4a66-9b44-9e7d303ee702";
 				WARNING_LDFLAGS = "";
 			};
 			name = Release;
@@ -628,6 +631,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -639,6 +644,7 @@
 				INFOPLIST_FILE = PierPayDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PierPayDemo.app/PierPayDemo";
 			};
 			name = Debug;
@@ -647,6 +653,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -654,6 +662,7 @@
 				INFOPLIST_FILE = PierPayDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PierPayDemo.app/PierPayDemo";
 			};
 			name = Release;

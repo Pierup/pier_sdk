@@ -543,6 +543,7 @@
 					};
 					2A39BC2C1A2EE81300B9D551 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 9KW7KNZ4KU;
 					};
 					2AF42D8B1A306CC90076DEC4 = {
 						CreatedOnToolsVersion = 6.1;
@@ -753,7 +754,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = arm64;
 			};
@@ -796,7 +797,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = arm64;
@@ -816,9 +817,9 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -835,15 +836,17 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
 		2A39BC3A1A2EE81300B9D551 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -855,12 +858,15 @@
 				INFOPLIST_FILE = PierPaySDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		2A39BC3B1A2EE81300B9D551 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -868,6 +874,7 @@
 				INFOPLIST_FILE = PierPaySDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -885,7 +892,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SDKROOT = iphoneos8.2;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -906,7 +913,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3849e2cd-610f-4c86-bbe2-75ece5286e06";
+				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SDKROOT = iphoneos8.2;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
