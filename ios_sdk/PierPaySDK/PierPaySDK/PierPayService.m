@@ -51,11 +51,12 @@
         
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"",@"title_image_name",
-                               @"Passcode",@"title",
+                               @"Transaction Verification Code",@"title",
                                @"Pay",@"approve_text",
                                @"Cancel",@"cancle_text",
                                self.smsRequestModel.phone,@"phone",
                                response.expiration,@"expiration_time",
+                               [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT],@"amount",
                                @"6",@"code_length",nil];
         _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
         _smsAlertView.delegate = self;

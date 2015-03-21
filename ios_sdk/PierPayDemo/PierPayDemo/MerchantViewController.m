@@ -122,7 +122,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake([UIScreen mainScreen].bounds.size.width/3 - 15, [UIScreen mainScreen].bounds.size.width/3+10);
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width/4 - 15, [UIScreen mainScreen].bounds.size.width/4+10);
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

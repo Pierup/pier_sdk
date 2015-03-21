@@ -7,6 +7,7 @@
 //
 
 #import "PIRHttpExecutor.h"
+#import <UIKit/UIKit.h>
 
 //NSString * const PIRMERCHANTHOST = @"http://pierup.ddns.net:8686";
 NSString * const PIRMERCHANTHOST = @"http://piermerchant.elasticbeanstalk.com";
@@ -23,6 +24,8 @@ NSString * const PIRMERCHANTHOST = @"http://piermerchant.elasticbeanstalk.com";
 
 @property(nonatomic, copy) NSString *method;
 
+@property(nonatomic, strong) UIActivityIndicatorView *loadingView;
+
 @end
 
 static PIRHttpExecutor *__connect;
@@ -35,6 +38,9 @@ static PIRHttpExecutor *__connect;
         @synchronized(self){
             if (!__connect) {
                 __connect = [[PIRHttpExecutor alloc] init];
+                __connect.loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                [__connect.loadingView setHidesWhenStopped:YES];
+                [__connect.loadingView setFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width/2, [[UIScreen mainScreen] bounds].size.height/2, 0, 0)];
             }
         }
     }
@@ -55,7 +61,11 @@ static PIRHttpExecutor *__connect;
     }
     self.url = [NSURL URLWithString:urlStr];
     self.isFinished = NO;
-    [self start:requestJson];
+    [[[[UIApplication sharedApplication] delegate] window] addSubview:__connect.loadingView];
+    [__connect.loadingView startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self start:requestJson];
+    });
 }
 
 #pragma mark - --------------------NSURLConnection Delegate--------------------
@@ -81,28 +91,34 @@ static PIRHttpExecutor *__connect;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)aConnection
 {
-    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *cookie in [cookieJar cookies]) {
-        NSLog(@"%@", cookie);
-    }
-    
-    NSString *responseJson = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
-    NSDictionary *resultDic = [self dictionaryWithJsonData:self.responseData];
-    NSLog(@"result:%@",responseJson);
-
-    NSNumber *result = [resultDic objectForKey:@"code"];
-    if ([result integerValue] == 200) {
-        self.success(resultDic);
-    }else{
-        self.failure([resultDic objectForKey:@"msg"],10000);
-    }
-    
-    self.connection = nil;
-    self.isFinished = YES;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [__connect.loadingView stopAnimating];
+        [__connect.loadingView removeFromSuperview];
+        NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        for (NSHTTPCookie *cookie in [cookieJar cookies]) {
+            NSLog(@"%@", cookie);
+        }
+        
+        NSString *responseJson = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
+        NSDictionary *resultDic = [self dictionaryWithJsonData:self.responseData];
+        NSLog(@"result:%@",responseJson);
+        
+        NSNumber *result = [resultDic objectForKey:@"code"];
+        if ([result integerValue] == 200) {
+            self.success(resultDic);
+        }else{
+            self.failure([resultDic objectForKey:@"msg"],10000);
+        }
+        
+        self.connection = nil;
+        self.isFinished = YES;
+    });
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
+    [__connect.loadingView stopAnimating];
+    [__connect.loadingView removeFromSuperview];
     self.connection = nil;
     self.responseData = nil;
     self.isFinished = YES;

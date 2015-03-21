@@ -7,7 +7,7 @@
 //
 
 #import "MerchantCollectionViewCell.h"
-#import "SDWebImage/UIImageView+WebCache.h"
+#import "SDWebImage/UIButton+WebCache.h"
 
 @implementation MerchantCollectionViewCell
 
@@ -22,16 +22,11 @@
 {
     _merchantNameLabel.text = merchantName;
     _indexPath =  indexPath;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSURL * url = [NSURL URLWithString:merchantImageViewUrl];
-        NSData * data = [[NSData alloc]initWithContentsOfURL:url];
-        UIImage *image = [[UIImage alloc]initWithData:data];
-        if (data != nil) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-               [self.imageButton setBackgroundImage:image forState:UIControlStateNormal];
-            });
-        }  
-    });
+    
+    NSURL * url = [NSURL URLWithString:merchantImageViewUrl];
+    [self.imageButton sd_setImageWithURL:url forState:UIControlStateNormal];
+    [self.imageButton sd_setImageWithURL:url forState:UIControlStateHighlighted];
+    [self.imageButton sd_setImageWithURL:url forState:UIControlStateSelected];
     [self.imageButton addTarget:self action:@selector(tapImageButtonAction) forControlEvents:UIControlEventTouchUpInside];
 }
 

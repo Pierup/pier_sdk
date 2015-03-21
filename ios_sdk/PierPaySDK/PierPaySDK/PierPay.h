@@ -36,8 +36,8 @@
  * pay by pier with password
  * userAttributes
  * name:            Required     Type       Description
- * 1.phone           YES          NSString   user phone.
- * 2.country_code    YES          NSString   the country code of user phone.
+ * 1.phone           NO           NSString   user phone.
+ * 2.country_code    NO           NSString   the country code of user phone.
  * 3.merchant_id     YES          NSString   your id in pier.
  * 4.amount          YES          NSString   amount.
  * 5.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
@@ -51,8 +51,8 @@
 /**
  * pay by pier without password
  * name:            Required     Type       Description
- * 1.phone           YES          NSString   user phone.
- * 2.merchant_id     YES          NSString   your id in pier.
+ * 1.phone           NO          NSString   user phone.
+ * 2.merchant_id     NO          NSString   your id in pier.
  * 3.amount          YES          NSString   amount.
  * 4.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
  * 5.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.

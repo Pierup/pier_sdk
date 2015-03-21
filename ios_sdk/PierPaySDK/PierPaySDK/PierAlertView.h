@@ -93,6 +93,8 @@ typedef void (^cancelBlock)();
  * 5.approve_text       YES          NSString     approve_text.
  * 6.cancle_text        YES          NSString     cancle_text.
  * 7.title_image_name   YES          NSString     title_image_name.
+ * 8.amount             Option       NSString     total amount
+ *
  */
 + (void)showPierUserInputAlertView:(id)delegate
                              param:(id)param
@@ -110,6 +112,8 @@ typedef void (^cancelBlock)();
  * 5.approve_text       YES          NSString     approve_text.
  * 6.cancle_text        YES          NSString     cancle_text.
  * 7.title_image_name   YES          NSString     title_image_name.
+ * 8.amount             Option       NSString     total amount
+ *
  */
 - (id)initWith:(id)delegate param:(id)param type:(ePierAlertViewType)type;
 

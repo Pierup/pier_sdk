@@ -86,7 +86,7 @@
                         <constraint firstAttribute="height" constant="30" id="ieo-DQ-ax9"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="Terms and Policy">
+                    <state key="normal" title="Terms and Privacy">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </state>
