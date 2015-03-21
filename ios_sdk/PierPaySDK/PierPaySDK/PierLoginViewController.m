@@ -144,6 +144,9 @@
         NSString *passWord = self.passwordLabel.text;
         self.smsRequestModel.phone = phoneNumber;
         self.smsRequestModel.password = passWord;
+        self.smsRequestModel.amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
+        self.smsRequestModel.currency_code = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
+        
         [__pierDataSource.merchantParam setObject:phoneNumber forKeyedSubscript:DATASOURCES_PHONE];
         BOOL remember = YES;
         if (self.rememberSwitchBtn.isOn) {

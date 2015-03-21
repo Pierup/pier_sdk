@@ -24,6 +24,10 @@
 @interface PierTransactionSMSRequest : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *password;
+@property(nonatomic, copy, readwrite) NSString *merchant_id;
+@property(nonatomic, copy, readwrite) NSString *amount;
+@property(nonatomic, copy, readwrite) NSString *currency_code;
+
 @end
 
 #pragma mark - Response

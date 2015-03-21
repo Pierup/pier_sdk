@@ -51,7 +51,7 @@
         
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"",@"title_image_name",
-                               @"Passcode",@"title",
+                               @"Transaction Verification Code",@"title",
                                @"Pay",@"approve_text",
                                @"Cancel",@"cancle_text",
                                self.smsRequestModel.phone,@"phone",
