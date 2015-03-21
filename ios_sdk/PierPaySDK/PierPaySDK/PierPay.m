@@ -159,6 +159,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     smsRequestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
     smsRequestModel.amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
     smsRequestModel.currency_code = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
+    smsRequestModel.merchant_id = [__pierDataSource.merchantParam objectForKey:DATASOURCES_MERCHANT_ID];
     PierPayService *pierService = [[PierPayService alloc] init];
     pierService.delegate = delegate;
     pierService.smsRequestModel = smsRequestModel;

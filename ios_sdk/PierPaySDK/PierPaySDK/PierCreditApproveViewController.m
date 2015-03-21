@@ -81,6 +81,7 @@
     self.smsRequestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
     self.smsRequestModel.amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
     self.smsRequestModel.currency_code = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
+    self.smsRequestModel.merchant_id = [__pierDataSource.merchantParam objectForKey:DATASOURCES_MERCHANT_ID];
     PierPayService *pierService = [[PierPayService alloc] init];
     pierService.delegate = self;
     pierService.smsRequestModel = self.smsRequestModel;

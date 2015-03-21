@@ -146,7 +146,7 @@
         self.smsRequestModel.password = passWord;
         self.smsRequestModel.amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
         self.smsRequestModel.currency_code = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
-        
+        self.smsRequestModel.merchant_id = [__pierDataSource.merchantParam objectForKey:DATASOURCES_MERCHANT_ID];
         [__pierDataSource.merchantParam setObject:phoneNumber forKeyedSubscript:DATASOURCES_PHONE];
         BOOL remember = YES;
         if (self.rememberSwitchBtn.isOn) {
