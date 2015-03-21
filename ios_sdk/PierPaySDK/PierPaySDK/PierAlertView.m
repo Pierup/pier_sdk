@@ -14,6 +14,7 @@
 #import "PierService.h"
 #import "NSString+PierCheck.h"
 #import "PierViewUtil.h"
+#import "PierDataSource.h"
 
 @interface PierAlertView ()
 
@@ -250,7 +251,6 @@
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loadingView;
 @property (nonatomic, strong) IBOutlet UITextField *smsInputTextField;
 @property (nonatomic, strong) IBOutlet UIView *smsInputBgView;
-
 @property (nonatomic, strong) IBOutlet UILabel *errorMessageLabel;
 
 @end
@@ -335,6 +335,13 @@
     [self.textField.layer setBorderWidth:0.5];
     [self.smsInputBgView.layer setCornerRadius:5];
     [self.smsInputBgView.layer setMasksToBounds:YES];
+    
+    NSString *payAmount = [self.paramDic objectForKey:@"amount"];
+    
+    if (![NSString emptyOrNull:payAmount]) {
+        NSString *amount = [NSString getNumberFormatterDecimalStyle:payAmount currency:[__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY]];
+        [self.approveButton setTitle:[NSString stringWithFormat:@"Pay %@ with Pier",amount] forState:UIControlStateNormal];
+    }
 }
 
 - (void)viewRemoveFromSuperView{

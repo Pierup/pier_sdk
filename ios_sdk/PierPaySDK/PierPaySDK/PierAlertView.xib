@@ -182,7 +182,7 @@
                 <outlet property="stopWatch" destination="uLe-r8-4Xi" id="CwI-9C-GRu"/>
                 <outlet property="textField" destination="BH4-zV-OZI" id="yOI-dk-vUk"/>
             </connections>
-            <point key="canvasLocation" x="90.5" y="321.5"/>
+            <point key="canvasLocation" x="30.5" y="307.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
