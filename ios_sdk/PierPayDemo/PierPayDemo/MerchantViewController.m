@@ -26,7 +26,7 @@
 
 #pragma mark ---------------- MerchantViewController ------------------------
 
-@interface MerchantViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MerchantViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, MerchantCollectionViewCellDelegate>
 
 @property (nonatomic ,weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *merchantArray;
@@ -94,11 +94,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.merchantArray.count > 0) {
-        ProductViewController *productViewController = [[ProductViewController alloc]init];
-        productViewController.merchantModel = self.merchantArray[indexPath.row];
-        [self.navigationController pushViewController:productViewController animated:YES];
-    }
+    
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -116,9 +112,10 @@
 {
     static NSString *identifier = @"MerchantCollectionViewCell";
     MerchantCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    cell.delegate = self;
     if (self.merchantArray.count) {
         MerchantModel *merchant = self.merchantArray[indexPath.row];
-        [cell setMerchantNameLabel:merchant.business_name merchantImageViewUrl:merchant.product_small_url];
+        [cell setMerchantNameLabel:merchant.business_name merchantImageViewUrl:merchant.product_small_url indexPath:indexPath];
     }
     return cell;
 }
@@ -131,6 +128,15 @@
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+
+- (void)merchantCollectionViewWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.merchantArray.count > 0) {
+        ProductViewController *productViewController = [[ProductViewController alloc]init];
+        productViewController.merchantModel = self.merchantArray[indexPath.row];
+        [self.navigationController pushViewController:productViewController animated:YES];
+    }
 }
 
 @end
