@@ -196,7 +196,6 @@
 		2ABF82431A64E28800BEEAF6 /* PierJSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierJSONKit.h; sourceTree = "<group>"; };
 		2ABF82441A64E28800BEEAF6 /* PierJSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierJSONKit.m; sourceTree = "<group>"; };
 		2ABF82461A64E39C00BEEAF6 /* PierConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierConfig.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		2ABF82561A65071D00BEEAF6 /* PierSDKPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierSDKPath.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2ABF82571A65281C00BEEAF6 /* PierService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierService.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2ABF82581A65281C00BEEAF6 /* PierService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PierService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2AC461E41A75FA0300DD2C49 /* PierPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierPayModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -329,7 +328,6 @@
 		2A8ECBFE1A6667A20040A2C2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				2ABF82561A65071D00BEEAF6 /* PierSDKPath.h */,
 				2ABF82461A64E39C00BEEAF6 /* PierConfig.h */,
 				2ABF82431A64E28800BEEAF6 /* PierJSONKit.h */,
 				2ABF82441A64E28800BEEAF6 /* PierJSONKit.m */,

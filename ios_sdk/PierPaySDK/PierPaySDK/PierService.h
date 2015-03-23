@@ -22,6 +22,28 @@ typedef enum {
     ePIER_API_GET_COUNTRYS
 }ePIER_API_Type;
 
+/** V1 */
+extern NSString * const PIER_API_SEARCH_USER;
+extern NSString * const PIER_API_HAS_CREDIT;
+extern NSString * const PIER_API_ADD_SUER;
+extern NSString * const PIER_API_ACTIVITE_DEVICE;
+extern NSString * const PIER_API_ADD_ADDRESS;
+extern NSString * const PIER_API_SET_PASSWORD;
+extern NSString * const PIER_API_GET_AUTH_TOKEN;
+extern NSString * const PIER_API_SAVE_DOB_SSN;
+extern NSString * const PIER_API_GET_AGREEMENT;
+extern NSString * const PIER_API_CREDIT_APPLICATION;
+
+/** V2 */
+extern NSString * const PIER_API_TRANSACTION_SMS;
+extern NSString * const PIER_API_GET_AUTH_TOKEN_V2;
+
+extern NSString * const PIER_API_GET_ACTIVITY_CODE;
+extern NSString * const PIER_API_GET_ACTIVITION;
+extern NSString * const PIER_API_GET_ACTIVITION_REGIST;
+extern NSString * const PIER_API_GET_UPDATEUSER;
+extern NSString * const PIER_API_GET_APPLYCREDIT;
+extern NSString * const PIER_API_GET_COUNTRYS;
 
 /** success block */
 typedef void (^PierPaySuccessBlock)(id responseModel);
