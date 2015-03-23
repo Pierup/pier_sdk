@@ -138,8 +138,8 @@
 {
     if (self.merchantModel && self.merchantModel.shopListModelArray) {
         ShopListModel *shopListModel = self.merchantModel.shopListModelArray[sender.tag];
-        [_merchantParam setValue:self.merchantModel.phone forKey:@"phone"];
-        [_merchantParam setValue:self.merchantModel.country_code forKey:@"country_code"];
+//        [_merchantParam setValue:self.merchantModel.phone forKey:@"phone"];
+//        [_merchantParam setValue:self.merchantModel.country_code forKey:@"country_code"];
         [_merchantParam setValue:self.merchantModel.merchant_id forKey:@"merchant_id"];
         [_merchantParam setValue:shopListModel.amount forKey:@"amount"];
         [_merchantParam setValue:shopListModel.currency forKey:@"currency"];
