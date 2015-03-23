@@ -135,10 +135,10 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     return self;
 }
 
-- (instancetype)initWith:(NSDictionary *)userAttributes delegate:(id)delegate
+- (instancetype)initWith:(NSDictionary *)charge delegate:(id)delegate
 {
     pierInitDataSource();
-    __pierDataSource.merchantParam = [userAttributes mutableCopy];
+    __pierDataSource.merchantParam = [charge mutableCopy];
     __pierDataSource.pierDelegate = delegate;
     self = [super init];
     if (self) {
@@ -149,11 +149,11 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     return self;
 }
 
-+ (void)payWith:(NSDictionary *)userAttributes delegate:(id)delegate{
++ (void)payWith:(NSDictionary *)charge delegate:(id)delegate{
     pierInitDataSource();
-    __pierDataSource.merchantParam = [userAttributes mutableCopy];
+    __pierDataSource.merchantParam = [charge mutableCopy];
     __pierDataSource.pierDelegate = delegate;
-    __pierDataSource.session_token = [userAttributes objectForKey:@"session_token"];
+    __pierDataSource.session_token = [charge objectForKey:@"session_token"];
     
     PierTransactionSMSRequest *smsRequestModel = [[PierTransactionSMSRequest alloc] init];
     smsRequestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
@@ -164,6 +164,24 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     pierService.delegate = delegate;
     pierService.smsRequestModel = smsRequestModel;
     [pierService serviceGetPaySMS:YES payWith:ePierPayWith_PierApp];
+}
+
++ (void)createPayment:(NSDictionary *)charge{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?amount=%@&currency=%@&merchant_id=%@&server_url=%@&scheme=%@", @"paywithpier",
+                                       [charge objectForKey:@"amount"],
+                                       [charge objectForKey:@"currency"],
+                                       [charge objectForKey:@"merchant_id"],
+                                       [charge objectForKey:@"server_url"],
+                                       @"piermerchant"]];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }else{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://beta.itunes.apple.com/v1/invite/8f2643ef1c9747ac80332f76120c9f496977c937aa2a44648e6022a5fbf1c2e739c7fa37?ct=9KW7KNZ4KU&pt=2003"]];
+    }
+}
+
++ (void)handleOpenURL:(NSURL *)url withCompletion:(payWithPierComplete)completion{
+    
 }
 
 - (void)viewDidLoad

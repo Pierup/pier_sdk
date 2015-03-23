@@ -176,7 +176,7 @@
         [self presentViewController:pierpay animated:YES completion:nil];
     }else if(buttonIndex == 2) {
         /**
-         * userAttributes
+         * charge
          * name:            Required     Type       Description
          * 1.phone           YES          NSString   user phone.
          * 2.country_code    YES          NSString   the country code of user phone.
@@ -184,17 +184,15 @@
          * 4.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
          * 5.scheme          YES          NSString   merchant App scheme
          */
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?amount=%@&currency=%@&merchant_id=%@&server_url=%@&scheme=%@", @"paywithpier",
-                                           [_merchantParam objectForKey:@"amount"],
-                                           [_merchantParam objectForKey:@"currency"],
-                                           [_merchantParam objectForKey:@"merchant_id"],
-                                           [_merchantParam objectForKey:@"server_url"],
-                                           @"piermerchant"]];
-        if ([[UIApplication sharedApplication] canOpenURL:url]) {
-            [[UIApplication sharedApplication] openURL:url];
-        }else{
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://beta.itunes.apple.com/v1/invite/8f2643ef1c9747ac80332f76120c9f496977c937aa2a44648e6022a5fbf1c2e739c7fa37?ct=9KW7KNZ4KU&pt=2003"]];
-        }
+        NSDictionary *chargeDic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [_merchantParam objectForKey:@"amount"], @"amount",
+                                   [_merchantParam objectForKey:@"currency"], @"currency",
+                                   [_merchantParam objectForKey:@"merchant_id"], @"merchant_id",
+                                   [_merchantParam objectForKey:@"server_url"], @"server_url",
+                                   @"piermerchant", @"scheme",nil];
+        
+        [PierPay createPayment:chargeDic];
+        
     }else if(buttonIndex == 3) {
         
     }

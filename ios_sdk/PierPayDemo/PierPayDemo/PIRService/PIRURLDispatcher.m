@@ -31,7 +31,7 @@ static PIRURLDispatcher * __instance;
 }
 
 /**
- * userAttributes
+ * charge
  * name:            Required     Type       Description
  * 1.phone           YES          NSString   user phone.
  * 2.country_code    YES          NSString   the country code of user phone.
