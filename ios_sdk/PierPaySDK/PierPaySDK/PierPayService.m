@@ -75,7 +75,7 @@
             }
         }
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
-                 @"0", @"show_alert",
+                 @"1", @"show_alert",
                  @"0", @"show_loading",
                  @"Pier Payment", @"show_message", nil]];
 }
