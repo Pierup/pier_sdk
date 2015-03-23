@@ -7,7 +7,6 @@
 //
 
 #import "PierService.h"
-#import "PierSDKPath.h"
 #import "PierHttpClient.h"
 #import "PierJSONModel.h"
 #import "PierConfig.h"
