@@ -381,6 +381,9 @@
         } completion:^(BOOL finished) {
             [self viewRemoveFromSuperView];
         }];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(userCancel)]) {
+            [self.delegate userCancel];
+        }
     }else{
         [UIView animateWithDuration:0.1 animations:^{
             [self.bgView setAlpha:0.1];
