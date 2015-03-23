@@ -61,18 +61,14 @@
         _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
         _smsAlertView.delegate = self;
         [_smsAlertView show];
-        
     } faliedBlock:^(NSError *error) {
         if (payWith == ePierPayWith_Merchant) {
             [self.delegate pierPayServiceFailed:error];
         }else{
-            if (__pierDataSource.pierDelegate && [__pierDataSource.pierDelegate respondsToSelector:@selector(payWithPierComplete:)]) {
-                NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                                     @"1", @"status",
-                                     [error domain], @"message",
-                                     @([error code]), @"code", nil];
-                [__pierDataSource.pierDelegate payWithPierComplete:dic];
-            }
+            NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"1",@"status",
+                                    [error domain],@"message", nil];
+            [self pierPayComplete:result];
         }
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
                  @"1", @"show_alert",
@@ -94,7 +90,14 @@
         PierGetAuthTokenV2Response *response = (PierGetAuthTokenV2Response *)responseModel;
         [self serviceMerchantService:response];
     } faliedBlock:^(NSError *error) {
-        [_smsAlertView showErrorMessage:[error domain]];
+        if (self.payWithType == ePierPayWith_Merchant) {
+            [_smsAlertView showErrorMessage:[error domain]];
+        }else{
+            NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    @"1",@"status",
+                                    [error domain],@"message", nil];
+            [self pierPayComplete:result];
+        }
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
                  @"1", @"show_alert",
                  @"0", @"show_loading",
@@ -134,11 +137,10 @@
     }else{
         if (__pierDataSource.pierDelegate && [__pierDataSource.pierDelegate respondsToSelector:@selector(payWithPierComplete:)]) {
             NSString *amount = [NSString getNumberFormatterDecimalStyle:[__pierDataSource.merchantParam objectForKey:@"amount"] currency:[__pierDataSource.merchantParam objectForKey:@"currency"]];
-            NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"0",@"status",
-                                    @"success",@"message",
-                                    amount ,@"spending", nil];
-            [__pierDataSource.pierDelegate payWithPierComplete:result];
+            NSMutableDictionary *mutDic = [NSMutableDictionary dictionaryWithDictionary:result];
+            [mutDic setValue:@"1" forKey:@"status"];
+            [mutDic setValue:amount forKey:@"Amount"];
+            [__pierDataSource.pierDelegate payWithPierComplete:mutDic];
         }
     }
 }
