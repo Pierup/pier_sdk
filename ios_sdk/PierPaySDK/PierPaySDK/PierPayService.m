@@ -148,4 +148,11 @@
     [self serviceGetAuthToken:userInput];
 }
 
+- (void)userCancel{
+    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"1",@"status",
+                            @"Payment Cancel",@"message", nil];
+    [self pierPayComplete:result];
+}
+
 @end

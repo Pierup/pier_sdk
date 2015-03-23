@@ -257,4 +257,11 @@
     [self serviceSMSActivation:userInput];
 }
 
+- (void)userCancel{
+    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"1",@"status",
+                            @"Payment Cancel",@"message", nil];
+    [__pierDataSource.pierDelegate payWithPierComplete:result];
+}
+
 @end
