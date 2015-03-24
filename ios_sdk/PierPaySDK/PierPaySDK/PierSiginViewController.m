@@ -183,7 +183,7 @@
             _smsAlertView.delegate = self;
             [_smsAlertView show];
         }else{
-            
+            [_smsAlertView refreshTimer:param];
         }
         
     } faliedBlock:^(NSError *error) {
@@ -299,7 +299,7 @@
 
 - (void)resendTextMessage{
     //resend register text message
-    
+    [self rSendServiceReigistSMS];
 }
 
 @end

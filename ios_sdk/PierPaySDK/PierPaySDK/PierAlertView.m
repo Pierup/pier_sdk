@@ -314,6 +314,8 @@
 }
 
 - (void)refreshTimer:(id)param{
+    [self.refreshButton setHidden:YES];
+    [self.loadingView stopAnimating];
     self.paramDic = param;
     [self initData];
 }

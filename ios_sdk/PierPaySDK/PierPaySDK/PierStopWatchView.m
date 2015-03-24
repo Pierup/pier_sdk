@@ -63,10 +63,12 @@
 - (void)startTimer{
     self.totalSecs = 0;
     __weak typeof(self) weakSelf = self;
+    [self updateTimer];//这里不加会延迟1s才显示倒计时
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:weakSelf selector:@selector(updateTimer) userInfo:nil repeats:YES];
 }
 
 - (void)stopTimer{
+    [_timerLabel setText:@""];
     [_timer invalidate];
     _timer = nil;
 }
