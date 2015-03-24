@@ -79,6 +79,10 @@
         self.country.phone_prefix = @"86";
         self.country.phone_size = @"11";
         self.country.name  = @"CHINA";
+    }else{
+        self.country.phone_prefix = @"1";
+        self.country.phone_size = @"10";
+        self.country.name  = @"UNITED STATES";
     }
     
     NSString *formatePhone = [[__pierDataSource.merchantParam objectForKey:@"phone"] phoneFormat];
@@ -258,10 +262,11 @@
 }
 
 - (void)userCancel{
-    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"1",@"status",
-                            @"Payment Cancel",@"message", nil];
-    [__pierDataSource.pierDelegate payWithPierComplete:result];
+    //User Cancel Register.
+//    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+//                            @"1",@"status",
+//                            @"Payment Cancel",@"message", nil];
+//    [__pierDataSource.pierDelegate payWithPierComplete:result];
 }
 
 @end

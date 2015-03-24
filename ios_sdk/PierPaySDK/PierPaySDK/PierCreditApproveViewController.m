@@ -91,7 +91,10 @@
 - (IBAction)cancelPay:(id)sender{
     // Return to Merchant APP
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        [__pierDataSource.pierDelegate payWithPierComplete:nil];
+        NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"1",@"status",
+                                @"Payment Cancel",@"message", nil];
+        [__pierDataSource.pierDelegate payWithPierComplete:result];
     }];
 }
 
@@ -105,7 +108,12 @@
 }
 
 - (void)pierPayServiceFailed:(NSError *)error{
-    
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"1",@"status",
+                                @"Payment Cancel",@"message", nil];
+        [__pierDataSource.pierDelegate payWithPierComplete:result];
+    }];
 }
 /*
 #pragma mark - Navigation
