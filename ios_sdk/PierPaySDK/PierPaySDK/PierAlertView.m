@@ -313,6 +313,11 @@
     self.stopWatch.delegate = self;
 }
 
+- (void)refreshTimer:(id)param{
+    self.paramDic = param;
+    [self initData];
+}
+
 - (void)initView{
     [super initView];
     [self.refreshButton setBackgroundImage:[UIImage imageWithContentsOfFile:getImagePath(@"btn_resend")] forState:UIControlStateNormal];
@@ -359,7 +364,9 @@
     [self.stopWatch setHidden:NO];
     [self.loadingView startAnimating];
     [self.refreshButton setHidden:YES];
-    [self serviceGetReigistSMS];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(resendTextMessage)]) {
+        [self.delegate resendTextMessage];
+    }
 }
 
 - (IBAction)approve:(id)sender{
@@ -392,24 +399,6 @@
             self.cancelBc();
         }];
     }
-}
-
-
-- (void)serviceGetReigistSMS{
-    PierGetRegisterCodeRequest *requestModel = [[PierGetRegisterCodeRequest alloc] init];
-    requestModel.phone = [self.paramDic objectForKey:@"phone"] ;
-    requestModel.country_code = @"CN";
-    
-    [PierService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
-        PierGetRegisterCodeResponse *response = (PierGetRegisterCodeResponse *)responseModel;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.stopWatch.expirTime = [response.expiration integerValue];
-            [self.stopWatch startTimer];
-            [self.loadingView stopAnimating];
-        });
-    } faliedBlock:^(NSError *error) {
-        [self.loadingView stopAnimating];
-    } attribute:nil];
 }
 
 #pragma mark - -------------------UITextFieldDelegate----------------

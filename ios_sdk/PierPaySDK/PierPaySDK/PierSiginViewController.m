@@ -163,6 +163,34 @@
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
 }
 
+- (void)rSendServiceReigistSMS
+{
+    PierGetRegisterCodeRequest *requestModel = [[PierGetRegisterCodeRequest alloc] init];
+    requestModel.phone = self.phone;
+    
+    [PierService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
+        PierGetRegisterCodeResponse *response = (PierGetRegisterCodeResponse *)responseModel;
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"",@"title_image_name",
+                               @"Passcode",@"title",
+                               @"Next",@"approve_text",
+                               @"Dismiss",@"cancle_text",
+                               self.phone,@"phone",
+                               response.expiration,@"expiration_time",
+                               @"6",@"code_length",nil];
+        if (!_smsAlertView) {
+            _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
+            _smsAlertView.delegate = self;
+            [_smsAlertView show];
+        }else{
+            
+        }
+        
+    } faliedBlock:^(NSError *error) {
+        [_smsAlertView showErrorMessage:[error domain]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
+}
+
 - (void)serviceSMSActivation:(NSString *)activation_code
 {
     PierRegSMSActiveRequest *requestModel = [[PierRegSMSActiveRequest alloc] init];
@@ -267,6 +295,11 @@
 //                            @"1",@"status",
 //                            @"Payment Cancel",@"message", nil];
 //    [__pierDataSource.pierDelegate payWithPierComplete:result];
+}
+
+- (void)resendTextMessage{
+    //resend register text message
+    
 }
 
 @end
