@@ -134,7 +134,7 @@
         [_smsAlertView showErrorMessage:@""];
     } faliedBlock:^(NSError *error) {
         [_smsAlertView showErrorMessage:[error domain]];
-    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys://支付出错，需要从新获取auto token，这里直接走失败回调。
                  @"0", @"show_alert",
                  @"0", @"show_loading",
                  @"Pier Payment", @"show_message", nil]];

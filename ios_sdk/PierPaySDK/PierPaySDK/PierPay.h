@@ -2,7 +2,7 @@
 //  PierPaySDK.h
 //  PierPaySDK
 //
-//  Created by zyma on 12/3/14.
+//  Created by Pier  on 12/3/14.
 //  Copyright (c) 2014 Pier.Inc. All rights reserved.
 //
 
