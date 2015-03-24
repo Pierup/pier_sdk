@@ -15,6 +15,7 @@
 #import "PierDataSource.h"
 #import "PierAlertView.h"
 #import "PierLoadingView.h"
+#import "PierViewUtil.h"
 
 #define HTTP_METHOD_POST        0   //@"post"
 #define HTTP_METHOD_POST_JSON   1   //@"post-json"
@@ -184,7 +185,7 @@ NSString * const PIER_API_GET_COUNTRYS          = @"/user_api/v1/user/get_countr
             switch (code) {
                 case SESSION_EXPIRE://sesson 过期
                 {
-                    
+                    [PierViewUtil toToLoginViewController];
                     break;
                 }
                 case PUSSWORD_ERROR://账号密码错误
@@ -219,7 +220,6 @@ NSString * const PIER_API_GET_COUNTRYS          = @"/user_api/v1/user/get_countr
             }
             failed(error);
         }
-        
     }else{
         DLog(@"Result nil.");
     }

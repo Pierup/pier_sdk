@@ -23,6 +23,9 @@ typedef enum {
 
 @interface PierViewUtil : NSObject
 
++ (void)toToLoginViewController;
++ (UIViewController *)getCurrentViewController;
+
 + (void)horizonView:(UIView *)view;
 
 + (void)drawSeparotorLineTab:(UIView *)view;
