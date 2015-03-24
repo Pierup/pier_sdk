@@ -91,7 +91,7 @@ typedef enum {
             }
             
         }else{
-            //没有信用让用户去注册
+            //没有信用让用户去填写信息
             [PierViewUtil toCreditApplyViewController:response];
         }
 

@@ -298,6 +298,13 @@ NSString * const PIER_API_GET_COUNTRYS          = @"/user_api/v1/user/get_countr
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"PierUpdateResponse",RESULT_MODEL,nil];
             break;
+        case ePIER_API_GET_GETUSER:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
+                      PIER_API_GET_GETUSER,HTTP_PATH,
+                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
+                      @"PierGetUserResponse",RESULT_MODEL,nil];
+            break;
         case ePIER_API_GET_APPLYCREDIT:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"1",HTTP_HOST,
