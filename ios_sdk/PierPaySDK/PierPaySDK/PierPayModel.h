@@ -87,7 +87,6 @@
 @interface PierRegisterRequest : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *token;
-@property(nonatomic, copy, readwrite) NSString *country_code;
 @property(nonatomic, copy, readwrite) NSString *password;
 @end
 
@@ -105,7 +104,12 @@
 
 #pragma mark - Response
 @interface PierGetUserResponse : PierPayModel
-
+@property(nonatomic, copy, readonly) NSString *address;
+@property(nonatomic, copy, readonly) NSString *dob;
+@property(nonatomic, copy, readonly) NSString *email;
+@property(nonatomic, copy, readonly) NSString *first_name;
+@property(nonatomic, copy, readonly) NSString *last_name;
+@property(nonatomic, copy, readonly) NSString *ssn;
 @end
 
 #pragma mark - --------------------PIER_API_GET_UPDATEUSER-------------------

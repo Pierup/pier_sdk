@@ -12,7 +12,6 @@
 #import "PierService.h"
 #import "PierPayModel.h"
 #import "PierCreditApproveViewController.h"
-#import "PierPayModel.h"
 
 @interface PierCreditApplyController ()<PierSiginCellsDelegate>
 
@@ -145,10 +144,7 @@
     PierGetUserRequest *requestModel = [[PierGetUserRequest alloc] init];
     [PierService serverSend:ePIER_API_GET_GETUSER resuest:requestModel successBlock:^(id responseModel) {
         PierGetUserResponse *response = (PierGetUserResponse *)responseModel;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-        });
+        [self.infoViewModel setSiginCellModel:response];
     } faliedBlock:^(NSError *error) {
     } attribute:nil];
 }
@@ -162,7 +158,7 @@
     requestModel.ssn    =   userModel.ssn;
     requestModel.address    =   userModel.address;
     [PierService serverSend:ePIER_API_GET_UPDATEUSER resuest:requestModel successBlock:^(id responseModel) {
-        PierUpdateResponse *response = (PierUpdateResponse *)responseModel;
+//        PierUpdateResponse *response = (PierUpdateResponse *)responseModel;
         [self serviceCredtiApply];
     } faliedBlock:^(NSError *error) {
         

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "PierSiginCells.h"
 
+@class PierGetUserResponse;
+
 typedef NS_ENUM(NSInteger, eSiginCellSection) {
     eSiginSection
 };
@@ -36,6 +38,7 @@ typedef NS_ENUM(NSInteger, eSiginCellType) {
 - (void)configCell:(PierSiginCells *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (PierSiginCellModel *)getSiginCellModel;
+- (void)setSiginCellModel:(PierGetUserResponse *)model;
 - (BOOL)checkUserInfo;
 
 @end
