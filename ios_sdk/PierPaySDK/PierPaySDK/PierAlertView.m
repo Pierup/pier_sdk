@@ -278,6 +278,10 @@
 }
 
 - (void)showErrorMessage:(NSString *)message{
+    //出错时候重新显示刷新按钮
+    [self.loadingView stopAnimating];
+    [self.stopWatch setHidden:YES];
+    [self.refreshButton setHidden:NO];
     [self.errorMessageLabel setHidden:NO];
     [self.errorMessageLabel setText:message];
 }
@@ -311,6 +315,13 @@
     }
     [self.stopWatch startTimer];
     self.stopWatch.delegate = self;
+}
+
+- (void)refreshTimer:(id)param{
+    [self.refreshButton setHidden:YES];
+    [self.loadingView stopAnimating];
+    self.paramDic = param;
+    [self initData];
 }
 
 - (void)initView{
@@ -359,7 +370,9 @@
     [self.stopWatch setHidden:NO];
     [self.loadingView startAnimating];
     [self.refreshButton setHidden:YES];
-    [self serviceGetReigistSMS];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(resendTextMessage)]) {
+        [self.delegate resendTextMessage];
+    }
 }
 
 - (IBAction)approve:(id)sender{
@@ -381,6 +394,9 @@
         } completion:^(BOOL finished) {
             [self viewRemoveFromSuperView];
         }];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(userCancel)]) {
+            [self.delegate userCancel];
+        }
     }else{
         [UIView animateWithDuration:0.1 animations:^{
             [self.bgView setAlpha:0.1];
@@ -389,24 +405,6 @@
             self.cancelBc();
         }];
     }
-}
-
-
-- (void)serviceGetReigistSMS{
-    PierGetRegisterCodeRequest *requestModel = [[PierGetRegisterCodeRequest alloc] init];
-    requestModel.phone = [self.paramDic objectForKey:@"phone"] ;
-    requestModel.country_code = @"CN";
-    
-    [PierService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
-        PierGetRegisterCodeResponse *response = (PierGetRegisterCodeResponse *)responseModel;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.stopWatch.expirTime = [response.expiration integerValue];
-            [self.stopWatch startTimer];
-            [self.loadingView stopAnimating];
-        });
-    } faliedBlock:^(NSError *error) {
-        [self.loadingView stopAnimating];
-    } attribute:nil];
 }
 
 #pragma mark - -------------------UITextFieldDelegate----------------

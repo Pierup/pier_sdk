@@ -79,6 +79,10 @@
         self.country.phone_prefix = @"86";
         self.country.phone_size = @"11";
         self.country.name  = @"CHINA";
+    }else{
+        self.country.phone_prefix = @"1";
+        self.country.phone_size = @"10";
+        self.country.name  = @"UNITED STATES";
     }
     
     NSString *formatePhone = [[__pierDataSource.merchantParam objectForKey:@"phone"] phoneFormat];
@@ -159,6 +163,34 @@
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
 }
 
+- (void)rSendServiceReigistSMS
+{
+    PierGetRegisterCodeRequest *requestModel = [[PierGetRegisterCodeRequest alloc] init];
+    requestModel.phone = self.phone;
+    
+    [PierService serverSend:ePIER_API_GET_ACTIVITY_CODE resuest:requestModel successBlock:^(id responseModel) {
+        PierGetRegisterCodeResponse *response = (PierGetRegisterCodeResponse *)responseModel;
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"",@"title_image_name",
+                               @"Passcode",@"title",
+                               @"Next",@"approve_text",
+                               @"Dismiss",@"cancle_text",
+                               self.phone,@"phone",
+                               response.expiration,@"expiration_time",
+                               @"6",@"code_length",nil];
+        if (!_smsAlertView) {
+            _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
+            _smsAlertView.delegate = self;
+            [_smsAlertView show];
+        }else{
+            [_smsAlertView refreshTimer:param];
+        }
+        [_smsAlertView showErrorMessage:@""];
+    } faliedBlock:^(NSError *error) {
+        [_smsAlertView showErrorMessage:[error domain]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
+}
+
 - (void)serviceSMSActivation:(NSString *)activation_code
 {
     PierRegSMSActiveRequest *requestModel = [[PierRegSMSActiveRequest alloc] init];
@@ -173,6 +205,7 @@
             loginPage.token = reqponse.token;
             [self.navigationController pushViewController:loginPage animated:NO];
         });
+        [_smsAlertView showErrorMessage:@""];
     } faliedBlock:^(NSError *error) {
         [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
@@ -255,6 +288,19 @@
 
 - (void)userApprove:(NSString *)userInput{
     [self serviceSMSActivation:userInput];
+}
+
+- (void)userCancel{
+    //User Cancel Register.
+//    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+//                            @"1",@"status",
+//                            @"Payment Cancel",@"message", nil];
+//    [__pierDataSource.pierDelegate payWithPierComplete:result];
+}
+
+- (void)resendTextMessage{
+    //resend register text message
+    [self rSendServiceReigistSMS];
 }
 
 @end

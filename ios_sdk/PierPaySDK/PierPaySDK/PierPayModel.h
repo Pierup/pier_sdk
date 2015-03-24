@@ -35,6 +35,7 @@
 
 @property(nonatomic, copy, readonly) NSString *expiration;
 @property(nonatomic, copy, readonly) NSString *sms_no;
+@property(nonatomic, copy, readonly) NSString *merchant_name;
 
 @end
 

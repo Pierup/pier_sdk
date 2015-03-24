@@ -196,7 +196,6 @@
 		2ABF82431A64E28800BEEAF6 /* PierJSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierJSONKit.h; sourceTree = "<group>"; };
 		2ABF82441A64E28800BEEAF6 /* PierJSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierJSONKit.m; sourceTree = "<group>"; };
 		2ABF82461A64E39C00BEEAF6 /* PierConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierConfig.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		2ABF82561A65071D00BEEAF6 /* PierSDKPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierSDKPath.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2ABF82571A65281C00BEEAF6 /* PierService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierService.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2ABF82581A65281C00BEEAF6 /* PierService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PierService.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2AC461E41A75FA0300DD2C49 /* PierPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierPayModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -329,7 +328,6 @@
 		2A8ECBFE1A6667A20040A2C2 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				2ABF82561A65071D00BEEAF6 /* PierSDKPath.h */,
 				2ABF82461A64E39C00BEEAF6 /* PierConfig.h */,
 				2ABF82431A64E28800BEEAF6 /* PierJSONKit.h */,
 				2ABF82441A64E28800BEEAF6 /* PierJSONKit.m */,
@@ -807,7 +805,7 @@
 		2A39BC371A2EE81300B9D551 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = arm64;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				HEADER_SEARCH_PATHS = (
@@ -819,14 +817,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
 		2A39BC381A2EE81300B9D551 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = arm64;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				HEADER_SEARCH_PATHS = (
@@ -838,7 +836,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};
@@ -881,7 +879,7 @@
 		2AF42D911A306CC90076DEC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = arm64;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -897,7 +895,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = arm64;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -905,7 +903,7 @@
 		2AF42D921A306CC90076DEC4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = arm64;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -918,7 +916,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = arm64;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;

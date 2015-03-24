@@ -76,6 +76,8 @@ typedef void (^cancelBlock)();
 @protocol PierSMSInputAlertDelegate <NSObject>
 
 - (void)userApprove:(NSString *)userInput;
+- (void)userCancel;
+- (void)resendTextMessage;
 
 @end
 
@@ -124,6 +126,8 @@ typedef void (^cancelBlock)();
 - (void)showErrorMessage:(NSString *)message;
 
 - (void)dismissErorMessage;
+
+- (void)refreshTimer:(id)param;
 
 @end
 

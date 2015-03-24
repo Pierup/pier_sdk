@@ -60,26 +60,45 @@
                                @"6",@"code_length",nil];
         _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
         _smsAlertView.delegate = self;
+        [_smsAlertView showErrorMessage:@""];
         [_smsAlertView show];
-        
     } faliedBlock:^(NSError *error) {
-        if (payWith == ePierPayWith_Merchant) {
-            [self.delegate pierPayServiceFailed:error];
-        }else{
-            if (__pierDataSource.pierDelegate && [__pierDataSource.pierDelegate respondsToSelector:@selector(payWithPierComplete:)]) {
-                NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                                     @"1", @"status",
-                                     [error domain], @"message",
-                                     @([error code]), @"code", nil];
-                [__pierDataSource.pierDelegate payWithPierComplete:dic];
-            }
-        }
+        [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
-                 @"0", @"show_alert",
+                 @"1", @"show_alert",
                  @"0", @"show_loading",
                  @"Pier Payment", @"show_message", nil]];
 }
 
+//ReSend TextMessage
+- (void)rSendServicePaySMS{
+    [PierService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
+        PierTransactionSMSResponse *response = (PierTransactionSMSResponse *)responseModel;
+        
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"",@"title_image_name",
+                               @"Transaction Verification Code",@"title",
+                               @"Pay",@"approve_text",
+                               @"Cancel",@"cancle_text",
+                               self.smsRequestModel.phone,@"phone",
+                               response.expiration,@"expiration_time",
+                               [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT],@"amount",
+                               @"6",@"code_length",nil];
+        if (!_smsAlertView) {
+            _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
+            _smsAlertView.delegate = self;
+            [_smsAlertView show];
+        }else{
+            [_smsAlertView refreshTimer:param];
+        }
+        [_smsAlertView showErrorMessage:@""];
+    } faliedBlock:^(NSError *error) {
+        [_smsAlertView showErrorMessage:[error domain]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
+                 @"1", @"show_alert",
+                 @"0", @"show_loading",
+                 @"Pier Payment", @"show_message", nil]];
+}
 
 - (void)serviceGetAuthToken:(NSString *)userinput{
     self.authTokenRequestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
@@ -93,6 +112,7 @@
         [_smsAlertView dismiss];
         PierGetAuthTokenV2Response *response = (PierGetAuthTokenV2Response *)responseModel;
         [self serviceMerchantService:response];
+        [_smsAlertView showErrorMessage:@""];
     } faliedBlock:^(NSError *error) {
         [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -111,12 +131,10 @@
                                 @"success",@"message",
                                 amount ,@"spending", nil];
         [self pierPayComplete:result];
+        [_smsAlertView showErrorMessage:@""];
     } faliedBlock:^(NSError *error) {
-        NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"1",@"status",
-                                [error domain],@"message", nil];
-        [self pierPayComplete:result];
-    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
+        [_smsAlertView showErrorMessage:[error domain]];
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys://支付出错，需要从新获取auto token，这里直接走失败回调。
                  @"0", @"show_alert",
                  @"0", @"show_loading",
                  @"Pier Payment", @"show_message", nil]];
@@ -126,7 +144,6 @@
  * pay by pier complete!
  */
 - (void)pierPayComplete:(NSDictionary *)result{
-    
     if (self.payWithType == ePierPayWith_Merchant) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(pierPayServiceComplete:)]) {
             [self.delegate pierPayServiceComplete:result];
@@ -134,11 +151,9 @@
     }else{
         if (__pierDataSource.pierDelegate && [__pierDataSource.pierDelegate respondsToSelector:@selector(payWithPierComplete:)]) {
             NSString *amount = [NSString getNumberFormatterDecimalStyle:[__pierDataSource.merchantParam objectForKey:@"amount"] currency:[__pierDataSource.merchantParam objectForKey:@"currency"]];
-            NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"0",@"status",
-                                    @"success",@"message",
-                                    amount ,@"spending", nil];
-            [__pierDataSource.pierDelegate payWithPierComplete:result];
+            NSMutableDictionary *mutDic = [NSMutableDictionary dictionaryWithDictionary:result];
+            [mutDic setValue:amount forKey:@"Amount"];
+            [__pierDataSource.pierDelegate payWithPierComplete:mutDic];
         }
     }
 }
@@ -146,6 +161,18 @@
 #pragma mark - ---------------------------- PierSMSInputAlertView ----------------------------
 - (void)userApprove:(NSString *)userInput{
     [self serviceGetAuthToken:userInput];
+}
+
+- (void)userCancel{
+    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"1",@"status",
+                            @"Payment Cancel",@"message", nil];
+    [self pierPayComplete:result];
+}
+
+- (void)resendTextMessage{
+    //resend payment text message
+    [self rSendServicePaySMS];
 }
 
 @end
