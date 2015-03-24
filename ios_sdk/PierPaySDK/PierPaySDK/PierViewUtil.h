@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class PierTransactionSMSResponse;
+
 typedef enum {
     LS_DEFAULT,     //实线
     LS_DASH         //虚线
@@ -22,6 +24,10 @@ typedef enum {
 #define TEXTFIELD_PLACEHOLDER_TEXTCOLOR @"_placeholderLabel.textColor"
 
 @interface PierViewUtil : NSObject
+
++ (void)toToLoginViewController;
++ (void)toCreditApplyViewController:(PierTransactionSMSResponse *)model;
++ (UIViewController *)getCurrentViewController;
 
 + (void)horizonView:(UIView *)view;
 

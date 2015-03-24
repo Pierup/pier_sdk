@@ -12,6 +12,31 @@
 #import "PierDataSource.h"
 #import "NSString+PierCheck.h"
 #import "PierDataSource.h"
+#import "PierViewUtil.h"
+
+/**
+ * status_bit user 7th to 13th bits to denote nine status：
+ * Invited: the phone account whether invited.
+ * BasicInfo: the phone account whether update basic user info (first name, last name, email.)
+ * billAddress: the phone account whether push bill address into system.
+ * Ssn: the phone account whether push ssn and dob info into system.
+ * linkAccount: the phone account whether linked a bank account.
+ * hasApplied: the phone account whether has applied pier account.
+ * HasCredit: the phone account whether has a pier credit account.
+ */
+typedef enum {
+    eUserStatus_new_user        = 0,
+    eUserStatus_invited         = 1 << 0,
+    eUserStatus_basicInfo       = 1 << 1,
+    eUserStatus_billAddress     = 1 << 2,
+    eUserStatus_ssn             = 1 << 3,
+    eUserStatus_linkAccount     = 1 << 4,
+    eUserStatus_hasApplied      = 1 << 5,
+    eUserStatus_hasCredit       = 1 << 6,
+    eUserStatus_hasPassCode     = 1 << 7,
+    eUserStatus_reigsterUser,
+    eUserStatus_reApply
+}eUserStatus;
 
 @interface PierPayService () <PierSMSInputAlertDelegate>
 
@@ -37,31 +62,39 @@
 - (void)serviceGetPaySMS:(BOOL)rememberuser payWith:(ePierPayWith)payWith{
     self.payWithType = payWith;
     [PierService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
-        if (rememberuser) {
-            NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 self.smsRequestModel.phone, pier_userdefaults_phone,
-                                 [__pierDataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE], pier_userdefaults_countrycode,
-                                 self.smsRequestModel.password, pier_userdefaults_password,nil];
-            [__pierDataSource saveUserInfo:dic];
-        }else{
-            [__pierDataSource clearUserInfo];
-        }
-        
+
         PierTransactionSMSResponse *response = (PierTransactionSMSResponse *)responseModel;
         
-        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                               @"",@"title_image_name",
-                               @"Transaction Verification Code",@"title",
-                               @"Pay",@"approve_text",
-                               @"Cancel",@"cancle_text",
-                               self.smsRequestModel.phone,@"phone",
-                               response.expiration,@"expiration_time",
-                               [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT],@"amount",
-                               @"6",@"code_length",nil];
-        _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
-        _smsAlertView.delegate = self;
-        [_smsAlertView showErrorMessage:@""];
-        [_smsAlertView show];
+        if (([response.status_bit integerValue] & eUserStatus_hasCredit) == eUserStatus_hasCredit){//Has Credit.
+            NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"",@"title_image_name",
+                                   @"Transaction Verification Code",@"title",
+                                   @"Pay",@"approve_text",
+                                   @"Cancel",@"cancle_text",
+                                   self.smsRequestModel.phone,@"phone",
+                                   response.expiration,@"expiration_time",
+                                   [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT],@"amount",
+                                   @"6",@"code_length",nil];
+            _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
+            _smsAlertView.delegate = self;
+            [_smsAlertView showErrorMessage:@""];
+            [_smsAlertView show];
+            
+            if (rememberuser) {
+                NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     self.smsRequestModel.phone, pier_userdefaults_phone,
+                                     [__pierDataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE], pier_userdefaults_countrycode,
+                                     self.smsRequestModel.password, pier_userdefaults_password,nil];
+                [__pierDataSource saveUserInfo:dic];
+            }else{
+                [__pierDataSource clearUserInfo];
+            }
+            
+        }else{
+            //没有信用让用户去填写信息
+            [PierViewUtil toCreditApplyViewController:response];
+        }
+
     } faliedBlock:^(NSError *error) {
         [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:

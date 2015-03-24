@@ -36,6 +36,7 @@
 @property(nonatomic, copy, readonly) NSString *expiration;
 @property(nonatomic, copy, readonly) NSString *sms_no;
 @property(nonatomic, copy, readonly) NSString *merchant_name;
+@property(nonatomic, copy, readonly) NSString *status_bit;
 
 @end
 
@@ -86,7 +87,6 @@
 @interface PierRegisterRequest : PierPayModel
 @property(nonatomic, copy, readwrite) NSString *phone;
 @property(nonatomic, copy, readwrite) NSString *token;
-@property(nonatomic, copy, readwrite) NSString *country_code;
 @property(nonatomic, copy, readwrite) NSString *password;
 @end
 
@@ -95,6 +95,21 @@
 @property(nonatomic, copy, readonly) NSString *device_id;
 @property(nonatomic, copy, readonly) NSString *passcode_expiration;
 
+@end
+
+#pragma mark - --------------------PIER_API_GET_GETUSER----------------------
+#pragma mark - Request
+@interface PierGetUserRequest : PierPayModel
+@end
+
+#pragma mark - Response
+@interface PierGetUserResponse : PierPayModel
+@property(nonatomic, copy, readonly) NSString *address;
+@property(nonatomic, copy, readonly) NSString *dob;
+@property(nonatomic, copy, readonly) NSString *email;
+@property(nonatomic, copy, readonly) NSString *first_name;
+@property(nonatomic, copy, readonly) NSString *last_name;
+@property(nonatomic, copy, readonly) NSString *ssn;
 @end
 
 #pragma mark - --------------------PIER_API_GET_UPDATEUSER-------------------

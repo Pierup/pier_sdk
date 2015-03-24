@@ -8,11 +8,11 @@
 
 #import "PierSiginViewModel.h"
 #import "PierTools.h"
+#import "PierPayModel.h"
 
 @interface PierSiginViewModel ()
 
 @property (nonatomic, strong) PierSiginCellModel *cellModel;
-
 @property (nonatomic, strong) PierSiginNameCell *nameCell;
 @property (nonatomic, strong) PierSiginPhoneNumberCell *phoneCell;
 @property (nonatomic, strong) PierSiginEmailNumberCell *emailCell;
@@ -301,6 +301,15 @@
     self.cellModel.ssn = [self.SSNCell getSSN];
     self.cellModel.password = [self.pwdCell getPassword];
     return self.cellModel;
+}
+
+- (void)setSiginCellModel:(PierGetUserResponse *)model{
+    self.cellModel.firstName = model.first_name;
+    self.cellModel.lastName = model.last_name;
+    self.cellModel.email = model.email;
+    self.cellModel.ssn = model.ssn;
+    self.cellModel.dob = model.dob;
+    self.cellModel.address = model.address;
 }
 
 - (BOOL)checkUserInfo{

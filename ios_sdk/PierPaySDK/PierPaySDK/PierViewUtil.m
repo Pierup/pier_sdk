@@ -11,8 +11,50 @@
 #import "PierColor.h"
 #import "PierTools.h"
 #import <math.h>
+#import "PierLoginViewController.h"
+#import "PierCreditApplyController.h"
+#import "PierPayModel.h"
 
 @implementation PierViewUtil
+
++ (void)toToLoginViewController{
+    PierLoginViewController *loginPage = [[PierLoginViewController alloc] initWithNibName:@"PierLoginViewController" bundle:pierBoundle()];
+    id rootViewController = [PierViewUtil getCurrentViewController];
+    if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        [(UINavigationController*)rootViewController pushViewController:loginPage animated:YES];
+    }else if ([rootViewController isKindOfClass:[UIViewController class]]){
+        [[(UIViewController *)rootViewController navigationController] pushViewController:loginPage animated:YES];
+    }
+}
+
++ (void)toCreditApplyViewController:(PierTransactionSMSResponse *)model{
+    PierCreditApplyController *creditApply = [[PierCreditApplyController alloc] initWithNibName:@"PierCreditApplyController" bundle:pierBoundle()];
+    creditApply.model = model;
+    id rootViewController = [PierViewUtil getCurrentViewController];
+    if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        [(UINavigationController*)rootViewController pushViewController:creditApply animated:YES];
+    }else if ([rootViewController isKindOfClass:[UIViewController class]]){
+        [[(UIViewController *)rootViewController navigationController] pushViewController:creditApply animated:YES];
+    }
+}
+
++ (UIViewController *)getCurrentViewController{
+    id rootViewController = [[UIApplication sharedApplication] delegate].window.rootViewController;
+    if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        rootViewController = ((UINavigationController *)rootViewController).topViewController;
+        // 顶层模态视图获取逻辑
+        while (((UIViewController *)rootViewController).presentedViewController) {
+            rootViewController = ((UIViewController *)rootViewController).presentedViewController;
+        }
+        if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+            UIViewController *visibleViewController = ((UINavigationController *)rootViewController).visibleViewController;
+            if (visibleViewController) {
+                rootViewController = visibleViewController;
+            }
+        }
+    }
+    return rootViewController;
+}
 
 + (void)horizonView:(UIView *)view{
     CGAffineTransform at_scanRemark =CGAffineTransformMakeRotation(M_PI/2);

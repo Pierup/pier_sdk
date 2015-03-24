@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PierTransactionSMSResponse;
 
 @interface PierCreditApplyController : UIViewController
+
+@property (nonatomic, strong) PierTransactionSMSResponse *model;
 
 @end

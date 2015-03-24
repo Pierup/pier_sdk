@@ -43,6 +43,9 @@
 }
 
 - (void)initData{
+    if (self.model) {
+        [self serviceUserUpload];
+    }
 }
 
 - (void)initView{
@@ -135,6 +138,17 @@
     }
 }
 
+#pragma mark ------------------ Service -------------------------
+
+- (void)serviceUserUpload{
+    PierGetUserRequest *requestModel = [[PierGetUserRequest alloc] init];
+    [PierService serverSend:ePIER_API_GET_GETUSER resuest:requestModel successBlock:^(id responseModel) {
+        PierGetUserResponse *response = (PierGetUserResponse *)responseModel;
+        [self.infoViewModel setSiginCellModel:response];
+    } faliedBlock:^(NSError *error) {
+    } attribute:nil];
+}
+
 - (void)serviceUpdataUser:(PierSiginCellModel *)userModel{
     PierUpdateRequest *requestModel = [[PierUpdateRequest alloc] init];
     requestModel.first_name = userModel.firstName;
@@ -144,7 +158,7 @@
     requestModel.ssn    =   userModel.ssn;
     requestModel.address    =   userModel.address;
     [PierService serverSend:ePIER_API_GET_UPDATEUSER resuest:requestModel successBlock:^(id responseModel) {
-        PierUpdateResponse *response = (PierUpdateResponse *)responseModel;
+//        PierUpdateResponse *response = (PierUpdateResponse *)responseModel;
         [self serviceCredtiApply];
     } faliedBlock:^(NSError *error) {
         

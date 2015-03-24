@@ -98,6 +98,26 @@
 
 @end
 
+#pragma mark - --------------------PIER_API_GET_GETUSER----------------------
+#pragma mark - Request
+@implementation PierGetUserRequest
+@end
+
+#pragma mark - Response
+@interface PierGetUserResponse ()
+@property(nonatomic, copy, readwrite) NSString *address;
+@property(nonatomic, copy, readwrite) NSString *dob;
+@property(nonatomic, copy, readwrite) NSString *email;
+@property(nonatomic, copy, readwrite) NSString *first_name;
+@property(nonatomic, copy, readwrite) NSString *last_name;
+@property(nonatomic, copy, readwrite) NSString *ssn;
+@end
+
+@implementation PierGetUserResponse
+
+@end
+
+
 #pragma mark - --------------------PIER_API_GET_UPDATEUSER-------------------
 #pragma mark - Request
 @interface PierUpdateRequest ()

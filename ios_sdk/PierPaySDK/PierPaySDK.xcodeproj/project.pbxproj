@@ -257,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				2A252D491AA1C4D0004BAB9C /* PierSiginViewModel.h */,
-				2A252D4A1AA1C4D0004BAB9C /* PierSiginViewModel.m */,
 				2A252D4D1AA1C4E8004BAB9C /* PierSiginCells.h */,
 				2A252D4E1AA1C4E8004BAB9C /* PierSiginCells.m */,
 				2A252D511AA1C945004BAB9C /* PierSiginCells.xib */,
@@ -363,6 +362,7 @@
 				2A6273A41AA6EF8000BEC05C /* Service */,
 				2A252D481AA1C408004BAB9C /* ViewModel */,
 				2A252D3C1AA1BA58004BAB9C /* PierLoginViewController.h */,
+				2A252D4A1AA1C4D0004BAB9C /* PierSiginViewModel.m */,
 				2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */,
 				2A252D3E1AA1BA58004BAB9C /* PierLoginViewController.xib */,
 				2A96B5641AA464B600CDA7E9 /* PierSiginViewController.h */,
@@ -805,7 +805,11 @@
 		2A39BC371A2EE81300B9D551 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64;
+				ARCHS = (
+					arm64,
+					armv7s,
+					armv7,
+				);
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				HEADER_SEARCH_PATHS = (
@@ -817,14 +821,18 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
 		};
 		2A39BC381A2EE81300B9D551 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64;
+				ARCHS = (
+					arm64,
+					armv7s,
+					armv7,
+				);
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				HEADER_SEARCH_PATHS = (
@@ -836,7 +844,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;
 		};
@@ -879,7 +887,11 @@
 		2AF42D911A306CC90076DEC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64;
+				ARCHS = (
+					arm64,
+					armv7s,
+					armv7,
+				);
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -891,11 +903,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -903,7 +915,11 @@
 		2AF42D921A306CC90076DEC4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = arm64;
+				ARCHS = (
+					arm64,
+					armv7s,
+					armv7,
+				);
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -912,11 +928,11 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
-				SDKROOT = iphoneos8.2;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
-				VALID_ARCHS = arm64;
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;

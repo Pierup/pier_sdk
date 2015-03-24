@@ -15,6 +15,7 @@
 #import "PierDataSource.h"
 #import "PierAlertView.h"
 #import "PierLoadingView.h"
+#import "PierViewUtil.h"
 
 #define HTTP_METHOD_POST        0   //@"post"
 #define HTTP_METHOD_POST_JSON   1   //@"post-json"
@@ -50,6 +51,7 @@ NSString * const PIER_API_GET_ACTIVITY_CODE     = @"/user_api/v2/user/activation
 NSString * const PIER_API_GET_ACTIVITION        = @"/user_api/v2/user/activation";
 NSString * const PIER_API_GET_ACTIVITION_REGIST = @"/user_api/v2/user/register_user";
 NSString * const PIER_API_GET_UPDATEUSER        = @"/user_api/v2/user/update_user";
+NSString * const PIER_API_GET_GETUSER           = @"/user_api/v2/user/get_user";
 NSString * const PIER_API_GET_APPLYCREDIT       = @"/user_api/v2/sdk/apply_credit";
 NSString * const PIER_API_GET_COUNTRYS          = @"/user_api/v1/user/get_countries";
 
@@ -184,7 +186,7 @@ NSString * const PIER_API_GET_COUNTRYS          = @"/user_api/v1/user/get_countr
             switch (code) {
                 case SESSION_EXPIRE://sesson 过期
                 {
-                    
+                    [PierViewUtil toToLoginViewController];
                     break;
                 }
                 case PUSSWORD_ERROR://账号密码错误
@@ -219,7 +221,6 @@ NSString * const PIER_API_GET_COUNTRYS          = @"/user_api/v1/user/get_countr
             }
             failed(error);
         }
-        
     }else{
         DLog(@"Result nil.");
     }
@@ -296,6 +297,13 @@ NSString * const PIER_API_GET_COUNTRYS          = @"/user_api/v1/user/get_countr
                       PIER_API_GET_UPDATEUSER,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
                       @"PierUpdateResponse",RESULT_MODEL,nil];
+            break;
+        case ePIER_API_GET_GETUSER:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
+                      PIER_API_GET_GETUSER,HTTP_PATH,
+                      @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
+                      @"PierGetUserResponse",RESULT_MODEL,nil];
             break;
         case ePIER_API_GET_APPLYCREDIT:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
