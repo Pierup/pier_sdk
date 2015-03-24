@@ -185,7 +185,7 @@
         }else{
             [_smsAlertView refreshTimer:param];
         }
-        
+        [_smsAlertView showErrorMessage:@""];
     } faliedBlock:^(NSError *error) {
         [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];
@@ -205,6 +205,7 @@
             loginPage.token = reqponse.token;
             [self.navigationController pushViewController:loginPage animated:NO];
         });
+        [_smsAlertView showErrorMessage:@""];
     } faliedBlock:^(NSError *error) {
         [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"1",@"show_alert",@"0",@"show_loading", nil]];

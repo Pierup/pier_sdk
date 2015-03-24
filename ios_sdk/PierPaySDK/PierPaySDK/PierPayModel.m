@@ -24,6 +24,7 @@
 @interface PierTransactionSMSResponse ()
 @property(nonatomic, copy, readwrite) NSString *expiration;
 @property(nonatomic, copy, readwrite) NSString *sms_no;
+@property(nonatomic, copy, readwrite) NSString *merchant_name;
 @end
 
 @implementation PierTransactionSMSResponse

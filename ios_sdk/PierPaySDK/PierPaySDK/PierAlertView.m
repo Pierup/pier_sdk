@@ -278,6 +278,10 @@
 }
 
 - (void)showErrorMessage:(NSString *)message{
+    //出错时候重新显示刷新按钮
+    [self.loadingView stopAnimating];
+    [self.stopWatch setHidden:YES];
+    [self.refreshButton setHidden:NO];
     [self.errorMessageLabel setHidden:NO];
     [self.errorMessageLabel setText:message];
 }
