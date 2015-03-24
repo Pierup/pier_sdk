@@ -98,6 +98,17 @@
 
 @end
 
+#pragma mark - --------------------PIER_API_GET_GETUSER----------------------
+#pragma mark - Request
+@implementation PierGetUserRequest
+@end
+
+#pragma mark - Response
+@implementation PierGetUserResponse
+
+@end
+
+
 #pragma mark - --------------------PIER_API_GET_UPDATEUSER-------------------
 #pragma mark - Request
 @interface PierUpdateRequest ()

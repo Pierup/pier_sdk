@@ -12,6 +12,7 @@
 #import "PierService.h"
 #import "PierPayModel.h"
 #import "PierCreditApproveViewController.h"
+#import "PierPayModel.h"
 
 @interface PierCreditApplyController ()<PierSiginCellsDelegate>
 
@@ -43,6 +44,9 @@
 }
 
 - (void)initData{
+    if (self.model) {
+        
+    }
 }
 
 - (void)initView{
@@ -133,6 +137,24 @@
         self.cellModel = [self.infoViewModel getSiginCellModel];
         [self serviceUpdataUser:self.cellModel];
     }
+}
+
+#pragma mark ------------------ Service -------------------------
+
+- (void)serviceUserUpload{
+//    PierRegisterRequest *requestModel = [[PierRegisterRequest alloc] init];
+//    requestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
+//    requestModel.token = self.token;
+//    requestModel.password = password;
+//    
+//    [PierService serverSend:ePIER_API_GET_ACTIVITION_REGIST resuest:requestModel successBlock:^(id responseModel) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            PierCreditApplyController *registerVC = [[PierCreditApplyController alloc] initWithNibName:@"PierCreditApplyController" bundle:pierBoundle()];
+//            [self.navigationController pushViewController:registerVC animated:YES];
+//        });
+//    } faliedBlock:^(NSError *error) {
+//        [self showFailedMessageLabel:error];
+//    } attribute:nil];
 }
 
 - (void)serviceUpdataUser:(PierSiginCellModel *)userModel{

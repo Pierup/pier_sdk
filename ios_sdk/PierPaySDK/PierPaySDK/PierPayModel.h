@@ -36,6 +36,7 @@
 @property(nonatomic, copy, readonly) NSString *expiration;
 @property(nonatomic, copy, readonly) NSString *sms_no;
 @property(nonatomic, copy, readonly) NSString *merchant_name;
+@property(nonatomic, copy, readonly) NSString *status_bit;
 
 @end
 
@@ -94,6 +95,16 @@
 @interface PierRegisterResponse : PierPayModel
 @property(nonatomic, copy, readonly) NSString *device_id;
 @property(nonatomic, copy, readonly) NSString *passcode_expiration;
+
+@end
+
+#pragma mark - --------------------PIER_API_GET_GETUSER----------------------
+#pragma mark - Request
+@interface PierGetUserRequest : PierPayModel
+@end
+
+#pragma mark - Response
+@interface PierGetUserResponse : PierPayModel
 
 @end
 

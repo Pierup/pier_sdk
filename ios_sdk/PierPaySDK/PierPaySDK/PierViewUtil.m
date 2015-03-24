@@ -12,6 +12,8 @@
 #import "PierTools.h"
 #import <math.h>
 #import "PierLoginViewController.h"
+#import "PierCreditApplyController.h"
+#import "PierPayModel.h"
 
 @implementation PierViewUtil
 
@@ -22,6 +24,17 @@
         [(UINavigationController*)rootViewController pushViewController:loginPage animated:YES];
     }else if ([rootViewController isKindOfClass:[UIViewController class]]){
         [[(UIViewController *)rootViewController navigationController] pushViewController:loginPage animated:YES];
+    }
+}
+
++ (void)toCreditApplyViewController:(PierTransactionSMSResponse *)model{
+    PierCreditApplyController *creditApply = [[PierCreditApplyController alloc] initWithNibName:@"PierCreditApplyController" bundle:pierBoundle()];
+    creditApply.model = model;
+    id rootViewController = [PierViewUtil getCurrentViewController];
+    if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        [(UINavigationController*)rootViewController pushViewController:creditApply animated:YES];
+    }else if ([rootViewController isKindOfClass:[UIViewController class]]){
+        [[(UIViewController *)rootViewController navigationController] pushViewController:creditApply animated:YES];
     }
 }
 

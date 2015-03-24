@@ -9,8 +9,8 @@
 #import "PIRHttpExecutor.h"
 #import <UIKit/UIKit.h>
 
-//NSString * const PIRMERCHANTHOST = @"http://pierup.ddns.net:8686";
-NSString * const PIRMERCHANTHOST = @"http://piermerchant.elasticbeanstalk.com";
+NSString * const PIRMERCHANTHOST = @"http://pierup.ddns.net:8686";
+//NSString * const PIRMERCHANTHOST = @"http://piermerchant.elasticbeanstalk.com";
 
 
 @interface PIRHttpExecutor ()

@@ -42,6 +42,7 @@ extern NSString * const PIER_API_GET_ACTIVITY_CODE;
 extern NSString * const PIER_API_GET_ACTIVITION;
 extern NSString * const PIER_API_GET_ACTIVITION_REGIST;
 extern NSString * const PIER_API_GET_UPDATEUSER;
+extern NSString * const PIER_API_GET_GETUSER;
 extern NSString * const PIER_API_GET_APPLYCREDIT;
 extern NSString * const PIER_API_GET_COUNTRYS;
 
