@@ -18,8 +18,12 @@ typedef enum {
 
 /** approve block */
 typedef BOOL (^approveBlock)(NSString *userInput);
+
 /** cancel block */
 typedef void (^cancelBlock)();
+
+/** Select block */
+typedef BOOL (^selectBlock)();
 
 @protocol PierAlertViewDelegate <NSObject>
 
@@ -44,6 +48,23 @@ typedef void (^cancelBlock)();
                     param:(id)param
                      type:(ePierAlertViewType)type
                   approve:(approveBlock)approve;
+
+@end
+
+#pragma mark - ---------------------------- PierPayModelView -------------------------------
+
+@interface PierPayModelAlertView : PierAlertView
+
+/**
+ * param
+ * name:                Required     Type         Description
+ * 1.amount             YES          NSString     amount
+ */
++ (void)showPierAlertView:(id)delegate
+                    param:(id)param
+            selectTouchID:(selectBlock)touchID
+                selectSMS:(selectBlock)SMS
+             selectCancle:(selectBlock)cancle;
 
 @end
 

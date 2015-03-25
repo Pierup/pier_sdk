@@ -115,6 +115,100 @@
 
 @end
 
+
+
+@interface PierPayModelAlertView ()
+
+@property (nonatomic, copy) selectBlock touchID;
+@property (nonatomic, copy) selectBlock SMS;
+@property (nonatomic, copy) selectBlock cancle;
+
+@property (nonatomic, weak) IBOutlet UIButton *touchIDButton;
+@property (nonatomic, weak) IBOutlet UIButton *smsButton;
+@property (nonatomic, weak) IBOutlet UIButton *cancleButton;
+@property (nonatomic, weak) IBOutlet UILabel *amountLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+
+@end
+
+@implementation PierPayModelAlertView
+
++ (void)showPierAlertView:(id)delegate
+                    param:(id)param
+            selectTouchID:(selectBlock)touchID
+                selectSMS:(selectBlock)SMS
+             selectCancle:(selectBlock)cancle{
+    PierPayModelAlertView *confirmView = (PierPayModelAlertView *)[[pierBoundle() loadNibNamed:@"PierAlertView" owner:delegate options:nil] objectAtIndex:3];
+    confirmView.paramDic    = param;
+    confirmView.touchID     = touchID;
+    confirmView.SMS         = SMS;
+    confirmView.cancle      = cancle;
+    [confirmView initData];
+    [confirmView initView];
+}
+
+- (void)initData{
+    [super initData];
+    if (self.paramDic) {
+        [self.titleLabel setText:[self.paramDic objectForKey:@"title"]];
+        [self.amountLabel setText:[self.paramDic objectForKey:@"amount"]];
+    }
+}
+
+- (void)initView{
+    [super initView];
+    [self setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2)];
+    
+    [self.titleImage setHidden:YES];
+    [self.touchIDButton setBackgroundColor:[PierColor lightPurpleColor]];
+    UIImage *touchIDButtonImage = [PierViewUtil getImageByView:self.touchIDButton];
+    [self.touchIDButton setBackgroundImage:touchIDButtonImage forState:UIControlStateNormal];
+    [self.touchIDButton.layer setCornerRadius:5];
+    [self.touchIDButton.layer setMasksToBounds:YES];
+    [self.touchIDButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [self.touchIDButton.layer setBorderWidth:0.5];
+    [self.touchIDButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [self.smsButton setBackgroundColor:[UIColor whiteColor]];
+    UIImage *smsButtonImage = [PierViewUtil getImageByView:self.smsButton];
+    [self.smsButton setBackgroundImage:smsButtonImage forState:UIControlStateNormal];
+    [self.smsButton.layer setCornerRadius:5];
+    [self.smsButton.layer setMasksToBounds:YES];
+    [self.smsButton.layer setBorderColor:[[PierColor lightPurpleColor] CGColor]];
+    [self.smsButton.layer setBorderWidth:0.5];
+    [self.smsButton setTitleColor:[PierColor lightPurpleColor] forState:UIControlStateNormal];
+    
+    [self.cancleButton setBackgroundColor:[UIColor whiteColor]];
+    UIImage *cancleButtonImage = [PierViewUtil getImageByView:self.cancleButton];
+    [self.cancleButton setBackgroundImage:cancleButtonImage forState:UIControlStateNormal];
+    [self.cancleButton.layer setCornerRadius:5];
+    [self.cancleButton.layer setMasksToBounds:YES];
+    [self.cancleButton.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    [self.cancleButton.layer setBorderWidth:0.5];
+    [self.cancleButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+}
+
+- (IBAction)touchIDAciton:(id)sender{
+    if (self.touchID()){
+        [self viewRemoveFromSuperView];
+    }
+}
+
+- (IBAction)SMSAction:(id)sender{
+    if (self.SMS()) {
+        [self viewRemoveFromSuperView];
+    }
+}
+
+- (IBAction)cancleAction:(id)sender{
+    if (self.cancle()) {
+        [self viewRemoveFromSuperView];
+    }
+}
+
+@end
+
+
 @interface PierUserInputAlertView ()
 
 //@property (nonatomic, strong) UIImageView *titleImage;

@@ -99,6 +99,7 @@ typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
  * 6.session_token   YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  * 7.order_id        YES          NSString   merchant orderID
  * 8.shop_name       NO           NSString   merchant name
+ * 9.device_token    NO           NSString   Device_Token
  *
  */
 + (void)payWith:(NSDictionary *)charge delegate:(id)delegate;

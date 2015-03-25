@@ -91,8 +91,10 @@ typedef enum {
             }
             
         }else{
-            //没有信用让用户去填写信息
-            [PierViewUtil toCreditApplyViewController:response];
+            if (self.payWithType == ePierPayWith_Merchant){
+                //没有信用让用户去填写信息
+                [PierViewUtil toCreditApplyViewController:response];
+            }
         }
 
     } faliedBlock:^(NSError *error) {

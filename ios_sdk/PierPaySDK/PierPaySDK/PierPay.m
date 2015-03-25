@@ -18,6 +18,9 @@
 #import "PierColor.h"
 #import "PierViewUtil.h"
 #import "PierPayService.h"
+#import "PierTouchIDShare.h"
+#import "PierAlertView.h"
+#import "NSString+PierCheck.h"
 
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
@@ -155,15 +158,37 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     __pierDataSource.pierDelegate = delegate;
     __pierDataSource.session_token = [charge objectForKey:@"session_token"];
     
-    PierTransactionSMSRequest *smsRequestModel = [[PierTransactionSMSRequest alloc] init];
-    smsRequestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
-    smsRequestModel.amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
-    smsRequestModel.currency_code = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
-    smsRequestModel.merchant_id = [__pierDataSource.merchantParam objectForKey:DATASOURCES_MERCHANT_ID];
-    PierPayService *pierService = [[PierPayService alloc] init];
-    pierService.delegate = delegate;
-    pierService.smsRequestModel = smsRequestModel;
-    [pierService serviceGetPaySMS:YES payWith:ePierPayWith_PierApp];
+    /** Device Token */
+    //Touch ID 支付
+//    if ([[PierTouchIDShare sharedInstance] hasTouchIDAuthority]) {
+//        UIAlertView *payMentModelAlertView = [[UIAlertView alloc] initWithTitle:@"Pier Payment" message:[charge objectForKey:@"shop_name"] delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:
+//                                              [charge objectForKey:@"amount"], @"TouchID", @"TextMessage", nil];
+//        [payMentModelAlertView setTag:1003];
+//        [payMentModelAlertView show];
+//    }else{
+//        [PierPay getPaymentSMS:delegate];
+//    }
+    
+    NSString *amount = [NSString getNumberFormatterDecimalStyle:[__pierDataSource.merchantParam objectForKey:@"amount"] currency:[__pierDataSource.merchantParam objectForKey:@"currency"]];
+    
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           @"Pier Payment",@"title",
+                           amount,@"amount",nil];
+    
+    [PierPayModelAlertView showPierAlertView:self param:param selectTouchID:^BOOL{
+        [PierTouchIDShare startTouch:^{
+            [PierPay getPaymentSMS:__pierDataSource.pierDelegate];
+        } cancel:^{
+            [PierPay getPaymentSMS:__pierDataSource.pierDelegate];
+        } failed:^{
+        }];
+        return YES;
+    } selectSMS:^BOOL{
+        return YES;
+    } selectCancle:^BOOL{
+        return YES;
+    }];
+    /*****************/
 }
 
 + (void)createPayment:(NSDictionary *)charge{
@@ -183,6 +208,20 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 + (void)handleOpenURL:(NSURL *)url withCompletion:(payWithPierComplete)completion{
     
+}
+
+#pragma mark - --------------------- service -----------------------
+
++ (void)getPaymentSMS:(id)delegate{
+    PierTransactionSMSRequest *smsRequestModel = [[PierTransactionSMSRequest alloc] init];
+    smsRequestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
+    smsRequestModel.amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
+    smsRequestModel.currency_code = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
+    smsRequestModel.merchant_id = [__pierDataSource.merchantParam objectForKey:DATASOURCES_MERCHANT_ID];
+    PierPayService *pierService = [[PierPayService alloc] init];
+    pierService.delegate = delegate;
+    pierService.smsRequestModel = smsRequestModel;
+    [pierService serviceGetPaySMS:YES payWith:ePierPayWith_PierApp];
 }
 
 - (void)viewDidLoad
