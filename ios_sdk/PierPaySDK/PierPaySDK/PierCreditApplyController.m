@@ -145,6 +145,10 @@
     [PierService serverSend:ePIER_API_GET_GETUSER resuest:requestModel successBlock:^(id responseModel) {
         PierGetUserResponse *response = (PierGetUserResponse *)responseModel;
         [self.infoViewModel setSiginCellModel:response];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+        });
+        
     } faliedBlock:^(NSError *error) {
     } attribute:nil];
 }

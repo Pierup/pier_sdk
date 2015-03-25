@@ -257,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				2A252D491AA1C4D0004BAB9C /* PierSiginViewModel.h */,
+				2A252D4A1AA1C4D0004BAB9C /* PierSiginViewModel.m */,
 				2A252D4D1AA1C4E8004BAB9C /* PierSiginCells.h */,
 				2A252D4E1AA1C4E8004BAB9C /* PierSiginCells.m */,
 				2A252D511AA1C945004BAB9C /* PierSiginCells.xib */,
@@ -362,7 +363,6 @@
 				2A6273A41AA6EF8000BEC05C /* Service */,
 				2A252D481AA1C408004BAB9C /* ViewModel */,
 				2A252D3C1AA1BA58004BAB9C /* PierLoginViewController.h */,
-				2A252D4A1AA1C4D0004BAB9C /* PierSiginViewModel.m */,
 				2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */,
 				2A252D3E1AA1BA58004BAB9C /* PierLoginViewController.xib */,
 				2A96B5641AA464B600CDA7E9 /* PierSiginViewController.h */,

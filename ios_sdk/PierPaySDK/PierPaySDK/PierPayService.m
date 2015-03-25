@@ -64,8 +64,8 @@ typedef enum {
     [PierService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
 
         PierTransactionSMSResponse *response = (PierTransactionSMSResponse *)responseModel;
-        
-        if (([response.status_bit integerValue] & eUserStatus_hasCredit) == eUserStatus_hasCredit){//Has Credit.
+        NSInteger creditMap = ([response.status_bit integerValue] >> 6);
+        if ((creditMap & eUserStatus_hasCredit) == eUserStatus_hasCredit){//Has Credit.
             NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"",@"title_image_name",
                                    @"Transaction Verification Code",@"title",
@@ -96,6 +96,11 @@ typedef enum {
         }
 
     } faliedBlock:^(NSError *error) {
+        if (self.payWithType == ePierPayWith_Merchant) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(pierPayServiceFailed:)]) {
+                [self.delegate pierPayServiceFailed:error];
+            }
+        }
         [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
                  @"1", @"show_alert",
