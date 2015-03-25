@@ -37,6 +37,7 @@
 
 @interface PierSiginNameCell : PierSiginCells
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index;
 - (NSDictionary *)getUserName;
 - (BOOL)checkUserName;
 
@@ -44,6 +45,7 @@
 
 @interface PierSiginPhoneNumberCell : PierSiginCells
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index;
 - (NSString *)getPhone;
 - (BOOL)checkPhone;
 
@@ -51,6 +53,7 @@
 
 @interface PierSiginEmailNumberCell : PierSiginCells
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index;
 - (NSString *)getEmail;
 - (BOOL)checkEmail;
 
@@ -58,6 +61,7 @@
 
 @interface PierSiginAddressCell : PierSiginCells
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index;
 - (NSString *)getAddresss;
 - (BOOL)checkAddress;
 
@@ -65,6 +69,7 @@
 
 @interface PierSiginDobCell : PierSiginCells
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index;
 - (NSString *)getDOB;
 - (BOOL)checkDOB;
 
@@ -72,6 +77,7 @@
 
 @interface PierSiginSSNCell : PierSiginCells
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index;
 - (NSString *)getSSN;
 - (BOOL)checkSSN;
 
@@ -79,6 +85,7 @@
 
 @interface PierSiginPWDCell : PierSiginCells
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index;
 - (NSString *)getPassword;
 - (BOOL)checkPWD;
 

@@ -39,6 +39,11 @@
     [super awakeFromNib];
 }
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
+    [self.firstNameLabel setText:model.firstName];
+    [self.lastNameLabel setText:model.lastName];
+}
+
 - (NSDictionary *)getUserName{
     NSDictionary *dic = nil;
     NSString *firstName = self.firstNameLabel.text;
@@ -72,6 +77,10 @@
 
 @implementation PierSiginPhoneNumberCell
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
+    
+}
+
 - (NSString *)getPhone{
     NSString *phone = self.phoneLabel.text;
     return phone;
@@ -98,6 +107,10 @@
 @end
 
 @implementation PierSiginEmailNumberCell
+
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
+    [self.emailLabel setText:model.email];
+}
 
 - (NSString *)getEmail{
     NSString *email = [self.emailLabel text];
@@ -126,6 +139,10 @@
 
 @implementation PierSiginAddressCell
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
+    [self.addressLabel setText:model.address];
+}
+
 - (NSString *)getAddresss{
     NSString *address = self.addressLabel.text;
     return address;
@@ -153,6 +170,10 @@
 @end
 
 @implementation PierSiginDobCell
+
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
+    [self.dobLabel setText:model.dob];
+}
 
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -232,6 +253,10 @@
     [self.ssnLabel setPlaceholder:@"Social Security Number"];
 }
 
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
+    [self.ssnLabel setText:model.ssn];
+}
+
 - (NSString *)getSSN{
     NSString *ssn = [self.ssnLabel.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     return ssn;
@@ -296,6 +321,10 @@
 @end
 
 @implementation PierSiginPWDCell
+
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
+    
+}
 
 - (NSString *)getPassword{
     NSString *password = self.passwordLabel.text;
