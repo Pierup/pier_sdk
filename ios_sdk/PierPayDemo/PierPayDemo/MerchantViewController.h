@@ -10,21 +10,22 @@
 
 @interface ShopListModel : NSObject
 
-@property (nonatomic, strong) NSString *amount;         //amount
-@property (nonatomic, strong) NSString *image;          //image_url
-@property (nonatomic, strong) NSString *currency;       //currency of amount
-@property (nonatomic, strong) NSString  *server_url;    //server_url
+@property (nonatomic, copy) NSString *amount;         //amount
+@property (nonatomic, copy) NSString *image;          //image_url
+@property (nonatomic, copy) NSString *currency;       //currency of amount
+@property (nonatomic, copy) NSString *server_url;     //server_url
+@property (nonatomic, copy) NSString *shop_name;      //shop name
 
 @end
 
 
 @interface MerchantModel : NSObject
 
-@property (nonatomic, strong) NSString *phone;                 //phone
-@property (nonatomic, strong) NSString *country_code;          //countryCode
-@property (nonatomic, strong) NSString *merchant_id;           //your id in pier
-@property (nonatomic, strong) NSString *product_small_url;     //merchant_pic_url
-@property (nonatomic, strong) NSString *business_name;         //merchant_name
+@property (nonatomic, copy) NSString *phone;                 //phone
+@property (nonatomic, copy) NSString *country_code;          //countryCode
+@property (nonatomic, copy) NSString *merchant_id;           //your id in pier
+@property (nonatomic, copy) NSString *product_small_url;     //merchant_pic_url
+@property (nonatomic, copy) NSString *business_name;         //merchant_name
 @property (nonatomic, strong) NSArray  *shopListModelArray;
 
 @end

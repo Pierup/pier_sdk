@@ -22,7 +22,9 @@
  * 3.code       NSNumber        Showing the code of message from pier.
  * 4.result     NSDictionary    Showing the value of output params of pier.
  * 5.spending   NSString        spending.
- * 6.order_id   NSString   merchant orderID
+ * 6.order_id   NSString        merchant orderID
+ * 7.shop_name  NSString        merchant name
+ *
  */
 -(void)payWithPierComplete:(NSDictionary *)result;
 
@@ -38,6 +40,8 @@
  * 4.result     NSDictionary    Showing the value of output params of pier.
  * 5.spending   NSString        spending.
  * 6.order_id   NSString   merchant orderID
+ * 7.shop_name  NSString        merchant name
+ *
  */
 typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
 
@@ -57,6 +61,7 @@ typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
  * 5.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
  * 6.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  * 7.order_id        YES          NSString   merchant orderID
+ * 8.shop_name       NO           NSString   merchant name
  *
  */
 - (instancetype)initWith:(NSDictionary *)charge delegate:(id)delegate;
@@ -69,6 +74,8 @@ typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
  *  3.merchant_id     YES          NSString   your id in pier.
  *  4.scheme          YES          NSString   merchant App scheme
  *  5.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ *  6.shop_name       NO           NSString   merchant name
+ *
  */
 + (void)createPayment:(NSDictionary *)charge;
 
@@ -91,6 +98,7 @@ typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
  * 5.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  * 6.session_token   YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  * 7.order_id        YES          NSString   merchant orderID
+ * 8.shop_name       NO           NSString   merchant name
  *
  */
 + (void)payWith:(NSDictionary *)charge delegate:(id)delegate;

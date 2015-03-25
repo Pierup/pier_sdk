@@ -167,12 +167,13 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 + (void)createPayment:(NSDictionary *)charge{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?amount=%@&currency=%@&merchant_id=%@&server_url=%@&scheme=%@", @"paywithpier",
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?amount=%@&currency=%@&merchant_id=%@&server_url=%@&scheme=%@&shop_name=%@", @"paywithpier",
                                        [charge objectForKey:@"amount"],
                                        [charge objectForKey:@"currency"],
                                        [charge objectForKey:@"merchant_id"],
                                        [charge objectForKey:@"server_url"],
-                                       @"piermerchant"]];
+                                       @"piermerchant",
+                                        [charge objectForKey:@"shop_name"]]];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
     }else{

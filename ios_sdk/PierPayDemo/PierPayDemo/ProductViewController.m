@@ -120,6 +120,7 @@
             shopListModel.image = [array[i] objectForKey:@"image"];
             shopListModel.currency = [array[i] objectForKey:@"currency"];
             shopListModel.server_url = server_url;
+            shopListModel.shop_name = self.merchantModel.business_name;
             [self.productsArray addObject:shopListModel];
         }
         self.merchantModel.shopListModelArray = self.productsArray;
@@ -145,6 +146,7 @@
         [_merchantParam setValue:shopListModel.currency forKey:@"currency"];
         [_merchantParam setValue:shopListModel.server_url forKey:@"server_url"];
         [_merchantParam setValue:[self getRandomNumber:1000000000 to:10000000000] forKey:@"order_id"];
+        [_merchantParam setValue:shopListModel.shop_name forKey:@"shop_name"];
         [self showSheet];
 
     }
@@ -189,7 +191,8 @@
                                    [_merchantParam objectForKey:@"currency"], @"currency",
                                    [_merchantParam objectForKey:@"merchant_id"], @"merchant_id",
                                    [_merchantParam objectForKey:@"server_url"], @"server_url",
-                                   @"piermerchant", @"scheme",nil];
+                                   @"piermerchant", @"scheme",
+                                   [_merchantParam objectForKey:@"shop_name"],@"shop_name",nil];
         
         [PierPay createPayment:chargeDic];
         
