@@ -24,6 +24,7 @@ void pierFreeDataSource();
 #define DATASOURCES_CURRENCY            @"currency"
 #define DATASOURCES_SERVER_URL          @"server_url"
 #define DATASOURCES_ORDERID             @"order_id"
+#define DATASOURCES_SHOPNAME            @"shop_name"
 
 extern NSString * const  pier_userdefaults_userinfo;
 extern NSString * const  pier_userdefaults_phone;
@@ -42,7 +43,7 @@ extern NSString * const  pier_userdefaults_password;
  * 5.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
  * 6.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  * 7.order_id        YES          NSString   merchant orderID
- *
+ * 8.shop_name       NO           NSString   merchant name
  */
 @property (nonatomic, strong) NSMutableDictionary *merchantParam;
 @property (nonatomic, copy) NSString *session_token;        // session token

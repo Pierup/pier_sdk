@@ -43,9 +43,8 @@
             <connections>
                 <outlet property="alertLabel" destination="3wI-62-7yl" id="gar-TF-7al"/>
                 <outlet property="doneButton" destination="8I9-ZW-PUL" id="MiM-FQ-iwn"/>
-                <outlet property="titleLabel" destination="Ff0-cQ-qPj" id="wWv-SU-vSq"/>
             </connections>
-            <point key="canvasLocation" x="84.5" y="-280"/>
+            <point key="canvasLocation" x="-97.5" y="-314"/>
         </view>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="os9-63-6fy" customClass="PierUserInputAlertView">
@@ -81,7 +80,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTB-Zu-TiX">
                     <rect key="frame" x="15" y="205" width="251" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <state key="normal" title="Cancle">
+                    <state key="normal" title="Cancel">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -98,7 +97,7 @@
                 <outlet property="textField" destination="lPc-Hr-Fgl" id="f7v-XL-bJ2"/>
                 <outlet property="titleLabel" destination="3C0-nX-78u" id="Sty-62-EAT"/>
             </connections>
-            <point key="canvasLocation" x="84.5" y="9.5"/>
+            <point key="canvasLocation" x="243.5" y="-344.5"/>
         </view>
         <view contentMode="scaleToFill" id="hub-Vz-60X" customClass="PierSMSAlertView">
             <rect key="frame" x="0.0" y="0.0" width="281" height="265"/>
@@ -140,7 +139,7 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rd-zn-LV9">
                     <rect key="frame" x="15" y="211" width="251" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <state key="normal" title="Cancle">
+                    <state key="normal" title="Cancel">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -182,7 +181,71 @@
                 <outlet property="stopWatch" destination="uLe-r8-4Xi" id="CwI-9C-GRu"/>
                 <outlet property="textField" destination="BH4-zV-OZI" id="yOI-dk-vUk"/>
             </connections>
-            <point key="canvasLocation" x="30.5" y="307.5"/>
+            <point key="canvasLocation" x="-97.5" y="-27.5"/>
+        </view>
+        <view contentMode="scaleToFill" id="Ux4-m5-Jt6" customClass="PierPayModelAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="281" height="333"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <userGuides>
+                <userLayoutGuide location="195" affinity="minY"/>
+            </userGuides>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQI-aq-Sd5">
+                    <rect key="frame" x="0.0" y="19" width="281" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTK-6Z-KRM">
+                    <rect key="frame" x="15" y="67" width="251" height="0.5"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="px6-X2-IIU">
+                    <rect key="frame" x="15" y="215" width="251" height="40"/>
+                    <state key="normal" title="Pay With Text Message">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="SMSAction:" destination="Ux4-m5-Jt6" eventType="touchUpInside" id="NQG-bB-Tbe"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nar-CB-3Rc">
+                    <rect key="frame" x="15" y="156" width="251" height="40"/>
+                    <color key="backgroundColor" red="0.4823529412" green="0.2156862745" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Pay With Touch ID">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="touchIDAciton:" destination="Ux4-m5-Jt6" eventType="touchUpInside" id="vfb-Kw-2oh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpe-T8-Q1z">
+                    <rect key="frame" x="15" y="273" width="251" height="40"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancleAction:" destination="Ux4-m5-Jt6" eventType="touchUpInside" id="h9e-1z-ylw"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$99.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="ejv-nR-tvl">
+                    <rect key="frame" x="15" y="83" width="251" height="58"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="amountLabel" destination="ejv-nR-tvl" id="UKi-rf-03W"/>
+                <outlet property="cancleButton" destination="vpe-T8-Q1z" id="ob5-ji-uuE"/>
+                <outlet property="smsButton" destination="px6-X2-IIU" id="cNG-fX-3Ht"/>
+                <outlet property="titleLabel" destination="KQI-aq-Sd5" id="Lkq-Ki-iB2"/>
+                <outlet property="touchIDButton" destination="Nar-CB-3Rc" id="5vt-jp-7mY"/>
+            </connections>
+            <point key="canvasLocation" x="238.5" y="1.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
