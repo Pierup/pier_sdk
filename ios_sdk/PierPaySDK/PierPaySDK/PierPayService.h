@@ -32,4 +32,7 @@ typedef enum {
 
 - (void)serviceGetPaySMS:(BOOL)rememberuser payWith:(ePierPayWith)payWith;
 
+/** touchID Device Token Payment */
+- (void)serviceGetAuthToken:(NSString *)userinput type:(NSInteger) type;
+
 @end

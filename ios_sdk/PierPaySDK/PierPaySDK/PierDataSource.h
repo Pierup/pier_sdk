@@ -25,6 +25,7 @@ void pierFreeDataSource();
 #define DATASOURCES_SERVER_URL          @"server_url"
 #define DATASOURCES_ORDERID             @"order_id"
 #define DATASOURCES_SHOPNAME            @"shop_name"
+#define DATASOURCES_DEVICETOKEN         @"device_token"
 
 extern NSString * const  pier_userdefaults_userinfo;
 extern NSString * const  pier_userdefaults_phone;

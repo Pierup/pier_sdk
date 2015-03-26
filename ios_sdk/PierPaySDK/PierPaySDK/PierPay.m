@@ -170,7 +170,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
         [PierPayModelAlertView showPierAlertView:self param:param selectTouchID:^BOOL{
             [PierTouchIDShare startTouch:^{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [PierPay getPaymentSMS:__pierDataSource.pierDelegate];
+                    [PierPay getPaymentSMS:__pierDataSource.pierDelegate payType:3];
                 });
             } cancel:^{
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -194,7 +194,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
             return YES;
         } selectSMS:^BOOL{
             dispatch_async(dispatch_get_main_queue(), ^{
-                [PierPay getPaymentSMS:delegate];
+                [PierPay getPaymentSMS:delegate payType:1];
             });
             return YES;
         } selectCancle:^BOOL{
@@ -207,7 +207,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
             return YES;
         }];
     }else{
-        [PierPay getPaymentSMS:delegate];
+        [PierPay getPaymentSMS:delegate payType:1];
     }
 }
 
@@ -232,16 +232,25 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 #pragma mark - --------------------- service -----------------------
 
-+ (void)getPaymentSMS:(id)delegate{
++ (void)getPaymentSMS:(id)delegate payType:(NSInteger)payType{
     PierTransactionSMSRequest *smsRequestModel = [[PierTransactionSMSRequest alloc] init];
     smsRequestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
     smsRequestModel.amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
     smsRequestModel.currency_code = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
     smsRequestModel.merchant_id = [__pierDataSource.merchantParam objectForKey:DATASOURCES_MERCHANT_ID];
+
     PierPayService *pierService = [[PierPayService alloc] init];
     pierService.delegate = delegate;
     pierService.smsRequestModel = smsRequestModel;
-    [pierService serviceGetPaySMS:YES payWith:ePierPayWith_PierApp];
+    
+    if (payType == 3) {
+        //DATASOURCES_DEVICETOKEN
+        NSString *device_token = [__pierDataSource.merchantParam objectForKey:DATASOURCES_DEVICETOKEN];
+        [pierService serviceGetAuthToken:device_token type:payType];
+    }else {
+        [pierService serviceGetPaySMS:YES payWith:ePierPayWith_PierApp];
+    }
+    
 }
 
 - (void)viewDidLoad
