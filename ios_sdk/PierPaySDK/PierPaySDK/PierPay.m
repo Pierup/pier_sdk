@@ -193,8 +193,17 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
             } ];
             return YES;
         } selectSMS:^BOOL{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [PierPay getPaymentSMS:delegate];
+            });
             return YES;
         } selectCancle:^BOOL{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        @"1",@"status",
+                                        @"Payment Cancel",@"message", nil];
+                [__pierDataSource.pierDelegate payWithPierComplete:result];
+            });
             return YES;
         }];
     }else{
