@@ -49,6 +49,8 @@
 @property(nonatomic, copy, readwrite) NSString *merchant_id;
 @property(nonatomic, copy, readwrite) NSString *amount;
 @property(nonatomic, copy, readwrite) NSString *currency_code;
+@property(nonatomic, copy, readwrite) NSString *device_token;
+
 @end
 
 #pragma mark - Response

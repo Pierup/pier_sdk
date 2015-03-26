@@ -62,6 +62,8 @@ static PIRURLDispatcher * __instance;
         [dic_dicQuery setValue:@"65.59" forKey:@"amount"];
         [dic_dicQuery setValue:@"USD" forKey:@"currency"];
         [dic_dicQuery setValue:[self getRandomNumber:1000000000 to:10000000000] forKey:@"order_id"];
+        NSString *testDeviceToken = [[dic_dicQuery objectForKey:@"device_token"] stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+        [dic_dicQuery setValue:testDeviceToken forKey:@"device_token"];
         [PierPay payWith:dic_dicQuery delegate:self];
     }
 #pragma mark - --------------------- Test ---------------------
