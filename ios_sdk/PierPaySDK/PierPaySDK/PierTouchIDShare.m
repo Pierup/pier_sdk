@@ -47,12 +47,16 @@ static PierTouchIDShare *__shardInstance;
     return result;
 }
 
-+ (void)startTouch:(TouchIDSuccessBlock)success cancel:(TouchIDCalcelBlock)cancel failed:(TouchIDFailedBlock)failed
++ (void)startTouch:(TouchIDSuccessBlock)success
+            cancel:(TouchIDCalcelBlock)cancel
+            failed:(TouchIDFailedBlock)failed
+     enterPassword:(TouchIDEnterPasswordBlock)enterPassword
 {
     //不使用单例，否则不在识别新的touchID。
     LAContext *laContex = [[LAContext alloc] init];
+    laContex.localizedFallbackTitle = @"Enter Text Message";
     NSError *errorInfo = nil;
-    NSString *remark = @"Pier";
+    NSString *remark = @"Pier Payment";
     //TODO:TOUCHID是否存在
     if ([laContex  canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&errorInfo]) {
         //TODO:TOUCHID开始运作
@@ -62,10 +66,13 @@ static PierTouchIDShare *__shardInstance;
              }else{
                  //识别超过3次、cancel、输入密码都会到这里
                  if (error.code == kLAErrorUserFallback) {
+                     enterPassword();
                  } else if (error.code == kLAErrorUserCancel) {
+                     cancel();
                  } else {
+                     cancel();
                  }
-                 cancel();
+                 
              }
          }];
     }else{

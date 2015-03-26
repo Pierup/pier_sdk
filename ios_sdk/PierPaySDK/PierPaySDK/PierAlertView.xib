@@ -184,7 +184,7 @@
             <point key="canvasLocation" x="-97.5" y="-27.5"/>
         </view>
         <view contentMode="scaleToFill" id="Ux4-m5-Jt6" customClass="PierPayModelAlertView">
-            <rect key="frame" x="0.0" y="0.0" width="281" height="328"/>
+            <rect key="frame" x="0.0" y="0.0" width="281" height="333"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <userGuides>
                 <userLayoutGuide location="195" affinity="minY"/>
@@ -192,16 +192,16 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQI-aq-Sd5">
                     <rect key="frame" x="0.0" y="19" width="281" height="35"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTK-6Z-KRM">
-                    <rect key="frame" x="15" y="69" width="251" height="0.5"/>
+                    <rect key="frame" x="15" y="67" width="251" height="0.5"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="px6-X2-IIU">
-                    <rect key="frame" x="15" y="210" width="251" height="40"/>
+                    <rect key="frame" x="15" y="215" width="251" height="40"/>
                     <state key="normal" title="Pay With Text Message">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -210,7 +210,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nar-CB-3Rc">
-                    <rect key="frame" x="15" y="151" width="251" height="40"/>
+                    <rect key="frame" x="15" y="156" width="251" height="40"/>
                     <color key="backgroundColor" red="0.4823529412" green="0.2156862745" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Pay With Touch ID">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -221,7 +221,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpe-T8-Q1z">
-                    <rect key="frame" x="15" y="268" width="251" height="40"/>
+                    <rect key="frame" x="15" y="273" width="251" height="40"/>
                     <state key="normal" title="Cancel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -230,7 +230,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$99.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="ejv-nR-tvl">
-                    <rect key="frame" x="15" y="78" width="251" height="58"/>
+                    <rect key="frame" x="15" y="83" width="251" height="58"/>
                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -245,7 +245,7 @@
                 <outlet property="titleLabel" destination="KQI-aq-Sd5" id="Lkq-Ki-iB2"/>
                 <outlet property="touchIDButton" destination="Nar-CB-3Rc" id="5vt-jp-7mY"/>
             </connections>
-            <point key="canvasLocation" x="243.5" y="-16"/>
+            <point key="canvasLocation" x="238.5" y="1.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

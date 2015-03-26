@@ -160,35 +160,46 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     
     /** Device Token */
     //Touch ID 支付
-//    if ([[PierTouchIDShare sharedInstance] hasTouchIDAuthority]) {
-//        UIAlertView *payMentModelAlertView = [[UIAlertView alloc] initWithTitle:@"Pier Payment" message:[charge objectForKey:@"shop_name"] delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:
-//                                              [charge objectForKey:@"amount"], @"TouchID", @"TextMessage", nil];
-//        [payMentModelAlertView setTag:1003];
-//        [payMentModelAlertView show];
-//    }else{
-//        [PierPay getPaymentSMS:delegate];
-//    }
-    
-    NSString *amount = [NSString getNumberFormatterDecimalStyle:[__pierDataSource.merchantParam objectForKey:@"amount"] currency:[__pierDataSource.merchantParam objectForKey:@"currency"]];
-    
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"Pier Payment",@"title",
-                           amount,@"amount",nil];
-    
-    [PierPayModelAlertView showPierAlertView:self param:param selectTouchID:^BOOL{
-        [PierTouchIDShare startTouch:^{
-            [PierPay getPaymentSMS:__pierDataSource.pierDelegate];
-        } cancel:^{
-            [PierPay getPaymentSMS:__pierDataSource.pierDelegate];
-        } failed:^{
+    if ([[PierTouchIDShare sharedInstance] hasTouchIDAuthority]) {
+        NSString *amount = [NSString getNumberFormatterDecimalStyle:[__pierDataSource.merchantParam objectForKey:@"amount"] currency:[__pierDataSource.merchantParam objectForKey:@"currency"]];
+        
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"Pier Payment",@"title",
+                               amount,@"amount",nil];
+        
+        [PierPayModelAlertView showPierAlertView:self param:param selectTouchID:^BOOL{
+            [PierTouchIDShare startTouch:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [PierPay getPaymentSMS:__pierDataSource.pierDelegate];
+                });
+            } cancel:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            @"1",@"status",
+                                            @"Payment Cancel",@"message", nil];
+                    [__pierDataSource.pierDelegate payWithPierComplete:result];
+                });
+            } failed:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            @"1",@"status",
+                                            @"TouchID identification failure",@"message", nil];
+                    [__pierDataSource.pierDelegate payWithPierComplete:result];
+                });
+            } enterPassword:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [PierPay payWith:charge delegate:delegate];
+                });
+            } ];
+            return YES;
+        } selectSMS:^BOOL{
+            return YES;
+        } selectCancle:^BOOL{
+            return YES;
         }];
-        return YES;
-    } selectSMS:^BOOL{
-        return YES;
-    } selectCancle:^BOOL{
-        return YES;
-    }];
-    /*****************/
+    }else{
+        [PierPay getPaymentSMS:delegate];
+    }
 }
 
 + (void)createPayment:(NSDictionary *)charge{
