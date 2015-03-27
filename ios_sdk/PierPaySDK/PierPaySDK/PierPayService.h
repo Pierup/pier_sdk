@@ -14,6 +14,12 @@ typedef enum {
     ePierPayWith_Merchant
 }ePierPayWith;
 
+typedef enum {
+    ePierPaymentType_SMS        =   1,
+    ePierPaymentType_Passcode   =   2,
+    ePierPaymentType_TouchID    =   3
+}ePierPaymentType;
+
 @protocol PierPayServiceDelegate <NSObject>
 
 - (void)pierPayServiceComplete:(NSDictionary *)result;
@@ -32,7 +38,7 @@ typedef enum {
 
 - (void)serviceGetPaySMS:(BOOL)rememberuser payWith:(ePierPayWith)payWith;
 
-/** touchID Device Token Payment */
-- (void)serviceGetAuthToken:(NSString *)userinput type:(NSInteger) type;
+/** Get Auth Token */
+- (void)serviceGetAuthToken:(NSString *)userinput type:(ePierPaymentType) type;
 
 @end

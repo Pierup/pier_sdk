@@ -232,7 +232,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 #pragma mark - --------------------- service -----------------------
 
-+ (void)getPaymentSMS:(id)delegate payType:(NSInteger)payType{
++ (void)getPaymentSMS:(id)delegate payType:(ePierPaymentType)payType{
     PierTransactionSMSRequest *smsRequestModel = [[PierTransactionSMSRequest alloc] init];
     smsRequestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
     smsRequestModel.amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
@@ -243,7 +243,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     pierService.delegate = delegate;
     pierService.smsRequestModel = smsRequestModel;
     
-    if (payType == 3) {
+    if (payType == ePierPaymentType_TouchID) {
         //DATASOURCES_DEVICETOKEN
         NSString *device_token = [__pierDataSource.merchantParam objectForKey:DATASOURCES_DEVICETOKEN];
         [pierService serviceGetAuthToken:device_token type:payType];
