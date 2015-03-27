@@ -140,9 +140,9 @@ typedef enum {
                  @"Pier Payment", @"show_message", nil]];
 }
 
-- (void)serviceGetAuthToken:(NSString *)userinput type:(NSInteger) type{
+- (void)serviceGetAuthToken:(NSString *)userinput type:(ePierPaymentType) type{
     self.authTokenRequestModel.phone = [__pierDataSource.merchantParam objectForKey:DATASOURCES_PHONE];
-    if (type == 3) {
+    if (type == ePierPaymentType_TouchID) {
         self.authTokenRequestModel.device_token = userinput;
     }else{
         self.authTokenRequestModel.pass_code = userinput;
@@ -205,7 +205,7 @@ typedef enum {
 
 #pragma mark - ---------------------------- PierSMSInputAlertView ----------------------------
 - (void)userApprove:(NSString *)userInput{
-    [self serviceGetAuthToken:userInput type:1];
+    [self serviceGetAuthToken:userInput type:ePierPaymentType_SMS];
 }
 
 - (void)userCancel{
