@@ -9,6 +9,7 @@
 #import "PierSiginViewModel.h"
 #import "PierTools.h"
 #import "PierPayModel.h"
+#import "PierDateUtil.h"
 
 @interface PierSiginViewModel ()
 
@@ -308,7 +309,8 @@
     self.cellModel.lastName = model.last_name;
     self.cellModel.email = model.email;
     self.cellModel.ssn = model.ssn;
-    self.cellModel.dob = model.dob;
+    NSString *formateDOB = [PierDateUtil getStringTimeByServiceFormate:model.dob formate:@"MM/dd/yyyy"];
+    self.cellModel.dob = formateDOB;
     self.cellModel.address = model.address;
 }
 

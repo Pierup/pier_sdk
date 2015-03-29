@@ -7,6 +7,7 @@
 //
 
 #import "PierDateUtil.h"
+#import "NSString+PierCheck.h"
 
 // 日历使用到的时区信息
 #define kPierCalendarTimeZone_CN   @"Asia/Shanghai"
@@ -288,6 +289,17 @@
         result = [PierDateUtil getStringFormateDate:date formatType:formate];
     }else{
         result = @"";
+    }
+    
+    return result;
+}
+
++ (NSString *)getStringTimeByServiceFormate:(NSString *)time formate:(NSString *)formate{
+    NSString *result = @"";
+    
+    if (![NSString emptyOrNull:time]) {
+        NSDate *date = [PierDateUtil dateFromString:time formate:SIMPLEFORMATTYPESTRING1];
+        result = [PierDateUtil getStringFormateDate:date formatType:formate];
     }
     
     return result;

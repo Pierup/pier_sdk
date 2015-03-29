@@ -194,6 +194,11 @@ static NSString *SIMPLEFORMATTYPESTRING18 = @"yyyy/MM/dd HH:mm:ss";
 + (NSString *)getStringTimeByTimeStamp:(long long)timestamp formate:(NSString *)formate;
 
 /**
+ 服务器格式yyyyMMddHHmmss
+ */
++ (NSString *)getStringTimeByServiceFormate:(NSString *)time formate:(NSString *)formate;
+
+/**
  * 计算生日
  */
 + (NSInteger)calculateAgeWithBirthdate:(NSDate *)birthdate;
