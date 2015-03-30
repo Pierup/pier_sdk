@@ -58,6 +58,8 @@
 		2A6EA30C1AA5A14800E8B340 /* PierCreditApproveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6EA3091AA5A14800E8B340 /* PierCreditApproveViewController.xib */; };
 		2A77977A1A3E764F00F5DF36 /* PierHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7797791A3E764F00F5DF36 /* PierHttpClient.m */; };
 		2A77977D1A3E865D00F5DF36 /* PierHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A77977C1A3E865D00F5DF36 /* PierHttpExecutor.m */; };
+		2A7DE2571AC9754600FEC21D /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DE2551AC9754600FEC21D /* ProximaNova-Light.otf */; };
+		2A7DE2581AC9754600FEC21D /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A7DE2561AC9754600FEC21D /* ProximaNova-Regular.otf */; };
 		2A8BEB381AAC8B7B00D240CE /* PierLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */; };
 		2A8BEB391AAC8B7B00D240CE /* PierLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */; };
 		2A96B55A1AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B5571AA429CA00CDA7E9 /* PierFloatingPlaceholderTextField.m */; };
@@ -181,6 +183,8 @@
 		2A7797791A3E764F00F5DF36 /* PierHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PierHttpClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2A77977B1A3E865D00F5DF36 /* PierHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierHttpExecutor.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2A77977C1A3E865D00F5DF36 /* PierHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PierHttpExecutor.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2A7DE2551AC9754600FEC21D /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		2A7DE2561AC9754600FEC21D /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		2A8BEB361AAC8B7B00D240CE /* PierLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierLoadingView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2A8BEB371AAC8B7B00D240CE /* PierLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PierLoadingView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2A96B5551AA429CA00CDA7E9 /* RierFloatingPlaceholderConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RierFloatingPlaceholderConstants.h; sourceTree = "<group>"; };
@@ -450,6 +454,8 @@
 		2AF42D8E1A306CC90076DEC4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A7DE2551AC9754600FEC21D /* ProximaNova-Light.otf */,
+				2A7DE2561AC9754600FEC21D /* ProximaNova-Regular.otf */,
 				2AF42D8F1A306CC90076DEC4 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -603,6 +609,7 @@
 				2A252D0B1AA199A4004BAB9C /* keypaddelete@2x.png in Resources */,
 				2A252D241AA19B82004BAB9C /* icon_logowhite@3x.png in Resources */,
 				2A252D521AA1C945004BAB9C /* PierSiginCells.xib in Resources */,
+				2A7DE2571AC9754600FEC21D /* ProximaNova-Light.otf in Resources */,
 				2A6EA30C1AA5A14800E8B340 /* PierCreditApproveViewController.xib in Resources */,
 				2A252D471AA1C0EE004BAB9C /* PierCreditApplyController.xib in Resources */,
 				2A96B56F1AA465CF00CDA7E9 /* PierRegisterViewController.xib in Resources */,
@@ -621,6 +628,7 @@
 				2A252D231AA19B82004BAB9C /* icon_logowhite@2x.png in Resources */,
 				2A252D251AA19B82004BAB9C /* icon_smscode@2x.png in Resources */,
 				2A252D2A1AA19BC3004BAB9C /* icon_smscode@3x.png in Resources */,
+				2A7DE2581AC9754600FEC21D /* ProximaNova-Regular.otf in Resources */,
 				2A252D1E1AA19B82004BAB9C /* btn_next@3x.png in Resources */,
 				2A96B5691AA464B600CDA7E9 /* PierSiginViewController.xib in Resources */,
 				2A252D211AA19B82004BAB9C /* icon_logopurple@2x.png in Resources */,

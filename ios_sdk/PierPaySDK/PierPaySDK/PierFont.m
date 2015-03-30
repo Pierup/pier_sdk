@@ -8,7 +8,8 @@
 
 #import "PierFont.h"
 
-#define CUSTOM_FONTNAME         @"Avenir"
+#define CUSTOM_FONTNAME         @"ProximaNova-Light"
+#define CUSTOM_FONTNAME_BOLD    @"ProximaNova-Regular"
 
 @implementation PierFont
 
@@ -17,6 +18,14 @@
     static UIFont *sCustomFont;
     return [self fontWithCache:sCustomFont
                           name:CUSTOM_FONTNAME
+                          size:size];
+}
+
++ (UIFont *)customBoldFontWithSize:(CGFloat)size
+{
+    static UIFont *sCustomFont;
+    return [self fontWithCache:sCustomFont
+                          name:CUSTOM_FONTNAME_BOLD
                           size:size];
 }
 
