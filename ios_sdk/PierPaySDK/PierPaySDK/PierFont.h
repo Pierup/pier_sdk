@@ -12,4 +12,6 @@
 
 + (UIFont *)customFontWithSize:(CGFloat)size;
 
++ (UIFont *)customBoldFontWithSize:(CGFloat)size;
+
 @end
