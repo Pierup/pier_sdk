@@ -18,6 +18,7 @@
 #import "PierCountryCodeViewController.h"
 #import "PierDataSource.h"
 #import "PierFont.h"
+#import "PierForgetPasswordViewController.h"
 
 @interface PierLoginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate, PierPayServiceDelegate>
 
@@ -30,6 +31,7 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *bacButton;
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
+@property (nonatomic, weak) IBOutlet UIButton *forgetPassword;
 
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
 
@@ -147,6 +149,7 @@
     [self.countryCodeTitleLabel setFont:[PierFont customFontWithSize:10]];
     [self.countryCodeButton.titleLabel setFont:[PierFont customFontWithSize:21]];
     [self.submitButton.titleLabel setFont:[PierFont customFontWithSize:20]];
+    [self.forgetPassword.titleLabel setFont:[PierFont customBoldFontWithSize:12]];
 }
 
 #pragma mark --------------------- Button Action -------------------------------
@@ -180,6 +183,11 @@
         pierService.smsRequestModel = self.smsRequestModel;
         [pierService serviceGetPaySMS:remember payWith:ePierPayWith_Merchant];
     }
+}
+
+- (IBAction)forgetPassword:(id)sender{
+    PierForgetPasswordViewController *forgetPassword = [[PierForgetPasswordViewController alloc] initWithNibName:@"PierForgetPasswordViewController" bundle:pierBoundle()];
+    [self.navigationController pushViewController:forgetPassword animated:NO];
 }
 
 #pragma mark - ------------------------ PierPayServiceDelegate ------------------------

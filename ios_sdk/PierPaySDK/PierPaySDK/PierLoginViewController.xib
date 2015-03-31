@@ -11,6 +11,7 @@
                 <outlet property="countryCodeButton" destination="TfQ-7c-Ju8" id="GqM-uF-kHN"/>
                 <outlet property="countryCodeTitleLabel" destination="Rvm-bu-fDz" id="p3j-Wj-QBh"/>
                 <outlet property="errorMessageLabel" destination="bGd-44-OWx" id="3as-Mt-djS"/>
+                <outlet property="forgetPassword" destination="8yY-hh-pL6" id="JNI-SK-kXR"/>
                 <outlet property="passwordLabel" destination="CgD-zR-LEI" id="eqE-JL-V5X"/>
                 <outlet property="phoneNumberLabel" destination="3Kw-Ov-C8r" id="IAO-BM-SvK"/>
                 <outlet property="rememberPwdLabel" destination="Cvn-Uk-ygQ" id="biD-Pl-1rF"/>
@@ -97,7 +98,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your phone number and password." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utt-OR-hS8">
-                    <rect key="frame" x="15" y="302" width="290" height="30"/>
+                    <rect key="frame" x="15" y="320" width="290" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="hGn-UJ-nu7"/>
                     </constraints>
@@ -142,6 +143,20 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yY-hh-pL6">
+                    <rect key="frame" x="200" y="298" width="105" height="20.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="105" id="3KW-Tg-ea1"/>
+                        <constraint firstAttribute="height" constant="20.5" id="Hqs-aH-2KL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="ForgetPassword">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="forgetPassword:" destination="-1" eventType="touchUpInside" id="erR-R0-Cjs"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -150,8 +165,9 @@
                 <constraint firstItem="bGd-44-OWx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="9Nq-kg-cMI"/>
                 <constraint firstItem="GLf-a8-oCS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="245" id="9aA-3L-FF9"/>
                 <constraint firstItem="RJz-UZ-Ln1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="9on-yB-Mvn"/>
+                <constraint firstItem="8yY-hh-pL6" firstAttribute="top" secondItem="GLf-a8-oCS" secondAttribute="bottom" constant="3" id="AUu-WE-bgS"/>
                 <constraint firstAttribute="trailing" secondItem="ojn-9o-6k8" secondAttribute="trailing" constant="15" id="Arj-IR-OCF"/>
-                <constraint firstAttribute="bottom" secondItem="utt-OR-hS8" secondAttribute="bottom" constant="236" id="Cwd-b3-Fmb"/>
+                <constraint firstAttribute="bottom" secondItem="utt-OR-hS8" secondAttribute="bottom" constant="218" id="Cwd-b3-Fmb"/>
                 <constraint firstItem="Rvm-bu-fDz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="FKc-vf-YBK"/>
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="Hbc-Mm-eU8"/>
                 <constraint firstItem="TfQ-7c-Ju8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="JV7-uU-G41"/>
@@ -169,13 +185,14 @@
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="trailing" secondItem="CgD-zR-LEI" secondAttribute="trailing" id="iGl-nT-CAS"/>
                 <constraint firstItem="CgD-zR-LEI" firstAttribute="top" secondItem="3Kw-Ov-C8r" secondAttribute="bottom" constant="20" id="j5W-Ch-7JE"/>
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="leading" secondItem="TfQ-7c-Ju8" secondAttribute="trailing" constant="47" id="mat-i7-qek"/>
+                <constraint firstAttribute="trailing" secondItem="8yY-hh-pL6" secondAttribute="trailing" constant="15" id="o6T-fq-iTn"/>
                 <constraint firstItem="DJq-hc-7Wz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="oCh-fP-0xW"/>
                 <constraint firstItem="DJq-hc-7Wz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="sde-uU-P8z"/>
                 <constraint firstItem="RJz-UZ-Ln1" firstAttribute="top" secondItem="3Kw-Ov-C8r" secondAttribute="bottom" constant="5" id="sqz-ho-DKm"/>
                 <constraint firstItem="p40-W5-Txm" firstAttribute="leading" secondItem="TfQ-7c-Ju8" secondAttribute="trailing" constant="18" id="vDo-dg-odx"/>
                 <constraint firstItem="bGd-44-OWx" firstAttribute="top" secondItem="ojn-9o-6k8" secondAttribute="bottom" constant="2.5" id="wHT-f7-Wvc"/>
             </constraints>
-            <point key="canvasLocation" x="14" y="88"/>
+            <point key="canvasLocation" x="-129" y="22"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

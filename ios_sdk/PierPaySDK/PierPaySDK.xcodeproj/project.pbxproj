@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A05E8151ACAA3F90055B71A /* PierForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05E8131ACAA3F90055B71A /* PierForgetPasswordViewController.m */; };
+		2A05E8161ACAA3F90055B71A /* PierForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A05E8131ACAA3F90055B71A /* PierForgetPasswordViewController.m */; };
+		2A05E8171ACAA3F90055B71A /* PierForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A05E8141ACAA3F90055B71A /* PierForgetPasswordViewController.xib */; };
 		2A252CDB1AA166A7004BAB9C /* PierFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252CDA1AA166A7004BAB9C /* PierFont.m */; };
 		2A252CDC1AA166A7004BAB9C /* PierFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252CDA1AA166A7004BAB9C /* PierFont.m */; };
 		2A252D061AA19893004BAB9C /* btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D051AA19893004BAB9C /* btn_close@2x.png */; };
@@ -125,6 +128,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A05E8121ACAA3F90055B71A /* PierForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierForgetPasswordViewController.h; sourceTree = "<group>"; };
+		2A05E8131ACAA3F90055B71A /* PierForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierForgetPasswordViewController.m; sourceTree = "<group>"; };
+		2A05E8141ACAA3F90055B71A /* PierForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierForgetPasswordViewController.xib; sourceTree = "<group>"; };
 		2A252CD91AA166A7004BAB9C /* PierFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierFont.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2A252CDA1AA166A7004BAB9C /* PierFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PierFont.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2A252D051AA19893004BAB9C /* btn_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_close@2x.png"; sourceTree = "<group>"; };
@@ -376,6 +382,9 @@
 				2A252D3C1AA1BA58004BAB9C /* PierLoginViewController.h */,
 				2A252D3D1AA1BA58004BAB9C /* PierLoginViewController.m */,
 				2A252D3E1AA1BA58004BAB9C /* PierLoginViewController.xib */,
+				2A05E8121ACAA3F90055B71A /* PierForgetPasswordViewController.h */,
+				2A05E8131ACAA3F90055B71A /* PierForgetPasswordViewController.m */,
+				2A05E8141ACAA3F90055B71A /* PierForgetPasswordViewController.xib */,
 				2A96B5641AA464B600CDA7E9 /* PierSiginViewController.h */,
 				2A96B5651AA464B600CDA7E9 /* PierSiginViewController.m */,
 				2A96B5661AA464B600CDA7E9 /* PierSiginViewController.xib */,
@@ -620,6 +629,7 @@
 				2A252D2A1AA19BC3004BAB9C /* icon_smscode@3x.png in Resources */,
 				2A7DE2581AC9754600FEC21D /* ProximaNova-Regular.otf in Resources */,
 				2A252D1E1AA19B82004BAB9C /* btn_next@3x.png in Resources */,
+				2A05E8171ACAA3F90055B71A /* PierForgetPasswordViewController.xib in Resources */,
 				2A96B5691AA464B600CDA7E9 /* PierSiginViewController.xib in Resources */,
 				2A252D211AA19B82004BAB9C /* icon_logopurple@2x.png in Resources */,
 				2A252D411AA1BA58004BAB9C /* PierLoginViewController.xib in Resources */,
@@ -635,6 +645,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A05E8151ACAA3F90055B71A /* PierForgetPasswordViewController.m in Sources */,
 				2A252D321AA1AF4C004BAB9C /* PierViewUtil.m in Sources */,
 				2ACCFEB91A775B9000A5BAC5 /* PierAlertView.m in Sources */,
 				2A6273B21AA6F1D400BEC05C /* PierPayService.m in Sources */,
@@ -685,6 +696,7 @@
 				2A6273B31AA6F1D400BEC05C /* PierPayService.m in Sources */,
 				2ACCFED61A7782F600A5BAC5 /* PierHttpExecutor.m in Sources */,
 				2ACCFED51A7782EE00A5BAC5 /* PierService.m in Sources */,
+				2A05E8161ACAA3F90055B71A /* PierForgetPasswordViewController.m in Sources */,
 				2A96B56E1AA465CF00CDA7E9 /* PierRegisterViewController.m in Sources */,
 				2ACCFED41A7782E100A5BAC5 /* PierJSONModel.m in Sources */,
 				2A8BEB391AAC8B7B00D240CE /* PierLoadingView.m in Sources */,
