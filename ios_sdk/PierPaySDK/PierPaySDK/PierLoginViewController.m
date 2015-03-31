@@ -61,16 +61,6 @@
     // Do any additional setup after loading the view from its nib.
     [self initData];
     [self initView];
-    
-    [self.phoneNumberLabel setFont:[PierFont customFontWithSize:25]];
-    [self.passwordLabel setFont:[PierFont customFontWithSize:25]];
-    [self.errorMessageLabel setFont:[PierFont customFontWithSize:12]];
-    [self.textRemarkLabel setFont:[PierFont customFontWithSize:13]];
-    [self.rememberPwdLabel setFont:[PierFont customFontWithSize:10]];
-    [self.countryCodeTitleLabel setFont:[PierFont customFontWithSize:10]];
-    [self.countryCodeButton.titleLabel setFont:[PierFont customFontWithSize:21]];
-    [self.submitButton.titleLabel setFont:[PierFont customFontWithSize:20]];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -147,6 +137,16 @@
     [self.rememberSwitchBtn setOnTintColor:[PierColor lightPurpleColor]];
     [self.rememberSwitchBtn setThumbTintColor:[PierColor lightGreenColor]];
     [self.rememberSwitchBtn setOn:YES];
+    
+    /** init fount */
+    [self.phoneNumberLabel setFont:[PierFont customFontWithSize:25]];
+    [self.passwordLabel setFont:[PierFont customFontWithSize:25]];
+    [self.errorMessageLabel setFont:[PierFont customFontWithSize:12]];
+    [self.textRemarkLabel setFont:[PierFont customFontWithSize:13]];
+    [self.rememberPwdLabel setFont:[PierFont customFontWithSize:10]];
+    [self.countryCodeTitleLabel setFont:[PierFont customFontWithSize:10]];
+    [self.countryCodeButton.titleLabel setFont:[PierFont customFontWithSize:21]];
+    [self.submitButton.titleLabel setFont:[PierFont customFontWithSize:20]];
 }
 
 #pragma mark --------------------- Button Action -------------------------------
