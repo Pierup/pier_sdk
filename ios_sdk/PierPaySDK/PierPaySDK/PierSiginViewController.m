@@ -82,10 +82,13 @@
         self.country.phone_size = @"11";
         self.country.name  = @"CHINA";
     }else{
+        self.country.country_code = @"US";
         self.country.phone_prefix = @"1";
         self.country.phone_size = @"10";
         self.country.name  = @"UNITED STATES";
     }
+    
+    [__pierDataSource.merchantParam setValue:self.country.country_code forKey:DATASOURCES_COUNTRY_CODE];
     
     NSString *formatePhone = [[__pierDataSource.merchantParam objectForKey:@"phone"] phoneFormat];
     [self.phoneNumberLabel setText:formatePhone];

@@ -9,6 +9,15 @@
 #import <Foundation/Foundation.h>
 @class PierHttpExecutor;
 
+#warning - ---------------- 放在这里方便外面修改，发包的时候放在.m文件中 ----------------
+static NSString * PierHttpClientUserHost      = @"http://192.168.1.254:8080";
+static NSString * PierHttpClientUserHostV2    = @"https://192.168.1.254:8443";
+
+//static NSString * PierHttpClientUserHost      = @"http://pierup.ddns.net:8686";
+//static NSString * PierHttpClientUserHostV2    = @"https://pierup.ddns.net:8443";
+#warning - ---------------- 发包的时候放在.m文件中 ----------------
+
+
 /** success block */
 typedef void (^PierHttpSuccessBlock)(id response, NSHTTPURLResponse *urlResponse);
 /** failed block */
