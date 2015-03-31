@@ -18,7 +18,7 @@
 #import "PierCountryCodeViewController.h"
 #import "PierDataSource.h"
 #import "PierFont.h"
-#import "PierForgetPasswordViewController.h"
+#import "PierWebViewController.h"
 
 @interface PierLoginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate, PierPayServiceDelegate>
 
@@ -186,7 +186,8 @@
 }
 
 - (IBAction)forgetPassword:(id)sender{
-    PierForgetPasswordViewController *forgetPassword = [[PierForgetPasswordViewController alloc] initWithNibName:@"PierForgetPasswordViewController" bundle:pierBoundle()];
+    PierWebViewController *forgetPassword = [[PierWebViewController alloc] initWithNibName:@"PierForgetPasswordViewController" bundle:pierBoundle()];
+    forgetPassword.url = @"http://192.168.1.254:8080/umsite/index.html#/userForgetPassword";
     [self.navigationController pushViewController:forgetPassword animated:NO];
 }
 
