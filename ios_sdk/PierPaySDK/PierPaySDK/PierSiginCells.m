@@ -12,6 +12,7 @@
 #import "PierViewUtil.h"
 #import "PierDateUtil.h"
 #import "PierColor.h"
+#import "PierFont.h"
 
 @implementation PierSiginCellModel
 
@@ -37,6 +38,8 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    [self.firstNameLabel setFont:[PierFont customFontWithSize:17]];
+    [self.lastNameLabel setFont:[PierFont customFontWithSize:17]];
 }
 
 - (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
@@ -108,6 +111,11 @@
 
 @implementation PierSiginEmailNumberCell
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    [self.emailLabel setFont:[PierFont customFontWithSize:17]];
+}
+
 - (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
     [self.emailLabel setText:model.email];
 }
@@ -138,6 +146,11 @@
 @end
 
 @implementation PierSiginAddressCell
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    [self.addressLabel setFont:[PierFont customFontWithSize:17]];
+}
 
 - (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
     [self.addressLabel setText:model.address];
@@ -171,13 +184,14 @@
 
 @implementation PierSiginDobCell
 
-- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
-    [self.dobLabel setText:model.dob];
-}
-
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.dobLabel.delegate = self;
+    [self.dobLabel setFont:[PierFont customFontWithSize:17]];
+}
+
+- (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
+    [self.dobLabel setText:model.dob];
 }
 
 - (NSString *)getDOB{
@@ -251,6 +265,7 @@
     [super awakeFromNib];
     self.ssnLabel.delegate = self;
     [self.ssnLabel setPlaceholder:@"Social Security Number"];
+    [self.ssnLabel setFont:[PierFont customFontWithSize:17]];
 }
 
 - (void)updateCell:(PierSiginCellModel *)model indexPath:(NSIndexPath *)index{
@@ -348,6 +363,7 @@
 @interface PierSiginSubmitCell ()
 
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
+@property (nonatomic, weak) IBOutlet UILabel *summitRemarkLabel;
 
 @end
 
@@ -362,6 +378,9 @@
     [self.submitButton.layer setMasksToBounds:YES];
     UIImage *subBtnImg = [PierViewUtil getImageByView:self.submitButton];
     [self.submitButton setBackgroundImage:subBtnImg forState:UIControlStateNormal];
+    
+    [self.summitRemarkLabel setFont:[PierFont customFontWithSize:12]];
+    [self.submitButton.titleLabel setFont:[PierFont customFontWithSize:20]];
 }
 
 - (IBAction)submitUserInfo:(id)sender{

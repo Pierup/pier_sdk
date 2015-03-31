@@ -7,6 +7,7 @@
 //
 
 #import "PierStopWatchView.h"
+#import "PierFont.h"
 
 @interface PierStopWatchView ()
 
@@ -51,6 +52,7 @@
 - (void)setupViewDefaults{
     self.expirTime = 0;
     _timerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    [_timerLabel setFont:[PierFont customFontWithSize:17]];
     [_timerLabel setTextAlignment:NSTextAlignmentCenter];
     [self addSubview:_timerLabel];
 }

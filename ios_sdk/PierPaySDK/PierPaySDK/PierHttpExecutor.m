@@ -553,8 +553,11 @@ static NSString *defaultUserAgent;
         if (!isSuccess) {
             if (self.failed && !self.isCancelled) {
                 DLog(@"[Response] %@",response);
-                
-                serverError = [NSError errorWithDomain:[NSString getUnNilString:[response objectForKey:@"message"]]
+                NSString *message = [NSString getUnNilString:[response objectForKey:@"message"]];
+                if ([NSString emptyOrNull:message]) {
+                    message = @"Unknown error!";
+                }
+                serverError = [NSError errorWithDomain:message
                                                   code:[[NSString getUnNilString:[response objectForKey:@"code"]] integerValue] userInfo:response];
                 
                 DLog(@"[Error] %@",serverError);

@@ -10,8 +10,11 @@
 #import "PierHttpExecutor.h"
 
 #pragma mark - -------------------- Host --------------------
-NSString * const PierHttpClientUserHost      = @"http://pierup.ddns.net:8686";
-NSString * const PierHttpClientUserHostV2    = @"https://pierup.ddns.net:8443";
+//NSString * const PierHttpClientUserHost      = @"http://192.168.1.254:8080";
+//NSString * const PierHttpClientUserHostV2    = @"https://192.168.1.254:8443";
+
+//NSString * const PierHttpClientUserHost      = @"http://pierup.ddns.net:8686";
+//NSString * const PierHttpClientUserHostV2    = @"https://pierup.ddns.net:8443";
 //https://user-api.elasticbeanstalk.com
 //https://pierup.ddns.net:8443
 

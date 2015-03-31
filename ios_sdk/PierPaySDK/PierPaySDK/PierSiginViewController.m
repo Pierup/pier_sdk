@@ -16,15 +16,17 @@
 #import "PierAlertView.h"
 #import "PierCountryCodeViewController.h"
 #import "PierDataSource.h"
+#import "PierFont.h"
 
 @interface PierSiginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate, PierSMSInputAlertDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *bacButton;
 @property (nonatomic, weak) IBOutlet UIButton *submitButton;
 @property (nonatomic, weak) IBOutlet UITextField *phoneNumberLabel;
-@property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
+@property (nonatomic, weak) IBOutlet UILabel *textRemarkLabel;
 @property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
 @property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
+@property (nonatomic, weak) IBOutlet UILabel *countryCodeTitleLabel;
 @property (nonatomic, copy) NSString *phone;
 
 @property (nonatomic, strong) PierCountryModel *country;
@@ -80,10 +82,13 @@
         self.country.phone_size = @"11";
         self.country.name  = @"CHINA";
     }else{
+        self.country.country_code = @"US";
         self.country.phone_prefix = @"1";
         self.country.phone_size = @"10";
         self.country.name  = @"UNITED STATES";
     }
+    
+    [__pierDataSource.merchantParam setValue:self.country.country_code forKey:DATASOURCES_COUNTRY_CODE];
     
     NSString *formatePhone = [[__pierDataSource.merchantParam objectForKey:@"phone"] phoneFormat];
     [self.phoneNumberLabel setText:formatePhone];
@@ -105,6 +110,15 @@
     
     [self.phoneNumberLabel setTintColor:[PierColor lightPurpleColor]];
     self.phoneNumberLabel.delegate  = self;
+    
+    /** init Fount */
+    [self.countryCodeTitleLabel setFont:[PierFont customFontWithSize:10]];
+    [self.phoneNumberLabel setFont:[PierFont customFontWithSize:25]];
+    [self.textRemarkLabel setFont:[PierFont customFontWithSize:13]];
+    [self.countryCodeButton.titleLabel setFont:[PierFont customFontWithSize:21]];
+    [self.errorMessageLabel setFont:[PierFont customFontWithSize:12]];
+    [self.countryCodeTitleLabel setFont:[PierFont customFontWithSize:10]];
+    [self.submitButton.titleLabel setFont:[PierFont customFontWithSize:20]];
 }
 
 #pragma mark ------------------- button Action ------------------------

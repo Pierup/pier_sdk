@@ -9,6 +9,7 @@
 #import "PierLoadingView.h"
 #import "PierTools.h"
 #import "PierColor.h"
+#import "PierFont.h"
 #import <QuartzCore/QuartzCore.h>
 
 static PierLoadingView * __instances = nil;
@@ -48,7 +49,7 @@ static UIView * __loadingBgView;
                                                                                      __instances.frame.origin.y+(__instances.frame.size.height-30),
                                                                                      __instances.frame.size.width, 20)];
                 [__instances.contextLabel setAdjustsFontSizeToFitWidth:YES];
-                [__instances.contextLabel setFont:[UIFont systemFontOfSize:12]];
+                [__instances.contextLabel setFont:[PierFont customBoldFontWithSize:12]];
                 [__instances.contextLabel setTextAlignment:NSTextAlignmentCenter];
                 [__instances.contextLabel setBackgroundColor:[UIColor clearColor]];
                 [__instances.contextLabel setTextColor:[UIColor whiteColor]];

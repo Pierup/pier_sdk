@@ -14,6 +14,7 @@
 #import "PierViewUtil.h"
 #import "PierCreditApplyController.h"
 #import "PierDataSource.h"
+#import "PierFont.h"
 
 @interface PierRegisterViewController ()
 
@@ -68,6 +69,13 @@
     [self.submitButton setBackgroundImage:submitbtnImg forState:UIControlStateNormal];
     [self.submitButton.layer setMasksToBounds:YES];
     [self.submitButton.layer setCornerRadius:5];
+    
+    /** Init Fount */
+    [self.indicateLabel setFont:[PierFont customFontWithSize:10]];
+    [self.passwordLabel setFont:[PierFont customFontWithSize:25]];
+    [self.verificationTextField setFont:[PierFont customFontWithSize:25]];
+    [self.errorMessageLabel setFont:[PierFont customFontWithSize:12]];
+    [self.submitButton.titleLabel setFont:[PierFont customFontWithSize:20]];
 }
 
 - (void)popViewController

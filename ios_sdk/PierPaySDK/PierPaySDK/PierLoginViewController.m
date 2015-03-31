@@ -17,16 +17,24 @@
 #import "PierPayService.h"
 #import "PierCountryCodeViewController.h"
 #import "PierDataSource.h"
+#import "PierFont.h"
+#import "PierForgetPasswordViewController.h"
 
 @interface PierLoginViewController ()<PierCountryCodeViewControllerDelegate, UITextFieldDelegate, PierPayServiceDelegate>
 
-@property (nonatomic, weak) IBOutlet UIButton *bacButton;
-@property (nonatomic, weak) IBOutlet UIButton *submitButton;
 @property (nonatomic, weak) IBOutlet UITextField *phoneNumberLabel;
 @property (nonatomic, weak) IBOutlet UITextField *passwordLabel;
-@property (nonatomic, weak) IBOutlet UIView *textRemarkLabel;
-@property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
 @property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
+@property (nonatomic, weak) IBOutlet UILabel *textRemarkLabel;
+@property (nonatomic, weak) IBOutlet UILabel *rememberPwdLabel;
+@property (nonatomic, weak) IBOutlet UILabel *countryCodeTitleLabel;
+
+@property (nonatomic, weak) IBOutlet UIButton *bacButton;
+@property (nonatomic, weak) IBOutlet UIButton *submitButton;
+@property (nonatomic, weak) IBOutlet UIButton *forgetPassword;
+
+@property (nonatomic, weak) IBOutlet UIButton *countryCodeButton;
+
 @property (nonatomic, weak) IBOutlet UISwitch *rememberSwitchBtn;
 
 @property (nonatomic, strong) PierCountryModel *country;
@@ -131,6 +139,17 @@
     [self.rememberSwitchBtn setOnTintColor:[PierColor lightPurpleColor]];
     [self.rememberSwitchBtn setThumbTintColor:[PierColor lightGreenColor]];
     [self.rememberSwitchBtn setOn:YES];
+    
+    /** init fount */
+    [self.phoneNumberLabel setFont:[PierFont customFontWithSize:25]];
+    [self.passwordLabel setFont:[PierFont customFontWithSize:25]];
+    [self.errorMessageLabel setFont:[PierFont customFontWithSize:12]];
+    [self.textRemarkLabel setFont:[PierFont customFontWithSize:13]];
+    [self.rememberPwdLabel setFont:[PierFont customFontWithSize:10]];
+    [self.countryCodeTitleLabel setFont:[PierFont customFontWithSize:10]];
+    [self.countryCodeButton.titleLabel setFont:[PierFont customFontWithSize:21]];
+    [self.submitButton.titleLabel setFont:[PierFont customFontWithSize:20]];
+    [self.forgetPassword.titleLabel setFont:[PierFont customBoldFontWithSize:12]];
 }
 
 #pragma mark --------------------- Button Action -------------------------------
@@ -164,6 +183,11 @@
         pierService.smsRequestModel = self.smsRequestModel;
         [pierService serviceGetPaySMS:remember payWith:ePierPayWith_Merchant];
     }
+}
+
+- (IBAction)forgetPassword:(id)sender{
+    PierForgetPasswordViewController *forgetPassword = [[PierForgetPasswordViewController alloc] initWithNibName:@"PierForgetPasswordViewController" bundle:pierBoundle()];
+    [self.navigationController pushViewController:forgetPassword animated:NO];
 }
 
 #pragma mark - ------------------------ PierPayServiceDelegate ------------------------

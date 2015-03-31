@@ -15,6 +15,7 @@
 #import "NSString+PierCheck.h"
 #import "PierViewUtil.h"
 #import "PierDataSource.h"
+#import "PierFont.h"
 
 @interface PierAlertView ()
 
@@ -95,6 +96,10 @@
     [self.doneButton setBackgroundColor:[PierColor lightPurpleColor]];
     UIImage *btnImg = [PierViewUtil getImageByView:self.doneButton];
     [self.doneButton setBackgroundImage:btnImg forState:UIControlStateNormal];
+    
+    [self.titleLabel setFont:[PierFont customBoldFontWithSize:17]];
+    [self.alertLabel setFont:[PierFont customFontWithSize:15]];
+    [self.doneButton.titleLabel setFont:[PierFont customFontWithSize:20]];
 }
 
 - (IBAction)doneButton:(id)sender{
@@ -186,6 +191,14 @@
     [self.cancleButton.layer setBorderColor:[[UIColor grayColor] CGColor]];
     [self.cancleButton.layer setBorderWidth:0.5];
     [self.cancleButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    
+    /** Init Fount */
+    [self.titleLabel setFont:[PierFont customBoldFontWithSize:20]];
+    [self.amountLabel setFont:[PierFont customBoldFontWithSize:35]];
+    [self.touchIDButton.titleLabel setFont:[PierFont customFontWithSize:20]];
+    [self.smsButton.titleLabel setFont:[PierFont customFontWithSize:20]];
+    [self.cancleButton.titleLabel setFont:[PierFont customFontWithSize:20]];
+    
 }
 
 - (IBAction)touchIDAciton:(id)sender{
@@ -306,6 +319,10 @@
     [self.cancleButton setBackgroundColor:[PierColor lightPurpleColor]];
     UIImage *canclebtnImg = [PierViewUtil getImageByView:self.approveButton];
     [self.cancleButton setBackgroundImage:canclebtnImg forState:UIControlStateNormal];
+    
+    [self.textField setFont:[PierFont customFontWithSize:25]];
+    [self.approveButton.titleLabel setFont:[PierFont customFontWithSize:20]];
+    [self.cancleButton.titleLabel setFont:[PierFont customFontWithSize:20]];
 }
 
 - (IBAction)approve:(id)sender{
@@ -447,6 +464,10 @@
         NSString *amount = [NSString getNumberFormatterDecimalStyle:payAmount currency:[__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY]];
         [self.approveButton setTitle:[NSString stringWithFormat:@"Pay %@ with Pier",amount] forState:UIControlStateNormal];
     }
+    
+    [self.smsTitleLabel setFont:[PierFont customBoldFontWithSize:17]];
+    [self.smsInputTextField setFont:[PierFont customFontWithSize:20]];
+    
 }
 
 - (void)viewRemoveFromSuperView{

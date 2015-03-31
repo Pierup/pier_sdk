@@ -7,6 +7,8 @@
 //
 
 #import "PierFont.h"
+#import "PierTools.h"
+#import <CoreText/CoreText.h>
 
 #define CUSTOM_FONTNAME         @"ProximaNova-Light"
 #define CUSTOM_FONTNAME_BOLD    @"ProximaNova-Regular"
@@ -20,6 +22,9 @@
                           name:CUSTOM_FONTNAME
                           size:size];
 }
+
+
+
 
 + (UIFont *)customBoldFontWithSize:(CGFloat)size
 {
@@ -44,9 +49,23 @@
                      size:(CGFloat)size
 {
     if (!cachedFont) {
-        cachedFont = [UIFont fontWithName:name size:size];
+        NSString *fontPath = [pierBoundle() pathForResource:name ofType:@"otf"];
+        cachedFont = [PierFont customFontWithPath:fontPath size:size];//[UIFont fontWithName:name size:size];
     }
     return cachedFont;
+}
+
++ (UIFont *)customFontWithPath:(NSString*)path size:(CGFloat)size
+{
+    NSURL *fontUrl = [NSURL fileURLWithPath:path];
+    CGDataProviderRef fontDataProvider = CGDataProviderCreateWithURL((__bridge CFURLRef)fontUrl);
+    CGFontRef fontRef = CGFontCreateWithDataProvider(fontDataProvider);
+    CGDataProviderRelease(fontDataProvider);
+    CTFontManagerRegisterGraphicsFont(fontRef, NULL);
+    NSString *fontName = CFBridgingRelease(CGFontCopyPostScriptName(fontRef));
+    UIFont *font = [UIFont fontWithName:fontName size:size];
+    CGFontRelease(fontRef);
+    return font;
 }
 
 @end
