@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PierForgetPasswordViewController : UIViewController
+@interface PierWebViewController : UIViewController
+
+@property (nonatomic, copy) NSString *url;
 
 @end

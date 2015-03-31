@@ -6,23 +6,23 @@
 //  Copyright (c) 2015 Pier.Inc. All rights reserved.
 //
 
-#import "PierForgetPasswordViewController.h"
+#import "PierWebViewController.h"
 #import "NSString+PierCheck.h"
 
-@interface PierForgetPasswordViewController () <UIWebViewDelegate>
+@interface PierWebViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
-@property (nonatomic, copy) NSString *url;
 
 @end
 
-@implementation PierForgetPasswordViewController
+@implementation PierWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initData];
     [self initView];
+    [self startLoadWebPage:self.url];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -35,12 +35,8 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
-- (void)initData{
-    self.url = @"http://192.168.1.254:8080/umsite/index.html#/userForgetPassword";
-}
-
-- (void)initView{
-    [self setTitle:@"Forget Password"];
+- (void)startLoadWebPage:(NSString *)url{
+    self.url = url;
     //get banks success
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         __block NSString *webContent = [self getHTMLStr];
@@ -51,6 +47,14 @@
             [self.webView loadHTMLString:webContent baseURL:[NSURL URLWithString:self.url]];
         });
     });
+}
+
+- (void)initData{
+//    self.url = @"http://192.168.1.254:8080/umsite/index.html#/userForgetPassword";
+}
+
+- (void)initView{
+    [self setTitle:@"Forget Password"];
 }
 
 - (NSString *)getHTMLStr
