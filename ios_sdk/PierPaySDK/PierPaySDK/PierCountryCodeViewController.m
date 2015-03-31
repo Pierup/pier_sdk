@@ -9,6 +9,7 @@
 #import "PierCountryCodeViewController.h"
 #import "PierService.h"
 #import "PierDataSource.h"
+#import "PierFont.h"
 
 @implementation PierCountryModel
 
@@ -109,6 +110,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         PierCountry *countryModel = self.countryArray[indexPath.row];
         cell.textLabel.text = countryModel.name;
+        [cell.textLabel setFont:[PierFont customFontWithSize:15]];
         cell.detailTextLabel.text =[NSString stringWithFormat:@"+%@",countryModel.phone_prefix];
         
         if ([countryModel.country_code isEqualToString:self.selectedCountryModel.country_code]) {

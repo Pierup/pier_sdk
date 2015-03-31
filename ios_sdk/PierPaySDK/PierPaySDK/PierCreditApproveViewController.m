@@ -13,10 +13,12 @@
 #import "PierPayService.h"
 #import "NSString+PierCheck.h"
 #import "PierViewUtil.h"
+#import "PierFont.h"
 
 @interface PierCreditApproveViewController () <PierPayServiceDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *remarklabel;
 @property (nonatomic, weak) IBOutlet UILabel *creditLimitLabel;
 @property (nonatomic, weak) IBOutlet UIButton *payButton;
 @property (nonatomic, weak) IBOutlet UIButton *cancleButton;
@@ -70,6 +72,13 @@
     
     UIImage *cancleBtnView = [PierViewUtil getImageByView:self.cancleButton];
     [self.cancleButton setBackgroundImage:cancleBtnView forState:UIControlStateNormal];
+    
+    /** Init Fount */
+    [self.titleLabel setFont:[PierFont customFontWithSize:17]];
+    [self.remarklabel setFont:[PierFont customFontWithSize:17]];
+    [self.creditLimitLabel setFont:[PierFont customFontWithSize:50]];
+    [self.payButton.titleLabel setFont:[PierFont customFontWithSize:20]];
+    [self.cancleButton.titleLabel setFont:[PierFont customFontWithSize:20]];
 }
 
 - (void)didReceiveMemoryWarning {
