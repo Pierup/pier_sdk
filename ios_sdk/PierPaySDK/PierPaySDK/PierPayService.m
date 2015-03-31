@@ -159,7 +159,18 @@ typedef enum {
         [self serviceMerchantService:response];
         [_smsAlertView showErrorMessage:@""];
     } faliedBlock:^(NSError *error) {
+        if (type == ePierPaymentType_TouchID) {
+            //TouchID Get authToken failed show alertView.
+            NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        @"icon_error",@"title_image_name",
+                                        @"error",@"title",
+                                        [error domain],@"message",nil];
+            [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
+                return YES;
+            }];
+        }
         [_smsAlertView showErrorMessage:[error domain]];
+        
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:
                  @"1", @"show_alert",
                  @"0", @"show_loading",

@@ -63,7 +63,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2HQ-nG-Ss0">
-                    <rect key="frame" x="114" y="90" width="191" height="50"/>
+                    <rect key="frame" x="114" y="90" width="206" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="iCA-4C-EqF"/>
                     </constraints>
@@ -121,7 +121,7 @@
             <constraints>
                 <constraint firstItem="fV8-EL-s4b" firstAttribute="top" secondItem="2HQ-nG-Ss0" secondAttribute="bottom" constant="5" id="0qi-Xd-byH"/>
                 <constraint firstItem="wyX-U0-W8w" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="23A-BK-Utm"/>
-                <constraint firstAttribute="trailing" secondItem="2HQ-nG-Ss0" secondAttribute="trailing" constant="15" id="74O-ac-b0i"/>
+                <constraint firstAttribute="trailing" secondItem="2HQ-nG-Ss0" secondAttribute="trailing" id="74O-ac-b0i"/>
                 <constraint firstItem="ACP-ki-GEN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="8BT-Fy-9jH"/>
                 <constraint firstItem="tlK-Jv-dZ0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="9PZ-9C-qyw"/>
                 <constraint firstItem="kPe-fX-bEs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="ALz-v1-0hn"/>

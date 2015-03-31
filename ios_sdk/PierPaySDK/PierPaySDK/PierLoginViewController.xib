@@ -40,8 +40,8 @@
                         <action selector="countryCodeButtonAction:" destination="-1" eventType="touchUpInside" id="spT-rI-sSa"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3Kw-Ov-C8r">
-                    <rect key="frame" x="114" y="90" width="191" height="50"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" minimumFontSize="13" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3Kw-Ov-C8r">
+                    <rect key="frame" x="114" y="90" width="206" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="3yT-Iy-DT6"/>
                     </constraints>
@@ -65,8 +65,8 @@
                         <constraint firstAttribute="height" constant="0.5" id="Iyp-Sy-y6T"/>
                     </constraints>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-zR-LEI">
-                    <rect key="frame" x="114" y="160" width="191" height="50"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="13" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-zR-LEI">
+                    <rect key="frame" x="114" y="160" width="206" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="0qJ-F7-aOQ"/>
                     </constraints>
@@ -162,7 +162,7 @@
                 <constraint firstItem="utt-OR-hS8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Oyp-m7-l1I"/>
                 <constraint firstItem="TfQ-7c-Ju8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="P6A-P3-86p"/>
                 <constraint firstItem="ojn-9o-6k8" firstAttribute="top" secondItem="CgD-zR-LEI" secondAttribute="bottom" constant="5" id="S6N-TD-qGT"/>
-                <constraint firstAttribute="trailing" secondItem="3Kw-Ov-C8r" secondAttribute="trailing" constant="15" id="UGY-jp-3DC"/>
+                <constraint firstAttribute="trailing" secondItem="3Kw-Ov-C8r" secondAttribute="trailing" id="UGY-jp-3DC"/>
                 <constraint firstAttribute="trailing" secondItem="GLf-a8-oCS" secondAttribute="trailing" constant="15" id="Ymu-We-k5n"/>
                 <constraint firstItem="ojn-9o-6k8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="ZOi-Mw-DxJ"/>
                 <constraint firstAttribute="trailing" secondItem="utt-OR-hS8" secondAttribute="trailing" constant="15" id="aZC-SL-QbG"/>
