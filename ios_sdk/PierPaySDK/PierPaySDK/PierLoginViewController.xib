@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -9,12 +9,14 @@
             <connections>
                 <outlet property="bacButton" destination="DJq-hc-7Wz" id="5ud-t9-yR3"/>
                 <outlet property="countryCodeButton" destination="TfQ-7c-Ju8" id="GqM-uF-kHN"/>
+                <outlet property="countryCodeTitleLabel" destination="Rvm-bu-fDz" id="p3j-Wj-QBh"/>
                 <outlet property="errorMessageLabel" destination="bGd-44-OWx" id="3as-Mt-djS"/>
                 <outlet property="passwordLabel" destination="CgD-zR-LEI" id="eqE-JL-V5X"/>
                 <outlet property="phoneNumberLabel" destination="3Kw-Ov-C8r" id="IAO-BM-SvK"/>
+                <outlet property="rememberPwdLabel" destination="Cvn-Uk-ygQ" id="biD-Pl-1rF"/>
                 <outlet property="rememberSwitchBtn" destination="ajG-7D-Fox" id="IOZ-GK-IcX"/>
                 <outlet property="submitButton" destination="GLf-a8-oCS" id="3i7-bq-8Nk"/>
-                <outlet property="textRemarkLabel" destination="utt-OR-hS8" id="JBc-Vb-YGx"/>
+                <outlet property="textRemarkLabel" destination="utt-OR-hS8" id="Nif-6T-sag"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,12 +25,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Country Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvm-bu-fDz">
-                    <rect key="frame" x="15" y="71" width="70" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfQ-7c-Ju8">
                     <rect key="frame" x="15" y="90" width="52" height="50"/>
                     <constraints>
@@ -132,8 +128,18 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remember Password " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvn-Uk-ygQ">
                     <rect key="frame" x="13" y="199" width="101" height="16.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvm-bu-fDz">
+                    <rect key="frame" x="15" y="71" width="99" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="99" id="2pd-r1-MCN"/>
+                        <constraint firstAttribute="height" constant="21" id="LSD-3Z-KM9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -146,8 +152,10 @@
                 <constraint firstItem="RJz-UZ-Ln1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="9on-yB-Mvn"/>
                 <constraint firstAttribute="trailing" secondItem="ojn-9o-6k8" secondAttribute="trailing" constant="15" id="Arj-IR-OCF"/>
                 <constraint firstAttribute="bottom" secondItem="utt-OR-hS8" secondAttribute="bottom" constant="236" id="Cwd-b3-Fmb"/>
+                <constraint firstItem="Rvm-bu-fDz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="FKc-vf-YBK"/>
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="Hbc-Mm-eU8"/>
                 <constraint firstItem="TfQ-7c-Ju8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="JV7-uU-G41"/>
+                <constraint firstItem="Rvm-bu-fDz" firstAttribute="top" secondItem="DJq-hc-7Wz" secondAttribute="bottom" constant="19" id="LK0-kV-AuJ"/>
                 <constraint firstItem="3Kw-Ov-C8r" firstAttribute="leading" secondItem="CgD-zR-LEI" secondAttribute="leading" id="MJy-d7-33S"/>
                 <constraint firstItem="p40-W5-Txm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="Nr7-9q-Mng"/>
                 <constraint firstAttribute="trailing" secondItem="bGd-44-OWx" secondAttribute="trailing" constant="15" id="OCn-gy-g6w"/>
@@ -167,7 +175,7 @@
                 <constraint firstItem="p40-W5-Txm" firstAttribute="leading" secondItem="TfQ-7c-Ju8" secondAttribute="trailing" constant="18" id="vDo-dg-odx"/>
                 <constraint firstItem="bGd-44-OWx" firstAttribute="top" secondItem="ojn-9o-6k8" secondAttribute="bottom" constant="2.5" id="wHT-f7-Wvc"/>
             </constraints>
-            <point key="canvasLocation" x="26" y="95"/>
+            <point key="canvasLocation" x="14" y="88"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
