@@ -59,6 +59,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self checkSavedUser:self];
     [self initView];
 }
 
@@ -96,10 +97,6 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     [_termsPerfixLabel setTextColor:[PierColor lightPurpleColor]];
     [_termsSufffixLabel setFont:[PierFont customFontWithSize:17]];
     [_termsSufffixLabel setTextColor:[PierColor lightPurpleColor]];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [self checkSavedUser:self];
 }
 
 - (void)checkSavedUser:(id)delegate
@@ -159,7 +156,13 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 
 - (void)pierPayServiceFailed:(NSError *)error
 {
-    
+    NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"icon_error",@"title_image_name",
+                                @"error",@"title",
+                                [error domain],@"message",nil];
+    [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
+        return YES;
+    }];
 }
 
 
