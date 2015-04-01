@@ -357,12 +357,13 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *smsTitleLabel;
 
-@property (nonatomic, strong) IBOutlet PierStopWatchView *stopWatch;
-@property (nonatomic, strong) IBOutlet UIButton *refreshButton;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *loadingView;
-@property (nonatomic, strong) IBOutlet UITextField *smsInputTextField;
-@property (nonatomic, strong) IBOutlet UIView *smsInputBgView;
-@property (nonatomic, strong) IBOutlet UILabel *errorMessageLabel;
+@property (nonatomic, weak) IBOutlet PierStopWatchView *stopWatch;
+@property (nonatomic, weak) IBOutlet UIButton *refreshButton;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingView;
+@property (nonatomic, weak) IBOutlet UITextField *smsInputTextField;
+@property (nonatomic, weak) IBOutlet UIView *smsInputBgView;
+@property (nonatomic, weak) IBOutlet UILabel *errorMessageLabel;
+@property (nonatomic, weak) IBOutlet UIButton *changeAccount;
 
 @end
 
@@ -376,6 +377,11 @@
         [self.textField becomeFirstResponder];
         self.smsInputTextField.delegate = self;
         [self initData];
+        
+        if (type == ePierAlertViewType_instance_oldUser) {
+            [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 291)];
+            [self.changeAccount setHidden:NO];
+        }
     }
     return self;
 }
@@ -467,6 +473,7 @@
     
     [self.smsTitleLabel setFont:[PierFont customBoldFontWithSize:17]];
     [self.smsInputTextField setFont:[PierFont customFontWithSize:20]];
+    [self.changeAccount.titleLabel setFont:[PierFont customBoldFontWithSize:13]];
     
 }
 
@@ -491,7 +498,7 @@
 }
 
 - (IBAction)approve:(id)sender{
-    if (self.alertType == ePierAlertViewType_instance) {
+    if (self.alertType == ePierAlertViewType_instance || self.alertType == ePierAlertViewType_instance_oldUser) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(userApprove:)]) {
             [self.delegate userApprove:self.textField.text];
         }
@@ -503,7 +510,7 @@
 }
 
 - (IBAction)cancleAction:(id)sender{
-    if (self.alertType == ePierAlertViewType_instance) {
+    if (self.alertType == ePierAlertViewType_instance || self.alertType == ePierAlertViewType_instance_oldUser) {
         [UIView animateWithDuration:0.1 animations:^{
             [self.bgView setAlpha:0.1];
         } completion:^(BOOL finished) {
@@ -519,6 +526,14 @@
             [self viewRemoveFromSuperView];
             self.cancelBc();
         }];
+    }
+}
+
+- (IBAction)changeAccount:(id)sender{
+    if (self.alertType == ePierAlertViewType_instance_oldUser) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(changeAccount)]) {
+            [self.delegate changeAccount];
+        }
     }
 }
 

@@ -23,6 +23,7 @@
 #import "NSString+PierCheck.h"
 #import "PierWebViewController.h"
 #import "PierFont.h"
+#import "PierPayModel.h"
 
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
@@ -30,7 +31,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 #pragma mark - -------------------- UI --------------------
 #pragma mark - viewController
 
-@interface PierPayRootViewController : UIViewController
+@interface PierPayRootViewController : UIViewController <PierPayServiceDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *closeButton;
 @property (nonatomic, weak) IBOutlet UIButton *payButton;
@@ -96,6 +97,72 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     [_termsSufffixLabel setFont:[PierFont customFontWithSize:17]];
     [_termsSufffixLabel setTextColor:[PierColor lightPurpleColor]];
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self checkSavedUser:self];
+}
+
+- (void)checkSavedUser:(id)delegate
+{
+    PierTransactionSMSRequest *smsRequestModel = [[PierTransactionSMSRequest alloc] init];
+    
+    NSString *phone = [NSString getUnNilString:[__pierDataSource getPhone]];
+    NSString *countryCode = [NSString getUnNilString:[__pierDataSource getCountryCode]];
+    NSString *password = [NSString getUnNilString:[__pierDataSource getPassword]];
+    
+    if (![NSString emptyOrNull:phone] && ![NSString emptyOrNull:countryCode] && ![NSString emptyOrNull:password]) {
+        [__pierDataSource.merchantParam setValue:phone forKey:DATASOURCES_PHONE];
+        [__pierDataSource.merchantParam setValue:countryCode forKey:DATASOURCES_COUNTRY_CODE];
+        smsRequestModel.phone = phone;
+        smsRequestModel.password = password;
+        smsRequestModel.amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
+        smsRequestModel.currency_code = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
+        smsRequestModel.merchant_id = [__pierDataSource.merchantParam objectForKey:DATASOURCES_MERCHANT_ID];
+        
+        PierPayService *pierService = [[PierPayService alloc] init];
+        pierService.delegate = delegate;
+        pierService.smsRequestModel = smsRequestModel;
+        [pierService serviceGetPaySMS];
+    }
+}
+
+#pragma mark - ------------------------ PierPayServiceDelegate ------------------------
+
+- (void)pierPayServiceComplete:(NSDictionary *)result
+{
+    NSInteger status = [[result objectForKey:@"status"] integerValue];
+    switch (status) {
+        case 0:
+        {
+            // Return to Merchant APP
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                [__pierDataSource.pierDelegate payWithPierComplete:result];
+            }];
+            break;
+        }
+        case 1:
+        {
+            // Return to Merchant APP
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                [__pierDataSource.pierDelegate payWithPierComplete:result];
+            }];
+            break;
+        }
+        case 2:
+            
+            break;
+        default:
+            break;
+    }
+
+}
+
+- (void)pierPayServiceFailed:(NSError *)error
+{
+    
+}
+
+
 
 #pragma mark --------------- button Action ------------------------
 

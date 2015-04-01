@@ -79,7 +79,7 @@
 
 - (void)initData
 {
-#warning  ---------------- 硬编码 -----------------------
+//#warning  ---------------- 硬编码 -----------------------
     NSString *phone = [NSString getUnNilString:[__pierDataSource getPhone]];
     NSString *countryCode = [NSString getUnNilString:[__pierDataSource getCountryCode]];
     NSString *password = [NSString getUnNilString:[__pierDataSource getPassword]];

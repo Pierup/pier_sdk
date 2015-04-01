@@ -11,7 +11,8 @@
 
 typedef enum {
     ePierPayWith_PierApp,
-    ePierPayWith_Merchant
+    ePierPayWith_Merchant,
+    ePierPayWith_Merchant_oldUser
 }ePierPayWith;
 
 typedef enum {
@@ -22,6 +23,9 @@ typedef enum {
 
 @protocol PierPayServiceDelegate <NSObject>
 
+/**
+ * status: 0:success 1:failed 2:change Account
+ */
 - (void)pierPayServiceComplete:(NSDictionary *)result;
 
 - (void)pierPayServiceFailed:(NSError *)error;
@@ -36,7 +40,11 @@ typedef enum {
 /** delegate */
 @property (nonatomic, weak) id<PierPayServiceDelegate> delegate;
 
+/** New User */
 - (void)serviceGetPaySMS:(BOOL)rememberuser payWith:(ePierPayWith)payWith;
+
+/** Old User */
+- (void)serviceGetPaySMS;
 
 /** Get Auth Token */
 - (void)serviceGetAuthToken:(NSString *)userinput type:(ePierPaymentType) type;
