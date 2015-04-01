@@ -12,6 +12,7 @@
 @interface PierWebViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *indicatorView;
 
 @end
 
@@ -50,10 +51,13 @@
 }
 
 - (void)initData{
+    self.webView.delegate = self;
 //    self.url = @"http://192.168.1.254:8080/umsite/index.html#/userForgetPassword";
 }
 
 - (void)initView{
+    [self.indicatorView setHidesWhenStopped:YES];
+    [self.indicatorView stopAnimating];
     [self setTitle:@"Forget Password"];
 }
 
@@ -94,14 +98,13 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     //启动指示器
-//    self.indicatorView.hidden = NO;
+    [self.indicatorView startAnimating];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //关闭指示器
-//    [self.indicatorView stopAnimating];
-//    self.indicatorView.hidden = YES;
+    [self.indicatorView stopAnimating];
 }
 
 @end

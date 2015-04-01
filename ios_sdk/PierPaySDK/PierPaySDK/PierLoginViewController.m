@@ -186,7 +186,7 @@
 }
 
 - (IBAction)forgetPassword:(id)sender{
-    PierWebViewController *forgetPassword = [[PierWebViewController alloc] initWithNibName:@"PierForgetPasswordViewController" bundle:pierBoundle()];
+    PierWebViewController *forgetPassword = [[PierWebViewController alloc] initWithNibName:@"PierWebViewController" bundle:pierBoundle()];
     forgetPassword.url = @"http://192.168.1.254:8080/umsite/index.html#/userForgetPassword";
     [self.navigationController pushViewController:forgetPassword animated:NO];
 }
