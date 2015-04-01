@@ -45,8 +45,8 @@ static PIRURLDispatcher * __instance;
         NSString *merchant_id = [dicQuery objectForKey:@"merchant_id"];
         /**
          * status：
-         * App中支付完成 App->Merchant:   0 payment success；1 payment failed
-         * SDK创建支付后 App->Merchant:   2 open merchant product
+         * App中支付完成 App->Merchant:   1 payment success；2 payment failed
+         * SDK创建支付后 App->Merchant:   3 open merchant product
          */
         NSInteger status = [[dicQuery objectForKey:@"status"] integerValue];
         
@@ -55,18 +55,18 @@ static PIRURLDispatcher * __instance;
         merchantModel.country_code = country_code;
         merchantModel.merchant_id = merchant_id;
 
-        if (status == 2) {
+        if (status == 3) {
             if (merchantModel.merchant_id!=nil && merchantModel.merchant_id.length>0) {
                 ProductViewController *productViewController = [[ProductViewController alloc]init];
                 productViewController.merchantModel = merchantModel;
                 [self.mainNavigationController pushViewController:productViewController animated:NO];
             }
         }else{
-            if (status == 0) {//payment success
+            if (status == 1) {//payment success
                 NSString *amount = [dicQuery objectForKey:@"amount"];
                 UIAlertView *callBackAlert = [[UIAlertView alloc] initWithTitle:@"Payment Success" message:[NSString stringWithFormat:@"Amoubt:%@",amount] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [callBackAlert show];
-            }else if (status == 1){//payment failed
+            }else if (status == 2){//payment failed
                 UIAlertView *callBackAlert = [[UIAlertView alloc] initWithTitle:@"Payment Failed" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [callBackAlert show];
             }

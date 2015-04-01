@@ -58,7 +58,7 @@
 - (void)initView{
     [self.indicatorView setHidesWhenStopped:YES];
     [self.indicatorView stopAnimating];
-    [self setTitle:@"Forget Password"];
+    [self setTitle:self.title];
 }
 
 - (NSString *)getHTMLStr

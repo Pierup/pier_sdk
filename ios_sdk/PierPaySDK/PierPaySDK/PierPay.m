@@ -21,6 +21,8 @@
 #import "PierTouchIDShare.h"
 #import "PierAlertView.h"
 #import "NSString+PierCheck.h"
+#import "PierWebViewController.h"
+#import "PierFont.h"
 
 /** Model View Close Button */
 void setCloseBarButtonWithTarget(id target, SEL selector);
@@ -38,6 +40,14 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 @property (nonatomic, weak) IBOutlet UIImageView *whiteArrorImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *logoPurpleImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *purpleArrorImageView;
+/** servire model */
+@property (nonatomic, strong) PierUserAgreementResponse *usersResponseModel;
+
+/** Terms And Privacy */
+@property (nonatomic, weak) IBOutlet UIButton *termsButton;
+@property (nonatomic, weak) IBOutlet UIButton *privicyButton;
+@property (nonatomic, weak) IBOutlet UILabel *termsPerfixLabel;
+@property (nonatomic, weak) IBOutlet UILabel *termsSufffixLabel;
 
 @end
 
@@ -79,6 +89,12 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     [self.applyButton.layer setMasksToBounds:YES];
     [self.applyButton.layer setCornerRadius:5];
     
+    [_termsButton.titleLabel setFont:[PierFont customFontWithSize:15]];
+    [_privicyButton.titleLabel setFont:[PierFont customFontWithSize:15]];
+    [_termsPerfixLabel setFont:[PierFont customFontWithSize:17]];
+    [_termsPerfixLabel setTextColor:[PierColor lightPurpleColor]];
+    [_termsSufffixLabel setFont:[PierFont customFontWithSize:17]];
+    [_termsSufffixLabel setTextColor:[PierColor lightPurpleColor]];
 }
 
 #pragma mark --------------- button Action ------------------------
@@ -90,9 +106,47 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     }
 }
 
-- (IBAction)termsAndPolicyButtonAction:(UIButton *)sender
+- (IBAction)termsButtonAction:(UIButton *)sender
 {
-    
+    if (self.usersResponseModel) {
+        [self pushToWebView:1];
+    }else{
+        [self serviceGetURLS:1];
+    }
+}
+
+- (IBAction)policyButtonAction:(UIButton *)sender
+{
+    if (self.usersResponseModel) {
+        [self pushToWebView:2];
+    }else{
+        [self serviceGetURLS:2];
+    }
+}
+
+
+/**
+ * @pramr type:1 terms 2 privacy
+ */
+- (void)pushToWebView:(NSInteger)type{
+    PierWebViewController *forgetPassword = [[PierWebViewController alloc] initWithNibName:@"PierWebViewController" bundle:pierBoundle()];
+    switch (type) {
+        case 1:
+        {
+            forgetPassword.url = self.usersResponseModel.url_term;
+            forgetPassword.title = @"Terms";
+            break;
+        }
+        case 2:{
+            forgetPassword.url = self.usersResponseModel.url_privacy;
+            forgetPassword.title = @"Privacy";
+            break;
+        }
+        default:
+            break;
+    }
+
+    [self.navigationController pushViewController:forgetPassword animated:NO];
 }
 
 - (IBAction)loginAction:(id)sender
@@ -108,6 +162,18 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 #pragma mark --------------------- Service ---------------------------
+
+- (void)serviceGetURLS:(NSInteger)type
+{
+    PierUserAgreementRequest *requestModel = [[PierUserAgreementRequest alloc] init];
+    
+    [PierService serverSend:ePIER_APU_GET_URLS resuest:requestModel successBlock:^(id responseModel) {
+        self.usersResponseModel = (PierUserAgreementResponse *)responseModel;
+        [self pushToWebView:type];
+    } faliedBlock:^(NSError *error) {
+        
+    } attribute:[NSDictionary dictionaryWithObjectsAndKeys:@"0",@"show_alert",@"0",@"show_loading", nil]];
+}
 
 #pragma mark ----------------------退出清空 ------------------
 
@@ -214,10 +280,10 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 + (void)createPayment:(NSDictionary *)charge{
     /**
      * status：
-     * App中支付完成 App->Merchant:   0 支付成功；1 支付失败
-     * SDK创建支付后 App->Merchant:   2 跳转到商家
+     * App中支付完成 App->Merchant:   1 支付成功；2 支付失败
+     * SDK创建支付后 App->Merchant:   3 跳转到商家
      */
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?status=2&amount=%@&currency=%@&merchant_id=%@&server_url=%@&scheme=%@&shop_name=%@", @"paywithpier",
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?status=3&amount=%@&currency=%@&merchant_id=%@&server_url=%@&scheme=%@&shop_name=%@", @"paywithpier",
                                        [NSString getUnNilString:[charge objectForKey:@"amount"]],
                                        [NSString getUnNilString:[charge objectForKey:@"currency"]],
                                        [NSString getUnNilString:[charge objectForKey:@"merchant_id"]],

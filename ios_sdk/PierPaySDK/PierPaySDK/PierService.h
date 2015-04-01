@@ -20,7 +20,8 @@ typedef enum {
     ePIER_API_GET_APPLYCREDIT,
     /** merchant */
     ePIER_API_GET_MERCHANT,
-    ePIER_API_GET_COUNTRYS
+    ePIER_API_GET_COUNTRYS,
+    ePIER_APU_GET_URLS
 }ePIER_API_Type;
 
 /** V1 */
@@ -46,6 +47,7 @@ extern NSString * const PIER_API_GET_UPDATEUSER;
 extern NSString * const PIER_API_GET_GETUSER;
 extern NSString * const PIER_API_GET_APPLYCREDIT;
 extern NSString * const PIER_API_GET_COUNTRYS;
+extern NSString * const PIER_APU_GET_URLS;
 
 /** success block */
 typedef void (^PierPaySuccessBlock)(id responseModel);
