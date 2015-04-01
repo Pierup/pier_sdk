@@ -212,7 +212,12 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 + (void)createPayment:(NSDictionary *)charge{
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?amount=%@&currency=%@&merchant_id=%@&server_url=%@&scheme=%@&shop_name=%@", @"paywithpier",
+    /**
+     * status：
+     * App中支付完成 App->Merchant:   0 支付成功；1 支付失败
+     * SDK创建支付后 App->Merchant:   2 跳转到商家
+     */
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pier.com?status=2&amount=%@&currency=%@&merchant_id=%@&server_url=%@&scheme=%@&shop_name=%@", @"paywithpier",
                                        [NSString getUnNilString:[charge objectForKey:@"amount"]],
                                        [NSString getUnNilString:[charge objectForKey:@"currency"]],
                                        [NSString getUnNilString:[charge objectForKey:@"merchant_id"]],
@@ -227,7 +232,9 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 }
 
 + (void)handleOpenURL:(NSURL *)url withCompletion:(payWithPierComplete)completion{
-    
+    NSString * query = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary * dicQuery = [PierPay parseURLQueryString:query];
+    completion(dicQuery,nil);
 }
 
 #pragma mark - --------------------- service -----------------------
@@ -280,6 +287,25 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
     }
 }
 
+#pragma mark - -------------------- Tools -------------------
+
++ (NSDictionary *)parseURLQueryString:(NSString *)query
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    for(NSString *pair in pairs) {
+        NSArray *keyValue = [pair componentsSeparatedByString:@"="];
+        if([keyValue count] == 2) {
+            NSString *key = [keyValue objectAtIndex:0];
+            NSString *value = [keyValue objectAtIndex:1];
+            value = [value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            if(key && value)
+                [dict setObject:value forKey:key];
+        }
+    }
+    return [NSDictionary dictionaryWithDictionary:dict];
+}
+
 @end
 
 #pragma mark - -------------------- Tools -------------------
@@ -301,4 +327,3 @@ void setCloseBarButtonWithTarget(id target, SEL selector)
     UIViewController *vc = (UIViewController *)target;
     vc.navigationItem.rightBarButtonItem = item;
 }
-
