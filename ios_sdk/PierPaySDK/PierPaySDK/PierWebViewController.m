@@ -57,7 +57,7 @@
 
 - (void)initView{
     [self.indicatorView setHidesWhenStopped:YES];
-    [self.indicatorView stopAnimating];
+    [self.indicatorView startAnimating];
     [self setTitle:self.title];
 }
 
