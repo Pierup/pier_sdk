@@ -172,4 +172,14 @@
 @property (nonatomic, strong) NSMutableArray<PierCountry> *items;
 @end
 
+#pragma mark - ---------------------ePIER_APU_GET_URLS-----------------------
+#pragma mark - Request
+@interface PierUserAgreementRequest : PierPayModel
 
+@end
+
+#pragma mark - Response
+@interface PierUserAgreementResponse : PierPayModel
+@property (nonatomic, copy, readonly) NSString * url_privacy;
+@property (nonatomic, copy, readonly) NSString * url_term;
+@end

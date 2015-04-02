@@ -59,6 +59,10 @@ typedef enum {
     return self;
 }
 
+- (void)serviceGetPaySMS{
+    [self serviceGetPaySMS:YES payWith:ePierPayWith_Merchant_oldUser];
+}
+
 - (void)serviceGetPaySMS:(BOOL)rememberuser payWith:(ePierPayWith)payWith{
     self.payWithType = payWith;
     [PierService serverSend:ePIER_API_TRANSACTION_SMS resuest:self.smsRequestModel successBlock:^(id responseModel) {
@@ -75,7 +79,20 @@ typedef enum {
                                    response.expiration,@"expiration_time",
                                    [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT],@"amount",
                                    @"6",@"code_length",nil];
-            _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:ePierAlertViewType_instance];
+            
+            ePierAlertViewType alertType = ePierAlertViewType_instance;
+            switch (payWith) {
+                case ePierPayWith_Merchant:
+                    alertType = ePierAlertViewType_instance;
+                    break;
+                case ePierPayWith_Merchant_oldUser:
+                    alertType = ePierAlertViewType_instance_oldUser;
+                    break;
+                default:
+                    break;
+            }
+            
+            _smsAlertView = [[PierSMSAlertView alloc] initWith:self param:param type:alertType];
             _smsAlertView.delegate = self;
             [_smsAlertView showErrorMessage:@""];
             [_smsAlertView show];
@@ -91,14 +108,14 @@ typedef enum {
             }
             
         }else{
-            if (self.payWithType == ePierPayWith_Merchant){
+            if (self.payWithType == ePierPayWith_Merchant || self.payWithType == ePierPayWith_Merchant_oldUser){
                 //没有信用让用户去填写信息
                 [PierViewUtil toCreditApplyViewController:response];
             }
         }
 
     } faliedBlock:^(NSError *error) {
-        if (self.payWithType == ePierPayWith_Merchant) {
+        if (self.payWithType == ePierPayWith_Merchant || self.payWithType == ePierPayWith_Merchant_oldUser) {
             if (self.delegate && [self.delegate respondsToSelector:@selector(pierPayServiceFailed:)]) {
                 [self.delegate pierPayServiceFailed:error];
             }
@@ -200,9 +217,10 @@ typedef enum {
  * pay by pier complete!
  */
 - (void)pierPayComplete:(NSDictionary *)result{
-    if (self.payWithType == ePierPayWith_Merchant) {
+    if (self.payWithType == ePierPayWith_Merchant || self.payWithType == ePierPayWith_Merchant_oldUser) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(pierPayServiceComplete:)]) {
             [self.delegate pierPayServiceComplete:result];
+            [_smsAlertView dismiss];
         }
     }else{
         if (__pierDataSource.pierDelegate && [__pierDataSource.pierDelegate respondsToSelector:@selector(payWithPierComplete:)]) {
@@ -210,6 +228,7 @@ typedef enum {
             NSMutableDictionary *mutDic = [NSMutableDictionary dictionaryWithDictionary:result];
             [mutDic setValue:amount forKey:@"Amount"];
             [__pierDataSource.pierDelegate payWithPierComplete:mutDic];
+            [_smsAlertView dismiss];
         }
     }
 }
@@ -229,6 +248,13 @@ typedef enum {
 - (void)resendTextMessage{
     //resend payment text message
     [self rSendServicePaySMS];
+}
+
+- (void)changeAccount{
+    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"2",@"status",
+                            @"Change Account",@"message", nil];
+    [self pierPayComplete:result];
 }
 
 @end

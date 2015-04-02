@@ -79,8 +79,19 @@
 
 - (void)initData
 {
-#warning  ---------------- 硬编码 -----------------------
-    NSString *countryCode = [__pierDataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE];
+//#warning  ---------------- 硬编码 -----------------------
+    NSString *phone = [NSString getUnNilString:[__pierDataSource getPhone]];
+    NSString *countryCode = [NSString getUnNilString:[__pierDataSource getCountryCode]];
+    NSString *password = [NSString getUnNilString:[__pierDataSource getPassword]];
+    
+    if (![NSString emptyOrNull:phone]) {
+        [__pierDataSource.merchantParam setValue:phone forKey:DATASOURCES_PHONE];
+    }
+    
+    if ([NSString emptyOrNull:countryCode]) { //如果userdata中没有存储CountryCode，用商家带来的
+        countryCode = [__pierDataSource.merchantParam objectForKey:DATASOURCES_COUNTRY_CODE];
+    }
+    
     self.country.country_code = countryCode;
     if ([countryCode isEqualToString:@"US"]) {
         self.country.phone_prefix = @"1";
@@ -96,15 +107,18 @@
         self.country.name  = @"UNITED STATES";
     }
     
+    [__pierDataSource.merchantParam setValue:countryCode forKey:DATASOURCES_COUNTRY_CODE];
+    
     [self checkCountryCodeWithCountry:self.country phoneNumber:self.phoneNumberLabel.text];
     
-    NSString *formatePhone = [[__pierDataSource.merchantParam objectForKey:@"phone"] phoneFormat];
-    [self.phoneNumberLabel setText:formatePhone];
+    NSString *formatePhone = [phone phoneFormat];
+//    NSString *formatePhone = [[__pierDataSource.merchantParam objectForKey:@"phone"] phoneFormat];
+//    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+//                         [__pierDataSource.merchantParam objectForKey:@"phone"], pier_userdefaults_phone,
+//                         countryCode, pier_userdefaults_countrycode,nil];
+//    NSString *password = [__pierDataSource getPassword:dic];
     
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [__pierDataSource.merchantParam objectForKey:@"phone"], pier_userdefaults_phone,
-                         countryCode, pier_userdefaults_countrycode,nil];
-    NSString *password = [__pierDataSource getPassword:dic];
+    [self.phoneNumberLabel setText:formatePhone];
 
     if (![NSString emptyOrNull:formatePhone]) {
         if (![NSString emptyOrNull:password]) {
@@ -186,8 +200,9 @@
 }
 
 - (IBAction)forgetPassword:(id)sender{
-    PierWebViewController *forgetPassword = [[PierWebViewController alloc] initWithNibName:@"PierForgetPasswordViewController" bundle:pierBoundle()];
+    PierWebViewController *forgetPassword = [[PierWebViewController alloc] initWithNibName:@"PierWebViewController" bundle:pierBoundle()];
     forgetPassword.url = @"http://192.168.1.254:8080/umsite/index.html#/userForgetPassword";
+    forgetPassword.title = @"Forget Password";
     [self.navigationController pushViewController:forgetPassword animated:NO];
 }
 

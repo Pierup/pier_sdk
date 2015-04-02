@@ -69,6 +69,24 @@ void pierFreeDataSource()
     return userinfo;
 }
 
+- (NSString *)getPhone{
+    NSDictionary *userDic = [self getUserInfo];
+    NSString *phone = [userDic objectForKey:pier_userdefaults_phone];
+    return phone;
+}
+
+- (NSString *)getCountryCode{
+    NSDictionary *userDic = [self getUserInfo];
+    NSString *countryCode = [userDic objectForKey:pier_userdefaults_countrycode];
+    return countryCode;
+}
+
+- (NSString *)getPassword{
+    NSDictionary *userDic = [self getUserInfo];
+    NSString *password = [userDic objectForKey:pier_userdefaults_password];
+    return password;
+}
+
 - (NSString *)getPassword:(NSDictionary *)userInfo{
     NSString *pwd = @"";
     NSDictionary *info = [self getUserInfo];

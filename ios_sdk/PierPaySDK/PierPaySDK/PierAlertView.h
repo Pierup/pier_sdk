@@ -13,7 +13,8 @@ typedef enum {
     ePierAlertViewType_userInput,
     ePierAlertViewType_warning,
     ePierAlertViewType_error,
-    ePierAlertViewType_instance
+    ePierAlertViewType_instance,
+    ePierAlertViewType_instance_oldUser
 }ePierAlertViewType;
 
 /** approve block */
@@ -99,6 +100,7 @@ typedef BOOL (^selectBlock)();
 - (void)userApprove:(NSString *)userInput;
 - (void)userCancel;
 - (void)resendTextMessage;
+- (void)changeAccount;
 
 @end
 

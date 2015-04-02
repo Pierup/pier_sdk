@@ -13,7 +13,7 @@
 
 static PIRURLDispatcher * __instance;
 
-@interface PIRURLDispatcher () <PierPayDelegate>
+@interface PIRURLDispatcher ()
 
 @end
 
@@ -38,22 +38,40 @@ static PIRURLDispatcher * __instance;
  * 3.merchant_id     YES          NSString   your id in pier.
  */
 - (void)dispatchURL:(NSURL *)url{
-    NSString * query = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary * dicQuery = [PIRURLDispatcher parseURLQueryString:query];
-    NSString *phone = [dicQuery objectForKey:@"phone"];
-    NSString *country_code = [dicQuery objectForKey:@"country_code"];
-    NSString *merchant_id = [dicQuery objectForKey:@"merchant_id"];
-    
-    
-    MerchantModel *merchantModel = [[MerchantModel alloc] init];
-    merchantModel.phone = phone;
-    merchantModel.country_code = country_code;
-    merchantModel.merchant_id = merchant_id;
-    if (merchantModel.merchant_id!=nil && merchantModel.merchant_id.length>0) {
-        ProductViewController *productViewController = [[ProductViewController alloc]init];
-        productViewController.merchantModel = merchantModel;
-        [self.mainNavigationController pushViewController:productViewController animated:NO];
-    }
+    [PierPay handleOpenURL:url withCompletion:^(NSDictionary *result, NSError *error) {
+        NSDictionary * dicQuery = result;
+        NSString *phone = [dicQuery objectForKey:@"phone"];
+        NSString *country_code = [dicQuery objectForKey:@"country_code"];
+        NSString *merchant_id = [dicQuery objectForKey:@"merchant_id"];
+        /**
+         * status：
+         * App中支付完成 App->Merchant:   1 payment success；2 payment failed
+         * SDK创建支付后 App->Merchant:   3 open merchant product
+         */
+        NSInteger status = [[dicQuery objectForKey:@"status"] integerValue];
+        
+        MerchantModel *merchantModel = [[MerchantModel alloc] init];
+        merchantModel.phone = phone;
+        merchantModel.country_code = country_code;
+        merchantModel.merchant_id = merchant_id;
+
+        if (status == 3) {
+            if (merchantModel.merchant_id!=nil && merchantModel.merchant_id.length>0) {
+                ProductViewController *productViewController = [[ProductViewController alloc]init];
+                productViewController.merchantModel = merchantModel;
+                [self.mainNavigationController pushViewController:productViewController animated:NO];
+            }
+        }else{
+            if (status == 1) {//payment success
+                NSString *amount = [dicQuery objectForKey:@"amount"];
+                UIAlertView *callBackAlert = [[UIAlertView alloc] initWithTitle:@"Payment Success" message:[NSString stringWithFormat:@"Amoubt:%@",amount] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [callBackAlert show];
+            }else if (status == 2){//payment failed
+                UIAlertView *callBackAlert = [[UIAlertView alloc] initWithTitle:@"Payment Failed" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [callBackAlert show];
+            }
+        }
+    }];
 #pragma mark - --------------------- Test ---------------------
 //    NSString *session_token = [dicQuery objectForKey:@"session_token"];
 //    if (session_token != nil && session_token.length > 0) {
@@ -71,22 +89,22 @@ static PIRURLDispatcher * __instance;
 
 #pragma mark - ------------------ PierPayDelegate -------------
 
--(void)payWithPierComplete:(NSDictionary *)result{
-    NSInteger status = [[result objectForKey:@"status"] integerValue];
-    if (status == 1) {
-        //failed
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Failed." message:[NSString stringWithFormat:@"%@",[result objectForKey:@"message"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-    }else if (status == 0){
-        //success
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Success." message:[NSString stringWithFormat:@"Total Amount:%@",[result objectForKey:@"spending"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-    }
-}
+//-(void)payWithPierComplete:(NSDictionary *)result{
+//    NSInteger status = [[result objectForKey:@"status"] integerValue];
+//    if (status == 1) {
+//        //failed
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Failed." message:[NSString stringWithFormat:@"%@",[result objectForKey:@"message"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        [alert show];
+//    }else if (status == 0){
+//        //success
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pay With Pier Success." message:[NSString stringWithFormat:@"Total Amount:%@",[result objectForKey:@"spending"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//        [alert show];
+//    }
+//}
 
-+ (void)parseURL:(NSURL *)url{
-    
-}
+//+ (void)parseURL:(NSURL *)url{
+//    
+//}
 
 -(NSString *)getRandomNumber:(NSInteger)from to:(NSInteger)to
 {
@@ -94,21 +112,6 @@ static PIRURLDispatcher * __instance;
     return [NSString stringWithFormat:@"%ld",randomInt];
 }
 
-+ (NSDictionary *)parseURLQueryString:(NSString *)query
-{
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    NSArray *pairs = [query componentsSeparatedByString:@"&"];
-    for(NSString *pair in pairs) {
-        NSArray *keyValue = [pair componentsSeparatedByString:@"="];
-        if([keyValue count] == 2) {
-            NSString *key = [keyValue objectAtIndex:0];
-            NSString *value = [keyValue objectAtIndex:1];
-            value = [value stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            if(key && value)
-                [dict setObject:value forKey:key];
-        }
-    }
-    return [NSDictionary dictionaryWithDictionary:dict];
-}
+
 
 @end

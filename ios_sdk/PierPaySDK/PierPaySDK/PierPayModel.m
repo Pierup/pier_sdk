@@ -188,3 +188,23 @@
 
 @implementation PierCountryCodeResponse
 @end
+
+#pragma mark - ---------------------ePIER_APU_GET_URLS-----------------------
+#pragma mark - Request
+@interface PierUserAgreementRequest ()
+
+@end
+
+@implementation PierUserAgreementRequest
+
+@end
+
+#pragma mark - Response
+@interface PierUserAgreementResponse ()
+@property (nonatomic, copy, readwrite) NSString * url_privacy;
+@property (nonatomic, copy, readwrite) NSString * url_term;
+@end
+
+@implementation PierUserAgreementResponse
+
+@end

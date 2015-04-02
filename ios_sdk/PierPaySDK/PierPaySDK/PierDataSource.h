@@ -62,6 +62,9 @@ extern NSString * const  pier_userdefaults_password;
  */
 - (void)saveUserInfo:(NSDictionary *)userInfo;
 - (NSDictionary *)getUserInfo;
+- (NSString *)getPhone;
+- (NSString *)getCountryCode;
+- (NSString *)getPassword;
 - (NSString *)getPassword:(NSDictionary *)userInfo;
 - (void)clearUserInfo;
 

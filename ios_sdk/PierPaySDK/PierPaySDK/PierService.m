@@ -54,7 +54,7 @@ NSString * const PIER_API_GET_UPDATEUSER        = @"/user_api/v2/user/update_use
 NSString * const PIER_API_GET_GETUSER           = @"/user_api/v2/user/get_user";
 NSString * const PIER_API_GET_APPLYCREDIT       = @"/user_api/v2/sdk/apply_credit";
 NSString * const PIER_API_GET_COUNTRYS          = @"/user_api/v1/user/get_countries";
-
+NSString * const PIER_APU_GET_URLS              = @"/user_api/v2/sdk/get_agreement";
 
 @implementation PierService
 
@@ -325,6 +325,13 @@ NSString * const PIER_API_GET_COUNTRYS          = @"/user_api/v1/user/get_countr
                       PIER_API_GET_COUNTRYS,HTTP_PATH,
                       @(HTTP_METHOD_GET),HTTP_METHOD,
                       @"PierCountryCodeResponse",RESULT_MODEL,nil];
+            break;
+        case ePIER_APU_GET_URLS:
+            result = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @"1",HTTP_HOST,
+                      PIER_APU_GET_URLS,HTTP_PATH,
+                      @(HTTP_METHOD_GET),HTTP_METHOD,
+                      @"PierUserAgreementResponse",RESULT_MODEL,nil];
             break;
         default:
             break;

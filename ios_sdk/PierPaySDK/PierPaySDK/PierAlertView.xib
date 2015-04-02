@@ -101,7 +101,7 @@
             <point key="canvasLocation" x="243.5" y="-344.5"/>
         </view>
         <view contentMode="scaleToFill" id="hub-Vz-60X" customClass="PierSMSAlertView">
-            <rect key="frame" x="0.0" y="0.0" width="281" height="265"/>
+            <rect key="frame" x="0.0" y="0.0" width="281" height="271"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <userGuides>
                 <userLayoutGuide location="195" affinity="minY"/>
@@ -167,12 +167,23 @@
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0n-mM-w9m">
+                    <rect key="frame" x="151" y="253" width="115" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="Change Account">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeAccount:" destination="hub-Vz-60X" eventType="touchUpInside" id="6nh-B3-N9Z"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="approveButton" destination="LN5-GL-dxW" id="eWe-rW-t8o"/>
                 <outlet property="cancleButton" destination="9rd-zn-LV9" id="59t-NQ-Tfg"/>
+                <outlet property="changeAccount" destination="z0n-mM-w9m" id="KHa-b0-tYZ"/>
                 <outlet property="errorMessageLabel" destination="vOt-Xi-kQD" id="YKx-0D-S49"/>
                 <outlet property="loadingView" destination="NL6-fk-xdv" id="JIe-9u-dk9"/>
                 <outlet property="refreshButton" destination="4xa-H6-EU4" id="bFV-aB-lv3"/>
@@ -182,7 +193,7 @@
                 <outlet property="stopWatch" destination="uLe-r8-4Xi" id="CwI-9C-GRu"/>
                 <outlet property="textField" destination="BH4-zV-OZI" id="yOI-dk-vUk"/>
             </connections>
-            <point key="canvasLocation" x="-97.5" y="-27.5"/>
+            <point key="canvasLocation" x="-97.5" y="-24.5"/>
         </view>
         <view contentMode="scaleToFill" id="Ux4-m5-Jt6" customClass="PierPayModelAlertView">
             <rect key="frame" x="0.0" y="0.0" width="281" height="333"/>
@@ -233,7 +244,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$99.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="ejv-nR-tvl">
                     <rect key="frame" x="15" y="83" width="251" height="58"/>
                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
