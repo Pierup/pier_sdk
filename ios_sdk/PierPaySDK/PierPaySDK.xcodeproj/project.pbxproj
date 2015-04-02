@@ -47,6 +47,8 @@
 		2A252D4F1AA1C4E8004BAB9C /* PierSiginCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D4E1AA1C4E8004BAB9C /* PierSiginCells.m */; };
 		2A252D501AA1C4E8004BAB9C /* PierSiginCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A252D4E1AA1C4E8004BAB9C /* PierSiginCells.m */; };
 		2A252D521AA1C945004BAB9C /* PierSiginCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D511AA1C945004BAB9C /* PierSiginCells.xib */; };
+		2A281D531ACCDAB200D525FC /* icon_comfirm_agreement@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A281D511ACCDAB200D525FC /* icon_comfirm_agreement@2x.png */; };
+		2A281D541ACCDAB200D525FC /* icon_comfirm_agreement@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A281D521ACCDAB200D525FC /* icon_comfirm_agreement@3x.png */; };
 		2A39BC2E1A2EE81300B9D551 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A39BC221A2EE81300B9D551 /* libPierPaySDK.a */; };
 		2A5DF0E01AC2B5B400FAF7BA /* PierTouchIDShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5DF0DD1AC2B5B400FAF7BA /* PierTouchIDShare.m */; };
 		2A5DF0E11AC2B5B400FAF7BA /* PierTouchIDShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5DF0DD1AC2B5B400FAF7BA /* PierTouchIDShare.m */; };
@@ -168,6 +170,8 @@
 		2A252D4D1AA1C4E8004BAB9C /* PierSiginCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PierSiginCells.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2A252D4E1AA1C4E8004BAB9C /* PierSiginCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PierSiginCells.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2A252D511AA1C945004BAB9C /* PierSiginCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PierSiginCells.xib; sourceTree = "<group>"; };
+		2A281D511ACCDAB200D525FC /* icon_comfirm_agreement@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_comfirm_agreement@2x.png"; sourceTree = "<group>"; };
+		2A281D521ACCDAB200D525FC /* icon_comfirm_agreement@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_comfirm_agreement@3x.png"; sourceTree = "<group>"; };
 		2A39BC221A2EE81300B9D551 /* libPierPaySDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPierPaySDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC2D1A2EE81300B9D551 /* PierPaySDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierPaySDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC331A2EE81300B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -464,6 +468,8 @@
 		2AF42D9C1A3072B10076DEC4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2A281D511ACCDAB200D525FC /* icon_comfirm_agreement@2x.png */,
+				2A281D521ACCDAB200D525FC /* icon_comfirm_agreement@3x.png */,
 				2ACE622B1AB7CB4900359D22 /* icon_error@2x.png */,
 				2ACE622C1AB7CB4900359D22 /* icon_error@3x.png */,
 				AD0C09E51AADC5170089B0BC /* btn_nextpurple@2x.png */,
@@ -632,9 +638,11 @@
 				2A05E8171ACAA3F90055B71A /* PierWebViewController.xib in Resources */,
 				2A96B5691AA464B600CDA7E9 /* PierSiginViewController.xib in Resources */,
 				2A252D211AA19B82004BAB9C /* icon_logopurple@2x.png in Resources */,
+				2A281D541ACCDAB200D525FC /* icon_comfirm_agreement@3x.png in Resources */,
 				2A252D411AA1BA58004BAB9C /* PierLoginViewController.xib in Resources */,
 				2A252D1C1AA19B82004BAB9C /* back@3x.png in Resources */,
 				2ACE622E1AB7CB4900359D22 /* icon_error@3x.png in Resources */,
+				2A281D531ACCDAB200D525FC /* icon_comfirm_agreement@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,7 +784,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
+				PROVISIONING_PROFILE = "349f65f7-0820-429d-915b-7dfc8849161e";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = arm64;
 			};
@@ -819,7 +827,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
+				PROVISIONING_PROFILE = "349f65f7-0820-429d-915b-7dfc8849161e";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = arm64;
@@ -843,7 +851,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
+				PROVISIONING_PROFILE = "349f65f7-0820-429d-915b-7dfc8849161e";
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
@@ -866,7 +874,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
+				PROVISIONING_PROFILE = "349f65f7-0820-429d-915b-7dfc8849161e";
 				SKIP_INSTALL = YES;
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
@@ -926,7 +934,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
+				PROVISIONING_PROFILE = "349f65f7-0820-429d-915b-7dfc8849161e";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -951,7 +959,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebaaf2cc-150c-48df-acbb-bf0ac5850048";
+				PROVISIONING_PROFILE = "349f65f7-0820-429d-915b-7dfc8849161e";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";

@@ -119,6 +119,15 @@ typedef enum {
             if (self.delegate && [self.delegate respondsToSelector:@selector(pierPayServiceFailed:)]) {
                 [self.delegate pierPayServiceFailed:error];
             }
+        }else if (self.payWithType == ePierPayWith_PierApp){
+            //Get mss failed in pierApp show alertView.
+            NSDictionary *alertParam = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        @"icon_error",@"title_image_name",
+                                        @"error",@"title",
+                                        [error domain],@"message",nil];
+            [PierAlertView showPierAlertView:self param:alertParam type:ePierAlertViewType_error approve:^(NSString *userInput) {
+                return YES;
+            }];
         }
         [_smsAlertView showErrorMessage:[error domain]];
     } attribute:[NSDictionary dictionaryWithObjectsAndKeys:

@@ -49,6 +49,7 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
 @property (nonatomic, weak) IBOutlet UIButton *privicyButton;
 @property (nonatomic, weak) IBOutlet UILabel *termsPerfixLabel;
 @property (nonatomic, weak) IBOutlet UILabel *termsSufffixLabel;
+@property (nonatomic, weak) IBOutlet UIButton *userSelectButton;
 
 @end
 
@@ -76,6 +77,9 @@ void setCloseBarButtonWithTarget(id target, SEL selector);
    
     [self.logoPurpleImageView setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_logopurple")]];
     [self.purpleArrorImageView setImage:[UIImage imageWithContentsOfFile:getImagePath(@"btn_nextpurple")]];
+    
+    [self.userSelectButton setImage:[UIImage imageWithContentsOfFile:getImagePath(@"icon_comfirm_agreement")] forState:UIControlStateNormal];
+    [self.userSelectButton setContentMode:UIViewContentModeScaleAspectFit];
     
     [self.payButton setBackgroundColor:[PierColor lightPurpleColor]];
     UIImage *payBtnImg = [PierViewUtil getImageByView:self.payButton];
