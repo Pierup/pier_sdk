@@ -17,6 +17,7 @@
                 <outlet property="termsButton" destination="YgX-v4-mhO" id="fCt-9v-J5d"/>
                 <outlet property="termsPerfixLabel" destination="6sa-CR-p1o" id="BfD-aR-mfj"/>
                 <outlet property="termsSufffixLabel" destination="BkP-sC-beb" id="srv-7y-zni"/>
+                <outlet property="userSelectButton" destination="JSV-Gc-4sY" id="yot-rO-1aT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="whiteArrorImageView" destination="udt-xb-OrJ" id="zH1-aR-UfY"/>
             </connections>
@@ -172,6 +173,16 @@
                         <constraint firstItem="6sa-CR-p1o" firstAttribute="leading" secondItem="VHU-Ei-aHA" secondAttribute="leading" id="tDa-T0-Nee"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSV-Gc-4sY">
+                    <rect key="frame" x="18" y="498" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="R17-Lp-oAd"/>
+                        <constraint firstAttribute="height" constant="16" id="kDL-qt-fT6"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -192,9 +203,11 @@
                 <constraint firstItem="4hp-v4-Qty" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="116" id="n1t-mT-efs"/>
                 <constraint firstItem="AfC-P2-mbE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="123" id="q6x-jk-Xxl"/>
                 <constraint firstItem="hH2-wO-xxZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="rLt-Xr-pD7"/>
+                <constraint firstAttribute="bottom" secondItem="JSV-Gc-4sY" secondAttribute="bottom" constant="54" id="vTR-aX-Ayg"/>
+                <constraint firstItem="VHU-Ei-aHA" firstAttribute="leading" secondItem="JSV-Gc-4sY" secondAttribute="trailing" id="wIa-Gq-NJc"/>
                 <constraint firstItem="Tje-GW-co8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="wMJ-NK-ezD"/>
             </constraints>
-            <point key="canvasLocation" x="-194" y="317"/>
+            <point key="canvasLocation" x="-158" y="303"/>
         </view>
     </objects>
     <resources>
