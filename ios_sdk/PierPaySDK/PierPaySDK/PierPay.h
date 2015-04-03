@@ -14,16 +14,18 @@
 @required
 
 /**
- * Call Back When Pay With Pier In Merchant App.
- * Result
- * name:        Type            Description
- * 1.status     NSNumber        Showing the status of sdk execution.It means successful if is '0', else is '1'.
- * 2.message    NSString        Showing the message from pier.
- * 3.code       NSNumber        Showing the code of message from pier.
- * 4.result     NSDictionary    Showing the value of output params of pier.
- * 5.spending   NSString        spending.
- * 6.order_id   NSString        merchant orderID
- * 7.shop_name  NSString        merchant name
+ *
+ *  @abstract Call Back When Pay With Pier In Merchant App.
+ *
+ *  @param result
+ *    key        Type            Description
+ *  - status     NSNumber        Showing the status of sdk execution.It means successful if is '0', else is '1'.
+ *  - message    NSString        Showing the message from pier.
+ *  - code       NSNumber        Showing the code of message from pier.
+ *  - result     NSDictionary    Showing the value of output params of pier.
+ *  - spending   NSString        spending.
+ *  - order_id   NSString        merchant orderID
+ *  - shop_name  NSString        merchant name
  *
  */
 -(void)payWithPierComplete:(NSDictionary *)result;
@@ -31,16 +33,19 @@
 @end
 
 /**
- * Call Back When Pay With Pier In Pier App.
- * Result
- * name:        Type            Description
- * 1.status     NSNumber        Showing the status of sdk execution.It means successful if is '0', else is '1'.
- * 2.message    NSString        Showing the message from pier.
- * 3.code       NSNumber        Showing the code of message from pier.
- * 4.result     NSDictionary    Showing the value of output params of pier.
- * 5.spending   NSString        spending.
- * 6.order_id   NSString   merchant orderID
- * 7.shop_name  NSString        merchant name
+ * @abstract Call Back When Pay With Pier In Pier App.
+ *
+ * @param result
+ *   Key        Type            Description
+ * - status     NSNumber        Showing the status of sdk execution.It means successful if is '0', else is '1'.
+ * - message    NSString        Showing the message from pier.
+ * - code       NSNumber        Showing the code of message from pier.
+ * - result     NSDictionary    Showing the value of output params of pier.
+ * - spending   NSString        spending.
+ * - order_id   NSString   merchant orderID
+ * - shop_name  NSString        merchant name
+ *
+ * @param error
  *
  */
 typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
@@ -51,39 +56,45 @@ typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
 @property (nonatomic, weak) id<PierPayDelegate> pierDelegate;
 
 /**
- * pay by pier with password
- * charge
- * name:            Required     Type       Description
- * 1.phone           NO           NSString   user phone.
- * 2.country_code    NO           NSString   the country code of user phone.
- * 3.merchant_id     YES          NSString   your id in pier.
- * 4.amount          YES          NSString   amount.
- * 5.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
- * 6.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
- * 7.order_id        YES          NSString   merchant orderID
- * 8.shop_name       NO           NSString   merchant name
+ * @abstract pay by pier with password
+ *
+ * @param charge
+ *   Key             Required     Type       Description
+ * - phone           NO           NSString   user phone.
+ * - country_code    NO           NSString   the country code of user phone.
+ * - merchant_id     YES          NSString   your id in pier.
+ * - amount          YES          NSString   amount.
+ * - currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
+ * - server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ * - order_id        YES          NSString   merchant orderID
+ * - shop_name       NO           NSString   merchant name
+ *
+ * @param delegate self
  *
  */
 - (instancetype)initWith:(NSDictionary *)charge delegate:(id)delegate;
 
 /**
- *  charge
- *  name:            Required     Type       Description
- *  1.amount          YES          NSString   amount.
- *  2.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
- *  3.merchant_id     YES          NSString   your id in pier.
- *  4.scheme          YES          NSString   merchant App scheme
- *  5.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
- *  6.shop_name       YES          NSString   merchant name
+ *  @abstract pay by pier with password
+ *
+ *  @param charge
+ *    key             Required     Type       Description
+ *  - amount          YES          NSString   amount.
+ *  - currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
+ *  - merchant_id     YES          NSString   your id in pier.
+ *  - scheme          YES          NSString   merchant App scheme
+ *  - server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ *  - shop_name       YES          NSString   merchant name
  *
  */
 + (void)createPayment:(NSDictionary *)charge;
 
 /**
- *  Call Back Pier Payent result
+ *  Call Back Pier Payment result
  *
  *  @param url              
  *  @param CallBack
+ *
  */
 + (void)handleOpenURL:(NSURL *)url withCompletion:(payWithPierComplete)completion;
 
