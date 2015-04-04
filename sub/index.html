@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pier Checkout Test Page</title>
+</head>
+<body>
+  <form action="/charge" method="POST">
+    <script 
+      src="pier.js"
+      class="pier-button"
+      data-action="http://192.168.1.254:8080/pier-merchant/merchant/server/sdk/pay"
+      data-merchant-id="MC0000000134"
+      data-name="Pier Demo"
+      data-description="For checkout layout test"
+      data-amount="20"
+      data-success-back='http://www.baidu.com'
+      data-logo='http://pierup.ddns.net:8686/umsite/resource/image/nav-pier.png'
+    >
+    </script>
+  </form>
+ 
+</body>
+</html>
