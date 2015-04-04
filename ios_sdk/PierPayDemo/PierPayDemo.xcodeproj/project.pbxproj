@@ -1,0 +1,703 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A252D2F1AA1A902004BAB9C /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A252D2E1AA1A902004BAB9C /* Launch Screen.xib */; };
+		2A39BC741A2EEC6500B9D551 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC731A2EEC6500B9D551 /* main.m */; };
+		2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC761A2EEC6500B9D551 /* AppDelegate.m */; };
+		2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */; };
+		2A39BC8E1A2EEC6500B9D551 /* PierPayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */; };
+		2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E5E281AA84A10004B95C4 /* ProductViewController.m */; };
+		2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */; };
+		2A5E5E5C1AA8548B004B95C4 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5E5E551AA8546C004B95C4 /* libPierPaySDK.a */; };
+		2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E571AA8546C004B95C4 /* PierResource.bundle */; };
+		2A6D86EC1AB95CA700B113D3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86E71AB95CA700B113D3 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2A6D86ED1AB95CA700B113D3 /* PIRHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86E91AB95CA700B113D3 /* PIRHttpExecutor.m */; };
+		2A6D86EE1AB95CA700B113D3 /* PIRURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */; };
+		2AF06B1F1ABC047900BC6FC5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06AFF1ABC047900BC6FC5 /* MKAnnotationView+WebCache.m */; };
+		2AF06B201ABC047900BC6FC5 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B011ABC047900BC6FC5 /* NSData+ImageContentType.m */; };
+		2AF06B211ABC047900BC6FC5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B031ABC047900BC6FC5 /* SDImageCache.m */; };
+		2AF06B221ABC047900BC6FC5 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B051ABC047900BC6FC5 /* SDWebImageCompat.m */; };
+		2AF06B231ABC047900BC6FC5 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B071ABC047900BC6FC5 /* SDWebImageDecoder.m */; };
+		2AF06B241ABC047900BC6FC5 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B091ABC047900BC6FC5 /* SDWebImageDownloader.m */; };
+		2AF06B251ABC047900BC6FC5 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B0B1ABC047900BC6FC5 /* SDWebImageDownloaderOperation.m */; };
+		2AF06B261ABC047900BC6FC5 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B0D1ABC047900BC6FC5 /* SDWebImageManager.m */; };
+		2AF06B271ABC047900BC6FC5 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B101ABC047900BC6FC5 /* SDWebImagePrefetcher.m */; };
+		2AF06B281ABC047900BC6FC5 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B121ABC047900BC6FC5 /* UIButton+WebCache.m */; };
+		2AF06B291ABC047900BC6FC5 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B141ABC047900BC6FC5 /* UIImage+GIF.m */; };
+		2AF06B2A1ABC047900BC6FC5 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B161ABC047900BC6FC5 /* UIImage+MultiFormat.m */; };
+		2AF06B2B1ABC047900BC6FC5 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B181ABC047900BC6FC5 /* UIImage+WebP.m */; };
+		2AF06B2C1ABC047900BC6FC5 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B1A1ABC047900BC6FC5 /* UIImageView+HighlightedWebCache.m */; };
+		2AF06B2D1ABC047900BC6FC5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B1C1ABC047900BC6FC5 /* UIImageView+WebCache.m */; };
+		2AF06B2E1ABC047900BC6FC5 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B1E1ABC047900BC6FC5 /* UIView+WebCacheOperation.m */; };
+		ADBAC8101ABBCEC400AB50C1 /* MerchantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC80E1ABBCEC400AB50C1 /* MerchantViewController.m */; };
+		ADBAC8111ABBCEC400AB50C1 /* MerchantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADBAC80F1ABBCEC400AB50C1 /* MerchantViewController.xib */; };
+		ADBAC8171ABBCFD500AB50C1 /* MerchantCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC8151ABBCFD500AB50C1 /* MerchantCollectionViewCell.m */; };
+		ADBAC8181ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADBAC8161ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2A39BC881A2EEC6500B9D551 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A39BC661A2EEC6500B9D551 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A39BC6D1A2EEC6500B9D551;
+			remoteInfo = PierPayDemo;
+		};
+		2A5E5E541AA8546C004B95C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2A39BC221A2EE81300B9D551;
+			remoteInfo = PierPaySDK;
+		};
+		2A5E5E561AA8546C004B95C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2AF42D8C1A306CC90076DEC4;
+			remoteInfo = PierResource;
+		};
+		2A5E5E581AA8546C004B95C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2A39BC2D1A2EE81300B9D551;
+			remoteInfo = PierPaySDKTests;
+		};
+		2A5E5E5A1AA85485004B95C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A39BC211A2EE81300B9D551;
+			remoteInfo = PierPaySDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A252D2E1AA1A902004BAB9C /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		2A39BC6E1A2EEC6500B9D551 /* PierPayDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PierPayDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A39BC721A2EEC6500B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A39BC731A2EEC6500B9D551 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A39BC751A2EEC6500B9D551 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2A39BC761A2EEC6500B9D551 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2A39BC871A2EEC6500B9D551 /* PierPayDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierPayDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A39BC8C1A2EEC6500B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PierPayDemoTests.m; sourceTree = "<group>"; };
+		2A5E5E271AA84A10004B95C4 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
+		2A5E5E281AA84A10004B95C4 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
+		2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
+		2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PierPaySDK.xcodeproj; path = ../../../PierPaySDK/PierPaySDK.xcodeproj; sourceTree = "<group>"; };
+		2A6D86E61AB95CA700B113D3 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		2A6D86E71AB95CA700B113D3 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		2A6D86E81AB95CA700B113D3 /* PIRHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRHttpExecutor.h; sourceTree = "<group>"; };
+		2A6D86E91AB95CA700B113D3 /* PIRHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRHttpExecutor.m; sourceTree = "<group>"; };
+		2A6D86EA1AB95CA700B113D3 /* PIRURLDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PIRURLDispatcher.h; sourceTree = "<group>"; };
+		2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PIRURLDispatcher.m; sourceTree = "<group>"; };
+		2AF06AFE1ABC047900BC6FC5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
+		2AF06AFF1ABC047900BC6FC5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
+		2AF06B001ABC047900BC6FC5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		2AF06B011ABC047900BC6FC5 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
+		2AF06B021ABC047900BC6FC5 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		2AF06B031ABC047900BC6FC5 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		2AF06B041ABC047900BC6FC5 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
+		2AF06B051ABC047900BC6FC5 /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
+		2AF06B061ABC047900BC6FC5 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
+		2AF06B071ABC047900BC6FC5 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
+		2AF06B081ABC047900BC6FC5 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		2AF06B091ABC047900BC6FC5 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
+		2AF06B0A1ABC047900BC6FC5 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		2AF06B0B1ABC047900BC6FC5 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
+		2AF06B0C1ABC047900BC6FC5 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		2AF06B0D1ABC047900BC6FC5 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
+		2AF06B0E1ABC047900BC6FC5 /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
+		2AF06B0F1ABC047900BC6FC5 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		2AF06B101ABC047900BC6FC5 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		2AF06B111ABC047900BC6FC5 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		2AF06B121ABC047900BC6FC5 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		2AF06B131ABC047900BC6FC5 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		2AF06B141ABC047900BC6FC5 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
+		2AF06B151ABC047900BC6FC5 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
+		2AF06B161ABC047900BC6FC5 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MultiFormat.m"; sourceTree = "<group>"; };
+		2AF06B171ABC047900BC6FC5 /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WebP.h"; sourceTree = "<group>"; };
+		2AF06B181ABC047900BC6FC5 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
+		2AF06B191ABC047900BC6FC5 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		2AF06B1A1ABC047900BC6FC5 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
+		2AF06B1B1ABC047900BC6FC5 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		2AF06B1C1ABC047900BC6FC5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		2AF06B1D1ABC047900BC6FC5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
+		2AF06B1E1ABC047900BC6FC5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		ADBAC80D1ABBCEC400AB50C1 /* MerchantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantViewController.h; sourceTree = "<group>"; };
+		ADBAC80E1ABBCEC400AB50C1 /* MerchantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantViewController.m; sourceTree = "<group>"; };
+		ADBAC80F1ABBCEC400AB50C1 /* MerchantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantViewController.xib; sourceTree = "<group>"; };
+		ADBAC8141ABBCFD500AB50C1 /* MerchantCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantCollectionViewCell.h; sourceTree = "<group>"; };
+		ADBAC8151ABBCFD500AB50C1 /* MerchantCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantCollectionViewCell.m; sourceTree = "<group>"; };
+		ADBAC8161ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchantCollectionViewCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A39BC6B1A2EEC6500B9D551 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A5E5E5C1AA8548B004B95C4 /* libPierPaySDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A39BC841A2EEC6500B9D551 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A39BC651A2EEC6500B9D551 = {
+			isa = PBXGroup;
+			children = (
+				2A5E5E4D1AA85459004B95C4 /* Dependence */,
+				2A39BC701A2EEC6500B9D551 /* PierPayDemo */,
+				2A39BC8A1A2EEC6500B9D551 /* PierPayDemoTests */,
+				2A39BC6F1A2EEC6500B9D551 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2A39BC6F1A2EEC6500B9D551 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A39BC6E1A2EEC6500B9D551 /* PierPayDemo.app */,
+				2A39BC871A2EEC6500B9D551 /* PierPayDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A39BC701A2EEC6500B9D551 /* PierPayDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2AF06AFD1ABC047900BC6FC5 /* SDWebImage */,
+				2A6D86E51AB95CA700B113D3 /* PIRService */,
+				ADBAC80D1ABBCEC400AB50C1 /* MerchantViewController.h */,
+				ADBAC80E1ABBCEC400AB50C1 /* MerchantViewController.m */,
+				ADBAC80F1ABBCEC400AB50C1 /* MerchantViewController.xib */,
+				ADBAC8141ABBCFD500AB50C1 /* MerchantCollectionViewCell.h */,
+				ADBAC8151ABBCFD500AB50C1 /* MerchantCollectionViewCell.m */,
+				ADBAC8161ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib */,
+				2A5E5E271AA84A10004B95C4 /* ProductViewController.h */,
+				2A5E5E281AA84A10004B95C4 /* ProductViewController.m */,
+				2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */,
+				2A39BC751A2EEC6500B9D551 /* AppDelegate.h */,
+				2A39BC761A2EEC6500B9D551 /* AppDelegate.m */,
+				2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */,
+				2A39BC711A2EEC6500B9D551 /* Supporting Files */,
+				2AC84EDC1A2F01D100920073 /* Resources */,
+			);
+			path = PierPayDemo;
+			sourceTree = "<group>";
+		};
+		2A39BC711A2EEC6500B9D551 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A39BC721A2EEC6500B9D551 /* Info.plist */,
+				2A39BC731A2EEC6500B9D551 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A39BC8A1A2EEC6500B9D551 /* PierPayDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */,
+				2A39BC8B1A2EEC6500B9D551 /* Supporting Files */,
+			);
+			path = PierPayDemoTests;
+			sourceTree = "<group>";
+		};
+		2A39BC8B1A2EEC6500B9D551 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A39BC8C1A2EEC6500B9D551 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A5E5E4D1AA85459004B95C4 /* Dependence */ = {
+			isa = PBXGroup;
+			children = (
+				2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */,
+			);
+			name = Dependence;
+			path = PierPayDemo/Dependence;
+			sourceTree = "<group>";
+		};
+		2A5E5E4F1AA8546C004B95C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A5E5E551AA8546C004B95C4 /* libPierPaySDK.a */,
+				2A5E5E571AA8546C004B95C4 /* PierResource.bundle */,
+				2A5E5E591AA8546C004B95C4 /* PierPaySDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A6D86E51AB95CA700B113D3 /* PIRService */ = {
+			isa = PBXGroup;
+			children = (
+				2A6D86E61AB95CA700B113D3 /* JSONKit.h */,
+				2A6D86E71AB95CA700B113D3 /* JSONKit.m */,
+				2A6D86E81AB95CA700B113D3 /* PIRHttpExecutor.h */,
+				2A6D86E91AB95CA700B113D3 /* PIRHttpExecutor.m */,
+				2A6D86EA1AB95CA700B113D3 /* PIRURLDispatcher.h */,
+				2A6D86EB1AB95CA700B113D3 /* PIRURLDispatcher.m */,
+			);
+			path = PIRService;
+			sourceTree = "<group>";
+		};
+		2AC84EDC1A2F01D100920073 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A252D2E1AA1A902004BAB9C /* Launch Screen.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2AF06AFD1ABC047900BC6FC5 /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				2AF06AFE1ABC047900BC6FC5 /* MKAnnotationView+WebCache.h */,
+				2AF06AFF1ABC047900BC6FC5 /* MKAnnotationView+WebCache.m */,
+				2AF06B001ABC047900BC6FC5 /* NSData+ImageContentType.h */,
+				2AF06B011ABC047900BC6FC5 /* NSData+ImageContentType.m */,
+				2AF06B021ABC047900BC6FC5 /* SDImageCache.h */,
+				2AF06B031ABC047900BC6FC5 /* SDImageCache.m */,
+				2AF06B041ABC047900BC6FC5 /* SDWebImageCompat.h */,
+				2AF06B051ABC047900BC6FC5 /* SDWebImageCompat.m */,
+				2AF06B061ABC047900BC6FC5 /* SDWebImageDecoder.h */,
+				2AF06B071ABC047900BC6FC5 /* SDWebImageDecoder.m */,
+				2AF06B081ABC047900BC6FC5 /* SDWebImageDownloader.h */,
+				2AF06B091ABC047900BC6FC5 /* SDWebImageDownloader.m */,
+				2AF06B0A1ABC047900BC6FC5 /* SDWebImageDownloaderOperation.h */,
+				2AF06B0B1ABC047900BC6FC5 /* SDWebImageDownloaderOperation.m */,
+				2AF06B0C1ABC047900BC6FC5 /* SDWebImageManager.h */,
+				2AF06B0D1ABC047900BC6FC5 /* SDWebImageManager.m */,
+				2AF06B0E1ABC047900BC6FC5 /* SDWebImageOperation.h */,
+				2AF06B0F1ABC047900BC6FC5 /* SDWebImagePrefetcher.h */,
+				2AF06B101ABC047900BC6FC5 /* SDWebImagePrefetcher.m */,
+				2AF06B111ABC047900BC6FC5 /* UIButton+WebCache.h */,
+				2AF06B121ABC047900BC6FC5 /* UIButton+WebCache.m */,
+				2AF06B131ABC047900BC6FC5 /* UIImage+GIF.h */,
+				2AF06B141ABC047900BC6FC5 /* UIImage+GIF.m */,
+				2AF06B151ABC047900BC6FC5 /* UIImage+MultiFormat.h */,
+				2AF06B161ABC047900BC6FC5 /* UIImage+MultiFormat.m */,
+				2AF06B171ABC047900BC6FC5 /* UIImage+WebP.h */,
+				2AF06B181ABC047900BC6FC5 /* UIImage+WebP.m */,
+				2AF06B191ABC047900BC6FC5 /* UIImageView+HighlightedWebCache.h */,
+				2AF06B1A1ABC047900BC6FC5 /* UIImageView+HighlightedWebCache.m */,
+				2AF06B1B1ABC047900BC6FC5 /* UIImageView+WebCache.h */,
+				2AF06B1C1ABC047900BC6FC5 /* UIImageView+WebCache.m */,
+				2AF06B1D1ABC047900BC6FC5 /* UIView+WebCacheOperation.h */,
+				2AF06B1E1ABC047900BC6FC5 /* UIView+WebCacheOperation.m */,
+			);
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A39BC6D1A2EEC6500B9D551 /* PierPayDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A39BC911A2EEC6500B9D551 /* Build configuration list for PBXNativeTarget "PierPayDemo" */;
+			buildPhases = (
+				2A39BC6A1A2EEC6500B9D551 /* Sources */,
+				2A39BC6B1A2EEC6500B9D551 /* Frameworks */,
+				2A39BC6C1A2EEC6500B9D551 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A5E5E5B1AA85485004B95C4 /* PBXTargetDependency */,
+			);
+			name = PierPayDemo;
+			productName = PierPayDemo;
+			productReference = 2A39BC6E1A2EEC6500B9D551 /* PierPayDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2A39BC861A2EEC6500B9D551 /* PierPayDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A39BC941A2EEC6500B9D551 /* Build configuration list for PBXNativeTarget "PierPayDemoTests" */;
+			buildPhases = (
+				2A39BC831A2EEC6500B9D551 /* Sources */,
+				2A39BC841A2EEC6500B9D551 /* Frameworks */,
+				2A39BC851A2EEC6500B9D551 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A39BC891A2EEC6500B9D551 /* PBXTargetDependency */,
+			);
+			name = PierPayDemoTests;
+			productName = PierPayDemoTests;
+			productReference = 2A39BC871A2EEC6500B9D551 /* PierPayDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A39BC661A2EEC6500B9D551 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Pier.Inc;
+				TargetAttributes = {
+					2A39BC6D1A2EEC6500B9D551 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 9KW7KNZ4KU;
+					};
+					2A39BC861A2EEC6500B9D551 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 9KW7KNZ4KU;
+						TestTargetID = 2A39BC6D1A2EEC6500B9D551;
+					};
+				};
+			};
+			buildConfigurationList = 2A39BC691A2EEC6500B9D551 /* Build configuration list for PBXProject "PierPayDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2A39BC651A2EEC6500B9D551;
+			productRefGroup = 2A39BC6F1A2EEC6500B9D551 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2A5E5E4F1AA8546C004B95C4 /* Products */;
+					ProjectRef = 2A5E5E4E1AA8546C004B95C4 /* PierPaySDK.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				2A39BC6D1A2EEC6500B9D551 /* PierPayDemo */,
+				2A39BC861A2EEC6500B9D551 /* PierPayDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2A5E5E551AA8546C004B95C4 /* libPierPaySDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPierPaySDK.a;
+			remoteRef = 2A5E5E541AA8546C004B95C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A5E5E571AA8546C004B95C4 /* PierResource.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PierResource.bundle;
+			remoteRef = 2A5E5E561AA8546C004B95C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A5E5E591AA8546C004B95C4 /* PierPaySDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PierPaySDKTests.xctest;
+			remoteRef = 2A5E5E581AA8546C004B95C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2A39BC6C1A2EEC6500B9D551 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A252D2F1AA1A902004BAB9C /* Launch Screen.xib in Resources */,
+				2A5E5E5D1AA854A0004B95C4 /* PierResource.bundle in Resources */,
+				ADBAC8181ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib in Resources */,
+				2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */,
+				ADBAC8111ABBCEC400AB50C1 /* MerchantViewController.xib in Resources */,
+				2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A39BC851A2EEC6500B9D551 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A39BC6A1A2EEC6500B9D551 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AF06B231ABC047900BC6FC5 /* SDWebImageDecoder.m in Sources */,
+				2AF06B261ABC047900BC6FC5 /* SDWebImageManager.m in Sources */,
+				2AF06B201ABC047900BC6FC5 /* NSData+ImageContentType.m in Sources */,
+				2AF06B221ABC047900BC6FC5 /* SDWebImageCompat.m in Sources */,
+				2AF06B2E1ABC047900BC6FC5 /* UIView+WebCacheOperation.m in Sources */,
+				2AF06B2B1ABC047900BC6FC5 /* UIImage+WebP.m in Sources */,
+				2A6D86ED1AB95CA700B113D3 /* PIRHttpExecutor.m in Sources */,
+				2AF06B2C1ABC047900BC6FC5 /* UIImageView+HighlightedWebCache.m in Sources */,
+				ADBAC8171ABBCFD500AB50C1 /* MerchantCollectionViewCell.m in Sources */,
+				2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */,
+				2AF06B281ABC047900BC6FC5 /* UIButton+WebCache.m in Sources */,
+				2AF06B271ABC047900BC6FC5 /* SDWebImagePrefetcher.m in Sources */,
+				2AF06B251ABC047900BC6FC5 /* SDWebImageDownloaderOperation.m in Sources */,
+				2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */,
+				ADBAC8101ABBCEC400AB50C1 /* MerchantViewController.m in Sources */,
+				2AF06B2A1ABC047900BC6FC5 /* UIImage+MultiFormat.m in Sources */,
+				2A39BC741A2EEC6500B9D551 /* main.m in Sources */,
+				2AF06B211ABC047900BC6FC5 /* SDImageCache.m in Sources */,
+				2A6D86EE1AB95CA700B113D3 /* PIRURLDispatcher.m in Sources */,
+				2A6D86EC1AB95CA700B113D3 /* JSONKit.m in Sources */,
+				2AF06B291ABC047900BC6FC5 /* UIImage+GIF.m in Sources */,
+				2AF06B241ABC047900BC6FC5 /* SDWebImageDownloader.m in Sources */,
+				2AF06B2D1ABC047900BC6FC5 /* UIImageView+WebCache.m in Sources */,
+				2AF06B1F1ABC047900BC6FC5 /* MKAnnotationView+WebCache.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A39BC831A2EEC6500B9D551 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A39BC8E1A2EEC6500B9D551 /* PierPayDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A39BC891A2EEC6500B9D551 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A39BC6D1A2EEC6500B9D551 /* PierPayDemo */;
+			targetProxy = 2A39BC881A2EEC6500B9D551 /* PBXContainerItemProxy */;
+		};
+		2A5E5E5B1AA85485004B95C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PierPaySDK;
+			targetProxy = 2A5E5E5A1AA85485004B95C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2A39BC8F1A2EEC6500B9D551 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ma yan (9EM569XD45)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ma yan (9EM569XD45)";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "43461fcd-f6d4-4639-a520-5858ed9523a5";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2A39BC901A2EEC6500B9D551 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ma yan (9EM569XD45)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ma yan (9EM569XD45)";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "43461fcd-f6d4-4639-a520-5858ed9523a5";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2A39BC921A2EEC6500B9D551 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ma yan (9EM569XD45)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ma yan (9EM569XD45)";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../PierPaySDK/PierPaySDK,
+				);
+				INFOPLIST_FILE = PierPayDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "43461fcd-f6d4-4639-a520-5858ed9523a5";
+				WARNING_LDFLAGS = "";
+			};
+			name = Debug;
+		};
+		2A39BC931A2EEC6500B9D551 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ma yan (9EM569XD45)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ma yan (9EM569XD45)";
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../PierPaySDK/PierPaySDK,
+				);
+				INFOPLIST_FILE = PierPayDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "43461fcd-f6d4-4639-a520-5858ed9523a5";
+				WARNING_LDFLAGS = "";
+			};
+			name = Release;
+		};
+		2A39BC951A2EEC6500B9D551 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PierPayDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PierPayDemo.app/PierPayDemo";
+			};
+			name = Debug;
+		};
+		2A39BC961A2EEC6500B9D551 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PierPayDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PierPayDemo.app/PierPayDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A39BC691A2EEC6500B9D551 /* Build configuration list for PBXProject "PierPayDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A39BC8F1A2EEC6500B9D551 /* Debug */,
+				2A39BC901A2EEC6500B9D551 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A39BC911A2EEC6500B9D551 /* Build configuration list for PBXNativeTarget "PierPayDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A39BC921A2EEC6500B9D551 /* Debug */,
+				2A39BC931A2EEC6500B9D551 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A39BC941A2EEC6500B9D551 /* Build configuration list for PBXNativeTarget "PierPayDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A39BC951A2EEC6500B9D551 /* Debug */,
+				2A39BC961A2EEC6500B9D551 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A39BC661A2EEC6500B9D551 /* Project object */;
+}
