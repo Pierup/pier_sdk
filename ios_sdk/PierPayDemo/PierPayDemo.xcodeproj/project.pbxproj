@@ -24,8 +24,8 @@
 		2A855F951AD4E7AB00F0E89C /* ProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A855F8D1AD4E7AB00F0E89C /* ProductListTableViewCell.xib */; };
 		2A855F961AD4E7AB00F0E89C /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A855F8F1AD4E7AB00F0E89C /* ProductListViewController.m */; };
 		2A855F971AD4E7AB00F0E89C /* ProductListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A855F901AD4E7AB00F0E89C /* ProductListViewController.xib */; };
-		2A855FBC1AD4FBC800F0E89C /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A855FB91AD4FBC800F0E89C /* libPierPaySDK.a */; };
-		2A855FBD1AD4FBC800F0E89C /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A855FBB1AD4FBC800F0E89C /* PierResource.bundle */; };
+		2A855FCB1AD50A9900F0E89C /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A855FC81AD50A9900F0E89C /* libPierPaySDK.a */; };
+		2A855FCC1AD50A9900F0E89C /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A855FCA1AD50A9900F0E89C /* PierResource.bundle */; };
 		2AF06B1F1ABC047900BC6FC5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06AFF1ABC047900BC6FC5 /* MKAnnotationView+WebCache.m */; };
 		2AF06B201ABC047900BC6FC5 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B011ABC047900BC6FC5 /* NSData+ImageContentType.m */; };
 		2AF06B211ABC047900BC6FC5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF06B031ABC047900BC6FC5 /* SDImageCache.m */; };
@@ -89,9 +89,9 @@
 		2A855F8E1AD4E7AB00F0E89C /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewController.h; sourceTree = "<group>"; };
 		2A855F8F1AD4E7AB00F0E89C /* ProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewController.m; sourceTree = "<group>"; };
 		2A855F901AD4E7AB00F0E89C /* ProductListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListViewController.xib; sourceTree = "<group>"; };
-		2A855FB91AD4FBC800F0E89C /* libPierPaySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPierPaySDK.a; path = ../../../PierPaySDK/libPierPaySDK.a; sourceTree = "<group>"; };
-		2A855FBA1AD4FBC800F0E89C /* PierPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PierPay.h; path = ../../../PierPaySDK/PierPay.h; sourceTree = "<group>"; };
-		2A855FBB1AD4FBC800F0E89C /* PierResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PierResource.bundle; path = ../../../PierPaySDK/PierResource.bundle; sourceTree = "<group>"; };
+		2A855FC81AD50A9900F0E89C /* libPierPaySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPierPaySDK.a; sourceTree = "<group>"; };
+		2A855FC91AD50A9900F0E89C /* PierPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierPay.h; sourceTree = "<group>"; };
+		2A855FCA1AD50A9900F0E89C /* PierResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PierResource.bundle; sourceTree = "<group>"; };
 		2AF06AFE1ABC047900BC6FC5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		2AF06AFF1ABC047900BC6FC5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		2AF06B001ABC047900BC6FC5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A855FBC1AD4FBC800F0E89C /* libPierPaySDK.a in Frameworks */,
+				2A855FCB1AD50A9900F0E89C /* libPierPaySDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +155,7 @@
 		2A39BC651A2EEC6500B9D551 = {
 			isa = PBXGroup;
 			children = (
-				2A855FB81AD4FBBD00F0E89C /* Dependence */,
+				2A855FC71AD50A8400F0E89C /* Dependence */,
 				2A39BC701A2EEC6500B9D551 /* PierPayDemo */,
 				2A39BC8A1A2EEC6500B9D551 /* PierPayDemoTests */,
 				2A39BC6F1A2EEC6500B9D551 /* Products */,
@@ -244,15 +244,14 @@
 			path = PIRService;
 			sourceTree = "<group>";
 		};
-		2A855FB81AD4FBBD00F0E89C /* Dependence */ = {
+		2A855FC71AD50A8400F0E89C /* Dependence */ = {
 			isa = PBXGroup;
 			children = (
-				2A855FB91AD4FBC800F0E89C /* libPierPaySDK.a */,
-				2A855FBA1AD4FBC800F0E89C /* PierPay.h */,
-				2A855FBB1AD4FBC800F0E89C /* PierResource.bundle */,
+				2A855FC81AD50A9900F0E89C /* libPierPaySDK.a */,
+				2A855FC91AD50A9900F0E89C /* PierPay.h */,
+				2A855FCA1AD50A9900F0E89C /* PierResource.bundle */,
 			);
-			name = Dependence;
-			path = PierPayDemo/Dependence;
+			path = Dependence;
 			sourceTree = "<group>";
 		};
 		2AC84EDC1A2F01D100920073 /* Resources */ = {
@@ -391,7 +390,7 @@
 				ADBAC8181ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib in Resources */,
 				2A855F931AD4E7AB00F0E89C /* ProductCartViewController.xib in Resources */,
 				2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */,
-				2A855FBD1AD4FBC800F0E89C /* PierResource.bundle in Resources */,
+				2A855FCC1AD50A9900F0E89C /* PierResource.bundle in Resources */,
 				ADBAC8111ABBCEC400AB50C1 /* MerchantViewController.xib in Resources */,
 				2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */,
 			);
@@ -497,10 +496,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					../PierPaySDK,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "43461fcd-f6d4-4639-a520-5858ed9523a5";
@@ -538,10 +534,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					../PierPaySDK,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "43461fcd-f6d4-4639-a520-5858ed9523a5";
 				SDKROOT = iphoneos;
@@ -568,7 +561,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					../PierPaySDK,
 					"$(PROJECT_DIR)/Dependence",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -597,7 +589,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					../PierPaySDK,
 					"$(PROJECT_DIR)/Dependence",
 				);
 				OTHER_LDFLAGS = "-ObjC";
