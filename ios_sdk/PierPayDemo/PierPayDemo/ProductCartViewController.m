@@ -129,7 +129,7 @@
 - (IBAction)buy:(id)sender{
     ProductModel *model = [self.cartProductArray objectAtIndex:0];
     [_merchantParam setValue:self.merchant_id forKey:@"merchant_id"];
-    [_merchantParam setValue:[NSString stringWithFormat:@"%f",self.totalAmount] forKey:@"amount"];
+    [_merchantParam setValue:[NSString stringWithFormat:@"%0.2f",self.totalAmount] forKey:@"amount"];
     [_merchantParam setValue:model.currency forKey:@"currency"];
     [_merchantParam setValue:model.server_url forKey:@"server_url"];
     [_merchantParam setValue:[self getRandomNumber:1000000000 to:10000000000] forKey:@"order_id"];
