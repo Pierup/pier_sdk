@@ -8,7 +8,7 @@
 
 #import "PIRURLDispatcher.h"
 #import "JSONKit.h"
-#import "ProductViewController.h"
+#import "ProductListViewController.h"
 #import "PierPay.h"
 
 static PIRURLDispatcher * __instance;
@@ -57,7 +57,7 @@ static PIRURLDispatcher * __instance;
 
         if (status == 3) {
             if (merchantModel.merchant_id!=nil && merchantModel.merchant_id.length>0) {
-                ProductViewController *productViewController = [[ProductViewController alloc]init];
+                ProductListViewController *productViewController = [[ProductListViewController alloc]init];
                 productViewController.merchantModel = merchantModel;
                 [self.mainNavigationController pushViewController:productViewController animated:NO];
             }
