@@ -9,20 +9,7 @@
 #import "MerchantViewController.h"
 #import "PIRHttpExecutor.h"
 #import "MerchantCollectionViewCell.h"
-#import "ProductViewController.h"
-
-#pragma mark -------------------- ShopListModel -----------------------------
-
-@implementation ShopListModel
-
-@end
-
-
-#pragma mark -------------------- MerchantModel -----------------------------
-
-@implementation MerchantModel
-
-@end
+#import "ProductListViewController.h"
 
 #pragma mark ---------------- MerchantViewController ------------------------
 
@@ -133,7 +120,7 @@
 - (void)merchantCollectionViewWithIndexPath:(NSIndexPath *)indexPath
 {
     if (self.merchantArray.count > 0) {
-        ProductViewController *productViewController = [[ProductViewController alloc]init];
+        ProductListViewController *productViewController = [[ProductListViewController alloc]init];
         productViewController.merchantModel = self.merchantArray[indexPath.row];
         [self.navigationController pushViewController:productViewController animated:YES];
     }

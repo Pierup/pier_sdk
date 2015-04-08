@@ -115,7 +115,7 @@
         self.productsArray = [NSMutableArray arrayWithCapacity:array.count];
         NSString *server_url = [(NSDictionary *)respond objectForKey:@"server_url"];
         for (int i = 0; i < array.count; i++) {
-            ShopListModel *shopListModel = [[ShopListModel alloc] init];
+            ProductModel *shopListModel = [[ProductModel alloc] init];
             shopListModel.amount = [array[i] objectForKey:@"amount"];
             shopListModel.image = [array[i] objectForKey:@"image"];
             shopListModel.currency = [array[i] objectForKey:@"currency"];
@@ -138,7 +138,7 @@
 - (void)payByPier:(UIButton *)sender
 {
     if (self.merchantModel && self.merchantModel.shopListModelArray) {
-        ShopListModel *shopListModel = self.merchantModel.shopListModelArray[sender.tag];
+        ProductModel *shopListModel = self.merchantModel.shopListModelArray[sender.tag];
 //        [_merchantParam setValue:self.merchantModel.phone forKey:@"phone"];
 //        [_merchantParam setValue:self.merchantModel.country_code forKey:@"country_code"];
         [_merchantParam setValue:self.merchantModel.merchant_id forKey:@"merchant_id"];
@@ -273,7 +273,7 @@
     [cell.payButton addTarget:self action:@selector(payByPier:) forControlEvents:UIControlEventTouchUpInside];
     
     if (self.merchantModel.shopListModelArray) {
-        ShopListModel *shopListModel = self.merchantModel.shopListModelArray[indexPath.row];
+        ProductModel *shopListModel = self.merchantModel.shopListModelArray[indexPath.row];
         [cell setAmountLabel:shopListModel.amount currencyLabel:shopListModel.currency productImageUrl:shopListModel.image];
     }
     return cell;
