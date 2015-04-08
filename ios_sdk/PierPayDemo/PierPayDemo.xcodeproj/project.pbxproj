@@ -570,7 +570,6 @@
 					"$(inherited)",
 					../PierPaySDK,
 					"$(PROJECT_DIR)/Dependence",
-					/Users/zyma/work/pier/pier_sdk/ios_sdk/PierPaySDK,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -600,7 +599,6 @@
 					"$(inherited)",
 					../PierPaySDK,
 					"$(PROJECT_DIR)/Dependence",
-					/Users/zyma/work/pier/pier_sdk/ios_sdk/PierPaySDK,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
