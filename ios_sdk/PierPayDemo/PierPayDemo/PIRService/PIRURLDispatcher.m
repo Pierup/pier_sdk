@@ -43,6 +43,7 @@ static PIRURLDispatcher * __instance;
         NSString *phone = [dicQuery objectForKey:@"phone"];
         NSString *country_code = [dicQuery objectForKey:@"country_code"];
         NSString *merchant_id = [dicQuery objectForKey:@"merchant_id"];
+        NSString *shop_name = [dicQuery objectForKey:@"shop_name"];
         /**
          * status：
          * App中支付完成 App->Merchant:   1 payment success；2 payment failed
@@ -54,6 +55,7 @@ static PIRURLDispatcher * __instance;
         merchantModel.phone = phone;
         merchantModel.country_code = country_code;
         merchantModel.merchant_id = merchant_id;
+        merchantModel.business_name = shop_name;
 
         if (status == 3) {
             if (merchantModel.merchant_id!=nil && merchantModel.merchant_id.length>0) {
