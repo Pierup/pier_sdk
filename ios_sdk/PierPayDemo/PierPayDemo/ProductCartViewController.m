@@ -129,7 +129,7 @@
 - (IBAction)buy:(id)sender{
     ProductModel *model = [self.cartProductArray objectAtIndex:0];
     [_merchantParam setValue:self.merchant_id forKey:@"merchant_id"];
-    [_merchantParam setValue:[NSString stringWithFormat:@"%0.2f",self.totalAmount] forKey:@"amount"];
+    [_merchantParam setValue:[NSString stringWithFormat:@"%f",self.totalAmount] forKey:@"amount"];
     [_merchantParam setValue:model.currency forKey:@"currency"];
     [_merchantParam setValue:model.server_url forKey:@"server_url"];
     [_merchantParam setValue:[self getRandomNumber:1000000000 to:10000000000] forKey:@"order_id"];
@@ -189,24 +189,28 @@
 #pragma mark - PierPayDelegate
 
 /**
- * Result
- * name:        Type            Description
- * 1.status     NSNumber        Showing the status of sdk execution.It means successful if is '0',else means '1'.
- * 2.message    NSString        Showing the message from pier.
- * 3.code       NSNumber        Showing the code of message from pier.
- * 4.result     NSDictionary    Showing the value of output params of pier.
- * 5.spending   NSString        spending.
+ *
+ *  @abstract Call Back When Pay With Pier In Merchant App.
+ *
+ *  @param result
+ *    key        Type            Description
+ *  - status     NSNumber        Showing the status of sdk execution.It means successful if is '1', else is '2'.
+ *  - message    NSString        Showing the message from pier.
+ *  - amount     NSString        amount.
+ *  - currency   NSString        NSString
+ *  - result     NSDictionary    Showing the value of output params of pier (This parameter is extended).
+ *
  */
 - (void)payWithPierComplete:(NSDictionary *)result
 {
     NSInteger status = [[result objectForKey:@"status"] integerValue];
-    if (status == 1) {
+    if (status == 2) {
         //failed
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Failed" message:[NSString stringWithFormat:@"%@",[result objectForKey:@"message"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
-    }else if (status == 0){
+    }else if (status == 1){
         //success
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Succeeded" message:[NSString stringWithFormat:@"Total Amount: %@",[result objectForKey:@"spending"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Succeeded" message:[NSString stringWithFormat:@"Total Amount: %@",[result objectForKey:@"amount"]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
         [self.navigationController popViewControllerAnimated:NO];
     }

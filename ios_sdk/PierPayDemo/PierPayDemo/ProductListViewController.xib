@@ -29,23 +29,22 @@
                     <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPF-zb-alt">
-                            <rect key="frame" x="190" y="0.0" width="73" height="50"/>
+                            <rect key="frame" x="177" y="0.0" width="73" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Czw-l3-vLv"/>
                                 <constraint firstAttribute="width" constant="73" id="MC9-Ec-sO2"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="27"/>
                             <color key="textColor" red="0.72756476150000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEj-qK-4wN">
-                            <rect key="frame" x="266" y="0.0" width="46" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEj-qK-4wN">
+                            <rect key="frame" x="251" y="0.0" width="61" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="SdD-PD-YbW"/>
-                                <constraint firstAttribute="width" constant="46" id="W3l-ye-Gdi"/>
+                                <constraint firstAttribute="width" constant="61" id="W3l-ye-Gdi"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                            <state key="normal" title="Cart">
+                            <state key="normal" image="chopping_cart_icon.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -56,7 +55,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="WPF-zb-alt" firstAttribute="top" secondItem="t7Q-Xa-gZT" secondAttribute="top" id="Gwn-tw-9k2"/>
-                        <constraint firstItem="jEj-qK-4wN" firstAttribute="leading" secondItem="WPF-zb-alt" secondAttribute="trailing" constant="3" id="LJB-q5-sjK"/>
+                        <constraint firstItem="jEj-qK-4wN" firstAttribute="leading" secondItem="WPF-zb-alt" secondAttribute="trailing" constant="1" id="LJB-q5-sjK"/>
                         <constraint firstAttribute="height" constant="50" id="TlG-jt-c6B"/>
                         <constraint firstAttribute="trailing" secondItem="jEj-qK-4wN" secondAttribute="trailing" constant="8" id="VrC-Gn-TTt"/>
                         <constraint firstItem="jEj-qK-4wN" firstAttribute="top" secondItem="t7Q-Xa-gZT" secondAttribute="top" id="cxe-gY-MoM"/>
@@ -76,6 +75,9 @@
             <point key="canvasLocation" x="125" y="326"/>
         </view>
     </objects>
+    <resources>
+        <image name="chopping_cart_icon.png" width="59" height="49"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

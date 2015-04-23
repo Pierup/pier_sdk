@@ -19,13 +19,11 @@
  *
  *  @param result
  *    key        Type            Description
- *  - status     NSNumber        Showing the status of sdk execution.It means successful if is '0', else is '1'.
+ *  - status     NSNumber        Showing the status of sdk execution.It means successful if is '1', else is '2'.
  *  - message    NSString        Showing the message from pier.
- *  - code       NSNumber        Showing the code of message from pier.
- *  - result     NSDictionary    Showing the value of output params of pier.
- *  - spending   NSString        spending.
- *  - order_id   NSString        merchant orderID
- *  - shop_name  NSString        merchant name
+ *  - amount     NSString        amount.
+ *  - currency   NSString        NSString
+ *  - result     NSDictionary    Showing the value of output params of pier (This parameter is extended).
  *
  */
 -(void)payWithPierComplete:(NSDictionary *)result;
@@ -37,13 +35,11 @@
  *
  * @param result
  *   Key        Type            Description
- * - status     NSNumber        Showing the status of sdk execution.It means successful if is '0', else is '1'.
+ * - status     NSNumber        Showing the status of sdk execution.It means successful if is '1', else is '2'.
  * - message    NSString        Showing the message from pier.
- * - code       NSNumber        Showing the code of message from pier.
- * - result     NSDictionary    Showing the value of output params of pier.
- * - spending   NSString        spending.
- * - order_id   NSString   merchant orderID
- * - shop_name  NSString        merchant name
+ * - amount     NSString        amount.
+ * - currency   NSString        NSString
+ * - result     NSDictionary    Showing the value of output params of pier (This parameter is extended).
  *
  * @param error
  *
@@ -92,11 +88,14 @@ typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
 /**
  *  Call Back Pier Payment result
  *
- *  @param url
+ *  @param url              
  *  @param CallBack
  *
  */
 + (void)handleOpenURL:(NSURL *)url withCompletion:(payWithPierComplete)completion;
+
+
+#pragma mark - ---------- Only used in PierApp ----------
 
 /**
  * Pier App 内部支付使用，Merchant App用不到。打包时候注释掉这个方法。
@@ -109,7 +108,7 @@ typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
  * 5.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  * 6.session_token   YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
  * 7.order_id        YES          NSString   merchant orderID
- * 8.shop_name       NO           NSString   merchant name
+ * 8.shop_name       YES           NSString   merchant name
  * 9.device_token    NO           NSString   Device_Token
  *
  */

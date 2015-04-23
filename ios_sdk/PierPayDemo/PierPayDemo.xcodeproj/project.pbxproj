@@ -12,6 +12,8 @@
 		2A39BC771A2EEC6500B9D551 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC761A2EEC6500B9D551 /* AppDelegate.m */; };
 		2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A39BC7E1A2EEC6500B9D551 /* Images.xcassets */; };
 		2A39BC8E1A2EEC6500B9D551 /* PierPayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */; };
+		2A52D79A1AE90F1800DCDF54 /* chopping_cart_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A52D7981AE90F1800DCDF54 /* chopping_cart_icon@2x.png */; };
+		2A52D79B1AE90F1800DCDF54 /* chopping_cart_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A52D7991AE90F1800DCDF54 /* chopping_cart_icon@3x.png */; };
 		2A5E5E2E1AA84A10004B95C4 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5E5E281AA84A10004B95C4 /* ProductViewController.m */; };
 		2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */; };
 		2A6D86EC1AB95CA700B113D3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6D86E71AB95CA700B113D3 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -69,6 +71,8 @@
 		2A39BC871A2EEC6500B9D551 /* PierPayDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PierPayDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A39BC8C1A2EEC6500B9D551 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A39BC8D1A2EEC6500B9D551 /* PierPayDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PierPayDemoTests.m; sourceTree = "<group>"; };
+		2A52D7981AE90F1800DCDF54 /* chopping_cart_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chopping_cart_icon@2x.png"; sourceTree = "<group>"; };
+		2A52D7991AE90F1800DCDF54 /* chopping_cart_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chopping_cart_icon@3x.png"; sourceTree = "<group>"; };
 		2A5E5E271AA84A10004B95C4 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
 		2A5E5E281AA84A10004B95C4 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
 		2A5E5E291AA84A10004B95C4 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 		2AC84EDC1A2F01D100920073 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A52D7981AE90F1800DCDF54 /* chopping_cart_icon@2x.png */,
+				2A52D7991AE90F1800DCDF54 /* chopping_cart_icon@3x.png */,
 				2A252D2E1AA1A902004BAB9C /* Launch Screen.xib */,
 			);
 			path = Resources;
@@ -387,9 +393,11 @@
 				2A855F951AD4E7AB00F0E89C /* ProductListTableViewCell.xib in Resources */,
 				2A252D2F1AA1A902004BAB9C /* Launch Screen.xib in Resources */,
 				2A855F971AD4E7AB00F0E89C /* ProductListViewController.xib in Resources */,
+				2A52D79A1AE90F1800DCDF54 /* chopping_cart_icon@2x.png in Resources */,
 				ADBAC8181ABBCFD500AB50C1 /* MerchantCollectionViewCell.xib in Resources */,
 				2A855F931AD4E7AB00F0E89C /* ProductCartViewController.xib in Resources */,
 				2A39BC7F1A2EEC6500B9D551 /* Images.xcassets in Resources */,
+				2A52D79B1AE90F1800DCDF54 /* chopping_cart_icon@3x.png in Resources */,
 				2A855FCC1AD50A9900F0E89C /* PierResource.bundle in Resources */,
 				ADBAC8111ABBCEC400AB50C1 /* MerchantViewController.xib in Resources */,
 				2A5E5E2F1AA84A10004B95C4 /* ProductViewController.xib in Resources */,
@@ -565,7 +573,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1e467606-bd67-4004-8d8d-cbcad5583392";
+				PROVISIONING_PROFILE = "5e15a524-0a5b-4829-8d0b-5d347d94244e";
 				WARNING_LDFLAGS = "";
 			};
 			name = Debug;
@@ -593,7 +601,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1e467606-bd67-4004-8d8d-cbcad5583392";
+				PROVISIONING_PROFILE = "5e15a524-0a5b-4829-8d0b-5d347d94244e";
 				WARNING_LDFLAGS = "";
 			};
 			name = Release;
