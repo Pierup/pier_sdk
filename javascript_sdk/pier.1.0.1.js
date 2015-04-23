@@ -35,15 +35,15 @@
 		var URL_PREFIX =  'http://pierup.ddns.net:8686';
 		var URL_PREFIX2 = 'https://user-api.elasticbeanstalk.com';
 		var URL = {
-			getTransactionSMS: URL_PREFIX + '/user_api/v2/sdk/transaction_sms',//get SMS message on checkout--getCode
-			getAuthToken: URL_PREFIX + '/user_api/v2/sdk/get_auth_token',
+			getTransactionSMS: URL_PREFIX2 + '/user_api/v2/sdk/transaction_sms',//get SMS message on checkout--getCode
+			getAuthToken: URL_PREFIX2 + '/user_api/v2/sdk/get_auth_token',
 			// getRegisterValidationCode: URL_PREFIX + '/user_api/v2/user/activation_code',
 			// validateCode: URL_PREFIX +'/user_api/v2/user/activation',
 			// register: URL_PREFIX + '/user_api/v2/user/register_user?platform=3',
 			// updateUser: URL_PREFIX + '/user_api/v2/user/update_user?platform=3',
 			// applyCredit: URL_PREFIX + '/user_api/v2/sdk/apply_credit?platform=3',
-			getCountries: URL_PREFIX + '/user_api/v2/user/get_countries',
-			loginApiUrl: URL_PREFIX + '/user_api/v2/user/signin?platform=3'
+			getCountries: URL_PREFIX2 + '/user_api/v2/sdk/get_countries',
+			loginApiUrl: URL_PREFIX2 + '/user_api/v2/sdk/signin?platform=3'
 		};
 
 		var GLOBAL_CONTRY_CODE = 'US',
@@ -75,16 +75,36 @@
 		REGISTER_TIME_TEMP = 120,
 		COUNTRY_TYPE = undefined,
 		PAYMENT_DONE = 'Done',
-		SUCCESS_PAYMENT_IMAGE = URL_PREFIX+'/umsite/resource/image/successful.png',
+		SUCCESS_PAYMENT_IMAGE = URL_PREFIX+'/resource/image/successful.png',
 		CHECK_LOGIN_NEXT = 'NEXT',
 		PASSCODE_PAYMENT_INPUT = 'Enter your passcode in your app';
 
 		//get countries type from server
 		this.getCountries = function(){
 			var url = URL.getCountries;
-			var pCountries = templateApiCallGet( url );
-		    var msg = JSON.parse( pCountries.responseText );
-		    COUNTRY_TYPE = msg.result.items || [
+			// var pCountries = templateApiCallGet( url, function( httpObj ){
+			// 	var msg = JSON.parse( httpObj.responseText );
+			//     COUNTRY_TYPE = msg.result.items;
+			//     // checkout_country_select = [];
+			//     for( var i = 0; i<COUNTRY_TYPE.length; i++ ){
+			//     	var option = document.createElement( 'option' );
+			//     	var optionReg = document.createElement( 'option' );
+			//     	option.value = JSON.stringify(COUNTRY_TYPE[i]);
+			//     	option.text = '+'+COUNTRY_TYPE[i].phone_prefix;
+			//     	optionReg.value = JSON.stringify(COUNTRY_TYPE[i]);
+			//     	optionReg.text = '+'+COUNTRY_TYPE[i].phone_prefix;
+
+			//     	checkout_country_select.options.add( option );
+			//     	register_country_select.options.add( optionReg );
+			//     	console.log( 'getCountries', COUNTRY_TYPE );
+
+			// 	    //select add countries options in payment and register
+				    
+			// 	    // console.log("checkout_country_select.options",checkout_country_select.options);
+			//     }
+			// } );
+
+		    COUNTRY_TYPE = [
 			    {
 			    	"name":"UNITED STATES",
 			    	"phone_prefix":"1",
@@ -97,9 +117,7 @@
 			    	"phone_size":"11"
 			    }
 		    ];
-		    console.log( 'getCountries', COUNTRY_TYPE );
 
-		    //select add countries options in payment and register
 		    for( var i = 0; i<COUNTRY_TYPE.length; i++ ){
 		    	var option = document.createElement( 'option' );
 		    	var optionReg = document.createElement( 'option' );
@@ -110,8 +128,13 @@
 
 		    	checkout_country_select.options.add( option );
 		    	register_country_select.options.add( optionReg );
+		    	console.log( 'getCountries', COUNTRY_TYPE );
+
+			   //  //select add countries options in payment and register
+			    
+			   //  // console.log("checkout_country_select.options",checkout_country_select.options);
 		    }
-		    console.log("checkout_country_select.options",checkout_country_select.options);
+		   
 		}
 
 
@@ -402,7 +425,7 @@
         var register_p_blank = document.createElement( 'p' );
         var register_country_select = document.createElement( 'select' );
         var register_code_loading = document.createElement( 'img' );
-		register_code_loading.setAttribute( 'src', 'http://192.168.1.13:8686/resource/image/sdk_loading.gif' );
+		register_code_loading.setAttribute( 'src', '' );
 
 
     //Apply Credit
@@ -598,6 +621,10 @@
 						console.log( 'Login success', msg );
 						session_token = msg.result.session_token;
 						status_bit = msg.result.status_bit;
+						if( status_bit == 0 ){
+							checkoutErrorMsg( "Sorry, your account is not pier's account!" );
+							return;
+						}
 
 						if( status_bit < APPLY_CREDIT_FINISHED ){ switchScreenByBit( status_bit ); }
 
@@ -1395,6 +1422,11 @@
 	  var templateApiCallGet = function(){
 	  	var xhr = null;
 	  	var templateUrl = arguments[0];
+	  	var callback = arguments[1];
+
+
+	   
+	    return xhr;
 	  	if ( window.XMLHttpRequest ) {
 			xhr = new XMLHttpRequest();
 		} else if ( window.ActiveXObject ) {
@@ -1403,14 +1435,27 @@
 			alert( BROWSER_NOT_SUPPORT );
 			return;
 		}
+		 if ("withCredentials" in xhr){
+	        xhr.open( 'GET', templateUrl, true );
+	    } else if (typeof XDomainRequest != "undefined"){
+	        xhr = new XDomainRequest();
+	        xhr.open( 'GET', templateUrl, true );
+	    } else {
+	        xhr = null;
+	    }
 
-		xhr.open( 'GET', templateUrl, false );
+		// xhr.open( 'GET', templateUrl, true );
 
 		xhr.setRequestHeader( 'Content-type', 'application/json' );
+
+		xhr.onreadystatechange = function(){
+			if (xhr.readyState == 4 ) {
+				callback.call( this, xhr );
+			}
+		}
 			
 		console.log( templateUrl );
-		xhr.send();
-		return xhr;
+		xhr.send( null );
 	  };
 	 //apply credit access
 	   var applyCreditAccess = function(){
