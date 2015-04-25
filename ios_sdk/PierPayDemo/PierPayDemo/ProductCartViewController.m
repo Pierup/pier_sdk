@@ -10,7 +10,7 @@
 #import "ProductListTableViewCell.h"
 #import "PierPay.h"
 
-@interface ProductCartViewController () <ProductListTableViewCellDeleagte, PierPayDelegate, UIActionSheetDelegate>
+@interface ProductCartViewController () <ProductListTableViewCellDeleagte, UIActionSheetDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *cartArray; //ShoppingCartModel
@@ -159,8 +159,12 @@
     if (buttonIndex == 0) {
         
     }else if (buttonIndex == 1) {
-        PierPay *pierpay = [[PierPay alloc] initWith:_merchantParam delegate:self];
-        [self presentViewController:pierpay animated:YES completion:nil];
+        PierPay *pierpay = [[PierPay alloc] init];
+        [pierpay createPayment:_merchantParam pay:^{
+            [self presentViewController:pierpay animated:YES completion:nil];
+        } completion:^(NSDictionary *result, NSError *error) {
+            
+        }];
     }else if(buttonIndex == 2) {
         /**
          * charge
