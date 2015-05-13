@@ -1,5 +1,6 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import urlparse
+import json
 
 from PierSDK import MerchantSDKClient, TransactionConfig
 
@@ -27,14 +28,14 @@ class MerchantHandler(BaseHTTPRequestHandler):
         return
 
     def do_POST(self):
-        length = int(self.headers['content-length'])
-        postvars = urlparse.parse_qs(self.rfile.read(length), keep_blank_values=1)
-        amount, auth_token, currency, order_id = \
-            postvars["amount"][0], \
-            postvars["auth_token"][0], \
-            postvars["currency"][0], \
-            postvars["order_id"][0]
-        result = self.pierTransaction(amount, auth_token, currency, order_id)
+        content_len = int(self.headers.getheader('content-length', 0))
+        postvars = json.loads(self.rfile.read(content_len))
+        amount, auth_token, currency, id_in_merchant = \
+            postvars["amount"], \
+            postvars["auth_token"], \
+            postvars["currency"], \
+            postvars["id_in_merchant"]
+        result = self.pierTransaction(amount, auth_token, currency, id_in_merchant)
         return
 
 if __name__ == '__main__':
