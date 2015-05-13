@@ -31,6 +31,6 @@ app.post('/', function(req, res){
 	PierTransaction(req.body, res);
 });
 
-app.listen(8080, function(){
-	console.log('Starting server on port 8080...')
+app.listen(8081, function(){
+	console.log('Starting server on port 8081...')
 });
