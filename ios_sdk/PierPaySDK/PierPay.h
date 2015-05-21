@@ -74,4 +74,25 @@ typedef void (^payWithPier)();
  */
 + (void)handleOpenURL:(NSURL *)url completion:(payWithPierComplete)completion;
 
+
+#pragma mark - ---------- Only used in PierApp ----------
+
+/**
+ * Pier App Only used in PierApp. 打包时候注释掉这个方法。
+ *
+ * pay by pier without password
+ * name:            Required     Type       Description
+ * 1.phone           NO          NSString   user phone.
+ * 2.merchant_id     NO          NSString   your id in pier.
+ * 3.amount          YES          NSString   amount.
+ * 4.currency        YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
+ * 5.server_url      YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ * 6.session_token   YES          NSString   your server url of accepting auth token,amount,currency, and making the real payment with the pier server SDK.
+ * 7.order_id        YES          NSString   merchant orderID
+ * 8.shop_name       YES           NSString   merchant name
+ * 9.device_token    NO           NSString   Device_Token
+ *
+ */
++ (void)payWith:(NSDictionary *)charge delegate:(id)delegate completion:(payWithPierComplete)completion;
+
 @end
