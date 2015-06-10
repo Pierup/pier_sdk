@@ -63,10 +63,10 @@
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\..\Downloads\Json60r8\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PierSDK">
-      <HintPath>..\..\PierSDK\PierSDK\bin\Debug\PierSDK.dll</HintPath>
+      <HintPath>lib\PierSDK.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
