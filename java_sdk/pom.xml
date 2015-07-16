@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.pier</groupId>
-	<artifactId>sdk-java</artifactId>
-	<version>0.0.1</version>
+	<groupId>com.pier.sdk</groupId>
+	<artifactId>java-sdk</artifactId>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>pier-java-sdk</name>
 	<url>http://www.pierup.com</url>
@@ -17,13 +17,13 @@
 		<httpclient.version>4.4.1</httpclient.version>
 	</properties>
 	
-	<repositories>
+	<distributionManagement>
 		<repository>  
             <id>releases</id>  
             <name>Pier Nexus Repository</name>  
             <url>http://192.168.1.133:8081/nexus/content/repositories/releases/</url>  
       </repository> 
-	</repositories>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
