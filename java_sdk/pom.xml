@@ -11,6 +11,7 @@
 	<url>http://www.pierup.com</url>
 
 	<properties>
+		<maven.test.skip>true</maven.test.skip>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.7</jdk.version>
 		<httpclient.version>4.4.1</httpclient.version>
