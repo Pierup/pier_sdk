@@ -89,9 +89,7 @@ public class SDKTest {
 				TransactionConfig config = TransactionConfig
 						.newBuilder()
 						.setAmount(100.00)
-						.setApi_id("5b52051a-931a-11e4-aad2-0ea81fa3d43c")
-						.setApi_secret_key(
-								"mk-test-5b52041f-931a-11e4-aad2-0ea81fa3d43c")
+						.setApi_key("5b52051a-931a-11e4-aad2-0ea81fa3d43c")
 						.setAuth_token(auth_tokenResult.get("auth_token"))
 						.setCurrency("USD")
 						.setId_in_merchant(UUID.randomUUID().toString())
@@ -105,7 +103,6 @@ public class SDKTest {
 				System.out.println(result.getMessage());
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
@@ -135,18 +132,6 @@ public class SDKTest {
 			System.out
 					.println("get_auth_token response=========================");
 			System.out.println(map2);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	}
-	
-	@Test
-	public void serverUrlTest()
-	{
-		try {
-			MerchantSDKClient client = MerchantSDKClient.newBuilder()
-					.setMerchant_id("MC0000000134").build();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

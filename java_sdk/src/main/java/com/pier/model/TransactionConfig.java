@@ -10,15 +10,15 @@ public class TransactionConfig {
 	private String currency;
 	private String id_in_merchant;
 	private String notes;
-	private String api_secret_key;
-	private String api_id;
+	private String api_key;
+	private String key_name;
 	private String platform = "1";
 	private String merchant_id;
 
 	private TransactionConfig(Builder builder) {
 		this.amount = builder.amount;
-		this.api_id = builder.api_id;
-		this.api_secret_key = builder.api_secret_key;
+		this.key_name = builder.key_name;
+		this.api_key = builder.api_key;
 		this.auth_token = builder.auth_token;
 		this.currency = builder.currency;
 		this.id_in_merchant = builder.id_in_merchant;
@@ -52,13 +52,13 @@ public class TransactionConfig {
 	public String getNotes() {
 		return notes;
 	}
-
-	public String getApi_secret_key() {
-		return api_secret_key;
+	
+	public String getApi_key() {
+		return api_key;
 	}
 
-	public String getApi_id() {
-		return api_id;
+	public String getKey_name() {
+		return key_name;
 	}
 
 	public String getPlatform() {
@@ -96,8 +96,8 @@ public class TransactionConfig {
 		private String currency;
 		private String id_in_merchant;
 		private String notes;
-		private String api_secret_key;
-		private String api_id;
+		private String api_key;
+		private String key_name;
 
 		public Builder() {
 			super();
@@ -128,21 +128,20 @@ public class TransactionConfig {
 			return this;
 		}
 
-		public Builder setApi_secret_key(String api_secret_key) {
-			this.api_secret_key = api_secret_key;
+		public Builder setApi_key(String api_key) {
+			this.api_key = api_key;
 			return this;
 		}
 
-		public Builder setApi_id(String api_id) {
-			this.api_id = api_id;
+		public Builder setKey_name(String key_name) {
+			this.key_name = key_name;
 			return this;
 		}
 
 		public TransactionConfig build() throws Exception {
-			if (StringUtils.isBlank(this.api_id)
-					|| StringUtils.isBlank(this.api_secret_key)
+			if (StringUtils.isBlank(this.api_key)
 					|| StringUtils.isBlank(this.auth_token)) {
-				throw new Exception("api_id, api_secret_key, auth_token is required.");
+				throw new Exception("Required param is missing.");
 			}
 			if (this.amount<=0) {
 				throw new Exception("Amount must be greater than zero.");

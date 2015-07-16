@@ -15,6 +15,14 @@
 		<jdk.version>1.7</jdk.version>
 		<httpclient.version>4.4.1</httpclient.version>
 	</properties>
+	
+	<repositories>
+		<repository>  
+            <id>releases</id>  
+            <name>Pier Nexus Repository</name>  
+            <url>http://192.168.1.133:8081/nexus/content/repositories/releases/</url>  
+      </repository> 
+	</repositories>
 
 	<dependencies>
 		<dependency>
