@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.pier.config.ConfigConst;
 import com.pier.config.ConfigUtil;
 import com.pier.httpclient.client.DefaultDisableJsClient;
 import com.pier.httpclient.client.DisableJsClient;
@@ -24,7 +25,7 @@ public abstract class AbstractSDK implements SDKService {
 				.setSocketTimeout(60 * 1000).build();
 		client = HttpClientFactory.getDisableJsClient(config,
 				DefaultDisableJsClient.class);
-		serverUrl = ConfigUtil.getString("pier.pay.server.host", "")
+		serverUrl = ConfigUtil.getString(ConfigConst.PIER_PAY_SERVER, null)
 				+ "merchant_api/v1/transaction/pay_by_pier";
 	}
 
