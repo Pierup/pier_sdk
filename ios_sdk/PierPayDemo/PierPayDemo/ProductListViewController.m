@@ -134,7 +134,8 @@
                                    [_merchantParam objectForKey:@"merchant_id"], @"merchant_id",
                                    [_merchantParam objectForKey:@"server_url"], @"server_url",
                                    @"piermerchant", @"scheme",
-                                   [_merchantParam objectForKey:@"shop_name"],@"shop_name",nil];
+                                   [_merchantParam objectForKey:@"shop_name"],@"shop_name",
+                                   [self getRandomNumber:1000000000 to:10000000000],@"order_id",nil];
         
         [PierPay createPayment:chargeDic];
         

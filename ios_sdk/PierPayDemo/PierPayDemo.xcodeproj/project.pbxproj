@@ -573,7 +573,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5e15a524-0a5b-4829-8d0b-5d347d94244e";
+				PROVISIONING_PROFILE = "9ae2c55b-50c8-432e-ad02-28e9d821dc1d";
 				WARNING_LDFLAGS = "";
 			};
 			name = Debug;
@@ -601,7 +601,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5e15a524-0a5b-4829-8d0b-5d347d94244e";
+				PROVISIONING_PROFILE = "9ae2c55b-50c8-432e-ad02-28e9d821dc1d";
 				WARNING_LDFLAGS = "";
 			};
 			name = Release;
