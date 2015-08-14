@@ -1,0 +1,25 @@
+<% include ../header%>
+
+<div class="container text-center">
+	<h2>重置密码成功</h2>
+	<img src="" style="width:120px;height:120px;">
+	<br><br>
+	<p><span id="second"></span>s 后为你跳转</p>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$_sec = $("#second");
+		var _totalSec = 6;
+		var timeCount = function(){
+			_totalSec -= 1;
+            $_sec.html(_totalSec);
+            if( _totalSec =< 0 ){
+            	window.location.href="/checkout/login";
+            	return;
+            }
+			return setTimeout(timeCount, 1000);
+		};
+		timeCount();
+	})
+</script>
+<% include ../footer%>

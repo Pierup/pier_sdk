@@ -1,0 +1,538 @@
+[2015-08-12 09:36:22.870] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:36:30.313] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:39:14.020] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:39:15.872] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:39:42.420] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:40:22.240] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:40:37.817] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:41:10.597] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:42:25.377] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:42:32.005] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:42:33.978] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 09:42:44.588] [ERROR] console - Error: Failed to lookup view "error" in views directory "E:\pier\pier_sdk_cn\sdk\views"
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:555:17)
+    at ServerResponse.res.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:938:7)
+    at module.exports (E:\pier\pier_sdk_cn\sdk\sdk.js:53:7)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at IncomingMessage.next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at fn (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\response.js:933:25)
+    at EventEmitter.app.render (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\application.js:557:14)
+[2015-08-12 10:56:54.861] [INFO] console - get response body { code: '1022', message: '该帐号不存在', result: {} }
+[2015-08-12 10:57:20.626] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4222',
+     code: '2486',
+     sms_no: '4222' } }
+[2015-08-12 10:58:45.288] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4222',
+     code: '2486',
+     sms_no: '4222' } }
+[2015-08-12 10:59:07.435] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4222',
+     code: '2486',
+     sms_no: '4222' } }
+[2015-08-12 10:59:12.683] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4222',
+     code: '2486',
+     sms_no: '4222' } }
+[2015-08-12 11:00:14.279] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4222',
+     code: '2486',
+     sms_no: '4222' } }
+[2015-08-12 11:00:31.351] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4222',
+     code: '2486',
+     sms_no: '4222' } }
+[2015-08-12 11:01:11.512] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4222',
+     code: '2486',
+     sms_no: '4222' } }
+[2015-08-12 11:01:25.082] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4222',
+     code: '2486',
+     sms_no: '4222' } }
+[2015-08-12 11:02:43.526] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4223',
+     code: '7749',
+     sms_no: '4223' } }
+[2015-08-12 11:13:41.622] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4225',
+     code: '2128',
+     sms_no: '4225' } }
+[2015-08-12 11:14:22.461] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4225',
+     code: '2128',
+     sms_no: '4225' } }
+[2015-08-12 11:14:37.353] [INFO] console - get response body { code: '1022', message: '该帐号不存在', result: {} }
+[2015-08-12 11:16:18.042] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'fe2ec8f85b14bffb8a64b9ce7615e879' } }
+[2015-08-12 11:25:51.662] [INFO] console - get response body { code: '1110',
+  message: 'Invalid verification code!',
+  result: {} }
+[2015-08-12 11:26:07.561] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4226',
+     code: '7085',
+     sms_no: '4226' } }
+[2015-08-12 11:26:15.771] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '7086d3908d29747650610072e4912c4e' } }
+[2015-08-12 11:26:22.187] [INFO] console - get response body { code: '1110',
+  message: 'Invalid verification code!',
+  result: {} }
+[2015-08-12 11:26:28.686] [INFO] console - get response body { code: '1141',
+  message: 'Message code is already used.',
+  result: {} }
+[2015-08-12 11:27:04.534] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4227',
+     code: '0036',
+     sms_no: '4227' } }
+[2015-08-12 11:27:14.062] [INFO] console - get response body { code: '1110',
+  message: 'Invalid verification code!',
+  result: {} }
+[2015-08-12 11:27:49.918] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4227',
+     code: '0036',
+     sms_no: '4227' } }
+[2015-08-12 11:27:56.635] [INFO] console - get response body { code: '1022', message: '该帐号不存在', result: {} }
+[2015-08-12 11:28:39.921] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'ff6fca02e86bf6e2d307f51de35c1ce0' } }
+[2015-08-12 11:31:31.014] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4228',
+     code: '3532',
+     sms_no: '4228' } }
+[2015-08-12 11:31:36.316] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '43b525045848aa7b3a5b176e753b3cca' } }
+[2015-08-12 11:31:48.703] [INFO] console - get response body { code: '1141',
+  message: 'Message code is already used.',
+  result: {} }
+[2015-08-12 11:31:52.129] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4229',
+     code: '1155',
+     sms_no: '4229' } }
+[2015-08-12 11:32:00.104] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '975880cff672ecc5f294aa0a97684115' } }
+[2015-08-12 11:32:00.114] [INFO] console - reset password aaaaaa { 'token[token]': '975880cff672ecc5f294aa0a97684115' }
+[2015-08-12 11:37:44.366] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4230',
+     code: '6648',
+     sms_no: '4230' } }
+[2015-08-12 11:37:53.534] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'd267a569684d35718dd2e377e0bbfd66' } }
+[2015-08-12 11:37:53.541] [INFO] console - reset password aaaaaa { 'token[token]': 'd267a569684d35718dd2e377e0bbfd66' }
+[2015-08-12 11:38:52.386] [INFO] console - get response body { code: '1022', message: '该帐号不存在', result: {} }
+[2015-08-12 11:39:10.303] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4231',
+     code: '5926',
+     sms_no: '4231' } }
+[2015-08-12 11:39:16.436] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '6baff8d3aaf5e322c24bc38884156bba' } }
+[2015-08-12 11:39:16.442] [INFO] console - reset password aaaaaa { 'token[token]': '6baff8d3aaf5e322c24bc38884156bba' }
+[2015-08-12 12:17:30.708] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4232',
+     code: '8778',
+     sms_no: '4232' } }
+[2015-08-12 12:17:35.904] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '2c5586da2942d3b7e41031e11e83e904' } }
+[2015-08-12 12:17:35.909] [INFO] console - reset password aaaaaa {}
+[2015-08-12 12:18:46.550] [INFO] console - reset password aaaaaa {}
+[2015-08-12 12:19:24.601] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4233',
+     code: '1964',
+     sms_no: '4233' } }
+[2015-08-12 12:19:28.969] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '87b656d18b8909f88c51849c03560149' } }
+[2015-08-12 12:19:28.977] [INFO] console - reset password aaaaaa {}
+[2015-08-12 12:20:57.963] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4234',
+     code: '3485',
+     sms_no: '4234' } }
+[2015-08-12 12:21:05.577] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'ee75fcc3b35a4d6e9720ce41b87c0bb5' } }
+[2015-08-12 12:21:05.604] [INFO] console - reset password aaaaaa undefined
+[2015-08-12 12:21:23.408] [INFO] console - reset password aaaaaa undefined
+[2015-08-12 12:21:32.751] [INFO] console - reset password aaaaaa {}
+[2015-08-12 12:32:54.660] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 12:44:31.793] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 12:45:25.107] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 12:45:57.707] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 12:46:08.671] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 12:46:22.493] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 12:47:00.768] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 12:47:06.858] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 12:47:54.074] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:00:25.183] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:02:22.633] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:03:33.048] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:04:14.725] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:04:47.327] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:05:13.584] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:05:48.107] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:05:51.205] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:05:51.443] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:05:51.632] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:05:51.805] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:06:02.727] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:07:06.180] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:07:14.317] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:10:53.065] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:10:57.918] [INFO] console - get response body { code: '200', message: 'OK', result: {} }
+[2015-08-12 13:11:07.465] [INFO] console - get response body { code: '1113', message: 'Token already used.', result: {} }
+[2015-08-12 13:12:33.152] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:12:37.362] [INFO] console - get response body { code: '1113', message: 'Token already used.', result: {} }
+[2015-08-12 13:13:00.519] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:13:06.835] [INFO] console - get response body { code: '1113', message: 'Token already used.', result: {} }
+[2015-08-12 13:13:53.782] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:13:58.484] [INFO] console - get response body { code: '1113', message: 'Token already used.', result: {} }
+[2015-08-12 13:14:43.262] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:14:47.640] [INFO] console - get response body { code: '1113', message: 'Token already used.', result: {} }
+[2015-08-12 13:15:31.050] [INFO] console - reset password aaaaaa ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 13:15:36.456] [INFO] console - get response body { code: '1113', message: 'Token already used.', result: {} }
+[2015-08-12 13:33:15.700] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4241',
+     code: '4191',
+     sms_no: '4241' } }
+[2015-08-12 13:33:23.077] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'a4deb415c6ba48f8b859a2c327d84f0e' } }
+[2015-08-12 13:33:23.082] [INFO] console - reset password a4deb415c6ba48f8b859a2c327d84f0e
+[2015-08-12 13:33:28.815] [INFO] console - get response body { code: '200', message: 'OK', result: {} }
+[2015-08-12 14:02:55.316] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 14:03:06.202] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 14:03:52.097] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 14:05:35.172] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 14:06:10.996] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 14:06:14.082] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 14:08:43.008] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 14:09:05.666] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 14:09:39.607] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 14:11:24.277] [INFO] console - reset password ee75fcc3b35a4d6e9720ce41b87c0bb5
+[2015-08-12 16:47:38.856] [INFO] console - get post on checkout { a: '123', b: '234', c: '345' }
+[2015-08-12 16:49:20.913] [INFO] console - get post on checkout { a: '123', b: '234', c: '345' }
+[2015-08-12 16:50:50.737] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 16:52:02.780] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 16:52:36.065] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:21:52.543] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:21:56.042] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:22:57.260] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:22:59.889] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:23:03.385] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:23:23.340] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:23:29.520] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:24:45.377] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:25:23.897] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:26:08.450] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:26:17.418] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:26:35.809] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:26:42.946] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:27:17.896] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:27:22.853] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:32:38.101] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:33:47.372] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:42:03.389] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:42:05.905] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:42:14.657] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 17:42:59.833] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 18:01:13.950] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 18:05:58.686] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 18:06:04.970] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-12 18:07:04.842] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-12 18:13:11.367] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  exchange_info: '中国银行上海分行 2015-08-05 10:05 汇率：1 USD = 6.2009 CNY',
+  amount: '1234.00',
+  currency: 'CNY' }
+[2015-08-12 18:14:02.759] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-12 18:14:38.687] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-12 18:14:44.608] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-12 18:15:07.488] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-12 18:15:32.442] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-12 18:15:34.425] [INFO] console - get post on checkout {}
+[2015-08-12 18:16:42.171] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-12 18:20:30.283] [INFO] console - get post on checkout {}
+[2015-08-12 18:20:35.258] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }

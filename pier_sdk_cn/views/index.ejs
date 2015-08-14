@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/checkout.js"></script>
+</head>
+<body>
+	<h1>Index.ejs</h1>
+	<div id="pier-btn"></div>
+	<button onclick="post('http://192.168.1.12:4000/checkout/login/1234567890')" target="_blank">品而支付</button>
+
+	<script type="text/javascript">
+        // $()
+        function post(URL) { 
+        	var temp_form = document.createElement("form");      
+            temp_form.action = URL;      
+            temp_form.target = "_blank";
+            temp_form.method = "post";      
+            temp_form.style.display = "none"; 
+            var PARAMS = {
+            	merchant_name: '春田花花工作室',
+			  	amount: '1234.00',
+			  	currency: 'CNY'
+            }
+            for (var x in PARAMS) 
+            {   
+            	var opt = document.createElement("textarea");      
+                opt.name = x;      
+                opt.value = PARAMS[x];      
+                temp_form .appendChild(opt);      
+            }      
+            document.body.appendChild(temp_form);      
+            temp_form.submit();     
+        } 
+	</script>
+
+</body>
+</html>
