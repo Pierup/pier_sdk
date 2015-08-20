@@ -1,0 +1,28 @@
+<% include ../checkout-header%>
+<div class="container pt-0">
+    <div class="content" >
+		<div class="title">
+			<p>支付</p>
+    	</div>
+    	<div class="pier-form" style="padding:40px;">
+	    	<div class="description">
+			    <div class="merchant-info">
+			        <h4><span class="gray">收款商户名称: </span><%=merchant_name%></h4>
+			        <p></p>
+			    </div>
+			    <div class="merchant-amount">
+			        <h2><%=amount%> <span style="font-size:24px"> <%=currency%></span> </h2>
+			    </div>
+			</div>
+
+			<div class="text-center" style="margin-top:120px;">
+                <img src="../images/failed.png" />
+                <h2 style="font-weight:lighter;color:red;">出错啦</h2>
+                <p><%=errorMsg%></p>
+                <!--<p>此订单可能已经支付过<br>或此订单信息出错，请返回商家重新购买</p>-->
+			</div>
+			<br><br><br><br>
+    	</div>
+    </div>
+</div>
+<% include ../footer%>

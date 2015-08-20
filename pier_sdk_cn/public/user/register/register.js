@@ -96,7 +96,6 @@ angular.module( 'RegisterApp', ['ui.router'])
 	$scope.phone = '';
 	$scope.smsCode = ''
 	$scope.hasSendCode = false;
-	$scope.timeHandler = "获取验证码";
 	$scope.timeStemp = 60;
 	$scope.sendCodeFlag = false;
 	$scope.nextFlag = false;
@@ -111,12 +110,14 @@ angular.module( 'RegisterApp', ['ui.router'])
 		getCode: "获取验证码"
 
 	}
+	$scope.timeHandler = $scope.checkCode.getCode;
 
-    $scope.$watch( 'phone', function( newVal, oldVal, scope ){
-    	if( newVal !== '' && $scope.phone.length == $scope.phoneLength ){
-    		clearError();
-    	}
-    })
+    // $scope.$watch( 'phone', function( newVal, oldVal, scope ){
+    // 	if( $scope.phone == '' ) return;
+    // 	if( $scope.phone.length == $scope.phoneLength ){
+    // 		clearError();
+    // 	}
+    // })
     $scope.getValidCode = function(){
     	$scope.phoneError = false;
     	$scope.smsError = false;
@@ -163,7 +164,11 @@ angular.module( 'RegisterApp', ['ui.router'])
 	    $scope.hasSendCode = false;
 	    $scope.timeStemp = 60;
 	    $scope.smsCode = "";
-	    if( $scope.phone != '' && $scope.phone.length == $scope.phoneLength ){
+	    if( $scope.phone == undefined ){
+	    	$scope.phone = "";
+	    	 return;
+	    }
+	    if( $scope.phoneLength == $scope.phone.length ){
             clearError();
 	    }
 	};

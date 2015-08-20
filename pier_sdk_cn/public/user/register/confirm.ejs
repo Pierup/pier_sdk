@@ -36,7 +36,7 @@
 		    </section>
 		    <section class="section3" ng-hide="editStatus"><span style="cursor:pointer;" ng-click="changeEditStatus()"><i class="fa fa-edit fa-lg"></i>&nbsp;&nbsp;&nbsp;修改 <span></section>
 		    <section class="section3" ng-show="editStatus"><button class="email-modify-btn" ng-click="
-		    cancelEdit()">取消</button>&nbsp;&nbsp;&nbsp;<button class="email-modify-btn" ng-click="saveEmail()" type="button">保存<i class="fa fa-gear fa-spin" ng-show="saveEmailFlag" ></i></button></section>
+		    cancelEdit()" type="button">取消</button>&nbsp;&nbsp;&nbsp;<button class="email-modify-btn" ng-click="saveEmail()" type="button">保存<i class="fa fa-gear fa-spin" ng-show="saveEmailFlag" ></i></button></section>
 	    </div>
     </article>
     <article ng-repeat="bankCard in bankCards"> 

@@ -1,0 +1,46 @@
+<% include ../header%>
+<div class="container pt-0">
+    <div class="content">
+		<div class="title">
+			<p>结算</p>
+    	</div>
+    	<div class="pier-form">
+	    	<div class="order-detail">
+		    	<h4>商品信息</h4>
+		    	<table class="table text-center" >
+			    	<thead>
+				        <tr>
+				           <th>商品</th>
+				           <th>类别</th>
+				           <th>单价</th>
+				           <th>数量</th>
+				           <th>小计</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				    <% order_detail.items.forEach(function (obj, k){ %>
+		                <tr>
+				           <td><img src="<%=obj.logo%>"/> <%=obj.product%><br><span class="detail"><%=obj.detail%></span></td>
+				           <td><%=obj.type%></td>
+				           <td><%=obj.price%></td>
+				           <td><%=obj.count%></td>
+				           <td><%=obj.total%></td>
+				        </tr>
+		            <% }) %>
+			        </tbody>
+		    	</table>
+	    	</div>
+	    	<div class="order-check">
+		    	<h4><span style="font-size:14px;color:#7b37a6;">共计：</span><span class="pull-right" style="font-size:22px;color:#7b37a6;"><%=order_detail.totalAmount%></span></h4>
+	    	    <button onclick="window.location.href='/checkout/payment'">付款</button>
+	    	    <p style="font-size:12px;text-align:center;margin-top:12px;">最终金额以支付显示时为准</p>
+	    	</div>
+	    	<div class="order-back">
+		    	<span>如需修改购物车请回商家修改</span>
+		    	<span class="pull-right"><input type="checkbox" /> 我已阅读并同意<span style="color:#7b37a6;">《品而信用海外购物服务协议》</span></span>
+	    	</div>
+    	</div>
+    </div>
+</div>
+<% include ../footer%>
+

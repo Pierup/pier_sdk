@@ -17,26 +17,26 @@
 		    	<div class="header" >
 			    	<p>登录品而信用</p>
 		    	</div>
-		    	<form class="login-body form-inline">
-		    	  <br>
+		    	<form class="login-body form-inline" name="loginForm" action="/checkout/login_auth" method="POST" onsubmit="return userLoginCheck()">
+		    	  <div style="height:48px;padding-top:10px;" id="phoneError" class="error"><%=errorMsg%></div>
 				  <div class="form-group">
-				    <div class="input-group">
+				    <div class="input-group" style="margin-top:0px;">
 				      <div class="input-group-addon" style="width:50px;background:#fff;border-right:0px;"><i class="fa fa-lg fa-male"></i></div>
-				      <input type="text" class="form-control" id="phone" placeholder="请输入您的手机号码">
+				      <input type="text" class="form-control" id="phone" placeholder="请输入您的手机号码"  maxlength="11" name="phone" value="<%=phone%>" />
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <div class="input-group">
 				      <div class="input-group-addon" style="width:50px;background:#fff;border-right:0px;"><i class="fa fa-lock fa-lg"></i></div>
-				      <input type="password" class="form-control" id="password" placeholder="请输入您的密码">
-				      <input type="hidden" value="<%=order_id%>" id="order_id"/>
+				      <input type="password" class="form-control" id="password" placeholder="请输入您的密码" maxlength="32" name="password" value="<%=password%>" autocomplete="off"/>
+				      <!-- <input type="hidden" value="<%=order_id%>" id="order_id"/> -->
 				    </div>
 				  </div>
 				  <p class="forget"><a class="gray" href="/user/forgetPassword">忘记密码</a></p>
 
 				  <div class="form-group">
 				    <div class="input-group">
-				      <button class="checkout-login-btn" type="button">登录</button>
+				      <button class="checkout-login-btn" type="submit" id="checkout-login">登录</button>
 				    </div>
 				  </div>
 				  <p class="register">没有账号？<a href="/user/register" style="color:#7b37a6;">立即注册</a></p>
@@ -47,11 +47,18 @@
 </div>
 <script type="text/javascript">
 	$(function(){
-		$('.checkout-login-btn').click(function(){
-			var _orderId = $("#order_id").val();
-			window.location.href='/checkout/payment/'+_orderId;
-		})
+		$('#phone').get(0).addEventListener( 'input', function(){
+			var $_phoneValue = $(this).val();
+			var numberInput = $_phoneValue.replace(/[^0-9]/g, '');
+			if( $_phoneValue != numberInput ){
+				$('#phone').val( numberInput );
+			}
+			if( $('#phone').val().length == 11 ){
+				$('#phoneError').val();
+			}
+		});
 	})
+
 </script>
 
 <% include ../footer%>
