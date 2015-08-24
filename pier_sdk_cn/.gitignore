@@ -1,6 +1,6 @@
-/myapp/public/bower_components
+/sdk/public/bower_components
 /node_modules
-/myapp/node_modules
+/sdk/node_modules
 npm-debug.log
-/myapp/npm-debug.log
+/sdk/npm-debug.log
 *.DS_Store

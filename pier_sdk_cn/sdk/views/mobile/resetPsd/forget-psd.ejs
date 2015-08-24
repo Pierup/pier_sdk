@@ -1,0 +1,38 @@
+<% include ../header%>
+<script src="../../user/js/forget-psd/mobile-forget-psd.js"></script>
+<div class="container mobile-forget-container" ng-app="ForgetPassword" ng-controller="ForgetController">
+    <div class="row">
+      <h3 class="title">请输入如下信息重置您的登录密码：</h3>
+    </div>
+    <div class="row">
+		<form role="form" class="mobile-form">
+		    <div class="form-group">
+
+		       <label for="idNum">身份证号码</label>
+		       <input type="text" class="form-control" placeholder="请输入您的18位身份证号码" name="idNum" maxlength="{{idLength}}" id="idNum" ng-model="idNum" id-card-input>
+		    </div>
+		    <div class="form-group">
+			    <div class="col-sm-12  error" ng-show="phoneError">
+				    <span class="error" id="phoneErrorMsg"></span>
+			    </div>
+		       <label for="phone">手机号</label>
+		       <input type="text" class="form-control" placeholder="请输入中国大陆的手机号码" name="phone" id="phone" maxlength="{{phoneLength}}" number-only-input ng-model="phone" ng-change="phoneChange()">
+		    </div>
+		    <div class="form-group">
+		       <label for="phone">短信验证码</label><br>
+		       <input type="text" class="form-control valid-code-input"placeholder="请输入验证码" name="SMScode" id="smsCode" ng-model="smsCode" maxlength="4" />
+		       <button class="code-btn" type="button" id="getCode" ng-click="getValidCode()" ng-disabled="hasSendCode">{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag"></i></button>
+		    </div>
+
+		    <div class="form-group">
+			    <div class="col-sm-12 error" ng-show="idError" >
+				    <span class="error" id="idErrorMsg"></span>
+			    </div>
+			    <div class="col-sm-12  error" ng-show="phoneError">
+				    <span class="error" id="phoneErrorMsg"></span>
+			    </div>
+		        <button type="button" class="submit-btn" ng-click="verifyId()">下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="nextFlag"></i></button>
+		    </div>
+		</form>
+	</div>
+</div>

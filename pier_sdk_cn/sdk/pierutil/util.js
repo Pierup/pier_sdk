@@ -33,7 +33,52 @@ var pierUtil = {
       }
     }
     return options;
+  },
+  checkAuthOrder: function( req, res ){
+    var authOrder = req.session['auth_order'];
+    if( authOrder.order_id == undefined ){
+      res.redirect('/checkout/unknownError');
+      return false;
+    }else{
+      return authOrder;
+    }
+  },
+  checkUserAuth: function( req, res ){
+    var userAuth = req.session['user_auth'];
+    if( userAuth.user_id == undefined ){
+      res.redirect('/checkout/login');
+      return false;
+    }else{
+      return userAuth;
+    }
+  },
+  checkUserAuthForLogin: function(){
+    var userAuth = req.session['user_auth'];
+    if( userAuth.user_id == undefined ){
+      return false;
+    }else return true;
+  },
+  checkPhone: function( phone, num ){
+    var phoneVal = phone || '';
+    var numVal = num || 11;
+    var msg = '';
+    if( phoneVal.length < numVal ) msg = '您输入的手机号码不正确。';
+    return msg;
+  },
+  checkPassword: function( password ){
+    var passwordVal = password || '';
+    var reg = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{6,}$/;
+    var msg = '';
+    if( !reg.test( passwordVal ) )  msg =  '密码必须包含一个字母和数字组成，并且至少6位。';
+    return msg;
+  },
+  refreshToken: function( token, req ){
+    req.session['user_auth'].session_token = token;
+  },
+  clearUserAuth: function( req ){
+    req.session['userAuth'] = {};
   }
+
 }
 
 module.exports = pierUtil;

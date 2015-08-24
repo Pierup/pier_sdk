@@ -2177,3 +2177,6 @@
   title: '申请信用成功' }
 [2015-08-14 18:05:58.672] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
 [2015-08-14 18:06:09.272] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-14 18:25:18.666] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 09:42:41.331] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 10:23:52.618] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }

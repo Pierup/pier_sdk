@@ -21,6 +21,21 @@ var apiurl = {
 	regSetPayPsd: {url:'/user_api_cn/v1/user/set_pay_password?platform=3'},
 	bankCardInfo: {url: '/common_api_cn/v1/query/bank_card_info?platform=3', method: 'GET'},
 	regGetBankCards :{url: '/user_api_cn/v1/user/bank_cards?platform=3' },
-	regApplyCredit: {url: '/user_api_cn/v1/user/apply_credit?platform=3' }
+	regApplyCredit: {url: '/user_api_cn/v1/user/apply_credit?platform=3' },
+
+	//checkout flow
+	checkoutLogin: {url:'/user_api_cn/v1/user/signin?platform=3'},
+	checkoutSMS: {url: '/user_api_cn/v1/user/transaction_sms?platform=3'},
+	checkoutPay: {url: '/user_api_cn/v1/user/pay_by_pier?platform=3'},
+
+	//reset pay password
+	forgetPaymentPassword: {url:'/user_api_cn/v1/user/forget_payment_password?platform=3'},
+	forgetPaymentPasswordValidate: {url: '/user_api_cn/v1/user/forget_payment_password_validate?platform=3'},
+	forgetPaymentPasswordReset: {url: '/user_api_cn/v1/user/forget_payment_password_reset?platform=3'},
+
+	//order information
+    saveOrderInfo: {url: '/user_api_cn/v1/user/save_order_info?platform=3'},
+    orderInfo: {url: '/user_api_cn/v1/user/order_info?platform=3' }
+
 }
 module.exports = apiurl;

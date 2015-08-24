@@ -1,22 +1,14 @@
 {
-  "name": "init",
-  "version": "0.0.0",
-  "private": true,
+  "name": "pier_sdk_cn",
+  "version": "1.0.0",
+  "description": "pier checkout sdk in china",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Cheng Cong",
+  "license": "ISC",
   "dependencies": {
-    "body-parser": "~1.12.4",
-    "connect": "^3.4.0",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "ejs": "^2.3.3",
-    "express": "~4.12.4",
-    "express-session": "^1.11.3",
-    "jade": "~1.9.2",
-    "log4js": "^0.6.26",
-    "morgan": "~1.5.3",
-    "request": "^2.60.0",
-    "serve-favicon": "~2.2.1"
+    "express": "^4.13.3"
   }
 }

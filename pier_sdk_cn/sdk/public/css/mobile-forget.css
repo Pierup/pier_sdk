@@ -1,0 +1,63 @@
+.mobile-forget-container{
+
+}
+.mobile-forget-container .title{
+	font-size: 1.4em;
+	font-weight: lighter;
+	text-align: center;
+	color: #7b37a6;
+	margin-top: 2em;
+}
+.mobile-form{
+	padding: 1.4em;
+}
+.mobile-form label{
+	font-size: 1.4em;
+	font-weight: lighter;
+	text-align: center;
+	color: rgb(160,160,160);
+}
+.mobile-form input{
+	height: 3.2em;
+	outline: none;
+	font-size: 1.2em;
+}
+.mobile-form input:focus{
+	box-shadow:0px 0px 10px rgb(221, 172, 251);
+	border-radius: 4px;
+	border-color: rgb(221, 172, 251);
+	transition: box-shadow 1s;
+	-moz-transition: box-shadow 1s;
+	-webkit-transition: box-shadow 1s;
+	-o-transition: box-shadow 1s;
+}
+.valid-code-input{
+	width: 60%;
+	float: left;
+}
+.code-btn{
+	width: 36%;
+	height: 3.1em;
+	outline: none;
+	font-size: 1.2em;
+	margin-left: 4%;
+	border-radius: 4px;
+	background: #7b37a6;
+	color: #fff;
+	border:1px solid #7b37a6;
+}
+.submit-btn{
+	width: 100%;
+	height: 3.1em;
+	outline: none;
+	font-size: 1.2em;
+	border-radius: 4px;
+	background: #7b37a6;
+	color: #fff;
+	border:1px solid #7b37a6;
+	margin-top: 30px;
+}
+.error{
+	color: red;
+	padding-left:0px;
+}

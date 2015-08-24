@@ -1,0 +1,29 @@
+<% include ../header%>
+<script src="../../../user/js/forget-psd/mobile-forget-psd.js"></script>
+<div class="container mobile-forget-container" ng-app="ForgetPassword" ng-controller="ResetController">
+    <div class="row">
+      <h3 class="title">重新设置您的登录密码：</h3>
+    </div>
+    <div class="row">
+		<form role="form" class="mobile-form">
+		    <div class="form-group">
+		       <label for="password">密码</label>
+		       <input  class="form-control" type="password" placeholder="请设置密码" name="password"  ng-model="password" maxlength="32" ng-blur="validPassword()" >
+		       <input type="hidden" id="token" value="<%=token%>" />
+		    </div>
+		    <div class="form-group">
+		       <label for="passwordConfirm">确认密码</label>
+		       <input  class="form-control" type="password" placeholder="请设置密码"  name="passwordConfirm" ng-model="passwordConfirm" ng-blur="validateMatch($event)">
+		    </div>
+		    <div class="form-group">
+			    <div class="col-sm-12 error" ng-show="passwordNotRight" >
+				    <span class="error" id="idErrorMsg">密码至少包含1个数字和1个字母，并且不少于6个字符。</span>
+			    </div>
+			    <div class="col-sm-12  error" ng-show="passwordNotMatch">
+				    <span class="error" id="phoneErrorMsg">密码不匹配</span>
+			    </div>
+		        <button type="button" class="submit-btn" ng-click="resetPsd()">重置登入密码&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="resetFlag"></i></button>
+		    </div>
+		</form>
+	</div>
+</div>

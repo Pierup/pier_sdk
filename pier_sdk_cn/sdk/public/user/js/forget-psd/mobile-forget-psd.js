@@ -23,6 +23,7 @@ angular.module( 'ForgetPassword',[])
     	$scope.phoneError = false;
     	if( $scope.phone == '' || $scope.phoneLength != $scope.phone.length ){
     		$scope.phoneError = true;
+    		$('#phoneErrorMsg').html( '你的身份证号码必须是'+$scope.phoneLength+'位' );
     		return;
     	}
     	$scope.sendCodeFlag = true;
@@ -37,8 +38,8 @@ angular.module( 'ForgetPassword',[])
     		timer();
     		$scope.smsCode = '';
     	}, function( reason ){
-            $scope.errorMessage = reason.message;
-            $scope.msgError = true;   
+            $('#phoneErrorMsg').html( reason.message );
+            $scope.phoneError = true;
     	}).then(function(){
     		$scope.sendCodeFlag = false;
     	})
@@ -49,8 +50,10 @@ angular.module( 'ForgetPassword',[])
     	$scope.verifyError = false;
     	if( $scope.idNum == '' || $scope.idLength != $scope.idNum.length){
     		$scope.idError = true;
+    		$('#idErrorMsg').html( '你的身份证号码必须是'+$scope.idLength+'位' );
     		return;
     	}
+    	if( $scope.smsCode == undefined || $scope.smsCode == '' ) return;
     	$scope.nextFlag = true;
     	var url = SdkUrl.activation,
     	message = {
@@ -61,12 +64,11 @@ angular.module( 'ForgetPassword',[])
     	var pNext = HttpService.templateAccessAPI( url, message );
     	pNext.then( function(result){
     		$log.debug('activate valid code success', result );
-    		window.location.href="/user/resetPassword/"+result.token;
+    		window.location.href="/mobile/user/resetPassword/"+result.token;
            
     	}, function( reason ){
-    		$scope.verifyError = true;
-    		$scope.errorMsg = reason.message;
-
+    		$scope.idError = true;
+    		$('#idErrorMsg').html( reason.message );
     	}).then(function(){
     		$scope.nextFlag = false;
     	})
@@ -124,7 +126,7 @@ angular.module( 'ForgetPassword',[])
 		var pReset = HttpService.templateAccessAPI( url, message );
 		pReset.then(function(result){
 			$log.debug( 'reset success',result );
-			window.location.href="/user/resetSuccess";
+			window.location.href="/mobile/user/resetSuccess";
 			
 		}, function(reason){
 			$log.debug( 'reset failed',reason );
