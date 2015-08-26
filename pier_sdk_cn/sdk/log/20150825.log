@@ -1,0 +1,2163 @@
+[2015-08-25 13:24:33.518] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORpxkANpPdHBj","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 13:24:33.557] [INFO] console - user save new order  { code: '200', message: 'OK', result: {} }
+[2015-08-25 13:24:33.563] [INFO] console - user auth when user login undefined
+[2015-08-25 13:24:35.964] [INFO] console - user register start
+[2015-08-25 13:25:06.739] [INFO] console - user register start
+[2015-08-25 13:25:30.563] [INFO] console - user register start
+[2015-08-25 13:26:06.586] [INFO] console - user register start
+[2015-08-25 13:26:15.061] [INFO] console - user register start
+[2015-08-25 13:26:24.899] [INFO] console - user register start
+[2015-08-25 13:26:26.363] [INFO] console - user register start
+[2015-08-25 13:26:46.309] [INFO] console - user register start
+[2015-08-25 13:28:47.160] [INFO] console - user register start
+[2015-08-25 13:29:13.820] [INFO] console - user register start
+[2015-08-25 13:30:04.876] [INFO] console - user register start
+[2015-08-25 13:31:38.991] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '5864' } }
+[2015-08-25 13:31:44.641] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '4f5e7dc8cfc6471407009c05a790dc9e' } }
+[2015-08-25 13:31:57.000] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006883',
+     session_token: '7f297955-4ae9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 13:32:23.665] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '7f297955-4ae9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 13:32:27.928] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '7f297955-4ae9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 13:32:51.129] [INFO] console - user register start
+[2015-08-25 13:34:41.994] [INFO] console - user register start
+[2015-08-25 13:40:30.988] [INFO] console - user register start
+[2015-08-25 13:40:51.179] [INFO] console - user register start
+[2015-08-25 13:44:17.386] [INFO] console - user register start
+[2015-08-25 13:44:26.622] [INFO] console - get response body { code: '1163', message: '不支持该银行卡', result: {} }
+[2015-08-25 13:44:34.873] [INFO] console - get response body { code: '1163', message: '不支持该银行卡', result: {} }
+[2015-08-25 13:45:16.368] [INFO] console - user register start
+[2015-08-25 13:45:31.150] [INFO] console - user register start
+[2015-08-25 13:50:00.689] [INFO] console - user register start
+[2015-08-25 13:50:34.919] [INFO] console - user register start
+[2015-08-25 13:55:06.380] [INFO] console - user register start
+[2015-08-25 13:55:51.541] [INFO] console - user register start
+[2015-08-25 13:56:31.642] [INFO] console - user register start
+[2015-08-25 13:59:35.608] [INFO] console - user register start
+[2015-08-25 13:59:51.392] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OR4JzfZhXsZQc","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 13:59:51.427] [INFO] console - user save new order  { code: '200', message: 'OK', result: {} }
+[2015-08-25 13:59:51.433] [INFO] console - user auth when user login undefined
+[2015-08-25 14:01:02.538] [INFO] console - user register start
+[2015-08-25 14:01:56.172] [INFO] console - user register start
+[2015-08-25 14:02:14.406] [INFO] console - user register start
+[2015-08-25 14:04:00.716] [INFO] console - user register start
+[2015-08-25 14:04:34.159] [INFO] console - user register start
+[2015-08-25 14:06:31.350] [INFO] console - user register start
+[2015-08-25 14:07:14.867] [INFO] console - user register start
+[2015-08-25 14:07:24.185] [INFO] console - user register start
+[2015-08-25 14:07:51.093] [INFO] console - user register start
+[2015-08-25 14:08:59.847] [INFO] console - user register start
+[2015-08-25 14:10:02.237] [INFO] console - user register start
+[2015-08-25 14:10:22.431] [INFO] console - user register start
+[2015-08-25 14:10:28.753] [INFO] console - user register start
+[2015-08-25 14:10:46.824] [INFO] console - user register start
+[2015-08-25 14:11:02.166] [INFO] console - user register start
+[2015-08-25 14:11:16.185] [INFO] console - user register start
+[2015-08-25 14:12:11.769] [INFO] console - user register start
+[2015-08-25 14:12:37.862] [INFO] console - user register start
+[2015-08-25 14:12:46.405] [INFO] console - user register start
+[2015-08-25 14:13:36.440] [INFO] console - user register start
+[2015-08-25 14:26:26.661] [INFO] console - user register start
+[2015-08-25 14:26:52.389] [INFO] console - user register start
+[2015-08-25 14:27:12.748] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '19',
+     name: 'ffsfds',
+     user_id: 'UR0000006883',
+     id_verified: '0',
+     session_token: '377f5d9a-4af1-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:30:57.946] [INFO] console - user register start
+[2015-08-25 14:31:35.035] [INFO] console - user register start
+[2015-08-25 14:32:15.053] [INFO] console - user register start
+[2015-08-25 14:32:18.743] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '19',
+     name: 'ffsfds',
+     user_id: 'UR0000006883',
+     id_verified: '0',
+     session_token: 'ede2ab95-4af1-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:32:43.725] [INFO] console - user register start
+[2015-08-25 14:36:11.442] [INFO] console - user register start
+[2015-08-25 14:36:15.624] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '19',
+     name: 'ffsfds',
+     user_id: 'UR0000006883',
+     id_verified: '0',
+     session_token: '7b133fea-4af2-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:41:57.659] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-25 14:42:20.870] [INFO] console - get response body { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: { resend_time: '60', session_token: '', bank_card_id: '' } }
+[2015-08-25 14:43:29.197] [INFO] console - user register start
+[2015-08-25 14:43:31.856] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-25 14:43:37.941] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006894' } }
+[2015-08-25 14:43:49.045] [INFO] console - get response body { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: { session_token: '' } }
+[2015-08-25 14:45:09.856] [INFO] console - user register start
+[2015-08-25 14:45:12.300] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-25 14:45:17.232] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006894' } }
+[2015-08-25 14:45:29.953] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:45:30.018] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '84161516146',
+     id_number: '350783198701011234',
+     id_verified: '1',
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cdfsf@126.com',
+     status_bit: '23',
+     dob: '19870101',
+     name: 'ffsfds',
+     user_id: 'UR0000006883' } }
+[2015-08-25 14:45:30.045] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:45:48.699] [INFO] console - user register start
+[2015-08-25 14:45:49.013] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '84161516146',
+     id_number: '350783198701011234',
+     id_verified: '1',
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cdfsf@126.com',
+     status_bit: '23',
+     dob: '19870101',
+     name: 'ffsfds',
+     user_id: 'UR0000006883' } }
+[2015-08-25 14:45:49.061] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:46:06.561] [INFO] console - user register start
+[2015-08-25 14:46:06.843] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '84161516146',
+     id_number: '350783198701011234',
+     id_verified: '1',
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cdfsf@126.com',
+     status_bit: '23',
+     dob: '19870101',
+     name: 'ffsfds',
+     user_id: 'UR0000006883' } }
+[2015-08-25 14:46:06.902] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:46:43.785] [INFO] console - user register start
+[2015-08-25 14:46:44.145] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '84161516146',
+     id_number: '350783198701011234',
+     id_verified: '1',
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cdfsf@126.com',
+     status_bit: '23',
+     dob: '19870101',
+     name: 'ffsfds',
+     user_id: 'UR0000006883' } }
+[2015-08-25 14:46:44.186] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '82b780e1-4af3-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:47:28.485] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORi3BdpkADWhx","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 14:47:28.742] [INFO] console - user save new order  { code: '200', message: 'OK', result: {} }
+[2015-08-25 14:47:28.758] [INFO] console - user auth when user login undefined
+[2015-08-25 14:51:10.199] [INFO] console - user register start
+[2015-08-25 14:51:37.871] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '5733' } }
+[2015-08-25 14:51:42.998] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'c953a44ce3d69e4b56d007d9532e6afb' } }
+[2015-08-25 14:51:53.852] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006895',
+     session_token: 'aa4dd8eb-4af4-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:52:07.341] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORdbTxahDEMc3","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 14:52:07.374] [INFO] console - user save new order  { code: '200', message: 'OK', result: {} }
+[2015-08-25 14:52:07.381] [INFO] console - user auth when user login undefined
+[2015-08-25 14:52:15.261] [INFO] console - checkout user login params { phone: '12345632100', password: '11111a' }
+[2015-08-25 14:52:15.292] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     name: '',
+     user_id: 'UR0000006895',
+     id_verified: '0',
+     session_token: 'b714f56c-4af4-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 14:52:15.292] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORdbTxahDEMc3',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 14:52:15.299] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORdbTxahDEMc3',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 14:52:15.300] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 15:28:22.493] [INFO] console - user register start
+[2015-08-25 15:28:22.835] [INFO] console - get response body { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: { session_token: '' } }
+[2015-08-25 15:28:29.220] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '23',
+     name: 'ffsfds',
+     user_id: 'UR0000006883',
+     id_verified: '1',
+     session_token: 'c6d77aea-4af9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:28:43.117] [INFO] console - user register start
+[2015-08-25 15:28:43.413] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '84161516146',
+     id_number: '350783198701011234',
+     id_verified: '1',
+     session_token: 'c6d77aea-4af9-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cdfsf@126.com',
+     status_bit: '23',
+     dob: '19870101',
+     name: 'ffsfds',
+     user_id: 'UR0000006883' } }
+[2015-08-25 15:28:43.474] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: 'c6d77aea-4af9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:29:12.883] [INFO] console - user apply credit { user_id: 'UR0000006883',
+  session_token: 'c6d77aea-4af9-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:29:12.952] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { info_bit: '0',
+     id_verified: '1',
+     session_token: 'c6d77aea-4af9-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1200',
+     status_bit: '159',
+     name: 'ffsfds',
+     inviter_id: '',
+     shadow_limit: '2400' } }
+[2015-08-25 15:31:33.871] [INFO] console - user apply credit { user_id: 'UR0000006883',
+  session_token: 'c6d77aea-4af9-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:31:34.142] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { info_bit: '0',
+     id_verified: '1',
+     session_token: 'c6d77aea-4af9-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1200',
+     status_bit: '159',
+     name: 'ffsfds',
+     inviter_id: '',
+     shadow_limit: '2400' } }
+[2015-08-25 15:32:22.818] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORpSK2xGdZ7xx","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 15:32:22.850] [INFO] console - user save new order  { code: '200', message: 'OK', result: {} }
+[2015-08-25 15:32:22.861] [INFO] console - user auth when user login undefined
+[2015-08-25 15:32:24.211] [INFO] console - user register start
+[2015-08-25 15:32:33.251] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '3913' } }
+[2015-08-25 15:32:39.700] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '33776cfd0ec78689df6ae9e33a2e4e98' } }
+[2015-08-25 15:32:56.580] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006901',
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:33:12.078] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:33:15.847] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:33:24.846] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-25 15:33:29.869] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006903' } }
+[2015-08-25 15:33:33.490] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:33:33.546] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '46464656666',
+     id_number: '350783198701010123',
+     id_verified: '1',
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'fsadsada@163.com',
+     status_bit: '23',
+     dob: '19870101',
+     name: 'zada',
+     user_id: 'UR0000006901' } }
+[2015-08-25 15:33:33.579] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:33:34.876] [INFO] console - user apply credit { user_id: 'UR0000006901',
+  session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:33:34.943] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { info_bit: '0',
+     id_verified: '1',
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1200',
+     status_bit: '159',
+     name: 'zada',
+     inviter_id: '',
+     shadow_limit: '2400' } }
+[2015-08-25 15:33:36.193] [INFO] console - user auth when user login { user_id: 'UR0000006901',
+  session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9',
+  name: 'zada' }
+[2015-08-25 15:33:36.204] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORpSK2xGdZ7xx',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 15:33:36.205] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 15:33:38.586] [INFO] console - get payment on checkout
+[2015-08-25 15:33:47.438] [INFO] console - checkout get sms api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORpSK2xGdZ7xx',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-25 15:33:47.472] [INFO] console - user get sms when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { amount: '110.00',
+     prefix_phone: '46464656666',
+     sms_code: '3761',
+     expiration: '180',
+     merchant_name: 'Flower Company',
+     sms_no: '4384',
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:33:50.069] [INFO] console - checkout get pay api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORpSK2xGdZ7xx',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-25 15:33:50.157] [INFO] console - user make payment { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '66338048-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:34:45.318] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORF7RRRGGn7QQ","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 15:34:45.367] [INFO] console - user save new order  { code: '200', message: 'OK', result: {} }
+[2015-08-25 15:34:45.371] [INFO] console - user auth when user login undefined
+[2015-08-25 15:34:46.946] [INFO] console - user register start
+[2015-08-25 15:34:54.368] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '9050' } }
+[2015-08-25 15:34:58.497] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'e56fd0ae278e9f4d2092d33471cca579' } }
+[2015-08-25 15:35:11.347] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006910',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:35:40.593] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:35:44.209] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:35:55.152] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-25 15:36:02.410] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006912' } }
+[2015-08-25 15:36:05.998] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:36:06.048] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '86315351312',
+     id_number: '350783199801010123',
+     id_verified: '1',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'dasda@gmail.com',
+     status_bit: '23',
+     dob: '19980101',
+     name: '程聪',
+     user_id: 'UR0000006910' } }
+[2015-08-25 15:36:06.081] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 15:36:10.442] [INFO] console - user apply credit { user_id: 'UR0000006910',
+  session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:36:10.472] [INFO] console - get apply credit response body { code: '1160',
+  message: '很抱歉，您未满18周岁，无法申请品而信用的信用额度。您可以在“立即还款”中向账户充值后进行消费。',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '',
+     inviter_reward_id: '',
+     status_bit: '31',
+     name: '程聪',
+     reward_id: '',
+     inviter_id: '',
+     shadow_limit: '',
+     reward_status: '' } }
+[2015-08-25 15:38:37.146] [INFO] console - user apply credit { user_id: 'UR0000006910',
+  session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:38:37.280] [INFO] console - get apply credit response body { code: '1160',
+  message: '很抱歉，您未满18周岁，无法申请品而信用的信用额度。您可以在“立即还款”中向账户充值后进行消费。',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '',
+     inviter_reward_id: '',
+     status_bit: '31',
+     name: '程聪',
+     reward_id: '',
+     inviter_id: '',
+     shadow_limit: '',
+     reward_status: '' } }
+[2015-08-25 15:38:53.868] [INFO] console - user apply credit { user_id: 'UR0000006910',
+  session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:38:53.897] [INFO] console - get apply credit response body { code: '1160',
+  message: '很抱歉，您未满18周岁，无法申请品而信用的信用额度。您可以在“立即还款”中向账户充值后进行消费。',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '',
+     inviter_reward_id: '',
+     status_bit: '31',
+     name: '程聪',
+     reward_id: '',
+     inviter_id: '',
+     shadow_limit: '',
+     reward_status: '' } }
+[2015-08-25 15:39:00.048] [INFO] console - user apply credit { user_id: 'UR0000006910',
+  session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:39:00.080] [INFO] console - get apply credit response body { code: '1160',
+  message: '很抱歉，您未满18周岁，无法申请品而信用的信用额度。您可以在“立即还款”中向账户充值后进行消费。',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '',
+     inviter_reward_id: '',
+     status_bit: '31',
+     name: '程聪',
+     reward_id: '',
+     inviter_id: '',
+     shadow_limit: '',
+     reward_status: '' } }
+[2015-08-25 15:39:22.793] [INFO] console - user apply credit { user_id: 'UR0000006910',
+  session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:39:22.824] [INFO] console - get apply credit response body { code: '1160',
+  message: '很抱歉，您未满18周岁，无法申请品而信用的信用额度。您可以在“立即还款”中向账户充值后进行消费。',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '',
+     inviter_reward_id: '',
+     status_bit: '31',
+     name: '程聪',
+     reward_id: '',
+     inviter_id: '',
+     shadow_limit: '',
+     reward_status: '' } }
+[2015-08-25 15:41:34.921] [INFO] console - user apply credit { user_id: 'UR0000006910',
+  session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:41:34.962] [INFO] console - get apply credit response body { code: '1160',
+  message: '很抱歉，您未满18周岁，无法申请品而信用的信用额度。您可以在“立即还款”中向账户充值后进行消费。',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '',
+     inviter_reward_id: '',
+     status_bit: '31',
+     name: '程聪',
+     reward_id: '',
+     inviter_id: '',
+     shadow_limit: '',
+     reward_status: '' } }
+[2015-08-25 15:42:01.225] [INFO] console - user apply credit { user_id: 'UR0000006910',
+  session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:42:01.256] [INFO] console - get apply credit response body { code: '1160',
+  message: '很抱歉，您未满18周岁，无法申请品而信用的信用额度。您可以在“立即还款”中向账户充值后进行消费。',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '',
+     inviter_reward_id: '',
+     status_bit: '31',
+     name: '程聪',
+     reward_id: '',
+     inviter_id: '',
+     shadow_limit: '',
+     reward_status: '' } }
+[2015-08-25 15:42:35.754] [INFO] console - user apply credit { user_id: 'UR0000006910',
+  session_token: 'b6877e7f-4afa-11e5-b0f8-0f6bed642eb9' }
+[2015-08-25 15:42:35.777] [INFO] console - get apply credit response body { code: '1160',
+  message: '很抱歉，您未满18周岁，无法申请品而信用的信用额度。您可以在“立即还款”中向账户充值后进行消费。',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'bf6dcc85-4afb-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '',
+     inviter_reward_id: '',
+     status_bit: '31',
+     name: '程聪',
+     reward_id: '',
+     inviter_id: '',
+     shadow_limit: '',
+     reward_status: '' } }
+[2015-08-25 15:57:44.365] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORFhJ5Zt8jrG2","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 15:57:44.436] [INFO] console - user save new order  undefined
+[2015-08-25 15:57:45.017] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORFhJ5Zt8jrG2","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 15:57:45.058] [INFO] console - user save new order  undefined
+[2015-08-25 15:58:37.702] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORGwnbfY3C6GT","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 15:58:37.750] [INFO] console - user save new order  undefined
+[2015-08-25 15:58:38.328] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORGwnbfY3C6GT","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 15:58:38.367] [INFO] console - user save new order  undefined
+[2015-08-25 15:59:48.994] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORX8QQi3DSNQ7","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 15:59:49.034] [INFO] console - user save new order  undefined
+[2015-08-25 15:59:49.621] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORX8QQi3DSNQ7","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 15:59:49.659] [INFO] console - user save new order  undefined
+[2015-08-25 16:01:52.536] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORiT5wckDebHB","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:01:52.724] [INFO] console - user save new order  undefined
+[2015-08-25 16:01:53.575] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORiT5wckDebHB","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:01:53.809] [INFO] console - user save new order  undefined
+[2015-08-25 16:10:10.815] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OR5hdr8WsMwcm","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:10:10.858] [INFO] console - user save new order  { code: '200', message: 'OK', result: {} }
+[2015-08-25 16:10:10.864] [INFO] console - user auth when user login undefined
+[2015-08-25 16:10:13.318] [INFO] console - user register start
+[2015-08-25 16:10:28.349] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '2516' } }
+[2015-08-25 16:10:33.232] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'bc5c75e728a4a5ac3099b4abda1d5709' } }
+[2015-08-25 16:10:38.901] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006953',
+     session_token: 'aaa5ea93-4aff-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 16:11:09.297] [INFO] console - get response body { code: '400', message: 'Invalid email: ', result: null }
+[2015-08-25 16:11:13.590] [INFO] console - get response body { code: '400', message: 'Invalid email: ', result: null }
+[2015-08-25 16:11:15.257] [INFO] console - get response body { code: '400', message: 'Invalid email: ', result: null }
+[2015-08-25 16:11:22.691] [INFO] console - get response body { code: '400', message: 'Invalid email: ', result: null }
+[2015-08-25 16:11:30.845] [INFO] console - get response body { code: '400', message: 'Invalid email: ', result: null }
+[2015-08-25 16:11:31.875] [INFO] console - get response body { code: '400', message: 'Invalid email: ', result: null }
+[2015-08-25 16:11:32.521] [INFO] console - get response body { code: '400', message: 'Invalid email: ', result: null }
+[2015-08-25 16:13:14.270] [INFO] console - user register start
+[2015-08-25 16:13:26.322] [INFO] console - user register start
+[2015-08-25 16:13:53.357] [INFO] console - user register start
+[2015-08-25 16:18:00.165] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORtW5hZHiw7iA","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:18:00.870] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORtW5hZHiw7iA","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:18:00.982] [INFO] console - user save new order  undefined
+[2015-08-25 16:19:29.590] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORBpYPjiHnPWb","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:19:41.721] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORrah7bCZNmYp","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:19:41.726] [WARN] console - WWWWWWWWWWWWW { url: 'https://121.40.19.24:8443/user_api_cn/v1/user/save_order_info?platform=3',
+  method: 'POST',
+  json: true,
+  body: 
+   { order_id: 'ORrah7bCZNmYp',
+     merchant_id: 'MC0000001409',
+     amount: '110.00',
+     order_detail: '{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"}' },
+  headers: { 'Content-Type': 'application/json' } }
+[2015-08-25 16:19:41.846] [INFO] console - user save new order  undefined
+[2015-08-25 16:19:42.441] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORrah7bCZNmYp","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:19:42.446] [WARN] console - WWWWWWWWWWWWW { url: 'https://121.40.19.24:8443/user_api_cn/v1/user/save_order_info?platform=3',
+  method: 'POST',
+  json: true,
+  body: 
+   { order_id: 'ORrah7bCZNmYp',
+     merchant_id: 'MC0000001409',
+     amount: '110.00',
+     order_detail: '{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"}' },
+  headers: { 'Content-Type': 'application/json' } }
+[2015-08-25 16:19:42.567] [INFO] console - user save new order  undefined
+[2015-08-25 16:31:35.123] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORm8Nim5Ncrm7","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:31:35.233] [INFO] console - user save new order  undefined
+[2015-08-25 16:31:36.087] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORm8Nim5Ncrm7","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:31:36.198] [INFO] console - user save new order  undefined
+[2015-08-25 16:33:28.056] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORys4AGGWGBM4","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:33:28.159] [INFO] console - user save new order  [Error: DEPTH_ZERO_SELF_SIGNED_CERT]
+Error: DEPTH_ZERO_SELF_SIGNED_CERT
+    at SecurePair.<anonymous> (tls.js:1381:32)
+    at SecurePair.emit (events.js:92:17)
+    at SecurePair.maybeInitFinished (tls.js:980:10)
+    at CleartextStream.read [as _read] (tls.js:472:13)
+    at CleartextStream.Readable.read (_stream_readable.js:341:10)
+    at EncryptedStream.write [as _write] (tls.js:369:25)
+    at doWrite (_stream_writable.js:226:10)
+    at writeOrBuffer (_stream_writable.js:216:5)
+    at EncryptedStream.Writable.write (_stream_writable.js:183:11)
+    at write (_stream_readable.js:602:24)
+[2015-08-25 16:33:28.985] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORys4AGGWGBM4","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:33:29.090] [INFO] console - user save new order  [Error: DEPTH_ZERO_SELF_SIGNED_CERT]
+Error: DEPTH_ZERO_SELF_SIGNED_CERT
+    at SecurePair.<anonymous> (tls.js:1381:32)
+    at SecurePair.emit (events.js:92:17)
+    at SecurePair.maybeInitFinished (tls.js:980:10)
+    at CleartextStream.read [as _read] (tls.js:472:13)
+    at CleartextStream.Readable.read (_stream_readable.js:341:10)
+    at EncryptedStream.write [as _write] (tls.js:369:25)
+    at doWrite (_stream_writable.js:226:10)
+    at writeOrBuffer (_stream_writable.js:216:5)
+    at EncryptedStream.Writable.write (_stream_writable.js:183:11)
+    at write (_stream_readable.js:602:24)
+[2015-08-25 16:35:25.895] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORBiTGy54KTBQ","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:35:25.946] [INFO] console - user save new order  [Error: 102640:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:openssl\ssl\s23_clnt.c:795:
+]
+Error: 102640:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:openssl\ssl\s23_clnt.c:795:
+
+    at SlabBuffer.use (tls.js:235:18)
+    at CleartextStream.read [as _read] (tls.js:455:29)
+    at CleartextStream.Readable.read (_stream_readable.js:341:10)
+    at EncryptedStream.write [as _write] (tls.js:369:25)
+    at doWrite (_stream_writable.js:226:10)
+    at writeOrBuffer (_stream_writable.js:216:5)
+    at EncryptedStream.Writable.write (_stream_writable.js:183:11)
+    at write (_stream_readable.js:602:24)
+    at flow (_stream_readable.js:611:7)
+    at Socket.pipeOnReadable (_stream_readable.js:643:5)
+[2015-08-25 16:35:26.530] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORBiTGy54KTBQ","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:35:26.572] [INFO] console - user save new order  [Error: 105800:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:openssl\ssl\s23_clnt.c:795:
+]
+Error: 105800:error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol:openssl\ssl\s23_clnt.c:795:
+
+    at SlabBuffer.use (tls.js:235:18)
+    at CleartextStream.read [as _read] (tls.js:455:29)
+    at CleartextStream.Readable.read (_stream_readable.js:341:10)
+    at EncryptedStream.write [as _write] (tls.js:369:25)
+    at doWrite (_stream_writable.js:226:10)
+    at writeOrBuffer (_stream_writable.js:216:5)
+    at EncryptedStream.Writable.write (_stream_writable.js:183:11)
+    at write (_stream_readable.js:602:24)
+    at flow (_stream_readable.js:611:7)
+    at Socket.pipeOnReadable (_stream_readable.js:643:5)
+[2015-08-25 16:40:07.223] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORGJpcbPQykbT","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:40:08.098] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORGJpcbPQykbT","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:40:19.947] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OR3hs2CjRHxCP","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:40:20.550] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OR3hs2CjRHxCP","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:45:45.516] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORANfiM3z3kEY","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:45:46.946] [INFO] console - user save new order  null
+[2015-08-25 16:45:46.961] [INFO] console - user auth when user login undefined
+[2015-08-25 16:46:01.825] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OR5EXYjE7ZG5M","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:46:02.867] [INFO] console - user save new order  { [Error: connect ECONNREFUSED]
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect' }
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+[2015-08-25 16:46:03.465] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OR5EXYjE7ZG5M","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:46:04.492] [INFO] console - user save new order  { [Error: connect ECONNREFUSED]
+  code: 'ECONNREFUSED',
+  errno: 'ECONNREFUSED',
+  syscall: 'connect' }
+Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+[2015-08-25 16:46:30.305] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORRxB3bKJHmz2","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:46:30.393] [INFO] console - user save new order  [Error: DEPTH_ZERO_SELF_SIGNED_CERT]
+Error: DEPTH_ZERO_SELF_SIGNED_CERT
+    at SecurePair.<anonymous> (tls.js:1381:32)
+    at SecurePair.emit (events.js:92:17)
+    at SecurePair.maybeInitFinished (tls.js:980:10)
+    at CleartextStream.read [as _read] (tls.js:472:13)
+    at CleartextStream.Readable.read (_stream_readable.js:341:10)
+    at EncryptedStream.write [as _write] (tls.js:369:25)
+    at doWrite (_stream_writable.js:226:10)
+    at writeOrBuffer (_stream_writable.js:216:5)
+    at EncryptedStream.Writable.write (_stream_writable.js:183:11)
+    at write (_stream_readable.js:602:24)
+[2015-08-25 16:46:30.972] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORRxB3bKJHmz2","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:46:31.023] [INFO] console - user save new order  [Error: DEPTH_ZERO_SELF_SIGNED_CERT]
+Error: DEPTH_ZERO_SELF_SIGNED_CERT
+    at SecurePair.<anonymous> (tls.js:1381:32)
+    at SecurePair.emit (events.js:92:17)
+    at SecurePair.maybeInitFinished (tls.js:980:10)
+    at CleartextStream.read [as _read] (tls.js:472:13)
+    at CleartextStream.Readable.read (_stream_readable.js:341:10)
+    at EncryptedStream.write [as _write] (tls.js:369:25)
+    at doWrite (_stream_writable.js:226:10)
+    at writeOrBuffer (_stream_writable.js:216:5)
+    at EncryptedStream.Writable.write (_stream_writable.js:183:11)
+    at write (_stream_readable.js:602:24)
+[2015-08-25 16:53:13.146] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORjDHp4tXXrs4","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:53:13.335] [INFO] console - user save new order  [Error: DEPTH_ZERO_SELF_SIGNED_CERT]
+Error: DEPTH_ZERO_SELF_SIGNED_CERT
+    at SecurePair.<anonymous> (tls.js:1381:32)
+    at SecurePair.emit (events.js:92:17)
+    at SecurePair.maybeInitFinished (tls.js:980:10)
+    at CleartextStream.read [as _read] (tls.js:472:13)
+    at CleartextStream.Readable.read (_stream_readable.js:341:10)
+    at EncryptedStream.write [as _write] (tls.js:369:25)
+    at doWrite (_stream_writable.js:226:10)
+    at writeOrBuffer (_stream_writable.js:216:5)
+    at EncryptedStream.Writable.write (_stream_writable.js:183:11)
+    at write (_stream_readable.js:602:24)
+[2015-08-25 16:53:14.163] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORjDHp4tXXrs4","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:53:14.315] [INFO] console - user save new order  null
+[2015-08-25 16:53:14.332] [INFO] console - user auth when user login undefined
+[2015-08-25 16:53:38.714] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OReQQWCBb4eeG","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 16:53:38.915] [INFO] console - user save new order  null
+[2015-08-25 16:53:38.930] [INFO] console - user auth when user login undefined
+[2015-08-25 17:00:38.459] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORKG7kEzC72Ms","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:00:38.691] [INFO] console - user save new order  null
+[2015-08-25 17:00:38.695] [INFO] console - user auth when user login undefined
+[2015-08-25 17:03:52.322] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORPKbeZdZjjH6","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:03:52.533] [INFO] console - user save new order  null
+[2015-08-25 17:03:52.540] [INFO] console - user auth when user login undefined
+[2015-08-25 17:03:59.853] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:04:00.051] [INFO] console - user login when checkout { code: '1007', message: '用户不存在', result: { left_times: '5' } }
+[2015-08-25 17:18:39.151] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORGkX7A57w4nh","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:18:39.363] [INFO] console - user save new order  null
+[2015-08-25 17:18:39.403] [INFO] console - user auth when user login undefined
+[2015-08-25 17:18:47.536] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:18:47.718] [INFO] console - user login when checkout { code: '1007', message: '用户不存在', result: { left_times: '5' } }
+[2015-08-25 17:19:45.312] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OR5PJkj4Q8htH","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:19:45.319] [INFO] console - user save new order  [Error: Invalid protocol: pierup.asuscomm.com:]
+Error: Invalid protocol: pierup.asuscomm.com:
+    at Request.init (E:\pier\pier_sdk_cn\sdk\node_modules\request\request.js:466:31)
+    at new Request (E:\pier\pier_sdk_cn\sdk\node_modules\request\request.js:140:8)
+    at request (E:\pier\pier_sdk_cn\sdk\node_modules\request\index.js:55:10)
+    at router.get.res.render.error (E:\pier\pier_sdk_cn\sdk\routes\index.js:93:3)
+    at Layer.handle [as handle_request] (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:82:5)
+    at next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\route.js:110:13)
+    at Route.dispatch (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\route.js:91:3)
+    at Layer.handle [as handle_request] (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:82:5)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:267:22
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+[2015-08-25 17:20:09.661] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OReTH73aMDpYM","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:20:09.748] [INFO] console - user save new order  null
+[2015-08-25 17:20:09.768] [INFO] console - user auth when user login undefined
+[2015-08-25 17:20:16.808] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:20:16.844] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: 'cong',
+     user_id: 'UR0000006348',
+     id_verified: '1',
+     session_token: '64e3a3eb-4b09-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:20:16.846] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'OReTH73aMDpYM',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:20:16.851] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'OReTH73aMDpYM',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:20:16.852] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:20:17.940] [INFO] console - get payment on checkout
+[2015-08-25 17:20:42.602] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORFpYChke5yc6","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:20:42.944] [INFO] console - user save new order  null
+[2015-08-25 17:20:43.950] [INFO] console - user auth when user login undefined
+[2015-08-25 17:20:50.666] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:20:50.906] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: 'cong',
+     user_id: 'UR0000006348',
+     id_verified: '1',
+     session_token: '791200b4-4b09-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:20:50.906] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORFpYChke5yc6',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:20:50.906] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORFpYChke5yc6',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:20:50.906] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:20:56.688] [INFO] console - get payment on checkout
+[2015-08-25 17:21:01.316] [INFO] console - get payment on checkout
+[2015-08-25 17:23:15.393] [INFO] console - get payment on checkout
+[2015-08-25 17:23:25.705] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OREAMX3ebsSaj","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:23:25.755] [INFO] console - user save new order  null
+[2015-08-25 17:23:25.775] [INFO] console - user auth when user login undefined
+[2015-08-25 17:23:33.051] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:23:33.281] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: 'cong',
+     user_id: 'UR0000006348',
+     id_verified: '1',
+     session_token: 'd9db1a94-4b09-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:23:33.291] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'OREAMX3ebsSaj',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:23:33.291] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'OREAMX3ebsSaj',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:23:33.291] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:23:34.746] [INFO] console - get payment on checkout
+[2015-08-25 17:24:03.515] [INFO] console - for user reset pay password { title: '重置支付密码', username: 'cong', location: 'forgetPin' }
+[2015-08-25 17:24:41.982] [INFO] console - get payment on checkout
+[2015-08-25 17:25:36.462] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORMG2tFAbcPrK","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:25:36.503] [INFO] console - user save new order  null
+[2015-08-25 17:25:36.508] [INFO] console - user auth when user login undefined
+[2015-08-25 17:25:41.931] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:25:42.148] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: 'cong',
+     user_id: 'UR0000006348',
+     id_verified: '1',
+     session_token: '26abaa35-4b0a-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:25:42.149] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORMG2tFAbcPrK',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:25:42.152] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORMG2tFAbcPrK',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:25:42.153] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:25:43.436] [INFO] console - get payment on checkout
+[2015-08-25 17:28:45.824] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORxiycnQ22xDK","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:28:46.071] [INFO] console - user save new order  null
+[2015-08-25 17:28:46.076] [INFO] console - user auth when user login {}
+[2015-08-25 17:28:46.086] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORxiycnQ22xDK',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList' }
+[2015-08-25 17:28:46.087] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:31:11.957] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORpQbdCr6aw4c","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:31:12.021] [INFO] console - user save new order  null
+[2015-08-25 17:31:12.026] [INFO] console - user auth when user login undefined
+[2015-08-25 17:35:21.303] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORPQBKSSeGkeC","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:35:21.645] [INFO] console - user save new order  null
+[2015-08-25 17:35:21.665] [INFO] console - user auth when user login undefined
+[2015-08-25 17:35:30.585] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:35:30.815] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: 'cong',
+     user_id: 'UR0000006348',
+     id_verified: '1',
+     session_token: '8589b016-4b0b-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:35:30.818] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORPQBKSSeGkeC',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:35:30.838] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORPQBKSSeGkeC',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:35:30.843] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:35:31.605] [INFO] console - get payment on checkout
+[2015-08-25 17:35:59.073] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"OReeT5ei2C4SZ","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:35:59.103] [INFO] console - user save new order  null
+[2015-08-25 17:35:59.113] [INFO] console - user auth when user login undefined
+[2015-08-25 17:36:05.245] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:36:05.277] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: 'cong',
+     user_id: 'UR0000006348',
+     id_verified: '1',
+     session_token: '9a32e896-4b0b-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:36:05.278] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'OReeT5ei2C4SZ',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:36:05.285] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'OReeT5ei2C4SZ',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:36:05.287] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:36:06.497] [INFO] console - get payment on checkout
+[2015-08-25 17:36:19.802] [INFO] console - user register start
+[2015-08-25 17:36:29.659] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'OReeT5ei2C4SZ',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-25 17:38:27.265] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORPcaGAaXn7kK","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:38:27.305] [INFO] console - user save new order  null
+[2015-08-25 17:38:27.315] [INFO] console - user auth when user login undefined
+[2015-08-25 17:38:28.957] [INFO] console - user register start
+[2015-08-25 17:39:16.485] [INFO] console - get payment on checkout
+[2015-08-25 17:39:20.916] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORtCsc6ieTJeJ","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:39:21.178] [INFO] console - user save new order  null
+[2015-08-25 17:39:21.189] [INFO] console - user auth when user login undefined
+[2015-08-25 17:39:24.986] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:39:25.026] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: 'cong',
+     user_id: 'UR0000006348',
+     id_verified: '1',
+     session_token: '1140d3ae-4b0c-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:39:25.027] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORtCsc6ieTJeJ',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:39:25.032] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORtCsc6ieTJeJ',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:39:25.034] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:39:26.366] [INFO] console - get payment on checkout
+[2015-08-25 17:39:35.782] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORSXdQzTkHepB","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:39:35.832] [INFO] console - user save new order  null
+[2015-08-25 17:39:35.842] [INFO] console - user auth when user login undefined
+[2015-08-25 17:39:46.640] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:39:46.678] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: 'cong',
+     user_id: 'UR0000006348',
+     id_verified: '1',
+     session_token: '1e29dc34-4b0c-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:39:46.678] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORSXdQzTkHepB',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:39:46.686] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORSXdQzTkHepB',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-25 17:39:46.687] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:39:47.708] [INFO] console - get payment on checkout
+[2015-08-25 17:39:53.646] [INFO] console - for user reset pay password { title: '重置支付密码', username: 'cong', location: 'forgetPin' }
+[2015-08-25 17:40:04.731] [INFO] console - checkout get sms api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORSXdQzTkHepB',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-25 17:40:04.973] [INFO] console - user get sms when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { amount: '110.00',
+     prefix_phone: '13248269098',
+     sms_code: '4279',
+     expiration: '180',
+     merchant_name: 'Flower Company',
+     sms_no: '4394',
+     session_token: '1e29dc34-4b0c-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:40:09.112] [INFO] console - checkout get pay api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORSXdQzTkHepB',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-25 17:40:09.298] [INFO] console - user make payment { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '1e29dc34-4b0c-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:41:05.514] [INFO] console - checkout get sms api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORtCsc6ieTJeJ',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-25 17:41:06.008] [INFO] console - user get sms when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { amount: '110.00',
+     prefix_phone: '13248269098',
+     sms_code: '4279',
+     expiration: '180',
+     merchant_name: 'Flower Company',
+     sms_no: '4394',
+     session_token: '1140d3ae-4b0c-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:41:09.621] [INFO] console - checkout get pay api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORtCsc6ieTJeJ',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-25 17:41:09.711] [INFO] console - user make payment { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '1140d3ae-4b0c-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-25 17:56:16.007] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORKAsD3pMpiys","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:56:16.202] [INFO] console - user save new order  null
+[2015-08-25 17:56:16.208] [INFO] console - user auth when user login undefined
+[2015-08-25 17:56:24.190] [INFO] console - checkout user login params { phone: '13248222222', password: '11111a' }
+[2015-08-25 17:56:24.370] [INFO] console - user login when checkout { code: '1007', message: '用户不存在', result: { left_times: '5' } }
+[2015-08-25 17:56:30.300] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-25 17:56:30.487] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: '程聪',
+     user_id: 'UR0000006932',
+     id_verified: '1',
+     session_token: '09075caf-4b0f-11e5-9b56-ac853da464e1' } }
+[2015-08-25 17:56:30.491] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORKAsD3pMpiys',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {},
+  phone: '13248222222',
+  password: '11111a' }
+[2015-08-25 17:56:30.499] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORKAsD3pMpiys',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {},
+  phone: '13248222222',
+  password: '11111a' }
+[2015-08-25 17:56:30.500] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-25 17:56:31.598] [INFO] console - get payment on checkout
+[2015-08-25 17:56:39.600] [INFO] console - checkout get sms api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORKAsD3pMpiys',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  phone: '13248222222',
+  password: '11111a',
+  title: '付款' }
+[2015-08-25 17:56:39.784] [INFO] console - user get sms when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { amount: '110.00',
+     prefix_phone: '13248269098',
+     sms_code: '6630',
+     expiration: '180',
+     merchant_name: 'Flower Company',
+     sms_no: '4307',
+     session_token: '09075caf-4b0f-11e5-9b56-ac853da464e1' } }
+[2015-08-25 17:57:23.378] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORT3kSrMEBb5K","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-25 17:57:23.550] [INFO] console - user save new order  null
+[2015-08-25 17:57:23.556] [INFO] console - user auth when user login undefined
+[2015-08-25 17:57:24.585] [INFO] console - user register start
+[2015-08-25 17:57:31.574] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '3409' } }
+[2015-08-25 17:57:35.917] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'e46769faa41c5a8624a06b8ca6c35386' } }
+[2015-08-25 17:57:43.375] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006939',
+     session_token: '3479c5eb-4b0f-11e5-9b56-ac853da464e1' } }
+[2015-08-25 17:58:05.395] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '3479c5eb-4b0f-11e5-9b56-ac853da464e1' } }
+[2015-08-25 17:58:09.004] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '3479c5eb-4b0f-11e5-9b56-ac853da464e1' } }
+[2015-08-25 17:58:15.139] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 17:58:15.858] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 17:58:20.284] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 17:58:23.595] [INFO] console - get response body { code: '500',
+  message: 'Data truncation: Data too long for column \'_card_number\' at row 84',
+  result: null }
+[2015-08-25 17:58:28.680] [INFO] console - get response body { code: '500',
+  message: 'Data truncation: Data too long for column \'_card_number\' at row 84',
+  result: null }
+[2015-08-25 18:00:03.999] [INFO] console - get response body { code: '1163', message: '不支持该银行卡', result: {} }
+[2015-08-25 18:00:09.071] [INFO] console - get response body { code: '1163', message: '不支持该银行卡', result: {} }
+[2015-08-25 18:00:10.465] [INFO] console - get response body { code: '500',
+  message: 'Data truncation: Data too long for column \'_card_number\' at row 84',
+  result: null }
+[2015-08-25 18:00:13.021] [INFO] console - get response body { code: '500',
+  message: 'Data truncation: Data too long for column \'_card_number\' at row 84',
+  result: null }
+[2015-08-25 18:00:14.959] [INFO] console - get response body { code: '500',
+  message: 'Data truncation: Data too long for column \'_card_number\' at row 84',
+  result: null }
+[2015-08-25 18:00:18.721] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 18:00:21.312] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 18:00:22.729] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 18:00:24.166] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 18:00:30.445] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 18:00:44.960] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 18:01:04.491] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 18:01:06.339] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 18:01:07.816] [INFO] console - get response body { code: '400',
+  message: 'parameter card_number is missing.',
+  result: null }
+[2015-08-25 18:01:38.648] [INFO] console - user register start
+[2015-08-25 18:07:27.089] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-25 18:07:33.871] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '9470fd3e-4b10-11e5-9b56-ac853da464e1',
+     bank_card_id: 'BC0000006945' } }
+[2015-08-25 18:07:42.768] [INFO] console - get response body { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: { session_token: '' } }
+[2015-08-25 18:07:52.718] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '19',
+     name: 'congtest',
+     user_id: 'UR0000006939',
+     id_verified: '0',
+     session_token: '9fac88bb-4b10-11e5-9b56-ac853da464e1' } }
+[2015-08-25 18:07:54.356] [INFO] console - get response body { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: { session_token: '' } }
+[2015-08-25 18:07:59.412] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '19',
+     name: 'congtest',
+     user_id: 'UR0000006939',
+     id_verified: '0',
+     session_token: 'a3a97edc-4b10-11e5-9b56-ac853da464e1' } }
+[2015-08-25 18:08:07.641] [INFO] console - get response body { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: { session_token: '' } }
+[2015-08-25 18:08:48.189] [INFO] console - user register start
+[2015-08-25 18:08:59.347] [INFO] console - get response body { code: '1163', message: '不支持该银行卡', result: {} }
+[2015-08-25 18:09:01.345] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-25 18:09:08.512] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: 'a3a97edc-4b10-11e5-9b56-ac853da464e1',
+     bank_card_id: 'BC0000006945' } }
+[2015-08-25 18:09:12.308] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: 'a3a97edc-4b10-11e5-9b56-ac853da464e1' } }
+[2015-08-25 18:09:12.505] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '13248269091',
+     id_number: '350783199201011234',
+     id_verified: '1',
+     session_token: 'a3a97edc-4b10-11e5-9b56-ac853da464e1',
+     image_url: '',
+     email: '2323@126.com',
+     status_bit: '23',
+     dob: '19920101',
+     name: 'congtest',
+     user_id: 'UR0000006939' } }
+[2015-08-25 18:09:12.731] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: 'a3a97edc-4b10-11e5-9b56-ac853da464e1' } }
+[2015-08-25 18:09:18.328] [INFO] console - user apply credit { user_id: 'UR0000006939',
+  session_token: 'a3a97edc-4b10-11e5-9b56-ac853da464e1' }
+[2015-08-25 18:09:18.578] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { info_bit: '0',
+     id_verified: '1',
+     session_token: 'a3a97edc-4b10-11e5-9b56-ac853da464e1',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'congtest',
+     inviter_id: '',
+     shadow_limit: '2200' } }
+[2015-08-26 10:21:50.469] [INFO] console - get post on checkout {"merchant_name":"春田花花工作室","amount":"110.00","currency":"CNY","order_id":"ORrd4h8kxrzZy","api_id":"1819957c-1a3f-11e5-ba25-3a22fd90d682","api_secret_key":"key1234567890","merchant_id":"MC0000001409","order_detail":{"items":[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥11","count":"3","total":"￥33"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥11","count":"2","total":"￥22"}],"totalAmount":"￥110"},"return_url":"/checkout/orderList"}
+[2015-08-26 10:21:50.661] [INFO] console - user save new order  null
+[2015-08-26 10:21:50.666] [INFO] console - user auth when user login undefined
+[2015-08-26 10:21:56.861] [INFO] console - checkout user login params { phone: '13248269098', password: '11111a' }
+[2015-08-26 10:21:57.038] [INFO] console - user login when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '159',
+     name: '程聪',
+     user_id: 'UR0000006932',
+     id_verified: '1',
+     session_token: 'b38bcf27-4b98-11e5-9b56-ac853da464e1' } }
+[2015-08-26 10:21:57.039] [INFO] console - get user authOrer detail { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORrd4h8kxrzZy',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-26 10:21:57.043] [INFO] console - checkout confirm page  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORrd4h8kxrzZy',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'login',
+  errorMsg: '',
+  _locals: {} }
+[2015-08-26 10:21:57.043] [INFO] console - order detail to json { items: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥11',
+       count: '3',
+       total: '￥33' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥11',
+       count: '2',
+       total: '￥22' } ],
+  totalAmount: '￥110' }
+[2015-08-26 10:21:58.129] [INFO] console - get payment on checkout
+[2015-08-26 10:22:02.869] [INFO] console - checkout get sms api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORrd4h8kxrzZy',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-26 10:22:03.039] [INFO] console - user get sms when checkout { code: '200',
+  message: 'OK',
+  result: 
+   { amount: '110.00',
+     prefix_phone: '13248269098',
+     sms_code: '2254',
+     expiration: '180',
+     merchant_name: 'Flower Company',
+     sms_no: '4313',
+     session_token: 'b38bcf27-4b98-11e5-9b56-ac853da464e1' } }
+[2015-08-26 10:22:15.786] [INFO] console - checkout get pay api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORrd4h8kxrzZy',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-26 10:22:17.508] [INFO] console - checkout get pay api  { merchant_name: '春田花花工作室',
+  amount: '110.00',
+  currency: 'CNY',
+  order_id: 'ORrd4h8kxrzZy',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+  api_secret_key: 'key1234567890',
+  merchant_id: 'MC0000001409',
+  order_detail: 
+   { items: [ [Object], [Object], [Object], [Object] ],
+     totalAmount: '￥110' },
+  return_url: '/checkout/orderList',
+  location: 'checkout',
+  errorMsg: '',
+  _locals: {},
+  title: '付款' }
+[2015-08-26 10:22:17.685] [INFO] console - user make payment { code: '1141',
+  message: '该验证码已经使用',
+  result: { session_token: 'b38bcf27-4b98-11e5-9b56-ac853da464e1' } }
+[2015-08-26 10:25:25.010] [INFO] console - user make payment { code: '500', message: null, result: null }

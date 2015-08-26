@@ -20,6 +20,7 @@
         var _merchantName = options.merchant_name || '';
         var _urlAction = options.data_action || '';
         var _returnUrl = options.return_url || '';
+        var _callBack = options.callBack || '';
 
         var pierBtn = document.querySelector('div[id="pierPay"]');
         console.log( pierBtn );
@@ -80,7 +81,6 @@
             temp_form.method = "post";      
             temp_form.style.display = "none"; 
             var PARAMS = {
-            	merchant_name: _merchantName,
 			  	amount: _pierAmount,
 			  	currency: _currency,
                 order_id: _orderId,
@@ -99,7 +99,11 @@
             }      
             document.body.appendChild(temp_form);      
             temp_form.submit(); 
-            parentElem.appendChild( overlay );
+            if( _callBack == '' ){
+                parentElem.appendChild( overlay );
+            }else{
+                _callBack.call(this);
+            }
         }
     }
 })()

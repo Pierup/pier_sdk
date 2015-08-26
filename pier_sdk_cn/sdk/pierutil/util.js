@@ -15,7 +15,6 @@ var pierUtil = {
 	},
   getRequestParams: function( urlPath, body ){
     var accessObj = apiUrl[pierUtil.getUrlPath( urlPath )];
-
     var options = {
       url: apiUrl.hostName + accessObj.url,
       method: accessObj.method || "POST",
@@ -34,17 +33,18 @@ var pierUtil = {
     }
     return options;
   },
-  checkAuthOrder: function( req, res ){
-    var authOrder = req.session['auth_order'];
+  checkAuthOrder: function( req, orderName ){
+    var authOrder = req.session[orderName];
     if( authOrder.order_id == undefined ){
+      console.error("order_id", authOrder);
       res.redirect('/checkout/unknownError');
       return false;
     }else{
       return authOrder;
     }
   },
-  checkUserAuth: function( req, res ){
-    var userAuth = req.session['user_auth'];
+  checkUserAuth: function( req, orderName ){
+    var userAuth = req.session[orderName].user_auth || {};
     if( userAuth.user_id == undefined ){
       res.redirect('/checkout/login');
       return false;
@@ -72,12 +72,30 @@ var pierUtil = {
     if( !reg.test( passwordVal ) )  msg =  '密码必须包含一个字母和数字组成，并且至少6位。';
     return msg;
   },
-  refreshToken: function( token, req ){
-    req.session['user_auth'].session_token = token;
+  refreshToken: function( token, req, orderName ){
+    req.session[orderName].user_auth.session_token = token;
   },
   clearUserAuth: function( req ){
     req.session['userAuth'] = {};
+  },
+  getBinaryStatusBit: function (num, pos){
+      if( isNaN(num) ) return;
+      if( isNaN(pos) ) return parseInt(num,10).toString(2);
+      else {
+        var length = (parseInt(num,10).toString(2)).length;
+        if( length < pos ) return 'error';
+        return parseInt(num,10).toString(2).substr((length - pos),1);
+      }
+  },
+  getAuthOrder: function( merchant, order, req ){
+    return req.session[merchant+order];
+  },
+  // saveAuthOrder: function( )
+  destoryAuthOrder: function( merchant, order, req ){
+    req.session[merchant+order] = null;
+    return;
   }
+
 
 }
 

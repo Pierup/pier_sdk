@@ -13,8 +13,10 @@ angular.module( 'PaymentApp', [])
     $scope.getValidCode = function(){
     	$scope.smsError = false;
     	$scope.sendCodeFlag = true;
+    	var merchantId = $('#merchant_id').val();
+    	var orderId = $('#order_id').val();
     	var url = SdkUrl.checkoutSMS;
-    	var pGetCode = HttpService.templateAccessAPI( url, {} );
+    	var pGetCode = HttpService.templateAccessAPI( url, { merchant_id: merchantId, order_id: orderId } );
     	pGetCode.then( function( result ){
     		$log.debug('get valid code success', result );
     		$scope.hasSendCode = true;

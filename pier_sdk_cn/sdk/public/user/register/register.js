@@ -1,5 +1,5 @@
 'use strict';
-angular.module( 'RegisterApp', ['ui.router'])
+angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
 .factory('SdkUrl', function(){
 	var hostName = '';
 	return{
@@ -14,7 +14,8 @@ angular.module( 'RegisterApp', ['ui.router'])
 		regSetPayPsd: hostName+'/api/v1/users/regSetPayPsd',
 		bankCardInfo: hostName+'/api/v1/users/bankCardInfo',
 		regGetBankCards: hostName+ '/api/v1/users/regGetBankCards',
-		regApplyCredit: hostName + '/api/v1/users/regApplyCredit'
+		regApplyCredit: hostName + '/api/v1/users/regApplyCredit',
+		login: hostName + '/api/v1/users/checkoutLogin'
 	}
 })
 .config( function( $urlRouterProvider, $stateProvider, $logProvider ){
@@ -59,6 +60,14 @@ angular.module( 'RegisterApp', ['ui.router'])
 .run(function($rootScope, $state, $window, $location, $log, $stateParams, SDKService){
 	$rootScope.$on( '$stateChangeStart', function( event, toState, toParams, fromState, fromParams ) {
         var statusBit = SDKService.getStatusBit();
+         $log.debug( 'fromstate and tostate', fromState.name +'aaaa'+toState.name );
+
+        if( !statusBit && toState.name != 'register' ){
+        	event.preventDefault();
+			$state.go( 'register' );
+			return;
+        }
+       
         if( toState.name == 'success' ){
         	if( SDKService.getBinBit(statusBit, 8 ) == '1' ){
 				return;
@@ -79,7 +88,72 @@ angular.module( 'RegisterApp', ['ui.router'])
 				$state.go( 'information' );
 				return;
         	}
+        } 
+
+        if( SDKService.getBinBit(statusBit, 8 ) == '1' ){
+        	if( toState.name != 'success' )  javascript:window.history.forward(1);
+        	return;
         }
+
+        if( SDKService.getBinBit(statusBit, 3 ) == '1' ){
+        	if( toState.name != 'confirm' )  javascript:window.history.forward(1);
+        	return;
+        }
+
+        if( SDKService.getBinBit(statusBit, 5 ) == '1' ){
+        	if( toState.name != 'link-bank' )  javascript:window.history.forward(1);
+        	return;
+        }
+
+        if( SDKService.getBinBit(statusBit, 2 ) == '1' ){
+        	if( toState.name != 'pay-password' )  javascript:window.history.forward(1); 
+        	return;
+        }
+        if( SDKService.getBinBit(statusBit, 1 ) == '1' ){
+        	if( toState.name != 'information' )  javascript:window.history.forward(1); 
+        	return;
+        }
+
+
+
+   //      if( SDKService.getBinBit(statusBit, 8 ) == '1'  ){
+   //      	// $state.go( 'success' );
+   //      	// event.preventDefault();
+   //      	// $state.go( 'success' );
+			// return;
+   //  	}else if( SDKService.getBinBit(statusBit, 3 ) == '1' && toState.name == 'confirm' ){
+			// // $state.go( 'confirm' );
+			// // event.preventDefault();
+			// // $state.go( 'confirm' );
+			// return;
+   //  	}else if( SDKService.getBinBit(statusBit, 5 ) == '1' && toState.name == 'link-bank' ){
+			// // $state.go( 'link-bank' );
+			// // event.preventDefault();
+			// // $state.go( 'link-bank' );
+			// return;
+   //  	}else if( SDKService.getBinBit(statusBit, 2 ) == '1' && toState.name != 'pay-password' ){
+			// // $state.go( 'pay-password' );
+			// event.preventDefault();
+			// // console.log( 'pay-password',statusBit)
+			// // $state.go( 'pay-password' );
+			// return;
+   //  	}else if( SDKService.getBinBit(statusBit, 1 ) == '1' && toState.name != 'information' ){
+			// // $state.go( 'information' );
+			// event.preventDefault();
+			// // console.log( 'information',statusBit)
+			// // $state.go( 'information' );
+			// return;
+   //  	}else if( toState.name == 'register' && !statusBit ){
+   //  		// event.preventDefault();
+   //  		return;
+   //  	}
+    	// else{
+    	// 	console.log('fdsff')
+    	// 	event.preventDefault();
+    	// 	javascript:window.history.forward(1); 
+    	// 	return;
+    	// }
+
         if( toState.name == 'failure' ){
 
         }
@@ -212,7 +286,8 @@ angular.module( 'RegisterApp', ['ui.router'])
         	phone: $scope.phone,
         	password: $scope.password,
         	token: $scope.token,
-        	version: '1.0'
+        	version: '1.0',
+        	invitation_code: $scope.inviteCode
         };
         var pSavaUser = HttpService.templateAccessAPI( url, message );
         pSavaUser.then(function(result){
@@ -275,7 +350,7 @@ angular.module( 'RegisterApp', ['ui.router'])
 		$scope.validateIdNum();
 		$scope.validateEmail();
 		$scope.saveError = false;
-		if( $scope.emailNotRight || $scope.idNumNotRight || $scope.username == '' ) return;
+		if( $scope.emailNotRight || $scope.idNumNotRight || $scope.username == '' || $scope.idNum == '' || $scope.email == '' ) return;
 		$scope.saveFlag = true;
 		var url = SdkUrl.regSaveUserBasic;
 		var user = SDKService.getUser();
@@ -345,6 +420,42 @@ angular.module( 'RegisterApp', ['ui.router'])
         })
 	}
 })
+.factory( 'PopupService', function( $modal ) {
+	return {
+		popupModal: function() {
+			$modal.open( {
+				size: 'sm',
+				controller: 'PopupModalController',
+				templateUrl: 'popup.html'
+			} );
+		}
+	};
+} )
+.controller('PopupModalController', function( $scope, HttpService, SDKService, $log, SdkUrl, $modalInstance ){
+	$scope.loginFlag = false;
+	$scope.phone = SDKService.getUser().phone;
+	$scope.login = function(){
+		if( $scope.phone == '' || $scope.phone == undefined || $scope.password == '' || $scope.password == undefined ) return;
+		if( $scope.phone.length < 11 ) return;
+		var url = SdkUrl.login;
+		$scope.loginFlag = true;;
+		var message ={
+			phone: $scope.phone,
+			password: $scope.password
+		};
+        var pLogin = HttpService.templateAccessAPI( url, message );
+        pLogin.then( function( result ){
+        	$log.debug( 'user relogin success', result );
+        	SDKService.setUser({ session_token: result.session_token,user_id: result.user_id,username: result.name, phone: $scope.phone});
+			$modalInstance.close();
+        }, function( reason ){
+
+        }).then(function(){
+        	$scope.loginFlag = false;
+        })
+	}
+
+})
 .controller('LinkBankController', function($scope, $state, HttpService, SdkUrl, $log, SDKService, $timeout){
 	$scope.phoneLength = 11;
 	$scope.linkStatus = false;
@@ -361,7 +472,7 @@ angular.module( 'RegisterApp', ['ui.router'])
 		resend: "重新发送",
 		getCode: "获取验证码"
 
-	}
+	};
 	$scope.validCode = '';
 	var user = SDKService.getUser();
 	$scope.username = user.username;
@@ -383,7 +494,7 @@ angular.module( 'RegisterApp', ['ui.router'])
 	}
 	$scope.addBankInfo = function(){
 		$scope.addBankError = false;
-	    if( $scope.bankObj == {} || $scope.bankObj['card_type'] == 'error' || !$scope.serviceRule ) return;
+	    if( $scope.bankObj == {} || $scope.bankObj['card_type'] == '' || !$scope.serviceRule ) return;
 	    $scope.addBankFlag = true;
 	    var url = SdkUrl.regLinkBankCard;
 	    var message = {
@@ -433,7 +544,7 @@ angular.module( 'RegisterApp', ['ui.router'])
     };
 
     $scope.getBankInfo = function(){
-    	if( $scope.bankNum == '' ) return;
+    	if( $scope.bankNum == '' || $scope.bankNum == undefined ) return;
     	var url =SdkUrl.bankCardInfo;
     	var message = {
     		query:{
@@ -446,7 +557,7 @@ angular.module( 'RegisterApp', ['ui.router'])
     		$scope.bankObj = result;
     	}, function( reason ){
     		$scope.bankObj['bank_name'] = reason.message;
-    		$scope.bankObj['card_type'] = 'error';
+    		$scope.bankObj['card_type'] = '';
     	})
     }
 
@@ -623,7 +734,7 @@ angular.module( 'RegisterApp', ['ui.router'])
 		}
 	};
 } )
-.factory('HttpService', function( $log, $http, $q, SDKService, $state){
+.factory('HttpService', function( $log, $http, $q, SDKService, $state, PopupService ){
 	return {
 	    //url call template
 	    templateAccessAPI: function( apiUrl, msg ){
@@ -640,12 +751,9 @@ angular.module( 'RegisterApp', ['ui.router'])
 	              d.resolve( data.result );
 	              break;
 	            case "1001" :
-	              // if( confirm("Your session have expired, please relogin!") ){
-	              // 	$state.go('login');
-	              // }
-	              sessionStorage.setItem( "session_error", "For your security, please relogin!" );
-	              // $state.go('login');
-	              break;
+		            PopupService.popupModal();
+		            d.reject( data );
+	                break;
 	            default :
 	              d.reject( data );
 	          }

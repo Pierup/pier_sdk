@@ -21,7 +21,7 @@
 	    	    <label for="smsCode">短信验证码:</label>
 		    </section>
 		    <section class="section2" style="padding-left:8px;padding-right:8px;">
-	    	    <input class="form-control valid-code-input" placeholder="请输入短信验证码" name="smsCode" id="smsCode" ng-model="smsCode" ng-blur="verifyActivateCode()" ng-disabled="timeHandler == checkCode.right" required/>
+	    	    <input class="form-control valid-code-input" placeholder="请输入短信验证码" name="smsCode" id="smsCode" ng-model="smsCode" ng-blur="verifyActivateCode()" ng-disabled="timeHandler == checkCode.right" maxlength="4" required/>
 		    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()">{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag"  ></i></button>
 		    </section>
 		    <section class="section3">
@@ -67,10 +67,10 @@
 	    	    <label for="inviteCode">邀请码:</label>
 		    </section>
 		    <section class="section2" >
-	    	    <input class="form-control" type="text" placeholder="若无邀请码请留空" name="inviteCode" id="inviteCode" ng-model="inviteCode"  />
+	    	    <input class="form-control" type="text" placeholder="若无邀请码请留空" name="inviteCode" id="inviteCode" ng-model="inviteCode"  maxlength="6" />
 		    </section>
 		    <section class="section3">
-	    	    <p ><div class="text-center mark">?</div></p>
+	    	    <p ><div class="text-center mark" data-toggle="tooltip"  data-placement="right" title="输入您朋友发送给您的邀请码，便可获得新用户注册红包。若没有邀请码请留空。">?</div></p>
 		    </section>
 	    </div>
 	    <p style="margin-left:296px;"> 
@@ -96,3 +96,7 @@
 	    </div>
     </article>
 </form>
+
+<script>
+   $(function() { $("[data-toggle='tooltip']").tooltip(); });
+</script>

@@ -9,6 +9,7 @@
 	    	    <h4 >{{username}}</h4>
 		    </section>
 		    <section class="section3" >
+			    <p ><div class="text-center mark" data-toggle="tooltip"  data-placement="right" title="为保障账户资金安全，只能绑定您本人的银行卡。">?</div></p>
 		    </section>
 	    </div>
     </article>
@@ -47,7 +48,7 @@
 	    	    <input class="form-control" placeholder="请输入您的银行预留手机号" name="phone"  id="phone" type="text" ng-model="phone" maxlength="{{phoneLength}}"  number-only-input required/>
 		    </section>
 		    <section class="section3" >
-			    <p ><div class="text-center mark">?</div></p>
+			    <p ><div class="text-center mark" data-toggle="tooltip"  data-placement="right" title="银行预留的手机号码是办理该银行卡时所填写的手机号码。没有预留、手机号忘记或者已停用，请联系银行客服更新。">?</div></p>
 		    </section>
 	    </div>
 	    <p style="margin-left:296px;"> 
@@ -117,3 +118,7 @@
 	    </div>
     </article>
 </form>
+
+<script>
+   $(function() { $("[data-toggle='tooltip']").tooltip(); });
+</script>

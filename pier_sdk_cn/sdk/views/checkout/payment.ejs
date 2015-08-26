@@ -12,12 +12,14 @@
 			        <p></p>
 			    </div>
 			    <div class="merchant-amount">
-			        <h2><%=amount%> <span style="font-size:24px"> <%=currency%></span> </h2>
+			        <h2><%=amount%> <span style="font-size:24px"> CNY</span> </h2>
 			    </div>
 			</div>
-			<form name="paymentForm" class="paymentForm" id="paymentForm" action="/checkout/pay" method="POST">
+			<form name="paymentForm" class="registerForm" id="paymentForm" action="/checkout/pay" method="POST">
 				<article> 
 					<p class="register-error"><%=errorMsg%></p>
+					<input type="hidden" value="<%=merchant_id%>" name="merchant_id" id="merchant_id" />
+					<input type="hidden" value="<%=order_id%>" name="order_id" id="order_id" />
 				    <div class="register-group">
 					    <section class="section1">
 				    	    <label for="payPassword">支付密码:</label>
