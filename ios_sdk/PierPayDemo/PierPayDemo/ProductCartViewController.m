@@ -8,7 +8,7 @@
 
 #import "ProductCartViewController.h"
 #import "ProductListTableViewCell.h"
-#import "PierPay.h"
+#import <PierPaySDK/PierPay.h>
 
 @interface ProductCartViewController () <ProductListTableViewCellDeleagte, UIActionSheetDelegate>
 

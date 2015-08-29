@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "PIRURLDispatcher.h"
 #import "MerchantViewController.h"
-#import "PierPay.h"
+#import <PierPaySDK/PierPay.h>
 
 @interface AppDelegate ()
 
