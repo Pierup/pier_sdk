@@ -7,7 +7,7 @@
 //
 
 #import "ProductViewController.h"
-#import "PierPay.h"
+#import <PierPaySDK/PierPay.h>
 #import "PIRHttpExecutor.h"
 #import "SDWebImage/UIImageView+WebCache.h"
 

@@ -9,7 +9,7 @@
 #import "PIRURLDispatcher.h"
 #import "JSONKit.h"
 #import "ProductViewController.h"
-#import "PierPay.h"
+#import <PierPaySDK/PierPay.h>
 
 static PIRURLDispatcher * __instance;
 
