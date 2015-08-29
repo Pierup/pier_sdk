@@ -1,0 +1,73 @@
+<div class="modal-header text-center">
+    <h4>请重新更新您的身份信息</h4>
+</div> <!-- close .modal-header -->
+
+<div class="modal-body" style="padding-left:50px;padding-right:50px;">
+	<form class="form-horizontal">
+	    <div class="form-group">
+		    <P></P>
+		    <label for="username" class="col-sm-2 control-label">真实姓名</label>
+		    <div class="col-sm-8">
+		        <input placeholder="请输入您的真实姓名" class="form-control" name="username"  id="username" ng-model="username"  required>
+		    </div>
+		    <div class="col-sm-2">
+		    </div>
+	    </div>
+
+
+	    <div class="form-group">
+		    <p class="red" ng-show="idNumNotRight" ng-cloak>您输入的身份证号码有误</p> 
+		    <label for="idNum" class="col-sm-2 control-label">身份证</label>
+		    <div class="col-sm-8">
+		        <input placeholder="请输入您的18位身份证号码" name="idNum"  id="idNum" ng-model="idNum"  id-card-input maxlength="18" ng-blur="validateIdNum()" class="form-control" required>
+		    </div>
+		    <div class="col-sm-2">
+			    <!-- <p ><div class="text-center mark" data-toggle="tooltip"  data-placement="left" title="品而信用只能为年满18周岁的公民提供额度，如您未满18周岁，请选择其他方式进行支付。">?</div></p> -->
+		    </div>
+	    </div>
+
+
+	    <div class="form-group">
+		    <p class="red" ng-show="emailNotRight" ng-cloak>您输入的邮箱格式不正确</p> 
+		    <label for="email" class="col-sm-2 control-label">常用邮箱</label>
+		    <div class="col-sm-8">
+		        <input class="form-control inputMailList" placeholder="请输入您的常用邮箱" name="email"  id="email" ng-model="email"  id="email" autocomplete="off" required/>
+		    </div>
+		    <div class="col-sm-2">
+			    <p></p>
+		    </div>
+	    </div>
+
+
+	 
+	    <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-8">
+	            <button type="submit" class="form-control" ng-click="next()">下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="saveFlag"  ></i></button>
+		    </div>
+	    </div>
+	</form>
+    <form class="form-horizontal registerForm" >
+	    <br>
+	    <article>
+		    <p class="register-error" ng-show="saveError" ng-cloak>{{errorMsg}}</p> 
+		    <div class="register-group">
+			    <section class="section1">
+		    	    <label for="inviteCode"></label>
+			    </section>
+			    <section class="section2" >
+		    	    <button type="submit" ng-click="next()">下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="saveFlag"  ></i></button>
+			    </section>
+			    <section class="section3">
+		    	    <p ></p>
+			    </section>
+		    </div>
+	    </article>
+	<script src="jquery.mailAutoComplete-3.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.inputMailList').mailAutoComplete();
+			$("[data-toggle='tooltip']").tooltip();
+		})
+	</script>
+	</form>
+</div> <!-- close .modal-body -->

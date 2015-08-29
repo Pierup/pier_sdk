@@ -1,14 +1,40 @@
-angular.module( 'ResetApp',[] )
+angular.module( 'AddPinApp', [] )
 .factory('SdkUrl', function(){
 	var hostName = '';
 	return{
-		regLinkBankCard: hostName+'/user/resetPayPsd/linkBankCard',
-		verifyBank: hostName+ '/user/resetPayPsd/verifyBank',
-		reSetPayPsd: hostName+'/user/resetPayPsd/reset',
+		regLinkBankCard: hostName+'/checkout/linkBankPost',
+		verifyBank: hostName+ '/checkout/verifyBankPost',
 		bankCardInfo: hostName+'/api/v1/users/bankCardInfo'
 	}
 })
-.controller( 'ForgetController', function( $rootScope, $scope, HttpService, SdkUrl, $log, $timeout ){
+.controller('PayPsdController', function( $scope, HttpService, SdkUrl, $log ){
+
+	$scope.payPsd = '';
+	$scope.payPsdConfirm = '';
+	$scope.psdNotMatch = false;
+	$scope.psdNotRight = false;
+	$scope.setPsdFlag = false;
+
+	$scope.validatePsdMatch = function(){
+		$scope.psdNotMatch = false;
+		if( $scope.payPsdConfirm == '' ) return;
+		if( $scope.payPsd != $scope.payPsdConfirm ) $scope.psdNotMatch = true;
+	}
+	$scope.validatePsd = function(){
+		$scope.psdNotRight = false;
+		if( $scope.payPsd == '' ) return; 
+		if( $scope.payPsd.length != 6 ) $scope.psdNotRight = true;
+	}
+	$scope.next = function(){
+		$scope.validatePsd();
+		$scope.validatePsdMatch();
+		$scope.setPayError = false;
+		if( $scope.payPsd == '' || $scope.payPsdConfirm == '' || $scope.psdNotMatch || $scope.psdNotRight ) return;
+        $scope.setPsdFlag = true;
+        $('#setPinForm').submit();
+	}
+})
+.controller( 'LinkBankController', function( $rootScope, $scope, HttpService, SdkUrl, $log, $timeout ){
 	$scope.phoneLength = 11;
 	$scope.linkStatus = false;
 	$scope.hasSendCode = false;
@@ -47,11 +73,15 @@ angular.module( 'ResetApp',[] )
 	    if( $scope.bankObj == {} || $scope.bankObj['card_type'] == '无效卡' || !$scope.serviceRule ) return;
 	    $scope.addBankFlag = true;
 	    var url = SdkUrl.regLinkBankCard;
+	    var merchantId = $( '#merchantId' ).val();
+	    var orderId = $( '#orderId' ).val();
 	    var message = {
 	    	bank_id: $scope.bankObj.bank_id,
 	    	card_num: $scope.bankNum,
 	    	linked_phone: $scope.phone,
-	    	id_number: $scope.idNum
+	    	id_number: $scope.idNum,
+	    	merchant_id: merchantId,
+	    	order_id: orderId
 	    };
 	    var pAddBank = HttpService.templateAccessAPI( url, message );
 	    pAddBank.then( function( result ){
@@ -96,16 +126,20 @@ angular.module( 'ResetApp',[] )
 		$scope.validBankError = false;
 		if( $scope.validCode == '' ) return;
 		$scope.validBankFlag = true;
+		var merchantId = $( '#merchantId' ).val();
+	    var orderId = $( '#orderId' ).val();
 		var url = SdkUrl.verifyBank,
 		message = {
 			bank_card_id: $scope.bank_card_id,
 			code: $scope.validCode,
-			linked_phone: $scope.phone
+			merchant_id: merchantId,
+	    	order_id: orderId
 		};
+
 		var pValidBank = HttpService.templateAccessAPI( url, message );
 		pValidBank.then( function( result ){
 			$log.debug( 'user valid bank account success', result );
-			window.location.href="/user/resetPayPassword2?token="+result.token
+			window.location.href="/checkout/payment?merchant="+merchantId+"&order="+orderId;
 		}, function( reason ){
 			$scope.validBankError = true;
 			$scope.validBankErrorMsg = reason.message;
@@ -115,79 +149,6 @@ angular.module( 'ResetApp',[] )
 	}
 
 } )
-.controller( 'ResetController', function( $scope, $log, HttpService, SdkUrl, $location ){
-	$scope.payPsd = '';
-	$scope.payPsdConfirm = '';
-	$scope.psdNotMatch = false;
-	$scope.psdNotRight = false;
-	$scope.setPsdFlag = false;
-
-	$scope.validatePsdMatch = function(){
-		$scope.psdNotMatch = false;
-		if( $scope.payPsdConfirm == '' ) return;
-		if( $scope.payPsd != $scope.payPsdConfirm ) $scope.psdNotMatch = true;
-	}
-	$scope.validatePsd = function(){
-		$scope.psdNotRight = false;
-		if( $scope.payPsd == '' ) return; 
-		if( $scope.payPsd.length != 6 ) $scope.psdNotRight = true;
-		else $scope.validatePsdMatch();
-	}
-	$scope.next = function(){
-		$scope.validatePsd();
-		$scope.validatePsdMatch();
-		$scope.setPayError = false;
-		if( $scope.payPsd == '' || $scope.payPsdConfirm == '' || $scope.psdNotMatch || $scope.psdNotRight ) return;
-        var url = SdkUrl.reSetPayPsd;
-        var message = {
-        	new_payment_password: $scope.payPsd,
-        	payment_password_token: $('#tokenGet').val()
-        };
-        $scope.setPsdFlag = true;
-        var pSetPay = HttpService.templateAccessAPI( url, message );
-        pSetPay.then( function( result ){
-        	$log.debug( 'set pay password success ', result );
-        	window.location.href="/user/resetPinSuccess";
-        }, function( reason ){
-        	$scope.setPayError = true;
-			$scope.setPayErrorMsg = reason.message;
-        } ).then(function(){
-            $scope.setPsdFlag = false;
-        })
-	}
-} )
-.factory('HttpService', function( $log, $http, $q ){
-	return {
-	    //url call template
-	    templateAccessAPI: function( apiUrl, msg ){
-	      var d = $q.defer(),
-	          url = apiUrl;
-	      $http.post( url, msg )
-	        .success( function( data, status, headers, config ) {
-	          switch( data.code ){
-	            case "200" :
-	              d.resolve( data.result );
-	              break;
-	            case "1001" :
-	               window.location.href="/checkout/unknownError";
-	               break;
-	              break;
-	            case "500" :
-	               window.location.href="/checkout/unknownError";
-	               break;
-	            default :
-	              d.reject( data );
-	          }
-	        } )
-	        .error( function( data, status, headers, config ) {
-	            d.reject( data );
-	        } );
-
-	      return d.promise;
-
-	    }
-	}
-})
 .directive( 'numberOnlyInput', function() {
 	return {
 		restrict: 'A',
@@ -233,3 +194,35 @@ angular.module( 'ResetApp',[] )
 		}
 	};
 } )
+.factory('HttpService', function( $log, $http, $q ){
+	return {
+	    //url call template
+	    templateAccessAPI: function( apiUrl, msg ){
+	      var d = $q.defer(),
+	          url = apiUrl;
+	      $http.post( url, msg )
+	        .success( function( data, status, headers, config ) {
+	          switch( data.code ){
+	            case "200" :
+	              d.resolve( data.result );
+	              break;
+	            case "1001" :
+	               window.location.href="/checkout/unknownError";
+	               break;
+	              break;
+	            case "500" :
+	               window.location.href="/checkout/unknownError";
+	               break;
+	            default :
+	              d.reject( data );
+	          }
+	        } )
+	        .error( function( data, status, headers, config ) {
+	            d.reject( data );
+	        } );
+
+	      return d.promise;
+
+	    }
+	}
+})

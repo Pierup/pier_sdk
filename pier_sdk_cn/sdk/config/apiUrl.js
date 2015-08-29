@@ -35,7 +35,11 @@ var apiurl = {
 
 	//order information
     saveOrderInfo: {url: '/user_api_cn/v1/user/save_order_info?platform=3'},
-    orderInfo: {url: '/user_api_cn/v1/user/order_info?platform=3' }
+    orderInfo: {url: '/user_api_cn/v1/user/order_info?platform=3' },
+
+    //prepay
+    prePay: {url: '/user_api_cn/v1/user/pay_prepare?platform=3' },
+    checkPayPassword: {url: '/user_api_cn/v1/user/check_pay_password?platform=3' }
 
 }
 module.exports = apiurl;

@@ -6,7 +6,7 @@
 	    	    <label >持卡人:</label>
 		    </section>
 		    <section class="section2" >
-	    	    <h4 >{{username}}</h4>
+	    	    <h4 ng-cloak>{{username}}</h4>
 		    </section>
 		    <section class="section3" >
 			    <p ><div class="text-center mark" data-toggle="tooltip"  data-placement="right" title="为保障账户资金安全，只能绑定您本人的银行卡。">?</div></p>
@@ -33,7 +33,7 @@
 	    	    <label >卡类型:</label>
 		    </section>
 		    <section class="section2">
-	    	    <h4>{{bankObj.bank_name}}&nbsp;&nbsp;{{bankObj.card_type}}</h4>
+	    	    <h4 ng-cloak>{{bankObj.bank_name}}&nbsp;&nbsp;{{bankObj.card_type}}</h4>
 		    </section>
 		    <section class="section3" >
 		    </section>
@@ -59,7 +59,7 @@
     </article>
     <br>
     <article>
-	    <p class="register-error" ng-show="addBankError">{{addBankErrorMsg}}</p>
+	    <p class="register-error" ng-show="addBankError" ng-cloak>{{addBankErrorMsg}}</p>
 	    <div class="register-group">
 		    <section class="section1">
 	    	    <label for="inviteCode"></label>
@@ -81,7 +81,7 @@
 		    <section class="section1" >
 		    </section>
 		    <section class="section2" >
-	    	    <h4 style="text-align:left !important;margin-top:18px;padding-left:8px;">
+	    	    <h4 style="text-align:left !important;margin-top:18px;padding-left:8px;" ng-cloak>
 	    	    	验证码已经发送至您的手机 {{phone}}
 	    	    </h4>
 		    </section>
@@ -96,7 +96,7 @@
 		    </section>
 		    <section class="section2" style="padding-left:8px;padding-right:8px;">
 	    	    <input class="form-control valid-code-input" placeholder="请输入短信验证码" name="validCode" id="validCode" ng-model="validCode" required/>
-		    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()">{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag" ></i></button>
+		    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()" ng-cloak>{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag" ></i></button>
 		    </section>
 		    <section class="section3" >
 		    </section>
@@ -104,7 +104,7 @@
     </article>
     <br>
     <article>
-		<p class="register-error" ng-show="validBankError">{{validBankErrorMsg}}</p>
+		<p class="register-error" ng-show="validBankError" ng-cloak>{{validBankErrorMsg}}</p>
 	    <div class="register-group">
 		    <section class="section1">
 	    	    <label for="inviteCode"></label>

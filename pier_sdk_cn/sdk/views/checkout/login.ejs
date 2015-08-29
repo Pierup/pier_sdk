@@ -18,7 +18,8 @@
 			    	<p>登录品而信用</p>
 		    	</div>
 		    	<form class="login-body form-inline" name="loginForm" action="/checkout/login_auth" method="POST" id="loginForm">
-		    	  <div style="height:48px;padding-top:10px;" id="phoneError" class="error"><%=errorMsg%></div>
+		    	  <div style="height:48px;padding-top:10px;" id="phoneError" class="error"><%=errorMsg%><br><span id="directError"></span></div>
+
 				  <div class="form-group">
 				    <div class="input-group" style="margin-top:0px;">
 				      <div class="input-group-addon" style="width:50px;background:#fff;border-right:0px;"><i class="fa fa-lg fa-male"></i></div>
@@ -34,14 +35,14 @@
 				      <!-- <input type="hidden" value="<%=order_id%>" id="order_id"/> -->
 				    </div>
 				  </div>
-				  <p class="forget"><a class="gray" href="/user/forgetPassword">忘记密码</a></p>
+				  <p class="forget"><a class="gray" href="/user/forgetPassword" target="_blank">忘记密码</a></p>
 
 				  <div class="form-group">
 				    <div class="input-group">
-				      <button class="checkout-login-btn" type="button" id="checkout-login">登录</button>
+				      <button class="checkout-login-btn" type="button" id="checkout-login">登录&nbsp;&nbsp;<i class="fa fa-gear fa-spin" style="display:none;"></i></button>
 				    </div>
 				  </div>
-				  <p class="register">没有账号？<a href="/user/register" style="color:#7b37a6;">立即注册</a></p>
+				  <p class="register">没有账号？<a href="/user/register" style="color:#7b37a6;" target="_blank">立即注册</a></p>
 				</form>
 		    </div>
 	    </div>
@@ -49,6 +50,20 @@
 </div>
 <script type="text/javascript">
 	$(function(){
+		var timeSec = 6;
+		var wording = 's为您跳转';
+		var _urlAction = 'http://localhost:4000/user/register'
+		var timeCount = function(){
+			timeSec -= 1;
+			$('#directError').html(timeSec + wording);
+			if( timeSec == 0 ){
+				$('#phoneError').html('');
+				window.open( 'http://localhost:4000/user/register/#/login?phone='+$('#phone').val());
+				return;
+			}else{
+				return setTimeout(timeCount, 1000);
+			}
+		}
 		$('#phone').get(0).addEventListener( 'input', function(){
 			var $_phoneValue = $(this).val();
 			var numberInput = $_phoneValue.replace(/[^0-9]/g, '');
@@ -63,8 +78,15 @@
 			var $_phoneValue = $('#phone').val();
 			var $_password = $('#password').val();
 			if( $_phoneValue == undefined || $_phoneValue == '' || $_password == '' || $_password == undefined ) return;
+			$('.fa-spin').css('display','inline-block');
+			$(this).attr('disabled','disabled');
 			$( '#loginForm' ).submit();
-		})
+		});
+
+		if( <%=directError%> ){
+			var $_directForApply = $('#directError');
+			timeCount();
+		}
 	})
 </script>
 

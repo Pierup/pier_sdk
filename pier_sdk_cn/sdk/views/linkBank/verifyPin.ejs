@@ -1,0 +1,46 @@
+<% include header%>
+<script src="/user/linkBank/linkBank.js"></script>
+<div class="container pt-0" ng-app="LinkBankApp" ng-controller="VerifyPinController">
+    <div class="content">
+		<div class="title">
+			<p>验证您的支付密码</p>
+    	</div>
+    	<div class="pier-form">
+            <form name="verifyPinForm" class="registerForm" id="verifyPinForm" action="/checkout/verifyPinPost" method="POST">
+	            <br><br><br>
+				<article> 
+					<p class="register-error"><%=errorMsg%></p>
+					<input type="hidden" value="<%=merchant_id%>" name="merchant_id" id="merchant_id" />
+					<input type="hidden" value="<%=order_id%>" name="order_id" id="order_id" />
+				    <div class="register-group">
+					    <section class="section1">
+				    	    <label for="payPassword">支付密码:</label>
+					    </section>
+					    <section class="section2">
+				    	    <input class="form-control" type="password" placeholder="请输入品而信用支付密码" name="payPassword"  id="payPassword" ng-model="payPassword" number-only-input maxlength="6" required/>
+					    </section>
+					    <section class="section3" >
+						    <p><a href="/user/resetPayPassword?merchant=<%=merchant_id%>&order=<%=order_id%>" target="_blank" style="color:#7b37a6;margin-top:-10px;">忘记支付密码</a></p>
+					    </section>
+				    </div>
+			    </article>
+		
+			    <article style="margin-top:20px;">
+				    <div class="register-group">
+					    <section class="section1">
+				    	    <label for="inviteCode"></label>
+					    </section>
+					    <section class="section2" >
+				    	    <button type="button" ng-click="verifyPin()" ng-disabled="verifyFlag" >下一步&nbsp;&nbsp;<span ng-cloak><i class="fa fa-gear fa-spin" ng-show="verifyFlag"  ></i></span></button>
+					    </section>
+					    <section class="section3">
+				    	    <p ></p>
+					    </section>
+				    </div>
+			    </article>
+		    </form>
+	    
+    	</div>
+    </div>
+</div>
+<% include ../footer%>

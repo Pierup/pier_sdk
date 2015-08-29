@@ -121,22 +121,14 @@ router.get('/checkout/login', function(req, res, next) {
     if( body.code == 200 ){
       req.session[merchant+order] = body.result;
       req.session[merchant+order].order_detail = JSON.parse(JSON.parse(body.result.order_detail)).items;
-      var authOrder = pierUtil.checkAuthOrder( req, merchant+order );
+      var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
       if( !authOrder ) return;
-      // var userAuth = req.session['user_auth'] || undefined;
-      // if( userAuth ){
-      //   if( authOrder.order_detail != {} ){
-      //     res.redirect( '/checkout/confirm?merchant='+merchant+'&order='+order );
-      //   }else{
-      //     res.redirect( '/checkout/payment?merchant='+merchant+'&order='+order );
-      //   }
-      //   return;
-      // }
       console.log( 'user get order auth', authOrder );
       authOrder.location = 'login';
       authOrder.phone = undefined;
       authOrder.password = undefined;
       authOrder.errorMsg = '';
+      authOrder.directError = false;
       authOrder.location = 'login';
       authOrder.currency = 'CNY';
       res.render('checkout/login', authOrder );
@@ -153,7 +145,7 @@ router.post('/checkout/login_auth', function(req, res, next) {
     res.redirect( '/checkout/unknownError');
     return;
   }
-  var authOrder = pierUtil.checkAuthOrder( req, merchant+order );
+  var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
   if( !authOrder ) return;
   var params = {
     phone: req.body.phone,
@@ -163,6 +155,7 @@ router.post('/checkout/login_auth', function(req, res, next) {
   console.log( "checkout user login params", params );
   //for check user password and phone
   authOrder.errorMsg = '';
+  authOrder.directError = false;
   if( pierUtil.checkPhone(params.phone) != '' || pierUtil.checkPassword(params.password) != '' ){
     authOrder.location = 'login';
     authOrder.errorMsg = pierUtil.checkPhone(params.phone) != ''? pierUtil.checkPhone(params.phone):pierUtil.checkPassword(params.password);
@@ -179,9 +172,15 @@ router.post('/checkout/login_auth', function(req, res, next) {
     if( body.code == 200 ){
       req.session[merchant+order].user_auth = { user_id: body.result.user_id , session_token: body.result.session_token, name: body.result.name };
       console.log('get user authOrer detail', authOrder );
-      // if( pierUtil.getBinaryStatusBit( body.result.status_bit, 8 ) != 1 ){
-
-      // }
+      if( pierUtil.getBinaryStatusBit( body.result.status_bit, 4 ) != 1 ){
+        authOrder.location = 'login';
+        authOrder.errorMsg = '当前账户还没有申请信用';
+        authOrder.phone = params.phone;
+        authOrder.password = params.password;
+        authOrder.directError = true;
+        res.render('checkout/login', authOrder );
+        return;
+      }
       if( authOrder.order_detail != {} ){
         res.redirect( '/checkout/confirm?merchant='+merchant+'&order='+order)
       }else{
@@ -207,15 +206,43 @@ router.get('/checkout/payment', function(req, res, next) {
     res.redirect( '/checkout/unknownError');
     return;
   }
-  console.log("get payment on checkout", merchant+order);
-  var authOrder = pierUtil.checkAuthOrder( req, merchant+order );
+  var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
   if( !authOrder ) return;
-  var userAuth = pierUtil.checkUserAuth( req, merchant+order );
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
   if( !userAuth ) return;
-  authOrder.location = 'checkout';
-  authOrder.title = '付款';
-  authOrder.errorMsg = '';
-  res.render('checkout/payment',authOrder);
+
+  var urlPath = '/prePay';
+  var message = {
+    user_id: userAuth.user_id,
+    session_token: userAuth.session_token
+  };
+  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
+    console.log( "user check prePay when make payment", body );
+    // body.code = '1142';
+    if( body.code == '200' ){
+      pierUtil.refreshToken( body.result.session_token, req, merchant+order );
+      authOrder.location = 'checkout';
+      authOrder.title = '付款';
+      authOrder.errorMsg = '';
+      res.render('checkout/payment',authOrder);
+    }else if( body.code == '1171' ){
+      var message = {
+        merchant_id: merchant,
+        order_id: order,
+        title: '添加银行卡',
+        errorMsg: ''
+      };
+      res.render('linkBank/verifyPin', message );
+    }else if( body.code == '1142' ){
+      var message = {
+        merchant_id: merchant,
+        order_id: order,
+        title: '设置支付密码',
+        errorMsg: ''
+      };
+      res.render('addPin/setPin', message );
+    }
+  } );
 });
 
 router.get('/checkout/confirm', function(req, res, next) {
@@ -225,10 +252,10 @@ router.get('/checkout/confirm', function(req, res, next) {
     res.redirect( '/checkout/unknownError');
     return;
   }
-  var authOrder = pierUtil.checkAuthOrder( req, merchant+order );
+  var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
   console.log( 'checkout confirm page ', authOrder );
   if( !authOrder ) return;
-  var userAuth = pierUtil.checkUserAuth( req, merchant+order );
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
   if( !userAuth ) return;
   console.log( 'order detail to json', authOrder.order_detail );
   authOrder.location = 'checkout';
@@ -237,17 +264,14 @@ router.get('/checkout/confirm', function(req, res, next) {
 });
 
 router.post('/checkout/getSMS', function(req, res, next) {
-  // var authOrder = pierUtil.checkAuthOrder( req, res );
-  // console.log( 'checkout get sms api ', authOrder );
-  // if( !authOrder ) return;
   var merchant = req.body.merchant_id;
   var order = req.body.order_id;
 
-  var authOrder = pierUtil.checkAuthOrder( req, merchant+order );
+  var authOrder = pierUtil.checkAuthOrderForApi( req, res, merchant+order );
   console.log( 'checkout get sms api ', authOrder );
   if( !authOrder ) return;
   
-  var userAuth = pierUtil.checkUserAuth( req, merchant+order );
+  var userAuth = pierUtil.checkUserAuthForApi( req, res, merchant+order );
   if( !userAuth ) return;
   var urlPath = '/checkoutSMS';
   var message = {
@@ -269,11 +293,11 @@ router.post('/checkout/getSMS', function(req, res, next) {
 router.post('/checkout/pay', function(req, res, next) {
   var merchant = req.body.merchant_id;
   var order = req.body.order_id;
-  var authOrder = pierUtil.checkAuthOrder( req, merchant+order );
+  var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
   console.log( 'checkout get pay api ', authOrder );
   if( !authOrder ) return;
 
-  var userAuth = pierUtil.checkUserAuth( req, merchant+order );
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
   if( !userAuth ) return;
   var urlPath = '/checkoutPay';
   var message = {
@@ -295,8 +319,6 @@ router.post('/checkout/pay', function(req, res, next) {
       // res.send( body );
       authOrder.location = 'checkout';
       authOrder.title = '支付成功';
-      // pierUtil.clearUserAuth( req );
-      // req.session.destroy();
       pierUtil.destoryAuthOrder( merchant, order, req );
       res.render( 'checkout/paySuccess', authOrder );
     }else if( body.code == '1110' || body.code == '1111' || body.code == '2028' || body.code == '1142' ){
@@ -308,28 +330,150 @@ router.post('/checkout/pay', function(req, res, next) {
       authOrder.location = 'checkout';
       authOrder.title = '支付失败';
       authOrder.errorMsg = body.message;
-      // req.session.destroy();
       pierUtil.destoryAuthOrder( merchant, order, req );
       res.render( 'checkout/payFailed', authOrder );
     }
   } );
 });
 router.get('/checkout/paySuccess', function(req, res, next) {
-  // var authOrder = pierUtil.checkAuthOrder( req, res );
-  // console.log( 'checkout get pay api ', authOrder );
-  // if( !authOrder ) return;
   authOrder.location = 'checkout';
   authOrder.title = '支付成功';
   res.render('checkout/paySuccess', authOrder);
 });
 router.get('/checkout/payFailure', function(req, res, next) {
-  // var authOrder = pierUtil.checkAuthOrder( req, res );
-  // console.log( 'checkout get pay api ', authOrder );
-  // if( !authOrder ) return;
   authOrder.location = 'checkout';
   authOrder.title = '支付失败';
   res.render('checkout/payFailed', authOrder);
 });
+/**
+ * user link bank
+ */
+router.get('/checkout/linkBank', function( req, res, next){
+  res.render('linkBank/verifyPin', {title: '添加银行卡',merchant_id:'001',order_id:'002', errorMsg: ''});
+})
+router.post('/checkout/verifyPinPost', function( req, res, next){
+  var merchant = req.body.merchant_id;
+  var order = req.body.order_id;
+  var password = req.body.payPassword;
+  var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
+  if( !authOrder ) return;
+
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
+  if( !userAuth ) return;
+
+  var urlPath = '/checkPayPassword',
+  message = {
+      user_id: userAuth.user_id,
+      session_token: userAuth.session_token,
+      password: password
+  };
+  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
+    console.log("user check pay password success", body );
+    if( body.code == '200' ){
+      var message = {
+        merchant_id: merchant,
+        order_id: order,
+        title: '添加银行卡',
+        errorMsg: '',
+        username: userAuth.name
+      };
+      res.render( 'linkBank/linkBank', message );
+    }else{
+      var message = {
+        merchant_id: merchant,
+        order_id: order,
+        title: '添加银行卡',
+        errorMsg: body.message,
+        username: userAuth.name
+      };
+      res.render('linkBank/verifyPin', message );
+    }
+  } );
+})
+router.post('/checkout/linkBankPost', function(req, res, next) {
+  var merchant = req.body.merchant_id,
+  order = req.body.order_id;
+  var userAuth = pierUtil.checkUserAuthForApi( req, res, merchant+order );
+  if( !userAuth ) return;
+  var message = {
+    user_id: userAuth.user_id,
+    session_token: userAuth.session_token,
+    bank_id: req.body.bank_id,
+    card_num: req.body.card_num,
+    linked_phone: req.body.linked_phone,
+    id_number: req.body.id_number
+  };
+  console.log( 'get link bank account session_token', message );
+  var urlPath = '/regLinkBankCard';
+  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
+    console.log( "user link bank account success", body );
+    if( body.result.session_token ){
+      pierUtil.refreshToken( body.result.session_token, req, merchant+order );
+    }
+    res.send( body );
+  } );
+});
+router.post( '/checkout/verifyBankPost', function( req, res, next ) {
+  var merchant = req.body.merchant_id,
+  order = req.body.order_id;
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
+  if( !userAuth ) return;
+  var message = {
+    user_id: userAuth.user_id,
+    session_token: userAuth.session_token,
+    bank_card_id: req.body.bank_card_id,
+    code: req.body.code
+  };
+  var urlPath = '/regVerifyBank';
+  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
+    console.log( "user verify bank account success", body );
+    if( body.result.session_token ){
+      pierUtil.refreshToken( body.result.session_token, req, merchant+order );
+    }
+    res.send( body );
+  } );
+});
+/**
+ * user Set pin when checkout
+ */
+router.post( '/checkout/SetPin', function( req, res, next ){
+  var merchant = req.body.merchant_id,
+  order = req.body.order_id,
+  password = req.body.password;
+  var userAuth = pierUtil.checkUserAuthForApi( req, res, merchant+order );
+  if( !userAuth ) return;
+  var message = {
+    user_id: userAuth.user_id,
+    session_token: userAuth.session_token,
+    password: password
+  };
+  var urlPath = '/regSetPayPsd';
+  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
+    console.log( "user add Pin success", body );
+    if( body.result.session_token ){
+      pierUtil.refreshToken( body.result.session_token, req, merchant+order );
+    }
+    if( body.code == '200' ){
+      var message = {
+        title: '添加银行卡',
+        merchant_id: merchant,
+        order_id: order,
+        username: userAuth.name
+      };
+      res.render('addPin/linkBank', message );
+      return;
+    }else{
+      var message = {
+        title: '设置支付密码',
+        merchant_id: merchant,
+        order_id: order,
+        errorMsg: body.message
+      };
+      res.render('addPin/setPin', message );
+      return;
+    }
+  } );
+} )
 /**
  * user register flow
  */
@@ -365,8 +509,19 @@ router.get('/user/applyFailure', function(req, res, next) {
  * user forget pay password
  */
 router.get('/user/resetPayPassword', function(req, res, next) {
-  var userAuth = pierUtil.checkUserAuth( req, res );
+  var merchant = req.query.merchant || '';
+  var order = req.query.order || '';
+  if( merchant == '' || order == '' ){
+    res.redirect( '/checkout/unknownError');
+    return;
+  }
+  var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
+  console.log( 'checkout confirm page ', authOrder );
+  if( !authOrder ) return;
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
   if( !userAuth ) return;
+  req.session['forgetPinAuth'] = { merchant_id: merchant , order_id: order };
+  
   var params = {
     title: '重置支付密码',
     username: userAuth.name,
@@ -377,7 +532,10 @@ router.get('/user/resetPayPassword', function(req, res, next) {
 });
 
 router.post('/user/resetPayPsd/linkBankCard', function(req, res, next) {
-  var userAuth = pierUtil.checkUserAuth( req, res );
+  var forgetPinAuth = req.session['forgetPinAuth'];
+  var merchant = forgetPinAuth.merchant_id,
+  order = forgetPinAuth.order_id;
+  var userAuth = pierUtil.checkUserAuthForApi( req, res, merchant+order );
   if( !userAuth ) return;
   var message = {
     user_id: userAuth.user_id,
@@ -392,14 +550,17 @@ router.post('/user/resetPayPsd/linkBankCard', function(req, res, next) {
   request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
     console.log( "user link bank account success", body );
     if( body.result.session_token ){
-      pierUtil.refreshToken( body.result.session_token, req );
+      pierUtil.refreshToken( body.result.session_token, req, merchant+order );
     }
     res.send( body );
   } );
 });
 
 router.post('/user/resetPayPsd/verifyBank', function(req, res, next) {
-  var userAuth = pierUtil.checkUserAuth( req, res );
+  var forgetPinAuth = req.session['forgetPinAuth'];
+  var merchant = forgetPinAuth.merchant_id,
+  order = forgetPinAuth.order_id;
+  var userAuth = pierUtil.checkUserAuthForApi( req, res, merchant+order );
   if( !userAuth ) return;
   var message = {
     user_id: userAuth.user_id,
@@ -410,19 +571,22 @@ router.post('/user/resetPayPsd/verifyBank', function(req, res, next) {
   request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
     console.log( "user verify bank account success", body );
     if( body.result.session_token ){
-      pierUtil.refreshToken( body.result.session_token, req );
+      pierUtil.refreshToken( body.result.session_token, req, merchant+order );
     }
     res.send( body );
   } );
 });
 
 router.get('/user/resetPayPassword2', function(req, res, next) {
-  var userAuth = pierUtil.checkUserAuth( req, res );
+  var forgetPinAuth = req.session['forgetPinAuth'];
+  var merchant = forgetPinAuth.merchant_id,
+  order = forgetPinAuth.order_id;
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
   if( !userAuth ) return;
   var query = req.query.token;
   var params = {
     title: '重置支付密码',
-    username: '1234',
+    username: userAuth.name,
     token: query,
     location: 'forgetPin'
   };
@@ -431,7 +595,10 @@ router.get('/user/resetPayPassword2', function(req, res, next) {
 });
 
 router.post('/user/resetPayPsd/reset', function(req, res, next) {
-  var userAuth = pierUtil.checkUserAuth( req, res );
+  var forgetPinAuth = req.session['forgetPinAuth'];
+  var merchant = forgetPinAuth.merchant_id,
+  order = forgetPinAuth.order_id;
+  var userAuth = pierUtil.checkUserAuthForApi( req, res, merchant+order );
   if( !userAuth ) return;
   var message = {
     user_id: userAuth.user_id,
@@ -443,18 +610,23 @@ router.post('/user/resetPayPsd/reset', function(req, res, next) {
   request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
     console.log( "user reset pay password success", body );
     if( body.result.session_token ){
-      pierUtil.refreshToken( body.result.session_token, req );
+      pierUtil.refreshToken( body.result.session_token, req, merchant+order );
     }
     res.send( body );
   } );
 });
 
 router.get('/user/resetPinSuccess', function(req, res, next) {
-  var userAuth = pierUtil.checkUserAuth( req, res );
+  var forgetPinAuth = req.session['forgetPinAuth'];
+  var merchant = forgetPinAuth.merchant_id,
+  order = forgetPinAuth.order_id;
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
   if( !userAuth ) return;
   var params = {
     title: '重置支付密码',
-    location: 'forgetPin'
+    location: 'forgetPin',
+    merchant_id: merchant,
+    order_id: order
   };
   res.render( 'resetPayPassword/resetSuccess', params );
 });

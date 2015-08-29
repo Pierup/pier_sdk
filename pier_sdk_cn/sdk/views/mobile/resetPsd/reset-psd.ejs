@@ -16,10 +16,10 @@
 		       <input  class="form-control" type="password" placeholder="请设置密码"  name="passwordConfirm" ng-model="passwordConfirm" ng-blur="validateMatch($event)">
 		    </div>
 		    <div class="form-group">
-			    <div class="col-sm-12 error" ng-show="passwordNotRight" >
+			    <div class="col-sm-12 error" ng-show="passwordNotRight" ng-cloak>
 				    <span class="error" id="idErrorMsg">密码至少包含1个数字和1个字母，并且不少于6个字符。</span>
 			    </div>
-			    <div class="col-sm-12  error" ng-show="passwordNotMatch">
+			    <div class="col-sm-12  error" ng-show="passwordNotMatch" ng-cloak>
 				    <span class="error" id="phoneErrorMsg">密码不匹配</span>
 			    </div>
 		        <button type="button" class="submit-btn" ng-click="resetPsd()">重置登入密码&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="resetFlag"></i></button>

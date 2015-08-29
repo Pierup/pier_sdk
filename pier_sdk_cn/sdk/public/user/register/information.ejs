@@ -14,7 +14,7 @@
     </article>
 
     <article> 
-	    <p class="register-error" ng-show="idNumNotRight">您输入的身份证号码有误</p> 
+	    <p class="register-error" ng-show="idNumNotRight" ng-cloak>您输入的身份证号码有误</p> 
 	    <div class="register-group">
 		    <section class="section1">
 	    	    <label for="idNum">身份证:</label>
@@ -23,12 +23,13 @@
 	    	    <input class="form-control" placeholder="请输入您的18位身份证号码" name="idNum"  id="idNum" ng-model="idNum"  id-card-input maxlength="18" ng-blur="validateIdNum()" required/>
 		    </section>
 		    <section class="section3" >
+			    <p ><div class="text-center mark" data-toggle="tooltip"  data-placement="right" title="品而信用只能为年满18周岁的公民提供额度，如您未满18周岁，请选择其他方式进行支付。">?</div></p>
 		    </section>
 	    </div>
     </article>
 
     <article> 
-	    <p class="register-error" ng-show="emailNotRight">您输入的邮箱格式不正确</p> 
+	    <p class="register-error" ng-show="emailNotRight" ng-cloak>您输入的邮箱格式不正确</p> 
 	    <div class="register-group">
 		    <section class="section1">
 	    	    <label for="email">常用邮箱:</label>
@@ -42,7 +43,7 @@
     </article>
     <br>
     <article>
-	    <p class="register-error" ng-show="saveError">{{errorMsg}}</p> 
+	    <p class="register-error" ng-show="saveError" ng-cloak>{{errorMsg}}</p> 
 	    <div class="register-group">
 		    <section class="section1">
 	    	    <label for="inviteCode"></label>
@@ -59,6 +60,7 @@
 <script type="text/javascript">
 	$(function(){
 		$('.inputMailList').mailAutoComplete();
+		$("[data-toggle='tooltip']").tooltip();
 	})
 </script>
 </form>

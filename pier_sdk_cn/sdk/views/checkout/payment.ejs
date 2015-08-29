@@ -1,5 +1,6 @@
 <% include ../checkout-header%>
-
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/payment-v1.js"></script>
 <div class="container pt-0" ng-app="PaymentApp" ng-controller="PaymentController">
     <div class="content" >
 		<div class="title">
@@ -28,7 +29,7 @@
 				    	    <input class="form-control" type="password" placeholder="请输入品而信用支付密码" name="payPassword"  id="payPassword" ng-model="payPassword" number-only-input maxlength="6" required/>
 					    </section>
 					    <section class="section3" >
-						    <p><a href="/user/resetPayPassword" target="_blank" style="color:#7b37a6;">忘记支付密码</a></p>
+						    <p><a href="/user/resetPayPassword?merchant=<%=merchant_id%>&order=<%=order_id%>" target="_blank" style="color:#7b37a6;margin-top:-10px;">忘记支付密码</a></p>
 					    </section>
 				    </div>
 			    </article>
@@ -51,7 +52,7 @@
 				    	    <label for="inviteCode"></label>
 					    </section>
 					    <section class="section2" >
-				    	    <button type="button" ng-click="payment()">确认支付&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="payFlag"  ></i></button>
+				    	    <button type="button" ng-click="payment()" ng-disabled="payFlag">确认支付&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="payFlag"  ></i></button>
 					    </section>
 					    <section class="section3">
 				    	    <p ></p>
@@ -80,6 +81,5 @@
 	</div><!-- /.modal -->
 </div>
 
-<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/js/payment-v1.js"></script>
+
 <% include ../footer%>

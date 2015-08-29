@@ -50,14 +50,15 @@ angular.module( 'PaymentApp', [])
 			$scope.errorMsg = '支付密码必须是6位的数字';
 			return;
 	    }
+	    $scope.payFlag = true;
 	    $('#paymentForm').submit();
-   }
+   };
 } )
 .factory('SdkUrl', function(){
 	var hostName = '';
 	return{
 		checkoutSMS: hostName+ '/checkout/getSMS',
-		checkoutPay: hostName+ '/checkout/pay'
+		checkoutPay: hostName+ '/checkout/pay',
 	}
 })
 .factory('HttpService', function( $log, $http, $q ){
@@ -70,11 +71,14 @@ angular.module( 'PaymentApp', [])
 	        .success( function( data, status, headers, config ) {
 	          switch( data.code ){
 	            case "200" :
-	              d.resolve( data.result );
-	              break;
+	               d.resolve( data.result );
+	               break;
 	            case "1001" :
 	               $('#myModal').modal({backdrop:'static',keyboard: false})
-	              break;
+	               break;
+	            case "500" :
+	               window.location.href="/checkout/unknownError";
+	               break;
 	            default :
 	              d.reject( data );
 	          }

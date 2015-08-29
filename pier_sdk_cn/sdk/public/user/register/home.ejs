@@ -1,7 +1,7 @@
 <form class="form-horizontal registerForm" >
     <br><br>
     <article> 
-	    <p class="register-error" ng-show="phoneError">你的手机号必须是{{phoneLength}}位</p>
+	    <p class="register-error" ng-show="phoneError" ng-cloak>你的手机号必须是{{phoneLength}}位</p>
 	    <div class="register-group">
 		    <section class="section1">
 	    	    <label for="phone">手机号:</label>
@@ -15,14 +15,14 @@
 	    </div>
     </article>
     <article>
-        <p class="register-error" ng-show="smsError">{{smsErrorMsg}}</p> 
+        <p class="register-error" ng-show="smsError" ng-cloak>{{smsErrorMsg}}</p> 
 	    <div class="register-group">
 		    <section class="section1">
 	    	    <label for="smsCode">短信验证码:</label>
 		    </section>
 		    <section class="section2" style="padding-left:8px;padding-right:8px;">
 	    	    <input class="form-control valid-code-input" placeholder="请输入短信验证码" name="smsCode" id="smsCode" ng-model="smsCode" ng-blur="verifyActivateCode()" ng-disabled="timeHandler == checkCode.right" maxlength="4" required/>
-		    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()">{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag"  ></i></button>
+		    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()"><span ng-bind="timeHandler"></span>&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag"  ></i></button>
 		    </section>
 		    <section class="section3">
 	    	    <p></p>
@@ -82,7 +82,7 @@
     <br>
 
     <article>
-	    <p class="register-error" ng-show="signUpError">{{signUpErrorMsg}}</p>
+	    <p class="register-error" ng-show="signUpError"><span ng-bind="signUpErrorMsg"></span></p>
 	    <div class="register-group">
 		    <section class="section1">
 	    	    <label for="inviteCode"></label>

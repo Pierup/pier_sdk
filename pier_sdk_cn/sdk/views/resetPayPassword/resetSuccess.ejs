@@ -28,7 +28,7 @@
     	return setTimeout(SecCount, 1000);
     }
     function backToCheckout(){
-    	window.location.href="/checkout/payment";
+    	window.location.href='/checkout/payment?merchant=<%=merchant_id%>&order=<%=order_id%>';
     }
     SecCount();
 </script>

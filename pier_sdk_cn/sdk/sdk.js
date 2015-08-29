@@ -57,10 +57,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    res.render( 'checkout/unknownError',{ error: body.message, title: '订单错误', location: 'error'} );
   });
 }
 
@@ -68,9 +65,9 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render( 'checkout/unknownError',{ error: body.message, title: '订单错误', location: 'error'} );
   });
 });
 

@@ -1,19 +1,21 @@
 <% include ../header%>
-<script src="resetpaypsd.js"></script>
-<div class="registeration" ng-app="ResetApp" ng-controller="ForgetController">
+<script src="/user/linkBank/linkBank.js"></script>
+<div class="registeration" ng-app="LinkBankApp" ng-controller="LinkBankController">
     <div class="register-wrap" >
 		<div class="title">
-			<p>重新设置支付密码</p>
+			<p>添加您的银行卡</p>
 		</div>
 		<div class="pier-form" >
 			<form class="form-horizontal registerForm" ng-hide="linkStatus">
+			<input type="hidden" value="<%=merchant_id%>" name="merchant_id" id="merchantId"/>
+			<input type="hidden" value="<%=order_id%>" name="order_id" id="orderId"/>
 			<br><br>
 				<article> 
 				    <div class="register-group">
 					    <section class="section1" >
 					    </section>
 					    <section class="section2" >
-				    	    <h4 >您需要通过绑定银行卡来重置支付密码</h4>
+				    	    <h4 >您需要通过绑定银行卡来进行支付</h4>
 					    </section>
 					    <section class="section3" >
 					    </section>
@@ -111,7 +113,7 @@
 					    <section class="section1" >
 					    </section>
 					    <section class="section2" >
-				    	    <h4 style="text-align:left !important;margin-top:18px;padding-left:8px;">
+				    	    <h4 style="text-align:left !important;margin-top:18px;padding-left:8px;" ng-cloak>
 				    	    	验证码已经发送至您的手机 {{phone}}
 				    	    </h4>
 					    </section>
@@ -125,8 +127,8 @@
 				    	    <label for="validCode">验证码:</label>
 					    </section>
 					    <section class="section2" style="padding-left:8px;padding-right:8px;">
-				    	    <input class="form-control valid-code-input" placeholder="请输入短信验证码" name="validCode" id="validCode" ng-model="validCode" required/>
-					    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()">{{timeHandler}}&nbsp;&nbsp;<span ng-show="sendCodeFlag"><i class="fa fa-gear fa-spin"  ></i></span></button>
+				    	    <input class="form-control valid-code-input" placeholder="请输入短信验证码" name="validCode" id="validCode" ng-model="validCode"  required/>
+					    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()" ng-cloak>{{timeHandler}}&nbsp;&nbsp;<span ng-show="sendCodeFlag"><i class="fa fa-gear fa-spin"  ></i></span></button>
 					    </section>
 					    <section class="section3" >
 					    </section>
@@ -154,5 +156,7 @@
 <script>
    $(function() { $("[data-toggle='tooltip']").tooltip(); });
 </script>
+
+
 <% include ../footer%>
 

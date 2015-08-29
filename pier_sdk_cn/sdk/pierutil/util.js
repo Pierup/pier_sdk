@@ -33,8 +33,9 @@ var pierUtil = {
     }
     return options;
   },
-  checkAuthOrder: function( req, orderName ){
-    var authOrder = req.session[orderName];
+  checkAuthOrder: function( req, res, orderName ){
+
+    var authOrder = req.session[orderName] || {};
     if( authOrder.order_id == undefined ){
       console.error("order_id", authOrder);
       res.redirect('/checkout/unknownError');
@@ -43,8 +44,36 @@ var pierUtil = {
       return authOrder;
     }
   },
-  checkUserAuth: function( req, orderName ){
+  checkAuthOrderForApi: function( req, res, orderName ){
+    var authOrder = req.session[orderName] || {};
+    if( authOrder.order_id == undefined ){
+      console.error("order_id", authOrder);
+      res.send({code:'500', message: '发生错误', result: {}});
+      return false;
+    }else{
+      return authOrder;
+    }
+  },
+  checkUserAuth: function( req, res, orderName ){
     var userAuth = req.session[orderName].user_auth || {};
+    if( userAuth.user_id == undefined ){
+      res.redirect('/checkout/login');
+      return false;
+    }else{
+      return userAuth;
+    }
+  },
+  checkUserAuthForApi: function( req, res, orderName ){
+    var userAuth = req.session[orderName].user_auth || {};
+    if( userAuth.user_id == undefined ){
+      res.send({code:'500', message: '发生错误', result: {}});
+      return false;
+    }else{
+      return userAuth;
+    }
+  },
+  checkForgetPinUserAuth: function( req, res ){
+    var userAuth = req.session['forgetPinAuth'] || {};
     if( userAuth.user_id == undefined ){
       res.redirect('/checkout/login');
       return false;
@@ -92,7 +121,7 @@ var pierUtil = {
   },
   // saveAuthOrder: function( )
   destoryAuthOrder: function( merchant, order, req ){
-    req.session[merchant+order] = null;
+    req.session[merchant+order] = {};
     return;
   }
 

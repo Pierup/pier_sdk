@@ -1,24 +1,17 @@
 <% include ../header%>
-<script src="./resetPayPassword/resetpaypsd.js"></script>
-<div class="registeration" ng-app="ResetApp" ng-controller="ResetController">
+<script src="/user/addPin/addPin.js"></script>
+<div class="registeration" ng-app="AddPinApp" ng-controller="PayPsdController">
     <div class="register-wrap" >
 		<div class="title">
-			<p>重新设置支付密码</p>
-			<input type="hidden" value="<%=token%>" id="tokenGet" />
+			<p>添加您的银行卡</p>
 		</div>
 		<div class="pier-form" >
-			<form class="form-horizontal registerForm" >
-			<br><br>
-				<article> 
-				    <div class="register-group">
-					    <section class="section1" >
-					    </section>
-					    <section class="section2">
-				    	    <h4 style="color:rgb(160,160,160);margin-left:-14px;">请重新设定您的支付密码</h4>
-					    </section>
-					    <section class="section3" >
-					    </section>
-				    </div>
+			<form class="form-horizontal registerForm" name="setPinForm" id="setPinForm" action="/checkout/SetPin" method="POST">
+				<input type="hidden" value="<%=merchant_id%>" name="merchant_id" id="merchantId"/>
+				<input type="hidden" value="<%=order_id%>" name="order_id" id="orderId"/>
+				<br><br>
+				<article class="text-center"> 
+				    <h4 style="margin-bottom:60px;">由于您还没有绑定银行卡，您需要先通过设置您的支付密码来帮定银行卡，然后您才能进行支付。</h4>
 			    </article>
 			    <article> 
 				    <p class="register-error" ng-show="psdNotRight" ng-cloak>您输入的支付密码必须为6位数字</p> 
@@ -27,7 +20,7 @@
 				    	    <label for="payPsd">设置支付密码:</label>
 					    </section>
 					    <section class="section2">
-				    	    <input class="form-control" placeholder="请设置您的支付密码" name="payPsd"  id="payPsd" type="password" ng-model="payPsd"  ng-focus="payPsdTip=true" ng-blur="payPsdTip=false;validatePsd()" maxlength="6"  number-only-input required/>
+				    	    <input class="form-control" placeholder="请设置您的支付密码" name="password"  id="payPsd" type="password" ng-model="payPsd"  ng-focus="payPsdTip=true" ng-blur="payPsdTip=false;validatePsd()" maxlength="6"  number-only-input required/>
 					    </section>
 					    <section class="section3" >
 						    <p ng-show="payPsdTip">支付密码为6位数字组合</p>
@@ -49,13 +42,13 @@
 			    </article>
 			    <br>
 			    <article>
-				    <p class="register-error" ng-show="setPayError" ng-cloak>{{setPayErrorMsg}}</p> 
+				    <p class="register-error"  ng-cloak><%=errorMsg%></p> 
 				    <div class="register-group">
 					    <section class="section1">
 				    	    <label for="inviteCode"></label>
 					    </section>
 					    <section class="section2" >
-				    	    <button type="submit" ng-click="next()">下一步&nbsp;&nbsp;<span ng-show="setPsdFlag"><i class="fa fa-gear fa-spin"  ></i></span></button>
+				    	    <button type="button" ng-click="next()">下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="setPsdFlag" ></i></button>
 					    </section>
 					    <section class="section3">
 				    	    <p ></p>
@@ -68,4 +61,3 @@
 </div>
 
 <% include ../footer%>
-

@@ -1,9 +1,12 @@
 <div class="modal-header">
-  <p class="text-center" style="color:red;"><strong>对不起，您的会话状态已过期，请重新登入</strong></p>
+  <p class="text-center" style="color:red;"><strong>对不起，您的会话状态已过期，请重新登录</strong></p>
 </div> <!-- close .modal-header -->
 
 <div class="modal-body" style="padding-left:50px;padding-right:50px;">
     <form class="form-horizontal" role="form">
+	    <div class="form-group" ng-show="loginError" ng-cloak>
+		    <p>{{errorMsg}}</p>
+	    </div>
 	    <div class="form-group">
 		    <label for="phone">Phone:</label>
 		    <input type="text" class="form-control" id="phone" placeholder="Your phone number" ng-model="phone" maxlength="11" disabled='disabled' required/>

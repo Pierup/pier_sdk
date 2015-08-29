@@ -1,11 +1,15 @@
 <% include ../header%>
+<script src="../../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="register.js"></script>
 <div class="registeration" ng-app="RegisterApp" ng-controller="IndexController">
     <div class="register-wrap" >
 		<div class="title">
-			<p>注册</p>
+			<p ng-hide="$state.is('login')">注册</p>
+			<p ng-show="$state.is('login')">请登录完成信用申请</p>
 		</div>
 		<div class="pier-form" >
-			<div class="register-process">
+			<div class="register-process" ng-hide="$state.is('login')">
 				<div style="width:100%;height:2px;background:#fff;"></div>
 			    <div style="width:100%;height:1px;background:rgb(200,200,200);"></div>
 			    <div class="process1 process active">
@@ -33,8 +37,6 @@
 		</div>
 	</div>
 </div>
-<script src="../../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="../../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script src="register.js"></script>
+
 <% include ../footer%>
 
