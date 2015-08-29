@@ -1,0 +1,64 @@
+<form class="form-horizontal registerForm" >
+<br><br>
+    <article> 
+	    <div class="register-group">
+		    <section class="section1">
+	    	    <label for="username">真实姓名:</label>
+		    </section>
+		    <section class="section2">
+	    	    <input class="form-control" placeholder="请输入您的真实姓名" name="username"  id="username" ng-model="username"  required/>
+		    </section>
+		    <section class="section3" >
+		    </section>
+	    </div>
+    </article>
+
+    <article> 
+	    <p class="register-error" ng-show="idNumNotRight">您输入的身份证号码有误</p> 
+	    <div class="register-group">
+		    <section class="section1">
+	    	    <label for="idNum">身份证:</label>
+		    </section>
+		    <section class="section2">
+	    	    <input class="form-control" placeholder="请输入您的18位身份证号码" name="idNum"  id="idNum" ng-model="idNum"  id-card-input maxlength="18" ng-blur="validateIdNum()" required/>
+		    </section>
+		    <section class="section3" >
+		    </section>
+	    </div>
+    </article>
+
+    <article> 
+	    <p class="register-error" ng-show="emailNotRight">您输入的邮箱格式不正确</p> 
+	    <div class="register-group">
+		    <section class="section1">
+	    	    <label for="email">常用邮箱:</label>
+		    </section>
+		    <section class="section2">
+	    	    <input class="form-control inputMailList" placeholder="请输入您的常用邮箱" name="email"  id="email" ng-model="email"  id="email" autocomplete="off" required/>
+		    </section>
+		    <section class="section3" >
+		    </section>
+	    </div>
+    </article>
+    <br>
+    <article>
+	    <p class="register-error" ng-show="saveError">{{errorMsg}}</p> 
+	    <div class="register-group">
+		    <section class="section1">
+	    	    <label for="inviteCode"></label>
+		    </section>
+		    <section class="section2" >
+	    	    <button type="submit" ng-click="next()">下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="saveFlag"  ></i></button>
+		    </section>
+		    <section class="section3">
+	    	    <p ></p>
+		    </section>
+	    </div>
+    </article>
+<script src="jquery.mailAutoComplete-3.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.inputMailList').mailAutoComplete();
+	})
+</script>
+</form>

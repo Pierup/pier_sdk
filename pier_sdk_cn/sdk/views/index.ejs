@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>品而支付</title>
+	<script src="js/checkout.js"></script>
+</head>
+<body style="text-align:center;padding-top:100px;padding-left:300px;">
+    <div class="pier-payment-btn" id="pierPay"><img class="" src="http://pierup.cn/images/pierlogo38.png" ></img><span>品而支付</span></div>
+	<script type="text/javascript">
+        PIER.initSDK({
+            amount: '110.00',
+            currency: 'CNY',
+            order_id: 'OR'+randomString(11),
+            api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+            api_secret_key: 'key1234567890',
+            merchant_id: 'MC0000001409',
+            data_action: '/checkout/login',
+            return_url: '/checkout/orderList',
+            order_detail: JSON.stringify({
+                items:[
+                    { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥11',count:'3',total: '￥33' },
+                    { product: '官网NIKE', logo: '', detail: '222222', type: 'Nike 服饰，和NBA球员一起运动',price:'￥11',count:'2',total: '￥22' },
+                    { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥11',count:'3',total: '￥33' },
+                    { product: '官网NIKE', logo: '', detail: '222222', type: 'Nike 服饰，和NBA球员一起运动',price:'￥11',count:'2',total: '￥22' }
+                ],
+                totalAmount: '￥110'
+            })
+        });
+        function randomString(len) {
+        　　len = len || 32;
+        　　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+        　　var maxPos = $chars.length;
+        　　var pwd = '';
+        　　for (i = 0; i < len; i++) {
+        　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        　　}
+        　　return pwd;
+        }
+	</script>
+
+</body>
+</html>

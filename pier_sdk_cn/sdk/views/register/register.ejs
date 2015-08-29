@@ -1,0 +1,40 @@
+<% include ../header%>
+<div class="registeration" ng-app="RegisterApp" ng-controller="IndexController">
+    <div class="register-wrap" >
+		<div class="title">
+			<p>注册</p>
+		</div>
+		<div class="pier-form" >
+			<div class="register-process">
+				<div style="width:100%;height:2px;background:#fff;"></div>
+			    <div style="width:100%;height:1px;background:rgb(200,200,200);"></div>
+			    <div class="process1 process active">
+			        <div class="circle ">1</div> 
+			        <p>创建账户</p>
+			    </div>
+			    <div class="process2 process" ng-class="{'active':$state.is('information')||$state.is('pay-password')||$state.is('link-bank')||$state.is('link-bank')||$state.is('confirm')}">
+			        <div class="circle">2</div> 
+			        <p>输入身份证信息</p>
+			    </div>
+			    <div class="process3 process" ng-class="{'active':$state.is('pay-password')||$state.is('link-bank')||$state.is('confirm')}">
+			        <div class="circle ">3</div> 
+			        <p>设置支付密码</p>
+			    </div>
+			    <div class="process4 process" ng-class="{'active':$state.is('link-bank')||$state.is('confirm')}">
+			        <div class="circle ">4</div> 
+			        <p>绑定银行卡</p>
+			    </div>
+			    <div class="process5 process" ng-class="{'active':$state.is('confirm')}">
+			        <div class="circle ">5</div> 
+			        <p>确认申请</p>
+			    </div>
+			</div>
+			<ui-view></ui-view>
+		</div>
+	</div>
+</div>
+<script src="../../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="register.js"></script>
+<% include ../footer%>
+

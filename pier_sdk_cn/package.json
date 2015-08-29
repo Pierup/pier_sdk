@@ -1,0 +1,14 @@
+{
+  "name": "pier_sdk_cn",
+  "version": "1.0.0",
+  "description": "pier checkout sdk in china",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cheng Cong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

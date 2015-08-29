@@ -1,0 +1,1852 @@
+[2015-08-17 10:25:02.288] [INFO] console - user register start
+[2015-08-17 10:25:08.120] [INFO] console - user register start
+[2015-08-17 10:25:11.065] [INFO] console - user register start
+[2015-08-17 10:25:24.297] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-08-17 10:26:40.961] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-08-17 10:26:42.744] [INFO] console - user register start
+[2015-08-17 10:26:48.247] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-08-17 10:29:57.577] [INFO] console - user register start
+[2015-08-17 10:30:01.006] [INFO] console - user register start
+[2015-08-17 10:30:13.578] [INFO] console - user register start
+[2015-08-17 10:30:14.472] [INFO] console - user register start
+[2015-08-17 10:30:15.089] [INFO] console - user register start
+[2015-08-17 10:30:15.634] [INFO] console - user register start
+[2015-08-17 10:30:15.920] [INFO] console - user register start
+[2015-08-17 10:38:16.431] [INFO] console - user register start
+[2015-08-17 10:38:27.887] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '5259' } }
+[2015-08-17 10:38:49.987] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '93dc2c2430f2ad2fc15aafcbceafdfcf' } }
+[2015-08-17 10:38:57.619] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006348',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 10:39:48.810] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 10:39:53.929] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 10:40:02.213] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-17 10:40:10.987] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006350' } }
+[2015-08-17 10:40:15.305] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 10:40:15.363] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '13248269098',
+     id_number: '123456789123456789',
+     id_verified: '1',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cheng_cong123@163.com',
+     status_bit: '23',
+     dob: '78912345',
+     name: '程聪',
+     user_id: 'UR0000006348' } }
+[2015-08-17 10:40:15.588] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 10:40:21.812] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 10:40:23.069] [INFO] console - user apply credit { user_id: 'UR0000006348',
+  session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 10:40:23.099] [INFO] console - get apply credit response body { code: '500',
+  message: 'Incorrect datetime value: \'7891-23-45\' for function str_to_date',
+  result: null }
+[2015-08-17 10:42:02.025] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '13248269098',
+     id_number: '123456789123456789',
+     id_verified: '1',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cheng_cong123@163.com',
+     status_bit: '23',
+     dob: '78912345',
+     name: '程聪',
+     user_id: 'UR0000006348' } }
+[2015-08-17 10:42:02.090] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 10:44:02.181] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 10:44:02.222] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '13248269098',
+     id_number: '123456199204092145',
+     id_verified: '1',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cheng_cong123@163.com',
+     status_bit: '23',
+     dob: '19920409',
+     name: 'cong',
+     user_id: 'UR0000006348' } }
+[2015-08-17 10:44:02.443] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 10:44:04.500] [INFO] console - user apply credit { user_id: 'UR0000006348',
+  session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 10:44:04.548] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 10:44:04.550] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 10:45:03.569] [INFO] console - user apply credit { user_id: 'UR0000006348',
+  session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 10:45:03.826] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 10:45:03.828] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '0918c785-4488-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 14:04:26.350] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:05:12.342] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:07:13.143] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:08:52.625] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:38:18.462] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:38:47.024] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:39:34.181] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:41:01.171] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:41:02.169] [INFO] console - user register start
+[2015-08-17 14:41:07.036] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-08-17 14:41:10.662] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-08-17 14:41:50.265] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-08-17 14:41:50.917] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-08-17 14:42:02.252] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4267',
+     code: '6928',
+     sms_no: '4267' } }
+[2015-08-17 14:42:24.643] [INFO] console - get response body { code: '1022', message: '该帐号不存在', result: {} }
+[2015-08-17 14:42:36.450] [INFO] console - user register start
+[2015-08-17 14:42:41.586] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-08-17 14:43:06.065] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:43:43.535] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4268',
+     code: '7792',
+     sms_no: '4268' } }
+[2015-08-17 14:43:51.671] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'fdf373b9b31fdf242d8a137e921a2130' } }
+[2015-08-17 14:43:51.681] [INFO] console - reset password fdf373b9b31fdf242d8a137e921a2130
+[2015-08-17 14:44:01.432] [INFO] console - get response body { code: '200', message: 'OK', result: {} }
+[2015-08-17 14:50:25.358] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:51:08.848] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4269',
+     code: '8179',
+     sms_no: '4269' } }
+[2015-08-17 14:51:21.868] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '8206db7f0584d5da8423beecff2136d1' } }
+[2015-08-17 14:51:21.875] [INFO] console - reset password 8206db7f0584d5da8423beecff2136d1
+[2015-08-17 14:51:21.876] [ERROR] console - get cookie {}
+[2015-08-17 14:52:33.334] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:52:33.336] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 14:53:02.301] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:53:02.302] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 14:55:43.979] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { expiration: '300',
+     resend_time: '60',
+     code_id: '4270',
+     code: '7517',
+     sms_no: '4270' } }
+[2015-08-17 14:55:50.006] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'f7001c1fe2df245ab2bd1c1f2d677e6e' } }
+[2015-08-17 14:55:50.012] [INFO] console - reset password f7001c1fe2df245ab2bd1c1f2d677e6e
+[2015-08-17 14:55:50.012] [ERROR] console - get cookie {}
+[2015-08-17 14:56:36.270] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:56:36.273] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 14:56:37.584] [ERROR] console - get cookie {}
+[2015-08-17 14:56:49.094] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:56:49.097] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 14:56:51.290] [ERROR] console - get cookie {}
+[2015-08-17 14:57:07.178] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 14:57:07.180] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 14:57:08.299] [ERROR] console - get cookie {}
+[2015-08-17 15:07:24.968] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:07:24.970] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:07:31.707] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:33:01.993] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:33:01.996] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:33:03.579] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:33:09.500] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:34:45.956] [ERROR] console - get cookie {}
+[2015-08-17 15:35:01.468] [ERROR] console - get cookie {}
+[2015-08-17 15:35:08.199] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:35:08.200] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:35:09.563] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:35:16.353] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:35:26.150] [ERROR] console - get cookie {}
+[2015-08-17 15:35:39.855] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:35:39.858] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:37:36.884] [ERROR] console - get cookie {}
+[2015-08-17 15:37:50.579] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:37:50.580] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:37:52.547] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:38:00.017] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:38:03.874] [ERROR] console - get cookie {}
+[2015-08-17 15:39:46.831] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:39:46.831] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:48.710] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:49.865] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:50.080] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:50.305] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:50.529] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:50.774] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:51.034] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:51.271] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:51.537] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:51.815] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:52.225] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:52.577] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:52.949] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:53.307] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:53.738] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:54.104] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:54.512] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:54.952] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:55.377] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:55.745] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:56.170] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:56.570] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:39:56.994] [ERROR] console - get cookie {}
+[2015-08-17 15:39:57.329] [ERROR] console - get cookie {}
+[2015-08-17 15:42:50.494] [INFO] console - 9997
+[2015-08-17 15:43:03.367] [INFO] console - 9998
+[2015-08-17 15:43:16.464] [INFO] console - 9990
+[2015-08-17 15:43:17.190] [INFO] console - 9296
+[2015-08-17 15:43:20.999] [INFO] console - 6212
+[2015-08-17 15:43:24.715] [INFO] console - 6302
+[2015-08-17 15:43:28.738] [INFO] console - 9999
+[2015-08-17 15:43:34.967] [INFO] console - 3779
+[2015-08-17 15:43:41.314] [INFO] console - 9999
+[2015-08-17 15:43:56.469] [INFO] console - 59997
+[2015-08-17 15:44:01.262] [INFO] console - 55225
+[2015-08-17 15:44:04.030] [INFO] console - 57257
+[2015-08-17 15:44:04.031] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:44:04.032] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:44:05.608] [INFO] console - 58457
+[2015-08-17 15:44:05.610] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:44:17.507] [INFO] console - 48156
+[2015-08-17 15:44:17.508] [ERROR] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:44:23.809] [INFO] console - 53749
+[2015-08-17 15:44:36.542] [INFO] console - 59997
+[2015-08-17 15:44:36.542] [INFO] console - user register start
+[2015-08-17 15:46:15.923] [INFO] console - 59999
+[2015-08-17 15:46:15.927] [INFO] console - user register start
+[2015-08-17 15:46:26.322] [INFO] console - 49747
+[2015-08-17 15:46:26.322] [INFO] console - user register start
+[2015-08-17 15:50:07.483] [INFO] console - 59996
+[2015-08-17 15:50:07.487] [INFO] console - user register start
+[2015-08-17 15:50:11.154] [INFO] console - 56489
+[2015-08-17 15:50:11.155] [INFO] console - user register start
+[2015-08-17 15:50:16.116] [INFO] console - 55170
+[2015-08-17 15:50:16.118] [INFO] console - user register start
+[2015-08-17 15:50:24.990] [INFO] console - 51258
+[2015-08-17 15:50:24.993] [INFO] console - user register start
+[2015-08-17 15:50:35.726] [INFO] console - 49425
+[2015-08-17 15:50:35.727] [INFO] console - user register start
+[2015-08-17 15:50:42.706] [INFO] console - 53120
+[2015-08-17 15:50:42.712] [INFO] console - user register start
+[2015-08-17 15:50:45.276] [INFO] console - 57535
+[2015-08-17 15:50:45.277] [INFO] console - user register start
+[2015-08-17 15:50:48.523] [INFO] console - 56908
+[2015-08-17 15:50:48.525] [INFO] console - user register start
+[2015-08-17 15:51:29.099] [INFO] console - 59999
+[2015-08-17 15:51:29.101] [INFO] console - user register start
+[2015-08-17 15:52:50.190] [INFO] console - 56108
+[2015-08-17 15:52:50.191] [ERROR] console - get cookie {}
+[2015-08-17 15:52:58.978] [INFO] console - 51238
+[2015-08-17 15:53:32.471] [INFO] console - 26509
+[2015-08-17 15:53:32.473] [ERROR] console - get cookie {}
+[2015-08-17 15:53:34.817] [INFO] console - 57702
+[2015-08-17 15:53:35.925] [INFO] console - 58900
+[2015-08-17 15:53:35.927] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:53:35.928] [INFO] console - get cookie { auth_order: 'O1234567890', merchant_id: 'M1234567890' }
+[2015-08-17 15:54:42.090] [INFO] console - 59998
+[2015-08-17 15:54:42.729] [INFO] console - 59379
+[2015-08-17 15:54:42.730] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:54:44.029] [INFO] console - 58742
+[2015-08-17 15:54:44.034] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 15:54:47.603] [INFO] console - 56472
+[2015-08-17 15:54:47.605] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 15:54:59.401] [INFO] console - 48236
+[2015-08-17 15:54:59.401] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 15:55:04.357] [INFO] console - 55102
+[2015-08-17 15:55:04.358] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 15:55:25.381] [INFO] console - 39036
+[2015-08-17 15:55:25.383] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 15:55:40.561] [INFO] console - 44867
+[2015-08-17 15:55:40.561] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 15:55:56.604] [INFO] console - 59999
+[2015-08-17 15:55:56.606] [ERROR] console - get cookie {}
+[2015-08-17 15:56:29.973] [INFO] console - 9997
+[2015-08-17 15:56:30.539] [INFO] console - 9452
+[2015-08-17 15:56:30.541] [INFO] console - get post on checkout { merchant_name: '春田花花工作室', amount: '1234.00', currency: 'CNY' }
+[2015-08-17 15:56:31.749] [INFO] console - 8824
+[2015-08-17 15:56:31.749] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 15:56:34.950] [INFO] console - 6843
+[2015-08-17 15:56:34.951] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 15:56:38.036] [INFO] console - 6967
+[2015-08-17 15:56:38.037] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 15:56:41.149] [INFO] console - 9999
+[2015-08-17 15:56:41.151] [ERROR] console - get cookie {}
+[2015-08-17 15:56:41.348] [INFO] console - 9854
+[2015-08-17 15:56:41.348] [ERROR] console - get cookie {}
+[2015-08-17 15:56:41.610] [INFO] console - 9769
+[2015-08-17 15:56:41.611] [ERROR] console - get cookie {}
+[2015-08-17 15:56:41.867] [INFO] console - 9779
+[2015-08-17 15:56:41.868] [ERROR] console - get cookie {}
+[2015-08-17 15:56:42.080] [INFO] console - 9810
+[2015-08-17 15:56:42.081] [ERROR] console - get cookie {}
+[2015-08-17 15:56:42.297] [INFO] console - 9811
+[2015-08-17 15:56:42.299] [ERROR] console - get cookie {}
+[2015-08-17 15:56:42.528] [INFO] console - 9819
+[2015-08-17 15:56:42.528] [ERROR] console - get cookie {}
+[2015-08-17 15:56:42.761] [INFO] console - 9788
+[2015-08-17 15:56:42.764] [ERROR] console - get cookie {}
+[2015-08-17 15:56:42.980] [INFO] console - 9826
+[2015-08-17 15:56:42.982] [ERROR] console - get cookie {}
+[2015-08-17 15:56:43.227] [INFO] console - 9827
+[2015-08-17 15:56:43.227] [ERROR] console - get cookie {}
+[2015-08-17 15:56:43.497] [INFO] console - 9752
+[2015-08-17 15:56:43.497] [ERROR] console - get cookie {}
+[2015-08-17 15:56:43.759] [INFO] console - 9776
+[2015-08-17 15:56:43.760] [ERROR] console - get cookie {}
+[2015-08-17 15:56:44.015] [INFO] console - 9765
+[2015-08-17 15:56:44.016] [ERROR] console - get cookie {}
+[2015-08-17 15:56:44.296] [INFO] console - 9741
+[2015-08-17 15:56:44.298] [ERROR] console - get cookie {}
+[2015-08-17 15:56:44.530] [INFO] console - 9795
+[2015-08-17 15:56:44.530] [ERROR] console - get cookie {}
+[2015-08-17 15:56:44.766] [INFO] console - 9807
+[2015-08-17 15:56:44.768] [ERROR] console - get cookie {}
+[2015-08-17 15:56:45.028] [INFO] console - 9773
+[2015-08-17 15:56:45.029] [ERROR] console - get cookie {}
+[2015-08-17 15:56:45.248] [INFO] console - 9798
+[2015-08-17 15:56:45.249] [ERROR] console - get cookie {}
+[2015-08-17 15:56:45.495] [INFO] console - 9786
+[2015-08-17 15:56:45.496] [ERROR] console - get cookie {}
+[2015-08-17 15:56:45.744] [INFO] console - 9778
+[2015-08-17 15:56:45.746] [ERROR] console - get cookie {}
+[2015-08-17 16:12:01.731] [INFO] console - 9997
+[2015-08-17 16:12:01.732] [ERROR] console - get cookie {}
+[2015-08-17 16:12:25.184] [INFO] console - 10000
+[2015-08-17 16:20:39.350] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:20:43.227] [INFO] console - user register start
+[2015-08-17 16:20:44.908] [INFO] console - get on checkout {}
+[2015-08-17 16:20:49.956] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 16:20:50.828] [INFO] console - get on checkout {}
+[2015-08-17 16:21:38.787] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:21:41.073] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:21:42.485] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 16:22:28.148] [INFO] console - user register start
+[2015-08-17 16:26:08.109] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:26:09.847] [INFO] console - user register start
+[2015-08-17 16:26:49.578] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:26:50.735] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 16:26:52.884] [INFO] console - user register start
+[2015-08-17 16:28:21.943] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:28:23.514] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 16:29:25.575] [INFO] console - user register start
+[2015-08-17 16:29:29.462] [INFO] console - user register start
+[2015-08-17 16:29:33.653] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 16:29:46.122] [INFO] console - user register start
+[2015-08-17 16:29:59.964] [INFO] console - user register start
+[2015-08-17 16:30:20.496] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '9940' } }
+[2015-08-17 16:30:25.027] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'e89d4e0577b4dcf1ccb1c799b0b5eec3' } }
+[2015-08-17 16:30:32.499] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006363',
+     session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:31:29.570] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:31:33.890] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:31:40.921] [INFO] console - get response body { code: '1163', message: '不支持该银行卡', result: {} }
+[2015-08-17 16:31:45.871] [INFO] console - get response body { code: '1163', message: '不支持该银行卡', result: {} }
+[2015-08-17 16:31:52.868] [INFO] console - get response body { code: '1163', message: '不支持该银行卡', result: {} }
+[2015-08-17 16:32:46.596] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-17 16:32:55.391] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006367' } }
+[2015-08-17 16:33:06.165] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:33:06.215] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '13248269999',
+     id_number: '123456199204090000',
+     id_verified: '1',
+     session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cheng_cong@gmail.com',
+     status_bit: '23',
+     dob: '19920409',
+     name: 'cong10',
+     user_id: 'UR0000006363' } }
+[2015-08-17 16:33:06.238] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:33:09.918] [INFO] console - user apply credit { user_id: 'UR0000006363',
+  session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:33:10.168] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong10',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:33:10.171] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '267d15d0-44b9-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong10',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:35:52.886] [INFO] console - user register start
+[2015-08-17 16:35:57.930] [INFO] console - user register start
+[2015-08-17 16:38:31.251] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:38:33.179] [INFO] console - user register start
+[2015-08-17 16:38:44.371] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '22222222222', resend_time: '0', code: '' } }
+[2015-08-17 16:38:48.259] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '4633' } }
+[2015-08-17 16:38:52.910] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '211667e12ef39346e2de4ab4427e6278' } }
+[2015-08-17 16:39:13.516] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006370',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:39:42.647] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:39:47.038] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:40:05.411] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-17 16:40:10.860] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006372' } }
+[2015-08-17 16:40:15.085] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:40:15.140] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '22222222223',
+     id_number: '123456199204090000',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'c@163.com',
+     status_bit: '23',
+     dob: '19920409',
+     name: 'CongCheng',
+     user_id: 'UR0000006370' } }
+[2015-08-17 16:40:15.166] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:40:16.452] [INFO] console - user apply credit { user_id: 'UR0000006370',
+  session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:40:16.508] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:40:16.512] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:42:48.455] [INFO] console - user apply credit { user_id: 'UR0000006370',
+  session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:42:48.783] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:42:48.783] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:42:57.001] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '22222222223',
+     id_number: '123456199204090000',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'c@163.com',
+     status_bit: '159',
+     dob: '19920409',
+     name: 'CongCheng',
+     user_id: 'UR0000006370' } }
+[2015-08-17 16:42:57.049] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:42:58.805] [INFO] console - user apply credit { user_id: 'UR0000006370',
+  session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:42:59.069] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:42:59.074] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:44:58.073] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '22222222223',
+     id_number: '123456199204090000',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'c@163.com',
+     status_bit: '159',
+     dob: '19920409',
+     name: 'CongCheng',
+     user_id: 'UR0000006370' } }
+[2015-08-17 16:44:58.146] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:45:00.781] [INFO] console - user apply credit { user_id: 'UR0000006370',
+  session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:45:00.828] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:45:00.830] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:45:32.440] [INFO] console - user apply credit { user_id: 'UR0000006370',
+  session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:45:32.498] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:45:32.499] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '5d287dfd-44ba-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongCheng',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:47:38.446] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:48:55.212] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:50:30.880] [INFO] console - user register start
+[2015-08-17 16:50:35.453] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:50:36.967] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 16:50:39.987] [INFO] console - user register start
+[2015-08-17 16:50:46.692] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '22222222223', resend_time: '0', code: '' } }
+[2015-08-17 16:50:52.830] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '4202' } }
+[2015-08-17 16:50:57.027] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'efd695e5dbd0b589e487087a5306a6aa' } }
+[2015-08-17 16:51:09.733] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006380',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:51:28.214] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:51:40.200] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:51:49.352] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-17 16:51:58.735] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006382' } }
+[2015-08-17 16:52:01.578] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:52:01.630] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '22222222221',
+     id_number: '123456199204090000',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'c@gmail.com',
+     status_bit: '23',
+     dob: '19920409',
+     name: 'cong',
+     user_id: 'UR0000006380' } }
+[2015-08-17 16:52:01.657] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:52:03.210] [INFO] console - user apply credit { user_id: 'UR0000006380',
+  session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:52:03.455] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:52:03.458] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:52:39.220] [INFO] console - user apply credit { user_id: 'UR0000006380',
+  session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:52:39.484] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:52:39.488] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:52:58.429] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '22222222221',
+     id_number: '123456199204090000',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'c@gmail.com',
+     status_bit: '159',
+     dob: '19920409',
+     name: 'cong',
+     user_id: 'UR0000006380' } }
+[2015-08-17 16:52:58.483] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:52:59.765] [INFO] console - user apply credit { user_id: 'UR0000006380',
+  session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:53:00.011] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:53:00.015] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:55:08.972] [INFO] console - user apply credit { user_id: 'UR0000006380',
+  session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:55:09.167] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:55:09.168] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '080d175e-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cong',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:55:21.304] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:55:22.721] [INFO] console - get payment on checkout {}
+[2015-08-17 16:55:27.419] [INFO] console - get payment on checkout {}
+[2015-08-17 16:55:28.156] [INFO] console - get payment on checkout {}
+[2015-08-17 16:55:30.333] [INFO] console - user register start
+[2015-08-17 16:55:38.381] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '0358' } }
+[2015-08-17 16:55:44.530] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '01e9805f3c71a20a18186738d689e6a5' } }
+[2015-08-17 16:55:51.711] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006387',
+     session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:56:08.914] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:56:13.999] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:56:20.053] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-17 16:56:24.107] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006389' } }
+[2015-08-17 16:56:26.779] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:56:26.827] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '22222222224',
+     id_number: '123456199204095555',
+     id_verified: '1',
+     session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'ccccc@126.com',
+     status_bit: '23',
+     dob: '19920409',
+     name: 'test1',
+     user_id: 'UR0000006387' } }
+[2015-08-17 16:56:26.860] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:56:28.407] [INFO] console - user apply credit { user_id: 'UR0000006387',
+  session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:56:28.653] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'test1',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:56:28.659] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: 'b01fbdbc-44bc-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'test1',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:57:50.556] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:57:56.203] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:57:58.163] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 16:57:59.323] [INFO] console - user register start
+[2015-08-17 16:58:02.977] [INFO] console - user register start
+[2015-08-17 16:58:10.701] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '9182' } }
+[2015-08-17 16:58:16.522] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '422bdf10c7d7e18e80367092b994c0f4' } }
+[2015-08-17 16:58:26.648] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006391',
+     session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:58:40.553] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:58:44.278] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:58:55.920] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-17 16:58:59.585] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006393' } }
+[2015-08-17 16:59:02.023] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:59:02.073] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '22222222225',
+     id_number: '123456199204091111',
+     id_verified: '1',
+     session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'xzs@qq.com',
+     status_bit: '23',
+     dob: '19920409',
+     name: 'CongChen',
+     user_id: 'UR0000006391' } }
+[2015-08-17 16:59:02.100] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 16:59:03.654] [INFO] console - user apply credit { user_id: 'UR0000006391',
+  session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 16:59:03.910] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongChen',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 16:59:03.914] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '0c7a312a-44bd-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'CongChen',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 16:59:19.468] [INFO] console - user register start
+[2015-08-17 17:11:08.588] [INFO] console - user register start
+[2015-08-17 17:13:14.935] [INFO] console - user register start
+[2015-08-17 17:13:15.799] [INFO] console - user register start
+[2015-08-17 17:13:40.822] [INFO] console - user register start
+[2015-08-17 17:13:41.444] [INFO] console - user register start
+[2015-08-17 17:14:38.371] [INFO] console - user register start
+[2015-08-17 17:14:39.391] [INFO] console - user register start
+[2015-08-17 17:14:42.864] [ERROR] console - 1111111 {}
+[2015-08-17 17:15:07.950] [INFO] console - user register start
+[2015-08-17 17:15:08.905] [ERROR] console - 1111111 {}
+[2015-08-17 17:15:36.739] [INFO] console - user register start
+[2015-08-17 17:15:37.068] [INFO] console - user register start
+[2015-08-17 17:15:37.404] [INFO] console - user register start
+[2015-08-17 17:15:38.373] [ERROR] console - 1111111 true
+[2015-08-17 17:17:07.382] [ERROR] console - 2222222 {}
+[2015-08-17 17:17:18.149] [ERROR] console - 2222222 true
+[2015-08-17 17:17:28.195] [ERROR] console - 2222222 {}
+[2015-08-17 17:17:32.227] [ERROR] console - 2222222 { location: 'login', _locals: {} }
+[2015-08-17 17:17:32.758] [ERROR] console - 2222222 { location: 'login', _locals: {} }
+[2015-08-17 17:20:43.454] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:22:01.001] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:22:01.016] [ERROR] console - 2222222 { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login' }
+[2015-08-17 17:22:02.198] [ERROR] console - 2222222 { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:22:02.899] [ERROR] console - 2222222 { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:22:03.502] [ERROR] console - 2222222 { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:22:03.908] [ERROR] console - 2222222 { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:22:04.228] [ERROR] console - 2222222 { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:22:04.484] [ERROR] console - 2222222 { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:22:51.125] [ERROR] console - 2222222 { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:26:57.853] [INFO] console - user register start
+[2015-08-17 17:26:59.385] [ERROR] console - 1111111 {}
+[2015-08-17 17:26:59.388] [ERROR] console - 2222222 {}
+[2015-08-17 17:27:13.700] [ERROR] console - 1111111 {}
+[2015-08-17 17:27:13.700] [ERROR] console - 2222222 {}
+[2015-08-17 17:27:16.658] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:27:16.665] [ERROR] console - 2222222 { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:31:13.257] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:31:15.049] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:34:59.590] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:35:07.686] [INFO] console - user register start
+[2015-08-17 17:39:08.492] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:39:44.045] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:40:13.899] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:40:24.031] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:40:25.379] [INFO] console - user register start
+[2015-08-17 17:41:27.900] [INFO] console - user register start
+[2015-08-17 17:42:18.491] [INFO] console - user register start
+[2015-08-17 17:43:42.868] [INFO] console - user register start
+[2015-08-17 17:43:46.505] [INFO] console - user register start
+[2015-08-17 17:45:10.174] [INFO] console - user register start
+[2015-08-17 17:45:33.387] [INFO] console - user register start
+[2015-08-17 17:46:15.205] [INFO] console - user register start
+[2015-08-17 17:48:50.128] [INFO] console - user register start
+[2015-08-17 17:49:16.919] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-08-17 17:49:25.719] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '7387' } }
+[2015-08-17 17:49:31.711] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '9cb294c6779c328adae4db564ddc5d2a' } }
+[2015-08-17 17:49:37.640] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000006395',
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 17:49:56.317] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 17:49:59.974] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 17:50:11.237] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { bank_id: 'BI0000000003',
+     bank_name: '中国农业银行',
+     num_of_digits: '19',
+     card_type: '借记卡',
+     image_url: 'http://pierup-images.oss-cn-shenzhen.aliyuncs.com/BI0000000003.PNG',
+     card_name: '金穗通宝卡(银联卡)' } }
+[2015-08-17 17:50:15.979] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { resend_time: '60',
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9',
+     bank_card_id: 'BC0000006397' } }
+[2015-08-17 17:50:18.387] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 17:50:18.440] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { phone: '22222222229',
+     id_number: '123456199204091111',
+     id_verified: '1',
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9',
+     image_url: '',
+     email: 'cc@hotmail.com',
+     status_bit: '23',
+     dob: '19920409',
+     name: 'cc',
+     user_id: 'UR0000006395' } }
+[2015-08-17 17:50:18.466] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { items: [ [Object] ],
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 17:50:24.094] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '23',
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9' } }
+[2015-08-17 17:50:25.244] [INFO] console - user apply credit { user_id: 'UR0000006395',
+  session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9' }
+[2015-08-17 17:50:25.505] [INFO] console - get apply credit response body { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cc',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' } }
+[2015-08-17 17:50:25.507] [INFO] console - aaaaaaaaaaa { code: '200',
+  message: 'OK',
+  result: 
+   { inviter_reward_status: '',
+     info_bit: '0',
+     id_verified: '1',
+     session_token: '32edae28-44c4-11e5-b0f8-0f6bed642eb9',
+     category: '',
+     credit_limit: '1100',
+     status_bit: '159',
+     name: 'cc',
+     inviter_id: '',
+     shadow_limit: '2200',
+     reward_status: '' },
+  title: '申请信用成功' }
+[2015-08-17 17:50:53.858] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:51:34.534] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:51:52.986] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:51:55.193] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:51:57.134] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:51:58.905] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:52:30.516] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 17:52:33.700] [INFO] console - user register start
+[2015-08-17 17:52:57.296] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:53:27.667] [INFO] console - user register start
+[2015-08-17 17:55:15.425] [INFO] console - user register start
+[2015-08-17 17:58:50.398] [INFO] console - user register start
+[2015-08-17 17:59:02.616] [INFO] console - user register start
+[2015-08-17 17:59:11.815] [INFO] console - user register start
+[2015-08-17 17:59:12.864] [INFO] console - user register start
+[2015-08-17 17:59:15.270] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 17:59:17.347] [ERROR] console - get cookie { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890',
+  location: 'login',
+  _locals: {} }
+[2015-08-17 18:04:04.717] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:05:50.047] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:06:37.811] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:07:03.554] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:07:54.913] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:08:08.503] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:10:19.234] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:13:06.912] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:13:35.009] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:14:11.089] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:14:28.631] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:14:52.965] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:17:46.177] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:18:27.007] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:20:49.903] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:21:20.544] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:59:22.154] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 18:59:42.735] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:00:33.054] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:00:44.836] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:00:52.881] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:01:10.205] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:01:23.587] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:01:35.804] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:01:52.906] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:02:09.978] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:02:16.914] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:02:26.579] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:02:51.695] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:03:10.941] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:04:08.938] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:04:28.001] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:05:37.210] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:05:55.409] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:06:10.701] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:09:54.111] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:34:03.617] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:35:17.682] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:36:13.515] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:46:41.506] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:47:08.763] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:47:25.846] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:47:54.119] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:48:42.186] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:53:53.806] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:54:15.496] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:55:47.227] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:58:10.252] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:58:17.183] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:58:34.769] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-17 19:59:09.085] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-18 09:48:01.684] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }
+[2015-08-18 09:48:16.575] [INFO] console - get post on checkout { merchant_name: '春田花花工作室',
+  amount: '1234.00',
+  currency: 'CNY',
+  order_id: '1234567890' }

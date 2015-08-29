@@ -1,0 +1,62 @@
+<!-- 
+<div class="container text-center">
+	<h2>重置密码成功</h2>
+	<img src="" style="width:120px;height:120px;">
+	<br><br>
+	<p><span id="second"></span>s 后为你跳转</p>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$_sec = $("#second");
+		var _totalSec = 6;
+		var timeCount = function(){
+			_totalSec -= 1;
+            $_sec.html(_totalSec);
+            if( _totalSec =< 0 ){
+            	window.location.href="/checkout/login";
+            	return;
+            }
+			return setTimeout(timeCount, 1000);
+		};
+		timeCount();
+	})
+</script> -->
+
+
+<% include ../header%>
+<div class="registeration">
+    <div class="register-wrap" >
+		<div class="title">
+			<p>重新设置登录密码</p>
+		</div>
+		<div class="pier-form text-center" style="height:540px;">
+			<div style="width:324px;margin:0 auto;">
+				<img src="../images/tick.png" style="margin-top:140px;">
+				<h2 style="font-size:24px;font-weight:lighter;color:#7b37a6;">修改登录密码成功</h2>
+				<br>
+				<p>今后将使用新的登录密码，请妥善保管好你的密码。</p>
+				<p class="text-left";><span id="timeSec">5</span>秒后前往支付</p><br><br>
+				<button style="width:320px;height:42px;background:#7b37a6;border-radius:4px;color:#fff;border:1px solid #7b37a6;font-size:18px;" onclick="backToCheckout()">立即前往支付</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    var time = 6;
+    function SecCount(){
+    	time -= 1;
+    	if( time == 0 ){
+    		backToCheckout();
+    		return;
+    	}
+    	$('#timeSec').html(time);
+    	return setTimeout(SecCount, 1000);
+    }
+    function backToCheckout(){
+    	window.location.href="/checkout/login";
+    }
+    SecCount();
+</script>
+<% include ../footer%>
+
+
