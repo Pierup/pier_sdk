@@ -29,7 +29,7 @@
 
 - (IBAction)payByPier:(id)sender{
     _pierPay = [[PierPaySDK alloc] init];
-    [_pierPay createPayment:nil delegate:self completion:^(NSDictionary *result, NSError *error) {
+    [_pierPay createPayment:nil delegate:self fromScheme:@"" completion:^(NSDictionary *result, NSError *error) {
         
     }];
 }

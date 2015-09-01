@@ -22,8 +22,8 @@
 
 - (void)createPayment:(NSDictionary *)charge
              delegate:(id)delegate
+           fromScheme:(NSString *)fromScheme
            completion:(payWithPierComplete)completion{
-    
     /** init view */
     UIViewController *currentVC = [PierViewUtils getCurrentViewController];
     _webViewController = [[PierWebViewController alloc] init];

@@ -12,8 +12,17 @@ typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
 
 @interface PierPaySDK : NSObject
 
+/**
+ * Pier支付接口
+ * 
+ * @param charge        订单信息
+ * @param delegate      商户当前页面
+ * @param fromScheme    调用品而支付的商户app注册在info.plist中的scheme
+ * @param completion
+ */
 - (void)createPayment:(NSDictionary *)charge
              delegate:(id)delegate
+           fromScheme:(NSString *)fromScheme
            completion:(payWithPierComplete)completion;
 
 @end
