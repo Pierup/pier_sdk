@@ -10,4 +10,6 @@
 
 @interface PierWebViewController : UIViewController
 
+@property (nonatomic, strong) NSDictionary *charge;
+
 @end

@@ -23,6 +23,39 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2A6014641B95C7F800EDAB51 /* PierService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014621B95C7F800EDAB51 /* PierService.h */; };
+		2A6014651B95C7F800EDAB51 /* PierService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014631B95C7F800EDAB51 /* PierService.m */; };
+		2A6014681B95C83500EDAB51 /* PierJSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014661B95C83500EDAB51 /* PierJSONKit.h */; };
+		2A6014691B95C83500EDAB51 /* PierJSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014671B95C83500EDAB51 /* PierJSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2A60146C1B95C9C100EDAB51 /* PierJSONModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A60146A1B95C9C100EDAB51 /* PierJSONModel.h */; };
+		2A60146D1B95C9C100EDAB51 /* PierJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A60146B1B95C9C100EDAB51 /* PierJSONModel.m */; };
+		2A60146F1B95C9E600EDAB51 /* PierConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A60146E1B95C9E600EDAB51 /* PierConfig.h */; };
+		2A6014761B95CA7200EDAB51 /* PierHttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014701B95CA7200EDAB51 /* PierHttpClient.h */; };
+		2A6014771B95CA7200EDAB51 /* PierHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014711B95CA7200EDAB51 /* PierHttpClient.m */; };
+		2A6014781B95CA7200EDAB51 /* PierHttpExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014721B95CA7200EDAB51 /* PierHttpExecutor.h */; };
+		2A6014791B95CA7200EDAB51 /* PierHttpExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014731B95CA7200EDAB51 /* PierHttpExecutor.m */; };
+		2A60147A1B95CA7200EDAB51 /* PierPayModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014741B95CA7200EDAB51 /* PierPayModel.h */; };
+		2A60147B1B95CA7200EDAB51 /* PierPayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014751B95CA7200EDAB51 /* PierPayModel.m */; };
+		2A60148B1B95CAEA00EDAB51 /* NSString+PierCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A60147D1B95CAEA00EDAB51 /* NSString+PierCheck.h */; };
+		2A60148C1B95CAEA00EDAB51 /* NSString+PierCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A60147E1B95CAEA00EDAB51 /* NSString+PierCheck.m */; };
+		2A60148D1B95CAEA00EDAB51 /* PierColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A60147F1B95CAEA00EDAB51 /* PierColor.h */; };
+		2A60148E1B95CAEA00EDAB51 /* PierColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014801B95CAEA00EDAB51 /* PierColor.m */; };
+		2A60148F1B95CAEA00EDAB51 /* PierDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014811B95CAEA00EDAB51 /* PierDataSource.h */; };
+		2A6014901B95CAEA00EDAB51 /* PierDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014821B95CAEA00EDAB51 /* PierDataSource.m */; };
+		2A6014911B95CAEA00EDAB51 /* PierDateUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014831B95CAEA00EDAB51 /* PierDateUtil.h */; };
+		2A6014921B95CAEA00EDAB51 /* PierDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014841B95CAEA00EDAB51 /* PierDateUtil.m */; };
+		2A6014931B95CAEA00EDAB51 /* PierFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014851B95CAEA00EDAB51 /* PierFont.h */; };
+		2A6014941B95CAEA00EDAB51 /* PierFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014861B95CAEA00EDAB51 /* PierFont.m */; };
+		2A6014951B95CAEA00EDAB51 /* PierTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014871B95CAEA00EDAB51 /* PierTools.h */; };
+		2A6014961B95CAEA00EDAB51 /* PierTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014881B95CAEA00EDAB51 /* PierTools.m */; };
+		2A60149C1B95CBA600EDAB51 /* PierLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A60149A1B95CBA600EDAB51 /* PierLoadingView.h */; };
+		2A60149D1B95CBA600EDAB51 /* PierLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A60149B1B95CBA600EDAB51 /* PierLoadingView.m */; };
+		2A6014A31B95CBF700EDAB51 /* PierDebugView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A60149F1B95CBF700EDAB51 /* PierDebugView.h */; };
+		2A6014A41B95CBF700EDAB51 /* PierDebugView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014A01B95CBF700EDAB51 /* PierDebugView.m */; };
+		2A6014A51B95CBF700EDAB51 /* PierDragButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014A11B95CBF700EDAB51 /* PierDragButton.h */; };
+		2A6014A61B95CBF700EDAB51 /* PierDragButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014A21B95CBF700EDAB51 /* PierDragButton.m */; };
+		2A6015121B95F01D00EDAB51 /* ProximaNova-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A6015101B95F01D00EDAB51 /* ProximaNova-Light.otf */; };
+		2A6015131B95F01D00EDAB51 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A6015111B95F01D00EDAB51 /* ProximaNova-Regular.otf */; };
 		2A90C42F1B94183F00EA1529 /* PierPaySDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2A90C42E1B94183F00EA1529 /* PierPaySDK.h */; };
 		2A90C4311B94183F00EA1529 /* PierPaySDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A90C4301B94183F00EA1529 /* PierPaySDK.m */; };
 		2A90C4371B94183F00EA1529 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A90C42B1B94183F00EA1529 /* libPierPaySDK.a */; };
@@ -75,6 +108,39 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A6014621B95C7F800EDAB51 /* PierService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierService.h; sourceTree = "<group>"; };
+		2A6014631B95C7F800EDAB51 /* PierService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierService.m; sourceTree = "<group>"; };
+		2A6014661B95C83500EDAB51 /* PierJSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierJSONKit.h; sourceTree = "<group>"; };
+		2A6014671B95C83500EDAB51 /* PierJSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierJSONKit.m; sourceTree = "<group>"; };
+		2A60146A1B95C9C100EDAB51 /* PierJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierJSONModel.h; sourceTree = "<group>"; };
+		2A60146B1B95C9C100EDAB51 /* PierJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierJSONModel.m; sourceTree = "<group>"; };
+		2A60146E1B95C9E600EDAB51 /* PierConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierConfig.h; sourceTree = "<group>"; };
+		2A6014701B95CA7200EDAB51 /* PierHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierHttpClient.h; sourceTree = "<group>"; };
+		2A6014711B95CA7200EDAB51 /* PierHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierHttpClient.m; sourceTree = "<group>"; };
+		2A6014721B95CA7200EDAB51 /* PierHttpExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierHttpExecutor.h; sourceTree = "<group>"; };
+		2A6014731B95CA7200EDAB51 /* PierHttpExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierHttpExecutor.m; sourceTree = "<group>"; };
+		2A6014741B95CA7200EDAB51 /* PierPayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierPayModel.h; sourceTree = "<group>"; };
+		2A6014751B95CA7200EDAB51 /* PierPayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierPayModel.m; sourceTree = "<group>"; };
+		2A60147D1B95CAEA00EDAB51 /* NSString+PierCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PierCheck.h"; sourceTree = "<group>"; };
+		2A60147E1B95CAEA00EDAB51 /* NSString+PierCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PierCheck.m"; sourceTree = "<group>"; };
+		2A60147F1B95CAEA00EDAB51 /* PierColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierColor.h; sourceTree = "<group>"; };
+		2A6014801B95CAEA00EDAB51 /* PierColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierColor.m; sourceTree = "<group>"; };
+		2A6014811B95CAEA00EDAB51 /* PierDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierDataSource.h; sourceTree = "<group>"; };
+		2A6014821B95CAEA00EDAB51 /* PierDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierDataSource.m; sourceTree = "<group>"; };
+		2A6014831B95CAEA00EDAB51 /* PierDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierDateUtil.h; sourceTree = "<group>"; };
+		2A6014841B95CAEA00EDAB51 /* PierDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierDateUtil.m; sourceTree = "<group>"; };
+		2A6014851B95CAEA00EDAB51 /* PierFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierFont.h; sourceTree = "<group>"; };
+		2A6014861B95CAEA00EDAB51 /* PierFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierFont.m; sourceTree = "<group>"; };
+		2A6014871B95CAEA00EDAB51 /* PierTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierTools.h; sourceTree = "<group>"; };
+		2A6014881B95CAEA00EDAB51 /* PierTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierTools.m; sourceTree = "<group>"; };
+		2A60149A1B95CBA600EDAB51 /* PierLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierLoadingView.h; sourceTree = "<group>"; };
+		2A60149B1B95CBA600EDAB51 /* PierLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierLoadingView.m; sourceTree = "<group>"; };
+		2A60149F1B95CBF700EDAB51 /* PierDebugView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierDebugView.h; sourceTree = "<group>"; };
+		2A6014A01B95CBF700EDAB51 /* PierDebugView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierDebugView.m; sourceTree = "<group>"; };
+		2A6014A11B95CBF700EDAB51 /* PierDragButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierDragButton.h; sourceTree = "<group>"; };
+		2A6014A21B95CBF700EDAB51 /* PierDragButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierDragButton.m; sourceTree = "<group>"; };
+		2A6015101B95F01D00EDAB51 /* ProximaNova-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Light.otf"; sourceTree = "<group>"; };
+		2A6015111B95F01D00EDAB51 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		2A90C42B1B94183F00EA1529 /* libPierPaySDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPierPaySDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A90C42E1B94183F00EA1529 /* PierPaySDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PierPaySDK.h; sourceTree = "<group>"; };
 		2A90C4301B94183F00EA1529 /* PierPaySDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PierPaySDK.m; sourceTree = "<group>"; };
@@ -118,6 +184,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A6014611B95C7CB00EDAB51 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2A6014701B95CA7200EDAB51 /* PierHttpClient.h */,
+				2A6014711B95CA7200EDAB51 /* PierHttpClient.m */,
+				2A6014721B95CA7200EDAB51 /* PierHttpExecutor.h */,
+				2A6014731B95CA7200EDAB51 /* PierHttpExecutor.m */,
+				2A6014741B95CA7200EDAB51 /* PierPayModel.h */,
+				2A6014751B95CA7200EDAB51 /* PierPayModel.m */,
+				2A60146E1B95C9E600EDAB51 /* PierConfig.h */,
+				2A60146A1B95C9C100EDAB51 /* PierJSONModel.h */,
+				2A60146B1B95C9C100EDAB51 /* PierJSONModel.m */,
+				2A6014661B95C83500EDAB51 /* PierJSONKit.h */,
+				2A6014671B95C83500EDAB51 /* PierJSONKit.m */,
+				2A6014621B95C7F800EDAB51 /* PierService.h */,
+				2A6014631B95C7F800EDAB51 /* PierService.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		2A60147C1B95CAC800EDAB51 /* WebHelper */ = {
+			isa = PBXGroup;
+			children = (
+				2AF463E21B945716000E87B8 /* PierH5Utils.h */,
+				2AF463E31B945716000E87B8 /* PierH5Utils.m */,
+				2AF463CD1B94470C000E87B8 /* PierViewUtils.h */,
+				2AF463CE1B94470C000E87B8 /* PierViewUtils.m */,
+			);
+			name = WebHelper;
+			sourceTree = "<group>";
+		};
+		2A6014991B95CB8400EDAB51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A60149A1B95CBA600EDAB51 /* PierLoadingView.h */,
+				2A60149B1B95CBA600EDAB51 /* PierLoadingView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2A60149E1B95CBE000EDAB51 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				2A60149F1B95CBF700EDAB51 /* PierDebugView.h */,
+				2A6014A01B95CBF700EDAB51 /* PierDebugView.m */,
+				2A6014A11B95CBF700EDAB51 /* PierDragButton.h */,
+				2A6014A21B95CBF700EDAB51 /* PierDragButton.m */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
+		2A6014A71B95CC7000EDAB51 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2A60147D1B95CAEA00EDAB51 /* NSString+PierCheck.h */,
+				2A60147E1B95CAEA00EDAB51 /* NSString+PierCheck.m */,
+				2A60147F1B95CAEA00EDAB51 /* PierColor.h */,
+				2A6014801B95CAEA00EDAB51 /* PierColor.m */,
+				2A6014811B95CAEA00EDAB51 /* PierDataSource.h */,
+				2A6014821B95CAEA00EDAB51 /* PierDataSource.m */,
+				2A6014831B95CAEA00EDAB51 /* PierDateUtil.h */,
+				2A6014841B95CAEA00EDAB51 /* PierDateUtil.m */,
+				2A6014851B95CAEA00EDAB51 /* PierFont.h */,
+				2A6014861B95CAEA00EDAB51 /* PierFont.m */,
+				2A6014871B95CAEA00EDAB51 /* PierTools.h */,
+				2A6014881B95CAEA00EDAB51 /* PierTools.m */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
 		2A90C4221B94183F00EA1529 = {
 			isa = PBXGroup;
 			children = (
@@ -141,8 +277,10 @@
 		2A90C42D1B94183F00EA1529 /* PierPaySDK */ = {
 			isa = PBXGroup;
 			children = (
+				2A6014611B95C7CB00EDAB51 /* Service */,
+				2A6014991B95CB8400EDAB51 /* Views */,
 				2AF463E61B945945000E87B8 /* ViewController */,
-				2AF463DD1B945608000E87B8 /* Utils */,
+				2AF463DD1B945608000E87B8 /* Core */,
 				2A90C42E1B94183F00EA1529 /* PierPaySDK.h */,
 				2A90C4301B94183F00EA1529 /* PierPaySDK.m */,
 			);
@@ -176,20 +314,21 @@
 		2A90C44B1B94186B00EA1529 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A6015101B95F01D00EDAB51 /* ProximaNova-Light.otf */,
+				2A6015111B95F01D00EDAB51 /* ProximaNova-Regular.otf */,
 				2A90C44C1B94186B00EA1529 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2AF463DD1B945608000E87B8 /* Utils */ = {
+		2AF463DD1B945608000E87B8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2AF463E21B945716000E87B8 /* PierH5Utils.h */,
-				2AF463E31B945716000E87B8 /* PierH5Utils.m */,
-				2AF463CD1B94470C000E87B8 /* PierViewUtils.h */,
-				2AF463CE1B94470C000E87B8 /* PierViewUtils.m */,
+				2A6014A71B95CC7000EDAB51 /* Tools */,
+				2A60149E1B95CBE000EDAB51 /* Debug */,
+				2A60147C1B95CAC800EDAB51 /* WebHelper */,
 			);
-			name = Utils;
+			name = Core;
 			sourceTree = "<group>";
 		};
 		2AF463E61B945945000E87B8 /* ViewController */ = {
@@ -210,11 +349,27 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6014911B95CAEA00EDAB51 /* PierDateUtil.h in Headers */,
+				2A60146C1B95C9C100EDAB51 /* PierJSONModel.h in Headers */,
 				2AF463E41B945716000E87B8 /* PierH5Utils.h in Headers */,
+				2A60146F1B95C9E600EDAB51 /* PierConfig.h in Headers */,
+				2A60147A1B95CA7200EDAB51 /* PierPayModel.h in Headers */,
+				2A6014781B95CA7200EDAB51 /* PierHttpExecutor.h in Headers */,
 				2AF463CB1B942CB2000E87B8 /* PierNavigationController.h in Headers */,
 				2A90C45B1B94193100EA1529 /* PierPaySDK.h in Headers */,
+				2A6014931B95CAEA00EDAB51 /* PierFont.h in Headers */,
 				2AF463D31B944E6F000E87B8 /* PierWebViewController.h in Headers */,
+				2A60148D1B95CAEA00EDAB51 /* PierColor.h in Headers */,
+				2A6014641B95C7F800EDAB51 /* PierService.h in Headers */,
+				2A6014761B95CA7200EDAB51 /* PierHttpClient.h in Headers */,
 				2AF463CF1B94470C000E87B8 /* PierViewUtils.h in Headers */,
+				2A60149C1B95CBA600EDAB51 /* PierLoadingView.h in Headers */,
+				2A6014681B95C83500EDAB51 /* PierJSONKit.h in Headers */,
+				2A60148F1B95CAEA00EDAB51 /* PierDataSource.h in Headers */,
+				2A6014951B95CAEA00EDAB51 /* PierTools.h in Headers */,
+				2A6014A51B95CBF700EDAB51 /* PierDragButton.h in Headers */,
+				2A60148B1B95CAEA00EDAB51 /* NSString+PierCheck.h in Headers */,
+				2A6014A31B95CBF700EDAB51 /* PierDebugView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +485,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6015121B95F01D00EDAB51 /* ProximaNova-Light.otf in Resources */,
+				2A6015131B95F01D00EDAB51 /* ProximaNova-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,11 +527,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A60147B1B95CA7200EDAB51 /* PierPayModel.m in Sources */,
 				2AF463E51B945716000E87B8 /* PierH5Utils.m in Sources */,
+				2A6014901B95CAEA00EDAB51 /* PierDataSource.m in Sources */,
+				2A60149D1B95CBA600EDAB51 /* PierLoadingView.m in Sources */,
+				2A6014651B95C7F800EDAB51 /* PierService.m in Sources */,
+				2A6014921B95CAEA00EDAB51 /* PierDateUtil.m in Sources */,
+				2A6014791B95CA7200EDAB51 /* PierHttpExecutor.m in Sources */,
+				2A6014771B95CA7200EDAB51 /* PierHttpClient.m in Sources */,
+				2A6014691B95C83500EDAB51 /* PierJSONKit.m in Sources */,
 				2A90C4311B94183F00EA1529 /* PierPaySDK.m in Sources */,
 				2AF463CC1B942CB2000E87B8 /* PierNavigationController.m in Sources */,
+				2A6014A41B95CBF700EDAB51 /* PierDebugView.m in Sources */,
+				2A60148C1B95CAEA00EDAB51 /* NSString+PierCheck.m in Sources */,
+				2A6014A61B95CBF700EDAB51 /* PierDragButton.m in Sources */,
+				2A60146D1B95C9C100EDAB51 /* PierJSONModel.m in Sources */,
+				2A6014941B95CAEA00EDAB51 /* PierFont.m in Sources */,
+				2A60148E1B95CAEA00EDAB51 /* PierColor.m in Sources */,
 				2AF463D01B94470C000E87B8 /* PierViewUtils.m in Sources */,
 				2AF463D41B944E6F000E87B8 /* PierWebViewController.m in Sources */,
+				2A6014961B95CAEA00EDAB51 /* PierTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +671,7 @@
 					armv7s,
 					armv7,
 				);
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -513,6 +686,7 @@
 					armv7s,
 					armv7,
 				);
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

@@ -8,6 +8,7 @@
 
 #import "PierWebViewController.h"
 #import "PierH5Utils.h"
+#include "PierLoadingView.h"
 
 @interface PierWebViewController () <UIWebViewDelegate>
 
@@ -30,8 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupView];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://pierup.cn:4000"]];
-    [_webView loadRequest:request];
+    [self startLoading];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +48,14 @@
     [self setRightBarButton:@"关闭"];
     [self setLeftBarButton:@"返回"];
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor purpleColor]];
+}
+
+/**
+ * start loading
+ */
+- (void)startLoading{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://pierup.cn:4000"]];
+    [_webView loadRequest:request];
 }
 
 /**
@@ -100,16 +108,17 @@
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
-    
+    [PierLoadingView showLoadingView:@"加载中..."];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     NSString *title = [PierH5Utils getWebTitle:self.webView];
     [self setTitle:title];
+    [PierLoadingView hindLoadingView];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
-    
+    [PierLoadingView hindLoadingView];
 }
 
 

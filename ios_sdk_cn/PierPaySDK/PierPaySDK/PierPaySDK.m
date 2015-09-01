@@ -27,6 +27,7 @@
     /** init view */
     UIViewController *currentVC = [PierViewUtils getCurrentViewController];
     _webViewController = [[PierWebViewController alloc] init];
+    _webViewController.charge = charge;
     _navigationController = [[PierNavigationController alloc] initWithRootViewController:_webViewController];
     [currentVC presentViewController:_navigationController animated:YES completion:^{
         
