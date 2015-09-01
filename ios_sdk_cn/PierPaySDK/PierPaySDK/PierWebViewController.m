@@ -47,7 +47,7 @@
     //bar
     [self setRightBarButton:@"关闭"];
     [self setLeftBarButton:@"返回"];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor purpleColor]];
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor purpleColor]];
 }
 
 /**
