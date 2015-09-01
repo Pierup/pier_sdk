@@ -15,9 +15,9 @@
 		2A90C4791B9419AC00EA1529 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A90C4771B9419AC00EA1529 /* LaunchScreen.xib */; };
 		2A90C4851B9419AC00EA1529 /* PierPayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A90C4841B9419AC00EA1529 /* PierPayDemoTests.m */; };
 		2A90C4A01B941A9300EA1529 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A90C4971B9419EB00EA1529 /* libPierPaySDK.a */; };
-		2A90C4A11B941A9900EA1529 /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A90C4991B9419EB00EA1529 /* PierResource.bundle */; };
 		2AF463E91B945B90000E87B8 /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF463E81B945B90000E87B8 /* PushViewController.m */; };
 		2AF463EC1B945BAC000E87B8 /* PresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF463EB1B945BAC000E87B8 /* PresentViewController.m */; };
+		2AF463F31B94963A000E87B8 /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A90C4991B9419EB00EA1529 /* PierResource.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,7 @@
 			remoteGlobalIDString = 2A90C4361B94183F00EA1529;
 			remoteInfo = PierPaySDKTests;
 		};
-		2A90C49C1B941A8900EA1529 /* PBXContainerItemProxy */ = {
+		2AF463F41B949642000E87B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A90C48F1B9419EB00EA1529 /* PierPaySDK.xcodeproj */;
 			proxyType = 1;
@@ -194,7 +194,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2A90C49D1B941A8900EA1529 /* PBXTargetDependency */,
+				2AF463F51B949642000E87B8 /* PBXTargetDependency */,
 			);
 			name = PierPayDemo;
 			productName = PierPayDemo;
@@ -291,7 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A90C4A11B941A9900EA1529 /* PierResource.bundle in Resources */,
+				2AF463F31B94963A000E87B8 /* PierResource.bundle in Resources */,
 				2A90C4741B9419AC00EA1529 /* Main.storyboard in Resources */,
 				2A90C4791B9419AC00EA1529 /* LaunchScreen.xib in Resources */,
 				2A90C4761B9419AC00EA1529 /* Images.xcassets in Resources */,
@@ -336,10 +336,10 @@
 			target = 2A90C4641B9419AC00EA1529 /* PierPayDemo */;
 			targetProxy = 2A90C47F1B9419AC00EA1529 /* PBXContainerItemProxy */;
 		};
-		2A90C49D1B941A8900EA1529 /* PBXTargetDependency */ = {
+		2AF463F51B949642000E87B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PierPaySDK;
-			targetProxy = 2A90C49C1B941A8900EA1529 /* PBXContainerItemProxy */;
+			targetProxy = 2AF463F41B949642000E87B8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
