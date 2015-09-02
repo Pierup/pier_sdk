@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
+typedef void (^PayWithPierComplete)(NSDictionary *result, NSError *error);
 
 @interface PierPaySDK : NSObject
 
@@ -23,6 +23,6 @@ typedef void (^payWithPierComplete)(NSDictionary *result, NSError *error);
 - (void)createPayment:(NSDictionary *)charge
              delegate:(id)delegate
            fromScheme:(NSString *)fromScheme
-           completion:(payWithPierComplete)completion;
+           completion:(PayWithPierComplete)completion;
 
 @end

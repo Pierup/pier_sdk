@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "PierPaySDK.h"
 #import "PierViewUtils.h"
+#import "PierDataSource.h"
 #include "PierNavigationController.h"
 #import "PierWebViewController.h"
 
@@ -23,7 +24,7 @@
 - (void)createPayment:(NSDictionary *)charge
              delegate:(id)delegate
            fromScheme:(NSString *)fromScheme
-           completion:(payWithPierComplete)completion{
+           completion:(PayWithPierComplete)completion{
     /** init view */
     UIViewController *currentVC = [PierViewUtils getCurrentViewController];
     _webViewController = [[PierWebViewController alloc] init];
@@ -32,6 +33,11 @@
     [currentVC presentViewController:_navigationController animated:YES completion:^{
         
     }];
+}
+
+- (void)initData:(PayWithPierComplete)completion{
+    pierInitDataSource();
+    __pierDataSource.completionBlock = completion;
 }
 
 @end
