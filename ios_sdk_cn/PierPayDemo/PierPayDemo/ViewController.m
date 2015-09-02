@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PushViewController.h"
+#import "RSADigitalSignature.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _data = @[@{@"title":@"PayByPier", @"detail":@"push"}, @{@"title":@"PayByPier", @"detail":@"model"}];
+    
+    NSString *sign = [RSADigitalSignature generateSignature:_data.description privateKey:@"MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKO+83rgpW71dspo"
+     "uBw9iCQHJLWAAGAU4f/29nw6kZ8j3O8/GMWvAsgX2HguZOVPt4rCAMLFI+UtxiiF"
+     "OmNNGf+g3xBaSwBlb8dk9Ien19v/SL2ck3u6xZRoQDe6FsLGFFxyL1rbzUgESLN3"
+     "N3lYbl8L4V0A/wIy1zUFYC8O4yxjAgMBAAECgYACFM5BdJOFuob9AaG9cibF1nVn"
+     "/S2ECx/oQfpWD+SD8k+/lry43oWZh3wP4v8TTxUVJWwfDaRsKE3JfBAG7Rb0fKCD"
+     "Du56HWp12fgist6Rblt7/a/VkBm2fdLtwghruzGHPTlvN5Uce9nqCggakvgPKJFs"
+     "7J7PSxZjZ7soxKOPqQJBANUCYG9jGeYQaBIhcSdTkrjEzjgnTou6+QEHbY0Ft8yT"
+     "vBcC+WsiaQ/5I7MYlWVNew8ffKiHBDahN9pg1h3nSs0CQQDEy0Q34R//9szn4VOo"
+     "YwDFKI2caLgdIcgbfcIyix9gYDl6nuBb+dUhrBl2oZ+zoBVGBy4Vjdat8P9IU7Uz"
+     "Q7PvAkB0TxTrHVjB58l7xOjtSVP/Me9MeCIKaDCY4D5wV2Px/+UfR497cVGe2DIn"
+     "E9BXfUQpkM7Xksm5LrS5uFCSCX4tAkANRn0Km/gxpy95cPzYvhz+L9cltva8mFvM"
+     "ZvZjvHjYYoVeHTubWMYk6FwrYYnJb0IgIDneoFvcDgbalTMDC00nAkEAvB4bXJDY"
+     "ATNmYtxO71rMA+10A5PWxzK54ENr/QibT6uoI5XRiWkIpJa+EDu2RwnWgO5dP9Ef"
+     "Tg1dsfVvzc3fSg=="];
+    
     [self setTitle:@"首页"];
 }
 
