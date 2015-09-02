@@ -58,7 +58,7 @@ extern NSString * const  pier_userdefaults_password;
 @property (nonatomic, copy) NSString *user_id;              // user id
 @property (nonatomic, assign) BOOL hasCredit;               // 判断用户是否有credit
 @property (nonatomic, assign) BOOL hasPwd;
-@property (nonatomic, copy) payWithPierComplete completionBlock;
+@property (nonatomic, copy) PayWithPierComplete completionBlock;
 
 /**
  * userInfo
