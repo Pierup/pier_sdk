@@ -20,6 +20,7 @@
 @interface PierRequestSaveOrderInfoRequest : PierPayModel
 
 @property(nonatomic, copy, readwrite) NSString *order_id;
+@property(nonatomic, copy, readwrite) NSString *api_id;
 @property(nonatomic, copy, readwrite) NSString *merchant_id;
 @property(nonatomic, copy, readwrite) NSString *amount;
 @property(nonatomic, copy, readwrite) NSString *order_detail;

@@ -48,6 +48,7 @@
 - (void)serviceSaveOrderInfo:(NSDictionary *)charge{
     PierRequestSaveOrderInfoRequest *saveOrderInfoRequest = [[PierRequestSaveOrderInfoRequest alloc] init];
     saveOrderInfoRequest.order_id = [charge objectForKey:@"order_id"];
+    saveOrderInfoRequest.api_id = [charge objectForKey:@"api_id"];
     saveOrderInfoRequest.merchant_id = [charge objectForKey:@"merchant_id"];
     saveOrderInfoRequest.amount = [charge objectForKey:@"amount"];
     saveOrderInfoRequest.order_detail = [charge objectForKey:@"order_detail"];
