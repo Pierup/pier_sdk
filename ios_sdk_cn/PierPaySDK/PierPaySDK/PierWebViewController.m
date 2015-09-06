@@ -54,7 +54,7 @@
  * start loading
  */
 - (void)startLoading{
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://pierup.cn:4000"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://192.168.1.12:4000/checkout/login?merchant=MC0000001409&order=FO0000006980&sign="]];
     [_webView loadRequest:request];
 }
 

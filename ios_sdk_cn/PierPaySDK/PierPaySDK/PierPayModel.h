@@ -24,6 +24,7 @@
 @property(nonatomic, copy, readwrite) NSString *merchant_id;
 @property(nonatomic, copy, readwrite) NSString *amount;
 @property(nonatomic, copy, readwrite) NSString *order_detail;
+@property(nonatomic, copy, readwrite) NSString *return_url;
 
 @end
 

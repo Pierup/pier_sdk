@@ -8,6 +8,8 @@
 
 #import "PushViewController.h"
 #import "PierPaySDK.h"
+#import "RSADigitalSignature.h"
+#import "OrderUtil.h"
 
 @interface PushViewController ()
 
@@ -28,15 +30,35 @@
 }
 
 - (IBAction)payByPier:(id)sender{
-    _pierPay = [[PierPaySDK alloc] init];
-    NSDictionary *charge = @{
+    NSDictionary *param = @{
                              @"merchant_id":@"MC0000001409",
                              @"api_id":@"1819957c-1a3f-11e5-ba25-3a22fd90d682",
+                             @"api_secret_key":@"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682",
                              @"amount":@"11.01",
                              @"charset":@"UTF-8",
                              @"order_id":@"",
-                             @"order_detail":@""
+                             @"return_url":@"",
+                             @"order_detail":@"",
+                             @"sign_type":@"RSA"
                              };
+    
+    NSString *sign = [OrderUtil getSgin:param];
+    
+    NSDictionary *charge = @{
+                             @"merchant_id":@"MC0000001409",
+                             @"api_id":@"1819957c-1a3f-11e5-ba25-3a22fd90d682",
+                             @"api_secret_key":@"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682",
+                             @"amount":@"11.01",
+                             @"charset":@"UTF-8",
+                             @"order_id":@"",
+                             @"return_url":@"",
+                             @"order_detail":@"",
+                             @"sign_type":@"RSA",
+                             @"sign":sign
+                             };
+    
+    _pierPay = [[PierPaySDK alloc] init];
+    
     [_pierPay createPayment:charge delegate:self fromScheme:@"" completion:^(NSDictionary *result, NSError *error) {
         
     }];

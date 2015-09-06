@@ -20,6 +20,7 @@
 		2A90C4851B9419AC00EA1529 /* PierPayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A90C4841B9419AC00EA1529 /* PierPayDemoTests.m */; };
 		2A90C4A01B941A9300EA1529 /* libPierPaySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A90C4971B9419EB00EA1529 /* libPierPaySDK.a */; };
 		2A90C4A11B941A9900EA1529 /* PierResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A90C4991B9419EB00EA1529 /* PierResource.bundle */; };
+		2ABBD6FA1B9C3ECA0045C3C8 /* OrderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABBD6F91B9C3ECA0045C3C8 /* OrderUtil.m */; };
 		2AF463E91B945B90000E87B8 /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF463E81B945B90000E87B8 /* PushViewController.m */; };
 		2AF463EC1B945BAC000E87B8 /* PresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF463EB1B945BAC000E87B8 /* PresentViewController.m */; };
 /* End PBXBuildFile section */
@@ -159,6 +160,8 @@
 		2A90C4831B9419AC00EA1529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A90C4841B9419AC00EA1529 /* PierPayDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PierPayDemoTests.m; sourceTree = "<group>"; };
 		2A90C48F1B9419EB00EA1529 /* PierPaySDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PierPaySDK.xcodeproj; path = ../../PierPaySDK/PierPaySDK.xcodeproj; sourceTree = "<group>"; };
+		2ABBD6F81B9C3ECA0045C3C8 /* OrderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderUtil.h; sourceTree = "<group>"; };
+		2ABBD6F91B9C3ECA0045C3C8 /* OrderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderUtil.m; sourceTree = "<group>"; };
 		2AF463E71B945B90000E87B8 /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
 		2AF463E81B945B90000E87B8 /* PushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
 		2AF463EA1B945BAC000E87B8 /* PresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentViewController.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				2A6015C61B96DCF700EDAB51 /* base64.m */,
 				2A6015C91B96ED6E00EDAB51 /* RSADigitalSignature.h */,
 				2A6015CA1B96ED6E00EDAB51 /* RSADigitalSignature.m */,
+				2ABBD6F81B9C3ECA0045C3C8 /* OrderUtil.h */,
+				2ABBD6F91B9C3ECA0045C3C8 /* OrderUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -506,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ABBD6FA1B9C3ECA0045C3C8 /* OrderUtil.m in Sources */,
 				2A6015C71B96DCF700EDAB51 /* base64.m in Sources */,
 				2AF463EC1B945BAC000E87B8 /* PresentViewController.m in Sources */,
 				2A90C4711B9419AC00EA1529 /* ViewController.m in Sources */,

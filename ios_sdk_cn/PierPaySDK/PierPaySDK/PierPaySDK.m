@@ -52,6 +52,7 @@
     saveOrderInfoRequest.merchant_id = [charge objectForKey:@"merchant_id"];
     saveOrderInfoRequest.amount = [charge objectForKey:@"amount"];
     saveOrderInfoRequest.order_detail = [charge objectForKey:@"order_detail"];
+    saveOrderInfoRequest.return_url = [charge objectForKey:@"return_url"];
     
     [PierService serverSend:ePIER_API_SAVE_ORDER_INFO resuest:saveOrderInfoRequest successBlock:^(id responseModel) {
         

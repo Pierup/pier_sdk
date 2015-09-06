@@ -24,6 +24,9 @@ typedef void (^PayWithPierComplete)(NSDictionary *result, NSError *error);
  * - charset         YES          NSString   merchant orderID
  * - order_id        NO           NSString   merchant name
  * - order_detail    NO           NSString   订单详情
+ * - sign            YES          NSString   商家签名
+ * - sign_type       YES          NSString   商家类型
+ * - return_url      YES          NSString   商家回调URL
  *
  *
  * @param delegate      商户当前页面

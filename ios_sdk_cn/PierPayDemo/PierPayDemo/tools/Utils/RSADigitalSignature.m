@@ -21,8 +21,9 @@
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *path = [documentPath stringByAppendingPathComponent:@"RSAPrivateKey"];
     
-    privateKey = formatPrivateKey(privateKey);
-    [privateKey writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    NSString *formate_key = formatPrivateKey(privateKey);
+    
+    [formate_key writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
     
     const char *message = [string cStringUsingEncoding:NSUTF8StringEncoding];
     NSInteger messageLength = strlen(message);
@@ -39,7 +40,7 @@
 }
 
 + (BOOL)verify:(NSString *)string sign:(NSString *)signString publicKey:(NSString *)publicKey{
-    NSMutableString *formatKey = formatPublicKey(publicKey);
+    NSString *formatKey = formatPublicKey(publicKey);
     
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *path = [documentPath stringByAppendingPathComponent:@"RSAPublicKey"];
