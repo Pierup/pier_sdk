@@ -29,7 +29,15 @@
 
 - (IBAction)payByPier:(id)sender{
     _pierPay = [[PierPaySDK alloc] init];
-    [_pierPay createPayment:nil delegate:self fromScheme:@"" completion:^(NSDictionary *result, NSError *error) {
+    NSDictionary *charge = @{
+                             @"merchant_id":@"MC0000001409",
+                             @"api_id":@"1819957c-1a3f-11e5-ba25-3a22fd90d682",
+                             @"amount":@"11.01",
+                             @"charset":@"UTF-8",
+                             @"order_id":@"",
+                             @"order_detail":@""
+                             };
+    [_pierPay createPayment:charge delegate:self fromScheme:@"" completion:^(NSDictionary *result, NSError *error) {
         
     }];
 }

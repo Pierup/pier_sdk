@@ -10,11 +10,11 @@
 #import "PierPayModel.h"
 
 typedef enum {
-    ePIER_API_1,
+    ePIER_API_SAVE_ORDER_INFO,
 }ePIER_API_Type;
 
 /** V1 */
-extern NSString * const PIER_API_1;
+extern NSString * const PIER_API_SAVE_ORDER_INFO;
 /** success block */
 typedef void (^PierPaySuccessBlock)(id responseModel);
 /** failed block */

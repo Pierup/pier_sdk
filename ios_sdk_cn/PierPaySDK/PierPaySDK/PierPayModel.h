@@ -9,24 +9,25 @@
 #import "PierJSONModel.h"
 
 @interface PierPayModel : PierJSONModel
-//input
-@property(nonatomic, copy, readwrite) NSString *country_code;
 //output
-@property(nonatomic, copy, readwrite) NSString *user_id;
-@property(nonatomic, copy, readonly)  NSString *session_token;
 @property(nonatomic, copy, readwrite) NSString *code;
 @property(nonatomic, copy, readwrite) NSString *message;
 
 @end
 
-#pragma mark - -------------------PIER_API_TRANSACTION_SMS-------------------
+#pragma mark - ------------------- PIER_API_SAVE_ORDER_INFO -------------------
 #pragma mark - Request
-@interface PierRequestTest : PierPayModel
+@interface PierRequestSaveOrderInfoRequest : PierPayModel
+
+@property(nonatomic, copy, readwrite) NSString *order_id;
+@property(nonatomic, copy, readwrite) NSString *merchant_id;
+@property(nonatomic, copy, readwrite) NSString *amount;
+@property(nonatomic, copy, readwrite) NSString *order_detail;
 
 @end
 
 #pragma mark - Response
-@interface PierResponseTest : PierPayModel
+@interface PierRequestSaveOrderInfoResponse : PierPayModel
 
 @end
 

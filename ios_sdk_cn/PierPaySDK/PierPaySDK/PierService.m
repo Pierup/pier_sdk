@@ -28,14 +28,9 @@
 #define RESULT_MODEL            @"resultModel"
 
 #define SESSION_EXPIRE              1001
-#define PUSSWORD_ERROR              1030
-#define USRT_INVALID                1007
-#define INVALID_CREDIT_ACCOUNT      3000
-#define USER_LOCKED                 2009
-#define TEXT_MESSAGE_COOLING        1005
 
 /** V2 */
-NSString * const PIER_API_1       = @"/user_api/v2/sdk/transaction_sms";
+NSString * const PIER_API_SAVE_ORDER_INFO = @"/user_api_cn/v1/user/save_order_info";
 
 @implementation PierService
 
@@ -214,12 +209,12 @@ NSString * const PIER_API_1       = @"/user_api/v2/sdk/transaction_sms";
 + (NSDictionary *)getPathAndMethodByType:(ePIER_API_Type)apiType requestModel:(PierPayModel *)requestModel{
     NSDictionary *result = nil;
     switch (apiType) {
-        case ePIER_API_1:
+        case ePIER_API_SAVE_ORDER_INFO:
             result = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"1",HTTP_HOST,
-                      PIER_API_1,HTTP_PATH,
+                      PIER_API_SAVE_ORDER_INFO,HTTP_PATH,
                       @(HTTP_METHOD_POST_JSON),HTTP_METHOD,
-                      @"PierTransactionSMSResponse",RESULT_MODEL,nil];
+                      @"PierRequestSaveOrderInfoResponse",RESULT_MODEL,nil];
             break;
         default:
             break;
@@ -227,13 +222,4 @@ NSString * const PIER_API_1       = @"/user_api/v2/sdk/transaction_sms";
     return result;
 }
 
-+ (NSString *)getMerchantURL:(PierPayModel *)requestModel{
-    NSString *urlStr = [__pierDataSource.merchantParam objectForKey:DATASOURCES_SERVER_URL];
-//    NSString *amount = [__pierDataSource.merchantParam objectForKey:DATASOURCES_AMOUNT];
-//    NSString *authToken = [requestModel valueForKey:@"auth_token"];
-//    NSString *currency = [__pierDataSource.merchantParam objectForKey:DATASOURCES_CURRENCY];
-//    NSString *orderid = [__pierDataSource.merchantParam objectForKey:DATASOURCES_ORDERID];
-//    NSString *result = [NSString stringWithFormat:@"%@/%@/%@/%@/%@", urlStr,amount,authToken,currency,orderid];
-    return urlStr;
-}
 @end
