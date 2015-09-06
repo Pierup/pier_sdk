@@ -10,6 +10,7 @@
 
 @interface RSADigitalSignature : NSObject
 
-+ (NSString *)generateSignature:(NSString *)string privateKey:(NSString *)privateKey;
++ (NSString *)createSignature:(NSString *)string privateKey:(NSString *)privateKey;
++ (BOOL)verify:(NSString *)string sign:(NSString *)signString publicKey:(NSString *)publicKey;
 
 @end
