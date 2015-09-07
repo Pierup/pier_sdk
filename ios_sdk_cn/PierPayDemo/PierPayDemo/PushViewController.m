@@ -36,8 +36,8 @@
                              @"api_secret_key":@"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682",
                              @"amount":@"11.01",
                              @"charset":@"UTF-8",
-                             @"order_id":@"",
-                             @"return_url":@"",
+                             @"order_id":@"fsdirwl24932130fs",
+                             @"return_url":@"/checkout/orderList",
                              @"order_detail":@"",
                              @"sign_type":@"RSA"
                              };
@@ -50,8 +50,8 @@
                              @"api_secret_key":@"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682",
                              @"amount":@"11.01",
                              @"charset":@"UTF-8",
-                             @"order_id":@"",
-                             @"return_url":@"",
+                             @"order_id":@"fsdirwl24932130fs",
+                             @"return_url":@"/checkout/orderList",
                              @"order_detail":@"",
                              @"sign_type":@"RSA",
                              @"sign":sign
