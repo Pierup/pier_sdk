@@ -32,7 +32,7 @@
     int ret = rsa_sign_with_private_key_pem((char *)message, messageLength, sig, &sig_len, (char *)[path UTF8String]);
     if (ret == 1) {
         NSString * base64String = base64StringFromData([NSData dataWithBytes:sig length:sig_len]);
-        signedString = [base64String stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        signedString = urlEncodedString(base64String);
     }
     
     free(sig);
@@ -126,6 +126,14 @@ int rsa_sign_with_private_key_pem(char *message, NSInteger message_length
 }
 
 #pragma mark - Verify
+
+NSString * urlEncodedString(NSString *string)
+{
+    NSString * encodedString = (__bridge_transfer  NSString*) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)string, NULL, (__bridge CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 );
+    
+    return encodedString;
+}
+
 
 NSString *formatPublicKey(NSString *publicKey) {
     
