@@ -16,8 +16,23 @@ typedef void (^PayWithPierComplete)(NSDictionary *result, NSError *error);
  * Pier支付接口
  * 
  * @param charge        订单信息
+ *
+ *   Key             Required     Type       Description
+ * - merchant_id     YES          NSString   your id in pier.
+ * - api_id          YES          NSString   amount.
+ * - amount          YES          NSString   tThe code of currency,such as 'USD','RMB' and so on.The default value is 'USD'.
+ * - charset         YES          NSString   merchant orderID
+ * - order_id        NO           NSString   merchant name
+ * - order_detail    NO           NSString   订单详情
+ * - sign            YES          NSString   商家签名
+ * - sign_type       YES          NSString   商家类型
+ * - return_url      YES          NSString   商家回调URL
+ *
+ *
  * @param delegate      商户当前页面
+ *
  * @param fromScheme    调用品而支付的商户app注册在info.plist中的scheme
+ *
  * @param completion
  */
 - (void)createPayment:(NSDictionary *)charge

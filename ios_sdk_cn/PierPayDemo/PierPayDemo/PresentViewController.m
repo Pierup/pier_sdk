@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setRightBarButton:@"关闭"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,20 +34,8 @@
     }];
 }
 
-/**
- * Close Button
- */
-- (void)setRightBarButton:(NSString *)title{
-    UIButton *rightBarButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    rightBarButton.frame = CGRectMake(0, 0, 32, 32);
-    [rightBarButton setTitle:title forState:UIControlStateNormal];
-    [rightBarButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightBarButton addTarget:self action:@selector(closeViewController:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButton];
-    self.navigationItem.rightBarButtonItem = rightBarItem;
-}
 
-- (void)closeViewController:(id)sender{
+- (IBAction)closeViewController:(id)sender{
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];

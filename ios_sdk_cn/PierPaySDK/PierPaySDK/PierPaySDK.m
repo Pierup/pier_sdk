@@ -11,6 +11,8 @@
 #import "PierDataSource.h"
 #include "PierNavigationController.h"
 #import "PierWebViewController.h"
+#import "PierPayModel.h"
+#import "PierService.h"
 
 @interface PierPaySDK ()
 
@@ -30,14 +32,34 @@
     _webViewController = [[PierWebViewController alloc] init];
     _webViewController.charge = charge;
     _navigationController = [[PierNavigationController alloc] initWithRootViewController:_webViewController];
+    __weak __typeof(self)wself = self;
     [currentVC presentViewController:_navigationController animated:YES completion:^{
-        
+        [wself serviceSaveOrderInfo:charge];
     }];
 }
 
 - (void)initData:(PayWithPierComplete)completion{
     pierInitDataSource();
     __pierDataSource.completionBlock = completion;
+}
+
+#pragma mark - ----------------- service ---------------
+
+- (void)serviceSaveOrderInfo:(NSDictionary *)charge{
+    PierRequestSaveOrderInfoRequest *saveOrderInfoRequest = [[PierRequestSaveOrderInfoRequest alloc] init];
+    saveOrderInfoRequest.order_id = [charge objectForKey:@"order_id"];
+    saveOrderInfoRequest.api_id = [charge objectForKey:@"api_id"];
+    saveOrderInfoRequest.merchant_id = [charge objectForKey:@"merchant_id"];
+    saveOrderInfoRequest.amount = [charge objectForKey:@"amount"];
+    saveOrderInfoRequest.order_detail = [charge objectForKey:@"order_detail"];
+    saveOrderInfoRequest.return_url = [charge objectForKey:@"return_url"];
+    
+    [PierService serverSend:ePIER_API_SAVE_ORDER_INFO resuest:saveOrderInfoRequest successBlock:^(id responseModel) {
+        
+    } faliedBlock:^(NSError *error) {
+        
+    } attribute:nil];
+    
 }
 
 @end

@@ -12,19 +12,19 @@
 
 @end
 
-#pragma mark - -------------------PIER_API_TRANSACTION_SMS-------------------
+#pragma mark - ------------------- PIER_API_SAVE_ORDER_INFO -------------------
 #pragma mark - Request
 
-@implementation PierRequestTest
+@implementation PierRequestSaveOrderInfoRequest
 
 @end
 
 #pragma mark - Response
 
-@interface PierResponseTest ()
-@property(nonatomic, copy, readwrite) NSString *expiration;
+@interface PierRequestSaveOrderInfoResponse ()
+
 @end
 
-@implementation PierResponseTest
+@implementation PierRequestSaveOrderInfoResponse
 
 @end

@@ -52,10 +52,12 @@
 
 /**
  * start loading
+ * test:http://192.168.1.12:4000/mobile/checkout/login?merchant=MC0000001409&order=OR7105097597842&sign=tlfRLtr3s4NOzEHf%2FJFs7YY8oci5THiyzImOblO97dB8B7nDEjmErM2MWn2FWkSdvprkYdWX8NpFCzWMXSOZsXJpIWSop5NITvVhdlN33IdjL15P34nsoDWgqPMJmpS%2FnXrkBNKk%2FzF3mf7RCPdhWBft%2F8sMIH%2F8g7ZEAl4j6pY%3D&sign_type=RSA&charset=UTF-8
  */
 - (void)startLoading{
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://pierup.cn:4000"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://192.168.1.12:4000/mobile/checkout/login?merchant=MC0000001409&order=OR7105097597842&sign=tlfRLtr3s4NOzEHf%2FJFs7YY8oci5THiyzImOblO97dB8B7nDEjmErM2MWn2FWkSdvprkYdWX8NpFCzWMXSOZsXJpIWSop5NITvVhdlN33IdjL15P34nsoDWgqPMJmpS%2FnXrkBNKk%2FzF3mf7RCPdhWBft%2F8sMIH%2F8g7ZEAl4j6pY%3D&sign_type=RSA&charset=UTF-8"]];
     [_webView loadRequest:request];
+    
 }
 
 /**
@@ -104,6 +106,7 @@
 #pragma mark - ------------------- UIWebViewDelegate -------------------
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    
     return YES;
 }
 
@@ -121,9 +124,7 @@
     [PierLoadingView hindLoadingView];
 }
 
-
 #pragma mark - ---------------- Utils ----------------
-
 
 /*
 #pragma mark - Navigation
