@@ -46,6 +46,8 @@
 
 @property (nonatomic, strong) PierPaySDK *pierPay;
 
+@property (nonatomic, assign) NSInteger selectedCount;
+@property (nonatomic, weak) IBOutlet UIButton *batchPayButton;
 
 @end
 
@@ -54,8 +56,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 90;
+    
+    self.selectedCount = 0;
+    
+    [self setupView];
     
     [self getProductList];
     
@@ -64,9 +68,22 @@
     [self setTitle:@"首页"];
 }
 
+- (void)setupView{
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 90;
+    [self.batchPayButton setEnabled:NO];
+}
+
 - (void)getProductList{
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"products" ofType:@"plist"];
     _data = [[NSArray alloc] initWithContentsOfFile:plistPath];
+}
+
+- (IBAction)addToCar:(id)sender{
+    self.selectedCount += 1;
+    [self.batchPayButton setEnabled:YES];
+    [self.batchPayButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [self.batchPayButton setTitle:[NSString stringWithFormat:@"立刻支付(%ld)", self.selectedCount] forState:UIControlStateNormal];
 }
 
 - (IBAction)payByPier:(id)sender{
