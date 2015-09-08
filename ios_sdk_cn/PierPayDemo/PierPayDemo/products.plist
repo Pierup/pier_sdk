@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>product</key>
+		<string>小米 Note</string>
+		<key>logo</key>
+		<string>mi</string>
+		<key>detail</key>
+		<string>小米 Note 白色 移动联通双4G手机 双卡双待大屏旗舰，HIFI 双卡双待！</string>
+		<key>type</key>
+		<string>手机</string>
+		<key>price</key>
+		<string>￥1999.00</string>
+		<key>count</key>
+		<string>1</string>
+		<key>total</key>
+		<string>￥1999.00</string>
+		<key>sales</key>
+		<string>月销量123434件</string>
+	</dict>
+	<dict>
+		<key>product</key>
+		<string>OPPO A31</string>
+		<key>logo</key>
+		<string>oppo</string>
+		<key>detail</key>
+		<string>OPPO A31(A31t) 白色 移动4G手机 双卡双待 送保护壳+蓝牙耳机+蓝牙音箱！镜于形，精于心！</string>
+		<key>type</key>
+		<string>手机</string>
+		<key>price</key>
+		<string>￥999.00</string>
+		<key>count</key>
+		<string>1</string>
+		<key>total</key>
+		<string>￥999.00</string>
+		<key>sales</key>
+		<string>月销量100000件</string>
+	</dict>
+    <dict>
+        <key>product</key>
+        <string>Apple iPhone 6</string>
+        <key>logo</key>
+        <string>iPhone2</string>
+        <key>detail</key>
+        <string>Apple iPhone 6 (A1586) 16GB 金色 移动联通电信4G手机。</string>
+        <key>type</key>
+        <string>手机</string>
+        <key>price</key>
+        <string>￥4888.00</string>
+        <key>count</key>
+        <string>1</string>
+        <key>total</key>
+        <string>￥4888.00</string>
+        <key>sales</key>
+        <string>月销量2700件</string>
+    </dict>
+    <dict>
+        <key>product</key>
+        <string>小米 Note</string>
+        <key>logo</key>
+        <string>mi2</string>
+        <key>detail</key>
+        <string>小米 Note 白色 移动联通双4G手机 双卡双待大屏旗舰，HIFI 双卡双待！</string>
+        <key>type</key>
+        <string>手机</string>
+        <key>price</key>
+        <string>￥1999.00</string>
+        <key>count</key>
+        <string>1</string>
+        <key>total</key>
+        <string>￥1999.00</string>
+        <key>sales</key>
+        <string>月销量123434件</string>
+    </dict>
+    <dict>
+        <key>product</key>
+        <string>Apple iPhone 6</string>
+        <key>logo</key>
+        <string>iPhone</string>
+        <key>detail</key>
+        <string>Apple iPhone 6 (A1586) 16GB 金色 移动联通电信4G手机。</string>
+        <key>type</key>
+        <string>手机</string>
+        <key>price</key>
+        <string>￥4888.00</string>
+        <key>count</key>
+        <string>1</string>
+        <key>total</key>
+        <string>￥4888.00</string>
+        <key>sales</key>
+        <string>月销量2700件</string>
+    </dict>
+    <dict>
+        <key>product</key>
+        <string>OPPO A31</string>
+        <key>logo</key>
+        <string>oppo</string>
+        <key>detail</key>
+        <string>OPPO A31(A31t) 白色 移动4G手机 双卡双待 送保护壳+蓝牙耳机+蓝牙音箱！镜于形，精于心！</string>
+        <key>type</key>
+        <string>手机</string>
+        <key>price</key>
+        <string>￥999.00</string>
+        <key>count</key>
+        <string>1</string>
+        <key>total</key>
+        <string>￥999.00</string>
+        <key>sales</key>
+        <string>月销量100000件</string>
+    </dict>
+    <dict>
+        <key>product</key>
+        <string>小米 Note</string>
+        <key>logo</key>
+        <string>mi</string>
+        <key>detail</key>
+        <string>小米 Note 白色 移动联通双4G手机 双卡双待大屏旗舰，HIFI 双卡双待！</string>
+        <key>type</key>
+        <string>手机</string>
+        <key>price</key>
+        <string>￥1999.00</string>
+        <key>count</key>
+        <string>1</string>
+        <key>total</key>
+        <string>￥1999.00</string>
+        <key>sales</key>
+        <string>月销量123434件</string>
+    </dict>
+</array>
+</plist>

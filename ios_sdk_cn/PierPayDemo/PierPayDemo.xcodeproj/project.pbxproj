@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A499F961B9F257C00FEFE6E /* products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A499F951B9F257C00FEFE6E /* products.plist */; };
 		2A6015C71B96DCF700EDAB51 /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6015C61B96DCF700EDAB51 /* base64.m */; };
 		2A6015CB1B96ED6E00EDAB51 /* RSADigitalSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6015CA1B96ED6E00EDAB51 /* RSADigitalSignature.m */; };
 		2A6016C61B96FA3E00EDAB51 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6016C41B96FA3E00EDAB51 /* libcrypto.a */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A499F951B9F257C00FEFE6E /* products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = products.plist; sourceTree = "<group>"; };
 		2A6015C51B96DCF700EDAB51 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
 		2A6015C61B96DCF700EDAB51 /* base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = base64.m; sourceTree = "<group>"; };
 		2A6015C81B96DDD300EDAB51 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			children = (
 				2A90C4691B9419AC00EA1529 /* Info.plist */,
 				2A90C46A1B9419AC00EA1529 /* main.m */,
+				2A499F951B9F257C00FEFE6E /* products.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A90C4A11B941A9900EA1529 /* PierResource.bundle in Resources */,
+				2A499F961B9F257C00FEFE6E /* products.plist in Resources */,
 				2A90C4741B9419AC00EA1529 /* Main.storyboard in Resources */,
 				2A90C4791B9419AC00EA1529 /* LaunchScreen.xib in Resources */,
 				2A90C4761B9419AC00EA1529 /* Images.xcassets in Resources */,

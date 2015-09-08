@@ -21,7 +21,21 @@
 @property (nonatomic, weak) IBOutlet UILabel *priceLabel;
 
 @property (nonatomic, weak) IBOutlet UIButton *payButton;
+@property (nonatomic, weak) IBOutlet UIButton *shopCarButton;
+
 @property (nonatomic, weak) IBOutlet UIImageView *productLogoImage;
+
+@end
+
+@implementation ProductCell
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    [self.payButton.layer setBorderColor:[[UIColor redColor] CGColor]];
+    [self.payButton.layer setBorderWidth:0.5f];
+    [self.shopCarButton.layer setBorderColor:[[UIColor orangeColor] CGColor]];
+    [self.shopCarButton.layer setBorderWidth:0.5f];
+}
 
 @end
 
@@ -42,24 +56,17 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 90;
-    [self.tableView reloadData];
     
-    _data = @[@{@"title":@"PayByPier", @"detail":@"push"}, @{@"title":@"PayByPier", @"detail":@"model"}];
+    [self getProductList];
+    
+    [self.tableView reloadData];
     
     [self setTitle:@"首页"];
 }
 
-- (void)createProductList{
-    _data = @[
-              @{@"product" : @"Apple iPhone 6",
-                @"logo" : @"iPhone",
-                @"detail" : @"Apple iPhone 6 (A1586) 16GB 金色 移动联通电信4G手机。",
-                @"type" : @"手机",
-                @"price" : @"￥4888.00",
-                @"count" : @"1",
-                @"total" : @"￥4888.00",
-                @"sales" : @"月销量2700件"
-                }];
+- (void)getProductList{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"products" ofType:@"plist"];
+    _data = [[NSArray alloc] initWithContentsOfFile:plistPath];
 }
 
 - (IBAction)payByPier:(id)sender{
@@ -110,8 +117,11 @@
     NSInteger row = indexPath.row;
     static NSString *indetifier = @"ProductCell";
     ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:indetifier];
-//    [cell.productLabel setText:[_data[row] objectForKey:@"product"]];
-    
+    [cell.productLabel setText:[_data[row] objectForKey:@"product"]];
+    [cell.productDetailLabel setText:[_data[row] objectForKey:@"detail"]];
+    [cell.salesLabel setText:[_data[row] objectForKey:@"sales"]];
+    [cell.priceLabel setText:[_data[row] objectForKey:@"price"]];
+    [cell.productLogoImage setImage:[UIImage imageNamed:[_data[row] objectForKey:@"logo"]]];
     return cell;
 }
 

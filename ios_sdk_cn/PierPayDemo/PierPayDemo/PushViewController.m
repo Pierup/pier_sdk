@@ -15,18 +15,6 @@
 
 @property (nonatomic, strong) PierPaySDK *pierPay;
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *data;
-
-//
-@property (nonatomic, weak) IBOutlet UILabel *productLabel;
-@property (nonatomic, weak) IBOutlet UILabel *detailLabel;
-@property (nonatomic, weak) IBOutlet UILabel *countLabel;
-@property (nonatomic, weak) IBOutlet UILabel *priceLabel;
-
-@property (nonatomic, weak) IBOutlet UIButton *payButton;
-@property (nonatomic, weak) IBOutlet UIImageView *logoImage;
-
 @end
 
 @implementation PushViewController
@@ -34,11 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 90;
-    [self.tableView reloadData];
-    
-    _data = @[@{@"title":@"PayByPier", @"detail":@"push"}, @{@"title":@"PayByPier", @"detail":@"model"}];
 }
 
 
@@ -82,30 +65,6 @@
         
     }];
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _data.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger row = indexPath.row;
-    static NSString *indetifier = @"ProductCell1";
-    if (row == 0) {
-        indetifier = @"ProductCell1";
-    }else{
-        indetifier = @"ProductCell2";
-    }
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:indetifier];
-
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
 /*
 #pragma mark - Navigation
 
