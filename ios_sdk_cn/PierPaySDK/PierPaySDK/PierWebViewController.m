@@ -10,10 +10,13 @@
 #import "PierH5Utils.h"
 #include "PierLoadingView.h"
 #import "PierDataSource.h"
+#import "PierURLDispatcher.h"
 
-@interface PierWebViewController () <UIWebViewDelegate>
+@interface PierWebViewController () <UIWebViewDelegate, PierURLDispatcherDeleagte>
 
 @property (nonatomic, strong) UIWebView *webView;
+
+@property (nonatomic, strong) PierURLDispatcher *dispatcher;
 
 @end
 
@@ -25,7 +28,8 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
 {
     self = [super init];
     if (self) {
-        
+        _dispatcher = [[PierURLDispatcher alloc] init];
+        _dispatcher.delegate = self;
     }
     return self;
 }
@@ -123,8 +127,7 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
 #pragma mark - ------------------- UIWebViewDelegate -------------------
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    
-    return YES;
+    return [_dispatcher dispatchURL:[request URL] viewController:self];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -138,7 +141,16 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:error.domain delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alertView show];
     [PierLoadingView hindLoadingView];
+}
+
+#pragma mark - ---------------- PierURLDispatcherDeleagte ----------------------
+- (void)dispatcheFinish:(PierWebActionModel *)model{
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        __pierDataSource.completionBlock(model.result, nil);
+    }];
 }
 
 #pragma mark - ---------------- Utils ----------------
