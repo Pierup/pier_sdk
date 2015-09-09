@@ -32,6 +32,8 @@ static const NSString * PRIVATE_KEY =
 @implementation OrderUtil
 
 + (NSString *)getSgin:(NSDictionary *)charge{
+    NSMutableDictionary * charge_mut = [charge mutableCopy];
+    
     // 所有参与订单签名的字段，这些字段以外不参与签名
     NSArray *keyArray = @[@"merchant_id",
                           @"amount",
@@ -52,9 +54,9 @@ static const NSString * PRIVATE_KEY =
     
     for (NSString *key in sortedKeyArray)
     {
-        if ([charge[key] length] != 0)
+        if ([charge_mut[key] length] != 0)
         {
-            [paramString appendFormat:@"&%@=%@", key, charge[key]];
+            [paramString appendFormat:@"&%@=%@", key, charge_mut[key]];
         }
     }
     

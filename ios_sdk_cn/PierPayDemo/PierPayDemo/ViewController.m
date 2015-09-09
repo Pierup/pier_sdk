@@ -14,6 +14,14 @@
 #import "OrderUtil.h"
 #import <objc/Object.h>
 
+/**********************商户注册时候获取**************************/
+
+static const NSString * API_SECRET_KEY = @"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682";
+
+static const NSString * API_ID = @"1819957c-1a3f-11e5-ba25-3a22fd90d682";
+
+/**********************商户注册时候获取的************************/
+
 @interface ProductCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *productLabel;
@@ -102,9 +110,9 @@
     NSArray *orderDetail = [self getOrderDetail];
     
     NSDictionary *param = @{
+                            @"api_secret_key" : API_SECRET_KEY,
+                            @"api_id" : API_ID,
                             @"merchant_id":@"MC0000001409",
-                            @"api_id":@"1819957c-1a3f-11e5-ba25-3a22fd90d682",
-                            @"api_secret_key":@"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682",
                             @"amount":@"11.01",
                             @"charset":@"UTF-8",
                             @"order_id":[NSString stringWithFormat:@"%ld",(NSInteger)[[NSDate date] timeIntervalSince1970]*1000000],
@@ -116,8 +124,8 @@
     NSString *sign = [OrderUtil getSgin:param];
     
     NSDictionary *charge = @{
+                             @"api_id" : API_ID,
                              @"merchant_id":@"MC0000001409",
-                             @"api_id":@"1819957c-1a3f-11e5-ba25-3a22fd90d682",
                              @"amount":@"11.01",
                              @"charset":@"UTF-8",
                              @"order_id":[param objectForKey:@"order_id"],
