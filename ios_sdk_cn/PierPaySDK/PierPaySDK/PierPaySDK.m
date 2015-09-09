@@ -13,6 +13,7 @@
 #import "PierWebViewController.h"
 #import "PierPayModel.h"
 #import "PierService.h"
+#import "PierJSONKit.h"
 
 @interface PierPaySDK ()
 
@@ -51,7 +52,8 @@
     saveOrderInfoRequest.api_id = [charge objectForKey:@"api_id"];
     saveOrderInfoRequest.merchant_id = [charge objectForKey:@"merchant_id"];
     saveOrderInfoRequest.amount = [charge objectForKey:@"amount"];
-    saveOrderInfoRequest.order_detail = [charge objectForKey:@"order_detail"];
+    NSArray *order_detail_list = [charge objectForKey:@"order_detail"];
+    saveOrderInfoRequest.order_detail = [order_detail_list JSONString];
     saveOrderInfoRequest.return_url = [charge objectForKey:@"return_url"];
     
     [PierService serverSend:ePIER_API_SAVE_ORDER_INFO resuest:saveOrderInfoRequest successBlock:^(id responseModel) {

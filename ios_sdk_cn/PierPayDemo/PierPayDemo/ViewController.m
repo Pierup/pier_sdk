@@ -99,7 +99,7 @@
     UIButton *byButton = sender;
     NSIndexPath *index = objc_getAssociatedObject(byButton, @"index");
     [self.selectedIndexMap setValue:self.data[index.row] forKey:[NSString stringWithFormat:@"%ld",index.row]];
-    [self getOrderDetail];
+    NSArray *orderDetail = [self getOrderDetail];
     
     NSDictionary *param = @{
                             @"merchant_id":@"MC0000001409",
@@ -107,9 +107,9 @@
                             @"api_secret_key":@"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682",
                             @"amount":@"11.01",
                             @"charset":@"UTF-8",
-                            @"order_id":@"fsdirwl24932130fs",
+                            @"order_id":[NSString stringWithFormat:@"%ld",(NSInteger)[[NSDate date] timeIntervalSince1970]*1000000],
                             @"return_url":@"/checkout/orderList",
-                            @"order_detail":@"",
+                            @"order_detail":orderDetail,
                             @"sign_type":@"RSA"
                             };
     
@@ -118,12 +118,11 @@
     NSDictionary *charge = @{
                              @"merchant_id":@"MC0000001409",
                              @"api_id":@"1819957c-1a3f-11e5-ba25-3a22fd90d682",
-                             @"api_secret_key":@"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682",
                              @"amount":@"11.01",
                              @"charset":@"UTF-8",
-                             @"order_id":@"fsdirwl24932130fs",
+                             @"order_id":[param objectForKey:@"order_id"],
                              @"return_url":@"/checkout/orderList",
-                             @"order_detail":@"",
+                             @"order_detail":orderDetail,
                              @"sign_type":@"RSA",
                              @"sign":sign
                              };
