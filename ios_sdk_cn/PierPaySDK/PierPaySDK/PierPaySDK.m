@@ -24,19 +24,25 @@
 
 @implementation PierPaySDK
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)createPayment:(NSDictionary *)charge
              delegate:(id)delegate
            fromScheme:(NSString *)fromScheme
            completion:(PayWithPierComplete)completion{
+    [self initData:completion];
+    __pierDataSource.merchantParam = [NSMutableDictionary dictionaryWithDictionary:charge];
     /** init view */
-    UIViewController *currentVC = [PierViewUtils getCurrentViewController];
     _webViewController = [[PierWebViewController alloc] init];
-    _webViewController.charge = charge;
     _navigationController = [[PierNavigationController alloc] initWithRootViewController:_webViewController];
-    __weak __typeof(self)wself = self;
-    [currentVC presentViewController:_navigationController animated:YES completion:^{
-        [wself serviceSaveOrderInfo:charge];
-    }];
+    [self serviceSaveOrderInfo:charge];
 }
 
 - (void)initData:(PayWithPierComplete)completion{
@@ -55,9 +61,14 @@
     NSArray *order_detail_list = [charge objectForKey:@"order_detail"];
     saveOrderInfoRequest.order_detail = [order_detail_list JSONString];
     saveOrderInfoRequest.return_url = [charge objectForKey:@"return_url"];
-    
+//    __weak __typeof(self)wself = self;
     [PierService serverSend:ePIER_API_SAVE_ORDER_INFO resuest:saveOrderInfoRequest successBlock:^(id responseModel) {
-        
+        PierRequestSaveOrderInfoResponse *response = responseModel;
+        [__pierDataSource.merchantParam setObject:response.order_id forKey:@"order_id"];
+        UIViewController *currentVC = [PierViewUtils getCurrentViewController];
+        [currentVC presentViewController:_navigationController animated:YES completion:^{
+            
+        }];
     } faliedBlock:^(NSError *error) {
         
     } attribute:nil];

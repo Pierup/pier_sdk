@@ -27,6 +27,7 @@ void pierFreeDataSource();
 #define DATASOURCES_SHOPNAME            @"shop_name"
 #define DATASOURCES_DEVICETOKEN         @"device_token"
 
+
 typedef enum {
     ePaymentResultType_success  = 1,
     ePaymentResultType_failed   = 2,

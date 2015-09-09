@@ -9,12 +9,15 @@
 #import "PierWebViewController.h"
 #import "PierH5Utils.h"
 #include "PierLoadingView.h"
+#import "PierDataSource.h"
 
 @interface PierWebViewController () <UIWebViewDelegate>
 
 @property (nonatomic, strong) UIWebView *webView;
 
 @end
+
+NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/login";
 
 @implementation PierWebViewController
 
@@ -52,12 +55,26 @@
 
 /**
  * start loading
- * test:http://192.168.1.12:4000/mobile/checkout/login?merchant=MC0000001409&order=OR7105097597842&sign=tlfRLtr3s4NOzEHf%2FJFs7YY8oci5THiyzImOblO97dB8B7nDEjmErM2MWn2FWkSdvprkYdWX8NpFCzWMXSOZsXJpIWSop5NITvVhdlN33IdjL15P34nsoDWgqPMJmpS%2FnXrkBNKk%2FzF3mf7RCPdhWBft%2F8sMIH%2F8g7ZEAl4j6pY%3D&sign_type=RSA&charset=UTF-8
+ * test:http://pierup.cn:4000/mobile/checkout/login?merchant=MC0000001409&order=OR6369705751050&sign=1bYPJykhrPya1BC3%2Ftbr14lghwXyKMFQdj5MAUU%2Bl9JaPPUQyYkOhSrqDkm%2BFTGAtVLHX2qKrMU86pSkrNJB%2FIuTemq4NRESrBonK4WeHAP%2FDsdXZqilUV8Mda3VttvpmOp2p0Y5NnpJ0B6K%2FGIY8msEvc%2FGlSps%2F%2FEQJn6YF1Y%3D&sign_type=RSA&charset=UTF-8
  */
 - (void)startLoading{
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://192.168.1.12:4000/mobile/checkout/login?merchant=MC0000001409&order=OR7105097597842&sign=tlfRLtr3s4NOzEHf%2FJFs7YY8oci5THiyzImOblO97dB8B7nDEjmErM2MWn2FWkSdvprkYdWX8NpFCzWMXSOZsXJpIWSop5NITvVhdlN33IdjL15P34nsoDWgqPMJmpS%2FnXrkBNKk%2FzF3mf7RCPdhWBft%2F8sMIH%2F8g7ZEAl4j6pY%3D&sign_type=RSA&charset=UTF-8"]];
+    NSString *query = [self getURLParam];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", PIER_SDK_ROOT_URL, query] relativeToURL:[NSURL URLWithString:PIER_SDK_ROOT_URL]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [_webView loadRequest:request];
-    
+}
+
+/**
+ * 获取url 参数列表
+ */
+- (NSString *)getURLParam{
+    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"merchant_id"] forKey:@"merchant"];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"charset"] forKey:@"charset"];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"order_id"] forKey:@"order"];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"sign"] forKey:@"sign"];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"sign_type"] forKey:@"sign_type"];
+    return [PierH5Utils getURLQurey:paramDic];
 }
 
 /**

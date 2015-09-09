@@ -27,6 +27,26 @@
     return [NSDictionary dictionaryWithDictionary:dict];
 }
 
++ (NSString *)getURLQurey:(NSDictionary *)dic{
+    
+    NSMutableString *paramString = [NSMutableString stringWithString:@""];
+    NSArray *keys = [dic allKeys];
+    for (NSString *key in keys)
+    {
+        if ([dic[key] length] != 0)
+        {
+            [paramString appendFormat:@"&%@=%@", key, dic[key]];
+        }
+    }
+    
+    if ([paramString length] > 1)
+    {
+        [paramString deleteCharactersInRange:NSMakeRange(0, 1)];    // remove first '&'
+    }
+    
+    return paramString;
+}
+
 + (NSString *)getWebTitle:(UIWebView *)webView{
     NSString *result = @"";
     result = [self executeJS:@"document.title" webView:webView];

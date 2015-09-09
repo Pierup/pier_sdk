@@ -31,6 +31,8 @@
 #pragma mark - Response
 @interface PierRequestSaveOrderInfoResponse : PierPayModel
 
+@property(nonatomic, copy, readonly) NSString *order_id;
+
 @end
 
 

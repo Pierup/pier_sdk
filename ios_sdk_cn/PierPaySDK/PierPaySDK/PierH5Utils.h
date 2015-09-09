@@ -18,6 +18,8 @@ typedef void(^PIRJSExecutedComplete)(NSString *result);
 
 + (NSDictionary *)parseURLQueryString:(NSString *)query;
 
++ (NSString *)getURLQurey:(NSDictionary *)dic;
+
 
 #pragma mark - --------------- JavaScript -----------------
 
