@@ -22,7 +22,7 @@
 
 @end
 
-NSString * const PIER_SDK_ROOT_URL = @"http://192.168.1.12:4000/mobile/checkout/login";
+NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/login";
 
 @implementation PierWebViewController
 
