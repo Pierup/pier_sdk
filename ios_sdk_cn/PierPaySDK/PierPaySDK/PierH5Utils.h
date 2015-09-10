@@ -9,7 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    ePierPageID_login                   = 200001,
+    ePierPageID_confirm                 = 200002,
+    ePierPageID_regist                  = 200003
+} ePierPageID;
+
 typedef void(^PIRJSExecutedComplete)(NSString *result);
+
+
+@interface PierWebInfoModel : NSObject
+
+@property (nonatomic, assign) ePierPageID paye_id;
+
+@end
 
 @interface PierH5Utils : NSObject
 
@@ -29,6 +42,11 @@ typedef void(^PIRJSExecutedComplete)(NSString *result);
  * 获取Title
  */
 + (NSString *)getWebTitle:(UIWebView *)webView;
+
+/** 
+ * 获取页面信息
+ */
++ (PierWebInfoModel *)getPageInfo:(UIWebView *)webView;
 
 #pragma mark - Function
 /**

@@ -10,16 +10,14 @@
 #import "PierHttpExecutor.h"
 
 #pragma mark - -------------------- Host --------------------
-NSString * const PierHttpClientUserHost      = @"http://pierup.asuscomm.com:8686";
-NSString * const PierHttpClientUserHostV2    = @"http://pierup.asuscomm.com:8686";
+//NSString * const PierHttpClientUserHost      = @"http://pierup.asuscomm.com:8686";
+//NSString * const PierHttpClientUserHostV2    = @"http://pierup.asuscomm.com:8686";
 
 //NSString * const PierHttpClientUserHost      = @"http://pierup.asuscomm.com:8686";
 //NSString * const PierHttpClientUserHostV2    = @"https://pierup.asuscomm.com:443";
 
-//NSString * const PierHttpClientUserHost      = @"https://www.pierup.cn:8443";
-//NSString * const PierHttpClientUserHostV2    = @"https://www.pierup.cn:8443";
-
-
+NSString * const PierHttpClientUserHost      = @"https://www.pierup.cn:8443";
+NSString * const PierHttpClientUserHostV2    = @"https://www.pierup.cn:8443";
 
 NSString * const PierHttpClientTypeEmptyHost = @"";
 #pragma mark -

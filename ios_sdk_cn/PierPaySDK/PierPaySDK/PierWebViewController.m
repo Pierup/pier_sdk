@@ -22,7 +22,7 @@
 
 @end
 
-NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/login";
+NSString * const PIER_SDK_ROOT_URL = @"http://192.168.1.12:4000/mobile/checkout/login";
 
 @implementation PierWebViewController
 
@@ -56,7 +56,7 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
     //bar
     [self setRightBarButton:@"取消"];
     [self setLeftBarButton:@"返回"];
-    [self setLefrBarHidden:NO];
+    [self setLefrBarHidden:YES];
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor purpleColor]];
 }
 
@@ -81,6 +81,7 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
     [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"order_id"] forKey:@"order"];
     [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"sign"] forKey:@"sign"];
     [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"sign_type"] forKey:@"sign_type"];
+    [paramDic setObject:@"ios" forKey:@"platform"];
     return [PierH5Utils getURLQurey:paramDic];
 }
 
@@ -151,11 +152,10 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [self loadFinish:webView];
     NSString *title = [PierH5Utils getWebTitle:self.webView];
     [self setTitle:title];
     [PierLoadingView hindLoadingView];
-    
-    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
@@ -168,17 +168,42 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
 
 - (void)dispatcheFinish:(PierWebActionModel *)model{
     switch (model.action_type) {
-        case ePierAction_Return:
+        case ePierAction_return:
         {
             [self.navigationController dismissViewControllerAnimated:YES completion:^{
                 __pierDataSource.completionBlock(model.result, nil);
             }];
             break;
         }
-        case ePierAction_Login:{
-            [self setLefrBarHidden:NO];
+        case ePierAction_login:{
             break;
         }
+        case ePierAction_login_to_confirm:{
+            break;
+        }
+        case ePierAction_login_to_regist:{
+            break;
+        }
+        case ePierAction_login_to_pay:{
+            break;
+        }
+        default:{
+            break;
+        }
+    }
+}
+
+- (void)loadFinish:(UIWebView *)webView{
+    PierWebInfoModel *pageModel = [PierH5Utils getPageInfo:webView];
+    [self setLefrBarHidden:NO];
+    switch (pageModel.paye_id) {
+        case ePierPageID_login:
+            [self setLefrBarHidden:YES];
+            break;
+        case ePierPageID_confirm:
+            break;
+        case ePierPageID_regist:
+            break;
         default:
             break;
     }

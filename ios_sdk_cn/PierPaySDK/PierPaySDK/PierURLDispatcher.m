@@ -42,15 +42,15 @@ static PierURLDispatcher * __instance;
         NSString *result = [query_dic objectForKey:@"result"];
         NSDictionary *result_dic = [result objectFromJSONString];
         switch (action) {
-            case ePierAction_Login:
+            case ePierAction_login:
                 
                 break;
-            case ePierAction_Pay:
+            case ePierAction_pay:
                 
                 break;
-            case ePierAction_Return:{
+            case ePierAction_return:{
                 PierWebActionModel *model = [[PierWebActionModel alloc] init];
-                model.action_type = ePierAction_Return;
+                model.action_type = ePierAction_return;
                 model.result = result_dic;
                 if (self.delegate && [self.delegate respondsToSelector:@selector(dispatcheFinish:)]) {
                     [self.delegate dispatcheFinish:model];
@@ -64,12 +64,28 @@ static PierURLDispatcher * __instance;
         return NO;
     }else{
         switch (action) {
-            case ePierAction_Login:{
+            case ePierAction_login:{
+                break;
+            }
+            case ePierAction_login_to_confirm:{
+                
+                break;
+            }
+            case ePierAction_login_to_regist:{
+                
+                break;
+            }
+            case ePierAction_login_to_pay:{
                 
                 break;
             }
             default:
                 break;
+        }
+        PierWebActionModel *model = [[PierWebActionModel alloc] init];
+        model.action_type = action;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(dispatcheFinish:)]) {
+            [self.delegate dispatcheFinish:model];
         }
         return YES;
     }

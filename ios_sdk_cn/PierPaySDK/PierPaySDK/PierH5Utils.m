@@ -7,6 +7,12 @@
 //
 
 #import "PierH5Utils.h"
+#import "PierJSONKit.h"
+
+@implementation PierWebInfoModel
+
+
+@end
 
 @implementation PierH5Utils
 
@@ -45,6 +51,17 @@
     }
     
     return paramString;
+}
+
+/**
+ * 获取页面信息
+ */
++ (PierWebInfoModel *)getPageInfo:(UIWebView *)webView{
+    NSString *result = [PierH5Utils executeJS:@"getPageInfo()" webView:webView];
+    NSDictionary *result_dic = [result objectFromJSONString];
+    PierWebInfoModel *model = [[PierWebInfoModel alloc] init];
+    model.paye_id = [[result_dic objectForKey:@"page_id"] integerValue];
+    return model;
 }
 
 + (NSString *)getWebTitle:(UIWebView *)webView{
