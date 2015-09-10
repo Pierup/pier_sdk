@@ -4,21 +4,21 @@
 <array>
 	<dict>
 		<key>product</key>
-		<string>小米 Note</string>
+		<string>iPhone6s</string>
 		<key>logo</key>
-		<string>mi</string>
+		<string>iphone6s</string>
 		<key>detail</key>
-		<string>小米 Note 白色 移动联通双4G手机 双卡双待大屏旗舰，HIFI 双卡双待！</string>
+		<string>从你开始使用 iPhone 6s 的那一刻起，你就会感觉到它是如此不同。指尖一按，3D Touch 就能让你实现更多精彩。</string>
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥1999.00</string>
+		<string>￥5999.00</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
-		<string>￥1999.00</string>
+		<string>￥5999.00</string>
 		<key>sales</key>
-		<string>月销量123434件</string>
+		<string>月销量1件</string>
 	</dict>
 	<dict>
 		<key>product</key>

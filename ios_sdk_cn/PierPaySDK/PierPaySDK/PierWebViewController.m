@@ -9,12 +9,20 @@
 #import "PierWebViewController.h"
 #import "PierH5Utils.h"
 #include "PierLoadingView.h"
+#import "PierDataSource.h"
+#import "PierURLDispatcher.h"
 
-@interface PierWebViewController () <UIWebViewDelegate>
+@interface PierWebViewController () <UIWebViewDelegate, PierURLDispatcherDeleagte>
 
 @property (nonatomic, strong) UIWebView *webView;
 
+@property (nonatomic, strong) UIButton *leftButton;
+
+@property (nonatomic, strong) PierURLDispatcher *dispatcher;
+
 @end
+
+NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/login";
 
 @implementation PierWebViewController
 
@@ -22,7 +30,8 @@
 {
     self = [super init];
     if (self) {
-        
+        _dispatcher = [[PierURLDispatcher alloc] init];
+        _dispatcher.delegate = self;
     }
     return self;
 }
@@ -45,20 +54,38 @@
     _webView.delegate = self;
     [self.view addSubview:_webView];
     //bar
-    [self setRightBarButton:@"关闭"];
+    [self setRightBarButton:@"取消"];
     [self setLeftBarButton:@"返回"];
+    [self setLefrBarHidden:YES];
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor purpleColor]];
 }
 
 /**
  * start loading
- * test:http://192.168.1.12:4000/mobile/checkout/login?merchant=MC0000001409&order=OR7105097597842&sign=tlfRLtr3s4NOzEHf%2FJFs7YY8oci5THiyzImOblO97dB8B7nDEjmErM2MWn2FWkSdvprkYdWX8NpFCzWMXSOZsXJpIWSop5NITvVhdlN33IdjL15P34nsoDWgqPMJmpS%2FnXrkBNKk%2FzF3mf7RCPdhWBft%2F8sMIH%2F8g7ZEAl4j6pY%3D&sign_type=RSA&charset=UTF-8
+ * test:http://pierup.cn:4000/mobile/checkout/login?merchant=MC0000001409&order=OR6369705751050&sign=1bYPJykhrPya1BC3%2Ftbr14lghwXyKMFQdj5MAUU%2Bl9JaPPUQyYkOhSrqDkm%2BFTGAtVLHX2qKrMU86pSkrNJB%2FIuTemq4NRESrBonK4WeHAP%2FDsdXZqilUV8Mda3VttvpmOp2p0Y5NnpJ0B6K%2FGIY8msEvc%2FGlSps%2F%2FEQJn6YF1Y%3D&sign_type=RSA&charset=UTF-8
  */
 - (void)startLoading{
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://192.168.1.12:4000/mobile/checkout/login?merchant=MC0000001409&order=OR7105097597842&sign=tlfRLtr3s4NOzEHf%2FJFs7YY8oci5THiyzImOblO97dB8B7nDEjmErM2MWn2FWkSdvprkYdWX8NpFCzWMXSOZsXJpIWSop5NITvVhdlN33IdjL15P34nsoDWgqPMJmpS%2FnXrkBNKk%2FzF3mf7RCPdhWBft%2F8sMIH%2F8g7ZEAl4j6pY%3D&sign_type=RSA&charset=UTF-8"]];
+    NSString *query = [self getURLParam];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", PIER_SDK_ROOT_URL, query] relativeToURL:[NSURL URLWithString:PIER_SDK_ROOT_URL]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [_webView loadRequest:request];
-    
 }
+
+/**
+ * 获取url 参数列表
+ */
+- (NSString *)getURLParam{
+    NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"merchant_id"] forKey:@"merchant"];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"charset"] forKey:@"charset"];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"order_id"] forKey:@"order"];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"sign"] forKey:@"sign"];
+    [paramDic setObject:[__pierDataSource.merchantParam objectForKey:@"sign_type"] forKey:@"sign_type"];
+    [paramDic setObject:@"ios" forKey:@"platform"];
+    return [PierH5Utils getURLQurey:paramDic];
+}
+
+#pragma mark - ---------------------- item bar ----------------------
 
 /**
  * Close Button
@@ -86,13 +113,24 @@
  * Back Button
  */
 - (void)setLeftBarButton:(NSString *)title{
-    UIButton *leftBarButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    leftBarButton.frame = CGRectMake(0, 0, 32, 32);
-    [leftBarButton setTitle:@"返回" forState:UIControlStateNormal];
-    [leftBarButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [leftBarButton addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarButton];
+    _leftButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _leftButton.frame = CGRectMake(0, 0, 32, 32);
+    [_leftButton setTitle:@"返回" forState:UIControlStateNormal];
+    [_leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_leftButton addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithCustomView:_leftButton];
     self.navigationItem.leftBarButtonItem = leftBarItem;
+}
+
+/**
+ * Back Button
+ */
+- (void)setLefrBarHidden:(BOOL)hidden{
+    if (hidden) {
+        [self.leftButton setHidden:YES];
+    }else{
+        [self.leftButton setHidden:NO];
+    }
 }
 
 /**
@@ -106,8 +144,7 @@
 #pragma mark - ------------------- UIWebViewDelegate -------------------
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    
-    return YES;
+    return [_dispatcher dispatchURL:[request URL] viewController:self];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -115,13 +152,61 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [self loadFinish:webView];
     NSString *title = [PierH5Utils getWebTitle:self.webView];
     [self setTitle:title];
     [PierLoadingView hindLoadingView];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"错误" message:error.domain delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alertView show];
     [PierLoadingView hindLoadingView];
+}
+
+#pragma mark - ---------------- PierURLDispatcherDeleagte ----------------------
+
+- (void)dispatcheFinish:(PierWebActionModel *)model{
+    switch (model.action_type) {
+        case ePierAction_return:
+        {
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                __pierDataSource.completionBlock(model.result, nil);
+            }];
+            break;
+        }
+        case ePierAction_login:{
+            break;
+        }
+        case ePierAction_login_to_confirm:{
+            break;
+        }
+        case ePierAction_login_to_regist:{
+            break;
+        }
+        case ePierAction_login_to_pay:{
+            break;
+        }
+        default:{
+            break;
+        }
+    }
+}
+
+- (void)loadFinish:(UIWebView *)webView{
+    PierWebInfoModel *pageModel = [PierH5Utils getPageInfo:webView];
+    [self setLefrBarHidden:NO];
+    switch (pageModel.paye_id) {
+        case ePierPageID_login:
+            [self setLefrBarHidden:YES];
+            break;
+        case ePierPageID_confirm:
+            break;
+        case ePierPageID_regist:
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - ---------------- Utils ----------------

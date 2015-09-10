@@ -12,6 +12,15 @@
 #import "PierPaySDK.h"
 #import "RSADigitalSignature.h"
 #import "OrderUtil.h"
+#import <objc/Object.h>
+
+/**********************商户注册时候获取**************************/
+
+static const NSString * API_SECRET_KEY = @"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682";
+
+static const NSString * API_ID = @"1819957c-1a3f-11e5-ba25-3a22fd90d682";
+
+/**********************商户注册时候获取的************************/
 
 @interface ProductCell : UITableViewCell
 
@@ -42,10 +51,14 @@
 @interface ViewController ()
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+
 @property (nonatomic, strong) NSArray *data;
+@property (nonatomic, strong) NSMutableDictionary *selectedIndexMap;
 
 @property (nonatomic, strong) PierPaySDK *pierPay;
 
+@property (nonatomic, assign) NSInteger selectedCount;
+@property (nonatomic, weak) IBOutlet UIButton *batchPayButton;
 
 @end
 
@@ -54,14 +67,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 90;
+    
+    self.selectedCount = 0;
+    
+    self.selectedIndexMap = [[NSMutableDictionary alloc] init];
+    
+    [self setupView];
     
     [self getProductList];
     
     [self.tableView reloadData];
     
-    [self setTitle:@"首页"];
+    [self setTitle:@"商城"];
+}
+
+- (void)setupView{
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 90;
+    [self.batchPayButton setEnabled:NO];
 }
 
 - (void)getProductList{
@@ -69,30 +92,45 @@
     _data = [[NSArray alloc] initWithContentsOfFile:plistPath];
 }
 
+- (IBAction)addToCar:(id)sender{
+    UIButton *addCarButton = sender;
+    NSIndexPath *index = objc_getAssociatedObject(addCarButton, @"index");
+    [self.selectedIndexMap setValue:self.data[index.row] forKey:[NSString stringWithFormat:@"%ld",index.row]];
+    [self setAddCarButtonEnable:NO sender:sender];
+    self.selectedCount += 1;
+    [self.batchPayButton setEnabled:YES];
+    [self.batchPayButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [self.batchPayButton setTitle:[NSString stringWithFormat:@"立刻支付(%ld)", self.selectedCount] forState:UIControlStateNormal];
+}
+
 - (IBAction)payByPier:(id)sender{
+    UIButton *byButton = sender;
+    NSIndexPath *index = objc_getAssociatedObject(byButton, @"index");
+    [self.selectedIndexMap setValue:self.data[index.row] forKey:[NSString stringWithFormat:@"%ld",index.row]];
+    NSArray *orderDetail = [self getOrderDetail];
+    
     NSDictionary *param = @{
+                            @"api_secret_key" : API_SECRET_KEY,
+                            @"api_id" : API_ID,
                             @"merchant_id":@"MC0000001409",
-                            @"api_id":@"1819957c-1a3f-11e5-ba25-3a22fd90d682",
-                            @"api_secret_key":@"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682",
-                            @"amount":@"11.01",
+                            @"amount":[self getAmount],
                             @"charset":@"UTF-8",
-                            @"order_id":@"fsdirwl24932130fs",
+                            @"order_id":[NSString stringWithFormat:@"%ld",(NSInteger)[[NSDate date] timeIntervalSince1970]*1000000],
                             @"return_url":@"/checkout/orderList",
-                            @"order_detail":@"",
+                            @"order_detail":orderDetail,
                             @"sign_type":@"RSA"
                             };
     
     NSString *sign = [OrderUtil getSgin:param];
     
     NSDictionary *charge = @{
+                             @"api_id" : API_ID,
                              @"merchant_id":@"MC0000001409",
-                             @"api_id":@"1819957c-1a3f-11e5-ba25-3a22fd90d682",
-                             @"api_secret_key":@"mk-prod-18199475-1a3f-11e5-ba25-3a22fd90d682",
-                             @"amount":@"11.01",
+                             @"amount":[self getAmount],
                              @"charset":@"UTF-8",
-                             @"order_id":@"fsdirwl24932130fs",
+                             @"order_id":[param objectForKey:@"order_id"],
                              @"return_url":@"/checkout/orderList",
-                             @"order_detail":@"",
+                             @"order_detail":orderDetail,
                              @"sign_type":@"RSA",
                              @"sign":sign
                              };
@@ -100,7 +138,12 @@
     _pierPay = [[PierPaySDK alloc] init];
     
     [_pierPay createPayment:charge delegate:self fromScheme:@"" completion:^(NSDictionary *result, NSError *error) {
-        
+        NSString *result_str = [result objectForKey:@"result"];
+        if (result_str == nil) {
+            result_str = @"";
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付完成" message:result_str delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alert show];
     }];
 }
 
@@ -108,6 +151,28 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - tools
+
+- (NSArray *)getOrderDetail{
+    NSMutableArray *orderDetail = [[NSMutableArray alloc] init];
+    NSArray *keys = self.selectedIndexMap.allKeys;
+    for (int i = 0; i < [keys count]; i++) {
+        [orderDetail addObject:[self.data objectAtIndex:[keys[i] integerValue]]];
+    }
+    return orderDetail;
+}
+
+- (NSString *)getAmount{
+    NSInteger amount = 0;
+    for (NSString *key in self.selectedIndexMap) {
+        amount += [[[[self.selectedIndexMap objectForKey:key] objectForKey:@"price"] substringFromIndex:1] integerValue];
+    }
+    NSString *string_amount = [NSString stringWithFormat:@"%ld", amount];
+    return string_amount;
+}
+
+#pragma mark - delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _data.count;
@@ -122,7 +187,29 @@
     [cell.salesLabel setText:[_data[row] objectForKey:@"sales"]];
     [cell.priceLabel setText:[_data[row] objectForKey:@"price"]];
     [cell.productLogoImage setImage:[UIImage imageNamed:[_data[row] objectForKey:@"logo"]]];
+    [cell.shopCarButton setTag:indexPath.row];
+    objc_setAssociatedObject(cell.shopCarButton, @"index", indexPath, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(cell.payButton, @"index", indexPath, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if ([self.selectedIndexMap objectForKey:[NSString stringWithFormat:@"%ld", row]] != nil) {
+        [self setAddCarButtonEnable:NO sender:cell.shopCarButton];
+    }else{
+        [self setAddCarButtonEnable:YES sender:cell.shopCarButton];
+    }
+    
     return cell;
+}
+
+- (void)setAddCarButtonEnable:(BOOL)enable sender:(id)sender{
+    UIButton *addButton = (UIButton *)sender;
+    if (!enable) {
+        [addButton setEnabled:NO];
+        [addButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [addButton.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    }else{
+        [addButton setEnabled:YES];
+        [addButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [addButton.layer setBorderColor:[[UIColor orangeColor] CGColor]];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

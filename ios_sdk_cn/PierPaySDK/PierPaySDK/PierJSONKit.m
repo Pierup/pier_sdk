@@ -637,10 +637,10 @@ extern void pier_jk_collectionClassLoadTimeInitialization(void) __attribute__ ((
 void pier_jk_collectionClassLoadTimeInitialization(void) {
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; // Though technically not required, the run time environment at load time initialization may be less than ideal.
   
-  _JKArrayClass             = objc_getClass("JKArray");
+  _JKArrayClass             = objc_getClass("PierJKArray");
   _JKArrayInstanceSize      = jk_max(16UL, class_getInstanceSize(_JKArrayClass));
   
-  _JKDictionaryClass        = objc_getClass("JKDictionary");
+  _JKDictionaryClass        = objc_getClass("PierJKDictionary");
   _JKDictionaryInstanceSize = jk_max(16UL, class_getInstanceSize(_JKDictionaryClass));
   
   // For JSONDecoder...

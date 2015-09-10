@@ -23,6 +23,8 @@
 
 @interface PierRequestSaveOrderInfoResponse ()
 
+@property(nonatomic, copy, readwrite) NSString *order_id;
+
 @end
 
 @implementation PierRequestSaveOrderInfoResponse

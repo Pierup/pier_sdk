@@ -7,6 +7,12 @@
 //
 
 #import "PierH5Utils.h"
+#import "PierJSONKit.h"
+
+@implementation PierWebInfoModel
+
+
+@end
 
 @implementation PierH5Utils
 
@@ -25,6 +31,37 @@
         }
     }
     return [NSDictionary dictionaryWithDictionary:dict];
+}
+
++ (NSString *)getURLQurey:(NSDictionary *)dic{
+    
+    NSMutableString *paramString = [NSMutableString stringWithString:@""];
+    NSArray *keys = [dic allKeys];
+    for (NSString *key in keys)
+    {
+        if ([dic[key] length] != 0)
+        {
+            [paramString appendFormat:@"&%@=%@", key, dic[key]];
+        }
+    }
+    
+    if ([paramString length] > 1)
+    {
+        [paramString deleteCharactersInRange:NSMakeRange(0, 1)];    // remove first '&'
+    }
+    
+    return paramString;
+}
+
+/**
+ * 获取页面信息
+ */
++ (PierWebInfoModel *)getPageInfo:(UIWebView *)webView{
+    NSString *result = [PierH5Utils executeJS:@"getPageInfo()" webView:webView];
+    NSDictionary *result_dic = [result objectFromJSONString];
+    PierWebInfoModel *model = [[PierWebInfoModel alloc] init];
+    model.paye_id = [[result_dic objectForKey:@"page_id"] integerValue];
+    return model;
 }
 
 + (NSString *)getWebTitle:(UIWebView *)webView{

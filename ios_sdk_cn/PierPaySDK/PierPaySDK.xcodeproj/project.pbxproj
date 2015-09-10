@@ -23,6 +23,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2A499FAE1BA0350400FEFE6E /* PierURLDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A499FAC1BA0350300FEFE6E /* PierURLDispatcher.h */; };
+		2A499FAF1BA0350400FEFE6E /* PierURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A499FAD1BA0350300FEFE6E /* PierURLDispatcher.m */; };
+		2A499FB01BA0350400FEFE6E /* PierURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A499FAD1BA0350300FEFE6E /* PierURLDispatcher.m */; };
 		2A6014641B95C7F800EDAB51 /* PierService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014621B95C7F800EDAB51 /* PierService.h */; };
 		2A6014651B95C7F800EDAB51 /* PierService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014631B95C7F800EDAB51 /* PierService.m */; };
 		2A6014681B95C83500EDAB51 /* PierJSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014661B95C83500EDAB51 /* PierJSONKit.h */; };
@@ -108,6 +111,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A499FAC1BA0350300FEFE6E /* PierURLDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierURLDispatcher.h; sourceTree = "<group>"; };
+		2A499FAD1BA0350300FEFE6E /* PierURLDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierURLDispatcher.m; sourceTree = "<group>"; };
 		2A6014621B95C7F800EDAB51 /* PierService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierService.h; sourceTree = "<group>"; };
 		2A6014631B95C7F800EDAB51 /* PierService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PierService.m; sourceTree = "<group>"; };
 		2A6014661B95C83500EDAB51 /* PierJSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PierJSONKit.h; sourceTree = "<group>"; };
@@ -207,6 +212,8 @@
 		2A60147C1B95CAC800EDAB51 /* WebHelper */ = {
 			isa = PBXGroup;
 			children = (
+				2A499FAC1BA0350300FEFE6E /* PierURLDispatcher.h */,
+				2A499FAD1BA0350300FEFE6E /* PierURLDispatcher.m */,
 				2AF463E21B945716000E87B8 /* PierH5Utils.h */,
 				2AF463E31B945716000E87B8 /* PierH5Utils.m */,
 				2AF463CD1B94470C000E87B8 /* PierViewUtils.h */,
@@ -360,6 +367,7 @@
 				2A6014931B95CAEA00EDAB51 /* PierFont.h in Headers */,
 				2AF463D31B944E6F000E87B8 /* PierWebViewController.h in Headers */,
 				2A60148D1B95CAEA00EDAB51 /* PierColor.h in Headers */,
+				2A499FAE1BA0350400FEFE6E /* PierURLDispatcher.h in Headers */,
 				2A6014641B95C7F800EDAB51 /* PierService.h in Headers */,
 				2A6014761B95CA7200EDAB51 /* PierHttpClient.h in Headers */,
 				2AF463CF1B94470C000E87B8 /* PierViewUtils.h in Headers */,
@@ -536,6 +544,7 @@
 				2A6014791B95CA7200EDAB51 /* PierHttpExecutor.m in Sources */,
 				2A6014771B95CA7200EDAB51 /* PierHttpClient.m in Sources */,
 				2A6014691B95C83500EDAB51 /* PierJSONKit.m in Sources */,
+				2A499FAF1BA0350400FEFE6E /* PierURLDispatcher.m in Sources */,
 				2A90C4311B94183F00EA1529 /* PierPaySDK.m in Sources */,
 				2AF463CC1B942CB2000E87B8 /* PierNavigationController.m in Sources */,
 				2A6014A41B95CBF700EDAB51 /* PierDebugView.m in Sources */,
@@ -561,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A499FB01BA0350400FEFE6E /* PierURLDispatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
