@@ -32,13 +32,13 @@ static PierURLDispatcher * __instance;
 
 - (BOOL)dispatchURL:(NSURL *)url viewController:(UIViewController *)viewController{
     /**
-     * pierpay://pier?platform=ios&action=10001&param1=""&param2=""&...
+     * pierpay://pier?platform=ios&result=""
      */
     NSString *scheme = [url scheme];
+    NSString *query = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *query_dic = [PierH5Utils parseURLQueryString:query];
+    ePierAction action = [[query_dic objectForKey:@"action"] integerValue];
     if ([scheme isEqualToString:@"pierpay"]) {
-        NSString *query = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *query_dic = [PierH5Utils parseURLQueryString:query];
-        ePierAction action = [[query_dic objectForKey:@"action"] integerValue];
         NSString *result = [query_dic objectForKey:@"result"];
         NSDictionary *result_dic = [result objectFromJSONString];
         switch (action) {
@@ -63,6 +63,14 @@ static PierURLDispatcher * __instance;
         }
         return NO;
     }else{
+        switch (action) {
+            case ePierAction_Login:{
+                
+                break;
+            }
+            default:
+                break;
+        }
         return YES;
     }
 }

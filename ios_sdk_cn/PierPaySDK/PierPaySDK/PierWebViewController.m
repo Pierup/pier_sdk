@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) UIWebView *webView;
 
+@property (nonatomic, strong) UIButton *leftButton;
+
 @property (nonatomic, strong) PierURLDispatcher *dispatcher;
 
 @end
@@ -52,8 +54,9 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
     _webView.delegate = self;
     [self.view addSubview:_webView];
     //bar
-    [self setRightBarButton:@"关闭"];
+    [self setRightBarButton:@"取消"];
     [self setLeftBarButton:@"返回"];
+    [self setLefrBarHidden:NO];
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor purpleColor]];
 }
 
@@ -81,6 +84,8 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
     return [PierH5Utils getURLQurey:paramDic];
 }
 
+#pragma mark - ---------------------- item bar ----------------------
+
 /**
  * Close Button
  */
@@ -107,13 +112,24 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
  * Back Button
  */
 - (void)setLeftBarButton:(NSString *)title{
-    UIButton *leftBarButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    leftBarButton.frame = CGRectMake(0, 0, 32, 32);
-    [leftBarButton setTitle:@"返回" forState:UIControlStateNormal];
-    [leftBarButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [leftBarButton addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarButton];
+    _leftButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _leftButton.frame = CGRectMake(0, 0, 32, 32);
+    [_leftButton setTitle:@"返回" forState:UIControlStateNormal];
+    [_leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_leftButton addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithCustomView:_leftButton];
     self.navigationItem.leftBarButtonItem = leftBarItem;
+}
+
+/**
+ * Back Button
+ */
+- (void)setLefrBarHidden:(BOOL)hidden{
+    if (hidden) {
+        [self.leftButton setHidden:YES];
+    }else{
+        [self.leftButton setHidden:NO];
+    }
 }
 
 /**
@@ -138,6 +154,8 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
     NSString *title = [PierH5Utils getWebTitle:self.webView];
     [self setTitle:title];
     [PierLoadingView hindLoadingView];
+    
+    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
@@ -147,10 +165,23 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
 }
 
 #pragma mark - ---------------- PierURLDispatcherDeleagte ----------------------
+
 - (void)dispatcheFinish:(PierWebActionModel *)model{
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        __pierDataSource.completionBlock(model.result, nil);
-    }];
+    switch (model.action_type) {
+        case ePierAction_Return:
+        {
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                __pierDataSource.completionBlock(model.result, nil);
+            }];
+            break;
+        }
+        case ePierAction_Login:{
+            [self setLefrBarHidden:NO];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - ---------------- Utils ----------------

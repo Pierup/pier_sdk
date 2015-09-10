@@ -58,7 +58,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="Svg-ly-ZJZ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" patternImage="7FDD0C83-06F1-435A-8ECB-FD9F31BF7337" colorSpace="pattern"/>
+                                                    <color key="textColor" patternImage="FB96C122-5593-4FEC-AFFF-96796E7B656D" colorSpace="pattern"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0c-CX-RJ9">
@@ -316,7 +316,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="7FDD0C83-06F1-435A-8ECB-FD9F31BF7337" width="512" height="512">
+        <image name="FB96C122-5593-4FEC-AFFF-96796E7B656D" width="512" height="512">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
