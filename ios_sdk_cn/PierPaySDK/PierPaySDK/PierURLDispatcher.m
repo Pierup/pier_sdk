@@ -61,7 +61,7 @@ static PierURLDispatcher * __instance;
             default:
                 break;
         }
-        return YES;
+        return NO;
     }else{
         return YES;
     }
