@@ -113,7 +113,7 @@ static const NSString * API_ID = @"1819957c-1a3f-11e5-ba25-3a22fd90d682";
                             @"api_secret_key" : API_SECRET_KEY,
                             @"api_id" : API_ID,
                             @"merchant_id":@"MC0000001409",
-                            @"amount":@"11.01",
+                            @"amount":[self getAmount],
                             @"charset":@"UTF-8",
                             @"order_id":[NSString stringWithFormat:@"%ld",(NSInteger)[[NSDate date] timeIntervalSince1970]*1000000],
                             @"return_url":@"/checkout/orderList",
@@ -126,7 +126,7 @@ static const NSString * API_ID = @"1819957c-1a3f-11e5-ba25-3a22fd90d682";
     NSDictionary *charge = @{
                              @"api_id" : API_ID,
                              @"merchant_id":@"MC0000001409",
-                             @"amount":@"11.01",
+                             @"amount":[self getAmount],
                              @"charset":@"UTF-8",
                              @"order_id":[param objectForKey:@"order_id"],
                              @"return_url":@"/checkout/orderList",
@@ -161,6 +161,15 @@ static const NSString * API_ID = @"1819957c-1a3f-11e5-ba25-3a22fd90d682";
         [orderDetail addObject:[self.data objectAtIndex:[keys[i] integerValue]]];
     }
     return orderDetail;
+}
+
+- (NSString *)getAmount{
+    NSInteger amount = 0;
+    for (NSString *key in self.selectedIndexMap) {
+        amount += [[[[self.selectedIndexMap objectForKey:key] objectForKey:@"price"] substringFromIndex:1] integerValue];
+    }
+    NSString *string_amount = [NSString stringWithFormat:@"%ld", amount];
+    return string_amount;
 }
 
 #pragma mark - delegate
