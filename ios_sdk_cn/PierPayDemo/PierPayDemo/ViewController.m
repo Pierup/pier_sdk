@@ -164,11 +164,11 @@ static const NSString * API_ID = @"1819957c-1a3f-11e5-ba25-3a22fd90d682";
 }
 
 - (NSString *)getAmount{
-    NSInteger amount = 0;
+    float amount = 0;
     for (NSString *key in self.selectedIndexMap) {
-        amount += [[[[self.selectedIndexMap objectForKey:key] objectForKey:@"price"] substringFromIndex:1] integerValue];
+        amount += [[[[self.selectedIndexMap objectForKey:key] objectForKey:@"price"] substringFromIndex:1] floatValue];
     }
-    NSString *string_amount = [NSString stringWithFormat:@"%ld", amount];
+    NSString *string_amount = [NSString stringWithFormat:@"%0.2f", amount];
     return string_amount;
 }
 
