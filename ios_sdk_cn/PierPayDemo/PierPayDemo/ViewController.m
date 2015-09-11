@@ -12,7 +12,7 @@
 #import "PierPaySDK.h"
 #import "RSADigitalSignature.h"
 #import "OrderUtil.h"
-#import <objc/Object.h>
+#import <objc/runtime.h>
 
 /**********************商户注册时候获取**************************/
 
