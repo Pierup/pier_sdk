@@ -26,7 +26,7 @@ typedef enum : NSUInteger {
     ePierAction_error                   = 10014, //发生错误
     ePierAction_apply_credit            = 10015, //申请信用（注册流程）
     ePierAction_apply_credit_success    = 10016, //申请信用成功（注册流程）
-    ePierAction_apply_credit_failed     = 10017 //申请信用失败（注册流程）
+    ePierAction_apply_credit_failed     = 10017  //申请信用失败（注册流程）
 } ePierAction;
 
 

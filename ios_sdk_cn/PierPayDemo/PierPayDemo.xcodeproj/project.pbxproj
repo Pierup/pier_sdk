@@ -432,6 +432,7 @@
 				TargetAttributes = {
 					2A90C4641B9419AC00EA1529 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 9KW7KNZ4KU;
 					};
 					2A90C47D1B9419AC00EA1529 = {
 						CreatedOnToolsVersion = 6.4;
@@ -653,6 +654,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../",
@@ -666,7 +668,7 @@
 					"$(SRCROOT)/PierPayDemo/Tools",
 				);
 				INFOPLIST_FILE = PierPayDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -675,6 +677,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f3f95a3c-288d-4782-961a-5ce7f6940630";
 			};
 			name = Debug;
 		};
@@ -682,6 +685,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../",
@@ -695,7 +699,7 @@
 					"$(SRCROOT)/PierPayDemo/Tools",
 				);
 				INFOPLIST_FILE = PierPayDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -704,6 +708,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f3f95a3c-288d-4782-961a-5ce7f6940630";
 			};
 			name = Release;
 		};

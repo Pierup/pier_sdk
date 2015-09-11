@@ -188,7 +188,7 @@ static NSString *defaultUserAgent;
             if(!hasData) {
                 const char *stringData = [[self parameterStringForDictionary:paramsDict] UTF8String];
                 NSMutableData *postData = [NSMutableData dataWithBytes:stringData length:strlen(stringData)];
-                [self.operationRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"]; //added by uzys
+                [self.operationRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
                 [self.operationRequest setHTTPBody:postData];
             }else {
                 NSString *boundary = @"PierBoundary";
