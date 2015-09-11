@@ -23,7 +23,7 @@ angular.module( 'ForgetPassword',[])
     	$scope.phoneError = false;
     	if( $scope.phone == '' || $scope.phoneLength != $scope.phone.length ){
     		$scope.phoneError = true;
-    		$('#phoneErrorMsg').html( '你的身份证号码必须是'+$scope.phoneLength+'位' );
+    		$('#phoneErrorMsg').html( '你的手机号必须是'+$scope.phoneLength+'位' );
     		return;
     	}
     	$scope.sendCodeFlag = true;
@@ -64,7 +64,7 @@ angular.module( 'ForgetPassword',[])
     	var pNext = HttpService.templateAccessAPI( url, message );
     	pNext.then( function(result){
     		$log.debug('activate valid code success', result );
-    		window.location.href="/mobile/user/resetPassword/"+result.token;
+    		window.location.href="/mobile/user/resetPassword/"+result.token+"?action=10012";
            
     	}, function( reason ){
     		$scope.idError = true;
@@ -126,7 +126,7 @@ angular.module( 'ForgetPassword',[])
 		var pReset = HttpService.templateAccessAPI( url, message );
 		pReset.then(function(result){
 			$log.debug( 'reset success',result );
-			window.location.href="/mobile/user/resetSuccess";
+			window.location.href="/mobile/user/resetSuccess?action=10013";
 			
 		}, function(reason){
 			$log.debug( 'reset failed',reason );

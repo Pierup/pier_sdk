@@ -39,7 +39,11 @@ var apiurl = {
 
     //prepay
     prePay: {url: '/user_api_cn/v1/user/pay_prepare?platform=3' },
-    checkPayPassword: {url: '/user_api_cn/v1/user/check_pay_password?platform=3' }
+    checkPayPassword: {url: '/user_api_cn/v1/user/check_pay_password?platform=3' },
+
+
+    //get sign for test
+    getDigitalSign: { url: '/pier-merchant-cn/demo/pay/sign/MC0000001409' }
 
 }
 module.exports = apiurl;

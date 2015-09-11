@@ -1,5 +1,5 @@
 <% include ../header%>
-<script src="../../../user/js/forget-psd/mobile-forget-psd.js"></script>
+<script src="../../../user/forget-psd/mobile-forget-psd.js"></script>
 <div class="container mobile-forget-container" ng-app="ForgetPassword" ng-controller="ResetController">
     <div class="row">
       <h3 class="title">重新设置您的登录密码：</h3>
@@ -22,7 +22,10 @@
 			    <div class="col-sm-12  error" ng-show="passwordNotMatch" ng-cloak>
 				    <span class="error" id="phoneErrorMsg">密码不匹配</span>
 			    </div>
-		        <button type="button" class="submit-btn" ng-click="resetPsd()">重置登入密码&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="resetFlag"></i></button>
+			    <div class="col-sm-12  error" ng-show="resetError" ng-cloak>
+				    <span class="error" id="phoneErrorMsg">{{errorMsg}}</span>
+			    </div>
+		        <button type="button" class="submit-btn" ng-click="resetPsd()">重置登录密码&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="resetFlag"></i></button>
 		    </div>
 		</form>
 	</div>

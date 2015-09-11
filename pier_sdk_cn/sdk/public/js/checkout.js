@@ -21,7 +21,10 @@
         var _urlAction = options.data_action || '';
         var _returnUrl = options.return_url || '';
         var _callBack = options.callBack || '';
-
+        var _sign = options.sign || '';
+        var _signType = options.sign_type || '';
+        var _charset = options.charset || '';
+ 
         var pierBtn = document.querySelector('div[id="pierPay"]');
         console.log( pierBtn );
         // create  CSS styles
@@ -88,7 +91,10 @@
                 api_secret_key: _apiSecretKey,
                 merchant_id: _merchantId,
                 order_detail: _orderDetail,
-                return_url: _returnUrl
+                return_url: _returnUrl,
+                sign: _sign,
+                sign_type:_signType,
+                charset: _charset
             };
             for (var x in PARAMS) 
             {   

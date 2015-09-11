@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="row">
+    	<p class="mobile-reg-title"><span style="color:#7b37a6;">1</span>/5 创建账户</p>
+    </div>
+    <div class="row">
+        <form name="registerForm" id="registerForm" class="mobile-form mobile-register-form">
+		    <div class="form-group">
+		        <label for="phone">
+		            <span class="pull-left">手机号：</span>
+			        <span class="pull-right error-msg" ng-show="phoneError" style="float:right !important;" ng-cloak>你的手机号必须是{{phoneLength}}位</span>
+		        </label>
+		        <input type="tel" class="form-control" placeholder="输入的手机号码将作为用户名" name="phone" maxlength="{{phoneLength}}" id="phone" ng-model="phone" number-only-input  ng-change="phoneChange()" required>
+		    </div>
+		    <div class="form-group pay-dynamic-code">
+		        <label for="smsCode">
+			        <span class="pull-left">动态验证码：</span>
+			        <span class="pull-right error-msg" ng-show="smsError" ng-cloak>{{smsErrorMsg}}</span></label>
+		        <input type="tel" class="form-control" placeholder="请输入短信验证码" name="smsCode" id="smsCode" ng-model="smsCode" ng-blur="verifyActivateCode()" ng-disabled="timeHandler == checkCode.right" maxlength="4" required>
+		        <button ng-cloak type="button" ng-disabled="hasSendCode" ng-click="getValidCode()"><span ng-bind="timeHandler"></span>&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag"  ></i></button>
+		    </div>
+
+		    <div class="form-group">
+		        <label for="password">
+		            <span class="pull-left">设置密码：</span>
+			        <span class="pull-right error-msg" ng-show="passwordNotRight" ng-cloak>密码不符合格式</span>
+		        </label>
+		        <input class="form-control" type="password" placeholder="密码至少大于6位，包含字母和数字" name="password" id="password" ng-model="password"  maxlength="32" ng-blur="validPassword()"  required>
+		    </div>
+
+		    <div class="form-group">
+		        <label for="passwordConfirm">
+		            <span class="pull-left">确认密码：</span>
+			        <span class="pull-right error-msg" ng-show="passwordNotMatch" ng-cloak>密码不匹配</span>
+		        </label>
+		        <input class="form-control" type="password" placeholder="请再次输入您的密码" name="passwordConfirm" id="passwordConfirm" ng-model="passwordConfirm"  maxlength="32" ng-blur="validateMatch()" required>
+		    </div>
+
+		    <div class="form-group">
+		        <label for="phone">
+		            <span class="pull-left">邀请码：</span>
+		        </label>
+		        <input class="form-control" type="text" placeholder="若无邀请码请留空" name="inviteCode" id="inviteCode" ng-model="inviteCode"  maxlength="6" required>
+		    </div>
+
+		    <div class="form-group">
+			    <label for="phone" style="text-align:left !important;">
+		            <input type="checkbox" name="serviceRule" ng-model="serviceRule"/>
+				    <span for="serviceRule">同意</span>
+				    <a style="color:#7b37a6">《品而服务条款》</a>
+		        </label>
+		        <button type="button" ng-click="signUp()" class="submit-btn" ng-cloak>下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="signUpFlag"  ></i></button>
+		    </div>
+		</form>
+    </div>
+</div>
+
+<script>
+   console.log( $ );
+   $(function(){
+   	 $("[data-toggle='tooltip']").tooltip();
+   })
+   // $(function() { $("[data-toggle='tooltip']").tooltip(); });
+</script>

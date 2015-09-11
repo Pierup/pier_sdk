@@ -9,82 +9,7 @@ var https = require('https');
 var crypto = require('crypto');
 var fs = require('fs');
 
-/* GET merchant  page. */
-router.get('/', function(req, res, next) {
-  // var publicPem = fs.readFileSync('routes/cert.pem');
-  // var pubkey = publicPem.toString();
-  // var data = 'qr47iIohxARci+JY7T7DU5uHbN+hKMRY8cNUEXBB4XZcyv3wBugrjyOtlrz7MWYX25AXJpe2OiRiT0scG1R9F/x65614RPtdMrlTNoTyszBsUes+7DrLqYjkgmuLAExkXJUlyo60KN69LAomIbd88fEqUZx5CcXYq4/5DoS+60w=';
-  // var verify = crypto.createVerify('RSA-SHA1');
-  // verify.update(data);
-  // console.log('aaaaaaaaaa',verify.verify(pubkey, data, 'base64') );
-  // var data = 'order_id=fsdirwl24932130fs&result=OK&transaction_id=MT0000007056';
-  // var sign = crypto.createSign('RSA-SHA256');
-  // sign.update(data);
-  // var sig = sign.sign(key, 'hex');
-  // console.error('message', sig);
-  // var privatePem = fs.readFileSync('routes/private-key.pem');
-  // var key = privatePem.toString();
-  // console.log('aaaaaaaaaaaaaaaa',key)
-  // var data = "order_id=fsdirwl24932130fs&result=OK&transaction_id=MT0000007056";
-  // var sign = crypto.createSign('RSA-SHA1');
-  // sign.update(data);
-  // var sig = sign.sign(key, 'base64');
-  // console.log('message', sign);
-  res.render('index');
-});
-router.get('/checkout/orderList', function(req, res, next){
-  res.render('order-list');
-})
-
-router.post('/getSignForTest', function(req, res, next){
-  var urlPath = '/getDigitalSign';
-  var message = req.body;
-  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
-    console.log( "user get sign for test ", body );
-    res.send( body );
-  } );
-  
-});
-
-
-//for test callback
-router.post('/test/merchant/callback', function(req, res, next){
-  console.log( 'Get Merchant callback success', req.body);
-  res.send({
-    'code':'200',
-    'message':'OK',
-    'result':{}
-  })
-})
-
-/*
- Forget password
- */
 router.get('/user/forgetPassword', function(req, res, next) {
-  console.error( 'get cookie', req.session['auth_order'] );
-  res.render('resetPsd/forget-psd',{
-    title:'忘记密码',
-    location: 'forgetPassword'
-  });
-});
-router.get('/user/resetPassword/:token', function(req, res, next) {
-  console.log( 'reset password', req.params.token);
-  console.error( 'get cookie', req.session.cookie['auth_order'] );
-  res.render('resetPsd/reset-psd',{
-    token:req.params.token,
-    title:'忘记密码',
-    location: 'forgetPassword'
-  });
-});
-router.get('/user/resetSuccess', function(req, res, next) {
-  res.render('resetPsd/reset-success',{title:'重置密码成功',location: 'forgetPassword'});
-});
-
-/*
- Forget password for mobile
- */
-router.get('/user/forgetPassword', function(req, res, next) {
-  console.error( 'get cookie', req.session['auth_order'] );
   res.render('mobile/resetPsd/forget-psd',{
     title:'忘记密码',
     location: 'forgetPassword'
@@ -92,46 +17,29 @@ router.get('/user/forgetPassword', function(req, res, next) {
 });
 router.get('/user/resetPassword/:token', function(req, res, next) {
   console.log( 'reset password', req.params.token);
-  console.error( 'get cookie', req.session.cookie['auth_order'] );
   res.render('mobile/resetPsd/reset-psd',{
     token:req.params.token,
     title:'忘记密码',
     location: 'forgetPassword'
   });
 });
-router.get('/mobile/user/resetSuccess', function(req, res, next) {
+router.get('/user/resetSuccess', function(req, res, next) {
   res.render('mobile/resetPsd/reset-success',{title:'重置密码成功',location: 'forgetPassword'});
 });
-
-
 
 /**
  * user checkout login
  */
-router.post('/checkout/login', function(req, res, next) {
-  var urlPath = '/saveOrderInfo';
-  var message = {
-    order_id: req.body.order_id || null,
-    merchant_id: req.body.merchant_id,
-    amount: req.body.amount,
-    order_detail: req.body.order_detail,
-    return_url: req.body.return_url,
-    api_id: req.body.api_id
-  };
-  console.error('/checkout/login', message);
-  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
-    console.log( 'user save new order ', body );
-    if( body.code == 200 ){
-      res.redirect('/checkout/login?merchant='+req.body.merchant_id+'&order='+body.result.order_id+'&sign='+req.body.sign+'&sign_type='+req.body.sign_type+'&charset='+req.body.charset );
-    }else{
-      res.render( 'checkout/unknownError',{ error: body.message, title: '订单错误', location: 'error'} );
-    }
-  })
-});
 
 //for page test
 router.get('/checkout/unknownError',function(req, res, next){
-  res.render( 'checkout/unknownError',{ error: "未知错误，当前操作未成功，请稍后重试。", title: '未知错误', location: 'error' } );
+  var _message = { 
+    error: "未知错误，当前操作未成功，请稍后重试。", 
+    title: '未知错误', 
+    location: 'error',
+    pageInfo:JSON.stringify({ page_id: '200006' })
+  };
+  res.render( 'mobile/checkout/unknownError', _message );
 })
 
 router.get('/checkout/login', function(req, res, next) {
@@ -140,8 +48,9 @@ router.get('/checkout/login', function(req, res, next) {
   var sign = req.query.sign || '';
   var sign_type = req.query.sign_type || '';
   var _charset = req.query.charset || '';
+  var _platform = req.query.platform || 'web';
   if( merchant == '' || order == '' || sign == '' || sign_type == '' ){
-    res.redirect( '/checkout/unknownError');
+    res.redirect( '/mobile/checkout/unknownError?action=10014');
     return;
   }
   var urlPath = '/orderInfo',
@@ -150,28 +59,27 @@ router.get('/checkout/login', function(req, res, next) {
     merchant_id: merchant
   };
   request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
-    console.log( 'user get order info ', body );
     if( body.code == 200 ){
       req.session[merchant+order] = body.result;
-
       req.session[merchant+order].order_detail = JSON.parse(body.result.order_detail);
       req.session[merchant+order].sign = sign;
       req.session[merchant+order].sign_type = sign_type;
       req.session[merchant+order].charset = _charset;
+      req.session[merchant+order].platform = _platform;
       console.log(message);
       var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
       if( !authOrder ) return;
-      console.log( 'user get order auth', authOrder );
       authOrder.location = 'login';
       authOrder.phone = undefined;
       authOrder.password = undefined;
       authOrder.errorMsg = '';
       authOrder.directError = false;
       authOrder.location = 'login';
-      authOrder.currency = 'CNY';
-      res.render('checkout/login', authOrder );
+      authOrder.title = '品而支付';
+      authOrder.pageInfo = JSON.stringify({ page_id: '200001' });
+      res.render('mobile/checkout/login', authOrder );
     }else{
-      res.render( 'checkout/unknownError',{ error: body.message, title: '订单错误', location: 'error'} );
+      res.render( 'mobile/checkout/unknownError',{ error: body.message, title: '订单错误', location: 'error'} );
     }
   })
 });
@@ -181,7 +89,7 @@ router.post('/checkout/login_auth', function(req, res, next) {
   var merchant = req.body.merchant_id || '';
   var order = req.body.order_id || '';
   if( merchant == '' || order == '' ){
-    res.redirect( '/checkout/unknownError');
+    res.redirect( '/mobile/checkout/unknownError?action=10014');
     return;
   }
   var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
@@ -200,7 +108,8 @@ router.post('/checkout/login_auth', function(req, res, next) {
     authOrder.errorMsg = pierUtil.checkPhone(params.phone) != ''? pierUtil.checkPhone(params.phone):pierUtil.checkPassword(params.password);
     authOrder.phone = params.phone;
     authOrder.password = params.password;
-    res.render('checkout/login', authOrder );
+    authOrder.pageInfo = JSON.stringify({ page_id: '200001' });
+    res.render('mobile/checkout/login', authOrder );
     return;
   }
 
@@ -209,7 +118,7 @@ router.post('/checkout/login_auth', function(req, res, next) {
     console.log( "user login when checkout", body );
     authOrder.errorMsg = '';
     if( body.code == 200 ){
-      req.session[merchant+order].user_auth = { user_id: body.result.user_id , session_token: body.result.session_token, name: body.result.name };
+      req.session[merchant+order].user_auth = { user_id: body.result.user_id , session_token: body.result.session_token, name: body.result.name, phone: req.body.phone };
       console.log('get user authOrer detail', authOrder );
       if( pierUtil.getBinaryStatusBit( body.result.status_bit, 4 ) != 1 ){
         authOrder.location = 'login';
@@ -217,20 +126,22 @@ router.post('/checkout/login_auth', function(req, res, next) {
         authOrder.phone = params.phone;
         authOrder.password = params.password;
         authOrder.directError = true;
-        res.render('checkout/login', authOrder );
+        authOrder.pageInfo = JSON.stringify({ page_id: '200001' });
+        res.render('mobile/checkout/login', authOrder );
         return;
       }
       if( authOrder.order_detail != {} ){
-        res.redirect( '/checkout/confirm?merchant='+merchant+'&order='+order)
+        res.redirect( '/mobile/checkout/confirm?merchant='+merchant+'&order='+order+'&action=10004')
       }else{
-        res.redirect( '/checkout/payment?merchant='+merchant+'&order='+order)
+        res.redirect( '/mobile/checkout/payment?merchant='+merchant+'&order='+order+'&action=10008')
       }
     }else{
       authOrder.location = 'login';
       authOrder.errorMsg = body.message;
       authOrder.phone = params.phone;
       authOrder.password = params.password;
-      res.render('checkout/login', authOrder );
+      authOrder.pageInfo = JSON.stringify({ page_id: '200001' });
+      res.render('mobile/checkout/login', authOrder );
     }
   } );
 });
@@ -242,7 +153,7 @@ router.get('/checkout/payment', function(req, res, next) {
   var merchant = req.query.merchant || '';
   var order = req.query.order || '';
   if( merchant == '' || order == '' ){
-    res.redirect( '/checkout/unknownError');
+    res.redirect( '/mobile/checkout/unknownError?action=10014');
     return;
   }
   var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
@@ -255,6 +166,7 @@ router.get('/checkout/payment', function(req, res, next) {
     user_id: userAuth.user_id,
     session_token: userAuth.session_token
   };
+
   request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
     console.log( "user check prePay when make payment", body );
     // body.code = '1142';
@@ -263,7 +175,9 @@ router.get('/checkout/payment', function(req, res, next) {
       authOrder.location = 'checkout';
       authOrder.title = '付款';
       authOrder.errorMsg = '';
-      res.render('checkout/payment',authOrder);
+      authOrder.account = userAuth.phone;
+      authOrder.pageInfo = JSON.stringify({ page_id: '200003' });
+      res.render('mobile/checkout/payment',authOrder);
     }else if( body.code == '1171' ){
       var message = {
         merchant_id: merchant,
@@ -271,7 +185,7 @@ router.get('/checkout/payment', function(req, res, next) {
         title: '添加银行卡',
         errorMsg: ''
       };
-      res.render('linkBank/verifyPin', message );
+      res.render('mobile/linkBank/verifyPin', message );
     }else if( body.code == '1142' ){
       var message = {
         merchant_id: merchant,
@@ -279,7 +193,7 @@ router.get('/checkout/payment', function(req, res, next) {
         title: '设置支付密码',
         errorMsg: ''
       };
-      res.render('addPin/setPin', message );
+      res.render('mobile/addPin/setPin', message );
     }
   } );
 });
@@ -288,19 +202,20 @@ router.get('/checkout/confirm', function(req, res, next) {
   var merchant = req.query.merchant || '';
   var order = req.query.order || '';
   if( merchant == '' || order == '' ){
-    res.redirect( '/checkout/unknownError');
+    res.redirect( '/mobile/checkout/unknownError?action=10014');
     return;
   }
   var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
-  console.log( 'checkout confirm page ', authOrder );
+  console.log( 'mobile checkout confirm page ', authOrder );
   if( !authOrder ) return;
   var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
   if( !userAuth ) return;
-  
+  // authOrder.order_detail = JSON.parse( authOrder.order_detail );
   console.log( 'order detail to json', authOrder.order_detail );
   authOrder.location = 'checkout';
   authOrder.title = '订单确认';
-  res.render( 'checkout/confirm',authOrder );
+  authOrder.pageInfo = JSON.stringify({ page_id: '200002' });
+  res.render( 'mobile/checkout/confirm',authOrder );
 });
 
 router.post('/checkout/getSMS', function(req, res, next) {
@@ -339,6 +254,7 @@ router.post('/checkout/pay', function(req, res, next) {
 
   var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
   if( !userAuth ) return;
+  authOrder.account = userAuth.phone;
   var urlPath = '/checkoutPay';
   var message = {
     user_id: userAuth.user_id,
@@ -358,34 +274,54 @@ router.post('/checkout/pay', function(req, res, next) {
     console.log( "user make payment", body );
     if( body.code == 200 ){
       pierUtil.refreshToken( body.result.session_token, req, merchant+order );
-      // res.send( body );
       authOrder.location = 'checkout';
       authOrder.title = '支付成功';
       pierUtil.destoryAuthOrder( merchant, order, req );
-      res.render( 'checkout/paySuccess', authOrder );
+      authOrder.pageInfo = JSON.stringify({ page_id: '200004' });
+      res.render( 'mobile/checkout/paySuccess', authOrder );
     }else if( body.code == '1110' || body.code == '1111' || body.code == '2028' || body.code == '1142' ){
       authOrder.location = 'checkout';
       authOrder.title = '付款';
       authOrder.errorMsg = body.message;
-      res.render('checkout/payment',authOrder);
+      authOrder.account = userAuth.phone;
+      authOrder.pageInfo = JSON.stringify({ page_id: '200003' });
+      res.render('mobile/checkout/payment',authOrder);
     }else{
       authOrder.location = 'checkout';
       authOrder.title = '支付失败';
       authOrder.errorMsg = body.message;
       pierUtil.destoryAuthOrder( merchant, order, req );
-      res.render( 'checkout/payFailed', authOrder );
+      authOrder.pageInfo = JSON.stringify({ page_id: '200005' });
+      res.render( 'mobile/checkout/payFailed', authOrder );
     }
   } );
 });
 router.get('/checkout/paySuccess', function(req, res, next) {
+  var merchant = req.query.merchant;
+  var order = req.query.order;
+  var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
+  if( !authOrder ) return;
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
+  if( !userAuth ) return;
+  authOrder.account = userAuth.phone;
   authOrder.location = 'checkout';
   authOrder.title = '支付成功';
-  res.render('checkout/paySuccess', authOrder);
+  authOrder.pageInfo = JSON.stringify({ page_id: '200004' });
+  res.render('mobile/checkout/paySuccess', authOrder);
 });
 router.get('/checkout/payFailure', function(req, res, next) {
+  var merchant = req.query.merchant;
+  var order = req.query.order;
+  var authOrder = pierUtil.checkAuthOrder( req, res, merchant+order );
+  if( !authOrder ) return;
+  var userAuth = pierUtil.checkUserAuth( req, res, merchant+order );
+  if( !userAuth ) return;
+  authOrder.account = userAuth.phone;
   authOrder.location = 'checkout';
   authOrder.title = '支付失败';
-  res.render('checkout/payFailed', authOrder);
+  authOrder.errorMsg = '一些原因';
+  authOrder.pageInfo = JSON.stringify({ page_id: '200005' });
+  res.render('mobile/checkout/payFailed', authOrder);
 });
 /**
  * user link bank
@@ -520,7 +456,7 @@ router.post( '/checkout/SetPin', function( req, res, next ){
  */
 router.get('/user/register', function(req, res, next) {
   console.log("user register start");
-  res.render('register/register',{title:'用户注册',location:'register'});
+  res.render('mobile/register/register',{title:'用户注册',location:'register'});
 });
 router.post('/user/apply', function(req, res, next) {
   console.log( "user apply credit", req.body );
@@ -531,19 +467,20 @@ router.post('/user/apply', function(req, res, next) {
     if( body.code == 200 ){
       req.session['user_auth'] = { user_id: req.body.user_id , session_token: body.result.session_token, name: body.result.name };
       body.title = '申请信用成功';
-      res.render('register/applySuccess',body );
+      res.render('mobile/register/applySuccess',body );
     }else{
       body.title = '申请信用失败';
       if( body.code == '1160' ) body.message = '很抱歉，您未满18周岁，无法申请品而信用的信用额度。您可以下载手机APP，通过“立即还款”中向账户充值后进行消费。';
-      res.render('register/applyFailure',body );
+      res.render('mobile/register/applyFailure',body );
     }
   } );
 });
+//for test
 router.get('/user/applySuccess', function(req, res, next) {
-  res.render('register/applySuccess',{title:'申请信用成功', location: 'register'});
+  res.render('mobile/register/applySuccess',{title:'申请信用成功', location: 'register',result:{credit_limit:'1000.00'}});
 });
 router.get('/user/applyFailure', function(req, res, next) {
-  res.render('register/applyFailure',{title:'申请信用失败', location: 'register'});
+  res.render('mobile/register/applyFailure',{title:'申请信用失败', location: 'register', message: '很多原因让你申请失败的。'});
 });
 
 /**
@@ -569,7 +506,7 @@ router.get('/user/resetPayPassword', function(req, res, next) {
     location: 'forgetPin'
   };
   console.log( 'for user reset pay password', params );
-  res.render( 'resetPayPassword/forget-paypsd', params );
+  res.render( 'mobile/resetPayPassword/forget-paypsd', params );
 });
 
 router.post('/user/resetPayPsd/linkBankCard', function(req, res, next) {

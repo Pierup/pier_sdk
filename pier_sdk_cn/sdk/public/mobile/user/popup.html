@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <p class="text-center" style="color:red;"><strong>对不起，您的会话状态已过期，请重新登录</strong></p>
+</div> <!-- close .modal-header -->
+
+<div class="modal-body" style="padding-left:50px;padding-right:50px;">
+    <form class="form-horizontal" role="form">
+	    <div class="form-group">
+		    <label for="phone">Phone:</label>
+		    <input type="text" class="form-control" id="phone" placeholder="Your phone number" ng-model="phone" maxlength="11" disabled='disabled' required/>
+	    </div>
+		<div class="form-group">
+		    <label for="password">Password:</label>
+		    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password" required />
+		</div>
+		<br>
+		<div class="form-group error-msg" ng-show="loginError" ng-cloak>
+		    <p>{{errorMsg}}</p>
+	    </div>
+		<div class="form-group">
+			<button type="button" class="form-control" ng-click="login()">重新登录&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="loginFlag"></i></button>
+		</div>
+	</form>
+</div> <!-- close .modal-body -->

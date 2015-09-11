@@ -79,7 +79,6 @@ angular.module( 'AddPinApp', [] )
 	    	bank_id: $scope.bankObj.bank_id,
 	    	card_num: $scope.bankNum,
 	    	linked_phone: $scope.phone,
-	    	id_number: $scope.idNum,
 	    	merchant_id: merchantId,
 	    	order_id: orderId
 	    };

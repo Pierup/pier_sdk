@@ -6,8 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session')
 
-var routes = require('./routes/index');
-var apiCall = require( './routes/api');
+var routes = require( './routes/index' );
+var apiCall = require( './routes/api' );
+var mobile = require( './routes/mobile' );
+
 
 var app = express();
 
@@ -23,7 +25,7 @@ app.use(session({
 }))
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/images/pierlogo38.png'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,6 +43,7 @@ app.use(function(req, res, next){
 })
 
 app.use('/', routes);
+app.use('/mobile', mobile);
 app.use( '/api/v1/users', apiCall );
 
 // catch 404 and forward to error handler

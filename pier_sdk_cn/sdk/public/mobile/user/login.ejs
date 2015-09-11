@@ -1,0 +1,42 @@
+<form class="form-horizontal registerForm" >
+    <br><br>
+    <article> 
+	    <div class="register-group">
+		    <section class="section1">
+	    	    <label for="phone">手机号:</label>
+		    </section>
+		    <section class="section2">
+	    	    <input class="form-control" placeholder="请输入中国大陆手机号码" name="phone" maxlength="{{phoneLength}}" id="phone" ng-model="phone" number-only-input ng-disabled="true" required/>
+		    </section>
+		    <section class="section3" >
+		    </section>
+	    </div>
+    </article>
+    <article> 
+	    <p class="register-error" ng-show="error" ng-cloak></p>
+	    <div class="register-group">
+		    <section class="section1">
+	    	    <label for="password">密码:</label>
+		    </section>
+		    <section class="section2">
+	    	    <input class="form-control" placeholder="请输入您的登录密码" name="password" id="password" ng-model="password" type="password" required/>
+		    </section>
+		    <section class="section3" >
+		    </section>
+	    </div>
+    </article>
+
+    <article>
+	    <p class="register-error" ng-show="signInError"><span ng-bind="signInErrorMsg"></span></p>
+	    <div class="register-group">
+		    <section class="section1">
+		    </section>
+		    <section class="section2" >
+	    	    <button type="submit" ng-click="login()">下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="signInFlag"  ></i></button>
+		    </section>
+		    <section class="section3">
+	    	    <p ></p>
+		    </section>
+	    </div>
+    </article>
+</form>

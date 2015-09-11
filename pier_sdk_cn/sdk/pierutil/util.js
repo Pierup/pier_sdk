@@ -34,11 +34,14 @@ var pierUtil = {
     return options;
   },
   checkAuthOrder: function( req, res, orderName ){
-
+    
     var authOrder = req.session[orderName] || {};
     if( authOrder.order_id == undefined ){
-      console.error("order_id", authOrder);
-      res.redirect('/checkout/unknownError');
+      if( authOrder.platform == 'web' ){
+        res.redirect('/checkout/unknownError');
+      }else{
+        res.redirect('/mobile/checkout/unknownError');
+      }
       return false;
     }else{
       return authOrder;
@@ -57,7 +60,11 @@ var pierUtil = {
   checkUserAuth: function( req, res, orderName ){
     var userAuth = req.session[orderName].user_auth || {};
     if( userAuth.user_id == undefined ){
-      res.redirect('/checkout/login');
+      if( authOrder.platform == 'web' ){
+        res.redirect('/checkout/unknownError');
+      }else{
+        res.redirect('/mobile/checkout/unknownError');
+      }
       return false;
     }else{
       return userAuth;
@@ -96,9 +103,9 @@ var pierUtil = {
   },
   checkPassword: function( password ){
     var passwordVal = password || '';
-    var reg = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{6,}$/;
+    var reg = /^(?=.*\d)(?=\S*[^\d])[\S]{6,}$/;
     var msg = '';
-    if( !reg.test( passwordVal ) )  msg =  '密码必须包含一个字母和数字组成，并且至少6位。';
+    if( !reg.test( passwordVal ) )  msg =  '密码必须包含一个非数字字符和数字组成，并且至少6位。';
     return msg;
   },
   refreshToken: function( token, req, orderName ){

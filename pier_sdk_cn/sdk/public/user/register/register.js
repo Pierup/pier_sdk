@@ -230,12 +230,6 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
 	}
 	$scope.timeHandler = $scope.checkCode.getCode;
 
-    // $scope.$watch( 'phone', function( newVal, oldVal, scope ){
-    // 	if( $scope.phone == '' ) return;
-    // 	if( $scope.phone.length == $scope.phoneLength ){
-    // 		clearError();
-    // 	}
-    // })
     $scope.getValidCode = function(){
     	$scope.phoneError = false;
     	$scope.smsError = false;
@@ -297,8 +291,8 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
     	$scope.smsError = false; 
     };
 	$scope.verifyActivateCode = function(){
-		if( $scope.phone == ''  ) return;
-		if(  $scope.smsCode != "" ){
+		if( $scope.phone == '' || $scope.smsCode == undefined || $scope.smsCode == "" ) return;
+		if( $scope.smsCode.length == 4 ){
 			$scope.smsError = false;
 			var message = {
 				phone: $scope.phone,
@@ -310,7 +304,7 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
 				$log.debug( "user verifyInvitation successfully", result );
 				$scope.token = result.token;
 				$scope.timeHandler = $scope.checkCode.right;
-				// $scope.codeCheckRight = true;
+				$scope.hasSendCode = true;
 				if( $scope.password !== '' ){
 					$scope.validPassword();
 				}
@@ -321,6 +315,7 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
 			})
 		}
 	}
+
 	$scope.signUp = function(){
 		$scope.signUpError = false;
 		if( !$scope.serviceRule || $scope.timeHandler != $scope.checkCode.right || $scope.passwordNotMatch || $scope.passwordNotRight) return;
@@ -354,19 +349,19 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
 	
 	//confirm password on blur
 	$scope.validateMatch = function(evt) {
-		if( $scope.password == '' || $scope.passwordNotRight || $scope.passwordConfirm == '') return;
+		if( $scope.password == '' || $scope.password == undefined || $scope.passwordNotRight || $scope.passwordConfirm == '') return;
 		$scope.passwordNotMatch = false;
 		if( $scope.password == $scope.passwordConfirm ) return;
 		$scope.passwordNotMatch = true;
 	};
 	$scope.validPassword = function(){
 		if( $scope.password == '' ) return; 
-		var reg = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{6,}$/;
+		var reg = /^(?=.*\d)(?=\S*[^\d])[\S]{6,}$/;
 		$scope.passwordNotRight = false;
 		if( !reg.test($scope.password ) ){
 			$scope.passwordNotRight = true;
 		}
-		if( $scope.passwordConfirm != ''){
+		if( $scope.passwordConfirm != '' || $scope.passwordConfirm != undefined ){
 			$scope.validateMatch();
 		}
 	}
@@ -510,7 +505,7 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
 	$scope.timeStemp = 60;
 	$scope.sendCodeFlag = false;
 	$scope.bankNum = '';
-	$scope.bankObj = {};
+	$scope.bankObj = undefined;
 	$scope.serviceRule = false;
 	$scope.addBankFlag = false;
 	$scope.checkCode = {
@@ -541,7 +536,7 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
 	$scope.addBankInfo = function(){
 		user = SDKService.getUser();
 		$scope.addBankError = false;
-	    if( $scope.bankObj == {} || $scope.bankObj['card_type'] == '' || !$scope.serviceRule ) return;
+	    if( $scope.bankObj == undefined || $scope.bankObj['card_type'] == '' || !$scope.serviceRule ) return;
 	    $scope.addBankFlag = true;
 	    var url = SdkUrl.regLinkBankCard;
 	    var message = {
@@ -603,6 +598,7 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
     		$log.debug( 'get bank info success', result );
     		$scope.bankObj = result;
     	}, function( reason ){
+    		$scope.bankObj = {};
     		$scope.bankObj['bank_name'] = reason.message;
     		$scope.bankObj['card_type'] = '';
     	})
@@ -836,6 +832,26 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
 	function getUser() {
 		return angular.fromJson( sessionStorage.getItem( 'user' ) );
 	}
+    var browser = { 
+        versions: function() { 
+            var u = navigator.userAgent, app = navigator.appVersion; 
+            return {//移动终端浏览器版本信息                                  
+	            trident : u.indexOf('Trident') > -1, //IE内核                                  
+	            presto : u.indexOf('Presto') > -1, //opera内核                                  
+	            webKit : u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核                                  
+	            gecko : u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核                                 
+	            mobile : !!u.match(/AppleWebKit.*Mobile.*/) 
+	                    || !!u.match(/AppleWebKit/), //是否为移动终端                                  
+	            ios : !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端                  
+	            android : u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器                                  
+	            iPhone : u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器                     
+	            iPad: u.indexOf('iPad') > -1, //是否iPad        
+	            webApp : u.indexOf('Safari') == -1,//是否web应该程序，没有头部与底部 
+	            google:u.indexOf('Chrome')>-1 
+	        }; 
+	    }(), 
+	    language : (navigator.browserLanguage || navigator.language).toLowerCase() 
+    }
 	return {
 		refreshToken: function( token ) {
 			var user = getUser();
@@ -874,6 +890,9 @@ angular.module( 'RegisterApp', ['ui.router','ui.bootstrap'])
 		},
 		getStatusBit: function(){
 			return sessionStorage.getItem( 'statusBit' );
+		},
+		isMobileClient: function(){
+           return browser.versions.mobile || browser.versions.ios || browser.versions.android || browser.versions.iPhone || browser.versions.iPad;
 		}
 	}
 	

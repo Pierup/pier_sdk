@@ -1,0 +1,62 @@
+<% include ../header%>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/payment-v1.js"></script>
+
+<div class="user-payment" ng-app="PaymentApp" ng-controller="PaymentController">
+    <div class="payment-detail">
+	    <div class="pay-title text-center">
+	    	<span>付款详情</span>
+	    </div>
+	    <div class="pay-content">
+		    <table>
+		    	<tr>
+		    		<td>订单信息：</td>
+		    		<td><%=order_id%></td>
+		    	</tr>
+		    	<tr>
+		    		<td>收款方：</td>
+		    		<td><%=merchant_name%></td>
+		    	</tr>
+		    	<tr>
+		    		<td>品而账户：</td>
+		    		<td><%=account%></td>
+		    	</tr>
+		    </table>
+		    <div class="hr-dot"></div>
+		    <table>
+		    	<tr>
+		    		<td>付款金额：</td>
+		    		<td style="color:#7b37a6;font-size:1.4em;">￥<%=amount%></td>
+		    	</tr>
+		    </table>
+	    </div>
+    </div>
+    <div class="payment-checkout">
+	    <div class="container-fluid">
+		    <div class="row">
+                <form name="paymentForm" id="paymentForm" action="/mobile/checkout/pay?action=10002" method="POST" class="mobile-form">
+			        <div id="phoneError" class="error text-center " style="margin-top:-18px;"><%=errorMsg%><br><span id="directError"></span></div>
+				    <div class="form-group set-pay-password">
+				        <label for="payPassword">
+				            <span class="pull-left">支付密码：</span>
+					        <span class="pull-right"><a href="/user/resetPayPassword?merchant=<%=merchant_id%>&order=<%=order_id%>&action=10011" target="_blank" style="color:#7b37a6;margin-top:-10px;">忘记支付密码?</a></span>
+				        </label>
+				        <input type="password" class="form-control" placeholder="请输入品而信用支付密码" name="payPassword"  id="payPassword" ng-model="payPassword" number-only-input maxlength="6" required>
+				        <input type="hidden" value="<%=merchant_id%>" name="merchant_id" id="merchant_id"/>
+						<input type="hidden" value="<%=order_id%>" name="order_id" id="order_id"/>
+				    </div>
+				    <div class="form-group pay-dynamic-code">
+				        <label for="validCode">动态验证码:</label>
+				        <input type="text" class="form-control" placeholder="请输入动态验证码" name="validCode" id="validCode" ng-model="smsCode"  maxlength="4" required autocomplete="off">
+				        <button ng-cloak type="button" ng-disabled="hasSendCode" ng-click="getValidCode()">{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag"  ></i></button>
+				    </div>
+
+				    <div class="form-group">
+				        <button type="button" ng-click="payment()" ng-disabled="payFlag" class="submit-btn" ng-cloak>确认支付&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="payFlag"  ></i></button>
+				    </div>
+				</form>
+		    </div>
+	    </div>
+    </div>
+</div>
+<% include ../footer%>

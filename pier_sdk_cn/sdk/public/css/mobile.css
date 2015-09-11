@@ -1,0 +1,239 @@
+.mobile-forget-container{
+
+}
+.mobile-forget-container .title{
+	font-size: 1.4em;
+	font-weight: lighter;
+	text-align: center;
+	color: #7b37a6;
+	margin-top: 2em;
+}
+.mobile-form{
+	padding: 3%;
+}
+.mobile-form label{
+	font-size: 1.4em;
+	font-weight: lighter;
+	text-align: center;
+	color: rgb(160,160,160);
+}
+.mobile-form input{
+	height: 3.2em;
+	outline: none;
+	font-size: 1.2em;
+}
+.mobile-form input[type='checkbox']{
+	height: auto;
+	outline: none;
+	font-size: 1.2em;
+}
+.mobile-form input:focus{
+	box-shadow:0px 0px 10px rgb(221, 172, 251);
+	border-radius: 4px;
+	border-color: rgb(221, 172, 251);
+	transition: box-shadow 1s;
+	-moz-transition: box-shadow 1s;
+	-webkit-transition: box-shadow 1s;
+	-o-transition: box-shadow 1s;
+}
+.valid-code-input{
+	width: 60%;
+	float: left;
+}
+.code-btn{
+	width: 36%;
+	height: 3.1em;
+	outline: none;
+	font-size: 1.2em;
+	margin-left: 4%;
+	border-radius: 4px;
+	background: #7b37a6;
+	color: #fff;
+	border:1px solid #7b37a6;
+}
+.submit-btn{
+	width: 100%;
+	height: 3.1em;
+	outline: none;
+	font-size: 1.2em;
+	border-radius: 4px;
+	background: #7b37a6;
+	color: #fff;
+	border:1px solid #7b37a6;
+	margin-top: 10px;
+}
+.error{
+	color: red;
+	padding-left:0px;
+}
+
+/**checkout flow*/
+.mobile-login{
+	padding-top: 1em;
+}
+.mobile-form .form-group{
+	margin-top: 0px;
+}
+.mobile-login h3{
+	font-size: 1.6em;
+	opacity: 0.8;
+}
+.mobile-form .register{
+	margin-top: 6px;
+}
+.mobile-form .forget{
+    margin-bottom: 10px;
+}
+/**confirm*/
+.order-title{
+	height: 2.2em;
+	background: rgb(220,220,220);
+	padding-left: 1em;
+	font-size: 1.4em;
+	padding-top: 0.5em;
+}
+.order-detail table td:first-child{
+	padding-left: 1em;
+}
+.order-detail .detail{
+	font-size: 0.8em;
+	color: rgb(120,120,120);
+	margin-left: 4px;
+}
+.order-confirm{
+	padding-left: 1.2em;
+	padding-right: 1.2em;
+}
+.order-confirm .confirm{
+	background: rgb(240,240,240);
+	padding: 1.2em;
+}
+.order-confirm span{
+	font-size: 1.2em;
+}
+.user-payment .payment-detail{
+	background: rgb(245,245,245);
+	height: auto;
+	width: 100%;
+	padding-top: 3em;
+	padding-bottom: 3em;
+}
+.payment-detail .pay-title{
+	height: 3.4em;
+	background: rgb(200,200,200);
+	width: 100%;
+	border-bottom: 1px solid rgb(160,160,160);
+}
+.payment-detail .pay-title span{
+	font-size: 1.8em;
+	display: inline-block;
+	padding-top: 0.3em;
+}
+.payment-detail .pay-content{
+	width: 100%;
+	background: #fff;
+}
+.pay-content table{
+	/*margin-left: 10px;*/
+	/*margin-right: 10px;*/
+	width: 100%;
+}
+.pay-content table tr{
+	height: 2.8em;
+	color: #000;
+	font-size: 1.2em;
+	margin-left: 10px;
+	margin-right: 10px;
+
+
+}
+.pay-content table tr td:first-child{
+	width: 36%;
+	opacity: 0.8;
+	padding-left: 10px;
+	color:rgb(120,120,120);
+}
+.pay-content table tr td:last-child{
+	text-align: right;
+	width: 64%;
+	padding-right: 10px;
+}
+.hr-dot{
+	width: 100%;
+	border-bottom: 1px dotted #ccc;
+}
+.set-pay-password label{
+	width: 100%;
+	font-size: 1.2em;
+}
+.pay-dynamic-code{
+}
+.pay-dynamic-code label{
+	clear: both;
+	width: 100%;
+	text-align: left;
+}
+.pay-dynamic-code input{
+	width: 58%;
+	display: inline-block;
+}
+.pay-dynamic-code button{
+	width: 38.5%;
+	margin-left: 2%;
+	display: inline-block;
+	height: 3.5em;
+	outline: none;
+	font-size: 1.1em;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding-bottom: 0.3em;
+	line-height:3.2em;
+}
+.mobile-reg-title{
+	font-size: 1.6em;
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: -0.8em;
+}
+.mobile-register-form label{
+	width:100%;
+	font-size: 1.0em;
+	margin-bottom: -0.4em;
+}
+.error-msg{
+	color:red;
+}
+.modal-body input,.modal-body button{
+	height: 2.8em !important;
+}
+.modal-body input:focus{
+	box-shadow:0px 0px 10px rgb(221, 172, 251);
+	border-radius: 4px;
+	border-color: rgb(221, 172, 251);
+	transition: box-shadow 1s;
+	-moz-transition: box-shadow 1s;
+	-webkit-transition: box-shadow 1s;
+	-o-transition: box-shadow 1s;
+}
+.confirm-table{
+	width: 100%;
+	margin-top: 2em;
+}
+.confirm-table tr{
+	border-bottom: 1px solid rgb(240,240,240);
+
+}
+.confirm-table tr td:first-child{
+	width: 32%;
+	padding-left: 1.0em;
+	font-size: 1.2em;
+	padding-top: 0.8em;
+	padding-bottom: 0.8em;
+	color: rgb(140,140,140);
+}
+.confirm-table tr td:last-child{
+	/*width: 32%;*/
+	text-align: left;
+	padding-right: 1.0em;
+	font-size: 1.8em;
+}

@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+    	<p class="mobile-reg-title"><span style="color:#7b37a6;">4</span>/5 绑定银行卡</p>
+    </div>
+    <div class="row">
+        <form name="registerForm" id="registerForm" class="mobile-form mobile-register-form" ng-hide="linkStatus">
+		    <div class="form-group">
+		        <label for="username">
+		            <span class="pull-left">持卡人：</span>
+		            <span class="pull-right" ng-cloak>{{username}}</span>
+		        </label>
+		    </div>
+
+		    <div class="form-group">
+		        <label for="bankNum">
+		            <span class="pull-left">卡号：</span>
+		            <span class="pull-right error-msg" ng-show="phoneError" style="float:right !important;" ng-cloak>你的手机号必须是{{phoneLength}}位</span>
+		        </label>
+		        <input type="tel" class="form-control" placeholder="请输入您的借记卡卡号" name="bankNum"  id="bankNum" type="text" ng-model="bankNum"  ng-focus="bankNumTip=true" ng-blur="getBankInfo()"  number-only-input required>
+		    </div>
+
+		    <div class="form-group">
+		        <label >
+		            <span class="pull-left">卡类型：</span>
+		            <span class="pull-right" ng-cloak>{{bankObj.bank_name}}&nbsp;&nbsp;{{bankObj.card_type}}</span>
+		        </label>
+		    </div>
+
+		    <div class="form-group">
+		        <label for="phone">
+		            <span class="pull-left">银行预留手机号：</span>
+		        </label>
+		        <input type="tel" class="form-control" placeholder="请输入您的银行预留手机号" name="phone"  id="phone" type="text" ng-model="phone" maxlength="{{phoneLength}}"  number-only-input required>
+		    </div>
+		    <div class="form-group">
+			    <label for="serviceRule" style="text-align:left !important;">
+		            <input type="checkbox" name="serviceRule" ng-model="serviceRule"/>
+				    <span for="serviceRule">同意</span>
+				    <a style="color:#7b37a6">《品而银行卡服务协议》</a>
+		        </label>
+		    </div>
+		   
+		    <div class="form-group">
+			    <label>
+		            <span class="pull-right error-msg" ng-show="addBankError" ng-cloak>{{addBankErrorMsg}}</span>
+		        </label>
+		        <button type="button" ng-click="addBankInfo()" class="submit-btn" ng-cloak>下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="addBankFlag"></i></button>
+		    </div>
+		</form>
+
+		<form name="registerForm" id="registerForm" class="mobile-form mobile-register-form" ng-show="linkStatus">
+			<div class="form-group">
+		        <label for="bankNum">
+		            <span class="pull-left" ng-cloak>验证码已经发送至您的手机 {{phone}}</span>
+		        </label>
+		    </div>
+		    <div class="form-group pay-dynamic-code">
+		        <label for="smsCode">
+			        <span class="pull-left">验证码：</span>
+			        <span class="pull-right error-msg" ng-show="smsError" ng-cloak>{{smsErrorMsg}}</span>
+		        </label>
+		        <input type="tel" class="form-control" placeholder="请输入短信验证码" name="validCode" id="validCode" ng-model="validCode" required>
+		        <button ng-cloak type="button" ng-disabled="hasSendCode" ng-click="getValidCode()" ng-cloak>{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag" ></i></button>
+		    </div>
+		   
+		    <div class="form-group">
+			    <label>
+		            <span class="pull-right error-msg" ng-show="validBankError" ng-cloak>{{validBankErrorMsg}}</span>
+		        </label>
+		        <button type="button" ng-click="next()" class="submit-btn" ng-cloak>下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="saveFlag" ></i></button>
+		    </div>
+		</form>
+    </div>
+</div>
+
+
+<script>
+   $(function() { $("[data-toggle='tooltip']").tooltip(); });
+</script>

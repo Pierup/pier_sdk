@@ -1,0 +1,51 @@
+<% include ../header%>
+<div class="user-payment">
+    <div class="payment-detail">
+	    <div class="pay-title text-center">
+	    	<span>付款详情</span>
+	    </div>
+	    <div class="pay-content">
+		    <table>
+		    	<tr>
+		    		<td>订单信息：</td>
+		    		<td><%=order_id%></td>
+		    	</tr>
+		    	<tr>
+		    		<td>收款方：</td>
+		    		<td><%=merchant_name%></td>
+		    	</tr>
+		    	<tr>
+		    		<td>品而账户：</td>
+		    		<td><%=account%></td>
+		    	</tr>
+		    </table>
+		    <div class="hr-dot"></div>
+		    <table>
+		    	<tr>
+		    		<td>付款金额：</td>
+		    		<td style="color:#7b37a6;font-size:1.4em;">￥<%=amount%></td>
+		    	</tr>
+		    </table>
+	    </div>
+    </div>
+    <div class="container-fluid mobile-form">
+        <div class="row text-center">
+	        <div class="form-group" >
+			    <img src="../../images/failed.png" style="margin-top:2em;">
+			    <p style="font-size:1.6em;color:#7b37a6;">支付失败</p>
+			    <p id='errorMsg'><%=errorMsg%></p>
+			    <button type="button"  id="submit-btn" class="submit-btn" style="margin-top:1em;">返回商户</button>
+		    </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	(function(){
+        document.getElementById('submit-btn').onclick = function(){
+        	var errorMsg = document.getElementById('errorMsg').innerHTML;
+        	var result = {code: '400', msg: errorMsg, result: '支付失败' };
+            window.location.href="pierpay://pier?platform=ios&action=10003&result="+JSON.stringify(result) ;
+        }	
+	})()
+</script>
+<% include ../footer%>

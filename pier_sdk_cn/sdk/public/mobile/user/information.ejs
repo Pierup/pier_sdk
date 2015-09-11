@@ -1,0 +1,49 @@
+<!-- <script src="jquery.mailAutoComplete-3.1.js"></script> -->
+<div class="container-fluid">
+    <div class="row">
+    	<p class="mobile-reg-title"><span style="color:#7b37a6;">2</span>/5 输入身份信息</p>
+    </div>
+    <div class="row">
+        <form name="registerForm" id="registerForm" class="mobile-form mobile-register-form">
+		    <div class="form-group">
+		        <label for="username">
+		            <span class="pull-left">真实姓名：</span>
+			        <span class="pull-right error-msg" ng-show="phoneError" style="float:right !important;" ng-cloak>你的手机号必须是{{phoneLength}}位</span>
+		        </label>
+		        <input type="text" class="form-control" placeholder="请输入您的真实姓名" name="username"  id="username" ng-model="username" required>
+		    </div>
+
+		    <div class="form-group">
+		        <label for="idNum">
+		            <span class="pull-left">身份证：</span>
+			        <span class="pull-right error-msg" ng-show="idNumNotRight" style="float:right !important;" ng-cloak>您输入的身份证号码有误</span>
+		        </label>
+		        <input type="text" class="form-control" placeholder="请输入您的18位身份证号码" name="idNum"  id="idNum" ng-model="idNum"  id-card-input maxlength="18" ng-blur="validateIdNum()" required>
+		    </div>
+
+		    <div class="form-group">
+		        <label for="username">
+		            <span class="pull-left">常用邮箱：</span>
+			        <span class="pull-right error-msg" ng-show="idNumNotRight" style="float:right !important;" ng-cloak>您输入的身份证号码有误</span>
+		        </label>
+		        <input type="email" class="form-control inputMailList" placeholder="请输入您的常用邮箱" name="email"  id="email" ng-model="email"  id="email" autocomplete="off" required>
+		    </div>
+		    <div class="form-group">
+		        <label for="username">
+		            <span class="pull-left" style="text-align:left !important;">*品而信用只能为年满18岁的公民提供额度，如您未满18岁，请选择其他方式进行支付。</span>
+		        </label>
+		    </div>
+
+		    <div class="form-group">
+		        <button type="button" ng-click="next()" class="submit-btn" >下一步&nbsp;&nbsp;<span ng-cloak><i class="fa fa-gear fa-spin" ng-show="saveFlag" ></i></span></button>
+		    </div>
+		</form>
+    </div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		// $('.inputMailList').mailAutoComplete();
+		// $("[data-toggle='tooltip']").tooltip();
+	})
+</script>

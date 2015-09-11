@@ -40,7 +40,7 @@
 					    </section>
 					    <section class="section2" style="padding-left:8px;padding-right:8px;">
 				    	    <input class="form-control valid-code-input" placeholder="请输入动态验证码" name="validCode" id="validCode" ng-model="smsCode"  maxlength="4" required/>
-					    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()">{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag"  ></i></button>
+					    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()" ng-cloak>{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag"  ></i></button>
 					    </section>
 					    <section class="section3" >
 					    </section>

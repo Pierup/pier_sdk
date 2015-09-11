@@ -23,13 +23,13 @@ angular.module( 'ForgetPassword',[])
     	$scope.phoneError = false;
     	if( $scope.phone == '' || $scope.phoneLength != $scope.phone.length ){
     		$scope.phoneError = true;
-    		$('#phoneErrorMsg').html( '你的身份证号码必须是'+$scope.phoneLength+'位' );
+    		$('#phoneErrorMsg').html( '你的手机号码必须是'+$scope.phoneLength+'位' );
     		return;
     	}
     	$scope.sendCodeFlag = true;
     	var url = SdkUrl.getValidCode,
     	message = {
-    		phone: $scope.phone,
+    		phone: $scope.phone
     	};
     	var pGetCode = HttpService.templateAccessAPI( url, message );
     	pGetCode.then( function( result ){
@@ -140,7 +140,7 @@ angular.module( 'ForgetPassword',[])
 
 	$scope.validPassword = function(){
 		if( $scope.password == '' ) return; 
-		var reg = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{6,}$/;
+		var reg = /^(?=.*\d)(?=\S*[^\d])[\S]{6,}$/;
 		$scope.passwordNotRight = false;
 		if( !reg.test($scope.password ) ){
 			$scope.passwordNotRight = true;

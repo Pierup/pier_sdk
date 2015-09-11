@@ -1,0 +1,75 @@
+<% include ../header%>
+<div class="container mobile-login">
+    <div class="row text-center">
+	    <img src="../../images/pierlogo120.png" width="80" />
+	    <h3 >登录品而信用</h3>
+    </div>
+
+    <div class="row">
+		<form name="loginForm" action="/mobile/checkout/login_auth?action=10001" method="POST" id="loginForm" class="mobile-form">
+	        <div id="phoneError" class="error text-center" style="margin-top:-18px;"><%=errorMsg%><br><span id="directError"></span></div>
+		    <div class="form-group">
+		        <label for="idNum">账号：</label>
+		        <input type="tel" class="form-control" id="phone" placeholder="请输入您的手机号码"  maxlength="11" name="phone" value="<%=phone%>" >
+		        <input type="hidden" value="<%=merchant_id%>" name="merchant_id"/>
+				<input type="hidden" value="<%=order_id%>" name="order_id"/>
+		    </div>
+		    <div class="form-group">
+			    <div class="col-sm-12  error" ng-show="phoneError" >
+				    <span class="error" id="phoneErrorMsg"></span>
+			    </div>
+		       <label for="phone">密码</label>
+		       <input type="password" class="form-control" id="password" placeholder="请输入您的密码" maxlength="32" name="password" value="<%=password%>" autocomplete="off">
+		    </div>
+
+		    <div class="form-group">
+		        <p class="pull-right forget"><a class="gray" href="/mobile/user/forgetPassword?action=10010" target="_blank">忘记密码</a></p>
+		        <button type="button" id="checkout-login" class="submit-btn" >登录</button>
+		        <p class="register">没有账号？<a href="/mobile/user/register?action=10009" style="color:#7b37a6;" target="_blank">立即注册</a></p>
+		    </div>
+		</form>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$(function(){
+		var timeSec = 6;
+		var wording = 's为您跳转';
+		var timeCount = function(){
+			timeSec -= 1;
+			$('#directError').html(timeSec + wording);
+			if( timeSec == 0 ){
+				$('#phoneError').html('');
+				window.open( 'http://pierup.cn:4000/user/register/#/login?phone='+$('#phone').val());
+				return;
+			}else{
+				return setTimeout(timeCount, 1000);
+			}
+		}
+		$('#phone').get(0).addEventListener( 'input', function(){
+			var $_phoneValue = $(this).val();
+			var numberInput = $_phoneValue.replace(/[^0-9]/g, '');
+			if( $_phoneValue != numberInput ){
+				$('#phone').val( numberInput );
+			}
+			if( $('#phone').val().length == 11 ){
+				$('#phoneError').val();
+			}
+		});
+		$('#checkout-login').click(function(){
+			var $_phoneValue = $('#phone').val();
+			var $_password = $('#password').val();
+			if( $_phoneValue == undefined || $_phoneValue == '' || $_password == '' || $_password == undefined ) return;
+			$('.fa-spin').css('display','inline-block');
+			$(this).attr('disabled','disabled');
+			$( '#loginForm' ).submit();
+		});
+
+		if( <%=directError%> ){
+			var $_directForApply = $('#directError');
+			timeCount();
+		}
+	})
+</script>
+<% include ../footer%>

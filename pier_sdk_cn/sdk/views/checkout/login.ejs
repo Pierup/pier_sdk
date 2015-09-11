@@ -35,8 +35,7 @@
 				      <!-- <input type="hidden" value="<%=order_id%>" id="order_id"/> -->
 				    </div>
 				  </div>
-				  <p class="forget"><a class="gray" href="/user/forgetPassword" target="_blank">忘记密码</a></p>
-
+				  <p class="forget"><a class="gray" href="/user/forgetPassword" target="_blank" style="color:#7b37a6;">忘记密码</a></p>
 				  <div class="form-group">
 				    <div class="input-group">
 				      <button class="checkout-login-btn" type="button" id="checkout-login">登录&nbsp;&nbsp;<i class="fa fa-gear fa-spin" style="display:none;"></i></button>
@@ -52,13 +51,12 @@
 	$(function(){
 		var timeSec = 6;
 		var wording = 's为您跳转';
-		var _urlAction = 'http://localhost:4000/user/register'
 		var timeCount = function(){
 			timeSec -= 1;
 			$('#directError').html(timeSec + wording);
 			if( timeSec == 0 ){
 				$('#phoneError').html('');
-				window.open( 'http://localhost:4000/user/register/#/login?phone='+$('#phone').val());
+				window.open( 'http://pierup.cn:4000/user/register/#/login?phone='+$('#phone').val());
 				return;
 			}else{
 				return setTimeout(timeCount, 1000);

@@ -4,40 +4,73 @@
 	<meta charset="UTF-8">
 	<title>品而支付</title>
 	<script src="js/checkout.js"></script>
+    <script src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body style="text-align:center;padding-top:100px;padding-left:300px;">
     <div class="pier-payment-btn" id="pierPay"><img class="" src="http://pierup.cn/images/pierlogo38.png" ></img><span>品而支付</span></div>
 	<script type="text/javascript">
-        PIER.initSDK({
-            amount: '110.00',
-            currency: 'CNY',
-            order_id: 'OR'+randomString(18),
-            api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
-            api_secret_key: 'key1234567890',
-            merchant_id: 'MC0000001409',
-            data_action: '/checkout/login',
-            return_url: '/checkout/orderList',
-            order_detail: JSON.stringify({
-                items:[
-                    { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥11',count:'3',total: '￥33' },
-                    { product: '官网NIKE', logo: '', detail: '222222', type: 'Nike 服饰，和NBA球员一起运动',price:'￥11',count:'2',total: '￥22' },
-                    { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥11',count:'3',total: '￥33' },
-                    { product: '官网NIKE', logo: '', detail: '222222', type: 'Nike 服饰，和NBA球员一起运动',price:'￥11',count:'2',total: '￥22' }
-                ],
-                totalAmount: '￥110'
+        $(function(){
+            console.log(JSON.stringify([
+                            { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥1.1',count:'3',total: '￥3.3' },
+                            { product: '官网NIKE', logo: '', detail: '222222', type: 'Nike 服饰，和NBA球员一起运动',price:'￥4.41',count:'1',total: '￥4.41' },
+                            { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥1.1',count:'3',total: '￥3.3' }
+                        ]));
+            function randomString(len) {
+            　　len = len || 32;
+            　　var $chars = '1234567890';
+            　　var maxPos = $chars.length;
+            　　var pwd = '';
+            　　for (i = 0; i < len; i++) {
+            　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+            　　}
+            　　return pwd;
+            }
+            var getOrder = function(){
+                return 'OR'+randomString(13);
+            }
+            var getSign = function( order ){
+                var url = '/getSignForTest',
+                message = {
+                    merchant_id: "MC0000001409",
+                    order_id: order,
+                    charset:"UTF-8",
+                    amount:"11.01",
+                    return_url:"/checkout/orderList",
+                    api_id:"1819957c-1a3f-11e5-ba25-3a22fd90d682"
+                };
+            var deffered = $.ajax({ 
+                    type:"POST", 
+                    url:url, 
+                    contentType:"application/json",     
+                    dataType:"json", 
+                    data:JSON.stringify(message)
+                }); 
+              return deffered.promise();
+            }
+            var _orderId = getOrder();
+            var _signPromise = getSign( _orderId );
+            _signPromise.then(function(data){
+                console.log( 'sign', data );
+                var _sign = encodeURIComponent( data.result.sign );
+                PIER.initSDK({
+                    amount: '11.01',
+                    currency: 'CNY',
+                    order_id: _orderId,
+                    merchant_id: 'MC0000001409',
+                    data_action: '/checkout/login',
+                    return_url: '/checkout/orderList',
+                    api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
+                    order_detail: JSON.stringify([
+                            { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥1.1',count:'3',total: '￥3.3' },
+                            { product: '官网NIKE', logo: '', detail: '222222', type: 'Nike 服饰，和NBA球员一起运动',price:'￥4.41',count:'1',total: '￥4.41' },
+                            { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥1.1',count:'3',total: '￥3.3' }
+                        ]),
+                    sign: _sign,
+                    sign_type: 'RSA',
+                    charset: 'UTF-8'
+                });
             })
-        });
-        function randomString(len) {
-        　　len = len || 32;
-        　　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
-        　　var maxPos = $chars.length;
-        　　var pwd = '';
-        　　for (i = 0; i < len; i++) {
-        　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
-        　　}
-        　　return pwd;
-        }
+        })
 	</script>
-
 </body>
 </html>
