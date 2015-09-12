@@ -50,7 +50,7 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
 
 - (void)setupView{
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    _webView = [[UIWebView alloc] init];
     _webView.delegate = self;
     [self.view addSubview:_webView];
     //bar
@@ -58,6 +58,43 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
     [self setLeftBarButton:@"返回"];
     [self setLefrBarHidden:YES];
 //    [[UINavigationBar appearance] setBarTintColor:[UIColor purpleColor]];
+    
+    _webView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:_webView
+                              attribute:NSLayoutAttributeBottom
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:self.view
+                              attribute:NSLayoutAttributeBottom
+                              multiplier:1
+                              constant:0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:_webView
+                              attribute:NSLayoutAttributeTop
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:self.view attribute:NSLayoutAttributeTop
+                              multiplier:1
+                              constant:0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:_webView
+                              attribute:NSLayoutAttributeLeft
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:self.view
+                              attribute:NSLayoutAttributeLeft
+                              multiplier:1
+                              constant:0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint
+                              constraintWithItem:_webView
+                              attribute:NSLayoutAttributeRight
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:self.view
+                              attribute:NSLayoutAttributeRight
+                              multiplier:1
+                              constant:0]];
 }
 
 /**
