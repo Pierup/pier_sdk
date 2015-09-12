@@ -142,7 +142,9 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
  */
 - (void)closeViewController:(id)sender{
     [self dismissViewControllerAnimated:YES completion:^{
-        
+        NSDictionary *result = @{@"result" : @"取消支付"};
+        NSError *error = [[NSError alloc] initWithDomain:@"取消支付" code:3 userInfo:nil];
+        __pierDataSource.completionBlock(result, error);
     }];
 }
 
