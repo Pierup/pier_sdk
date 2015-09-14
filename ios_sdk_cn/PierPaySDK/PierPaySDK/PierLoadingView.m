@@ -35,30 +35,7 @@ static UIView * __loadingBgView;
         @synchronized(self){
             if (__instances == nil) {
                 __instances = [[PierLoadingView alloc] initWithFrame:CGRectMake(0, 0, 90, 90)];
-                [__instances setAlpha:0.8];
-                [__instances setBackgroundColor:[UIColor blackColor]];
-               
-                __instances.largeLargeView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-                [__instances.largeLargeView hidesWhenStopped];
-                [__instances.largeLargeView setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-20)];
-                 [__instances setCenter:__instances.largeLargeView.center];
-                [__instances.largeLargeView setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-30)];
-                [__instances.largeLargeView setColor:[UIColor whiteColor]];
-                
-                __instances.contextLabel = [[UILabel alloc] initWithFrame:CGRectMake(__instances.frame.origin.x,
-                                                                                     __instances.frame.origin.y+(__instances.frame.size.height-30),
-                                                                                     __instances.frame.size.width, 20)];
-                [__instances.contextLabel setAdjustsFontSizeToFitWidth:YES];
-                [__instances.contextLabel setFont:[PierFont customBoldFontWithSize:12]];
-                [__instances.contextLabel setTextAlignment:NSTextAlignmentCenter];
-                [__instances.contextLabel setBackgroundColor:[UIColor clearColor]];
-                [__instances.contextLabel setTextColor:[UIColor whiteColor]];
-                
-                __instances.loadingViewQueue = [[NSMutableArray alloc] initWithCapacity:1];
-                
-                __loadingBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-                [__loadingBgView setBackgroundColor:[UIColor clearColor]];
-//                [__loadingBgView setAlpha:0.3];
+                [__instances initView];
             }
         }
     }
@@ -98,6 +75,34 @@ static UIView * __loadingBgView;
         _activityViewArray = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return self;
+}
+
+- (void)initView{
+    [self setAlpha:0.8];
+    [self setBackgroundColor:[UIColor blackColor]];
+    
+    self.largeLargeView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.largeLargeView hidesWhenStopped];
+    [self.largeLargeView setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-20)];
+    [self setCenter:self.largeLargeView.center];
+    [self.largeLargeView setCenter:CGPointMake(DEVICE_WIDTH/2, DEVICE_HEIGHT/2-30)];
+    [self.largeLargeView setColor:[UIColor whiteColor]];
+    
+    self.contextLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.origin.x,
+                                                                         self.frame.origin.y+(self.frame.size.height-30),
+                                                                         self.frame.size.width, 20)];
+    [self.contextLabel setAdjustsFontSizeToFitWidth:YES];
+    [self.contextLabel setFont:[PierFont customBoldFontWithSize:12]];
+    [self.contextLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.contextLabel setBackgroundColor:[UIColor clearColor]];
+    [self.contextLabel setTextColor:[UIColor whiteColor]];
+    
+    self.loadingViewQueue = [[NSMutableArray alloc] initWithCapacity:1];
+    
+    __loadingBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    [__loadingBgView setBackgroundColor:[UIColor clearColor]];
+    
+    //                [__loadingBgView setAlpha:0.3];
 }
 
 -(void)setView
