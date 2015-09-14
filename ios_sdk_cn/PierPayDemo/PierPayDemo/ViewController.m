@@ -142,8 +142,10 @@ static const NSString * API_ID = @"1819957c-1a3f-11e5-ba25-3a22fd90d682";
         if (result_str == nil) {
             result_str = @"";
         }
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"支付完成" message:result_str delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:result_str delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alert show];
+        
+        self.selectedIndexMap = [[NSMutableDictionary alloc] init];
     }];
 }
 

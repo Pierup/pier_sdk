@@ -12,11 +12,11 @@
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥5999.00</string>
+		<string>￥0.12</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
-		<string>￥5999.00</string>
+		<string>￥0.12</string>
 		<key>sales</key>
 		<string>月销量1件</string>
 	</dict>
@@ -48,11 +48,11 @@
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥4888.00</string>
+		<string>￥0.20</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
-		<string>￥4888.00</string>
+		<string>￥0.20</string>
 		<key>sales</key>
 		<string>月销量2700件</string>
 	</dict>
@@ -66,11 +66,11 @@
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥1999.00</string>
+		<string>￥0.13</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
-		<string>￥1999.00</string>
+		<string>￥0.13</string>
 		<key>sales</key>
 		<string>月销量123434件</string>
 	</dict>
@@ -84,11 +84,11 @@
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥4888.00</string>
+		<string>￥0.30</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
-		<string>￥4888.00</string>
+		<string>￥0.30</string>
 		<key>sales</key>
 		<string>月销量2700件</string>
 	</dict>
@@ -102,11 +102,11 @@
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥999.00</string>
+		<string>￥1.20</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
-		<string>￥999.00</string>
+		<string>￥1.20</string>
 		<key>sales</key>
 		<string>月销量100000件</string>
 	</dict>
@@ -120,11 +120,11 @@
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥1999.00</string>
+		<string>￥0.31</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
-		<string>￥1999.00</string>
+		<string>￥0.31</string>
 		<key>sales</key>
 		<string>月销量123434件</string>
 	</dict>
