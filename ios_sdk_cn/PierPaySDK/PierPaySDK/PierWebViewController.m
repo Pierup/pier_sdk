@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) UIButton *leftButton;
 
+@property (nonatomic, strong) UIButton *rightButton;
+
 @property (nonatomic, strong) PierURLDispatcher *dispatcher;
 
 @end
@@ -128,13 +130,24 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
  * Close Button
  */
 - (void)setRightBarButton:(NSString *)title{
-    UIButton *rightBarButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    rightBarButton.frame = CGRectMake(0, 0, 32, 32);
-    [rightBarButton setTitle:title forState:UIControlStateNormal];
-    [rightBarButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightBarButton addTarget:self action:@selector(closeViewController:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButton];
+    _rightButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _rightButton.frame = CGRectMake(0, 0, 32, 32);
+    [_rightButton setTitle:title forState:UIControlStateNormal];
+    [_rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_rightButton addTarget:self action:@selector(closeViewController:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:_rightButton];
     self.navigationItem.rightBarButtonItem = rightBarItem;
+}
+
+/**
+ * Close button
+ */
+- (void)setRightButtonHidden:(BOOL)hidden{
+    if (hidden) {
+        [self.rightButton setHidden:YES];
+    }else{
+        [self.rightButton setHidden:NO];
+    }
 }
 
 /**
@@ -178,7 +191,6 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
 - (void)backAction:(id)sender{
     [self.webView goBack];
 }
-
 
 #pragma mark - ------------------- UIWebViewDelegate -------------------
 
@@ -235,6 +247,7 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
 - (void)loadFinish:(UIWebView *)webView{
     PierWebInfoModel *pageModel = [PierH5Utils getPageInfo:webView];
     [self setLefrBarHidden:NO];
+    [self setRightButtonHidden:NO];
     switch (pageModel.paye_id) {
         case ePierPageID_login:
             [self setLefrBarHidden:YES];
@@ -242,6 +255,14 @@ NSString * const PIER_SDK_ROOT_URL = @"http://pierup.cn:4000/mobile/checkout/log
         case ePierPageID_confirm:
             break;
         case ePierPageID_regist:
+            break;
+        case ePierPageID_pay_success:
+            [self setLefrBarHidden:YES];
+            [self setRightButtonHidden:YES];
+            break;
+        case ePierPageID_pay_fialed:
+            [self setLefrBarHidden:YES];
+            [self setRightButtonHidden:YES];
             break;
         default:
             break;
