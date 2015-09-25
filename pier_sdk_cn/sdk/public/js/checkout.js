@@ -1,32 +1,81 @@
 /**
  * @author Cheng Cong
  * @description add register
+ * @util.isDate( 2015-09-21 );
  */
-(function(){
+(function( window ){
 	window = this ;
     PIER = window.PIER = {
-    	version: '0.0.1'
+    	version: '1.0.0'
     };
-    PIER.initSDK = function( options ){
-    	var options = options || {};
-        var _pierAmount = options.amount || ''; //*
-        var _merchantId = options.merchant_id || ''; //*
-        var _currency = options.currency || '';
-        var _cssStyle = options.css_style || ''; 
-        var _orderId = options.order_id || '';
-        var _apiKey = options.api_id || '';
-        var _orderDetail = options.order_detail || '';
-        var _apiSecretKey = options.api_secret_key || '';
-        var _merchantName = options.merchant_name || '';
-        var _urlAction = options.data_action || '';
-        var _returnUrl = options.return_url || '';
-        var _callBack = options.callBack || '';
-        var _sign = options.sign || '';
-        var _signType = options.sign_type || '';
-        var _charset = options.charset || '';
+    PIER.initSDK = function( options, callback ){
+    	var _options = options || {};
+        var _orderDetailTemp = [];
+        var _pierAmount = _options.amount || ''; //*
+        var _merchantId = _options.merchant_id || ''; //*
+        var _currency = _options.currency || '';
+        var _orderId = _options.order_id || '';
+        var _apiKey = _options.api_id || '';
+        var _orderDetail = _options.order_detail || {};
+        var _returnUrl = _options.return_url || '';
+        var _sign = _options.sign || '';
+        var _signType = _options.sign_type || '';
+        var _charset = _options.charset || '';
+        var _callBack = callback;
+        var _callbackDefault = _options.callback_default || false;
+        var _payBtnId = _options.pay_button_id || '';
+        var notEmpty = function( array ){
+            var _array = array;
+            if ( typeof _array != 'object' ){
+                throw new Error( "参数错误！" );
+                return;
+            }else{
+                for( var i in _array ){
+                    if( _array[i] == '' || _array[i] == undefined || _array[i] == null ){
+                        throw new Error( '参数错误！ '+i+'不能为空' );
+                        return;
+                    }
+                }
+            }
+        }
+        notEmpty( { amount: _pierAmount, merchant_id: _merchantId, currency: _currency, api_key: _apiKey, return_url: _returnUrl,sign: _sign,sign_type: _signType,charset: _charset, pay_button_id: _payBtnId } );
+        //For constant
+        var CONSTANT = {
+            HTTP_PROXY: 'http:',
+            ACTION_POST_URL: '/checkout/login',///'//pierup.cn:4000/checkout/login',
+            ORDER_DETAIL_ATTR: [ 'product', 'logo', 'detail', 'type', 'price', 'count', 'total' ]
+        }
+        if( _orderId == '' || _orderId == undefined || _orderId == null ){
+            for( _detail in _orderDetail ){
+                var _obj = _orderDetail[_detail];
+                _orderDetailTemp[_detail] = {};
+                for( var m = 0; m<CONSTANT.ORDER_DETAIL_ATTR.length; m++ ){
+                    if( _obj.hasOwnProperty( CONSTANT.ORDER_DETAIL_ATTR[m] ) ){
+                        _orderDetailTemp[_detail][CONSTANT.ORDER_DETAIL_ATTR[m]] = _orderDetail[_detail][CONSTANT.ORDER_DETAIL_ATTR[m]];
+                    }else{
+                        throw new Error( '对不起，您传的第'+(parseFloat(_detail)+1)+'个商品的属性：'+CONSTANT.ORDER_DETAIL_ATTR[m]+'不能为空' );
+                        return;
+                    }
+                }
+            }
+        }else{
+            for( _detail in _orderDetail ){
+                var _obj = _orderDetail[_detail];
+                _orderDetailTemp[_detail] = {};
+                for( var m = 0; m<CONSTANT.ORDER_DETAIL_ATTR.length; m++ ){
+                    if( _obj.hasOwnProperty( CONSTANT.ORDER_DETAIL_ATTR[m] ) ){
+                        _orderDetailTemp[_detail][CONSTANT.ORDER_DETAIL_ATTR[m]] = _orderDetail[_detail][CONSTANT.ORDER_DETAIL_ATTR[m]];
+                    }else{
+                        _orderDetailTemp[_detail][CONSTANT.ORDER_DETAIL_ATTR[m]]  = '';
+                    }
+                }
+            }
+        }
+        if( _orderDetail != '' ){
+            _orderDetail = JSON.stringify( _orderDetailTemp );
+        }
  
-        var pierBtn = document.querySelector('div[id="pierPay"]');
-        console.log( pierBtn );
+        var pierBtn = document.querySelector('[id="'+_payBtnId+'"]');
         // create  CSS styles
 		var styleElem = document.createElement( 'style' );
 		// for WebKit
@@ -41,16 +90,13 @@
         		ss.insertRule( selector+'{'+style+'}', index );
         	}
         }
-        ss.addRule( '.pier-payment-btn', 'width:120px;height:32px;border:1px solid #ccc; cursor:pointer;');
-        ss.addRule( '.pier-payment-btn:hover', 'width:120px;height:32px;border:1px solid #7b37a6; cursor:pointer;');
-        ss.addRule( '.pier-payment-btn img', 'width:24px;height:24px;display:inline-block;margin-top:4px;margin-left:14px;margin-right:4px;');
-        ss.addRule( '.pier-payment-btn span', ' font-size:14px;display:inline-block;float:right;margin-top:8px;margin-right:14px;');
-        ss.addRule( '.pier-overlay', 'position:fixed;left:0;top:0;width:100%;height:100%;z-index:100;background:rgba(0,0,0,0.4);visibility:visible;opacity:1;font-size:10px;');
+
+        ss.addRule( '.pier-overlay', 'position:fixed;left:0;top:0;width:100%;height:100%;z-index:100;background:rgba(0,0,0,0.3);visibility:visible;opacity:1;font-size:10px;');
         ss.addRule( '.pier-checkout-check', 'margin:0 auto; width:380px;height:220px;background: transparent; border:1px solid #ccc;margin-top: 80px;border-top: 0px;')
         ss.addRule( '.pier-checkout-check button', 'width: 120px;height: 38px; text-align: center;border:1px solid #ccc;margin-top:100px;cursor:pointer;')
         ss.addRule( '.pier-checkout-check button:hover', 'background: #fff;');
         ss.addRule( '.mL-20', 'margin-left:20px;')
-        pierBtn.classList.add( 'pier-payment-btn' );
+
         // shadow mask
         var overlay = document.createElement( 'div' );
         var pierCheckoutCheck = document.createElement( 'div' );
@@ -75,11 +121,9 @@
         btn2.onclick=function(){
             window.location.href = _returnUrl;
         }
-
-
         pierBtn.onclick = function(){
         	var temp_form = document.createElement("form");      
-            temp_form.action = _urlAction;      
+            temp_form.action = CONSTANT.HTTP_PROXY+CONSTANT.ACTION_POST_URL;      
             temp_form.target = "_blank";
             temp_form.method = "post";      
             temp_form.style.display = "none"; 
@@ -88,7 +132,6 @@
 			  	currency: _currency,
                 order_id: _orderId,
                 api_id: _apiKey,
-                api_secret_key: _apiSecretKey,
                 merchant_id: _merchantId,
                 order_detail: _orderDetail,
                 return_url: _returnUrl,
@@ -105,12 +148,12 @@
             }      
             document.body.appendChild(temp_form);      
             temp_form.submit(); 
-            if( _callBack == '' ){
-                parentElem.appendChild( overlay );
-            }else{
+            if( !_callbackDefault ){
                 _callBack.call(this);
+            }else{
+                parentElem.appendChild( overlay );
             }
         }
     }
-})()
+})( window )
 

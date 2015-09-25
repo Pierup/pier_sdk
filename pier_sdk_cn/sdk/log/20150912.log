@@ -1,0 +1,282 @@
+[2015-09-12 11:09:36.233] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'qFKyHalwBGoCKAExLmn10nKjEK9/Ow6Y4u5As6Zr41NAHYVUFjp0YWcs2z5aHNUmJDBSxyiQNy7NqkzB9lLlATCdQkb18ISKddEIo4QfesJxA7/9r2CmT2VmuZG9pbaOAU4Uobq9AnWGCTZy81RAkGVkT6Dhz6vFMN4FAoK9E64=' } }
+[2015-09-12 11:09:37.214] [ERROR] console - /checkout/login { order_id: 'OR9132871717911',
+  merchant_id: 'MC0000001409',
+  amount: '11.01',
+  order_detail: '[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥1.1","count":"3","total":"￥3.3"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥4.41","count":"1","total":"￥4.41"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥1.1","count":"3","total":"￥3.3"}]',
+  return_url: '/checkout/orderList',
+  api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682' }
+[2015-09-12 11:09:37.398] [INFO] console - user save new order  { code: '200',
+  message: 'OK',
+  result: { order_id: 'OR9132871717911' } }
+[2015-09-12 11:09:37.605] [INFO] console - user get order info  { code: '200',
+  message: 'OK',
+  result: 
+   { amount: '11.01',
+     order_detail: '[{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥1.1","count":"3","total":"￥3.3"},{"product":"官网NIKE","logo":"","detail":"222222","type":"Nike 服饰，和NBA球员一起运动","price":"￥4.41","count":"1","total":"￥4.41"},{"product":"美国XXX的保健品，强身健体","logo":"","detail":"这是美国最牛逼的保健品，强身健体，一剂见效。","type":"保健品","price":"￥1.1","count":"3","total":"￥3.3"}]',
+     merchant_name: 'Flower Company',
+     merchant_id: 'MC0000001409',
+     order_id: 'OR9132871717911',
+     return_url: '/checkout/orderList' } }
+[2015-09-12 11:09:37.620] [INFO] console - { order_id: 'OR9132871717911', merchant_id: 'MC0000001409' }
+[2015-09-12 11:09:37.620] [INFO] console - user get order auth { amount: '11.01',
+  order_detail: 
+   [ { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥1.1',
+       count: '3',
+       total: '￥3.3' },
+     { product: '官网NIKE',
+       logo: '',
+       detail: '222222',
+       type: 'Nike 服饰，和NBA球员一起运动',
+       price: '￥4.41',
+       count: '1',
+       total: '￥4.41' },
+     { product: '美国XXX的保健品，强身健体',
+       logo: '',
+       detail: '这是美国最牛逼的保健品，强身健体，一剂见效。',
+       type: '保健品',
+       price: '￥1.1',
+       count: '3',
+       total: '￥3.3' } ],
+  merchant_name: 'Flower Company',
+  merchant_id: 'MC0000001409',
+  order_id: 'OR9132871717911',
+  return_url: '/checkout/orderList',
+  sign: 'qFKyHalwBGoCKAExLmn10nKjEK9/Ow6Y4u5As6Zr41NAHYVUFjp0YWcs2z5aHNUmJDBSxyiQNy7NqkzB9lLlATCdQkb18ISKddEIo4QfesJxA7/9r2CmT2VmuZG9pbaOAU4Uobq9AnWGCTZy81RAkGVkT6Dhz6vFMN4FAoK9E64=',
+  sign_type: 'RSA',
+  charset: 'UTF-8' }
+[2015-09-12 11:09:44.646] [INFO] console - { order_id: 'OR9132871717911', merchant_id: 'MC0000001409' }
+[2015-09-12 11:09:46.348] [INFO] console - user register start
+[2015-09-12 11:20:59.166] [INFO] console - user register start
+[2015-09-12 11:21:47.086] [INFO] console - user register start
+[2015-09-12 11:22:40.912] [INFO] console - user register start
+[2015-09-12 11:22:50.465] [INFO] console - user register start
+[2015-09-12 11:23:34.620] [INFO] console - user register start
+[2015-09-12 11:24:15.883] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269098', resend_time: '0', code: '' } }
+[2015-09-12 11:24:28.905] [INFO] console - get response body { code: '400', message: '无效的电话号码：  66888555547', result: null }
+[2015-09-12 11:24:42.780] [INFO] console - get response body { code: '400', message: '无效的电话号码：  63588085552', result: null }
+[2015-09-12 11:24:59.050] [INFO] console - get response body { code: '400', message: '无效的电话号码：  63588085552', result: null }
+[2015-09-12 11:25:17.627] [INFO] console - get response body { code: '400', message: '无效的电话号码：  63588085552', result: null }
+[2015-09-12 11:26:24.856] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '7642' } }
+[2015-09-12 11:26:28.029] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '081ed30adfd2f0802f1cc61aa6f994d6' } }
+[2015-09-12 11:28:00.069] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '9ciNA3/epA8NhL3bEjAco33t5nyka7qk/YMoBo95HBaFMBEQZU+83f9Ufv60LAfjW6zRraFGpW9Hgk6wEoz/i3cRjR91nv0wEcKW0QRfMMTvzKCzPBkVOuzgaDDgE4GmrXeyd3VnNsUrUtZjZp+2ZAtfpyZYSTM/F9xu4CzW5sU=' } }
+[2015-09-12 13:39:20.672] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'C0uClWkZ3oCGof6gEFgRFqDVJuT4Aut2jicwo82N/uME3c4e6W81Y5d2bEXPwJp83TPdd6jopHl8HFEGhbflWoN7JyvVNP4/i2v1cVDK3NhJp2bX4Kzf8SqPJJVAGWpwlhhlUB6CykRBpzAkZ76UO0PETWZPVhSAa2wWC9A9dZA=' } }
+[2015-09-12 13:39:36.166] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'MVhq17gRwXSzEhYlNIr/QYee65bqQc0ou6+Ae23MUtIl+BXdylbRPuUcuK51Pmb4YEsj21dLN/lIUhODbtQXhZsppBaWxxwC+PWXkVCSp6C68+m/pn/ytdUdqQoLnW6lJejaid03714eM6ox9vywfjQz9Md75hEH3hfIJif4w9g=' } }
+[2015-09-12 13:59:18.823] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'olerQP6ynhUv9tH/1q1j4Q8r53Swpc2qoRRUgiTYNCsxKktYXHvBxe0RVAs6wHhTYpsuH1UIK5GkXnnlIMfWagKOcapm8L7kb2Xt75ud94pBbHhJxk+7xNzAQuiSWOlP7Tjkxbos1Fv96zBJ/wxxcppLqIUEtbQqmUjjTSsX+Ng=' } }
+[2015-09-12 13:59:22.279] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'yW0AEB64sfG67giTfzyfPgjccL16y0086hclB3yEcU+PQkwe+nuZuAZVbM3i3LXiqowj0oHPUog0vSHZ2/4xt2GYMh9MfAuhTn/0kk0lw43lrYEBY1rWw0mVXd9q3zCoqtiPTm5gTH5Fq91Fqwi9TFbU43Ds1VjCva+smHErgnU=' } }
+[2015-09-12 13:59:22.975] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'mj/p7fJQYNrSl6/uZ9MdrwcIKv7skKqjJiLmJKs9yEXyW0fuzMSfDerP0xjqwUvu6OEc2jfoWWvVY16w45Z0u3ByOVTxeInMTk8R4Rm7fl0oFlhu7TV38pFNX16teLH87QmufcwRo6Hbc56FkhSn4CQvDbUXVa0hP2Mt8ZjjUbg=' } }
+[2015-09-12 13:59:23.744] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'qnZ9K3bgrkU0gpmVVDd3O8aAmLkdwsb3OoJgKm+N64W/HuhV7GuKY3ExkzWrQyDG3nJK4RH4HmzNnGbiUDxKcwxUab8ajKAwkkLjptFf1rWxjohcki+mk0SwyU87z8nfwasqAUPWNo3J3zinbZCqwKoBXHLdnmT+VWA+ArVYC3E=' } }
+[2015-09-12 13:59:43.795] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'C4MCDbXkZhrNl9nA60/o/Qgjc3UBir7PUkO8ax2GWZviQmYb8qMjsUoxh8Uv79l6vSuVkBASyKPRLLGoEtwNbUJ76EvMKPAxh8qjP5x3jjAywxkfHCBi+dLqtRgaC0VLNkwTljgya6Xi4H2MkMXojiQCPWi2SIVVjwePaKjbKrs=' } }
+[2015-09-12 14:00:37.791] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'VSuvAIpwCxWpFioy6O47EQyYGBmfMhs+cTJ47MapJlzaOYD9fsrp14SoQIgjmbgtQ9DLrdUWDSTp4d24Alm4o7sbuz/EexXELC33ksye9UsWFmGKWF9CsCJIWVyN9AJU6KPNwzButw0qCA0dsQm+HTTQCAGOdWP8/CPSPJpALyk=' } }
+[2015-09-12 14:00:40.074] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 't2HH07tesrTmtxzcff7TRyZ+B061dU79voG/VG9U+p+XG4hFmcIE2lQQhAfaSOkKMc7CPN2w9+XTZykViHP9ZF8+MvBPeVk4dKYHAbzm9QsQj4+Ffw2UEPu04PqbJOl+G3K9FzMOecaOycqCC9MNnOmpcQHgGgGh0i8ECnIOx1A=' } }
+[2015-09-12 14:00:41.568] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '6SZU+T/AGIUvkVvKWl5n811ZAZyOPAMvebg3F0c5Tzy1lx0exr+cZOEB8CSPucrQ+HsCZC4CIKIO0ahYosLXjG9lVKJbR+lo696huuzY9um2ovm1QAZwnIhliQKwUmN0lHPqqi1seNjaHoefWjGdkJ64tdX9ozI+5wt6BhpEWnI=' } }
+[2015-09-12 14:19:28.909] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'uPTw7nN9er5OiQ4uVZ6Y0QICWJsn615Sn/2OROcNct2fO6RvvWc3MBFo4ZWh7glpAtUbsU5UKy2UkfLKzA/+8vpu+7osYKxBS5mAxgif7M1aEckU9+sLkv1bHktvv8RN1wrjkcsqpVfrpqUOyWJcMFJSpHxAVJXa+RPp6i6auoE=' } }
+[2015-09-12 14:19:52.123] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'xn4JCqm1n2VF3f0+hZ2wwSSn/s/HWWD2GlidSMsf3aXVftSZNdK6J6Z62UevRK1HDs/DFIKOx/YWVHGytKk4GSO2Up0uzHPF7GELOuTng6XP53hpXLhhedJyBdt5ea6x9wSm4JmFN3DwceZjAYbMoxz9x9ekGIBt3zqem8DmOYc=' } }
+[2015-09-12 14:34:06.643] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'YKFM6+C5z7AcxS0NBO9uT9L1FEhVzU69/XPm0nyORz1bOx9EyJnCj4lh8MpmUVJgX5mmyCmec7GA4WXY0/Jg0ZzSvFTAJKgA55z+fqmZiC7NeR68i1a3jY1UlZdxEybd6nWWRtrE5JgRTz11UzzhEiDglXAaQKuIpvMx493U6Dw=' } }
+[2015-09-12 14:34:08.316] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'RdbtO9M8+kZc9QL1bcdZ0O4ieZmafdrulZNsmd/yNOxoggxxo7d809J4FM9uZnnAriniEC0/JhAONYyT/3vz/RG++WQSs9wo4OB+IQJkHUcOkwOJNa/ByXTyAMoBHPICwusqoyECB5aiqT3aI/i5TsRz4btF9vJxpb9xb/lmI4s=' } }
+[2015-09-12 14:34:08.927] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'DMnElzXL8sqAQ40s/HsDKyMSoEbyj3eoHXqh5Iv4N58Jn7RrUC61Fam7desRJ/wC6IlHpwQtkjD1xLquXrwP2YjHvsYgpzRvXROYHv7UXxhtQFtLxY2D726HBTrA+F5U8MG7gGFX1hLyi/U4A4z2/aEhoSqJfmupfR5XKCZXK0o=' } }
+[2015-09-12 14:34:09.286] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'pk9Ul6BYuRWGPDOjYBWleOVvyPS6XeSfLVT50OAtvJ7gDeDZEEpxwq7ZcRheZKyARzBhG7VEuiPbjruBbjjMbKz0zNsMlS0iAENgd9La4r9lEHoQXDcQBkO/jeapMWlyGKRj+Uh80SgzI5LAArJ9En15W2AVV0478dwhyHOKY2s=' } }
+[2015-09-12 14:34:09.543] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '5On/YfDe165TlYfK4PrHRVyFnZUW08szaYv92nQn089pAmfQ5QJONBpQhOxl6C0fM19bQgh+S0Z3MiyPuLFeLYIfzHT3Y820h8fQlzw7UMZnRi1T1yZxgWybcLzDeUm9sDfa1WKVxTO2U1wBCv8yoWswmZ7CTXDc9CZLk4692b0=' } }
+[2015-09-12 14:34:09.709] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'o3w48YcGi9Nz6PxBRRFHuMmIJALGn8vqi3ZCGP7es4Ww6xh9tK5fPVO/FuG++Px3xdyn7ny8NCu9UQypnughw4hVNRD0oDweRWNHRopcFk5OCrBPpj4id6mAB6dvyeEBOwehPkY4aNn1+xWTsGCmHLJBdY/Uz04MRtWDgQ1Zfz4=' } }
+[2015-09-12 14:34:09.952] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'X/wcgvsFLcPEuPL1tYaCZ7kaS1fq9bVAxPMStWRNW1kUnD8AazZUXzw2G4fh3fyCJgZfrmqvNvpAyoSbPiJkZxQXyJNp9JbpGbIuQe1e+O0gBoQPIa2mrvjncLuYkOS4KBvEt9xrZfeunWXWsKnTv8BO5UrS3/OZ6p4hy7+oFx4=' } }
+[2015-09-12 14:34:10.091] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'wF5mc4IeVxG4mfV7+xkZYJrq1TEV1rn9SIdA5mrhWyV70oOc+LazbemRdnHdbtleHFszXMG5Q4qa8g7Nlm6nPP8Y6iRRR8Jiwxvv3hJo6runpA+M1HmHGAkCncN3Ha86s72OJVo5sDNDEaU+sE6iKMN6hUcAPIWWsOLmqe/jd4Y=' } }
+[2015-09-12 14:34:10.250] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'YFfAggnj4xUiHS1CsLVZbGGwKcYzUPVb0XEgqgIalvd4k4Z/ehQ2iy8s1OweLzEuHPE2ZH/ZMeqXBKKA3+PlxhDcUFnLwKzdv5uh3JlLBTW1WUFZD9aTqg03Ohy4bIWuyXP9G9TnxSNvjR1qUOUVNeYVhOEM2tCEavkglafCgsQ=' } }
+[2015-09-12 14:34:10.472] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'rOtzb2klKp2OAfo4zMM42YFRujFaYeGT2cryPC+WYMoFlLTfD/RrIsB4G0F78G/ugTVzMT5c/5wdSiGRdTgfsC8MMgdIzAR/Asb/wXXMILrcb4zl2lb1r3VQmK3ouQdqdF8way7jZN7ZGKD2KIDj/HmB08+XW/Rv1M1QS1KwsZM=' } }
+[2015-09-12 14:34:10.640] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '2XEJ/v+cZ/7Tfq3oTPTFPBGjyS9/kdMX0mKis22OXmrTs4qAjcMEgYx9cG6TsrXFM+xmpa1ribGorXBnCTxZKCYUQOwTk1VogOBEDn/o319t/vCIWRyx0OSa1j1950521kg4YO5M4FxdWDpNy5MUCfkX6K2YwSjL2PltiUwClC0=' } }
+[2015-09-12 14:34:10.826] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'rfkjuEQFFB7eLSx+nr1OFNLw3xGmQXitKJoiMX0UqGV6TobdUOcwigs5AVHoR8vtInmDyCknscubVWPUv+8U83NUp/Nx0BJp2e9JmD/gdfPaOGLTdWHNSVEZuZmz6mAYDEmcbg5vyg4i3sZRgPfk1N9yge47VNGK4wFv5V5sO5A=' } }
+[2015-09-12 14:34:11.419] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'bzzSb0EgpLRUpG/7+xqzMBaXzulVBXv36BXoYd1/ZWhGFHxkXS9pBuIPAE07xf9AZDw5cLx4QOKNRboTZR3loCc/E4ccm6ezCbqDVKujfvPWjgoq/TlGVckMqCncgZRbJYCgQEByXlapYzVfmwfnDXIJf+nOAHszXckVAOQKb0k=' } }
+[2015-09-12 14:34:13.682] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'Hw9rA36l3tVGTaB2te5qFwphpda+9nSvQ0eG9aFAB/+8sE49oW1LXghEoe/uKFeKVW3RG3ugMaRbxqANEOMp1Axl4nadjXno7G+8+OoBtOqKs6Qart1XkOz0DGqt9VyYnOe78EjzCaOukMbFVc9k+VFtJbM7i6ZgbOAFfDtCVc8=' } }
+[2015-09-12 14:38:36.630] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'g+6FpyLpFFNit06dH6joxF5U9SvdrC19gTWAt5s2XoEWmfxxxg8FBuhl7WDwqHUR2tkd/4mGD6KPdr5Umtv+Y/9HU43KumoT4QCgiwTo2bVpHZ7wGrWFFJUBXZSpW+FCD4Gl6fOTAj5n9N6jzbxIhp5JH0wxxB4XyfDSOjngzT0=' } }
+[2015-09-12 14:38:57.011] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'UYwFa8JYnsNH+et4sJomWLvIPW7E25j2ddurLSefY3QXVaovRcfM85UNk2CZmmVLJiN8NEns7fTpQOVs/+Hcv3rkTkKuHDDMBWaGfq0W5pTOhvpJDD4XSbRZeiwfGIym0EsZ/KzZgAvpKBBBZMCCpLRs9id45LwgCLgbLqNqM9c=' } }
+[2015-09-12 14:39:49.505] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '6WcHlHQaTKFC/OmNw3GKpP9p4UEpr/MvL6WysKyoH4km+xHlBjco3Fxn9LqcckL6rG2qpCxZdguHFo+DrMVrJlQaKMDWgfj1JNHDpFUVuj0AHWbKImAz83CaVKqFX80sK7sSoj1bqpJWtWfYf1MGDUzZVfYLjOLU1DIxzQtt8S8=' } }
+[2015-09-12 14:40:34.584] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'scsslJSk07LkrkQVTvqfb85zj3NccKQnKoiSepNnf5kZOcjlQ1XaPZxntCtlaiwel7PdEpI/43WSDf4qMYtuXr3v8cjYm/9YOCrJm7ZlaizbS+trn0O9pJTYi7Fc3pgXtk6sE+7QyBAr8WXoObmjzktRBQUzpGbGKDuoaFvryvo=' } }
+[2015-09-12 14:40:58.116] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'k/tGcHWDtbnnW4bjcAFZDZQy6ZQBxyuGODYxOW+rwV69MoiS10B4vAIV6B+Ai10nmpP7SGgGYk4oDQB5HcOGQbN0hvFTAO4011D7KkSr6xF+5LkLoq0OwwjkIMBDEW1EELCxKjQFIJ3Vdm1ujKylqO9RIakaPI2mYkREbuauyLA=' } }
+[2015-09-12 14:43:13.494] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'R4wBix8HeWs59/VwzKru/I7yj/iM++Xhs2gmZj410YUHByc+q88MsvDKpi+ttlnrcE55uilyNKxH9c2J7uEZMD1jhghmzrf0DjWg3SzKSKcdLC7onZw0bFkA6/oxhgtTcgiUBTzAw9qDtQMjb756VC19H7ecUQFLm/D2Ix4E2fs=' } }
+[2015-09-12 14:45:12.350] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'wh0HuC4pokA2eh4/D0LxYLPRgUwub40pQl5A0PZRqO4hA20IbpRvaK9jgBw+rF+Va9t1EvRNY/o0fJAt6SlvXsZdHcMN+p8bAoJAxGYTBScpIBbAM7UtMv1Glh2RkWxTpZN2bhIo1aT7V+wTONvJMfQeKeCtmJ1hgBRxUZpCdjI=' } }
+[2015-09-12 14:45:14.844] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'dQ8Yeu+Jh69YdKeMVbM1NlZ6G73jJQW1riAxnU68rxjjoV2kk2HuVWpJ3LPNcNWDNujvGcwKgsBJ/W0d26lzxNzMHK//UHGR53lC+IEdktetoOkvtCrnJD4GeJwRK/KOb4L65ztRhF8L2l7H2EHxlyzwb9V09+xi/PbwANrxPWc=' } }
+[2015-09-12 14:45:23.805] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '6yI+8GMkKyTNpd399fSjc9uJ/+JYnnAF9G7pLadOLgzw6yeGTHWukMcqge7ilC0SH+BUx21xKRMzjDk7V1ND/7236WO9xpMg7cmRiybhGRycChfAXr8uBgAAFNnzwCeNtheYuC1f5/4lVc7/RjW7lKvj+/LzxomCvdf5yZyEN0w=' } }
+[2015-09-12 14:52:44.419] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'sp64kcduHFacJiwrXAwm4xRuWFg0VQru249p7nLtn7c2iL7ljdH8m7cZxBGI7S+h5sgLCaqEKeGOVgyLsF1X2zvGTo/tfeUwIhei8ySo5H4s2dmevy5BqpxO4BawJu9I0UXn3Njd7KZL2gkf40STc1H9HNOLXo0PTYJuAYdAXrI=' } }
+[2015-09-12 14:59:26.768] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '0uQr3TXELzSvedIbzDN2qIUXYFANckrFDHr3CCMvQ3206Wni4cpW0tjtdc4BZcDKva121pvyonLEaFwMR+VKQt09m0VlUmHpwnbuiUVPCM5Gmk4qrLcP8LyJJMzSQ6InxsPfgWAVcy8CpbYY3q6wylOsyE8IAbaVpU9D8o/hbGA=' } }
+[2015-09-12 15:00:02.891] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'v6+r8Z3HabjaeDvNQJgdXR62l7yJ9m34fGsUU8ATdQM0vUsjdTyx/tT9azYXI76euFI1/ZVLeVwXbr+67BuM4rQkHHD5lltTMvuL0UIX+7nroi9hh1tq2EO9GUmBunP/P5GX8jWT2rrn41KbFIpuGuVhdHB9Be5tTFoHks3ZVpE=' } }
+[2015-09-12 15:00:37.358] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'a3D4hUG/dSrPmZEBDYgHC/hahEODeSMaU/l1e0hZ98SJ/S+Weu3dvl/VXhf8dpFYyG69xq2gVPOg+go+fwC/sVi1A3A0ZxvEv1PyQM1HD4jg0ECMZXP3SRqVOmAge8jadrJuB7RuSCEcMw0bB6uxGkYpAfAKOykSyawY7mNbfIQ=' } }
+[2015-09-12 15:01:56.579] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'CfAwF+hvbZjzcARMJjlB4x+ZWFGExJVl/u8Y5EVxVqNdA2L4ax5OHy2hEeYyK+5APswTVdDizQuxbzRHB607NzYLFM30h5VD/Fo1iHHYatyErUZpijNrZFbQh7ICEr1S6cXJa1FcoIeHhKZvOiGnX0rEHkEIjwoxUWWPOymys90=' } }
+[2015-09-12 15:02:19.834] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'OLKyA4geErE4ASR27Owr+1VlcycS0Ezj8GoGQNCdgBtvZoWKtl3pX1wFstUxnRw6QYFhyQDxDHpJNYRvbFicMj0Fu3OHuhTW273LDXqjITizInqy/C6HLG0ClO3X4AA9BcituH4QbT5cygORFGy6OveYcLWdoIEYbnEaf/TmTWc=' } }
+[2015-09-12 15:02:43.162] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'ewfunkY2tmyyfO/j/rJA2szRFVb6Ir59CDv5i2+FsfJ1TiNXE1zkmlcwd2ixjEYWFSUgR5T4mN0Qg2Lgz7fWrjWM5UVMzTTDK5ja4kRDK4AQ2Q6xrygRtKAvi52C6JucyQ9Tz6WIgoEG2RCm7/if2BMo2+93nPM8cblDADwVt+U=' } }
+[2015-09-12 15:03:37.094] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'bKI/Mf95ORDRPkFhtd8Y8iH6Jm3CW9jbZr6czRh7nf2QHMhq7AqHQ0nlE4+yeBFPW8tBAb+OgShbWykzyhUqxTH654z8zU+IDANLdgmAvzKVWYlAAJSJ0G4SN8HFtFm1ZtqfU4dxHuEJK6jQUyNSUxIyZ+EcIgDm7Ta0KLS8ZL8=' } }
+[2015-09-12 15:04:30.663] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'ctoU3K51aFa50Vb6fwa10+iikGkSe9y4cogq0MR4iAVez1N+mTFOoOF5ghUEGqY/52bKRFrIu4bb+Qb/BwTD1+saP2YjklFTq5NKwa22ALl9IiHDD6YV3abKK6IEr7lay1slVr/IfTezoaNJUgyNFaC6Gdb58qGlrtcT4cGXn5w=' } }
+[2015-09-12 15:06:48.348] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'AXFRaiXztqY8xqE5q3uI+hFuA6o7+pV8qOmL2VlJmTDONMp2/sRxHqSuGbKBCgutxJJ349UyHMPmwLG4eo8oMatqoObCSpUr2Oi9ogDeHNHIx4/mKMTvtaQyFfj/dIiBZiKNTq2ijocjWDG1sRVkGqe2zPzjqI3NI3yXDNS+CTs=' } }
+[2015-09-12 15:07:09.031] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'H5/sb9iGXWC+K1rhGZYoNqTy5cBgwaNaBYm5wZdMDu9sbRqStf0agB/xK8h4UjcRS7LNeCMMpAnxg//U042OmqUYZgL+0CDvWZEdsiloWU7ed6/RbojSnrOVpMSn/pwRSb+PniBgQjpbPolP4V/Qm7AVTphyLoDh9WonmVVgcf4=' } }
+[2015-09-12 15:08:29.624] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'fJNxTLX0ek5aSEpuJmkSfrfpyrikWqxjyza4TPbr6rQpftAuDQM7mUds+Ezv7WY03mruWJB6gkf+CrWQcpnvh99Giq92tOjnTknA61R/zS6LhsK4zPcQ1eZYbmwsKEkIpkD2SHT59jJ/0RjihKIbXU+vux0gjVw07HiAs+rBP2c=' } }
+[2015-09-12 15:09:16.953] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'TW7j3MvVFqxK+c7gFrF178munkNHI/pRcW2F/qTfMVxfXO1J5FFV60wvfs6IYCVVpOnaYYKVw+2xl7XpiyZ2YSKFxPVIevVo8GZ9VdGn/FwgJD0So4maR9tpijLZhp00QqJUvMvOo8s8eNt3cr6V1c4oIOXJzP8lwWUEEIIax18=' } }
+[2015-09-12 15:10:14.484] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'wkxS4a29mrtPx7Vd4COZMdM+6Xo3Sw//k3rSDWh1MYBcjKIudeuKVIRFl2RWAv73ZaXuDKc77BH3HX2XuMTR64Q/6KZ/WGE4yBKVP80NSICvjw6wkKHjxImregyZ/3HEqy11Ih9d7MlxaQbY9KXN6on5tCGO6wDDRB4U+c0jDbU=' } }
+[2015-09-12 15:10:26.595] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '7LzTkDqumsqRwjVgNYlSPrN7tzRBHULc9j6MRG1Syfz1gq9YQR8SD/MxKGHpr3styU6AZxOCAk4EmzABM13DKR7asTwOqMdJYdF05Uy0VAz0UBxqxnVWq20SzCPeYebmmyWutNu8VzDCikxQI1R8vS8JRKGJyXMkt60hsnryYHI=' } }
+[2015-09-12 15:11:18.308] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'AECi4fVOux067yquNiS+sh8T5zBkLM6UhLdjBTh/9SjefypQWPxNak3H0UzJ+nYxxCeU/nJhFe38dl4stmWN0p2Nqtx5w55d7oMAWP1WeGBccGJCrjuOv6iF29t8i9K++F1Vf5rMzFbJ0J9WqXG/L8nz/Wu6Uvsau9AGfbwXd7o=' } }
+[2015-09-12 15:12:21.110] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'DmNVzG2sq3bTzCmNOSkvkwMYX3JbTXVmhPDOO268t+H/qKI9pcg9Zw7qpcdH/7Wb7+Gz/J50lTMwHjXyiF+UXtl3nlKk4W0DM++YVk8ZvT3tFG0eJ7uulGE1sFegl/FMqhiflklLpQPkSVoV52nigzKkwT7AWAAnPkGhZhS7oWY=' } }
+[2015-09-12 15:12:33.103] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'e1cI6uVAJiVWNL3nRXgp2Hk8RB+sD5a8dXloz/GiknoLUwIJE6NUtbPnV1rA55h36fo6kywvAVCoRxpZqp/gEMXJU9a7iP7xDzylQpzUBsNwUZD/QTq5bb1VAkkECjwKIzPRYASrL5oWwqzrcFlHb+CXPdnNtWM0NOnjJ/J88SM=' } }
+[2015-09-12 15:12:45.033] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'PZH1lchZstfJQF467NfEH26ACrWvzsQrsrP5Wfzo++yBIAiSLAyp+BL1w9KMNcrjVvYTbTFmJrW+x916Th+jCMZv1kPlEB6d6KsQV4RLwlV+Epx+IqupOvTcN/pZJ/5a40AvTDPEBaAYwOYo3CI0uAJn42fOaujAQuYwnqqI2l4=' } }
+[2015-09-12 15:13:35.790] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '3apcAj03CcLqv9ayoZFh+3X4NDMyXJlQRVh30kADKTEzPBUEbDaCQDTDRcWSYtZwhCBHDRU3/c+6trqe0//cE6iX33hTqovCV+D59Pim09oEqyS1rYLEhjbKutVbThR5GDaF6fZSjoUga7PZhDdmKKFCnLu/anBoGqOmzKGOejI=' } }
+[2015-09-12 15:13:46.497] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'XIc57xYYmap5CVwiefMGXW+slKIPAXkDU/x70l8YDXxeowywrxHIs1CvZS+COwLj2HS74Ju9KX0sQcMNs8jx8rfx141agtp1gNfRxW1EqOGGXRiyZDpD+9rS/rCrLUqwzq2kxFr+lzrzrOE8l4Bo3Tasn6p4WJPoP04yrN/kUg0=' } }
+[2015-09-12 15:14:11.028] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'vxb0PV79fsKmvDMSUbHVrzM6w6r+xiW1471MT4Zxu7m8m13pCx0WwqmxiUCf1rlnLGd+0v+mJNI4UrEeP0X0Gg9Flude1ygUChYAABojvxgWxvWh27l+AB0Y8Aw+IKCZSyNDvAM3VU871lFTxh8EOxsZEc+uqAgd47sSVxQpu5g=' } }
+[2015-09-12 15:14:19.280] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'RRzJNasYqN6wanAi25UL5pk1M95+eeguSUjx/JcWiK/olQApmWkTUXBl0mxR1JewVQYfNLCb27sdRdnTownQy3JCSxuKb2Axt1A9bVccOPS0YO6Xf3GOwttP53IJbXvXDljJQ/wPZ+KILt5Fk97aZedKRN1AHUOdMiIt6NW4GNo=' } }
+[2015-09-12 15:14:36.870] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: '65gHKQrxjzj8aCx3ONvFmS29buiRdEqO8V9IsxBmABvlJkQkPkC7LffMa6hQdpp5XJh/jD4OHcbqgxeaiGhrORC8nBuUoAFQF+wr3NYAHkgPHmvDcpeA6lDYns8xJcB7lUQ79l9h8JJgu3Sb5OaNtoIYh18keManORiLyLbh9Xs=' } }
+[2015-09-12 15:15:02.794] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'pmMiWCnlk+PLJXFwg1lZtADYgUxsJZRVMhUmVrO1dFX3uHfu+u1cVJzpoLSzjsokZjAPvoxPZAW274fEOqj3yPxPUylcLqm3VmTEifuZP005v4/bpdJtrsNzSvebXiQaIPAWm+WWr3yqsyq96MoprOOlA779ffVF1IPq5kFXESE=' } }
+[2015-09-12 15:15:25.976] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'E5ExVlOMZ8y/6pMjD473JeTi0g2yuwgNDEH+/y9hVGeTheabZiebJ7dG5R9QCV+8OTDdJslRRVgnOtp/ZsooPAPpaT99vWgZYnE56acYfE9Rs4YEsgjR1+SbHC6YL28qnnjGvxIFhJIlF80Z7uv5I7ft6HSA+hfRKYOimYmM6J0=' } }
+[2015-09-12 15:16:00.730] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'eZ4JMIE0lYlJmLX3teuGkaQhnxmYMDJw0QQZdMwYMWc68yO0Mt9e55/YIDwLiVBR4lZYv+De2PgZQ6XYxMST2lzCSDl1rvZiGvyQdjEsTqvv6TkiadEljlouQoBT97YSm/QY1WVsK99wQmezNJ8bKfbE5wkiJRR5uKAMI1MNA70=' } }
+[2015-09-12 15:22:18.514] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'QKeGySvMlWvRGWHnKA4Nb7rkqoFvSObttl9zYLMEMbu1Y0SzvzCPLFsTL50auo9Dc9VfLv5MscrnmQuHCRcy+npyys95M4XlvFqeB72Z17Ic36BKdIg8RW9HYOv8aUmPxQoVupnH8czOMTVv0/lYeDXaCNIv3SYc5h7dyhCBpJ0=' } }
+[2015-09-12 15:23:05.966] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'l+aEF5ZvM1/umic3YYcjVUUDSj8zjgkJS3WNPaEfnnoZVJfAdKMkRauKFLrApZZFymtrifg9WPA5lLytcXTXJLgXbspLlNa0GsQbVILBYB5L/6qMjHLeD772UWm4lgoGyUaeV6uhCPGlkhefdiFP0P27/OzyQyiyWeQ+A5KAl+A=' } }
+[2015-09-12 15:25:09.662] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 's9tYVNgzVyY+gWVfxiDKAvYd5T2FjXvqzqz3d5xRmd7dhLXzZpVfqjBWmVjNoaebR1jGPJTuVTx8wHjw324NTX2Ob8W2iHXRi26BU/bMPix1am3v8D/torTL1RAigDm7vb45Lp8SehMHluxSQZxuYPkG64/ejLiSoRuxLDX+e9U=' } }
+[2015-09-12 15:25:12.556] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'CU0lem/WCrfmFtKxUcnMU4ZzYTIqc0wz9jOIUi+brE2/ycNtCTyLzBg9agADP7KDCKtPCOjJuUoko+1dcLuKHaPyeZjTqgO+VwzJvzOfyT6LpjsR5gWKVWT81sYWFidqVYfboJ3UFjrgjd4z4d/v8hMGBS6f4IYcOa3gb3WPJKI=' } }
+[2015-09-14 09:58:51.320] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'ynUP0tYhRFwAwK+vEEZzmy+I4jz3LDf1nbE+RHR/oZ7Hf52O9Z7PzF1tS+SDd1tdL/OyUOl+5Gm0IUh0gbIBy3ZGcp0yfs3fZgBnSV8bVY3ToPHdkEJCLtZPegDBp5empf03ABbbvtMLpphNNHmX2ELBSF2H3SGMTFXdIG7azm8=' } }
+[2015-09-14 10:15:52.683] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'NybkVy+jLf+x8jf19PzVVSq7G/oVtXGSCi2fvvZnqny6aeAx7gag7iMWWHxQBw01jt7wUR6/0b+u0471KaEh9LoKff9qhvum6etd5QKx9sA9KsVnTseSD8FOlrSLFRtXGc+L/3PNz3S57hLMWTD0cFCZD0km6g6ITRmEkeMROZc=' } }
+[2015-09-14 10:33:57.555] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'PmmZAe9oibSCXurX1t/mY8hqsN4dWaqBOm+2uBIvWHUkugo7tM/Y5J/Tj2k1HT1e67JBk1qwpxDAHpkGa0NeZ9Y2e7VP0U3Xe4HSdnpT3Jboc4xgDUQZeq4WUdFIQoEiwY9oEDzGFoQiSxukzOXinhHK3ZU72NCtw0dCI1dt2SQ=' } }

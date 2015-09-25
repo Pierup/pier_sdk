@@ -35,11 +35,35 @@ router.get('/', function(req, res, next) {
 router.get('/checkout/orderList', function(req, res, next){
   res.render('order-list');
 })
+  // var urlPath = 'https://121.40.19.24:8443/pier-merchant-cn/demo/pay/sign/MC0000001409?platform=3';
+  // var message = req.body;
+  // request( {
+  //     url: urlPath,
+  //     method: "POST",
+  //     json:true,
+  //     body:{},
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  // }, function(err, response, body){
+  //   console.log( "user get sign for test ", body );
+  //   res.send( body );
+  // } );
 
 router.post('/getSignForTest', function(req, res, next){
   var urlPath = '/getDigitalSign';
   var message = req.body;
-  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
+  var urlPath = 'https://121.40.19.24:8443/pier-merchant-cn/demo/pay/sign/MC0000001409?platform=3';
+  var message = req.body;
+  request( {
+      url: urlPath,
+      method: "POST",
+      json:true,
+      body:req.body,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+  }, function(err, response, body){
     console.log( "user get sign for test ", body );
     res.send( body );
   } );
@@ -195,14 +219,14 @@ router.post('/checkout/login_auth', function(req, res, next) {
   //for check user password and phone
   authOrder.errorMsg = '';
   authOrder.directError = false;
-  if( pierUtil.checkPhone(params.phone) != '' || pierUtil.checkPassword(params.password) != '' ){
-    authOrder.location = 'login';
-    authOrder.errorMsg = pierUtil.checkPhone(params.phone) != ''? pierUtil.checkPhone(params.phone):pierUtil.checkPassword(params.password);
-    authOrder.phone = params.phone;
-    authOrder.password = params.password;
-    res.render('checkout/login', authOrder );
-    return;
-  }
+  // if( pierUtil.checkPhone(params.phone) != '' || pierUtil.checkPassword(params.password) != '' ){
+  //   authOrder.location = 'login';
+  //   authOrder.errorMsg = pierUtil.checkPhone(params.phone) != ''? pierUtil.checkPhone(params.phone):pierUtil.checkPassword(params.password);
+  //   authOrder.phone = params.phone;
+  //   authOrder.password = params.password;
+  //   res.render('checkout/login', authOrder );
+  //   return;
+  // }
 
   //login request
   request( pierUtil.getRequestParams( urlPath, params ), function(err, response, body){

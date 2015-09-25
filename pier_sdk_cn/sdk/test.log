@@ -1,0 +1,21 @@
+201408071000001546
+
+6212261001015792325
+
+350783199204095532
+http://192.168.1.12:4000/mobile/user/verifyBankCallbank
+
+acct_name=程聪&app_request=3&busi_partner=101001&card_no=6212261001015792325&dt_order=20150914180137&id_no=350783199204095532&info_order=购买高级套房一间&money_order=0.01&name_goods=高级套房一间&no_order=20150914180137¬ify_url=http://ip:port/wepdemo/notify.htm&oid_partner=201408071000001546&risk_item={"user_info_bind_phone":"13248269098","user_info_dt_register":"20131030122130","risk_state":"1","frms_ware_category ":"1009"}&sign_type=MD5&url_return=http://ip:port/wepdemo/urlReturn.jsp&user_id=22222222&valid_order=30&key=201408071000001546_test_20140815
+
+bf9383c56caedb0f559b3f97e0836d94
+
+{"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150918151538","id_no":"350783199204095532","info_order":"购买高级套房一间","money_order":"0.01","name_goods":"高级套房一间","no_agree":"","no_order":"20150918151538","notify_url":"http://ip:port/wepdemo/notify.htm","oid_partner":"201306031000001013","risk_item":"{\"user_info_bind_phone\":\"13248269098\",\"user_info_dt_register\":\"20131030122130\",\"risk_state\":\"1\",\"frms_ware_category \":\"1009\"}","sign":"eea03de5d68d5e5bb0be99a7e9a4a224","sign_type":"MD5","url_return":"http://ip:port/wepdemo/urlReturn.jsp","user_id":"22222222","valid_order":"30"}
+
+{"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150918154152","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007839","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"46eba73e74dfeec4d57e7314a39fd686","sign_type":"MD5","user_id":"UR0000007836","valid_order":"10080"}
+
+{"user_id":"UR0000007640","flag_modify":"1","card_no":"6228480402564890018","acct_name":"测试","sign_type":"MD5","money_order":"0.01","device_token":"eb51381f 775241e1 eed0b011 c85122f2 eefef75c e478f2e7 f4ddb363 171f0cdet","id_no":"220623198306090622","session_token":"a28822a7-5dd5-11e5-8785-6d3eeeeedd88","metadata":{"ld":{"lat":"37.785834","lon":"-122.406417"},"device_type":"Simulator","mac_address":"80:E6:50:1B:E2:1A"}}
+
+
+send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6228480031349734413","dt_order":"20150918160137","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007862","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"1d8ac2e14b88f6834a95bbdea167f469","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007859","valid_order":"10080"}
+
+{"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6228480031349734413","dt_order":"20150918160137","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007862","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201306031000001013","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"389eed4ea65180a448509db422185ea1","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007859","valid_order":"10080"}

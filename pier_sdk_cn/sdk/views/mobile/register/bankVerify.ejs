@@ -1,0 +1,9 @@
+<% include ../header%>
+<form action="https://yintong.com.cn/llpayh5/payment.htm" method="post" id="verifyForm">
+	<input type="hidden" name="req_data" value='<%=req_data%>' />
+</form>
+<script type="text/javascript">
+    $(function(){
+    	$('#verifyForm').submit();
+    })
+</script>

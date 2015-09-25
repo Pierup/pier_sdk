@@ -1,0 +1,124 @@
+<form class="form-horizontal registerForm" ng-hide="linkStatus">
+<br><br>
+    <article> 
+	    <div class="register-group">
+		    <section class="section1" >
+	    	    <label >持卡人:</label>
+		    </section>
+		    <section class="section2" >
+	    	    <h4 ng-cloak>{{username}}</h4>
+		    </section>
+		    <section class="section3" >
+			    <p ><div class="text-center mark" data-toggle="tooltip"  data-placement="right" title="为保障账户资金安全，只能绑定您本人的银行卡。">?</div></p>
+		    </section>
+	    </div>
+    </article>
+    <article> 
+	    <!-- <p class="register-error" ng-show="psdNotRight">您输入的支付密码必须为6位数字：</p>  -->
+	    <div class="register-group">
+		    <section class="section1" >
+	    	    <label for="bankNum">卡号:</label>
+		    </section>
+		    <section class="section2">
+	    	    <input class="form-control" placeholder="请输入您的借记卡卡号" name="bankNum"  id="bankNum" type="text" ng-model="bankNum"  ng-focus="bankNumTip=true" ng-blur="bankNumTip=false;getBankInfo()"  number-only-input required/>
+		    </section>
+		    <section class="section3" >
+			    <p ng-show="bankNumTip">仅限绑定借记卡</p>
+		    </section>
+	    </div>
+    </article>
+    <article> 
+	    <div class="register-group">
+		    <section class="section1" >
+	    	    <label >卡类型:</label>
+		    </section>
+		    <section class="section2">
+	    	    <h4 ng-cloak>{{bankObj.bank_name}}&nbsp;&nbsp;{{bankObj.card_type}}</h4>
+		    </section>
+		    <section class="section3" >
+		    </section>
+	    </div>
+    </article>
+    <article> 
+	    <div class="register-group">
+		    <section class="section1" >
+	    	    <label for="phone">银行预留手机号:</label>
+		    </section>
+		    <section class="section2">
+	    	    <input class="form-control" placeholder="请输入您的银行预留手机号" name="phone"  id="phone" type="text" ng-model="phone" maxlength="{{phoneLength}}"  number-only-input required/>
+		    </section>
+		    <section class="section3" >
+			    <p ><div class="text-center mark" data-toggle="tooltip"  data-placement="right" title="银行预留的手机号码是办理该银行卡时所填写的手机号码。没有预留、手机号忘记或者已停用，请联系银行客服更新。">?</div></p>
+		    </section>
+	    </div>
+	    <p style="margin-left:296px;"> 
+		    <input type="checkbox" name="serviceRule" ng-model="serviceRule" />
+		    <span for="serviceRule">同意</span>
+		    <a style="color:#7b37a6">《品而银行卡服务协议》</a>
+	    </p>
+    </article>
+    <br>
+    <article>
+	    <p class="register-error" ng-show="addBankError" ng-cloak>{{addBankErrorMsg}}</p>
+	    <div class="register-group">
+		    <section class="section1">
+	    	    <label for="inviteCode"></label>
+		    </section>
+		    <section class="section2" >
+	    	    <button type="submit" ng-click="addBankInfo()">下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="addBankFlag"></i></button>
+		    </section>
+		    <section class="section3">
+	    	    <p ></p>
+		    </section>
+	    </div>
+    </article>
+</form>
+
+<form class="form-horizontal registerForm" ng-show="linkStatus">
+<br><br>
+    <article> 
+	    <div class="register-group">
+		    <section class="section1" >
+		    </section>
+		    <section class="section2" >
+	    	    <h4 style="text-align:left !important;margin-top:18px;padding-left:8px;" ng-cloak>
+	    	    	验证码已经发送至您的手机 {{phone}}
+	    	    </h4>
+		    </section>
+		    <section class="section3" >
+		    </section>
+	    </div>
+    </article>
+    <article> 
+	    <div class="register-group">
+		    <section class="section1" >
+	    	    <label for="validCode">验证码:</label>
+		    </section>
+		    <section class="section2" style="padding-left:8px;padding-right:8px;">
+	    	    <input class="form-control valid-code-input" placeholder="请输入短信验证码" name="validCode" id="validCode" ng-model="validCode" required/>
+		    	<button class="code-btn" type="button" ng-disabled="hasSendCode" ng-click="getValidCode()" ng-cloak>{{timeHandler}}&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="sendCodeFlag" ></i></button>
+		    </section>
+		    <section class="section3" >
+		    </section>
+	    </div>
+    </article>
+    <br>
+    <article>
+		<p class="register-error" ng-show="validBankError" ng-cloak>{{validBankErrorMsg}}</p>
+	    <div class="register-group">
+		    <section class="section1">
+	    	    <label for="inviteCode"></label>
+		    </section>
+		    <section class="section2" >
+	    	    <button type="submit" ng-click="next()">下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="validBankFlag"></i></button>
+		    </section>
+		    <section class="section3">
+	    	    <p ></p>
+		    </section>
+	    </div>
+    </article>
+</form>
+
+<script>
+   $(function() { $("[data-toggle='tooltip']").tooltip(); });
+</script>

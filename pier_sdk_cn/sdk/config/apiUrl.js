@@ -41,9 +41,12 @@ var apiurl = {
     prePay: {url: '/user_api_cn/v1/user/pay_prepare?platform=3' },
     checkPayPassword: {url: '/user_api_cn/v1/user/check_pay_password?platform=3' },
 
-
     //get sign for test
-    getDigitalSign: { url: '/pier-merchant-cn/demo/pay/sign/MC0000001409' }
+    getDigitalSign: { url: '/pier-merchant-cn/demo/pay/sign/MC0000001409?platform=3' },
+
+    //add bank account by lianlian
+    cardValidation: { url: '/user_api_cn/v1/lianlian/card_validation?platform=3' },
+    payCallback: { url: '/user_api_cn/v1/lianlian/callback_validation?platform=3'}
 
 }
 module.exports = apiurl;

@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+    	<p class="mobile-reg-title"><span style="color:#7b37a6;">4</span>/5 绑定银行卡&nbsp;<span style="color:#ccc;font-size:0.8em;">仅限绑定借记卡</span></p>
+    	<br><br>
+    </div>
+    <div class="row">
+        <form name="registerForm" id="registerForm" action="/mobile/user/bank_accout_verify" class="mobile-form mobile-register-form" ng-hide="linkStatus" method="POST">
+		    <table class="mobile-bank-table">
+		    	<tr>
+		    		<td>持卡人：</td>
+		    		<td ng-cloak>{{username}}</td>
+		    		<td></td>
+		    	</tr>
+		    	<tr>
+		    		<td>卡 号：</td>
+		    		<td><input placeholder="请输入您的借记卡卡号" name="bankNum"  id="bankNum" type="text" ng-model="bankNum" > </td>
+		    		<td></td>
+		    	</tr>
+		    	<tr>
+		    		<td>支&nbsp;付：</td>
+		    		<td>￥0.01</td>
+		    		<td></td>
+		    	</tr>
+		    </table>
+		    <p style="margin-top:10px;">验证银行卡会从您的卡中扣除0.01元，请确保您的银行卡余额充足。</p>
+            <input type="hidden" value="{{user}}" name="userInfo" >
+		    <div class="form-group">
+		        <button type="button" class="submit-btn" ng-click="verifySubmit()" ng-cloak>下一步&nbsp;&nbsp;<i class="fa fa-gear fa-spin" ng-show="saveFlag" ></i></button>
+		    </div>
+		</form>
+    </div>
+</div>
+
+
+<script>
+   $(function() { 
+   	// $("[data-toggle='tooltip']").tooltip(); 
+   });
+</script>

@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+    <style type="text/css">
+        .pier-payment-btn{width:120px;height:32px;border:1px solid #ccc; cursor:pointer;}
+        .pier-payment-btn:hover{width:120px;height:32px;border:1px solid #7b37a6; cursor:pointer;'}
+        .pier-payment-btn img{width:24px;height:24px;display:inline-block;margin-top:4px;margin-left:14px;margin-right:4px;}
+        .pier-payment-btn span{font-size:14px;display:inline-block;float:right;margin-top:8px;margin-right:14px;'}
+    </style>
 	<title>品而支付</title>
 	<script src="js/checkout.js"></script>
     <script src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body style="text-align:center;padding-top:100px;padding-left:300px;">
-    <div class="pier-payment-btn" id="pierPay"><img class="" src="http://pierup.cn/images/pierlogo38.png" ></img><span>品而支付</span></div>
+    <div class="pier-payment-btn" id="pierPay"><img  src="http://pierup.cn/images/pierlogo38.png" ></img><span>品而支付</span></div>
 	<script type="text/javascript">
         $(function(){
-            console.log(JSON.stringify([
-                            { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥1.1',count:'3',total: '￥3.3' },
-                            { product: '官网NIKE', logo: '', detail: '222222', type: 'Nike 服饰，和NBA球员一起运动',price:'￥4.41',count:'1',total: '￥4.41' },
-                            { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥1.1',count:'3',total: '￥3.3' }
-                        ]));
             function randomString(len) {
             　　len = len || 32;
             　　var $chars = '1234567890';
@@ -26,7 +27,7 @@
             　　return pwd;
             }
             var getOrder = function(){
-                return 'OR'+randomString(13);
+                return 'OR'+randomString(18);
             }
             var getSign = function( order ){
                 var url = '/getSignForTest',
@@ -34,7 +35,7 @@
                     merchant_id: "MC0000001409",
                     order_id: order,
                     charset:"UTF-8",
-                    amount:"11.01",
+                    amount:"19.90",
                     return_url:"/checkout/orderList",
                     api_id:"1819957c-1a3f-11e5-ba25-3a22fd90d682"
                 };
@@ -45,29 +46,33 @@
                     dataType:"json", 
                     data:JSON.stringify(message)
                 }); 
-              return deffered.promise();
+                return deffered.promise();
             }
             var _orderId = getOrder();
             var _signPromise = getSign( _orderId );
             _signPromise.then(function(data){
-                console.log( 'sign', data );
                 var _sign = encodeURIComponent( data.result.sign );
                 PIER.initSDK({
-                    amount: '11.01',
+                    amount: '19.90',
                     currency: 'CNY',
                     order_id: _orderId,
                     merchant_id: 'MC0000001409',
-                    data_action: '/checkout/login',
                     return_url: '/checkout/orderList',
                     api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
-                    order_detail: JSON.stringify([
-                            { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥1.1',count:'3',total: '￥3.3' },
-                            { product: '官网NIKE', logo: '', detail: '222222', type: 'Nike 服饰，和NBA球员一起运动',price:'￥4.41',count:'1',total: '￥4.41' },
-                            { product: '美国XXX的保健品，强身健体', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'￥1.1',count:'3',total: '￥3.3' }
-                        ]),
-                    sign: _sign,
+                    order_detail: [
+                        {  logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'1.1',count:'3',total: '3.3' },
+                        { product: '官网NIKE', logo: '', detail: '最好的篮球鞋，詹姆斯战靴1代', type: 'Nike 服饰，和NBA球员一起运动',price:'5.00',count:'1',total: '5.00' },
+                        { product: '美国XXX的保健品', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'1.1',count:'3',total: '3.3' },
+                        { product: 'iPhone 6s 手机壳', logo: '', detail: '让你的iPhone6看上去就是iPhone 6s, 屌丝的选择。', type: '装饰品',price:'4',count:'2',total: '8.00' }
+                    ],
+                    sign: _sign,//必须是通过url编码过的sign
                     sign_type: 'RSA',
-                    charset: 'UTF-8'
+                    charset: 'UTF-8',
+                    callback_default: false,
+                    pay_button_id: 'pierPay'
+                }, function(){
+                    //callback 当上面的参数callback_default为false(默认值)时，将执行这里的回调函数；当为true的时候，只执行默认的回调，不执行这个回调的方法。
+                    console.log( '当用户在进行支付的时候，您可以在这里执行一些操作');
                 });
             })
         })

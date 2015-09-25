@@ -103,15 +103,6 @@ router.post('/checkout/login_auth', function(req, res, next) {
   //for check user password and phone
   authOrder.errorMsg = '';
   authOrder.directError = false;
-  if( pierUtil.checkPhone(params.phone) != '' || pierUtil.checkPassword(params.password) != '' ){
-    authOrder.location = 'login';
-    authOrder.errorMsg = pierUtil.checkPhone(params.phone) != ''? pierUtil.checkPhone(params.phone):pierUtil.checkPassword(params.password);
-    authOrder.phone = params.phone;
-    authOrder.password = params.password;
-    authOrder.pageInfo = JSON.stringify({ page_id: '200001' });
-    res.render('mobile/checkout/login', authOrder );
-    return;
-  }
 
   //login request
   request( pierUtil.getRequestParams( urlPath, params ), function(err, response, body){
@@ -456,7 +447,7 @@ router.post( '/checkout/SetPin', function( req, res, next ){
  */
 router.get('/user/register', function(req, res, next) {
   console.log("user register start");
-  res.render('mobile/register/register',{title:'用户注册',location:'register'});
+  res.render('mobile/register/register',{title:'用户注册',location:'register', userInfo: '' });
 });
 router.post('/user/apply', function(req, res, next) {
   console.log( "user apply credit", req.body );
@@ -475,6 +466,62 @@ router.post('/user/apply', function(req, res, next) {
     }
   } );
 });
+router.post('/user/bank_accout_verify', function(req, res, next) {
+  var userInfo = JSON.parse( req.body.userInfo );
+  req.session['register_user_info'] =  userInfo ;
+  console.error( 'user bank accout verify post use info ', req.session['register_user_info'] );
+
+  var urlPath = '/cardValidation',
+  message = {
+    user_id: userInfo.user_id,
+    session_token: userInfo.session_token,
+    card_no: req.body.bankNum,
+    acct_name: userInfo.username,
+    order_type: '1',
+    sign_type: 'MD5',
+    app_request: "3",
+    bg_color: "7b37a6",
+    url_return: 'http://pierup.cn:4000/mobile/user/verifyBankCallbank'
+  };
+  console.log( "get lianlian order info", message );
+  
+  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
+    console.log( "get lianlian order info", body );
+    if( body.code == 200 ){
+        var payInfo = {
+           "acct_name": body.result.acct_name,
+           "app_request":body.result.app_request,
+           "bg_color": body.result.bg_color,
+           "busi_partner": body.result.busi_partner,
+           "card_no": body.result.card_no,
+           "dt_order": body.result.dt_order,
+           "id_no": body.result.id_no,
+           "info_order": body.result.info_order,
+           "money_order": body.result.money_order,
+           "name_goods": body.result.name_goods,
+           "no_agree": body.result.no_agree,
+           "no_order": body.result.no_order,
+           "notify_url": body.result.notify_url,
+           "oid_partner": body.result.oid_partner,
+           "risk_item": body.result.risk_item,
+           "sign": body.result.sign,
+           "sign_type": body.result.sign_type,
+           "url_return": body.result.url_return,
+           "user_id": body.result.user_id,
+           "valid_order": body.result.valid_order
+       };
+       //for test account
+       // payInfo.oid_partner = '201306031000001013';
+       // payInfo = {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150919105051","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"20150919105051","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201306031000001013","risk_item":"{\\\"user_info_dt_register\\\":\\\"20131030122130\\\"}","sign":"7d2498e9fb50d59dce71aae8b4cc841b","sign_type":"MD5","url_return":"http://pierup.cn:4000/mobile/user/verifyBankCallbank","user_id":"22222222","valid_order":"30"};
+       console.error('send lianlian params', JSON.stringify( payInfo ) );
+       res.render( 'mobile/register/bankVerify', { req_data:JSON.stringify( payInfo ), title: '添加银行卡'});
+    }else{
+      console.error('link lianlian failed', body );
+    }
+  } );
+  var req_data = JSON.stringify( payInfo );
+  res.render( 'mobile/register/bankVerify', { req_data: req_data, title: '银行校验' });
+});
 //for test
 router.get('/user/applySuccess', function(req, res, next) {
   res.render('mobile/register/applySuccess',{title:'申请信用成功', location: 'register',result:{credit_limit:'1000.00'}});
@@ -482,7 +529,44 @@ router.get('/user/applySuccess', function(req, res, next) {
 router.get('/user/applyFailure', function(req, res, next) {
   res.render('mobile/register/applyFailure',{title:'申请信用失败', location: 'register', message: '很多原因让你申请失败的。'});
 });
-
+router.get('/user/verifyBankCallbank', function( req, res, next ){
+  console.log( "verifyBankCallbank from lianlian for Get", req.query );
+  var reqData = req.query.req_data || '';
+  if( reqData != '' ){
+    var userInfo = req.session['register_user_info']; 
+    userInfo.statusBit = '19';
+    res.render('mobile/register/register',{title:'用户注册',location:'register', userInfo: userInfo });
+  }else{
+    res.redirect('/mobile/user/register#/link-bank');
+  }
+  
+});
+router.post('/user/verifyBankCallbank', function( req, res, next ){
+  var reqData = req.query.req_data || '';
+  console.log( "verifyBankCallbank from lianlian for Post", req.query );
+  if( reqData != '' ){
+    var urlPath = '/payCallback';
+    var userInfo = req.session['register_user_info']; 
+    var message = {
+      user_id: userInfo.user_id,
+      result_pay: reqData.result_pay,
+      ret_msg: '交易成功',
+      no_order: reqData.no_order,
+      oid_paybill: reqData.oid_paybill,
+      settle_date: reqData.settle_date,
+      sign_type: reqData.sign_type,
+      sign: reqData.sign,
+      money_order: reqData.money_order
+    };
+    request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
+      console.log( "lianlian callback_validation success", body );
+      userInfo.statusBit = body.result.status_bit;
+      res.render('mobile/register/register',{title:'用户注册',location:'register', userInfo: userInfo });
+    } );
+  }else{
+    res.redirect('/mobile/user/register#/link-bank');
+  }
+});
 /**
  * user forget pay password
  */

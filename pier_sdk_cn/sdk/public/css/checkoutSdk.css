@@ -18,6 +18,9 @@ body{
 .footer p{
 	color: rgb(160,160,160);
 }
+.footer a{
+	color: #7b37a6;
+}
 .header{
 	padding: 26px 90px;
 }

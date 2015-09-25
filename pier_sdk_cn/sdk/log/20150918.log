@@ -1,0 +1,818 @@
+[2015-09-18 13:28:09.400] [INFO] console - user get sign for test  undefined
+[2015-09-18 13:28:29.126] [INFO] console - user register start
+[2015-09-18 13:30:17.728] [INFO] console - user register start
+[2015-09-18 15:04:25.679] [INFO] console - user register start
+[2015-09-18 15:04:34.620] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '7286' } }
+[2015-09-18 15:04:42.661] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'b735d35fbedaa72298586a36a7e7f9e7' } }
+[2015-09-18 15:04:49.042] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007781',
+     session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:05:10.163] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:05:13.875] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:05:39.333] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007781',
+  session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+  phone: '13248222256',
+  username: '程聪' }
+[2015-09-18 15:05:39.334] [INFO] console - get lianlian order info { user_id: 'UR0000007781',
+  session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+  card_no: '621226100101579232',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-18 15:05:39.364] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007785',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '621226100101579232',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+     sign: 'e08395c52331efb2d4b9901318fa6f5b',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007781',
+     dt_order: '20150918145917',
+     id_no: '350783199204095532' } }
+[2015-09-18 15:05:39.366] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"621226100101579232","dt_order":"20150918145917","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007785","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"e08395c52331efb2d4b9901318fa6f5b","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007781","valid_order":"10080"}
+[2015-09-18 15:06:00.036] [INFO] console - user register start
+[2015-09-18 15:08:26.687] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007781',
+  session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+  phone: '13248222256',
+  username: '程聪' }
+[2015-09-18 15:08:26.692] [INFO] console - get lianlian order info { user_id: 'UR0000007781',
+  session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+  card_no: '621226100101579232',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-18 15:08:26.732] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007790',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '621226100101579232',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+     sign: 'b5c322f0457a5d366c82adfb13ea7400',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007781',
+     dt_order: '20150918150204',
+     id_no: '350783199204095532' } }
+[2015-09-18 15:08:26.742] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"621226100101579232","dt_order":"20150918150204","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007790","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"b5c322f0457a5d366c82adfb13ea7400","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007781","valid_order":"10080"}
+[2015-09-18 15:13:25.158] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007781',
+  session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+  phone: '13248222256',
+  username: '程聪' }
+[2015-09-18 15:13:25.161] [INFO] console - get lianlian order info { user_id: 'UR0000007781',
+  session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+  card_no: '622848003134973441',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-18 15:13:25.195] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007797',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '622848003134973441',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: 'dcdefaa9-5dd3-11e5-8785-6d3eeeeedd88',
+     sign: '1277904a6714e39652469b460d976b0f',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007781',
+     dt_order: '20150918150702',
+     id_no: '350783199204095532' } }
+[2015-09-18 15:13:25.198] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"622848003134973441","dt_order":"20150918150702","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007797","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"1277904a6714e39652469b460d976b0f","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007781","valid_order":"10080"}
+[2015-09-18 15:16:09.932] [INFO] console - user register start
+[2015-09-18 15:16:28.524] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007781',
+  session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+  phone: '13248222256',
+  username: '程聪' }
+[2015-09-18 15:16:28.525] [INFO] console - get lianlian order info { user_id: 'UR0000007781',
+  session_token: 'a93928ba-5dd2-11e5-8785-6d3eeeeedd88',
+  card_no: '621226100101579232',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-18 15:16:28.634] [INFO] console - get lianlian order info { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: 
+   { no_order: '',
+     sign_type: 'MD5',
+     acct_name: '程聪',
+     name_goods: '',
+     card_no: '621226100101579232',
+     money_order: '',
+     info_order: '',
+     session_token: '',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007781',
+     dt_order: '',
+     id_no: '' } }
+[2015-09-18 15:16:28.636] [ERROR] console - link lianlian failed { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: 
+   { no_order: '',
+     sign_type: 'MD5',
+     acct_name: '程聪',
+     name_goods: '',
+     card_no: '621226100101579232',
+     money_order: '',
+     info_order: '',
+     session_token: '',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007781',
+     dt_order: '',
+     id_no: '' } }
+[2015-09-18 15:16:40.500] [INFO] console - user register start
+[2015-09-18 15:16:42.561] [INFO] console - user register start
+[2015-09-18 15:16:42.828] [INFO] console - user register start
+[2015-09-18 15:16:43.190] [INFO] console - user register start
+[2015-09-18 15:16:43.399] [INFO] console - user register start
+[2015-09-18 15:16:49.478] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '0995' } }
+[2015-09-18 15:16:51.469] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '3d564decbe5b5593449a18c7980f62b7' } }
+[2015-09-18 15:17:02.238] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007798',
+     session_token: '5e3b0e0b-5dd4-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:17:20.853] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '5e3b0e0b-5dd4-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:17:23.868] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '5e3b0e0b-5dd4-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:17:29.003] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007798',
+  session_token: '5e3b0e0b-5dd4-11e5-8785-6d3eeeeedd88',
+  phone: '13248269000',
+  username: '程聪' }
+[2015-09-18 15:17:29.006] [INFO] console - get lianlian order info { user_id: 'UR0000007798',
+  session_token: '5e3b0e0b-5dd4-11e5-8785-6d3eeeeedd88',
+  card_no: '621226100101579232',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-18 15:17:29.031] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007801',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '621226100101579232',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: '5e3b0e0b-5dd4-11e5-8785-6d3eeeeedd88',
+     sign: '9cc2222f6b5dc9bf1106e3704ca174ad',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007798',
+     dt_order: '20150918151106',
+     id_no: '350783199204095532' } }
+[2015-09-18 15:17:29.033] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"621226100101579232","dt_order":"20150918151106","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007801","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"9cc2222f6b5dc9bf1106e3704ca174ad","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007798","valid_order":"10080"}
+[2015-09-18 15:19:25.247] [INFO] console - user register start
+[2015-09-18 15:19:53.653] [INFO] console - user register start
+[2015-09-18 15:20:02.783] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '3117' } }
+[2015-09-18 15:20:04.910] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '4eb169019ce145adf8a38d246b4da8c5' } }
+[2015-09-18 15:20:09.594] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007802',
+     session_token: 'cde9ee53-5dd4-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:20:27.634] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: 'cde9ee53-5dd4-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:20:31.798] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: 'cde9ee53-5dd4-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:20:38.066] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007802',
+  session_token: 'cde9ee53-5dd4-11e5-8785-6d3eeeeedd88',
+  phone: '13255844456',
+  username: '程聪' }
+[2015-09-18 15:20:38.068] [INFO] console - get lianlian order info { user_id: 'UR0000007802',
+  session_token: 'cde9ee53-5dd4-11e5-8785-6d3eeeeedd88',
+  card_no: '6212261001015792325',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-18 15:20:38.097] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007805',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '6212261001015792325',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: 'cde9ee53-5dd4-11e5-8785-6d3eeeeedd88',
+     sign: '6e52105e6f942335b2748e0deeae137b',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007802',
+     dt_order: '20150918151415',
+     id_no: '350783199204095532' } }
+[2015-09-18 15:20:38.104] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150918151415","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007805","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"6e52105e6f942335b2748e0deeae137b","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007802","valid_order":"10080"}
+[2015-09-18 15:30:25.504] [INFO] console - user get sign for test  undefined
+[2015-09-18 15:30:27.418] [INFO] console - user register start
+[2015-09-18 15:30:32.872] [INFO] console - user register start
+[2015-09-18 15:30:35.734] [INFO] console - user register start
+[2015-09-18 15:30:38.129] [INFO] console - user register start
+[2015-09-18 15:30:43.160] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '2599' } }
+[2015-09-18 15:30:46.307] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'b0911f15715c2a96e68787b2592e0e92' } }
+[2015-09-18 15:30:51.463] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007808',
+     session_token: '4c7f50b8-5dd6-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:31:07.476] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '4c7f50b8-5dd6-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:31:10.534] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '4c7f50b8-5dd6-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:31:18.790] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007808',
+  session_token: '4c7f50b8-5dd6-11e5-8785-6d3eeeeedd88',
+  phone: '15654616165',
+  username: '程聪' }
+[2015-09-18 15:31:18.792] [INFO] console - get lianlian order info { user_id: 'UR0000007808',
+  session_token: '4c7f50b8-5dd6-11e5-8785-6d3eeeeedd88',
+  card_no: '6212261001015792325',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-18 15:31:18.819] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007813',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '6212261001015792325',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: '4c7f50b8-5dd6-11e5-8785-6d3eeeeedd88',
+     sign: '8d90142282c78a9b3d733d874589d562',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007808',
+     dt_order: '20150918152456',
+     id_no: '350783199204095532' } }
+[2015-09-18 15:31:18.821] [ERROR] console - send lianlian params {"acct_name":"程聪","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150918152456","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007813","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"8d90142282c78a9b3d733d874589d562","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007808","valid_order":"10080"}
+[2015-09-18 15:32:19.324] [INFO] console - user register start
+[2015-09-18 15:32:26.861] [INFO] console - user register start
+[2015-09-18 15:32:31.488] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '3644' } }
+[2015-09-18 15:32:35.976] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '81a6e84986ae2ec3b508f2ff466230b6' } }
+[2015-09-18 15:32:41.744] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007814',
+     session_token: '8e1a780a-5dd6-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:32:54.834] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '8e1a780a-5dd6-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:32:57.592] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '8e1a780a-5dd6-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:33:03.264] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007814',
+  session_token: '8e1a780a-5dd6-11e5-8785-6d3eeeeedd88',
+  phone: '13258556555',
+  username: '程聪' }
+[2015-09-18 15:33:03.266] [INFO] console - get lianlian order info { user_id: 'UR0000007814',
+  session_token: '8e1a780a-5dd6-11e5-8785-6d3eeeeedd88',
+  card_no: '6212261001015792325',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-18 15:33:03.304] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007819',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '6212261001015792325',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: '8e1a780a-5dd6-11e5-8785-6d3eeeeedd88',
+     sign: 'cea4fd01a6542b4f8c9233f6c0855f32',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007814',
+     dt_order: '20150918152641',
+     id_no: '350783199204095532' } }
+[2015-09-18 15:33:03.310] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150918152641","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007819","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"cea4fd01a6542b4f8c9233f6c0855f32","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007814","valid_order":"10080"}
+[2015-09-18 15:43:28.118] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '2600' } }
+[2015-09-18 15:43:30.263] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '054e502c5fb9e5fbb2c66643993abe1c' } }
+[2015-09-18 15:43:38.854] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007828',
+     session_token: '15e53b01-5dd8-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:43:53.066] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '15e53b01-5dd8-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:44:01.306] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '15e53b01-5dd8-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:44:04.338] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007828',
+  session_token: '15e53b01-5dd8-11e5-8785-6d3eeeeedd88',
+  phone: '13045856465',
+  username: '程聪' }
+[2015-09-18 15:44:04.341] [INFO] console - get lianlian order info { user_id: 'UR0000007828',
+  session_token: '15e53b01-5dd8-11e5-8785-6d3eeeeedd88',
+  card_no: '6212261001015792325',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5',
+  app_request: '3',
+  bg_color: '7b37a6' }
+[2015-09-18 15:44:05.046] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007831',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '6212261001015792325',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: '15e53b01-5dd8-11e5-8785-6d3eeeeedd88',
+     sign: '70f1ef6da0431d01cb1cc1361207ff3d',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007828',
+     dt_order: '20150918153742',
+     id_no: '350783199204095532' } }
+[2015-09-18 15:44:05.053] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150918153742","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007831","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"70f1ef6da0431d01cb1cc1361207ff3d","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007828","valid_order":"10080"}
+[2015-09-18 15:47:23.550] [INFO] console - user register start
+[2015-09-18 15:47:26.145] [INFO] console - user register start
+[2015-09-18 15:47:26.331] [INFO] console - user register start
+[2015-09-18 15:47:26.519] [INFO] console - user register start
+[2015-09-18 15:47:33.248] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '3687' } }
+[2015-09-18 15:47:38.157] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '29af35fc824cc4db288766e07eb9c942' } }
+[2015-09-18 15:47:43.649] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007836',
+     session_token: 'a7ce5e77-5dd8-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:48:05.152] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: 'a7ce5e77-5dd8-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:48:08.244] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: 'a7ce5e77-5dd8-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 15:48:14.631] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007836',
+  session_token: 'a7ce5e77-5dd8-11e5-8785-6d3eeeeedd88',
+  phone: '13248269423',
+  username: '程聪' }
+[2015-09-18 15:48:14.634] [INFO] console - get lianlian order info { user_id: 'UR0000007836',
+  session_token: 'a7ce5e77-5dd8-11e5-8785-6d3eeeeedd88',
+  card_no: '6212261001015792325',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5',
+  app_request: '3',
+  bg_color: '7b37a6' }
+[2015-09-18 15:48:14.671] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007839',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '6212261001015792325',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: 'a7ce5e77-5dd8-11e5-8785-6d3eeeeedd88',
+     sign: '46eba73e74dfeec4d57e7314a39fd686',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007836',
+     dt_order: '20150918154152',
+     id_no: '350783199204095532' } }
+[2015-09-18 15:48:14.679] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150918154152","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007839","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"46eba73e74dfeec4d57e7314a39fd686","sign_type":"MD5","user_id":"UR0000007836","valid_order":"10080"}
+[2015-09-18 15:51:50.726] [INFO] console - user get sign for test  undefined
+[2015-09-18 16:02:59.823] [INFO] console - user register start
+[2015-09-18 16:05:59.981] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007836',
+  session_token: 'a7ce5e77-5dd8-11e5-8785-6d3eeeeedd88',
+  phone: '13248269423',
+  username: '程聪' }
+[2015-09-18 16:05:59.982] [INFO] console - get lianlian order info { user_id: 'UR0000007836',
+  session_token: 'a7ce5e77-5dd8-11e5-8785-6d3eeeeedd88',
+  card_no: '6212261001015792325',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5',
+  app_request: '3',
+  bg_color: '7b37a6',
+  url_return: 'http://pierup.cn/mobile/user/verifyBankCallbank' }
+[2015-09-18 16:06:00.404] [INFO] console - get lianlian order info { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: 
+   { no_order: '',
+     sign_type: 'MD5',
+     acct_name: '程聪',
+     name_goods: '',
+     card_no: '6212261001015792325',
+     money_order: '',
+     info_order: '',
+     session_token: '',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007836',
+     dt_order: '',
+     id_no: '' } }
+[2015-09-18 16:06:00.407] [ERROR] console - link lianlian failed { code: '1001',
+  message: '会话已过期，请重新登录',
+  result: 
+   { no_order: '',
+     sign_type: 'MD5',
+     acct_name: '程聪',
+     name_goods: '',
+     card_no: '6212261001015792325',
+     money_order: '',
+     info_order: '',
+     session_token: '',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007836',
+     dt_order: '',
+     id_no: '' } }
+[2015-09-18 16:06:17.439] [INFO] console - user register start
+[2015-09-18 16:06:25.339] [INFO] console - user register start
+[2015-09-18 16:06:25.516] [INFO] console - user register start
+[2015-09-18 16:06:25.701] [INFO] console - user register start
+[2015-09-18 16:06:30.740] [INFO] console - get response body { code: '1140',
+  message: '该电话号码已经注册，请登录',
+  result: { prefix_phone: '13248269999', resend_time: '0', code: '' } }
+[2015-09-18 16:06:36.175] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '78b91244b101b3528422ffa1489a0943' } }
+[2015-09-18 16:06:41.204] [INFO] console - get response body { code: '2005',
+  message: '验证码无效或者过期',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: '',
+     session_token: '' } }
+[2015-09-18 16:06:42.110] [INFO] console - get response body { code: '2005',
+  message: '验证码无效或者过期',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: '',
+     session_token: '' } }
+[2015-09-18 16:06:46.577] [INFO] console - get response body { code: '2005',
+  message: '验证码无效或者过期',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: '',
+     session_token: '' } }
+[2015-09-18 16:06:49.162] [INFO] console - get response body { code: '2005',
+  message: '验证码无效或者过期',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: '',
+     session_token: '' } }
+[2015-09-18 16:07:00.017] [INFO] console - user register start
+[2015-09-18 16:07:04.425] [INFO] console - get response body { code: '400', message: '无效的电话号码：  31233423432', result: null }
+[2015-09-18 16:07:09.264] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '8209' } }
+[2015-09-18 16:07:11.212] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'e4cdb37eff7c46ed52744c66a1ab3e34' } }
+[2015-09-18 16:07:15.914] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007859',
+     session_token: '62872b13-5ddb-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 16:07:38.688] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '62872b13-5ddb-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 16:07:42.253] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '62872b13-5ddb-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 16:07:59.512] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007859',
+  session_token: '62872b13-5ddb-11e5-8785-6d3eeeeedd88',
+  phone: '13225312321',
+  username: '程聪' }
+[2015-09-18 16:07:59.518] [INFO] console - get lianlian order info { user_id: 'UR0000007859',
+  session_token: '62872b13-5ddb-11e5-8785-6d3eeeeedd88',
+  card_no: '6228480031349734413',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5',
+  app_request: '3',
+  bg_color: '7b37a6',
+  url_return: 'http://pierup.cn/mobile/user/verifyBankCallbank' }
+[2015-09-18 16:07:59.754] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     bg_color: '7b37a6',
+     sign_type: 'MD5',
+     name_goods: '品而数据--银行卡验证',
+     session_token: '62872b13-5ddb-11e5-8785-6d3eeeeedd88',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     id_type: '0',
+     dt_order: '20150918160137',
+     user_id: 'UR0000007859',
+     app_request: '3',
+     no_order: 'LO0000007862',
+     busi_partner: '101001',
+     url_return: 'http://pierup.cn/mobile/user/verifyBankCallbank',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     money_order: '0.01',
+     card_no: '6228480031349734413',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     sign: '1d8ac2e14b88f6834a95bbdea167f469',
+     valid_order: '10080',
+     no_agree: '',
+     id_no: '350783199204095532' } }
+[2015-09-18 16:07:59.755] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6228480031349734413","dt_order":"20150918160137","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007862","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"1d8ac2e14b88f6834a95bbdea167f469","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007859","valid_order":"10080"}
+[2015-09-18 16:09:55.644] [INFO] console - user register start
+[2015-09-18 16:10:06.127] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '8394' } }
+[2015-09-18 16:10:08.386] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '8f513fa61116bef3ef8f10d13737147e' } }
+[2015-09-18 16:10:14.977] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007863',
+     session_token: 'cd229dd5-5ddb-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 16:10:30.941] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: 'cd229dd5-5ddb-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 16:10:33.863] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: 'cd229dd5-5ddb-11e5-8785-6d3eeeeedd88' } }
+[2015-09-18 16:10:40.776] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007863',
+  session_token: 'cd229dd5-5ddb-11e5-8785-6d3eeeeedd88',
+  phone: '13248998525',
+  username: '程聪' }
+[2015-09-18 16:10:40.778] [INFO] console - get lianlian order info { user_id: 'UR0000007863',
+  session_token: 'cd229dd5-5ddb-11e5-8785-6d3eeeeedd88',
+  card_no: '6212261001015792325',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5',
+  app_request: '3',
+  bg_color: '7b37a6',
+  url_return: 'http://pierup.cn/mobile/user/verifyBankCallbank' }
+[2015-09-18 16:10:40.806] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     bg_color: '7b37a6',
+     sign_type: 'MD5',
+     name_goods: '品而数据--银行卡验证',
+     session_token: 'cd229dd5-5ddb-11e5-8785-6d3eeeeedd88',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     id_type: '0',
+     dt_order: '20150918160418',
+     user_id: 'UR0000007863',
+     app_request: '3',
+     no_order: 'LO0000007868',
+     busi_partner: '101001',
+     url_return: 'http://pierup.cn/mobile/user/verifyBankCallbank',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     money_order: '0.01',
+     card_no: '6212261001015792325',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     sign: '7f86f87cb2554f3376e95d905effa6e9',
+     valid_order: '10080',
+     no_agree: '',
+     id_no: '350783199204095532' } }
+[2015-09-18 16:10:40.808] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150918160418","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007868","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"7f86f87cb2554f3376e95d905effa6e9","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007863","valid_order":"10080"}
+[2015-09-19 10:20:50.898] [INFO] console - user get sign for test  undefined
+[2015-09-19 10:20:57.305] [INFO] console - user register start
+[2015-09-19 10:21:06.767] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '3607' } }
+[2015-09-19 10:21:09.223] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '2d0b0db2a1173037424a30fa77cc9a7f' } }
+[2015-09-19 10:21:15.068] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007894',
+     session_token: '364d1614-5e74-11e5-8785-6d3eeeeedd88' } }
+[2015-09-19 10:21:29.042] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '364d1614-5e74-11e5-8785-6d3eeeeedd88' } }
+[2015-09-19 10:21:32.730] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '364d1614-5e74-11e5-8785-6d3eeeeedd88' } }
+[2015-09-19 10:21:45.577] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007894',
+  session_token: '364d1614-5e74-11e5-8785-6d3eeeeedd88',
+  phone: '13024856912',
+  username: '程聪' }
+[2015-09-19 10:21:45.578] [INFO] console - get lianlian order info { user_id: 'UR0000007894',
+  session_token: '364d1614-5e74-11e5-8785-6d3eeeeedd88',
+  card_no: '6212261001015792325',
+  acct_name: '程聪',
+  order_type: '1',
+  sign_type: 'MD5',
+  app_request: '3',
+  bg_color: '7b37a6',
+  url_return: 'http://pierup.cn/mobile/user/verifyBankCallbank' }
+[2015-09-19 10:21:46.115] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     bg_color: '7b37a6',
+     sign_type: 'MD5',
+     name_goods: '品而数据--银行卡验证',
+     session_token: '364d1614-5e74-11e5-8785-6d3eeeeedd88',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     id_type: '0',
+     dt_order: '20150919101523',
+     user_id: 'UR0000007894',
+     app_request: '3',
+     no_order: 'LO0000007897',
+     busi_partner: '101001',
+     url_return: 'http://pierup.cn/mobile/user/verifyBankCallbank',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation',
+     acct_name: '程聪',
+     money_order: '0.01',
+     card_no: '6212261001015792325',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     sign: 'b3fae90a2410adbda7bfdcdbe15ca049',
+     valid_order: '10080',
+     no_agree: '',
+     id_no: '350783199204095532' } }
+[2015-09-19 10:21:46.118] [ERROR] console - send lianlian params {"acct_name":"程聪","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"6212261001015792325","dt_order":"20150919101523","id_no":"350783199204095532","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007897","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/callback_validation","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"b3fae90a2410adbda7bfdcdbe15ca049","sign_type":"MD5","url_return":"http://pierup.cn/mobile/user/verifyBankCallbank","user_id":"UR0000007894","valid_order":"10080"}

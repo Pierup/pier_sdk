@@ -4,6 +4,7 @@
 <script src="../../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/user/register/register.js"></script>
 <div class="registeration" ng-app="RegisterApp" ng-controller="IndexController">
+    <input type="hidden" value="<%=userInfo%>" name="userInfo" id="userObj"/>
     <div class="register-wrap" >
 		<div class="pier-form" >
 			<ui-view></ui-view>

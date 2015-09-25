@@ -30,7 +30,13 @@
 		    </div>
 		    <div class="form-group">
 		        <label for="username">
-		            <span class="pull-left" style="text-align:left !important;">*品而信用只能为年满18岁的公民提供额度，如您未满18岁，请选择其他方式进行支付。</span>
+		            <span class="pull-left " style="text-align:left !important;">*品而信用只能为年满18岁的公民提供额度，如您未满18岁，请选择其他方式进行支付。</span>
+		        </label>
+		    </div>
+
+		    <div class="form-group">
+		        <label for="username">
+		            <span class="pull-left error-msg" ng-cloak ng-show="saveError">{{errorMsg}}</span>
 		        </label>
 		    </div>
 

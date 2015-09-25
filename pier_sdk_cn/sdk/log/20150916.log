@@ -1,0 +1,1135 @@
+[2015-09-16 13:42:58.044] [INFO] console - { order_id: 'OR5746669236805', merchant_id: 'MC0000001409' }
+[2015-09-16 13:42:58.795] [INFO] console - user register start
+[2015-09-16 13:43:04.794] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '9563' } }
+[2015-09-16 13:43:06.886] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '38dec864402ec9aa06d1d212e62de197' } }
+[2015-09-16 13:43:11.786] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000008541',
+     session_token: '3feff465-5c35-11e5-9b56-ac853da464e1' } }
+[2015-09-16 13:43:30.215] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '3feff465-5c35-11e5-9b56-ac853da464e1' } }
+[2015-09-16 13:43:33.592] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '3feff465-5c35-11e5-9b56-ac853da464e1' } }
+[2015-09-16 14:03:18.240] [INFO] console - user get sign for test  { code: '200',
+  message: 'OK',
+  result: { sign: 'WsPC2BTJHptuzFVNY69ltUZz1WM9vjeLIlwHd4Fx9oYi9Bews9buu2x4oXAJss3Yg3w4/I/avvlolYCBsnoJBQK7zOuTNfN0PZtOfPGBTjhtaIal6iNJLImGnvtdOtxEeVsLQGtqp4D9c72BFH48xnXEWPtyRuGVwEmhHSrknJU=' } }
+[2015-09-16 14:03:21.742] [INFO] console - { order_id: 'OR5746669236805', merchant_id: 'MC0000001409' }
+[2015-09-16 14:03:25.225] [INFO] console - { order_id: 'OR5746669236805', merchant_id: 'MC0000001409' }
+[2015-09-16 14:03:25.834] [INFO] console - user register start
+[2015-09-16 14:03:31.027] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '1395' } }
+[2015-09-16 14:03:33.381] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '658c8db525b40ab579c0b76127bb117f' } }
+[2015-09-16 14:03:37.990] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000008547',
+     session_token: '1acfd852-5c38-11e5-9b56-ac853da464e1' } }
+[2015-09-16 14:03:51.904] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '1acfd852-5c38-11e5-9b56-ac853da464e1' } }
+[2015-09-16 14:03:55.626] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '1acfd852-5c38-11e5-9b56-ac853da464e1' } }
+[2015-09-16 14:04:06.215] [ERROR] console - user bank accout verify post use info  {"user_id":"UR0000008547","session_token":"1acfd852-5c38-11e5-9b56-ac853da464e1","phone":"13248888884","username":"cc"}
+[2015-09-16 14:04:06.332] [INFO] console - get lianlian order info <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 404 - /v1/lianlian/get_order</h1><HR size="1" noshade="noshade"><p><b>type</b> Status report</p><p><b>message</b> <u>/v1/lianlian/get_order</u></p><p><b>description</b> <u>The requested resource is not available.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:04:06.379] [ERROR] console - link lianlian failed <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 404 - /v1/lianlian/get_order</h1><HR size="1" noshade="noshade"><p><b>type</b> Status report</p><p><b>message</b> <u>/v1/lianlian/get_order</u></p><p><b>description</b> <u>The requested resource is not available.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:04:43.658] [ERROR] console - user bank accout verify post use info  {"user_id":"UR0000008547","session_token":"1acfd852-5c38-11e5-9b56-ac853da464e1","phone":"13248888884","username":"cc"}
+[2015-09-16 14:04:50.513] [INFO] console - { order_id: 'OR5746669236805', merchant_id: 'MC0000001409' }
+[2015-09-16 14:04:51.540] [INFO] console - user register start
+[2015-09-16 14:04:59.242] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '3154' } }
+[2015-09-16 14:05:01.322] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '950184ff9c0840c897b150d5676dea40' } }
+[2015-09-16 14:05:06.168] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000008549',
+     session_token: '4f604803-5c38-11e5-9b56-ac853da464e1' } }
+[2015-09-16 14:05:18.549] [INFO] console - get response body { code: '1079',
+  message: '该邮箱已经被注册过',
+  result: { session_token: '4f604803-5c38-11e5-9b56-ac853da464e1' } }
+[2015-09-16 14:05:21.565] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '4f604803-5c38-11e5-9b56-ac853da464e1' } }
+[2015-09-16 14:05:24.946] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '4f604803-5c38-11e5-9b56-ac853da464e1' } }
+[2015-09-16 14:05:32.883] [ERROR] console - user bank accout verify post use info  {"user_id":"UR0000008549","session_token":"4f604803-5c38-11e5-9b56-ac853da464e1","phone":"13248888998","username":"cc"}
+[2015-09-16 14:05:33.049] [INFO] console - get lianlian order info <html xmlns="http://www.w3.org/1999/html">
+<body>
+	<h2>Sorry, this page does not exist!</h2>
+</body>
+</html>
+[2015-09-16 14:05:33.051] [ERROR] console - link lianlian failed <html xmlns="http://www.w3.org/1999/html">
+<body>
+	<h2>Sorry, this page does not exist!</h2>
+</body>
+</html>
+[2015-09-16 14:06:28.089] [ERROR] console - user bank accout verify post use info  {"user_id":"UR0000008549","session_token":"4f604803-5c38-11e5-9b56-ac853da464e1","phone":"13248888998","username":"cc"}
+[2015-09-16 14:06:28.092] [INFO] console - get lianlian order info { user_id: undefined,
+  session_token: undefined,
+  card_no: '621226100101579232',
+  acct_name: undefined,
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-16 14:06:28.209] [INFO] console - get lianlian order info <html xmlns="http://www.w3.org/1999/html">
+<body>
+	<h2>Sorry, this page does not exist!</h2>
+</body>
+</html>
+[2015-09-16 14:06:28.210] [ERROR] console - link lianlian failed <html xmlns="http://www.w3.org/1999/html">
+<body>
+	<h2>Sorry, this page does not exist!</h2>
+</body>
+</html>
+[2015-09-16 14:06:47.291] [INFO] console - user get sign for test  undefined
+[2015-09-16 14:06:49.109] [INFO] console - user get sign for test  undefined
+[2015-09-16 14:06:54.220] [INFO] console - user get sign for test  undefined
+[2015-09-16 14:08:27.390] [INFO] console - user register start
+[2015-09-16 14:08:34.322] [INFO] console - user register start
+[2015-09-16 14:08:38.444] [INFO] console - user register start
+[2015-09-16 14:08:48.398] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '0485' } }
+[2015-09-16 14:08:50.674] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '3558c813791a7eb50774887f21f69f2a' } }
+[2015-09-16 14:08:56.005] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007592',
+     session_token: '860760b6-5c38-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:09:09.974] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '860760b6-5c38-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:09:13.676] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '860760b6-5c38-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:09:20.499] [ERROR] console - user bank accout verify post use info  {"user_id":"UR0000007592","session_token":"860760b6-5c38-11e5-be20-3beae5baf6a4","phone":"13248888889","username":"cc"}
+[2015-09-16 14:09:20.499] [INFO] console - get lianlian order info { user_id: undefined,
+  session_token: undefined,
+  card_no: '621226100101579232',
+  acct_name: undefined,
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-16 14:09:20.537] [INFO] console - get lianlian order info { code: '400',
+  message: 'parameter user_id is missing.',
+  result: null }
+[2015-09-16 14:09:20.537] [ERROR] console - link lianlian failed { code: '400',
+  message: 'parameter user_id is missing.',
+  result: null }
+[2015-09-16 14:10:37.537] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007592',
+  session_token: '860760b6-5c38-11e5-be20-3beae5baf6a4',
+  phone: '13248888889',
+  username: 'cc' }
+[2015-09-16 14:10:37.540] [INFO] console - get lianlian order info { user_id: undefined,
+  session_token: undefined,
+  card_no: '621226100101579232',
+  acct_name: undefined,
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-16 14:10:37.565] [INFO] console - get lianlian order info { code: '400',
+  message: 'parameter user_id is missing.',
+  result: null }
+[2015-09-16 14:10:37.566] [ERROR] console - link lianlian failed { code: '400',
+  message: 'parameter user_id is missing.',
+  result: null }
+[2015-09-16 14:10:57.536] [INFO] console - user register start
+[2015-09-16 14:10:58.312] [INFO] console - user register start
+[2015-09-16 14:11:07.466] [INFO] console - user register start
+[2015-09-16 14:11:13.289] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '3251' } }
+[2015-09-16 14:11:15.249] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '0419dc6cb5b243c17ab4b47331475be9' } }
+[2015-09-16 14:11:20.545] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007594',
+     session_token: 'dc0f94a6-5c38-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:11:36.753] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: 'dc0f94a6-5c38-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:11:40.826] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: 'dc0f94a6-5c38-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:11:46.262] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007594',
+  session_token: 'dc0f94a6-5c38-11e5-be20-3beae5baf6a4',
+  phone: '13248888854',
+  username: 'cc' }
+[2015-09-16 14:11:46.262] [INFO] console - get lianlian order info { user_id: 'UR0000007594',
+  session_token: 'dc0f94a6-5c38-11e5-be20-3beae5baf6a4',
+  card_no: '621226100101579232',
+  acct_name: 'cc',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-16 14:11:46.280] [INFO] console - get lianlian order info { code: '400',
+  message: 'parameter device_token is missing.',
+  result: null }
+[2015-09-16 14:11:46.282] [ERROR] console - link lianlian failed { code: '400',
+  message: 'parameter device_token is missing.',
+  result: null }
+[2015-09-16 14:13:46.582] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007594',
+  session_token: 'dc0f94a6-5c38-11e5-be20-3beae5baf6a4',
+  phone: '13248888854',
+  username: 'cc' }
+[2015-09-16 14:13:46.585] [INFO] console - get lianlian order info { user_id: 'UR0000007594',
+  session_token: 'dc0f94a6-5c38-11e5-be20-3beae5baf6a4',
+  card_no: '621226100101579232',
+  acct_name: 'cc',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-16 14:13:46.659] [INFO] console - get lianlian order info { code: '400',
+  message: 'parameter device_token is missing.',
+  result: null }
+[2015-09-16 14:13:46.661] [ERROR] console - link lianlian failed { code: '400',
+  message: 'parameter device_token is missing.',
+  result: null }
+[2015-09-16 14:18:35.935] [INFO] console - user register start
+[2015-09-16 14:18:41.944] [INFO] console - get response body <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 500 - java.lang.NoClassDefFoundError: org/apache/http/ssl/SSLContexts</h1><HR size="1" noshade="noshade"><p><b>type</b> Exception report</p><p><b>message</b> <u>java.lang.NoClassDefFoundError: org/apache/http/ssl/SSLContexts</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b> <pre>javax.servlet.ServletException: java.lang.NoClassDefFoundError: org/apache/http/ssl/SSLContexts
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:420)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.NoClassDefFoundError: org/apache/http/ssl/SSLContexts
+	org.apache.http.conn.ssl.SSLConnectionSocketFactory.getSocketFactory(SSLConnectionSocketFactory.java:172)
+	org.apache.http.impl.conn.PoolingHttpClientConnectionManager.getDefaultRegistry(PoolingHttpClientConnectionManager.java:109)
+	org.apache.http.impl.conn.PoolingHttpClientConnectionManager.&lt;init&gt;(PoolingHttpClientConnectionManager.java:116)
+	com.pier.sms.sdk.SmsRestClient.&lt;init&gt;(SmsRestClient.java:65)
+	com.pier.sms.sdk.SmsUtil.&lt;clinit&gt;(SmsUtil.java:26)
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.ClassNotFoundException: org.apache.http.ssl.SSLContexts
+	org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1720)
+	org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1571)
+	org.apache.http.conn.ssl.SSLConnectionSocketFactory.getSocketFactory(SSLConnectionSocketFactory.java:172)
+	org.apache.http.impl.conn.PoolingHttpClientConnectionManager.getDefaultRegistry(PoolingHttpClientConnectionManager.java:109)
+	org.apache.http.impl.conn.PoolingHttpClientConnectionManager.&lt;init&gt;(PoolingHttpClientConnectionManager.java:116)
+	com.pier.sms.sdk.SmsRestClient.&lt;init&gt;(SmsRestClient.java:65)
+	com.pier.sms.sdk.SmsUtil.&lt;clinit&gt;(SmsUtil.java:26)
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.56 logs.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:18:43.935] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '6487269cc556fd182fa9c2d679e2ddd3' } }
+[2015-09-16 14:18:48.437] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007596',
+     session_token: 'e708d0ef-5c39-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:19:04.451] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: 'e708d0ef-5c39-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:19:08.566] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: 'e708d0ef-5c39-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:19:15.735] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007596',
+  session_token: 'e708d0ef-5c39-11e5-be20-3beae5baf6a4',
+  phone: '13247777778',
+  username: 'cc' }
+[2015-09-16 14:19:15.736] [INFO] console - get lianlian order info { user_id: 'UR0000007596',
+  session_token: 'e708d0ef-5c39-11e5-be20-3beae5baf6a4',
+  card_no: '621226100101579232',
+  acct_name: 'cc',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-16 14:19:15.981] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007598',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/pay_callback',
+     acct_name: 'cc',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '621226100101579232',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: 'e708d0ef-5c39-11e5-be20-3beae5baf6a4',
+     sign: '6823c1cbe5ccac1ee9288bbf3e43400b',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007596',
+     dt_order: '20150916141253',
+     id_no: '350783199201010101' } }
+[2015-09-16 14:19:15.985] [ERROR] console - send lianlian params {"acct_name":"cc","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"621226100101579232","dt_order":"20150916141253","id_no":"350783199201010101","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007598","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/pay_callback","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"6823c1cbe5ccac1ee9288bbf3e43400b","sign_type":"MD5","user_id":"UR0000007596","valid_order":"10080"}
+[2015-09-16 14:19:15.994] [ERROR] console - ReferenceError: body is not defined
+    at E:\pier\pier_sdk_cn\sdk\sdk.js:73:50
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:58:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+    at next (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:261:10)
+    at Layer.handle_error (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\layer.js:60:5)
+    at trim_prefix (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:300:13)
+    at E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:270:7
+    at Function.proto.process_params (E:\pier\pier_sdk_cn\sdk\node_modules\express\lib\router\index.js:321:12)
+[2015-09-16 14:21:44.523] [INFO] console - user register start
+[2015-09-16 14:21:55.437] [INFO] console - get response body <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 500 - java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</h1><HR size="1" noshade="noshade"><p><b>type</b> Exception report</p><p><b>message</b> <u>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b> <pre>javax.servlet.ServletException: java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:420)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.56 logs.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:22:00.155] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: '8fe09b3c40ba2bac2c9b5088cc851912' } }
+[2015-09-16 14:22:05.341] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007599',
+     session_token: '5c643127-5c3a-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:22:23.460] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: '5c643127-5c3a-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:22:26.507] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '19',
+     session_token: '5c643127-5c3a-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:22:31.779] [ERROR] console - user bank accout verify post use info  { user_id: 'UR0000007599',
+  session_token: '5c643127-5c3a-11e5-be20-3beae5baf6a4',
+  phone: '13248889898',
+  username: 'cc' }
+[2015-09-16 14:22:31.779] [INFO] console - get lianlian order info { user_id: 'UR0000007599',
+  session_token: '5c643127-5c3a-11e5-be20-3beae5baf6a4',
+  card_no: '621226100101579232',
+  acct_name: 'cc',
+  order_type: '1',
+  sign_type: 'MD5' }
+[2015-09-16 14:22:32.043] [INFO] console - get lianlian order info { code: '200',
+  message: 'OK',
+  result: 
+   { oid_partner: '201408071000001546',
+     no_order: 'LO0000007601',
+     busi_partner: '101001',
+     sign_type: 'MD5',
+     notify_url: 'https://www.pierup.cn:8443/user_api_cn/v1/lianlian/pay_callback',
+     acct_name: 'cc',
+     name_goods: '品而数据--银行卡验证',
+     card_no: '621226100101579232',
+     money_order: '0.01',
+     info_order: '品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号',
+     session_token: '5c643127-5c3a-11e5-be20-3beae5baf6a4',
+     sign: '87c991c555b5bd171bca015faf713b08',
+     risk_item: '{"user_info_dt_register":"20131030122130"}',
+     valid_order: '10080',
+     no_agree: '',
+     id_type: '0',
+     user_id: 'UR0000007599',
+     dt_order: '20150916141609',
+     id_no: '350783199201010101' } }
+[2015-09-16 14:22:32.047] [ERROR] console - send lianlian params {"acct_name":"cc","app_request":"3","bg_color":"7b37a6","busi_partner":"101001","card_no":"621226100101579232","dt_order":"20150916141609","id_no":"350783199201010101","info_order":"品而数据银行卡验证，从用户银行卡里转账0.01元到品而数据帐号","money_order":"0.01","name_goods":"品而数据--银行卡验证","no_agree":"","no_order":"LO0000007601","notify_url":"https://www.pierup.cn:8443/user_api_cn/v1/lianlian/pay_callback","oid_partner":"201408071000001546","risk_item":"{\"user_info_dt_register\":\"20131030122130\"}","sign":"87c991c555b5bd171bca015faf713b08","sign_type":"MD5","user_id":"UR0000007599","valid_order":"10080"}
+[2015-09-16 14:31:39.785] [INFO] console - user register start
+[2015-09-16 14:31:54.451] [INFO] console - get response body <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 500 - java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</h1><HR size="1" noshade="noshade"><p><b>type</b> Exception report</p><p><b>message</b> <u>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b> <pre>javax.servlet.ServletException: java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:420)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.56 logs.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:31:56.585] [INFO] console - get response body <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 500 - java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</h1><HR size="1" noshade="noshade"><p><b>type</b> Exception report</p><p><b>message</b> <u>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b> <pre>javax.servlet.ServletException: java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:420)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.56 logs.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:32:02.543] [INFO] console - get response body <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 500 - java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</h1><HR size="1" noshade="noshade"><p><b>type</b> Exception report</p><p><b>message</b> <u>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b> <pre>javax.servlet.ServletException: java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:420)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.56 logs.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:32:06.256] [INFO] console - user register start
+[2015-09-16 14:32:11.459] [INFO] console - get response body <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 500 - java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</h1><HR size="1" noshade="noshade"><p><b>type</b> Exception report</p><p><b>message</b> <u>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b> <pre>javax.servlet.ServletException: java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:420)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.56 logs.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:37:10.710] [INFO] console - get response body <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 500 - java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</h1><HR size="1" noshade="noshade"><p><b>type</b> Exception report</p><p><b>message</b> <u>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b> <pre>javax.servlet.ServletException: java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:420)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.56 logs.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:37:34.385] [INFO] console - get response body <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 500 - java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</h1><HR size="1" noshade="noshade"><p><b>type</b> Exception report</p><p><b>message</b> <u>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b> <pre>javax.servlet.ServletException: java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:420)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.56 logs.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:38:15.569] [INFO] console - user register start
+[2015-09-16 14:39:00.782] [INFO] console - get response body <html><head><title>Apache Tomcat/7.0.56 - Error report</title><style><!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--></style> </head><body><h1>HTTP Status 500 - java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</h1><HR size="1" noshade="noshade"><p><b>type</b> Exception report</p><p><b>message</b> <u>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b> <pre>javax.servlet.ServletException: java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:420)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>root cause</b> <pre>java.lang.NoClassDefFoundError: Could not initialize class com.pier.sms.sdk.SmsUtil
+	com.pier.sms.sdk.TokenTemplate.sendSms(TokenTemplate.java:146)
+	com.pier.api.v1.user.service.UserService.get_activation_code(UserService.java:197)
+	sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:606)
+	com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)
+	com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)
+	com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)
+	com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)
+	com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)
+	com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1511)
+	com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1442)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1391)
+	com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1381)
+	com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:538)
+	com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:716)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+	com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+	com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:439)
+	org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:178)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:163)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.FilterDefinition.doFilter(FilterDefinition.java:168)
+	com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:58)
+	com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+	com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
+</pre></p><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/7.0.56 logs.</u></p><HR size="1" noshade="noshade"><h3>Apache Tomcat/7.0.56</h3></body></html>
+[2015-09-16 14:46:45.923] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { resend_time: '60', code: '6592' } }
+[2015-09-16 14:46:48.136] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: { token: 'cfbef942965f21393e77e6754899dca6' } }
+[2015-09-16 14:46:53.440] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { id_image_status: '0',
+     info_bit: '0',
+     status_bit: '1',
+     user_id: 'UR0000007602',
+     session_token: 'd35db520-5c3d-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:47:09.650] [INFO] console - get response body { code: '1079',
+  message: '该邮箱已经被注册过',
+  result: { session_token: 'd35db520-5c3d-11e5-be20-3beae5baf6a4' } }
+[2015-09-16 14:47:12.982] [INFO] console - get response body { code: '200',
+  message: 'OK',
+  result: 
+   { status_bit: '3',
+     session_token: 'd35db520-5c3d-11e5-be20-3beae5baf6a4' } }
+[2015-09-17 14:10:56.945] [INFO] console - user get sign for test  undefined
+[2015-09-17 14:10:58.613] [INFO] console - user get sign for test  undefined
