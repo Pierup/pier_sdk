@@ -25,7 +25,6 @@
 /* Begin PBXBuildFile section */
 		2A499FAE1BA0350400FEFE6E /* PierURLDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A499FAC1BA0350300FEFE6E /* PierURLDispatcher.h */; };
 		2A499FAF1BA0350400FEFE6E /* PierURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A499FAD1BA0350300FEFE6E /* PierURLDispatcher.m */; };
-		2A499FB01BA0350400FEFE6E /* PierURLDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A499FAD1BA0350300FEFE6E /* PierURLDispatcher.m */; };
 		2A6014641B95C7F800EDAB51 /* PierService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014621B95C7F800EDAB51 /* PierService.h */; };
 		2A6014651B95C7F800EDAB51 /* PierService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6014631B95C7F800EDAB51 /* PierService.m */; };
 		2A6014681B95C83500EDAB51 /* PierJSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A6014661B95C83500EDAB51 /* PierJSONKit.h */; };
@@ -570,7 +569,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A499FB01BA0350400FEFE6E /* PierURLDispatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +612,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -656,6 +655,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -681,6 +681,7 @@
 					armv7s,
 					armv7,
 				);
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -696,6 +697,7 @@
 					armv7s,
 					armv7,
 				);
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -745,6 +747,7 @@
 				);
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -768,6 +771,7 @@
 					armv7,
 				);
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PierResource/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -786,6 +790,7 @@
 					armv7s,
 					armv7,
 				);
+				ENABLE_BITCODE = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -798,6 +803,7 @@
 					armv7s,
 					armv7,
 				);
+				ENABLE_BITCODE = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

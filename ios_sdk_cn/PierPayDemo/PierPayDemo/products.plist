@@ -12,7 +12,7 @@
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥0.12</string>
+		<string>￥1.00</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
@@ -30,7 +30,7 @@
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥0.01</string>
+		<string>￥5.00</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
@@ -48,7 +48,7 @@
 		<key>type</key>
 		<string>手机</string>
 		<key>price</key>
-		<string>￥0.20</string>
+		<string>￥500.00</string>
 		<key>count</key>
 		<string>1</string>
 		<key>total</key>
