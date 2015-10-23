@@ -18,8 +18,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: 'pier checkout sdk',
   resave: true,
+  key: 'pierPayId',
   saveUninitialized: true,
   cookie: { secure: false, httpOnly: true, maxAge:1000*60*60 }
 }))

@@ -11,44 +11,11 @@ var fs = require('fs');
 
 /* GET merchant  page. */
 router.get('/', function(req, res, next) {
-  // var publicPem = fs.readFileSync('routes/cert.pem');
-  // var pubkey = publicPem.toString();
-  // var data = 'qr47iIohxARci+JY7T7DU5uHbN+hKMRY8cNUEXBB4XZcyv3wBugrjyOtlrz7MWYX25AXJpe2OiRiT0scG1R9F/x65614RPtdMrlTNoTyszBsUes+7DrLqYjkgmuLAExkXJUlyo60KN69LAomIbd88fEqUZx5CcXYq4/5DoS+60w=';
-  // var verify = crypto.createVerify('RSA-SHA1');
-  // verify.update(data);
-  // console.log('aaaaaaaaaa',verify.verify(pubkey, data, 'base64') );
-  // var data = 'order_id=fsdirwl24932130fs&result=OK&transaction_id=MT0000007056';
-  // var sign = crypto.createSign('RSA-SHA256');
-  // sign.update(data);
-  // var sig = sign.sign(key, 'hex');
-  // console.error('message', sig);
-  // var privatePem = fs.readFileSync('routes/private-key.pem');
-  // var key = privatePem.toString();
-  // console.log('aaaaaaaaaaaaaaaa',key)
-  // var data = "order_id=fsdirwl24932130fs&result=OK&transaction_id=MT0000007056";
-  // var sign = crypto.createSign('RSA-SHA1');
-  // sign.update(data);
-  // var sig = sign.sign(key, 'base64');
-  // console.log('message', sign);
   res.render('index');
 });
 router.get('/checkout/orderList', function(req, res, next){
   res.render('order-list');
 })
-  // var urlPath = 'https://121.40.19.24:8443/pier-merchant-cn/demo/pay/sign/MC0000001409?platform=3';
-  // var message = req.body;
-  // request( {
-  //     url: urlPath,
-  //     method: "POST",
-  //     json:true,
-  //     body:{},
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  // }, function(err, response, body){
-  //   console.log( "user get sign for test ", body );
-  //   res.send( body );
-  // } );
 
 router.post('/getSignForTest', function(req, res, next){
   var urlPath = '/getDigitalSign';
@@ -138,13 +105,38 @@ router.post('/checkout/login', function(req, res, next) {
     order_id: req.body.order_id || null,
     merchant_id: req.body.merchant_id,
     amount: req.body.amount,
-    order_detail: req.body.order_detail,
+    order_detail: JSON.parse( req.body.order_detail ),
     return_url: req.body.return_url,
-    api_id: req.body.api_id
+    api_id: req.body.api_id,
+    sub_total: req.body.amount,
+    shipping: 0,
+    tax: 0
   };
   console.error('/checkout/login', message);
   request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
     console.log( 'user save new order ', body );
+    if( body.code == 200 ){
+      res.redirect('/checkout/login?merchant='+req.body.merchant_id+'&order='+body.result.order_id+'&sign='+req.body.sign+'&sign_type='+req.body.sign_type+'&charset='+req.body.charset );
+    }else{
+      res.render( 'checkout/unknownError',{ error: body.message, title: '订单错误', location: 'error'} );
+    }
+  })
+});
+
+/**
+ * user checkout login for pier-shop
+ */
+router.post('/checkout/loginShop', function(req, res, next) {
+  var urlPath = '/saveOrderInfo';
+  var message = {
+    merchant_id: req.body.merchant_id,
+    return_url: req.body.return_url,
+    api_id: req.body.api_id,
+    cart_id: req.body.cart_id
+  };
+  console.error('/checkout/login', message);
+  request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
+    console.log( 'user save new order for pier shop', body );
     if( body.code == 200 ){
       res.redirect('/checkout/login?merchant='+req.body.merchant_id+'&order='+body.result.order_id+'&sign='+req.body.sign+'&sign_type='+req.body.sign_type+'&charset='+req.body.charset );
     }else{
@@ -342,7 +334,7 @@ router.post('/checkout/getSMS', function(req, res, next) {
     user_id: userAuth.user_id,
     session_token: userAuth.session_token,
     merchant_id: authOrder.merchant_id,
-    amount: authOrder.amount
+    order_id: order
   }
   request( pierUtil.getRequestParams( urlPath, message ), function(err, response, body){
     console.log( "user get sms when checkout", body );
@@ -367,7 +359,7 @@ router.post('/checkout/pay', function(req, res, next) {
   var message = {
     user_id: userAuth.user_id,
     session_token: userAuth.session_token,
-    amount: authOrder.amount,
+    // amount: authOrder.amount,
     merchant_id: authOrder.merchant_id,
     order_id: authOrder.order_id,
     sms_code: req.body.validCode,

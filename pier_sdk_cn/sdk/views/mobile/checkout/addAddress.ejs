@@ -1,0 +1,44 @@
+<% include ../header%>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/mobile-confirm-v1.js"></script>
+<div class="container-fluid" ng-app="ComfirmApp" ng-controller="AddAddressController">
+<input type="hidden" value="<%=merchant_id%>" id="merchantId">
+<input type="hidden" value="<%=order_id%>" id="orderId">
+  <table class="mobile-table-2">
+    <tr>
+      <td>收件人姓名</td>
+      <td><input class="mobile-address-input"  ng-model="username"/></td>
+    </tr>
+    <tr>
+      <td>手机号码</td>
+      <td><input class="mobile-address-input" number-only-input ng-model="phone" type="tel" maxlength="{{phoneLength}}" /></td>
+    </tr>
+    <tr>
+      <td>邮政编码</td>
+      <td><input class="mobile-address-input" number-only-input ng-model="postal" type="tel" maxlength="6"/></td>
+    </tr>
+  </table>
+  <table class="mobile-table-2">
+    <tr>
+      <td>
+       <select ng-model="address.province" ng-options="p.province_name for p in provinceItems" ng-change="provinceChange()"></select>
+        <select ng-model="address.city" ng-options="c.city_name for c in cityItems" ng-change="cityChange()"></select>
+        <select ng-model="address.county" ng-options="c.county_district_name for c in countyItems" ></select>
+      </td>
+    </tr>
+  </table>
+  <table class="mobile-table-2">
+    <tr>
+      <td><p style="margin-top:-2.4em;">详细地址</p></td>
+      <td><textarea rows="4" style="margin-top:1em;" ng-model="addressDetail"></textarea></td>
+    </tr>
+  </table>
+  <div class="row">
+    <div class="col-md-12">
+      <p ng-bind="errorMsg" class="error-msg"></p>
+    </div>
+    <div class="col-md-12">
+    <button class="submit-btn" style="margin-top:1.8em;" ng-click="saveAddress()">保存</button>
+    </div>
+  </div>
+</div>

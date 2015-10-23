@@ -109,7 +109,10 @@ var pierUtil = {
     return msg;
   },
   refreshToken: function( token, req, orderName ){
+    console.error( 'session token sssssssssss before', req.session[orderName].user_auth.session_token);
+    if( token == undefined || token == '' || token == null ) return;
     req.session[orderName].user_auth.session_token = token;
+    console.error( 'session token sssssssssss after', req.session[orderName].user_auth.session_token);
   },
   clearUserAuth: function( req ){
     req.session['userAuth'] = {};
@@ -130,6 +133,13 @@ var pierUtil = {
   destoryAuthOrder: function( merchant, order, req ){
     req.session[merchant+order] = {};
     return;
+  },
+  setUserAuth: function( req, merchant, order, userObj ){
+    
+  },
+  CONSTANT:{
+    app_session_expire: 'pierpay://pier?platform=ios&action=10004&result='
+
   }
 
 

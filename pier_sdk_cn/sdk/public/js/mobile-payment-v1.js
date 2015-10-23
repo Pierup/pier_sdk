@@ -77,7 +77,7 @@ angular.module( 'PaymentApp', [])
 	               $('#myModal').modal({backdrop:'static',keyboard: false})
 	               break;
 	            case "500" :
-	               window.location.href="/checkout/unknownError";
+	               window.location.href="/mobile/checkout/unknownError";
 	               break;
 	            default :
 	              d.reject( data );

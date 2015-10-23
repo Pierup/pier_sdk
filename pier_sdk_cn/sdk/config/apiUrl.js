@@ -1,6 +1,6 @@
 // var hostName = ;
 var apiurl = {
-	hostName: 'https://121.40.19.24:8443',//'https://121.40.19.24:8443',//'http://pierup.asuscomm.com:8686',
+	hostName: 'https://pierup.asuscomm.com:443',//'https://121.40.19.24:8443',//'https://192.168.1.254:443',
 	port:'8686',
 	getCountries: {url: '/common_api/v1/query/get_countries', method: 'GET' },
 	
@@ -34,7 +34,7 @@ var apiurl = {
 	forgetPaymentPasswordReset: {url: '/user_api_cn/v1/user/forget_payment_password_reset?platform=3'},
 
 	//order information
-    saveOrderInfo: {url: '/user_api_cn/v1/user/save_order_info?platform=3'},
+    saveOrderInfo: {url: '/user_api_cn/v1/user/save_order_info_by_cart_id?platform=3'},
     orderInfo: {url: '/user_api_cn/v1/user/order_info?platform=3' },
 
     //prepay
@@ -46,7 +46,16 @@ var apiurl = {
 
     //add bank account by lianlian
     cardValidation: { url: '/user_api_cn/v1/lianlian/card_validation?platform=3' },
-    payCallback: { url: '/user_api_cn/v1/lianlian/callback_validation?platform=3'}
+    payCallback: { url: '/user_api_cn/v1/lianlian/callback_validation?platform=3' },
 
+    //获取分期信息
+    getInstalment: { url: '/user_api_cn/v1/installment/prepare_consumption?platform=3' },
+    applyInstalment: { url: '/user_api_cn/v1/installment/apply_consumption?platform=3' },
+
+    //获取收货地址
+    getAddresses: { url: '/user_api_cn/v1/user/addresses?platform=3' },
+    addAddress: { url: '/user_api_cn/v1/user/add_address?platform=3' },
+    delAddress: { url: '/user_api_cn/v1/user/del_address?platform=3' },
+    saveOrderAddress: { url: '/user_api_cn/v1/user/save_order_address?platform=3' }
 }
 module.exports = apiurl;

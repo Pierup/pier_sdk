@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="/mobile/pierSDK" method="post" id="piershop">
+		<input type="hidden" name="url" value="200002" >
+		<input id="user" type="hidden" name="user_id" value="UR0000002731" >
+		<input id="phone" type="hidden" name="phone" value="18638998588" >
+		<input id="user_name" type="hidden" name="user_name" value="程聪" >
+		<input id="session_token" type="hidden" name="session_token" value="test" >
+		<input id="order_id" type="hidden" name="order_id" value="OR0000008796" >
+		<input id="merchant_id" type="hidden" name="merchant_id" value="MC0000006975" >
+	</form>
+</body>
+<script type="text/javascript">
+	( function(){
+		console.log('message', window.location.search.split( '?order=' )[1].split('&merchant='));
+		document.getElementById('order_id').value = window.location.search.split( '?order=' )[1].split('&merchant=')[0];
+		document.getElementById('merchant_id').value = window.location.search.split( '?order=' )[1].split('&merchant=')[1];
+		document.getElementById('piershop').submit();
+	})()
+	
+</script>
+</html>

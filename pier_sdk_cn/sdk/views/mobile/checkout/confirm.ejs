@@ -1,40 +1,92 @@
 <% include ../header%>
-<div class="container mobile-login">
-    <div class="row text-center">
-	    <h3 >付款详情</h3>
-    </div>
-</div>
-<div class="order-title">
-	<p>订单信息</p>
-</div>
-<div class="order-detail">
-    <table class="table text-center" >
-	    <tbody>
-	    <% order_detail.forEach(function (obj, k){ %>
-            <tr>
-	           <td class="text-left">
-		           <%=obj.product%><br>
-		           <p class="detail"><%=obj.detail%></span></p>
-	           <td style="width:36%;font-size:16px;">
-		           <span style="color:#7b37a6;"><%=obj.price%></span> &nbsp; X &nbsp;<%=obj.count%>
-		           <p style="margin-top:0.6em;">共计：<%=obj.total%></p>
-	           </td>
-	        </tr>
-        <% }) %>
-        </tbody>
-	</table>
-</div>
-<div class="order-confirm">
-    <div class="row confirm">
-        <span>收款方：</span><span class="pull-right"><%=merchant_name%></span>
-        <hr style="border:1 dotted #000">
-        <span>付款金额: </span><span class="pull-right" style="font-size:1.8em;color:#7b37a6;margin-top:-0.2em;">￥<%=amount%></span>
-    </div>
-	<div class="container-fluid">
-        <div class="row">
-	        <button type="button" onclick="window.location.href='/mobile/checkout/payment?merchant=<%=merchant_id%>&order=<%=order_id%>&action=10008'" class="submit-btn" >确认支付</button><br><BR>
-        </div>
-	</div>
-</div>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/mobile-confirm-v1.js"></script>
 
+<div ng-app="ComfirmApp" ng-controller="ComfirmController">
+    <div class="mobile-address">
+	    <p><span>收件人信息&nbsp;<i class="fa fa-map-marker"></i></span><span class="pull-right" ng-click="changeAddress()">更改</span></p>
+        <p id="myAddress">
+            <span ng-bind="address.name" id="receiverName"></span><span ng-bind="address.phone" id="receiverPhone"></span><br>
+            <span ng-bind="address.address" id="receiverAddress"></span>
+        </p>
+        <input type="hidden" id="addressId" value={{address.address_id}} >
+    </div>
+    <div class="order-title">
+    	<p>订单信息</p>
+    </div>
+    <div class="order-detail">
+        <table class="table text-center" >
+    	    <tbody>
+    	    <% order_detail.forEach(function (obj, k){ %>
+                <tr>
+    	           <td class="text-left" style="width:30%;">
+    		           <img src="<%=obj.logo%>" class="img-responsive" />
+                   </td>
+                   <td style="width:40%;" class="text-left"> 
+                       <span><%=obj.product%></span>
+                       <p class="detail"><span><%=obj.detail%></span></p>
+                   </td>
+    	           <td style="width:30%;font-size:14px;">
+    		           <span style="color:#7b37a6;">￥<%=obj.price%></span> &nbsp; X &nbsp;<%=obj.count%>
+    		           <p style="margin-top:0.6em;">共计：￥<%=obj.total%></p>
+    	           </td>
+    	        </tr>
+            <% }) %>
+            </tbody>
+    	</table>
+    </div>
+    <div class="order-confirm">
+        <div class="row confirm">
+            <table>
+            	<tr>
+            		<td>收款方：</td>
+            		<td><%=merchant_name%></td>
+            	</tr>
+            	<tr>
+            		<td>商品总价：</td>
+            		<td>￥<%= sub_total%></td>
+            	</tr>
+            	<tr>
+            		<td>运费：</td>
+            		<td>￥<%= shipping%></td>
+            	</tr>
+            	<tr>
+            		<td>中国入境关税：</td>
+            		<td>￥<%= tax%></td>
+            	</tr>
+            </table>
+        </div>
+        <div class="row total-amount">
+            <span>总计： </span><span class="pull-right" style="font-size:1.8em;color:#7b37a6;margin-top:-0.2em;">￥<%=grand_total%></span>
+            <input type="hidden" name="merchantId" id="merchantId" value="<%=merchant_id%>" />
+            <input type="hidden" name="orderId" id="orderId" value="<%=order_id%>" />
+        </div>
+        <div class="row total-amount pull-right">
+            <span class="pull-right">分期选项</span><br>
+            <select ng-model="currentInstalment" ng-options="installment.desc for installment in instalmentItems" ></select>
+        </div>
+    	<div class="container-fluid">
+            <div class="row error-msg">
+                <p ng-bind="errorMsg" style="clear:both;"></p>
+            </div>
+            <div class="row">
+    	        <button type="button" ng-click="next()" class="submit-btn" >确认支付</button><br/><br/>
+            </div>
+    	</div>
+    </div>
+</div>
+<script type="text/javascript">
+    function refreshPage( input ){
+        var _input = input;
+        var _id = _input.id || '';
+        var _address = _input.address || '';
+        var _name = _input.name || '';
+        var _phone = _input.phone || '';
+        var _addressId = input.address_id;
+        document.getElementById('receiverPhone').innerHTML = _phone;
+        document.getElementById('receiverName').innerHTML = _name;
+        document.getElementById('receiverAddress').innerHTML = _address;
+        document.getElementById('addressId').value = _addressId;
+    }
+</script>
 <% include ../footer%>

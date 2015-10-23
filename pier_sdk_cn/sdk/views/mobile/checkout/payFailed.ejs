@@ -23,7 +23,7 @@
 		    <table>
 		    	<tr>
 		    		<td>付款金额：</td>
-		    		<td style="color:#7b37a6;font-size:1.4em;">￥<%=amount%></td>
+		    		<td style="color:#7b37a6;font-size:1.4em;">￥<%=grand_total%></td>
 		    	</tr>
 		    </table>
 	    </div>
@@ -35,6 +35,7 @@
 			    <p style="font-size:1.6em;color:#7b37a6;">支付失败</p>
 			    <p id='errorMsg'><%=errorMsg%></p>
 			    <button type="button"  id="submit-btn" class="submit-btn" style="margin-top:1em;">返回商户</button>
+			    <input type="hidden" value="<%=return_url%>" id='returnUrl'>
 		    </div>
         </div>
     </div>
@@ -42,9 +43,8 @@
 <script type="text/javascript">
 	(function(){
         document.getElementById('submit-btn').onclick = function(){
-        	var errorMsg = document.getElementById('errorMsg').innerHTML;
-        	var result = {code: '400', msg: errorMsg, result: '支付失败' };
-            window.location.href="pierpay://pier?platform=ios&action=10003&result="+JSON.stringify(result) ;
+            var _returnUrl = document.getElementById('returnUrl').value;
+            window.location.href = _returnUrl;
         }	
 	})()
 </script>

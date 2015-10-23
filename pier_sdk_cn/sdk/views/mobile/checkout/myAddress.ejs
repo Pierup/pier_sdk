@@ -1,0 +1,29 @@
+<% include ../header%>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/mobile-confirm-v1.js"></script>
+<div class="container-fluid" ng-app="ComfirmApp" ng-controller="MyAddressController">
+<input type="hidden" value="<%=merchant_id%>" id="merchantId">
+<input type="hidden" value="<%=order_id%>" id="orderId">
+    <div ng-hide="loadingData">
+	    <div class="row" ng-repeat="address in addressItems" ng-click="redirectBack(address)">
+		   <div class="col-md-12 address-line">
+			   <span ng-bind="address.name"></span> <span ng-bind="address.phone"></span><br>
+			   <p ng-bind="address.address" style="display:inline-block;"></p>
+		   </div>
+	    </div>
+	    <div class="row add-address-row">
+		   <div class="col-md-12" ng-click="addAddress()">
+			   <img src="../../images/db-close.png" >
+			   <span>添加新地址</span>
+		   </div>
+	    </div>
+    </div>
+    <div ng-show="loadingData">
+    	<div class="row">
+	    	<div class="col-md-12 text-center">
+		    	<i class="fa fa-spinner fa-spin loading-spinner"></i>
+	    	</div>
+    	</div>
+    </div>
+</div>
+
