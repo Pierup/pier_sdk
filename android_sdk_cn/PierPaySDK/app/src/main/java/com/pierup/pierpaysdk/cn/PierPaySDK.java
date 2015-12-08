@@ -3,9 +3,7 @@ package com.pierup.pierpaysdk.cn;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.pierup.pierpaysdk.cn.business.PierObject;
 import com.pierup.pierpaysdk.cn.business.models.PierPayOrder;
 import com.pierup.pierpaysdk.cn.utils.h5.PierH5Activity;
 

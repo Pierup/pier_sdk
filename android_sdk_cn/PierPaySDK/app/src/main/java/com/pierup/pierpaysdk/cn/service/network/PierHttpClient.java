@@ -42,7 +42,6 @@ public abstract class PierHttpClient implements PierHttpClientInterface {
     private static final String LOG_TAG = "PierHttpClient";
     private Gson gson = new Gson();
 
-    //private AsyncHttpClient asyncHttpClient = new AsyncHttpClient(PierServiceConfig.PIER_HTTP_PORT, PierServiceConfig.PIER_HTTPS_PORT) {
     private AsyncHttpClient asyncHttpClient = new AsyncHttpClient() {
         @Override
         protected AsyncHttpRequest newAsyncHttpRequest(cz.msebera.android.httpclient.impl.client.DefaultHttpClient client, cz.msebera.android.httpclient.protocol.HttpContext httpContext, cz.msebera.android.httpclient.client.methods.HttpUriRequest uriRequest, String contentType, ResponseHandlerInterface responseHandler, Context context) {
@@ -61,27 +60,6 @@ public abstract class PierHttpClient implements PierHttpClientInterface {
         this.context = handler.context;
         this.bean = handler.bean;
         this.requestModel = requestModel;
-//        KeyStore store = null;
-//        InputStream is = null;
-//        try {
-//            store = KeyStore.getInstance(KeyStore.getDefaultType());
-//            is = context.getResources().openRawResource(R.raw.client_ca);
-//            store.load(is, STORE_PASS.toCharArray());
-//
-//            getAsyncHttpClient().setSSLSocketFactory(new SecureSocketFactory(store, "serverkey"));
-//        } catch (KeyStoreException e) {
-//            e.printStackTrace();
-//        } catch (UnrecoverableKeyException e) {
-//            e.printStackTrace();
-//        } catch (CertificateException e) {
-//            e.printStackTrace();
-//        } catch (NoSuchAlgorithmException e) {
-//            e.printStackTrace();
-//        } catch (KeyManagementException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     public void onRunHttpRequest() {

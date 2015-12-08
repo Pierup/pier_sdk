@@ -2,9 +2,6 @@ package com.pierup.pierpaysdk.cn.service.network;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 
 import com.pierup.pierpaysdk.cn.business.PierServiceEnum;
 import com.pierup.pierpaysdk.cn.business.bean.PierRootBean;

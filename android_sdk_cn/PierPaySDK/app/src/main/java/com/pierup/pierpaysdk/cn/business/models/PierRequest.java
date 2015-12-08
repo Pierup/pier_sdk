@@ -1,10 +1,7 @@
 package com.pierup.pierpaysdk.cn.business.models;
 
-import org.json.JSONObject;
-
 import java.util.HashMap;
 
-import com.pierup.pierpaysdk.cn.business.PierServiceConfig;
 import com.pierup.pierpaysdk.cn.business.PierObject;
 
 public class PierRequest extends PierObject {

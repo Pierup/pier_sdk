@@ -1,10 +1,7 @@
 package com.pierup.pierpaysdk.cn;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.pierup.pierpaysdk.cn.business.PierObject;
 import com.pierup.pierpaysdk.cn.business.bean.PierRootBean;
