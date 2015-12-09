@@ -5,7 +5,7 @@ import com.pierup.pierpaysdk.cn.extern.PierDeviceUtil;
 public class PierServiceConfig {
 
     public static final int PLATFORM = 4;
-    public static final String CLIENT_VERSION = PierDeviceUtil.getAppVersion();
+    public static final String CLIENT_VERSION = "1.0.0";
     public static final String CHARSET  = "UTF-8";
     public static final int SUCCESS_CODE = 200;
     public static final int WARMING_CODE = 500;

@@ -1,4 +1,4 @@
-package com.pierup.pierpaysdk.cn.utils.h5;
+package com.pierup.pierpaysdk.cn.widget.h5;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +20,7 @@ public class PierH5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pier_h5);
 
-        setupWebView();
+//        setupWebView();
     }
 
     private void setupWebView() {

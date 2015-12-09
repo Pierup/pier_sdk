@@ -3,14 +3,11 @@ package com.pierup.pierpaysdk.cn.extern;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
-
-import com.pierup.pierpaysdk.cn.UIApplication;
 
 import org.apache.http.params.CoreProtocolPNames;
 
@@ -179,18 +176,5 @@ public class PierDeviceUtil {
 //        deviceDict.put("ld", PierLocationUtil.getInstance().getLocationDict());
 
         return deviceDict;
-    }
-
-    // 获取App版本号
-    public static String getAppVersion() {
-        String versionName = null;
-        try {
-            PackageManager packageManager = UIApplication.getContext().getPackageManager();
-            PackageInfo packageInfo = packageManager.getPackageInfo(UIApplication.getContext().getPackageName(), PackageManager.GET_CONFIGURATIONS);
-            versionName = packageInfo.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return versionName;
     }
 }

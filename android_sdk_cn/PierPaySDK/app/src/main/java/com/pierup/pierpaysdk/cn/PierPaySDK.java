@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.pierup.pierpaysdk.cn.business.models.PierPayOrder;
-import com.pierup.pierpaysdk.cn.utils.h5.PierH5Activity;
+import com.pierup.pierpaysdk.cn.widget.h5.PierH5Activity;
 
 /**
  * Created by wangbei on 12/7/15.
@@ -27,6 +27,11 @@ public class PierPaySDK {
         Bundle bundle = new Bundle();
         bundle.putString("url", url);
         intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+
+    public static void startPierPayAction(Context context) {
+        Intent intent = new Intent(context, PierBaseActivity.class);
         context.startActivity(intent);
     }
 }
