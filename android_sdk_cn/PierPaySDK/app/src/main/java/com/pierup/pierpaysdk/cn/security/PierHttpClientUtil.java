@@ -73,14 +73,14 @@ public class PierHttpClientUtil {
 //                url = url + URLEncoder.encode(queryString.toString(), QUERY_ENCODING);
                 url = url + queryString.toString();
             }
-            URL u = new URL(url);
-            HttpURLConnection conn = (HttpURLConnection) u.openConnection();
-            conn.setUseCaches(false);
-            conn.setConnectTimeout(CONNET_TIMEOUT);
-            conn.setReadTimeout(READ_TIMEOUT);
-            conn.setRequestMethod("GET");
-            if (conn.getResponseCode() == HttpStatus.SC_OK) {
-                is = conn.getInputStream();
+            URL localURL = new URL(url);
+            HttpURLConnection localConnection = (HttpURLConnection) localURL.openConnection();
+            localConnection.setUseCaches(false);
+            localConnection.setConnectTimeout(CONNET_TIMEOUT);
+            localConnection.setReadTimeout(READ_TIMEOUT);
+            localConnection.setRequestMethod("GET");
+            if (localConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                is = localConnection.getInputStream();
                 return PierStreamUtil.readStreamToString(is, ENCODING);
             }
         } catch (MalformedURLException e) {
@@ -126,21 +126,21 @@ public class PierHttpClientUtil {
 //            HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
 //            HttpsURLConnection conn = (HttpsURLConnection)new URL(url).openConnection();
 
-            URL u = new URL(url);
-            HttpURLConnection conn = (HttpURLConnection) u.openConnection();
-            conn.setConnectTimeout(CONNET_TIMEOUT);
-            conn.setReadTimeout(READ_TIMEOUT);
-            conn.setRequestMethod("POST");
+            URL localURL = new URL(url);
+            HttpURLConnection localConnection = (HttpURLConnection) localURL.openConnection();
+            localConnection.setConnectTimeout(CONNET_TIMEOUT);
+            localConnection.setReadTimeout(READ_TIMEOUT);
+            localConnection.setRequestMethod("POST");
             // 请求头, 必须设置
-            conn.setRequestProperty("Content-Type", "application/json");
-            conn.setRequestProperty("Content-Length", String.valueOf(data.length));
+            localConnection.setRequestProperty("Content-Type", "application/json");
+            localConnection.setRequestProperty("Content-Length", String.valueOf(data.length));
             // post请求必须允许输出
-            conn.setDoOutput(true);
+            localConnection.setDoOutput(true);
             // 向服务器写出数据
-            os = conn.getOutputStream();
+            os = localConnection.getOutputStream();
             os.write(data);
-            if (conn.getResponseCode() == HttpStatus.SC_OK) {
-                is = conn.getInputStream();
+            if (localConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                is = localConnection.getInputStream();
                 return PierStreamUtil.readStreamToString(is, ENCODING);
             }
         } catch (Exception e) {
@@ -181,20 +181,20 @@ public class PierHttpClientUtil {
         String PREFIX = "--", LINEND = "\r\n";
         String MULTIPART_FROM_DATA = "multipart/form-data";
 
-        URL uri = new URL(url);
-        HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
+        URL localURL = new URL(url);
+        HttpURLConnection localConnection = (HttpURLConnection) localURL.openConnection();
         // 缓存的最长时间
-        conn.setReadTimeout(READ_TIMEOUT);
+        localConnection.setReadTimeout(READ_TIMEOUT);
         // 允许输入
-        conn.setDoInput(true);
+        localConnection.setDoInput(true);
         // 允许输出
-        conn.setDoOutput(true);
+        localConnection.setDoOutput(true);
         // 不允许使用缓存
-        conn.setUseCaches(false);
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("connection", "keep-alive");
-        conn.setRequestProperty("Charsert", "UTF-8");
-        conn.setRequestProperty("Content-Type", MULTIPART_FROM_DATA + ";boundary=" + BOUNDARY);
+        localConnection.setUseCaches(false);
+        localConnection.setRequestMethod("POST");
+        localConnection.setRequestProperty("connection", "keep-alive");
+        localConnection.setRequestProperty("charset", QUERY_ENCODING);
+        localConnection.setRequestProperty("Content-Type", MULTIPART_FROM_DATA + ";boundary=" + BOUNDARY);
 
         // 首先组拼文本类型的参数
         StringBuilder sb = new StringBuilder();
@@ -210,7 +210,7 @@ public class PierHttpClientUtil {
             sb.append(LINEND);
         }
 
-        DataOutputStream outStream = new DataOutputStream(conn.getOutputStream());
+        DataOutputStream outStream = new DataOutputStream(localConnection.getOutputStream());
         outStream.write(sb.toString().getBytes());
         // 发送文件数据
         if (files != null)
@@ -240,15 +240,15 @@ public class PierHttpClientUtil {
         outStream.write(end_data);
         outStream.flush();
         StringBuilder sb2 = new StringBuilder();
-        if (conn.getResponseCode() == HttpStatus.SC_OK) {
-            InputStream in = conn.getInputStream();
+        if (localConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            InputStream in = localConnection.getInputStream();
             int ch;
             while ((ch = in.read()) != -1) {
                 sb2.append((char) ch);
             }
         }
         outStream.close();
-        conn.disconnect();
+        localConnection.disconnect();
         return sb2.toString();
     }
 

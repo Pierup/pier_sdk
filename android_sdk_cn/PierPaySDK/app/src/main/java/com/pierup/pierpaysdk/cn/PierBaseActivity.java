@@ -26,7 +26,8 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
     private String https_get_url = "https://api.pierup.cn/common_api_cn/v1/query/all_provinces";
     private String https_post_url = "https://api.pierup.cn/user_api_cn/v1/user/user_info";
 
-    private String http_get_url = "http://api.map.baidu.com/telematics/v3/weather"; //?wd=android
+    private String http_get_url = "http://api.map.baidu.com/telematics/v3/weather";
+    private String http_post_url = "http://www.baidu.com/s";
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
