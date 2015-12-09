@@ -10,12 +10,22 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.security.SecureRandom;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.UUID;
 
 import org.apache.http.HttpStatus;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 /**
  * Created by wangbei on 12/9/15.
@@ -110,6 +120,12 @@ public class PierHttpClientUtil {
         body = joinParam(params, body);
         byte[] data = body.toString().getBytes();
         try {
+//            SSLContext sc = SSLContext.getInstance("TLS");
+//            sc.init(null, new TrustManager[]{new MyTrustManager()}, new SecureRandom());
+//            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+//            HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
+//            HttpsURLConnection conn = (HttpsURLConnection)new URL(url).openConnection();
+
             URL u = new URL(url);
             HttpURLConnection conn = (HttpURLConnection) u.openConnection();
             conn.setConnectTimeout(CONNET_TIMEOUT);
@@ -255,5 +271,42 @@ public class PierHttpClientUtil {
             }
         }
         return queryString;
+    }
+
+
+
+    /**
+     * 信任所有主机-对于任何证书都不做检查
+     */
+    private static class MyHostnameVerifier implements HostnameVerifier{
+
+        @Override
+        public boolean verify(String hostname, SSLSession session) {
+            // TODO Auto-generated method stub
+            return true;
+        }
+    }
+
+    private static class MyTrustManager implements X509TrustManager {
+
+        @Override
+        public void checkClientTrusted(X509Certificate[] chain, String authType)
+                throws CertificateException {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void checkServerTrusted(X509Certificate[] chain, String authType)
+                throws CertificateException {
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public X509Certificate[] getAcceptedIssuers() {
+            // TODO Auto-generated method stub
+            return null;
+        }
     }
 }

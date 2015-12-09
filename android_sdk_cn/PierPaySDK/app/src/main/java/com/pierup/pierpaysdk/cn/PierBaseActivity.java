@@ -23,8 +23,10 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
 
     private String result;
 
-    private String https_url = "https://api.pierup.cn/common_api_cn/v1/query/all_provinces"; //?wd=android
-    private String http_url = "http://api.map.baidu.com/telematics/v3/weather"; //?wd=android
+    private String https_get_url = "https://api.pierup.cn/common_api_cn/v1/query/all_provinces";
+    private String https_post_url = "https://api.pierup.cn/user_api_cn/v1/user/user_info";
+
+    private String http_get_url = "http://api.map.baidu.com/telematics/v3/weather"; //?wd=android
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -51,7 +53,7 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_button: {
-                requestHTTPSService();
+                requestHTTPS_POST_Service();
                 break;
             }
         }
@@ -68,18 +70,31 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
                 }
                 params.put("output", "json");
                 params.put("ak", "wl82QREF9dNMEEGYu3LAGqdU");
-                result = PierHttpClientUtil.get(http_url, params);
+                result = PierHttpClientUtil.get(http_get_url, params);
                 mHandler.sendEmptyMessage(1);
             };
         }.start();
     }
 
-    private void requestHTTPSService() {
+    private void requestHTTPS_GET_Service() {
         new Thread(){
             public void run() {
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("wd", "android");
-                result = PierHttpClientUtil.post(https_url, params);
+                result = PierHttpClientUtil.get(https_get_url, params);
+                mHandler.sendEmptyMessage(1);
+            };
+        }.start();
+    }
+
+    private void requestHTTPS_POST_Service() {
+        new Thread(){
+            public void run() {
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("session_token", "test");
+                params.put("user_id", "UR0000008537");
+                params.put("device_token", "test");
+                result = PierHttpClientUtil.post(https_post_url, params);
                 mHandler.sendEmptyMessage(1);
             };
         }.start();
