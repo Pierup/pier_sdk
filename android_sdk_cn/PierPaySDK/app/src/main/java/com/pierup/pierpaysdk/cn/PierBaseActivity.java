@@ -61,10 +61,10 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_button: {
-                requestHTTPS_POST_Service();
+//                requestHTTPS_POST_Service();
 //                requestHTTPS_GET_Service();
 
-//                requestTest();
+                requestTest();
                 break;
             }
         }
@@ -106,13 +106,11 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
             };
 //            httpClient.get(https_get_url, httpHandler);
 //            httpClient.post(http_post_url, httpHandler);
+
             HttpParams httpParams = new HttpParams();
             httpParams.put("session_token", "test");
             httpParams.put("user_id", "UR0000008537");
             httpParams.put("device_token", "test");
-            HttpHeaders httpHeaders = new HttpHeaders();
-            httpHeaders.addHeader("Content-Type", "application/json");
-
             httpClient.post(https_post_url, httpParams, httpHandler);
         } catch (Exception e) {
             e.printStackTrace();

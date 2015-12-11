@@ -36,8 +36,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import cz.msebera.android.httpclient.conn.scheme.Scheme;
-import cz.msebera.android.httpclient.conn.ssl.SSLSocketFactory;
 
 public class HttpClient {
 
@@ -80,8 +78,8 @@ public class HttpClient {
 	 * 
 	 * @param url
 	 *            the URL
-	 * @param responseHandler
-	 *            the response handler
+	 * @param handler
+	 *            the http handler
 	 */
 	public int get(final String url, final HttpHandler handler) {
 		return doRequest(Method.GET, url, null, null, handler);
@@ -94,8 +92,8 @@ public class HttpClient {
 	 *            the URL
 	 * @param headers
 	 *            additional headers for the request
-	 * @param responseHandler
-	 *            the response handler
+	 * @param handler
+	 *            the http handler
 	 */
 	public int get(final String url, final HttpHeaders headers, final HttpHandler handler) {
 		return doRequest(Method.GET, url, headers, null, handler);
@@ -108,8 +106,8 @@ public class HttpClient {
 	 *            the URL
 	 * @param params
 	 *            additional parameters for the request
-	 * @param responseHandler
-	 *            the response handler
+	 * @param handler
+	 *            the http handler
 	 */
 	public int get(final String url, final HttpParams params, final HttpHandler handler) {
 		return doRequest(Method.GET, url, null, params, handler);
@@ -124,8 +122,8 @@ public class HttpClient {
 	 *            additional headers for the request
 	 * @param params
 	 *            additional parameters for the request
-	 * @param responseHandler
-	 *            the response handler
+	 * @param handler
+	 *            the http handler
 	 */
 	public int get(final String url, final HttpHeaders headers, final HttpParams params, final HttpHandler handler) {
 		return doRequest(Method.GET, url, headers, params, handler);
@@ -136,8 +134,8 @@ public class HttpClient {
 	 * 
 	 * @param url
 	 *            the URL
-	 * @param responseHandler
-	 *            the response handler
+	 * @param handler
+	 *            the http handler
 	 */
 	public int post(final String url, final HttpHandler handler) {
 		return doRequest(Method.POST, url, null, null, handler);
@@ -150,8 +148,8 @@ public class HttpClient {
 	 *            the URL
 	 * @param headers
 	 *            additional headers for the request
-	 * @param responseHandler
-	 *            the response handler
+	 * @param handler
+	 *            the http handler
 	 */
 	public int post(final String url, final HttpHeaders headers, final HttpHandler handler) {
 		return doRequest(Method.POST, url, headers, null, handler);
@@ -164,8 +162,8 @@ public class HttpClient {
 	 *            the URL
 	 * @param params
 	 *            additional parameters for the request
-	 * @param responseHandler
-	 *            the response handler
+	 * @param handler
+	 *            the http handler
 	 */
 	public int post(final String url, final HttpParams params, final HttpHandler handler) {
 		return doRequest(Method.POST, url, null, params, handler);
@@ -180,8 +178,8 @@ public class HttpClient {
 	 *            additional headers for the request
 	 * @param params
 	 *            additional parameters for the request
-	 * @param responseHandler
-	 *            the response handler
+	 * @param handler
+	 *            the http handler
 	 */
 	public int post(final String url, final HttpHeaders headers, final HttpParams params, final HttpHandler handler) {
 		return doRequest(Method.POST, url, headers, params, handler);
@@ -263,7 +261,7 @@ public class HttpClient {
 					postStart();
 
 					if (method == Method.GET) {
-						conn = (HttpURLConnection) new URL(url).openConnection();
+//						conn = (HttpURLConnection) new URL(url).openConnection();
 						conn.setRequestMethod("GET");
 					} else if (method == Method.POST) {
 						conn.setRequestMethod("POST");
@@ -299,7 +297,7 @@ public class HttpClient {
 						if (params.hasMultipartParams()) {
 							is = params.getMultipart().getContent();
 						} else {
-							is = new ByteArrayInputStream(params.getParamString().getBytes());
+							is = new ByteArrayInputStream(params.getJsonString().getBytes());
 						}
 
 						final OutputStream os = conn.getOutputStream();

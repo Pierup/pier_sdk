@@ -28,6 +28,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -206,6 +207,22 @@ public class HttpParams implements Serializable {
 
 	public String getParamString() {
 		return URLEncodedUtils.format(getParamsList(), encoding);
+	}
+
+	public String getJsonString() {
+		StringBuilder jsonString = new StringBuilder("{");
+		Iterator<Map.Entry<String, String>> iterator = urlParams.entrySet().iterator();
+		while (iterator.hasNext()) {
+			Map.Entry<String, String> param = iterator.next();
+			String key = param.getKey();
+			String value = param.getValue();
+			jsonString.append('"').append(key).append('"').append(':').append('"').append(value).append('"');
+			if (iterator.hasNext()) {
+				jsonString.append(',');
+			}
+		}
+		jsonString = jsonString.append("}");
+		return jsonString.toString();
 	}
 
 	protected boolean hasMultipartParams() {
