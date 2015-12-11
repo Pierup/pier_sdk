@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pierup.pierpaydemo" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +22,7 @@
             android:name="com.pierup.pierpaysdk.cn.PierBaseActivity">
         </activity>
         <activity
-            android:name="com.pierup.pierpaysdk.cn.utils.h5.PierH5Activity">
+            android:name="com.pierup.pierpaysdk.cn.widget.h5.PierH5Activity">
         </activity>
     </application>
 

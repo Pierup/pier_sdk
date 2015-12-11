@@ -10,7 +10,6 @@ import android.widget.Button;
 
 import com.pierup.pierpaysdk.cn.PierBaseActivity;
 import com.pierup.pierpaysdk.cn.PierPaySDK;
-import com.pierup.pierpaysdk.cn.business.models.PierPayOrder;
 
 public class PierDemoActivity extends AppCompatActivity implements View.OnClickListener {
 
