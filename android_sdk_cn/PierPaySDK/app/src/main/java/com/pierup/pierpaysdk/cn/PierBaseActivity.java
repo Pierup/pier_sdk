@@ -48,6 +48,8 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_pier_base);
 //        setContentView(getResourseIdByName("layout", "activity_pier_base"))
         setupView();
+
+        requestProvinceService();
     }
 
     private void setupView() {
@@ -59,12 +61,10 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_button: {
-//                requestHTTPS_POST_Service();
+                requestHTTPS_POST_Service();
 //                requestHTTPS_GET_Service();
 
-//                requestProvinceService();
-
-                requestTest();
+//                requestTest();
                 break;
             }
         }
