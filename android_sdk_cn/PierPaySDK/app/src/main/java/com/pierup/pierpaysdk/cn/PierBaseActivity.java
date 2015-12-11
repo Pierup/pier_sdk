@@ -11,6 +11,11 @@ import com.pierup.pierpaysdk.cn.business.PierObject;
 import com.pierup.pierpaysdk.cn.business.bean.PierRootBean;
 import com.pierup.pierpaysdk.cn.business.bean.PierSDKBean;
 import com.pierup.pierpaysdk.cn.security.PierHttpClientUtil;
+import com.pierup.pierpaysdk.cn.security.network.HttpClient;
+import com.pierup.pierpaysdk.cn.security.network.HttpHandler;
+import com.pierup.pierpaysdk.cn.security.network.HttpHeaders;
+import com.pierup.pierpaysdk.cn.security.network.HttpParams;
+import com.pierup.pierpaysdk.cn.security.network.HttpResponse;
 import com.pierup.pierpaysdk.cn.service.network.PierNetwork;
 
 import java.io.UnsupportedEncodingException;
@@ -54,9 +59,61 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_button: {
-                requestHTTPS_POST_Service();
+//                requestHTTPS_POST_Service();
+//                requestHTTPS_GET_Service();
+
+                requestTest();
                 break;
             }
+        }
+    }
+
+    private void requestTest() {
+        try {
+            HttpClient httpClient = new HttpClient();
+            HttpHandler httpHandler = new HttpHandler() {
+                @Override
+                public void onSuccess(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+
+                @Override
+                public void onError(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+
+                @Override
+                public void onCancel(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+
+                @Override
+                public void onRetry(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+
+                @Override
+                public void onStart(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+            };
+//            httpClient.get(https_get_url, httpHandler);
+//            httpClient.post(http_post_url, httpHandler);
+            HttpParams httpParams = new HttpParams();
+            httpParams.put("session_token", "test");
+            httpParams.put("user_id", "UR0000008537");
+            httpParams.put("device_token", "test");
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.addHeader("Content-Type", "application/json");
+
+            httpClient.post(https_post_url, httpParams, httpHandler);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

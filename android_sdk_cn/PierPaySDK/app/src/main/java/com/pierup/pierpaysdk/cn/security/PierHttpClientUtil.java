@@ -1,5 +1,8 @@
 package com.pierup.pierpaysdk.cn.security;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,6 +27,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
@@ -31,6 +35,8 @@ import javax.net.ssl.X509TrustManager;
  * Created by wangbei on 12/9/15.
  */
 public class PierHttpClientUtil {
+
+    private static String TAG = "PierHttpClientUtil";
 
     //设置URLConnection的连接超时时间
     private final static int CONNET_TIMEOUT = 5 * 1000;
@@ -73,8 +79,15 @@ public class PierHttpClientUtil {
 //                url = url + URLEncoder.encode(queryString.toString(), QUERY_ENCODING);
                 url = url + queryString.toString();
             }
+//            URL localURL = new URL(url);
+//            HttpURLConnection localConnection = (HttpURLConnection) localURL.openConnection();
             URL localURL = new URL(url);
-            HttpURLConnection localConnection = (HttpURLConnection) localURL.openConnection();
+            HttpURLConnection localConnection = null;
+            if (localURL.getProtocol().toLowerCase().equals("https")) {
+                localConnection = (HttpsURLConnection)localURL.openConnection();
+            } else {
+                localConnection = (HttpURLConnection)localURL.openConnection();
+            }
             localConnection.setUseCaches(false);
             localConnection.setConnectTimeout(CONNET_TIMEOUT);
             localConnection.setReadTimeout(READ_TIMEOUT);
@@ -120,28 +133,45 @@ public class PierHttpClientUtil {
         body = joinParam(params, body);
         byte[] data = body.toString().getBytes();
         try {
-//            SSLContext sc = SSLContext.getInstance("TLS");
-//            sc.init(null, new TrustManager[]{new MyTrustManager()}, new SecureRandom());
-//            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-//            HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
-//            HttpsURLConnection conn = (HttpsURLConnection)new URL(url).openConnection();
-
             URL localURL = new URL(url);
-            HttpURLConnection localConnection = (HttpURLConnection) localURL.openConnection();
+            HttpsURLConnection localConnection = null;
+            if (localURL.getProtocol().toLowerCase().equals("https")) {
+                SSLContext sslcontext = SSLContext.getInstance("TLS");
+                sslcontext.init(null, new TrustManager[]{new MyX509TrustManager()}, new SecureRandom());
+                HttpsURLConnection.setDefaultSSLSocketFactory(sslcontext.getSocketFactory());
+                HttpsURLConnection.setDefaultHostnameVerifier(new MyHostnameVerifier());
+
+//                trustAllHosts();
+                // 创建HttpsURLConnection对象，并设置其SSLSocketFactory对象
+                localConnection = (HttpsURLConnection)localURL.openConnection();
+                //设置套接工厂
+                localConnection.setSSLSocketFactory(sslcontext.getSocketFactory());
+            } else {
+//                localConnection = (HttpURLConnection)localURL.openConnection();
+            }
             localConnection.setConnectTimeout(CONNET_TIMEOUT);
             localConnection.setReadTimeout(READ_TIMEOUT);
             localConnection.setRequestMethod("POST");
+
             // 请求头, 必须设置
             localConnection.setRequestProperty("Content-Type", "application/json");
             localConnection.setRequestProperty("Content-Length", String.valueOf(data.length));
             // post请求必须允许输出
             localConnection.setDoOutput(true);
+            localConnection.setDoInput(true);
             // 向服务器写出数据
             os = localConnection.getOutputStream();
             os.write(data);
             if (localConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                // 取得该连接的输入流，以读取响应内容
                 is = localConnection.getInputStream();
-                return PierStreamUtil.readStreamToString(is, ENCODING);
+                String message = PierStreamUtil.readStreamToString(is, ENCODING);
+                // 读取服务器的响应内容并显示
+                return message;
+            } else {
+                InputStream errorStream = localConnection.getErrorStream();
+                String message = PierStreamUtil.readStreamToString(errorStream, ENCODING);
+                return message;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -276,31 +306,71 @@ public class PierHttpClientUtil {
 
 
     /**
-     * 信任所有主机-对于任何证书都不做检查
+     * Trust every server - dont check for any certificate
+     */
+    private static void trustAllHosts() {
+        final String TAG = "trustAllHosts";
+        // Create a trust manager that does not validate certificate chains
+        TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+
+            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                return new java.security.cert.X509Certificate[] {};
+            }
+
+            public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                Log.i(TAG, "checkClientTrusted");
+            }
+
+            public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                Log.i(TAG, "checkServerTrusted");
+            }
+        } };
+
+        // Install the all-trusting trust manager
+        try {
+            SSLContext sc = SSLContext.getInstance("TLS");
+            sc.init(null, trustAllCerts, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 实现用于主机名验证的基接口。
+     * 在握手期间，如果 URL 的主机名和服务器的标识主机名不匹配，则验证机制可以回调此接口的实现程序来确定是否应该允许此连接。
      */
     private static class MyHostnameVerifier implements HostnameVerifier{
 
         @Override
         public boolean verify(String hostname, SSLSession session) {
             // TODO Auto-generated method stub
-            return true;
+            if("api.pierup.cn".equals(hostname)){
+                System.out.println("Warning: URL Host: " + hostname + " vs. "
+                        + session.getPeerHost());
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 
-    private static class MyTrustManager implements X509TrustManager {
+    private static class MyX509TrustManager implements X509TrustManager {
 
         @Override
         public void checkClientTrusted(X509Certificate[] chain, String authType)
                 throws CertificateException {
             // TODO Auto-generated method stub
-
+            System.out.println("cert: " + chain[0].toString() + ", authType: "
+                    + authType);
         }
 
         @Override
         public void checkServerTrusted(X509Certificate[] chain, String authType)
                 throws CertificateException {
             // TODO Auto-generated method stub
-
+            System.out.println("cert: " + chain[0].toString() + ", authType: "
+                    + authType);
         }
 
         @Override
