@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.pierup.pierpaysdk.cn.business.PierObject;
 import com.pierup.pierpaysdk.cn.business.bean.PierRootBean;
 import com.pierup.pierpaysdk.cn.business.bean.PierSDKBean;
+import com.pierup.pierpaysdk.cn.business.models.PierRequest;
 import com.pierup.pierpaysdk.cn.security.PierHttpClientUtil;
 import com.pierup.pierpaysdk.cn.security.network.HttpClient;
 import com.pierup.pierpaysdk.cn.security.network.HttpHandler;
@@ -22,6 +23,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 
+import static com.pierup.pierpaysdk.cn.business.PierServiceEnumSDK.getProfile;
 import static com.pierup.pierpaysdk.cn.business.PierServiceEnumSDK.getProvince;
 
 public class PierBaseActivity extends AppCompatActivity implements View.OnClickListener {
@@ -46,8 +48,6 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_pier_base);
 //        setContentView(getResourseIdByName("layout", "activity_pier_base"))
         setupView();
-
-        requestProvinceService();
     }
 
     private void setupView() {
@@ -61,6 +61,8 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
             case R.id.login_button: {
 //                requestHTTPS_POST_Service();
 //                requestHTTPS_GET_Service();
+
+//                requestProvinceService();
 
                 requestTest();
                 break;
@@ -116,6 +118,20 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
             e.printStackTrace();
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void requestHTTPService() {
         new Thread(){
@@ -191,7 +207,7 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
 
     private void requestProvinceService() {
         PierSDKBean sdkBean = new PierSDKBean();
-        new PierNetwork(getProvince, this, sdkBean) {
+        new PierNetwork(getProfile, this, sdkBean) {
             @Override
             public void onSuccess(PierRootBean bean, PierObject result) {
                 PierObject response = (PierObject) result;
@@ -200,7 +216,7 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
 
             @Override
             public void onFailure(PierRootBean bean, String result, Throwable error) {
-
+                String message = result;
             }
         }.start();
     }

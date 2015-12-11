@@ -139,7 +139,7 @@ public class PierServiceDispatcher {
                             e = pierException;
 //                            Toast.makeText(handler.context, pierException.getCodeMessage(), Toast.LENGTH_SHORT).show();
                             callBack.checkErrorResponseStatus(code, message, errorResult, pierException);
-//                            callBack.onFailure(handler.bean, errorResult, e);
+                            callBack.onFailure(handler.bean, errorResult, e);
                         } else {
 //                            Toast.makeText(handler.context, R.string.alert_error, Toast.LENGTH_SHORT).show();
                         }

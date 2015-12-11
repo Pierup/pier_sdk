@@ -117,7 +117,6 @@ public abstract class PierHttpClient implements PierHttpClientInterface {
 //                params.put("user_id", PierDataSources.instance.getUser_id());
 //                params.put("session_token", PierDataSources.instance.getSession_token());
 //                params.put("device_token", PierDataSources.instance.getDevice_token());
-//                params.put("platform", PierServiceConfig.PLATFORM);
 //            }
         }
         return params;

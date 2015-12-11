@@ -36,6 +36,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import cz.msebera.android.httpclient.conn.scheme.Scheme;
+import cz.msebera.android.httpclient.conn.ssl.SSLSocketFactory;
+
 public class HttpClient {
 
 	private static final String TAG = HttpClient.class.getSimpleName();
@@ -541,5 +544,4 @@ public class HttpClient {
 	private synchronized int incrementRequestId() {
 		return requestId++;
 	}
-
 }
