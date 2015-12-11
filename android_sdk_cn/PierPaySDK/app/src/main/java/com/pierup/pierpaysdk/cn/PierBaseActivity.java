@@ -6,6 +6,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.pierup.pierpaysdk.cn.security.PierHttpClientUtil;
 import com.pierup.pierpaysdk.cn.security.network.HttpClient;
@@ -14,6 +15,7 @@ import com.pierup.pierpaysdk.cn.security.network.HttpMethod;
 import com.pierup.pierpaysdk.cn.security.network.HttpParams;
 import com.pierup.pierpaysdk.cn.security.network.HttpResponse;
 import com.pierup.pierpaysdk.cn.security.service.PierNetwork;
+import com.pierup.pierpaysdk.cn.security.service.PierServiceConfig;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -41,101 +43,35 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_button: {
-
-                HttpParams httpParams = new HttpParams();
-                httpParams.put("session_token", "test");
-                httpParams.put("user_id", "UR0000008537");
-                httpParams.put("device_token", "test");
-                new PierNetwork(HttpMethod.GET, https_get_url, httpParams, this) {
-
-                    @Override
-                    public void onSuccess(HttpResponse response) {
-                        String message = response.responseMessage;
-                        String body = response.responseBody;
-                    }
-
-                    @Override
-                    public void onFailure(HttpResponse response) {
-                        String message = response.responseMessage;
-                        String body = response.responseBody;
-                    }
-                }.start();
+                requestService();
                 break;
             }
         }
     }
 
+    private void requestService() {
+        HttpParams httpParams = new HttpParams();
+        httpParams.put("session_token", "test");
+        httpParams.put("user_id", "UR0000008537");
+        httpParams.put("device_token", "test");
+        new PierNetwork(HttpMethod.GET, https_get_url, httpParams, this) {
 
+            @Override
+            public void onSuccess(HttpResponse response) {
+                String message = response.responseMessage;
+                String body = response.responseBody;
 
+                Toast.makeText(getApplicationContext(), body, Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onFailure(HttpResponse response) {
+                String message = response.responseMessage;
+                String body = response.responseBody;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    private void requestTest() {
-        try {
-            HttpClient httpClient = new HttpClient();
-            HttpHandler httpHandler = new HttpHandler() {
-                @Override
-                public void onSuccess(HttpResponse response) {
-                    String message = response.responseMessage;
-                    String body = response.responseBody;
-                }
-
-                @Override
-                public void onError(HttpResponse response) {
-                    String message = response.responseMessage;
-                    String body = response.responseBody;
-                }
-
-                @Override
-                public void onCancel(HttpResponse response) {
-                    String message = response.responseMessage;
-                    String body = response.responseBody;
-                }
-
-                @Override
-                public void onRetry(HttpResponse response) {
-                    String message = response.responseMessage;
-                    String body = response.responseBody;
-                }
-
-                @Override
-                public void onStart(HttpResponse response) {
-                    String message = response.responseMessage;
-                    String body = response.responseBody;
-                }
-            };
-//            httpClient.get(https_get_url, httpHandler);
-//            httpClient.post(http_post_url, httpHandler);
-
-            HttpParams httpParams = new HttpParams();
-            httpParams.put("session_token", "test");
-            httpParams.put("user_id", "UR0000008537");
-            httpParams.put("device_token", "test");
-            httpClient.post(https_post_url, httpParams, httpHandler);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+                Toast.makeText(getApplicationContext(), body, Toast.LENGTH_SHORT).show();
+            }
+        }.start();
     }
 
 
@@ -172,6 +108,7 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
                 params.put("output", "json");
                 params.put("ak", "wl82QREF9dNMEEGYu3LAGqdU");
                 String result = PierHttpClientUtil.get(http_get_url, params);
+                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                 mHandler.sendEmptyMessage(1);
             };
         }.start();
@@ -182,7 +119,8 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
             public void run() {
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("wd", "android");
-                String result = PierHttpClientUtil.get(https_get_url, params);
+                String result = PierHttpClientUtil.get(PierServiceConfig.host_production_sdk + https_get_url, params);
+                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                 mHandler.sendEmptyMessage(1);
             };
         }.start();
@@ -196,6 +134,7 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
                 params.put("user_id", "UR0000008537");
                 params.put("device_token", "test");
                 String result = PierHttpClientUtil.post(https_post_url, params);
+                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                 mHandler.sendEmptyMessage(1);
             };
         }.start();
