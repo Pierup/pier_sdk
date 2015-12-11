@@ -6,7 +6,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
-import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
@@ -19,7 +18,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-
 
 public class PierDeviceUtil {
 
@@ -81,7 +79,6 @@ public class PierDeviceUtil {
             buffer.append(id);
         }
         final String base = CoreProtocolPNames.USER_AGENT;
-        ;
 
         return String.format(base, buffer);
     }
@@ -154,15 +151,6 @@ public class PierDeviceUtil {
         return resultMap;
     }
 
-    public static void openAppByPackage(Activity activity, String packageName){
-        Intent intent = new Intent();
-        PackageManager packageManager = activity.getPackageManager();
-        //"支付宝钱包" -> "com.eg.android.AlipayGphone"
-        intent = packageManager.getLaunchIntentForPackage(packageName);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED | Intent.FLAG_ACTIVITY_CLEAR_TOP) ;
-        activity.startActivity(intent);
-    }
-
     // 获取设备品牌
     private static String getDeviceBrand() {
         String deviceBrand = android.os.Build.BRAND;
@@ -189,10 +177,4 @@ public class PierDeviceUtil {
 
         return deviceDict;
     }
-
-//    // 获取设备Device ID
-//    public static String getDeviceID() {
-//        TelephonyManager telephonyManager = (TelephonyManager) UIApplication.getContext().getSystemService(UIApplication.getContext().TELEPHONY_SERVICE);
-//        return telephonyManager.getDeviceId();
-//    }
 }

@@ -1,28 +1,183 @@
 package com.pierup.pierpaysdk.cn;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.pierup.pierpaysdk.cn.business.PierObject;
 import com.pierup.pierpaysdk.cn.business.bean.PierRootBean;
 import com.pierup.pierpaysdk.cn.business.bean.PierSDKBean;
+import com.pierup.pierpaysdk.cn.business.models.PierRequest;
+import com.pierup.pierpaysdk.cn.security.PierHttpClientUtil;
+import com.pierup.pierpaysdk.cn.security.network.HttpClient;
+import com.pierup.pierpaysdk.cn.security.network.HttpHandler;
+import com.pierup.pierpaysdk.cn.security.network.HttpHeaders;
+import com.pierup.pierpaysdk.cn.security.network.HttpParams;
+import com.pierup.pierpaysdk.cn.security.network.HttpResponse;
 import com.pierup.pierpaysdk.cn.service.network.PierNetwork;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashMap;
+
+import static com.pierup.pierpaysdk.cn.business.PierServiceEnumSDK.getProfile;
 import static com.pierup.pierpaysdk.cn.business.PierServiceEnumSDK.getProvince;
 
-public class PierBaseActivity extends AppCompatActivity {
+public class PierBaseActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private String result;
+
+    private String https_get_url = "https://api.pierup.cn/common_api_cn/v1/query/all_provinces";
+    private String https_post_url = "https://api.pierup.cn/user_api_cn/v1/user/user_info";
+
+    private String http_get_url = "http://api.map.baidu.com/telematics/v3/weather";
+    private String http_post_url = "http://www.baidu.com/s";
+
+    private Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            String test = "Succeed";
+        };
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pier_base);
-//        setContentView(getResourseIdByName("layout", "activity_pier_base"));
-
-        requestProvinceService();
+//        setContentView(getResourseIdByName("layout", "activity_pier_base"))
+        setupView();
     }
+
+    private void setupView() {
+        Button localButton = (Button) findViewById(R.id.login_button);
+        localButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.login_button: {
+//                requestHTTPS_POST_Service();
+//                requestHTTPS_GET_Service();
+
+//                requestProvinceService();
+
+                requestTest();
+                break;
+            }
+        }
+    }
+
+    private void requestTest() {
+        try {
+            HttpClient httpClient = new HttpClient();
+            HttpHandler httpHandler = new HttpHandler() {
+                @Override
+                public void onSuccess(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+
+                @Override
+                public void onError(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+
+                @Override
+                public void onCancel(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+
+                @Override
+                public void onRetry(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+
+                @Override
+                public void onStart(HttpResponse response) {
+                    String message = response.responseMessage;
+                    String body = response.responseBody;
+                }
+            };
+//            httpClient.get(https_get_url, httpHandler);
+//            httpClient.post(http_post_url, httpHandler);
+            HttpParams httpParams = new HttpParams();
+            httpParams.put("session_token", "test");
+            httpParams.put("user_id", "UR0000008537");
+            httpParams.put("device_token", "test");
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.addHeader("Content-Type", "application/json");
+
+            httpClient.post(https_post_url, httpParams, httpHandler);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void requestHTTPService() {
+        new Thread(){
+            public void run() {
+                HashMap<String, String> params = new HashMap<String, String>();
+                try {
+                    params.put("location", URLEncoder.encode("上海", PierHttpClientUtil.QUERY_ENCODING));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                params.put("output", "json");
+                params.put("ak", "wl82QREF9dNMEEGYu3LAGqdU");
+                result = PierHttpClientUtil.get(http_get_url, params);
+                mHandler.sendEmptyMessage(1);
+            };
+        }.start();
+    }
+
+    private void requestHTTPS_GET_Service() {
+        new Thread(){
+            public void run() {
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("wd", "android");
+                result = PierHttpClientUtil.get(https_get_url, params);
+                mHandler.sendEmptyMessage(1);
+            };
+        }.start();
+    }
+
+    private void requestHTTPS_POST_Service() {
+        new Thread(){
+            public void run() {
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("session_token", "test");
+                params.put("user_id", "UR0000008537");
+                params.put("device_token", "test");
+                result = PierHttpClientUtil.post(https_post_url, params);
+                mHandler.sendEmptyMessage(1);
+            };
+        }.start();
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacksAndMessages(null);
+    };
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,7 +207,7 @@ public class PierBaseActivity extends AppCompatActivity {
 
     private void requestProvinceService() {
         PierSDKBean sdkBean = new PierSDKBean();
-        new PierNetwork(getProvince, this, sdkBean) {
+        new PierNetwork(getProfile, this, sdkBean) {
             @Override
             public void onSuccess(PierRootBean bean, PierObject result) {
                 PierObject response = (PierObject) result;
@@ -61,7 +216,7 @@ public class PierBaseActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(PierRootBean bean, String result, Throwable error) {
-
+                String message = result;
             }
         }.start();
     }
@@ -98,4 +253,5 @@ public class PierBaseActivity extends AppCompatActivity {
 
         return id;
     }
+
 }

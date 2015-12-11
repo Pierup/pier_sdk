@@ -2,17 +2,11 @@ package com.pierup.pierpaysdk.cn.service.network;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 
 import com.pierup.pierpaysdk.cn.business.PierServiceEnum;
 import com.pierup.pierpaysdk.cn.business.bean.PierRootBean;
 import com.pierup.pierpaysdk.cn.business.serviceHandler.PierServiceHandler;
 
-import static com.pierup.pierpaysdk.cn.business.PierServiceConfig.ACCOUNT_LOCKED;
-import static com.pierup.pierpaysdk.cn.business.PierServiceConfig.DEVICE_TOKEN_EXPIRE;
-import static com.pierup.pierpaysdk.cn.business.PierServiceConfig.PASSWORD_ERROR;
 import static com.pierup.pierpaysdk.cn.business.PierServiceConfig.SESSION_EXPIRE;
 import static com.pierup.pierpaysdk.cn.service.network.PierServiceDispatcher.serverStart;
 
@@ -71,7 +65,7 @@ public abstract class PierNetwork implements PierNetworkCallBack {
 //                sessionManager.executeActionLogin(context);
                 break;
             }
-            case DEVICE_TOKEN_EXPIRE: {
+//            case DEVICE_TOKEN_EXPIRE: {
 //                if (context != null && context instanceof Activity && !(context instanceof PierLoginActivity)) {
 //                    new PierAlertWidget(context).builder().setMsg(context.getResources().getString(R.string.alert_device_changed)).setPositiveButton(context.getResources().getString(R.string.alert_ok), new View.OnClickListener() {
 //                        @Override
@@ -91,31 +85,31 @@ public abstract class PierNetwork implements PierNetworkCallBack {
 //                        }
 //                    }).show();
 //                } else {
-                    PierNetwork.this.onFailure(bean, result, error);
+//                    PierNetwork.this.onFailure(bean, result, error);
 //                }
 
-                break;
-            }
-            case PASSWORD_ERROR: {
-                this.onFailure(bean, result, error);
-                break;
-            }
-            case ACCOUNT_LOCKED: {
-                this.onFailure(bean, result, error);
-                break;
-            }
-            default: {
-                this.onFailure(bean, result, error);
-                break;
-            }
+//                break;
+//            }
+//            case PASSWORD_ERROR: {
+//                this.onFailure(bean, result, error);
+//                break;
+//            }
+//            case ACCOUNT_LOCKED: {
+//                this.onFailure(bean, result, error);
+//                break;
+//            }
+//            default: {
+//                this.onFailure(bean, result, error);
+//                break;
+//            }
         }
-        if (handler.ifNeedErrorAlert) {
-            if (context != null
-                    && context instanceof Activity
-                    && code != SESSION_EXPIRE
-                    && code != DEVICE_TOKEN_EXPIRE) {
+//        if (handler.ifNeedErrorAlert) {
+//            if (context != null
+//                    && context instanceof Activity
+//                    && code != SESSION_EXPIRE
+//                    && code != DEVICE_TOKEN_EXPIRE) {
 //                new PierAlertWidget(context).builder().setMsg(codeMessage).show();
-            }
-        }
+//            }
+//        }
     }
 }

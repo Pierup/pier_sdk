@@ -9,7 +9,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -23,21 +23,14 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.google.code.gson:gson:2.5'
 }
 
 //dependsOn 可根据实际需要增加或更改
 task buildJar(dependsOn: ['compileReleaseJava'], type: Jar) {
 
-    appendix = "demo"
-    baseName = "androidJar"
-    version = "1.0.0"
-    classifier = "release"
-
-    //后缀名
-    extension = "jar"
-    //最终的 Jar 包名，如果没设置，默认为 [baseName]-[appendix]-[version]-[classifier].[extension]
+    //最终的 Jar 包名
     archiveName = "PierPaySDK.jar"
-
     //需打包的资源所在的路径集
     def srcClassDir = [project.buildDir.absolutePath + "/intermediates/classes/release"];
     //初始化资源路径集

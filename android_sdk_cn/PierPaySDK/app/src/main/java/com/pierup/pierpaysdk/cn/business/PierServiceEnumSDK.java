@@ -8,6 +8,12 @@ import static com.pierup.pierpaysdk.cn.business.PierServiceConfig.*;
  */
 public enum PierServiceEnumSDK implements PierServiceEnum {
 
+    getProfile("/user_api_cn/v1/user/user_info",
+            POST_JSON,
+            "PierRequest",
+            "PierResponse",
+            SERVICE_HANDLER_SDK),
+
     getProvince("/common_api_cn/v1/query/all_provinces",
             GET,
             "PierRequest",

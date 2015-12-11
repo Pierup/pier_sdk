@@ -17,10 +17,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.pierup.pierpaysdk.PierBaseActivity">
+            android:name="com.pierup.pierpaysdk.cn.PierBaseActivity">
         </activity>
         <activity
-            android:name="com.pierup.pierpaysdk.utils.h5.PierH5Activity">
+            android:name="com.pierup.pierpaysdk.cn.utils.h5.PierH5Activity">
         </activity>
     </application>
 
