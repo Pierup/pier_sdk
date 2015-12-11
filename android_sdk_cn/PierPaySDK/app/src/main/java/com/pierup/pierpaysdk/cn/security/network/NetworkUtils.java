@@ -9,7 +9,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 
 /**
- * A collection of network related utilities
+ * Created by wangbei on 12/9/15.
  */
 public class NetworkUtils {
 

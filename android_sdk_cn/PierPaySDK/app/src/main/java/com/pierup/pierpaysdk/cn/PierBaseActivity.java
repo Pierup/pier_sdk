@@ -7,49 +7,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.pierup.pierpaysdk.cn.business.PierObject;
-import com.pierup.pierpaysdk.cn.business.bean.PierRootBean;
-import com.pierup.pierpaysdk.cn.business.bean.PierSDKBean;
-import com.pierup.pierpaysdk.cn.business.models.PierRequest;
 import com.pierup.pierpaysdk.cn.security.PierHttpClientUtil;
 import com.pierup.pierpaysdk.cn.security.network.HttpClient;
 import com.pierup.pierpaysdk.cn.security.network.HttpHandler;
-import com.pierup.pierpaysdk.cn.security.network.HttpHeaders;
+import com.pierup.pierpaysdk.cn.security.network.HttpMethod;
 import com.pierup.pierpaysdk.cn.security.network.HttpParams;
 import com.pierup.pierpaysdk.cn.security.network.HttpResponse;
-import com.pierup.pierpaysdk.cn.service.network.PierNetwork;
+import com.pierup.pierpaysdk.cn.security.service.PierNetwork;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
 
-import static com.pierup.pierpaysdk.cn.business.PierServiceEnumSDK.getProfile;
-import static com.pierup.pierpaysdk.cn.business.PierServiceEnumSDK.getProvince;
-
 public class PierBaseActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private String result;
-
-    private String https_get_url = "https://api.pierup.cn/common_api_cn/v1/query/all_provinces";
-    private String https_post_url = "https://api.pierup.cn/user_api_cn/v1/user/user_info";
-
-    private String http_get_url = "http://api.map.baidu.com/telematics/v3/weather";
-    private String http_post_url = "http://www.baidu.com/s";
-
-    private Handler mHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            String test = "Succeed";
-        };
-    };
+    private String https_get_url = "/common_api_cn/v1/query/all_provinces";
+    private String https_post_url = "/user_api_cn/v1/user/user_info";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pier_base);
-//        setContentView(getResourseIdByName("layout", "activity_pier_base"))
-        setupView();
 
-        requestProvinceService();
+        setupView();
     }
 
     private void setupView() {
@@ -61,14 +41,55 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_button: {
-//                requestHTTPS_POST_Service();
-//                requestHTTPS_GET_Service();
 
-                requestTest();
+                HttpParams httpParams = new HttpParams();
+                httpParams.put("session_token", "test");
+                httpParams.put("user_id", "UR0000008537");
+                httpParams.put("device_token", "test");
+                new PierNetwork(HttpMethod.GET, https_get_url, httpParams, this) {
+
+                    @Override
+                    public void onSuccess(HttpResponse response) {
+                        String message = response.responseMessage;
+                        String body = response.responseBody;
+                    }
+
+                    @Override
+                    public void onFailure(HttpResponse response) {
+                        String message = response.responseMessage;
+                        String body = response.responseBody;
+                    }
+                }.start();
                 break;
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void requestTest() {
         try {
@@ -130,6 +151,14 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
 
 
 
+    private String http_get_url = "http://api.map.baidu.com/telematics/v3/weather";
+    private String http_post_url = "http://www.baidu.com/s";
+
+    private Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            String test = "Succeed";
+        };
+    };
 
     private void requestHTTPService() {
         new Thread(){
@@ -142,7 +171,7 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
                 }
                 params.put("output", "json");
                 params.put("ak", "wl82QREF9dNMEEGYu3LAGqdU");
-                result = PierHttpClientUtil.get(http_get_url, params);
+                String result = PierHttpClientUtil.get(http_get_url, params);
                 mHandler.sendEmptyMessage(1);
             };
         }.start();
@@ -153,7 +182,7 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
             public void run() {
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("wd", "android");
-                result = PierHttpClientUtil.get(https_get_url, params);
+                String result = PierHttpClientUtil.get(https_get_url, params);
                 mHandler.sendEmptyMessage(1);
             };
         }.start();
@@ -166,7 +195,7 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
                 params.put("session_token", "test");
                 params.put("user_id", "UR0000008537");
                 params.put("device_token", "test");
-                result = PierHttpClientUtil.post(https_post_url, params);
+                String result = PierHttpClientUtil.post(https_post_url, params);
                 mHandler.sendEmptyMessage(1);
             };
         }.start();
@@ -176,48 +205,6 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
         super.onDestroy();
         mHandler.removeCallbacksAndMessages(null);
     };
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_pier_home, menu);
-////        getMenuInflater().inflate(getResourseIdByName("menu", "menu_pier_home"), menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-////        if (id == getResourseIdByName("id", "action_settings")) {
-////            return true;
-////        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
-    private void requestProvinceService() {
-        PierSDKBean sdkBean = new PierSDKBean();
-        new PierNetwork(getProfile, this, sdkBean) {
-            @Override
-            public void onSuccess(PierRootBean bean, PierObject result) {
-                PierObject response = (PierObject) result;
-
-            }
-
-            @Override
-            public void onFailure(PierRootBean bean, String result, Throwable error) {
-                String message = result;
-            }
-        }.start();
-    }
 
     public int getResourseIdByName(String className, String name) {
         Class r = null;
