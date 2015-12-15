@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_pier_h5">PierH5Activity</string>
+    <string name="title_activity_pier_test">PierTestActivity</string>
+
 </resources>
