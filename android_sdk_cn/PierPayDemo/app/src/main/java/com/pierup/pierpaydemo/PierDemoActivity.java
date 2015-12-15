@@ -18,8 +18,11 @@ public class PierDemoActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pier_demo);
 
-        Button startButton = (Button)findViewById(R.id.start_button);
-        startButton.setOnClickListener(this);
+        Button nativeButton = (Button)findViewById(R.id.native_button);
+        nativeButton.setOnClickListener(this);
+
+        Button h5Button = (Button)findViewById(R.id.h5_button);
+        h5Button.setOnClickListener(this);
     }
 
     @Override
@@ -47,11 +50,12 @@ public class PierDemoActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.start_button: {
-//                Intent intent = new Intent(this, PierBaseActivity.class);
-//                startActivity(intent);
-
+            case R.id.native_button: {
                 PierPaySDK.startPierPayAction(this);
+                break;
+            }
+            case R.id.h5_button: {
+                PierPaySDK.startPierPayAction(this, "http://www.baidu.com");
                 break;
             }
         }
