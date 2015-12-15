@@ -3,6 +3,7 @@ package com.pierup.pierpaysdk.cn.security.service;
 import android.app.ProgressDialog;
 import android.content.Context;
 
+import com.pierup.pierpaysdk.cn.extern.PierDeviceUtil;
 import com.pierup.pierpaysdk.cn.security.network.HttpClient;
 import com.pierup.pierpaysdk.cn.security.network.HttpHandler;
 import com.pierup.pierpaysdk.cn.security.network.HttpMethod;
