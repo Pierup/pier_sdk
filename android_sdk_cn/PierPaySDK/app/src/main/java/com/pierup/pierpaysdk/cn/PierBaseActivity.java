@@ -1,25 +1,15 @@
 package com.pierup.pierpaysdk.cn;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.pierup.pierpaysdk.cn.security.PierHttpClientUtil;
-import com.pierup.pierpaysdk.cn.security.network.HttpClient;
-import com.pierup.pierpaysdk.cn.security.network.HttpHandler;
 import com.pierup.pierpaysdk.cn.security.network.HttpMethod;
 import com.pierup.pierpaysdk.cn.security.network.HttpParams;
 import com.pierup.pierpaysdk.cn.security.network.HttpResponse;
 import com.pierup.pierpaysdk.cn.security.service.PierNetwork;
-import com.pierup.pierpaysdk.cn.security.service.PierServiceConfig;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.HashMap;
 
 public class PierBaseActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -73,77 +63,6 @@ public class PierBaseActivity extends AppCompatActivity implements View.OnClickL
             }
         }.start();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    private String http_get_url = "http://api.map.baidu.com/telematics/v3/weather";
-    private String http_post_url = "http://www.baidu.com/s";
-
-    private Handler mHandler = new Handler() {
-        public void handleMessage(Message msg) {
-            String test = "Succeed";
-        };
-    };
-
-    private void requestHTTPService() {
-        new Thread(){
-            public void run() {
-                HashMap<String, String> params = new HashMap<String, String>();
-                try {
-                    params.put("location", URLEncoder.encode("上海", PierHttpClientUtil.QUERY_ENCODING));
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-                params.put("output", "json");
-                params.put("ak", "wl82QREF9dNMEEGYu3LAGqdU");
-                String result = PierHttpClientUtil.get(http_get_url, params);
-                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                mHandler.sendEmptyMessage(1);
-            };
-        }.start();
-    }
-
-    private void requestHTTPS_GET_Service() {
-        new Thread(){
-            public void run() {
-                HashMap<String, String> params = new HashMap<String, String>();
-                params.put("wd", "android");
-                String result = PierHttpClientUtil.get(PierServiceConfig.host_production_sdk + https_get_url, params);
-                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                mHandler.sendEmptyMessage(1);
-            };
-        }.start();
-    }
-
-    private void requestHTTPS_POST_Service() {
-        new Thread(){
-            public void run() {
-                HashMap<String, String> params = new HashMap<String, String>();
-                params.put("session_token", "test");
-                params.put("user_id", "UR0000008537");
-                params.put("device_token", "test");
-                String result = PierHttpClientUtil.post(https_post_url, params);
-                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
-                mHandler.sendEmptyMessage(1);
-            };
-        }.start();
-    }
-
-    protected void onDestroy() {
-        super.onDestroy();
-        mHandler.removeCallbacksAndMessages(null);
-    };
 
     public int getResourseIdByName(String className, String name) {
         Class r = null;

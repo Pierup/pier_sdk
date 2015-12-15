@@ -9,6 +9,8 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import com.pierup.pierpaysdk.cn.security.network.HttpParams;
+
 import org.apache.http.params.CoreProtocolPNames;
 
 import java.io.BufferedReader;
@@ -173,8 +175,24 @@ public class PierDeviceUtil {
         deviceDict.put("device_type", getDeviceBrand());
 
         //3. 经纬度
-//        deviceDict.put("ld", PierLocationUtil.getInstance().getLocationDict());
+        deviceDict.put("ld", PierLocationUtil.getInstance().getLocationDict());
 
         return deviceDict;
+    }
+
+    public static HttpParams getDeviceParams() {
+        HashMap<String, Object> deviceDict = new HashMap<>();
+        //1. Mac Address
+        deviceDict.put("mac_address", getMacAddress());
+
+        //2. 设备品牌
+        deviceDict.put("device_type", getDeviceBrand());
+
+        //3. 经纬度
+        deviceDict.put("ld", PierLocationUtil.getInstance().getLocationDict());
+
+        HttpParams params = new HttpParams();
+        params.put("meta", deviceDict);
+        return params;
     }
 }
