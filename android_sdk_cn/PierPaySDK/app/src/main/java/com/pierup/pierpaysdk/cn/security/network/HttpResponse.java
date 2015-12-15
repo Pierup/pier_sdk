@@ -105,7 +105,7 @@ public class HttpResponse implements Serializable {
 	 * @param method
 	 * @param url
 	 */
-	protected HttpResponse(final int requestId, final HttpClient.Method method, final String url) {
+	protected HttpResponse(final int requestId, final HttpMethod method, final String url) {
 		this.requestId = requestId;
 		this.requestMethod = method.toString();
 		this.url = url;
