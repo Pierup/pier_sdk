@@ -46,13 +46,6 @@ public class HttpClient {
 	protected ConcurrentHashMap<Integer, WeakReference<Handler>> requests = new ConcurrentHashMap<Integer, WeakReference<Handler>>();
 
 	/**
-	 * Supported HTTP request methods
-	 */
-	public static enum Method {
-		GET, POST
-	}
-
-	/**
 	 * Create a new HttpClient
 	 */
 	public HttpClient() {}
@@ -66,7 +59,7 @@ public class HttpClient {
 	 *            the http handler
 	 */
 	public int get(final String url, final HttpHandler handler) {
-		return doRequest(Method.GET, url, null, null, handler);
+		return doRequest(HttpMethod.GET, url, null, null, handler);
 	}
 
 	/**
@@ -80,7 +73,7 @@ public class HttpClient {
 	 *            the http handler
 	 */
 	public int get(final String url, final HttpHeaders headers, final HttpHandler handler) {
-		return doRequest(Method.GET, url, headers, null, handler);
+		return doRequest(HttpMethod.GET, url, headers, null, handler);
 	}
 
 	/**
@@ -94,7 +87,7 @@ public class HttpClient {
 	 *            the http handler
 	 */
 	public int get(final String url, final HttpParams params, final HttpHandler handler) {
-		return doRequest(Method.GET, url, null, params, handler);
+		return doRequest(HttpMethod.GET, url, null, params, handler);
 	}
 
 	/**
@@ -110,7 +103,7 @@ public class HttpClient {
 	 *            the http handler
 	 */
 	public int get(final String url, final HttpHeaders headers, final HttpParams params, final HttpHandler handler) {
-		return doRequest(Method.GET, url, headers, params, handler);
+		return doRequest(HttpMethod.GET, url, headers, params, handler);
 	}
 
 	/**
@@ -122,7 +115,7 @@ public class HttpClient {
 	 *            the http handler
 	 */
 	public int post(final String url, final HttpHandler handler) {
-		return doRequest(Method.POST, url, null, null, handler);
+		return doRequest(HttpMethod.POST, url, null, null, handler);
 	}
 
 	/**
@@ -136,7 +129,7 @@ public class HttpClient {
 	 *            the http handler
 	 */
 	public int post(final String url, final HttpHeaders headers, final HttpHandler handler) {
-		return doRequest(Method.POST, url, headers, null, handler);
+		return doRequest(HttpMethod.POST, url, headers, null, handler);
 	}
 
 	/**
@@ -150,7 +143,7 @@ public class HttpClient {
 	 *            the http handler
 	 */
 	public int post(final String url, final HttpParams params, final HttpHandler handler) {
-		return doRequest(Method.POST, url, null, params, handler);
+		return doRequest(HttpMethod.POST, url, null, params, handler);
 	}
 
 	/**
@@ -166,7 +159,7 @@ public class HttpClient {
 	 *            the http handler
 	 */
 	public int post(final String url, final HttpHeaders headers, final HttpParams params, final HttpHandler handler) {
-		return doRequest(Method.POST, url, headers, params, handler);
+		return doRequest(HttpMethod.POST, url, headers, params, handler);
 	}
 
 	/**
@@ -174,7 +167,7 @@ public class HttpClient {
 	 * 
 	 * @return id of the request
 	 */
-	protected int doRequest(final Method method, final String url, HttpHeaders headers, HttpParams params, final HttpHandler handler) {
+	protected int doRequest(final HttpMethod method, final String url, HttpHeaders headers, HttpParams params, final HttpHandler handler) {
 		if (headers == null) {
 			headers = new HttpHeaders();
 		}
@@ -188,7 +181,7 @@ public class HttpClient {
 
 		class HandlerRunnable extends Handler implements Runnable {
 
-			private final Method method;
+			private final HttpMethod method;
 			private String url;
 			private final HttpHeaders headers;
 			private final HttpParams params;
@@ -198,7 +191,7 @@ public class HttpClient {
 			private boolean canceled = false;
 			private int retries = 0;
 
-			protected HandlerRunnable(final Method method, final String url, final HttpHeaders headers, final HttpParams params, final HttpHandler handler) {
+			protected HandlerRunnable(final HttpMethod method, final String url, final HttpHeaders headers, final HttpParams params, final HttpHandler handler) {
 				this.method = method;
 				this.url = url;
 				this.headers = headers;
@@ -216,14 +209,14 @@ public class HttpClient {
 				HttpURLConnection conn = null;
 				try {
 					/* append query string for GET requests */
-					if (method == Method.GET) {
+					if (method == HttpMethod.GET) {
 						if (!params.urlParams.isEmpty()) {
 							url += ('?' + params.getParamString());
 						}
 					}
 
 					/* setup headers for POST requests */
-					if (method == Method.POST) {
+					if (method == HttpMethod.POST) {
 						headers.addHeader("Accept-Charset", requestOptions.encoding);
 						if (params.hasMultipartParams()) {
 							final SimpleMultipart multipart = params.getMultipart();
@@ -244,10 +237,10 @@ public class HttpClient {
 
 					postStart();
 
-					if (method == Method.GET) {
+					if (method == HttpMethod.GET) {
 //						conn = (HttpURLConnection) new URL(url).openConnection();
 						conn.setRequestMethod("GET");
-					} else if (method == Method.POST) {
+					} else if (method == HttpMethod.POST) {
 						conn.setRequestMethod("POST");
 						conn.setDoOutput(true);
 						conn.setDoInput(true);
@@ -275,7 +268,7 @@ public class HttpClient {
 					response.requestProperties = conn.getRequestProperties();
 
 					/* do post */
-					if (method == Method.POST) {
+					if (method == HttpMethod.POST) {
 						InputStream is;
 
 						if (params.hasMultipartParams()) {
