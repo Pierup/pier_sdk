@@ -38,6 +38,7 @@
                 }
             }
         }
+        
         notEmpty( { amount: _pierAmount, merchant_id: _merchantId, currency: _currency, api_key: _apiKey, return_url: _returnUrl,sign: _sign,sign_type: _signType,charset: _charset, pay_button_id: _payBtnId } );
         //For constant
         var CONSTANT = {
@@ -139,6 +140,7 @@
                 sign_type:_signType,
                 charset: _charset
             };
+
             for (var x in PARAMS) 
             {   
             	var opt = document.createElement("textarea");      
