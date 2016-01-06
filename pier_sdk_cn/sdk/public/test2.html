@@ -4,15 +4,20 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 <style>/* simple */
+        .PIER-flip-container, .PIER-overlay, .PIER-flip-container *{
+        	-moz-box-sizing : border-box ;
+			-webkit-box-sizing : border-box ;
+			-ms-box-sizing : border-box ;
+			-o-box-sizing : border-box ;
+			box-sizing : border-box ;
+        }
         .PIER-overlay{
         	position:fixed;
         	left:0;
         	top:0;
         	width:100%;
         	height:100%;
-        	z-index:1;
-        	background:rgb(187,187,187);
-        	/*visibility:hidden;*/
+        	z-index:999;
         	opacity:1;
         	font-family: 'Microsoft YaHei', Arial, SimHei;
         }
@@ -30,13 +35,18 @@
 			-moz-perspective: 1000;
 			-ms-perspective: 1000;
 			perspective: 1000;
+			-webkit-transform: perspective(1000px);
 			-ms-transform: perspective(1000px);
 			-moz-transform: perspective(1000px);
+			transform: perspective(1000px);
+
+			-webkit-transform-style: preserve-3d; 
 			-moz-transform-style: preserve-3d; 
 			-ms-transform-style: preserve-3d; 
+			transform-style: preserve-3d; 
 			margin: 0 auto;
 			margin-top:10%;
-			width: 448px;
+			width: 460px;
 			height: auto;
 		}
 		 .PIER-reg-container-back{
@@ -45,19 +55,24 @@
 		    -o-transform: rotateY(0deg) !important;
 		    -ms-transform: rotateY(0deg) !important;
 		    transform: rotateY(0deg) !important;
+		    opacity: 1 !important;
+		    z-index: 10;
 		}
 
 		 .PIER-login-container-back{
 		    -webkit-transform: rotateY(180deg) !important;
 		    -moz-transform: rotateY(180deg) !important;
 		    -o-transform: rotateY(180deg) !important;
+		    -ms-transform: rotateY(180deg) !important;
 		    transform: rotateY(180deg) !important;
+		    opacity: 0;
 		}
 		
 		.PIER-login-container, .PIER-reg-container {
 			-webkit-backface-visibility: hidden;
 			-moz-backface-visibility: hidden;
 			-ms-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
 			backface-visibility: hidden;
 
 		    -webkit-transition: 0.6s;
@@ -80,65 +95,89 @@
 		}
 		.PIER-login-container {
 			-webkit-transform: rotateY(0deg);
+			-moz-transform: rotateY(0deg);
 			-ms-transform: rotateY(0deg);
+			-o-transform: rotateY(0deg);
+			transform: rotateY(0deg);
 			z-index: 2;
-			width: 448px;
-			height: 355px;
-			-moz-border-radius: 6px;
-			-webkit-border-radius: 6px;
-			border-radius: 6px;
-			-moz-box-shadow: 0px 0px 2px rgb(160,160,160);
-			-webkit-box-shadow: 0px 0px 2px rgb(160,160,160);
-			box-shadow: 0px 0px 2px rgb(160,160,160);
-			background: #ffffff;
-		}
-		.PIER-payment-container{
-			-webkit-transform: rotateY(0deg);
-			-ms-transform: rotateY(0deg);
-			width: 448px;
+			width: 460px;
 			height: auto;
 			-moz-border-radius: 6px;
 			-webkit-border-radius: 6px;
+			-ms-border-radius: 6px;
+			-o-border-radius: 6px;
 			border-radius: 6px;
 			-moz-box-shadow: 0px 0px 2px rgb(160,160,160);
 			-webkit-box-shadow: 0px 0px 2px rgb(160,160,160);
+			-ms-box-shadow: 0px 0px 2px rgb(160,160,160);
+			-o-box-shadow: 0px 0px 2px rgb(160,160,160);
 			box-shadow: 0px 0px 2px rgb(160,160,160);
-			background: #ffffff;
+			background: #f5f5f5;
+		}
+		.PIER-payment-container, .PIER-apply-container{
+			-webkit-transform: rotateY(0deg);
+			-ms-transform: rotateY(0deg);
+			width: 460px;
+			height: auto;
+			-moz-border-radius: 6px;
+			-webkit-border-radius: 6px;
+			-ms-border-radius: 6px;
+			-o-border-radius: 6px;
+			border-radius: 6px;
+			-moz-box-shadow: 0px 0px 2px rgb(160,160,160);
+			-webkit-box-shadow: 0px 0px 2px rgb(160,160,160);
+			-ms-box-shadow: 0px 0px 2px rgb(160,160,160);
+			-o-box-shadow: 0px 0px 2px rgb(160,160,160);
+			box-shadow: 0px 0px 2px rgb(160,160,160);
+			background: #f5f5f5;
 			z-index: 2;
 			display: none;
 		}
 		.PIER-payresult-container{
 			-webkit-transform: rotateY(0deg);
 			-ms-transform: rotateY(0deg);
-			width: 448px;
+			width: 460px;
 			height: auto;
 			-moz-border-radius: 6px;
 			-webkit-border-radius: 6px;
+			-ms-border-radius: 6px;
+			-o-border-radius: 6px;
 			border-radius: 6px;
 			-moz-box-shadow: 0px 0px 2px rgb(160,160,160);
 			-webkit-box-shadow: 0px 0px 2px rgb(160,160,160);
+			-ms-box-shadow: 0px 0px 2px rgb(160,160,160);
+			-o-box-shadow: 0px 0px 2px rgb(160,160,160);
 			box-shadow: 0px 0px 2px rgb(160,160,160);
 			background: #ffffff;
 			z-index: 4;
 			display: none;
-			/*margin-top: -600px;*/
 		}
 		.PIER-reg-container {
+			
 			-webkit-transform: rotateY(-180deg);
 		    -moz-transform: rotateY(-180deg);
 		    -o-transform: rotateY(-180deg);
 		    -ms-transform: rotateY(-180deg);
 		    transform: rotateY(-180deg);
-			width: 448px;
-			height: 425px;
+			width: 460px;
+			height: auto;
+
 			-moz-border-radius: 6px;
 			-webkit-border-radius: 6px;
+			-ms-border-radius: 6px;
+			-o-border-radius: 6px;
 			border-radius: 6px;
+
 			-moz-box-shadow: 0px 0px 2px rgb(160,160,160);
 			-webkit-box-shadow: 0px 0px 2px rgb(160,160,160);
+			-ms-box-shadow: 0px 0px 2px rgb(160,160,160);
+			-o-box-shadow: 0px 0px 2px rgb(160,160,160);
 			box-shadow: 0px 0px 2px rgb(160,160,160);
-			background: #ffffff;
+
+			background: #f5f5f5;
+			opacity: 0;
 		}
+		
 		.PIER-payresult-body{
 			padding-bottom: 40px;
 		}
@@ -147,15 +186,11 @@
 		}
 		.PIER-panel-head{
 			text-align: center;
-			width:100%;height:75px;
-			-moz-border-top-right-radius: 6px;
-			-webkit-border-top-right-radius: 6px;
-			-border-top-right-radius: 6px;
-			-moz-border-top-left-radius: 6px;
-			-webkit-border-top-left-radius: 6px;
-			-border-top-left-radius: 6px;
-			filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = 'rgb(245,245,245)', endColorstr = 'rgb(235,235,237)');
-			-ms-filter: 'progid: DXImageTransform.Microsoft.gradient(startColorstr = 'rgb(245,245,245)', endColorstr = 'rgb(235,235,237)')';
+			width:100%;height:80px;
+			border-top-right-radius: 6px;
+			border-top-left-radius: 6px;
+			filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = "rgb(245,245,245)", endColorstr = "rgb(235,235,237)");
+			-ms-filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = "rgb(245,245,245)", endColorstr = "rgb(235,235,237)");
 			background-image: -moz-linear-gradient(top, rgb(245,245,245), rgb(235,235,237));
 			background-image: -ms-linear-gradient(top, rgb(245,245,245), rgb(235,235,237));
 			background-image: -o-linear-gradient(top, rgb(245,245,245), rgb(235,235,237));
@@ -166,6 +201,7 @@
 			background-clip: padding-box;
 			border-bottom:0px;
 			border-bottom: 1px solid rgb(192,192,192);
+			background: url(/images/top-bg.png) repeat-x;
 		}
 		.PIER-panel-head table{
 			width: 100%;
@@ -174,26 +210,25 @@
 		.PIER-panel-head table tr td:first-child{
 			width:20%;
 		}
-		.PIER-panel-head table tr td:first-child{
-			width:20%;
-		}
-		.PIER-panel-head table tr td:first-child img{
-			height: 50px;
-			width: 50px;
+		.PIER-panel-head table tr td:nth-child(2) img{
+			height: 56px;
+			width: 56px;
 			border:2px solid #fff;
-			/*margin-top: 6px;*/
-			border-radius: 27px;
-		}
-		.PIER-panel-head table tr td:first-child div{
-			height: 54px;
-			width: 54px;
-			border:1px solid rgb(200,200,200);
-			margin-top: 6px;
 			border-radius: 28px;
+		}
+		.PIER-panel-head table tr td:nth-child(2) div{
+			height: 58px;
+			width: 58px;
+			border:1px solid rgb(200,200,200);
+			margin-top: -32px;
+			border-radius: 30px;
 			display: inline-block;
 		}
 		.PIER-panel-head table tr td:nth-child(2) h4{
 			font-size: 16px;
+			margin-top: -2px;
+			letter-spacing: 2px;
+			font-weight: lighter;
 		}
 		.PIER-panel-head table tr td:nth-child(3){
 			width: 20%;
@@ -211,8 +246,18 @@
 
 		}
 		.PIER-login-body{
-			height: 280px;
+			height: 230px;
 			width: 100%;
+			border-top:1px solid #f5f5f5;
+		}
+		.PIER-reg-body{
+			height: 346px;
+			width: 100%;
+		}
+		.PIER-apply-body{
+			height: auto;
+			width: 100%;
+			padding-bottom: 20px;
 		}
 		.PIER-payment-body{
 			height: auto;
@@ -222,16 +267,16 @@
 		.PIER-payment-body label{
 			font-size: 14px;
 		}
-		.PIER-payment-body .PIER-right{
+		.PIER-right{
 			float: right;
 		}
 		.PIER-row{
-			width: 250px; 
+			width: 262px; 
 			margin: 0 auto;
 		}
 		.PIER-comm-input{
-            width: 242px;
-            height: 26px;
+            width: 260px;
+            height: 30px;
             outline: none;
             border-radius: 4px;
             border: 1px solid rgb(220,220,220);
@@ -239,7 +284,7 @@
 		}
 		.PIER-code-input{
 			width: 173px;
-			height: 26px;
+			height: 30px;
 			padding-left: 6px;
 			outline: none;
 			border: 1px solid rgb(220,220,220);
@@ -249,21 +294,73 @@
             float: left;
             display: block !important;
 		}
-		.PIER-code-lable{
+		.PIER-code-label{
             font-size: 12px !important;
             background: rgb(180,180,180);
             color: #fff;
-            height: 22px;
+            height: 30px;
             border-top-right-radius: 4px;
             border-bottom-right-radius: 4px;
-            padding-left: 6px;
-            padding-right: 6px;
+            padding-left: 8px;
+            padding-right: 8px;
             padding-top: 6px;
             padding-bottom: 2px;
             margin-left: -4px;
             float: left;
             /*display: inline-block;*/
             cursor: pointer;
+            width: 89px;
+		}
+		.PIER-switch-btn{
+			background: #fff;
+            color: #7b37a6;
+            border:1px solid #ccc;
+            outline: none;
+            width: 90px;
+            height: 28px;
+            /*float: left;*/
+            display: inline-block;
+            cursor: pointer;
+            font-size: 14px;
+		}
+		.PIER-switch-btn.active{
+            background: #7b37a6;
+            color: #fff;
+		}
+		.PIER-switch-btn.left-btn{
+			border-top-left-radius: 4px;
+			border-bottom-left-radius: 4px;
+			border-right: 0px;
+		}
+		.PIER-switch-btn.right-btn{
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+			border-left: 0px;
+		}
+		.PIER-bank-body{
+			height: auto;
+			width: 100%;
+			background: #fff;
+			border-bottom-left-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+		.PIER-bank-body table{
+			margin: 0 auto;
+			height: 80px;
+		}
+		.PIER-bank-body table img{
+			width: 40px;
+			height: 40px;
+			line-height: 80px;
+		}
+		.PIER-link-bank-panel{
+			width: 100%;
+			transition: height 0.5s;
+			-moz-transition: height 0.5s;	
+			-webkit-transition: height 0.5s;
+			-o-transition: height 0.5s;
+			height: 0px;
+			overflow: hidden;
 		}
 		.PIER-clear{
 			clear: both;
@@ -282,17 +379,24 @@
 			outline: none;
 			border: 1px solid rgb(220,220,220);
 		}
+		.PIER-set-pin{
+			width: 100%;
+			height: auto;
+		}
 		.PIER-mT-lg{
-			margin-top: 65px;
+			margin-top: 55px;
 		}
 		.PIER-mT-md{
 			margin-top: 40px;
 		}
 		.PIER-mT-sm{
-			margin-top: 20px;
+			margin-top: 18px;
 		}
 		.PIER-mT-xs{
 			margin-top: 10px;
+		}
+		.PIER-mB-sm{
+			margin-bottom: 18px;
 		}
 		.PIER-color{
 			color: #7b37a6;
@@ -300,6 +404,10 @@
 		.PIER-color-gray{
 			color: rgb(200,200,200);
 		}
+		.PIER-color-black{
+			color:#000;
+		}
+
 		.PIER-money{
 			color: #f34949;
 		}
@@ -313,8 +421,8 @@
 			text-align: center;
 		}
 		.PIER-submit-btn{
-			width: 116px;
-			height: 26px;
+			width: 132px;
+			height: 28px;
 			border-radius: 4px;
 			border: 1px solid rgb(220,220,220);
 			filter: progid: DXImageTransform.Microsoft.gradient(startColorstr = 'rgb(255,255,255)', endColorstr = 'rgb(225,225,225)');
@@ -339,11 +447,12 @@
 			background-image: -ms-linear-gradient(top, rgb(245,245,245), rgb(215,215,215));
 			background-image: -o-linear-gradient(top, rgb(245,245,245), rgb(215,215,215));
 			background-image: -webkit-gradient(linear, center top, center bottom, from(rgb(255,255,255)), to(rgb(215,215,215)));
+			background-image: gradient(linear, center top, center bottom, from(rgb(255,255,255)), to(rgb(215,215,215)));
 			background-image: -webkit-linear-gradient(top, rgb(245,245,245), rgb(215,215,215));
 			background-image: linear-gradient(top, rgb(245,245,245), rgb(215,215,215));
 		}
 		.PIER-bottom-text{
-			font-size: 10px;
+			font-size: 12px !important;
 		}
 		.PIER-forward-reg:hover, .PIER-forward-login:hover{
             cursor: pointer;
@@ -356,18 +465,39 @@
 		.PIER-display-block{
 			display: block !important; 
 		}
+		.PIER-error{
+			font-size: 14px;
+			color: #f34949;
+		}
+
+		/**apply credit**/
+		.PIER-apply-container  label{
+			font-size: 14px !important;
+			color: rgb(149,149,149);
+		}
+		.PIER-apply-body .PIER-row>span{
+			font-size: 14px ;
+			color: #000;
+		}
+		.PIER-split-line{
+			border-bottom: 1px dotted #ccc;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+		
 		/*.PIER-display-static{
 			display: static;
 		}*/
 
 		/**animate**/
-		.bounceOutLeft {
-			-webkit-animation-name:bounceOutLeft;
-			-moz-animation-name:bounceOutLeft;
-			-o-animation-name:bounceOutLeft;
-			animation-name:bounceOutLeft
+		.PIERbounceOutLeft {
+			-webkit-animation-name:PIERbounceOutLeft;
+			-moz-animation-name:PIERbounceOutLeft;
+			-o-animation-name:PIERbounceOutLeft;
+			-ms-animation-name:PIERbounceOutLeft;
+			animation-name:PIERbounceOutLeft
 		}
-	    @-webkit-keyframes bounceOutLeft {
+	    @-webkit-keyframes PIERbounceOutLeft {
 			0% {
 				-webkit-transform:translateX(0)
 			}
@@ -380,7 +510,7 @@
 				-webkit-transform:translateX(-2000px)
 			}
 		}
-		@-moz-keyframes bounceOutLeft {
+		@-moz-keyframes PIERbounceOutLeft {
 			0% {
 				-moz-transform:translateX(0)
 			}
@@ -393,7 +523,7 @@
 				-moz-transform:translateX(-2000px)
 			}
 		}
-		@-o-keyframes bounceOutLeft {
+		@-o-keyframes PIERbounceOutLeft {
 			0% {
 				-o-transform:translateX(0)
 			}
@@ -406,7 +536,20 @@
 				-o-transform:translateX(-2000px)
 			}
 		}
-		@keyframes bounceOutLeft {
+		@-ms-keyframes PIERbounceOutLeft {
+			0% {
+				-ms-transform:translateX(0)
+			}
+			20% {
+				opacity:1;
+				-ms-transform:translateX(20px)
+			}
+			100% {
+				opacity:0;
+				-ms-transform:translateX(-2000px)
+			}
+		}
+		@keyframes PIERbounceOutLeft {
 			0% {
 				transform:translateX(0)
 			}
@@ -419,17 +562,20 @@
 				transform:translateX(-2000px)
 			}
 		}
-		.animated {
+		.PIER-animated {
 			-webkit-animation-duration:1s;
 			-moz-animation-duration:1s;
 			-o-animation-duration:1s;
+			-ms-animation-duration:1s;
 			animation-duration:1s;
+
 			-webkit-animation-fill-mode:both;
 			-moz-animation-fill-mode:both;
 			-o-animation-fill-mode:both;
+			-ms-animation-fill-mode:both;
 			animation-fill-mode:both;
 		}
-		@-webkit-keyframes bounceInRight {
+		@-webkit-keyframes PIERbounceInRight {
 			0% {
 			opacity:0;
 			-webkit-transform:translateX(2000px)
@@ -445,7 +591,7 @@
 				-webkit-transform:translateX(0)
 			}
 		}
-		@-moz-keyframes bounceInRight {
+		@-moz-keyframes PIERbounceInRight {
 			0% {
 				opacity:0;
 				-moz-transform:translateX(2000px)
@@ -461,7 +607,7 @@
 				-moz-transform:translateX(0)
 			}
 		}
-		@-o-keyframes bounceInRight {
+		@-o-keyframes PIERbounceInRight {
 			0% {
 				opacity:0;
 				-o-transform:translateX(2000px)
@@ -477,7 +623,23 @@
 				-o-transform:translateX(0)
 			}
 		}
-		@keyframes bounceInRight {
+		@-ms-keyframes PIERbounceInRight {
+			0% {
+				opacity:0;
+				-ms-transform:translateX(2000px)
+			}
+			60% {
+				opacity:1;
+				-ms-transform:translateX(-30px)
+			}
+			80% {
+				-ms-transform:translateX(10px)
+			}
+			100% {
+				-ms-transform:translateX(0)
+			}
+		}
+		@keyframes PIERbounceInRight {
 			0% {
 				opacity:0;
 				transform:translateX(2000px)
@@ -493,32 +655,266 @@
 				transform:translateX(0)
 			}
 		}
-		.bounceInRight {
-			-webkit-animation-name:bounceInRight;
-			-moz-animation-name:bounceInRight;
-			-o-animation-name:bounceInRight;
-			animation-name:bounceInRight
+		.PIERbounceInRight {
+			-webkit-animation-name:PIERbounceInRight;
+			-moz-animation-name:PIERbounceInRight;
+			-o-animation-name:PIERbounceInRight;
+			-ms-animation-name:PIERbounceInRight;
+			animation-name:PIERbounceInRight
 		}
+		.PIERbounceInTop {
+			-webkit-animation-name:PIERbounceInTop;
+			-moz-animation-name:PIERbounceInTop;
+			-o-animation-name:PIERbounceInTop;
+			-ms-animation-name:PIERbounceInTop;
+			animation-name:PIERbounceInTop
+		}
+		@-webkit-keyframes PIERbounceInTop {
+			0% {
+			opacity:0;
+			-webkit-transform:translateY(-2000px)
+			}
+			60% {
+			opacity:1;
+				-webkit-transform:translateY(30px)
+			}
+			80% {
+				-webkit-transform:translateY(-30px)
+			}
+			100% {
+				-webkit-transform:translateY(0)
+			}
+		}
+		@-moz-keyframes PIERbounceInTop {
+			0% {
+				opacity:0;
+				-moz-transform:translateY(-2000px)
+			}
+			60% {
+				opacity:1;
+				-moz-transform:translateY(30px)
+			}
+			80% {
+				-moz-transform:translateY(-30px)
+			}
+			100% {
+				-moz-transform:translateY(0)
+			}
+		}
+		@-o-keyframes PIERbounceInTop {
+			0% {
+				opacity:0;
+				-o-transform:translateY(-2000px)
+			}
+			60% {
+				opacity:1;
+				-o-transform:translateY(30px)
+			}
+			80% {
+				-o-transform:translateY(-30px)
+			}
+			100% {
+				-o-transform:translateY(0)
+			}
+		}
+		@-ms-keyframes PIERbounceInTop {
+			0% {
+				opacity:0;
+				-ms-transform:translateY(-2000px)
+			}
+			60% {
+				opacity:1;
+				-ms-transform:translateY(30px)
+			}
+			80% {
+				-ms-transform:translateY(-30px)
+			}
+			100% {
+				-ms-transform:translateY(0)
+			}
+		}
+		@keyframes PIERbounceInTop {
+			0% {
+				opacity:0;
+				transform:translateY(-2000px)
+			}
+			60% {
+				opacity:1;
+				transform:translateY(30px)
+			}
+			80% {
+				transform:translateY(-30px)
+			}
+			100% {
+				transform:translateY(0)
+			}
+		}
+		@-webkit-keyframes PIER-buzz-out {
+		  10% {
+		    -webkit-transform: translate(4.5px, 4px) rotate(-1deg); }
+		  20% {
+		    -webkit-transform: translate(-2px, 3.5px) rotate(2deg); }
+	      30% {
+		    -webkit-transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  40% {
+		    -webkit-transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      50% {
+		    -webkit-transform: translate(-4.5px, -4px) rotate(-1deg); }
+	      60% {
+		     -webkit-transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      70% {
+		     -webkit-transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  80% {
+		     -webkit-transform: translate(-2px, 3.5px) rotate(2deg); }
+		  90% {
+		     -webkit-transform: translate(4.5px, 4px) rotate(-1deg); }
+		  0%, 100% {
+		    -webkit-transform: translate(0, 0) rotate(0);  }
+        }
+        @-moz-keyframes PIER-buzz-out {
+		  10% {
+		    -moz-transform: translate(4.5px, 4px) rotate(-1deg); }
+		  20% {
+		    -moz-transform: translate(-2px, 3.5px) rotate(2deg); }
+	      30% {
+		    -moz-transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  40% {
+		    -moz-transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      50% {
+		    -moz-transform: translate(-4.5px, -4px) rotate(-1deg); }
+	      60% {
+		     -moz-transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      70% {
+		     -moz-transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  80% {
+		     -moz-transform: translate(-2px, 3.5px) rotate(2deg); }
+		  90% {
+		     -moz-transform: translate(4.5px, 4px) rotate(-1deg); }
+		  0%, 100% {
+		    -moz-transform: translate(0, 0) rotate(0);  }
+        }
+        @-ms-keyframes PIER-buzz-out {
+		  10% {
+		    -ms-transform: translate(4.5px, 4px) rotate(-1deg); }
+		  20% {
+		    -ms-transform: translate(-2px, 3.5px) rotate(2deg); }
+	      30% {
+		    -ms-transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  40% {
+		    -ms-transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      50% {
+		    -ms-transform: translate(-4.5px, -4px) rotate(-1deg); }
+	      60% {
+		     -ms-transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      70% {
+		     -ms-transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  80% {
+		     -ms-transform: translate(-2px, 3.5px) rotate(2deg); }
+		  90% {
+		     -ms-transform: translate(4.5px, 4px) rotate(-1deg); }
+		  0%, 100% {
+		    -ms-transform: translate(0, 0) rotate(0);  }
+        }
+        @-o-keyframes PIER-buzz-out {
+		  10% {
+		    -o-transform: translate(4.5px, 4px) rotate(-1deg); }
+		  20% {
+		    -o-transform: translate(-2px, 3.5px) rotate(2deg); }
+	      30% {
+		    -o-transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  40% {
+		    -o-transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      50% {
+		    -o-transform: translate(-4.5px, -4px) rotate(-1deg); }
+	      60% {
+		     -o-transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      70% {
+		     -o-transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  80% {
+		     -o-transform: translate(-2px, 3.5px) rotate(2deg); }
+		  90% {
+		     -o-transform: translate(4.5px, 4px) rotate(-1deg); }
+		  0%, 100% {
+		    -o-transform: translate(0, 0) rotate(0);  }
+        }
+		@keyframes PIER-buzz-out {
+		  10% {
+		    transform: translate(4.5px, 4px) rotate(-1deg); }
+		  20% {
+		    transform: translate(-2px, 3.5px) rotate(2deg); }
+	      30% {
+		    transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  40% {
+		    transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      50% {
+		    transform: translate(-4.5px, -4px) rotate(-1deg); }
+	      60% {
+		     transform: translate(3.5px, -3.5px) rotate(-2deg); }
+	      70% {
+		     transform: translate(-1.5px, -2.5px) rotate(1deg); }
+		  80% {
+		     transform: translate(-2px, 3.5px) rotate(2deg); }
+		  90% {
+		     transform: translate(4.5px, 4px) rotate(-1deg); }
+		  0%, 100% {
+		    transform: translate(0, 0) rotate(0);  }
+        }
+		.PIER-buzz-class  {
+            -webkit-animation-name: PIER-buzz-out;
+            -moz-animation-name: PIER-buzz-out;
+            -o-animation-name: PIER-buzz-out;
+            -ms-animation-name: PIER-buzz-out;
+            animation-name: PIER-buzz-out;
+
+            -webkit-animation-duration: 0.5s;
+            -moz-animation-duration: 0.5s;
+            -o-animation-duration: 0.5s;
+            -ms-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+
+            -webkit-animation-timing-function: linear;
+            -moz-animation-timing-function: linear;
+            -o-animation-timing-function: linear;
+            -ms-animation-timing-function: linear;
+            animation-timing-function: linear;
+
+            -webkit-animation-iteration-count: 1;
+            -moz-animation-iteration-count: 1;
+            -o-animation-iteration-count: 1;
+            -ms-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+		}
+		
+		
 		</style>
 </head>
-<body style="heigth:1000px;">
+<body style="heigth:1000px;background:#ccc;">
 	<div class="PIER-overlay">
 		<div class="PIER-flip-container">
 				<div class="PIER-login-container">
 					<div class="PIER-panel-head">
 						<table>
 							<tr>
-								<td ><div><img src="http://192.168.1.12:8787/images/sdk-logo.png"></div></td>
-								<td ><h4>品而金融</h4></td>
+								<td ></td>
+								<td >
+									<div><img src="http://pierup.cn/images/sdk-logo.png"></div>
+								    <h4>品而金融</h4>
+							    </td>
 								<td>
-		                            <div class="PIER-close"></div>
+		                            <div class="PIER-close"><br></div>
 								</td>
 							</tr>
 						</table>
 					</div>
 					<div class="PIER-login-body">
-						<div class="PIER-row PIER-mT-lg">
-							<input  placeholder="手机号" class="PIER-comm-input" />
+						<div class="PIER-row PIER-error PIER-text-center">
+							<span id="errorMsg"></span>
+						</div>
+						<div class="PIER-row PIER-mT-sm PIER-text-center">
+							<button class="PIER-switch-btn active left-btn">使用信用</button><button class="PIER-switch-btn right-btn" id="PIER-apply-credit">申请信用</button>
+						</div>
+						<div class="PIER-row PIER-mT-sm">
+							<input   class="PIER-comm-input" placeholder="请输入您的手机号"/>
 						</div>
 						<div class="PIER-row PIER-mT-sm">
 							<input  placeholder="登录密码" class="PIER-comm-input" />
@@ -526,17 +922,48 @@
 						<div class="PIER-row PIER-mT-sm">
 							<button  class="PIER-submit-btn" id="pierLogin">下一步</button>
 						</div>
-						<div class="PIER-row PIER-mT-xs">
-							<p class="PIER-bottom-text">还不是品而用户？<span class="PIER-color PIER-forward-reg">马上注册</span></p>
-						</div>
+					</div>
+					<div class="PIER-bank-body">
+					    <table>
+					    	<tr>
+					    		<td><input type="checkbox" id="useBankForPay" />或使用</td>
+					    		<td><img src="/images/tab-union.png"/></td>
+					    		<td>借记卡支付</td>
+					    	</tr>
+					    </table>
+					    <div class="PIER-link-bank-panel">
+					    	<div class="PIER-row ">
+								<input  placeholder="姓名" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="身份证" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="借记卡号" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="银行卡预留手机号" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm PIER-font-xs"  style="height:32px;">
+								<input  placeholder="借记卡验证码" class="PIER-code-input" />
+								<div class="PIER-font-xs PIER-code-label" >获取验证码</div>
+							</div>
+							<div class="PIER-row PIER-error PIER-text-center">
+								<p id="loginCardPayError"></p>
+							</div>
+							<div class="PIER-row PIER-mT-sm PIER-mB-sm">
+								<button  class="PIER-submit-btn" >支付</button>
+							</div>
+					    </div>
 					</div>
 				</div>
 				<div class="PIER-payment-container">
 					<div class="PIER-panel-head">
 						<table>
 							<tr>
-								<td ><div><img src="http://192.168.1.12:8787/images/sdk-logo.png"></div></td>
-								<td ><h4>支付</h4></td>
+								<td ></td>
+								<td >
+								<div><img src="http://pierup.cn/images/sdk-logo.png"></div><h4>支付</h4></td>
 								<td>
 		                            <div class="PIER-close"></div>
 								</td>
@@ -559,12 +986,14 @@
 						<div class="PIER-row PIER-mT-xs PIER-dot-line">
 							<input type="checkbox" /><span class="PIER-bottom-text">我已同意并阅读<span class="PIER-color">《保密授权协议》</span></span>
 						</div>
+
 						<div class="PIER-row PIER-mT-sm PIER-dot-line">
 							<select class="PIER-bankcard-select">
 								<option>借记卡支付金额<span style="font-size:10px;">（中国银行 尾号0003）</span></option>
 							</select> 
 							<label class="PIER-right PIER-money">￥3000</label>
 						</div>
+
 						<div class="PIER-row PIER-mT-sm">
 							<label>商品总价</label>
 							<span class="PIER-right PIER-money">￥5000</span>
@@ -579,10 +1008,10 @@
 						</div>
 						<div class="PIER-row PIER-font-xs" style="height:38px;">
 							<input  placeholder="借记卡验证码" class="PIER-code-input" />
-							<div class="PIER-font-xs PIER-code-lable" >获取验证码</div>
+							<div class="PIER-font-xs PIER-code-label" >获取验证码</div>
 						</div>
 						<div class="PIER-row PIER-font-xs PIER-mT-xs ">
-							<input  placeholder="品而金融6位支付密码" class="PIER-comm-input PIER-clear" style="clear:left;" />
+							<input  placeholder="品而金融6位支付密码" class="PIER-comm-input PIER-clear" />
 						</div>
 						<div class="PIER-row PIER-mT-md">
 							<button  class="PIER-submit-btn" id="pierPayment">下一步</button>
@@ -596,8 +1025,8 @@
 					<div class="PIER-panel-head">
 						<table>
 							<tr>
-								<td ><div><img src="http://192.168.1.12:8787/images/sdk-logo.png"></div></td>
-								<td ><h4>支付</h4></td>
+								<td ></td>
+								<td ><div><img src="http://pierup.cn/images/sdk-logo.png"></div><h4>支付</h4></td>
 								<td>
 		                            <div class="PIER-close"></div>
 								</td>
@@ -623,21 +1052,27 @@
 					<div class="PIER-panel-head">
 						<table>
 							<tr>
-								<td ><div><img src="http://192.168.1.12:8787/images/sdk-logo.png"></div></td>
-								<td ><h4>品而额度申请<span class="PIER-color">1/2</span></h4></td>
+								<td ></td>
+								<td ><div><img src="http://pierup.cn/images/sdk-logo.png"></div><h4>品而额度申请<span class="PIER-color">1/2</span></h4></td>
 								<td>
 		                            <div class="PIER-close"></div>
 								</td>
 							</tr>
 						</table>
 					</div>
-					<div class="PIER-login-body">
-						<div class="PIER-row PIER-mT-md">
+					<div class="PIER-reg-body">
+						<div class="PIER-row PIER-error PIER-text-center">
+							<span></span>
+						</div>
+					    <div class="PIER-row PIER-mT-sm PIER-text-center">
+							<button class="PIER-switch-btn left-btn" id="PIER-use-credit">使用信用</button><button class="PIER-switch-btn active right-btn">申请信用</button>
+						</div>
+						<div class="PIER-row PIER-mT-sm">
 							<input  placeholder="手机号" class="PIER-comm-input" />
 						</div>
 						<div class="PIER-row PIER-mT-sm" style="height:30px;">
 							<input  placeholder="短信验证码" class="PIER-code-input" />
-							<div class="PIER-font-xs PIER-code-lable" >获取验证码</div>
+							<div class="PIER-font-xs PIER-code-label" >获取验证码</div>
 						</div>
 						<div class="PIER-row PIER-mT-sm">
 							<input  placeholder="真实姓名" class="PIER-comm-input" />
@@ -648,51 +1083,131 @@
 						<div class="PIER-row PIER-mT-xs">
 							<input type="checkbox" /><span class="PIER-bottom-text">同意<span class="PIER-color">《品而服务协议》</span>和<span class="PIER-color">《保密授权协议》</span></span>
 						</div>
-						<div class="PIER-row PIER-mT-sm">
-							<button  class="PIER-submit-btn" >下一步</button>
+						<div class="PIER-row PIER-error PIER-text-center">
+							<p id="regError"></p>
 						</div>
-						<div class="PIER-row PIER-mT-xs">
-							<p class="PIER-bottom-text">已经申请过信用？<span class="PIER-color PIER-forward-login">马上登录</span></p>
+						<div class="PIER-row PIER-mT-sm">
+							<button  class="PIER-submit-btn" id="pier-reg-next">下一步</button>
 						</div>
 					</div>
+					<div class="PIER-bank-body">
+					    <table>
+					    	<tr>
+					    		<td><input type="checkbox" id="useBankForPay" />或使用</td>
+					    		<td><img src="/images/tab-union.png"/></td>
+					    		<td>借记卡支付</td>
+					    	</tr>
+					    </table>
+					    <div class="PIER-link-bank-panel">
+					    	<div class="PIER-row ">
+								<input  placeholder="姓名" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="身份证" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="借记卡号" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="银行卡预留手机号" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm PIER-font-xs"  style="height:32px;">
+								<input  placeholder="借记卡验证码" class="PIER-code-input" />
+								<div class="PIER-font-xs PIER-code-label" >获取验证码</div>
+							</div>
+							<div class="PIER-row PIER-error PIER-text-center">
+								<p id="loginCardPayError"></p>
+							</div>
+							<div class="PIER-row PIER-mT-sm PIER-mB-sm">
+								<button  class="PIER-submit-btn" >支付</button>
+							</div>
+					    </div>
+					</div>
 				</div>
-				<!-- <div class="PIER-apply-container" >
+				<div class="PIER-apply-container" >
 					<div class="PIER-panel-head">
 						<table>
 							<tr>
-								<td ><div><img src="http://192.168.1.12:8787/images/sdk-logo.png"></div></td>
-								<td ><h4>品而额度申请<span class="PIER-color">2/2</span></h4></td>
+								<td ></td>
+								<td ><div><img src="http://pierup.cn/images/sdk-logo.png"></div><h4>品而额度申请<span class="PIER-color">2/2</span></h4></td>
 								<td>
 		                            <div class="PIER-close"></div>
 								</td>
 							</tr>
 						</table>
 					</div>
-					<div class="PIER-login-body">
-						<div class="PIER-row PIER-mT-md">
-							<input  placeholder="手机号" class="PIER-comm-input" />
+					<div class="PIER-apply-body">
+						<div class="PIER-row PIER-mT-sm">
+							<label>持卡人：</label>
+							<span class="PIER-right">张三</span>
 						</div>
-						<div class="PIER-row PIER-mT-sm" style="height:30px;">
-							<input  placeholder="短信验证码" class="PIER-code-input" />
-							<div class="PIER-font-xs PIER-code-lable" >获取验证码</div>
+						<div class="PIER-row PIER-mT-xs">
+							<input  placeholder="借记卡卡号" class="PIER-comm-input" />
 						</div>
 						<div class="PIER-row PIER-mT-sm">
-							<input  placeholder="真实姓名" class="PIER-comm-input" />
+							<label>卡类型：</label>
+							<span class="PIER-right">中国银行</span>
 						</div>
-						<div class="PIER-row PIER-mT-sm">
-							<input  placeholder="身份证" class="PIER-comm-input" />
+						<div class="PIER-row PIER-mT-xs">
+							<input  placeholder="银行预留手机号" class="PIER-comm-input" />
 						</div>
 						<div class="PIER-row PIER-mT-xs">
 							<input type="checkbox" /><span class="PIER-bottom-text">同意<span class="PIER-color">《品而服务协议》</span>和<span class="PIER-color">《保密授权协议》</span></span>
 						</div>
-						<div class="PIER-row PIER-mT-sm">
-							<button  class="PIER-submit-btn" >下一步</button>
+						<div class="PIER-row PIER-mT-sm" style="height:32px;">
+							<input  placeholder="短信验证码" class="PIER-code-input" />
+							<div class="PIER-font-xs PIER-code-label" >获取验证码</div>
 						</div>
-						<div class="PIER-row PIER-mT-xs">
-							<p class="PIER-bottom-text">已经申请过信用？<span class="PIER-color PIER-forward-login">马上登录</span></p>
+						<div class="PIER-set-pin">
+							<div class="PIER-split-line"></div>
+							<div class="PIER-row PIER-font-sm PIER-color-black">
+								<p>设置品而金融支付密码以保障支付安全</p>
+							</div>
+							<div class="PIER-row">
+								<input  placeholder="设置支付密码" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="确认支付密码" class="PIER-comm-input" />
+							</div>
+						</div>
+						<div class="PIER-row PIER-mT-sm PIER-mB-sm">
+							<button  class="PIER-submit-btn" >申请品而信用</button>
 						</div>
 					</div>
-				</div> -->
+					<div class="PIER-bank-body">
+					    <table>
+					    	<tr>
+					    		<td><input type="checkbox" id="useBankForPay" />或使用</td>
+					    		<td><img src="/images/tab-union.png"/></td>
+					    		<td>借记卡支付</td>
+					    	</tr>
+					    </table>
+					    <div class="PIER-link-bank-panel">
+					    	<div class="PIER-row ">
+								<input  placeholder="姓名" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="身份证" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="借记卡号" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="银行卡预留手机号" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm PIER-font-xs"  style="height:32px;">
+								<input  placeholder="借记卡验证码" class="PIER-code-input" />
+								<div class="PIER-font-xs PIER-code-label" >获取验证码</div>
+							</div>
+							<div class="PIER-row PIER-error PIER-text-center">
+								<p id="loginCardPayError"></p>
+							</div>
+							<div class="PIER-row PIER-mT-sm PIER-mB-sm">
+								<button  class="PIER-submit-btn" >支付</button>
+							</div>
+					    </div>
+					</div>
+				</div>
 		</div>
 		
 		<!-- <div class="PIER-panel-head">
@@ -702,7 +1217,16 @@
 </body>
 <script type="text/javascript">
 		(function(){
-			document.querySelector('.PIER-forward-reg').onclick = function(){
+			document.querySelector('#useBankForPay').onchange = function(){
+				if( document.querySelector('#useBankForPay').checked ){
+					document.querySelector('.PIER-link-bank-panel').style.height = '320px';
+				}else{
+					document.querySelector('.PIER-link-bank-panel').style.height = '0px';
+				}
+			}
+			document.querySelector('.PIER-flip-container').classList.add('PIER-animated');
+			document.querySelector('.PIER-flip-container').classList.add('PIERbounceInTop');
+			document.querySelector('#PIER-apply-credit').onclick = function(){
 				if( document.querySelector('.PIER-login-container').classList.contains('PIER-login-container-back') ){
 					document.querySelector('.PIER-login-container').classList.remove('PIER-login-container-back');
 				}else{
@@ -714,7 +1238,7 @@
 					document.querySelector('.PIER-reg-container').classList.add('PIER-reg-container-back');
 				}
 			}
-			document.querySelector('.PIER-forward-login').onclick = function(){
+			document.querySelector('#PIER-use-credit').onclick = function(){
 				if( document.querySelector('.PIER-login-container').classList.contains('PIER-login-container-back') ){
 					document.querySelector('.PIER-login-container').classList.remove('PIER-login-container-back');
 				}else{
@@ -727,25 +1251,55 @@
 				}
 			}
 			document.querySelector('#pierLogin').onclick = function(){
-				document.querySelector('.PIER-login-container').classList.add( 'animated' );
+				document.querySelector('.PIER-login-container').classList.add( 'PIER-animated' );
 				document.querySelector('.PIER-login-container').classList.add( 'PIER-display-block' );
-				document.querySelector('.PIER-login-container').classList.add( 'bounceOutLeft' );
+				document.querySelector('.PIER-login-container').classList.add( 'PIERbounceOutLeft' );
 
-				document.querySelector('.PIER-payment-container').classList.add( 'animated' );
+				document.querySelector('.PIER-payment-container').classList.add( 'PIER-animated' );
 				document.querySelector('.PIER-payment-container').classList.add( 'PIER-display-block' );
-				document.querySelector('.PIER-payment-container').classList.add( 'bounceInRight' );
+				document.querySelector('.PIER-payment-container').classList.add( 'PIERbounceInRight' );
 			}
 			document.querySelector('#pierPayment').onclick = function(){
-				// document.querySelector('.PIER-payment-container').classList.add( 'animated' );
-				document.querySelector('.PIER-payment-container').classList.remove( 'bounceInRight' );
-				document.querySelector('.PIER-payment-container').classList.add( 'bounceOutLeft' );
+				// document.querySelector('.PIER-payment-container').classList.add( 'PIER-animated' );
+				document.querySelector('.PIER-payment-container').classList.remove( 'PIERbounceInRight' );
+				document.querySelector('.PIER-payment-container').classList.add( 'PIERbounceOutLeft' );
 				document.querySelector('.PIER-payment-container').classList.remove( 'PIER-display-block' );
 				// document.querySelector('.PIER-payment-container').classList.remove( 'PIER-display-static' );
 
-				document.querySelector('.PIER-payresult-container').classList.add( 'animated' );
+				document.querySelector('.PIER-payresult-container').classList.add( 'PIER-animated' );
 				document.querySelector('.PIER-payresult-container').classList.add( 'PIER-display-block' );
-				document.querySelector('.PIER-payresult-container').classList.add( 'bounceInRight' );
+				document.querySelector('.PIER-payresult-container').classList.add( 'PIERbounceInRight' );
 
+			}
+			document.querySelector('#pier-reg-next').onclick = function(){
+				//PIER-reg-container-back
+				document.querySelector('.PIER-reg-container').classList.add( 'PIER-animated' );
+				document.querySelector('.PIER-reg-container').classList.add( 'PIER-display-block' );
+				document.querySelector('.PIER-reg-container').classList.remove( 'PIER-reg-container-back' );
+				document.querySelector('.PIER-reg-container').classList.add( 'PIERbounceOutLeft' );
+
+
+				document.querySelector('.PIER-apply-container').classList.add( 'PIER-animated' );
+				document.querySelector('.PIER-apply-container').classList.add( 'PIER-display-block' );
+				document.querySelector('.PIER-apply-container').classList.add( 'PIERbounceInRight' );
+
+			}
+			
+			document.querySelector( '.PIER-close').onclick = function(){
+				document.querySelector('.PIER-flip-container').classList.remove( 'PIER-buzz-class' );
+				setTimeout(function( ){
+					if( document.querySelector('#errorMsg').innerHTML == '再次点击退出支付！' ){
+
+					}else{
+						document.querySelector('.PIER-flip-container').classList.add( 'PIER-buzz-class' );
+						document.querySelector('#errorMsg').innerHTML = '再次点击退出支付！';
+						setTimeout(function(){
+							document.querySelector('#errorMsg').innerHTML = '';
+						}, 5000);					
+					}
+
+				}, 10);
+				
 			}
 	})()
 </script>

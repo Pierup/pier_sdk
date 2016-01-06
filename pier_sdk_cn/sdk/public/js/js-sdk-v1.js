@@ -813,6 +813,10 @@
                 _pierApplyContainer.addClass( 'PIER-display-block' );
                 _pierApplyContainer.addClass( 'PIERbounceInRight' );
                 _pierFlipContainer.appendChild(_pierApplyContainer);
+                setTimeout(function(){
+                    // _pierFlipContainer.removeChild(_pierRegContainer);
+                }, 100);
+                
             }
         },
         initApplyContainer: function(){
