@@ -3,79 +3,59 @@
 <head>
 	<meta charset="UTF-8">
     <style type="text/css">
-        .pier-payment-btn{width:120px;height:32px;border:1px solid #ccc; cursor:pointer;}
+        .pier-payment-btn{width:120px;height:32px;border:1px solid #ccc; cursor:pointer; overflow: hidden;}
         .pier-payment-btn:hover{width:120px;height:32px;border:1px solid #7b37a6; cursor:pointer;'}
-        .pier-payment-btn img{width:24px;height:24px;display:inline-block;margin-top:4px;margin-left:14px;margin-right:4px;}
-        .pier-payment-btn span{font-size:14px;display:inline-block;float:right;margin-top:8px;margin-right:14px;'}
     </style>
 	<title>品而支付</title>
-	<script src="js/checkout.js"></script>
+	  <!--<script src="js/checkout.js"></script>-->
+    <!--<script src="js/js-sdk-v1.js"></script>
+    <script src="js/pier-checkout-v2.js"></script>-->
     <script src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
 </head>
-<body style="text-align:center;padding-top:100px;padding-left:300px;">
-    <div class="pier-payment-btn" id="pierPay"><img  src="http://pierup.cn/images/pierlogo38.png" ></img><span>品而支付</span></div>
-	<script type="text/javascript">
-        $(function(){
-            function randomString(len) {
-            　　len = len || 32;
-            　　var $chars = '1234567890';
-            　　var maxPos = $chars.length;
-            　　var pwd = '';
-            　　for (i = 0; i < len; i++) {
-            　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
-            　　}
-            　　return pwd;
-            }
-            var getOrder = function(){
-                return 'OR'+randomString(18);
-            }
-            var getSign = function( order ){
-                var url = '/getSignForTest',
-                message = {
-                    merchant_id: "MC0000001409",
-                    order_id: order,
-                    charset:"UTF-8",
-                    amount:"19.90",
-                    return_url:"/checkout/orderList",
-                    api_id:"1819957c-1a3f-11e5-ba25-3a22fd90d682"
-                };
-            var deffered = $.ajax({ 
-                    type:"POST", 
-                    url:url, 
-                    contentType:"application/json",     
-                    dataType:"json", 
-                    data:JSON.stringify(message)
-                }); 
-                return deffered.promise();
-            }
-            var _orderId = getOrder();
-            var _signPromise = getSign( _orderId );
-            _signPromise.then(function(data){
-                var _sign = encodeURIComponent( data.result.sign );
-                PIER.initSDK({
-                    amount: '19.90',
-                    currency: 'CNY',
-                    order_id: _orderId,
-                    merchant_id: 'MC0000001409',
-                    return_url: '/checkout/orderList',
-                    api_id: '1819957c-1a3f-11e5-ba25-3a22fd90d682',
-                    order_detail: [
-                        { product: '美国XXX的保健品', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'1.1',count:'3',total: '3.3' },
-                        { product: '官网NIKE', logo: '', detail: '最好的篮球鞋，詹姆斯战靴1代', type: 'Nike 服饰，和NBA球员一起运动',price:'5.00',count:'1',total: '5.00' },
-                        { product: '美国XXX的保健品', logo: '', detail: '这是美国最牛逼的保健品，强身健体，一剂见效。', type: '保健品',price:'1.1',count:'3',total: '3.3' },
-                        { product: 'iPhone 6s 手机壳', logo: '', detail: '让你的iPhone6看上去就是iPhone 6s, 屌丝的选择。', type: '装饰品',price:'4',count:'2',total: '8.00' }
-                    ],
-                    sign: _sign,//必须是通过url编码过的sign
-                    sign_type: 'RSA',
-                    charset: 'UTF-8',
-                    callback_default: false,
-                    pay_button_id: 'pierPay'
-                }, function(){
-                    //callback 当上面的参数callback_default为false(默认值)时，将执行这里的回调函数；当为true的时候，只执行默认的回调，不执行这个回调的方法。
-                    console.log( '当用户在进行支付的时候，您可以在这里执行一些操作');
-                });
-            })
-        })
-	</script>
+<body style="padding-top:100px;padding-left:300px;">
+
+<!--src="https://checkout.stripe.com/checkout.js" -->
+<form action="/charge" method="POST">
+  <script src="http://localhost:4000/js/js-sdk-v1.js" class="pier-button" ></script>
+  <script type="text/javascript">
+    PIER.initSDK({
+      amount: '1000',
+      currency: 'CNY',
+      merchantId: 'MC0000000001',
+      merchantLogo: 'http://pierup.cn/images/android-app-download.png'
+    }, function(){
+
+    });
+  </script>
+</form>
+   <!--<script  
+       pier-data-amount='1000' 
+       pier-data-currency='CNY' 
+       pier-data-merchant='MC0000000001'
+       class="pier-banner-script"
+       pier-script src="http://pierup.cn:4000/js/pier-banner-v1.js"
+   ></script>-->
+
+   
+   <!--pier-checkout-v2.js-->
+<form action="/charge" method="POST">
+<!--http://localhost:4000/js/stripe-checkout.js
+  <script
+    src="https://checkout.stripe.com/checkout.js" 
+    class="stripe-button"
+    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    data-image="/img/documentation/checkout/marketplace.png"
+    data-name="Stripe.com"
+    data-description="2 widgets"
+    data-amount="90000"
+    data-locale="auto">
+  </script>-->
+</form>
+
+  <!-- <iframe src="http://192.168.1.12:4000/test2.html?connectId=123445" id="myFrame" style="z-index: 9999; display: block; border: 0px none transparent; overflow-x: hidden; overflow-y: auto; visibility: visible; margin: 0px; padding: 0px; -webkit-tap-highlight-color: transparent; position: fixed; left: 0px; top: 0px; width: 100%; height: 100%;background: rgba(0, 0, 0, 0.40392157);"></iframe> -->
+    <!-- <div class="pier-payment-btn" id="pierPay"><img  src="http://pierup.cn/images/pierlogo38.png" style="width:24px;margin-top:4px;margin-left:10px;margin-right:6px;float:left;">
+       <div style="font-size:14px;margin-top:10px;margin-left:50px;">品而付</div>
+    </div>  -->
+
 </body>
 </html>
