@@ -1,6 +1,0 @@
-[2015-09-17 14:11:15.364] [INFO] console - user get sign for test  { code: '200',
-  message: 'OK',
-  result: { sign: '48RSu0adtV8MDvf0WBbSRf0BqJ9UXCXIWaJXaVGJPzdHUNFtb/pjho7jwNJ2XtegyIETp//X9fuKTkhT8H5+iqlYjlKVZYdJnx0+kIqakGw4LOHk+6e9U3U4H8pzB+sN2UitMSfxY/MT/gHu/lDsDKmeOEq7d9ymBgYZLREsS0k=' } }
-[2015-09-18 13:19:27.600] [INFO] console - user get sign for test  { code: '200',
-  message: 'OK',
-  result: { sign: 'XCE+Scc8Yjvvb5YQ/ERY0BUyv8ha+CEOdrFUrZlH9w45TCPkwliNd1CjCPDWhl4BHK0AkeQdCkWdMN/FgQ2njRFs+O6BsQkdKqyJaaEjevRIH44DF7PklLOAmFms/tH9+ezcSO5WFG5IPtudQXl6g24tZ67pmded55GlXVJ0BZU=' } }
