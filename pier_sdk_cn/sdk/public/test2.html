@@ -133,7 +133,7 @@
 			z-index: 2;
 			display: none;
 		}
-		.PIER-payresult-container{
+		.PIER-payresult-container, .PIER-applyresult-container{
 			-webkit-transform: rotateY(0deg);
 			-ms-transform: rotateY(0deg);
 			width: 460px;
@@ -148,7 +148,7 @@
 			-ms-box-shadow: 0px 0px 2px rgb(160,160,160);
 			-o-box-shadow: 0px 0px 2px rgb(160,160,160);
 			box-shadow: 0px 0px 2px rgb(160,160,160);
-			background: #ffffff;
+			background: #f5f5f5;
 			z-index: 4;
 			display: none;
 		}
@@ -246,12 +246,12 @@
 
 		}
 		.PIER-login-body{
-			height: 230px;
+			height: 244px;
 			width: 100%;
 			border-top:1px solid #f5f5f5;
 		}
 		.PIER-reg-body{
-			height: 346px;
+			height: 376px;
 			width: 100%;
 		}
 		.PIER-apply-body{
@@ -366,16 +366,16 @@
 			clear: both;
 		}
 		.PIER-instalment-select{
-			width: 158px;
+			width: 168px;
 			border-radius: 4px;
-			height: 26px;
+			height: 28px;
 			outline: none;
 			border: 1px solid rgb(220,220,220);
 		}
 		.PIER-bankcard-select{
-			width: 178px;
+			width: 188px;
 			border-radius: 4px;
-			height: 26px;
+			height: 28px;
 			outline: none;
 			border: 1px solid rgb(220,220,220);
 		}
@@ -387,7 +387,7 @@
 			margin-top: 55px;
 		}
 		.PIER-mT-md{
-			margin-top: 40px;
+			margin-top: 36px;
 		}
 		.PIER-mT-sm{
 			margin-top: 18px;
@@ -398,11 +398,14 @@
 		.PIER-mB-sm{
 			margin-bottom: 18px;
 		}
+		.PIER-mB-md{
+			margin-bottom: 36px;
+		}
 		.PIER-color{
 			color: #7b37a6;
 		}
 		.PIER-color-gray{
-			color: rgb(200,200,200);
+			color: rgb(180,180,180);
 		}
 		.PIER-color-black{
 			color:#000;
@@ -410,6 +413,12 @@
 
 		.PIER-money{
 			color: #f34949;
+		}
+		.PIER-font-lg{
+			font-size: 30px;
+		}
+		.PIER-font-md{
+			font-size: 16px;
 		}
 		.PIER-font-sm{
 			font-size: 12px;
@@ -466,7 +475,15 @@
 			display: block !important; 
 		}
 		.PIER-error{
-			font-size: 14px;
+			font-size: 12px;
+			color: #f34949;
+			height: 36px;
+			padding-top: 2px;
+			overflow: hidden;
+			margin-bottom: 4px;
+		}
+		.PIER-error2{
+			font-size: 12px;
 			color: #f34949;
 		}
 
@@ -483,6 +500,13 @@
 			border-bottom: 1px dotted #ccc;
 			margin-top: 30px;
 			margin-bottom: 30px;
+		}
+		/**apply result **/
+		.PIER-applyresult-body{
+			padding-bottom: 10px;
+		}
+		.PIER-applyresult-body img{
+            width: 70px;height: 70px;
 		}
 		
 		/*.PIER-display-static{
@@ -884,6 +908,7 @@
             -ms-animation-iteration-count: 1;
             animation-iteration-count: 1;
 		}
+
 		
 		
 		</style>
@@ -910,10 +935,10 @@
 						<div class="PIER-row PIER-error PIER-text-center">
 							<span id="errorMsg"></span>
 						</div>
-						<div class="PIER-row PIER-mT-sm PIER-text-center">
+						<div class="PIER-row PIER-text-center">
 							<button class="PIER-switch-btn active left-btn">使用信用</button><button class="PIER-switch-btn right-btn" id="PIER-apply-credit">申请信用</button>
 						</div>
-						<div class="PIER-row PIER-mT-sm">
+						<div class="PIER-row PIER-mT-md">
 							<input   class="PIER-comm-input" placeholder="请输入您的手机号"/>
 						</div>
 						<div class="PIER-row PIER-mT-sm">
@@ -948,7 +973,7 @@
 								<input  placeholder="借记卡验证码" class="PIER-code-input" />
 								<div class="PIER-font-xs PIER-code-label" >获取验证码</div>
 							</div>
-							<div class="PIER-row PIER-error PIER-text-center">
+							<div class="PIER-row PIER-error2 PIER-text-center">
 								<p id="loginCardPayError"></p>
 							</div>
 							<div class="PIER-row PIER-mT-sm PIER-mB-sm">
@@ -991,7 +1016,7 @@
 							<select class="PIER-bankcard-select">
 								<option>借记卡支付金额<span style="font-size:10px;">（中国银行 尾号0003）</span></option>
 							</select> 
-							<label class="PIER-right PIER-money">￥3000</label>
+							<span class="PIER-right PIER-money">￥3000</span>
 						</div>
 
 						<div class="PIER-row PIER-mT-sm">
@@ -1064,10 +1089,10 @@
 						<div class="PIER-row PIER-error PIER-text-center">
 							<span></span>
 						</div>
-					    <div class="PIER-row PIER-mT-sm PIER-text-center">
+					    <div class="PIER-row PIER-text-center">
 							<button class="PIER-switch-btn left-btn" id="PIER-use-credit">使用信用</button><button class="PIER-switch-btn active right-btn">申请信用</button>
 						</div>
-						<div class="PIER-row PIER-mT-sm">
+						<div class="PIER-row PIER-mT-md">
 							<input  placeholder="手机号" class="PIER-comm-input" />
 						</div>
 						<div class="PIER-row PIER-mT-sm" style="height:30px;">
@@ -1083,9 +1108,9 @@
 						<div class="PIER-row PIER-mT-xs">
 							<input type="checkbox" /><span class="PIER-bottom-text">同意<span class="PIER-color">《品而服务协议》</span>和<span class="PIER-color">《保密授权协议》</span></span>
 						</div>
-						<div class="PIER-row PIER-error PIER-text-center">
+						<!-- <div class="PIER-row PIER-error PIER-text-center">
 							<p id="regError"></p>
-						</div>
+						</div> -->
 						<div class="PIER-row PIER-mT-sm">
 							<button  class="PIER-submit-btn" id="pier-reg-next">下一步</button>
 						</div>
@@ -1171,7 +1196,7 @@
 							</div>
 						</div>
 						<div class="PIER-row PIER-mT-sm PIER-mB-sm">
-							<button  class="PIER-submit-btn" >申请品而信用</button>
+							<button  class="PIER-submit-btn" id="applyForReuslt">申请品而信用</button>
 						</div>
 					</div>
 					<div class="PIER-bank-body">
@@ -1208,6 +1233,90 @@
 					    </div>
 					</div>
 				</div>
+				<div class="PIER-applyresult-container" >
+					<div class="PIER-panel-head">
+						<table>
+							<tr>
+								<td ></td>
+								<td ><div><img src="http://pierup.cn/images/sdk-logo.png"></div><h4>品而付额度申请</h4></td>
+								<td>
+		                            <div class="PIER-close"></div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!-- <div class="PIER-applyresult-body PIER-text-center">
+						<div class="PIER-row PIER-mT-sm">
+							<img src="/images/approval.png">
+						</div>
+						<div class="PIER-row PIER-font-sm">
+							<p>申请成功!</p>
+							<p style="margin-top:-10px;">您的初步信用额度为：</p>
+						</div>
+						<div class="PIER-row PIER-mT-sm">
+							<span class="PIER-money PIER-font-lg">￥4000</span>
+						</div>
+						<div class="PIER-row">
+							<p class="PIER-font-xs PIER-color-gray">新用户注册专用金额，仅限于此次消费</p>
+						</div>
+						<div class="PIER-row PIER-mT-sm">
+							<button  class="PIER-submit-btn" >使用额度付款</button>
+							<p class="PIER-font-xs">*若订单金额超出信用额度，不足部分可以用借记卡支付</p>
+						</div>
+					</div> -->
+					<div class="PIER-applyresult-body PIER-text-center">
+						<div class="PIER-row PIER-mT-sm">
+							<img src="/images/approval.png">
+						</div>
+						<div class="PIER-row PIER-font-sm">
+							<p>基于目前的信息，我们暂时无法为您提供额度</p>
+						</div>
+						<table style="margin:0 auto" class="PIER-font-sm">
+					    	<tr>
+					    		<td>您仍可以使用</td>
+					    		<td><img src="/images/tab-union.png" style="width:40px;height:40px;" /></td>
+					    		<td>借记卡完成支付</td>
+					    	</tr>
+					    </table>
+					    <div class="PIER-row PIER-mT-md PIER-mB-md">
+							<button  class="PIER-submit-btn" >支付</button>
+						</div>
+					</div>
+					<!-- <div class="PIER-bank-body">
+					    <table>
+					    	<tr>
+					    		<td><input type="checkbox" id="useBankForPay" />或使用</td>
+					    		<td><img src="/images/tab-union.png"/></td>
+					    		<td>借记卡支付</td>
+					    	</tr>
+					    </table>
+					    <div class="PIER-link-bank-panel">
+					    	<div class="PIER-row ">
+								<input  placeholder="姓名" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="身份证" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="借记卡号" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm">
+								<input  placeholder="银行卡预留手机号" class="PIER-comm-input" />
+							</div>
+							<div class="PIER-row PIER-mT-sm PIER-font-xs"  style="height:32px;">
+								<input  placeholder="借记卡验证码" class="PIER-code-input" />
+								<div class="PIER-font-xs PIER-code-label" >获取验证码</div>
+							</div>
+							<div class="PIER-row PIER-error PIER-text-center">
+								<p id="loginCardPayError"></p>
+							</div>
+							<div class="PIER-row PIER-mT-sm PIER-mB-sm">
+								<button  class="PIER-submit-btn" >支付</button>
+							</div>
+					    </div>
+					</div> -->
+				</div>
+
 		</div>
 		
 		<!-- <div class="PIER-panel-head">
@@ -1278,10 +1387,20 @@
 				document.querySelector('.PIER-reg-container').classList.remove( 'PIER-reg-container-back' );
 				document.querySelector('.PIER-reg-container').classList.add( 'PIERbounceOutLeft' );
 
-
 				document.querySelector('.PIER-apply-container').classList.add( 'PIER-animated' );
 				document.querySelector('.PIER-apply-container').classList.add( 'PIER-display-block' );
 				document.querySelector('.PIER-apply-container').classList.add( 'PIERbounceInRight' );
+
+			}
+			document.querySelector('#applyForReuslt').onclick = function(){
+
+				document.querySelector('.PIER-apply-container').classList.remove( 'PIERbounceInRight' );
+				document.querySelector('.PIER-apply-container').classList.add( 'PIERbounceOutLeft' );
+				document.querySelector('.PIER-apply-container').classList.remove( 'PIER-display-block' );
+
+				document.querySelector('.PIER-applyresult-container').classList.add( 'PIER-animated' );
+				document.querySelector('.PIER-applyresult-container').classList.add( 'PIER-display-block' );
+				document.querySelector('.PIER-applyresult-container').classList.add( 'PIERbounceInRight' );
 
 			}
 			
@@ -1292,7 +1411,7 @@
 
 					}else{
 						document.querySelector('.PIER-flip-container').classList.add( 'PIER-buzz-class' );
-						document.querySelector('#errorMsg').innerHTML = '再次点击退出支付！';
+						document.querySelector('#errorMsg').innerHTML = '再次点击退出支付！再次点击退出支付！再次点击退出支付！再次点击退出支付！再次点击退出支付！再次点击退出支付！';
 						setTimeout(function(){
 							document.querySelector('#errorMsg').innerHTML = '';
 						}, 5000);					

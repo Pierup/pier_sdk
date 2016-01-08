@@ -9,87 +9,12 @@
 (function( window ){
     //for stylesheet 
     var styleSheet, styleElem, _OPTIONS, _callback;
-    var _pierPayBtn, _pierOverlay, _pierFlipWrap, _pierFlipContainer, _pierLoginContainer, _pierLoginHead, _pierLoginHeadTable, _pierLoginHeadTableTr, _pierLoginHeadTableTrTd, _pierLoginClose, _pierLoginHeadTableTr;
-    var _pierPayContainer, 
-    _pierPayHead, 
-    _pierPayHeadTable, 
-    _pierPayHeadTableTr, 
-    _pierPayHeadTableTrTd, 
-    _pierPayClose, 
-    _pierPayBody, 
-    _pierPayErrorRow, 
-    _pierPayErrorSpan, 
-    _pierPayCreditRow, 
-    _pierPayCreditRowAmount, 
-    _pierPayInstalmentRow, 
-    _pierPayInstalmentRowSelect, 
-    _pierPayInstalmentRowOp0, 
-    _pierPayInstalmentRowOp1, 
-    _pierPayInstalmentRowOp2, 
-    _pierPayBankRowAmount, 
-    _pierPayAgreementRow,
-    _pierPayAgreementRowInput,
-    _pierPayAgreementRowSpan,
-    _pierPayAgreementRowSpan2,
-    _pierPayTotalRow,
-    _pierPayTotalRowSpan,
-    _pierPayExchangeRow,
-    _pierPayExchangeRowSpan1,
-    _pierPayExchangeRowSpan2,
-    _pierPayExchangeRowSpan3,
-    _pierPayExchangeRowBr,
-    _pierPayBankInfoRow,
-    _pierPayBankInfoRowP,
-    _pierPayValidCodeRow,
-    _pierPayValidCodeInput,
-    _pierPayValidBtn,
-    _pierPayPinRow,
-    _pierPayPinInput,
-    _pierPaySubmitRow,
-    _pierPaySubmitBtn,
-    _pierPayTimerRow,
-    _pierPayTimerP;
-    var _pierLoginSwitchRow, _pierLoginUseCreditBtn, _pierLoginApplyCreditBtn;
+    var _pierPayBtn, _pierOverlay, _pierFlipWrap, _pierFlipContainer, _pierLoginContainer;
+    var _pierCfmContainer;
 
-    var _pierPayResultContainer,
-    _pierPayResultHead,
-    _pierPayResultHeadTable,
-    _pierPayResultHeadTableTr,
-    _pierPayResultHeadTableTrTd,
-    _pierPayResultClose,
-    _pierPayResultBody,
-    _pierPayResultQRRow,
-    _pierPayResultQRImage,
-    _pierPayResultMsgRow,
-    _pierPayResultDownRow,
-    _pierPayResultReturnRow;
+    var _pierPayResultContainer;
 
-    var _pierRegContainer,
-    _pierRegHead,
-    _pierRegHeadTable,
-    _pierRegHeadTableTr,
-    _pierRegHeadTableTrTd,
-    _pierRegClose,
-    _pierRegBody,
-    _pierRegErrorRow,
-    _pierRegErrorSpan,
-    _pierRegSwitchRow,
-    _pierRegUseCreditBtn,
-    _pierRegApplyCreditBtn,
-    _pierRegPhoneRow,
-    _pierRegPhoneInput,
-    _pierRegCodeRow,
-    _pierRegCodeInput,
-    _pierRegCodeBtn,
-    _pierRegNameInput,
-    _pierRegNameRow,
-    _pierRegIDInput,
-    _pierRegIDRow,
-    _pierRegAgreetmentRow,
-    _pierRegAgreetmentInput,
-    _pierRegAgreetmentSpan,
-    _pierRegBtnRow,
-    _pierRegBtnNext;
+    var _pierRegContainer;
 
     var _pierApplyContainer,
     _pierApplyHeader, 
@@ -193,7 +118,7 @@
             styleSheet.addRule( '.PIER-reg-body', 'height: 376px;width: 100%;border-top:1px solid #f5f5f5;');
             styleSheet.addRule( '.PIER-apply-body','height: auto;width: 100%;padding-bottom: 20px;border-top:1px solid #f5f5f5;');
 
-            styleSheet.addRule( '.PIER-payment-body', 'height: auto;width: 100%;padding-bottom: 40px;border-top:1px solid #f5f5f5;');
+            styleSheet.addRule( '.PIER-payment-body', 'height: auto;width: 100%;padding-bottom: 20px;border-top:1px solid #f5f5f5;');
             
             styleSheet.addRule( '.PIER-payment-body label', 'font-size: 14px;');
             styleSheet.addRule( '.PIER-right', 'float: right;');
@@ -211,14 +136,15 @@
             styleSheet.addRule( '.PIER-bank-body table img', 'width: 40px;height: 40px;line-height: 80px;');
             styleSheet.addRule( '.PIER-link-bank-panel', 'width:100%;transition:height .5s;-moz-transition:height .5s;-webkit-transition:height .5s;-o-transition:height .5s;height:0;overflow:hidden;');
 
-            styleSheet.addRule( '.PIER-instalment-select', 'width: 158px;border-radius: 4px;height: 26px;outline: none;border: 1px solid rgb(220,220,220);');
-            styleSheet.addRule( '.PIER-bankcard-select', 'width: 178px;border-radius: 4px;height: 26px;outline: none;border: 1px solid rgb(220,220,220);');
+            styleSheet.addRule( '.PIER-instalment-select', 'width: 168px;border-radius: 4px;height: 28px;outline: none;border: 1px solid rgb(220,220,220);');
+            styleSheet.addRule( '.PIER-bankcard-select', 'width: 188px;border-radius: 4px;height: 28px;outline: none;border: 1px solid rgb(220,220,220);');
             styleSheet.addRule( '.PIER-bankcard-select span', 'font-size:10px;');
-            styleSheet.addRule( '.PIER-mT-lg', 'margin-top: 55px;');
-            styleSheet.addRule( '.PIER-mT-md', 'margin-top: 36px;');
-            styleSheet.addRule( '.PIER-mT-sm', 'margin-top: 18px;');
-            styleSheet.addRule( '.PIER-mT-xs', 'margin-top: 10px;');
+            styleSheet.addRule( '.PIER-mT-lg', 'margin-top: 52px;');
+            styleSheet.addRule( '.PIER-mT-md', 'margin-top: 32px;');
+            styleSheet.addRule( '.PIER-mT-sm', 'margin-top: 16px;');
+            styleSheet.addRule( '.PIER-mT-xs', 'margin-top: 12px;');
             styleSheet.addRule( '.PIER-mB-sm', 'margin-bottom: 18px;');
+            styleSheet.addRule( '.PIER-mB-md', 'margin-bottom: 36px;');
             styleSheet.addRule( '.PIER-color', 'color: #7b37a6;');
             styleSheet.addRule( '.PIER-color-gray', 'color: rgb(180,180,180);');
             styleSheet.addRule( '.PIER-color-black', 'color:#000;');
@@ -239,7 +165,7 @@
             styleSheet.addRule( '.PIER-display-block', 'display: block !important;');
             styleSheet.addRule( '.PIER-animated', '-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both; -o-animation-fill-mode:both;animation-fill-mode:both;');
             styleSheet.addRule( '.PIERbounceOutLeft', '-webkit-animation-name:PIERbounceOutLeft;-moz-animation-name:PIERbounceOutLeft;-o-animation-name:PIERbounceOutLeft;animation-name:PIERbounceOutLeft');
-            styleSheet.addRule( '.PIERbounceInTop', '-webkit-animation-name:PIERbounceInTop;-moz-animation-name:PIERbounceInTop;-o-animation-name:PIERbounceInTop;animation-name:PIERbounceInTop')
+            styleSheet.addRule( '.PIERbounceInTop', '-webkit-animation-name:PIERbounceInTop;-moz-animation-name:PIERbounceInTop;-o-animation-name:PIERbounceInTop;-ms-animation-name:PIERbounceInTop;animation-name:PIERbounceInTop')
             styleSheet.addRule( '.PIERbounceInRight', '-webkit-animation-name:PIERbounceInRight;-moz-animation-name:PIERbounceInRight;-o-animation-name:PIERbounceInRight;animation-name:PIERbounceInRight' );
             styleSheet.addRule( '.PIER-buzz-class', '-webkit-animation-name:PIER-buzz-out;-moz-animation-name:PIER-buzz-out;-o-animation-name:PIER-buzz-out;-ms-animation-name:PIER-buzz-out;animation-name:PIER-buzz-out;-webkit-animation-duration:.5s;-moz-animation-duration:.5s;-o-animation-duration:.5s;-ms-animation-duration:.5s;animation-duration:.5s;-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;-o-animation-timing-function:linear;-ms-animation-timing-function:linear;animation-timing-function:linear;-webkit-animation-iteration-count:1;-moz-animation-iteration-count:1;-o-animation-iteration-count:1;-ms-animation-iteration-count:1;animation-iteration-count:1' );
             styleSheet.addRule( '.PIER-error', 'font-size: 12px;color: #f34949;height: 36px;padding-top: 2px;overflow: hidden;margin-bottom: 4px;' );
@@ -265,18 +191,17 @@
                 styleSheet.addRule( '@-webkit-keyframes PIER-buzz-out', '10% {-webkit-transform: translate(4.5px, 4px) rotate(-1deg); }20% {-webkit-transform: translate(-2px, 3.5px) rotate(2deg); }30% {-webkit-transform: translate(-1.5px, -2.5px) rotate(1deg); }40% {-webkit-transform: translate(3.5px, -3.5px) rotate(-2deg); }50% {-webkit-transform: translate(-4.5px, -4px) rotate(-1deg); }60% {-webkit-transform: translate(3.5px, -3.5px) rotate(-2deg); }70% {-webkit-transform: translate(-1.5px, -2.5px) rotate(1deg); }80% {-webkit-transform: translate(-2px, 3.5px) rotate(2deg); }90% {-webkit-transform: translate(4.5px, 4px) rotate(-1deg); }0%, 100% {-webkit-transform: translate(0, 0) rotate(0);  }' );
                 styleSheet.addRule( '@-webkit-keyframes PIERbounceInTop', '0%{opacity:0;-webkit-transform:translateY(-2000px)}60%{opacity:1;-webkit-transform:translateY(30px)}80%{-webkit-transform:translateY(-30px)}100%{-webkit-transform:translateY(0)}');
             }
-            if( isIE = navigator.userAgent.indexOf("MSIE") != -1 ) {
-                // styleSheet.addRule( '@keyframes PIERbounceOutLeft', '0% {transform:translateX(0) } 20% {opacity:1;  transform:translateX(20px) } 100% {opacity:0;transform:translateX(-2000px) }');
-                // styleSheet.addRule( '@keyframes PIERbounceInRight', '0% {opacity:0;transform:translateX(2000px)}60% { opacity:1; transform:translateX(-30px) }80% { transform:translateX(10px) }100% {transform:translateX(0)}' );
-                // styleSheet.addRule( 'PIER-buzz-out', '10% {transform: translate(4.5px, 4px) rotate(-1deg); }20% {transform: translate(-2px, 3.5px) rotate(2deg); }30% {transform: translate(-1.5px, -2.5px) rotate(1deg); }40% {transform: translate(3.5px, -3.5px) rotate(-2deg); }50% {transform: translate(-4.5px, -4px) rotate(-1deg); }60% {transform: translate(3.5px, -3.5px) rotate(-2deg); }70% {transform: translate(-1.5px, -2.5px) rotate(1deg); }80% {transform: translate(-2px, 3.5px) rotate(2deg); }90% {transform: translate(4.5px, 4px) rotate(-1deg); }0%, 100% {transform: translate(0, 0) rotate(0);  }' );
-                // styleSheet.addRule(  '@keyframes PIERbounceInTop', '0%{opacity:0;transform:translateY(-2000px)}60%{opacity:1;transform:translateY(30px)}80%{transform:translateY(-30px)}100%{transform:translateY(0)}');
+            if( navigator.userAgent.indexOf("MSIE") != -1 || navigator.userAgent.indexOf("Trident") !=- 1 ) {
+                styleSheet.addRule( 'PIERbounceOutLeft', '0% {transform:translateX(0) } 20% {opacity:1;  transform:translateX(20px) } 100% {opacity:0;transform:translateX(-2000px) }');
+                styleSheet.addRule( 'PIERbounceInRight', '0% {opacity:0;transform:translateX(2000px)}60% { opacity:1; transform:translateX(-30px) }80% { transform:translateX(10px) }100% {transform:translateX(0)}' );
+                styleSheet.addRule( 'PIER-buzz-out', '10% {transform: translate(4.5px, 4px) rotate(-1deg); }20% {transform: translate(-2px, 3.5px) rotate(2deg); }30% {transform: translate(-1.5px, -2.5px) rotate(1deg); }40% {transform: translate(3.5px, -3.5px) rotate(-2deg); }50% {transform: translate(-4.5px, -4px) rotate(-1deg); }60% {transform: translate(3.5px, -3.5px) rotate(-2deg); }70% {transform: translate(-1.5px, -2.5px) rotate(1deg); }80% {transform: translate(-2px, 3.5px) rotate(2deg); }90% {transform: translate(4.5px, 4px) rotate(-1deg); }0%, 100% {transform: translate(0, 0) rotate(0);  }' );
+                styleSheet.addRule( 'PIERbounceInTop', '0%{opacity:0;-ms-transform:translateY(-2000px)}60%{opacity:1;-ms-transform:translateY(30px)}80%{-ms-transform:translateY(-30px)}100%{-ms-transform:translateY(0)}');
             }
-            if( isIE = navigator.userAgent.indexOf("Opera") != -1 ){
+            if( Opera = navigator.userAgent.indexOf("Opera") != -1 ){
                 styleSheet.addRule( '@-o-keyframes PIERbounceOutLeft', '0% { -o-transform:translateX(0)}20% {opacity:1;-o-transform:translateX(20px)}100% { opacity:0; -o-transform:translateX(-2000px)}');
                 styleSheet.addRule( '@-o-keyframes PIERbounceInRight', '0% {opacity:0;-o-transform:translateX(2000px)}60% {opacity:1;-o-transform:translateX(-30px)}80% {-o-transform:translateX(10px)}100% {-o-transform:translateX(0)}' );
                 styleSheet.addRule( '@-o-keyframes PIER-buzz-out', '10% {-o-transform: translate(4.5px, 4px) rotate(-1deg); }20% {-o-transform: translate(-2px, 3.5px) rotate(2deg); }30% {-o-transform: translate(-1.5px, -2.5px) rotate(1deg); }40% {-o-transform: translate(3.5px, -3.5px) rotate(-2deg); }50% {-o-transform: translate(-4.5px, -4px) rotate(-1deg); }60% {-o-transform: translate(3.5px, -3.5px) rotate(-2deg); }70% {-o-transform: translate(-1.5px, -2.5px) rotate(1deg); }80% {-o-transform: translate(-2px, 3.5px) rotate(2deg); }90% {-o-transform: translate(4.5px, 4px) rotate(-1deg); }0%, 100% {-o-transform: translate(0, 0) rotate(0);  }' );
                 styleSheet.addRule( '@-o-keyframes PIERbounceInTop', '0%{opacity:0;-o-transform:translateY(-2000px)}60%{opacity:1;-o-transform:translateY(30px)}80%{-o-transform:translateY(-30px)}100%{-o-transform:translateY(0)}');
-
             }
             
         },
@@ -394,67 +319,65 @@
             return _pierPayBtn;
         },
         initBankCardContainer: function(){
-            var _pierBankContainer = defaultUtils.createElem( 'div', 'PIER-bank-body');
-            var _pierBankTable = defaultUtils.createElem( 'table' );
-            var _pierBankTableTr = defaultUtils.createElem( 'tr' );
-            var _pierBankTableTrTd = defaultUtils.createElem( 'td' );
-            var _pierBankCheckbox = defaultUtils.createElem( 'input' );
+            var $$ = defaultUtils;
+            var _pierBankContainer = $$.createElem( 'div', 'PIER-bank-body'),
+            _pierBankTable = $$.createElem( 'table' ),
+            _pierBankTableTr = $$.createElem( 'tr' ),
+            _pierBankTableTrTd = $$.createElem( 'td' ),
+            _pierBankCheckbox = $$.createElem( 'input' );
             _pierBankCheckbox.setAttrs({'type':'checkbox','id':'useBankForPay'});
-            var _pierBankCheckboxText = defaultUtils.createElem( 'span' );
+            var _pierBankCheckboxText = $$.createElem( 'span' );
             _pierBankCheckboxText.innerHTML = '或使用';
-            _pierBankTableTrTd.appendChild(_pierBankCheckbox);
-            _pierBankTableTrTd.appendChild(_pierBankCheckboxText);
+            _pierBankTableTrTd.appendChildren([_pierBankCheckbox,_pierBankCheckboxText]);
             _pierBankTableTr.appendChild(_pierBankTableTrTd);
 
-            var _pierBankTableTrTd2 = defaultUtils.createElem( 'td' );
+            var _pierBankTableTrTd2 = $$.createElem( 'td' );
             _pierBankTableTrTd2.innerHTML = '<img src="/images/tab-union.png"/>';
-            var _pierBankTableTrTd3 = defaultUtils.createElem( 'td' );
+            var _pierBankTableTrTd3 = $$.createElem( 'td' );
             _pierBankTableTrTd3.innerHTML = '借记卡支付';
 
-            _pierBankTableTr.appendChild(_pierBankTableTrTd2);
-            _pierBankTableTr.appendChild(_pierBankTableTrTd3);
+            _pierBankTableTr.appendChildren([_pierBankTableTrTd2, _pierBankTableTrTd3]);
 
             _pierBankTable.appendChild(_pierBankTableTr);
             _pierBankContainer.appendChild(_pierBankTable);
 
-            var _pierLinkBankPanel = defaultUtils.createElem( 'div', 'PIER-link-bank-panel' );
+            var _pierLinkBankPanel = $$.createElem( 'div', 'PIER-link-bank-panel' );
 
-            var _pierBankNameRow = defaultUtils.createElem( 'div', 'PIER-row' ),
-            _pierBankNameInput = defaultUtils.createElem( 'input', 'PIER-comm-input' );
+            var _pierBankNameRow = $$.createElem( 'div', 'PIER-row' ),
+            _pierBankNameInput = $$.createElem( 'input', 'PIER-comm-input' );
             _pierBankNameInput.setAttrs({'placeholder':'姓名'});
             _pierBankNameRow.appendChild(_pierBankNameInput);
 
-            var _pierBankIDRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-sm'] ),
-            _pierBankIDInput = defaultUtils.createElem( 'input', 'PIER-comm-input' );
+            var _pierBankIDRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm'] ),
+            _pierBankIDInput = $$.createElem( 'input', 'PIER-comm-input' );
             _pierBankIDInput.setAttrs({'placeholder':'身份证'});
             _pierBankIDRow.appendChild(_pierBankIDInput);
 
-            var _pierBankCardRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-sm'] ),
-            _pierBankCardInput = defaultUtils.createElem( 'input', 'PIER-comm-input' );
+            var _pierBankCardRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm'] ),
+            _pierBankCardInput = $$.createElem( 'input', 'PIER-comm-input' );
             _pierBankCardInput.setAttrs({'placeholder':'借记卡号'});
             _pierBankCardRow.appendChild(_pierBankCardInput);
 
-            var _pierBankPhoneRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-sm'] ),
-            _pierBankPhoneInput = defaultUtils.createElem( 'input', 'PIER-comm-input' );
+            var _pierBankPhoneRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm'] ),
+            _pierBankPhoneInput = $$.createElem( 'input', 'PIER-comm-input' );
             _pierBankPhoneInput.setAttrs({'placeholder':'银行卡预留手机号'});
             _pierBankPhoneRow.appendChild(_pierBankPhoneInput);
 
-            var _pierBankCodeRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-sm', 'PIER-font-xs']),
-            _pierBankCodeInput = defaultUtils.createElem( 'input', 'PIER-code-input' );
+            var _pierBankCodeRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm', 'PIER-font-xs']),
+            _pierBankCodeInput = $$.createElem( 'input', 'PIER-code-input' );
             _pierBankCodeInput.setAttrs({'placeholder':'借记卡验证码'});
-            _pierBankCodeBtn = defaultUtils.createElem( 'div', ['PIER-font-xs', 'PIER-code-label'] );
+            _pierBankCodeBtn = $$.createElem( 'div', ['PIER-font-xs', 'PIER-code-label'] );
             _pierBankCodeBtn.innerHTML = '获取验证码';
             _pierBankCodeRow.css({'height':'32px'});
-            _pierBankCodeRow.appendChild(_pierBankCodeInput);
-            _pierBankCodeRow.appendChild(_pierBankCodeBtn);
+            _pierBankCodeRow.appendChildren([_pierBankCodeInput, _pierBankCodeBtn]);
 
-            var _pierBankErrorRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-error2',  'PIER-text-center']),
-            _pierBankErrorMsg = defaultUtils.createElem( 'p' );
+            var _pierBankErrorRow = $$.createElem( 'div', ['PIER-row', 'PIER-error2',  'PIER-text-center']),
+            _pierBankErrorMsg = $$.createElem( 'p' );
             _pierBankErrorMsg.innerHTML = '';
             _pierBankErrorRow.appendChild(_pierBankErrorMsg);
 
-            var _pierBankPayRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm' ,'PIER-mB-sm']),
-            _pierBankPayBtn = defaultUtils.createElem( 'button', 'PIER-submit-btn' );
+            var _pierBankPayRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm' ,'PIER-mB-sm']),
+            _pierBankPayBtn = $$.createElem( 'button', 'PIER-submit-btn' );
             _pierBankPayBtn.innerHTML = '支付';
             _pierBankPayRow.appendChild(_pierBankPayBtn);
 
@@ -471,16 +394,17 @@
             return _pierBankContainer;
         },
         initHeader:function( headerOpt ){
+            var $$ = defaultUtils;
             var isRegStatus = false, payResult = false;
             if( headerOpt ){
                 isRegStatus = headerOpt.regStatus || false;
                 payResult = headerOpt.payResult || false;
             }
-            var _tempHead = defaultUtils.createElem( 'div', 'PIER-panel-head' ),
-            _tempHeadTable = defaultUtils.createElem( 'table' ),
-            _tempHeadTableTr = defaultUtils.createElem( 'tr' ),
-            _tempHeadTableTrTd = defaultUtils.createElem( 'td' ),
-            _tempHeadClose = defaultUtils.createElem( 'div', 'PIER-close' );
+            var _tempHead = $$.createElem( 'div', 'PIER-panel-head' ),
+            _tempHeadTable = $$.createElem( 'table' ),
+            _tempHeadTableTr = $$.createElem( 'tr' ),
+            _tempHeadTableTrTd = $$.createElem( 'td' ),
+            _tempHeadClose = $$.createElem( 'div', 'PIER-close' );
             if( isRegStatus ){
                 _tempHeadTableTr.innerHTML = '<td ></td><td ><div><img src="http://pierup.cn/images/sdk-logo.png"></div><h4>品而额度申请<span class="PIER-color">'+headerOpt.regStep+'/2</span></h4></td>';
             }else{
@@ -493,12 +417,12 @@
 
             _tempHeadClose.onclick = function(){
                 if( payResult ){
-                    defaultUtils.destorySDK();
+                    $$.destorySDK();
                 }else{
                     _pierFlipContainer.classList.remove( 'PIER-buzz-class' );
                     setTimeout(function( ){
                         if( headerOpt.errorObj.innerHTML == pierConst.exitTip ){
-                            defaultUtils.destorySDK();
+                            $$.destorySDK();
                         }else{
                             _pierFlipContainer.addClass( 'PIER-buzz-class' );
                             headerOpt.errorObj.innerHTML = pierConst.exitTip;
@@ -512,32 +436,33 @@
             return _tempHead;
         },
         initPinSettingPanel:function( clickFun ){
-            var pinSettingPanel = defaultUtils.createElem( 'div', 'PIER-set-pin'),
-            splitLine = defaultUtils.createElem( 'div', 'PIER-split-line');
-            var pinTip = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-font-sm', 'PIER-color-black']);
+            var $$ = defaultUtils;
+            var pinSettingPanel = $$.createElem( 'div', 'PIER-set-pin'),
+            splitLine = $$.createElem( 'div', 'PIER-split-line');
+            var pinTip = $$.createElem( 'div', ['PIER-row', 'PIER-font-sm', 'PIER-color-black']);
             pinTip.innerHTML = '<p>设置品而金融支付密码以保障支付安全</p>';
 
-            var pinPwdRow = defaultUtils.createElem( 'div', 'PIER-row'),
-            pinPwdInput = defaultUtils.createElem( 'input', 'PIER-comm-input');
-            pinPwdInput.setAttrs({'placeholder':'设置支付密码', 'type': 'password', 'maxlength': '6'});
-            pinPwdRow.appendChild(pinPwdInput);
+            var pinRow = $$.createElem( 'div', 'PIER-row'),
+            pinInput = $$.createElem( 'input', 'PIER-comm-input');
+            pinInput.setAttrs({'placeholder':'设置支付密码', 'type': 'password', 'maxlength': '6'});
+            pinRow.appendChild(pinInput);
 
-            var pinPwdConfirmRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-sm']),
-            pinPwdConfirmInput = defaultUtils.createElem( 'input', 'PIER-comm-input');
-            pinPwdConfirmInput.setAttrs({'placeholder':'确认支付密码', 'type': 'password'});
-            pinPwdConfirmRow.appendChild(pinPwdConfirmInput);
+            var pinCfmRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm']),
+            pinCfmInput = $$.createElem( 'input', 'PIER-comm-input');
+            pinCfmInput.setAttrs({'placeholder':'确认支付密码', 'type': 'password', 'maxlength': '6'});
+            pinCfmRow.appendChild(pinCfmInput);
 
-            var pinErrorRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-error2',  'PIER-text-center']),
-            pinErrorMsg = defaultUtils.createElem( 'p' );
+            var pinErrorRow = $$.createElem( 'div', ['PIER-row', 'PIER-error2',  'PIER-text-center']),
+            pinErrorMsg = $$.createElem( 'p' );
             pinErrorMsg.innerHTML = '';
             pinErrorRow.appendChild(pinErrorMsg);
 
-            var pinBtnRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm', 'PIER-mB-sm']);
-            _pierRegBtnNext = defaultUtils.createElem( 'button', ['PIER-submit-btn', 'PIER-color'] );
-            _pierRegBtnNext.innerHTML = '申请品而信用';
-            pinBtnRow.appendChild(_pierRegBtnNext);
+            var pinBtnRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm', 'PIER-mB-sm']),
+            pinBtn = $$.createElem( 'button', ['PIER-submit-btn', 'PIER-color'] );
+            pinBtn.innerHTML = '申请品而信用';
+            pinBtnRow.appendChild(pinBtn);
             var validPwd = function(){
-                var _pwdVal = defaultUtils.trim( pinPwdInput.val() );
+                var _pwdVal = $$.trim( pinInput.val() );
                 if( _pwdVal === '' || _pwdVal === undefined ){
                     pinErrorMsg.innerHTML = '支付密码不能为空！';
                 }else if( _pwdVal.length < 6 ){
@@ -548,346 +473,374 @@
                 }
             }
             var validPwdMatch = function(){
-                var _pwdVal = defaultUtils.trim( pinPwdInput.val() );
-                var _pwdConfirmVal = defaultUtils.trim( pinPwdConfirmInput.val() );
+                var _pwdVal = $$.trim( pinInput.val() );
+                var _pwdConfirmVal = $$.trim( pinCfmInput.val() );
                 if( _pwdVal !== _pwdConfirmVal ){
                     pinErrorMsg.innerHTML = '两次输入的支付密码不匹配！';
                 }
             }
-            pinPwdInput.addEventListener( 'change', validPwd );
-            pinBtnRow.onclick = function(){
+            pinInput.addEventListener( 'change', validPwd );
+            pinBtn.onclick = function(){
                 pinErrorMsg.innerHTML = '';
                 validPwd();
                 if( pinErrorMsg.innerHTML !== '' ) return;
                 validPwdMatch();
                 if( pinErrorMsg.innerHTML !== '' ) return;
-                clickFun.call( this, pinPwdInput.val() );
+                clickFun.call( this, pinInput.val() );
             };
-            pinSettingPanel.appendChildren([splitLine,pinTip,pinPwdRow, pinPwdConfirmRow, pinErrorRow, pinBtnRow]);
+            pinSettingPanel.appendChildren([splitLine,pinTip,pinRow, pinCfmRow, pinErrorRow, pinBtnRow]);
             return pinSettingPanel;
         },
         initLoginContainer: function(){
-            _pierLoginContainer = defaultUtils.createElem( 'div', 'PIER-login-container');
+            var $$ = defaultUtils;
+            _pierLoginContainer = $$.createElem( 'div', 'PIER-login-container');
 
-            _pierLoginBody = defaultUtils.createElem('div', 'PIER-login-body');
+            var body = $$.createElem('div', 'PIER-login-body');
 
-            _pierLoginErrorRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-error', 'PIER-text-center']);
-            _pierLoginErrorSpan = defaultUtils.createElem('span', 'errorMsg' );
-            _pierLoginErrorRow.appendChild(_pierLoginErrorSpan);
+            var eroRow = $$.createElem('div', ['PIER-row', 'PIER-error', 'PIER-text-center']),
+            eroRowSpan = $$.createElem('span', 'errorMsg' );
+            eroRow.appendChild(eroRowSpan);
 
-            _pierLoginHead = defaultUtils.initHeader({
-                errorObj:_pierLoginErrorSpan
+            var loginHead = $$.initHeader({
+                errorObj: eroRowSpan
             });
 
-            _pierLoginSwitchRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-text-center']);
-            _pierLoginUseCreditBtn = defaultUtils.createElem('button', ['PIER-switch-btn', 'active', 'left-btn']);
-            _pierLoginUseCreditBtn.innerHTML = '使用信用';
-            _pierLoginApplyCreditBtn = defaultUtils.createElem('button', ['PIER-switch-btn', 'right-btn']);
-            _pierLoginApplyCreditBtn.innerHTML = '申请信用';
-            _pierLoginSwitchRow.appendChild(_pierLoginUseCreditBtn);
-            _pierLoginSwitchRow.appendChild(_pierLoginApplyCreditBtn);
+            var switchRow = $$.createElem('div', ['PIER-row', 'PIER-text-center']),
+            creditBtn = $$.createElem('button', ['PIER-switch-btn', 'active', 'left-btn']);
+            creditBtn.innerHTML = '使用信用';
+            applyBtn = $$.createElem('button', ['PIER-switch-btn', 'right-btn']);
+            applyBtn.innerHTML = '申请信用';
+            switchRow.appendChildren([creditBtn, applyBtn]);
 
-            _pierLoginPhoneRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-md']);
-            _pierLoginPhoneInput = defaultUtils.createElem( 'input', 'PIER-comm-input' );
-            _pierLoginPhoneInput.setAttrs({'placeholder':pierConst.phoneInputTip});
-            _pierLoginPhoneRow.appendChild(_pierLoginPhoneInput);
+            var phoneRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-md']),
+            phoneInput = $$.createElem( 'input', 'PIER-comm-input' );
+            phoneInput.setAttrs({'placeholder':pierConst.phoneInputTip});
+            phoneRow.appendChild(phoneInput);
 
-            _pierLoginPsdRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm']);
-            _pierLoginPsdInput = defaultUtils.createElem( 'input', 'PIER-comm-input' );
-            _pierLoginPsdInput.setAttrs({'placeholder':pierConst.pwdInputTip, 'type':'password'});
-            _pierLoginPsdRow.appendChild(_pierLoginPsdInput);
+            var pwdRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm']),
+            pwdInput = $$.createElem( 'input', 'PIER-comm-input' );
+            pwdInput.setAttrs({'placeholder':pierConst.pwdInputTip, 'type':'password'});
+            pwdRow.appendChild(pwdInput);
 
-            _pierLoginBtnRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm']);
-            _pierLoginBtnNext = defaultUtils.createElem( 'button', 'PIER-submit-btn' );
-            _pierLoginBtnNext.setAttrs({'id':'pierLogin'});
-            _pierLoginBtnNext.innerHTML = pierConst.next;
-            _pierLoginBtnRow.appendChild(_pierLoginBtnNext);
+            var submitRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm']);
+            submitBtn = $$.createElem( 'button', 'PIER-submit-btn' );
+            submitBtn.setAttrs({'id':'pierLogin'});
+            submitBtn.innerHTML = pierConst.next;
+            submitRow.appendChild(submitBtn);
 
             _pierFlipWrap.appendChild(_pierFlipContainer); 
             _pierFlipContainer.appendChild(_pierLoginContainer);
 
-            _pierLoginContainer.appendChild(_pierLoginHead);
-            _pierLoginContainer.appendChild(_pierLoginBody);
+            _pierLoginContainer.appendChildren([loginHead, body]);
             //set body
-            _pierLoginBody.appendChild(_pierLoginErrorRow);
-            _pierLoginBody.appendChild(_pierLoginSwitchRow);
-            _pierLoginBody.appendChild(_pierLoginPhoneRow);
-            _pierLoginBody.appendChild(_pierLoginPsdRow);
-            _pierLoginBody.appendChild(_pierLoginBtnRow);
-            var _pierLoginBankContainer = defaultUtils.initBankCardContainer();
-            _pierLoginContainer.appendChild(_pierLoginBankContainer);
+            body.appendChildren([eroRow, switchRow, phoneRow, pwdRow, submitRow] );
+            var bankContainer = $$.initBankCardContainer();
+            _pierLoginContainer.appendChild(bankContainer);
 
-            _pierLoginBtnNext.onclick = function(){
-                defaultUtils.initPaymentContainer();
-                _pierLoginContainer.addClass( 'PIER-animated' );
-                _pierLoginContainer.addClass( 'PIER-display-block' );
-                _pierLoginContainer.addClass( 'PIERbounceOutLeft' );
-                _pierPayContainer.addClass( 'PIER-animated' );
-                _pierPayContainer.addClass( 'PIER-display-block' );
-                _pierPayContainer.addClass( 'PIERbounceInRight' );
-                _pierFlipContainer.appendChild(_pierPayContainer);
+            submitBtn.onclick = function(){
+                $$.initConfirmContainer(2);
+                _pierLoginContainer.addClass( ['PIER-animated', 'PIER-display-block', 'PIERbounceOutLeft'] );
+                _pierCfmContainer.addClass( ['PIER-animated','PIER-display-block', 'PIERbounceInRight' ]);
+                _pierFlipContainer.appendChild(_pierCfmContainer);
             };
-            _pierLoginApplyCreditBtn.onclick = function(){
-                defaultUtils.initRegContainer();
+            applyBtn.onclick = function(){
+                $$.initRegContainer();
                 _pierFlipContainer.appendChild(_pierRegContainer);//add reg container for animate only
                 setTimeout(function(){
                     if( _pierLoginContainer.classList.contains('PIER-login-container-back') ){
-                        _pierLoginContainer.classList.remove('PIER-login-container-back');
+                        _pierLoginContainer.removeClass('PIER-login-container-back');
                     }else{
-                        _pierLoginContainer.classList.add('PIER-login-container-back');
+                        _pierLoginContainer.addClass('PIER-login-container-back');
                     }
                     if( _pierRegContainer.classList.contains('PIER-reg-container-back') ){
-                        _pierRegContainer.classList.remove('PIER-reg-container-back');
+                        _pierRegContainer.removeClass('PIER-reg-container-back');
                     }else{
-                        _pierRegContainer.classList.add('PIER-reg-container-back');
+                        _pierRegContainer.addClass('PIER-reg-container-back');
                     } 
                 }, 10);
             }
         },
-        initPaymentContainer: function(){
-            _pierPayContainer = defaultUtils.createElem( 'div', 'PIER-payment-container');
-            _pierPayBody = defaultUtils.createElem( 'div', ['PIER-payment-body', 'PIER-text-left']);
+        /**
+         * @param payMode 0: credit only; 1:bank card only; 2 mixed;
+         * @param callback send payment result to handler
+         */
+        initPayContainer:function( payMode, callback ){
+            var $$ = defaultUtils;
+            var paymentWrap = $$.createElem( 'div', 'PIER-set-pin'),
+            splitLine = $$.createElem( 'div', 'PIER-split-line'),
+            bkInfoRow = $$.createElem('div', ['PIER-row', 'PIER-mT-sm', 'PIER-font-xs']),
+            bkInfoP = $$.createElem('p');
+            bkInfoP.innerHTML = '借记卡（中国银行 尾号为0003）绑定的手机号为：186****123';
+            bkInfoRow.appendChild(bkInfoP);
 
-            _pierPayErrorRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-error', 'PIER-text-center']);
-            _pierPayErrorSpan = defaultUtils.createElem('span', 'errorMsg' );
-            _pierPayErrorRow.appendChild(_pierPayErrorSpan);
-            _pierPayHead = defaultUtils.initHeader({
-                errorObj:_pierPayErrorSpan
+            var bkCodeRow = $$.createElem('div', ['PIER-row', 'PIER-font-xs']);  
+            bkCodeRow.setAttrs({'style':'height:38px;'});
+            var bkCodeInput = $$.createElem('input', 'PIER-code-input'); 
+            bkCodeInput.setAttrs( {'placeholder':'借记卡验证码'} );
+            var bkCodeBtn = $$.createElem('div', ['PIER-font-xs', 'PIER-code-label']);
+            bkCodeBtn.innerHTML = '获取验证码';
+            bkCodeRow.appendChildren([bkCodeInput, bkCodeBtn]);
+
+            var payPinRow = $$.createElem( 'div', ['PIER-row','PIER-font-xs','PIER-mT-xs']),
+            payPinInput = $$.createElem( 'input', ['PIER-comm-input','PIER-clear']);
+            payPinInput.setAttrs( {'placeholder':'品而金融6位支付密码','type':'password'});
+            payPinRow.appendChild(payPinInput);
+
+            var paySubmitRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-md']),
+            payBtn = $$.createElem( 'button', ['PIER-submit-btn']);
+            payBtn.innerHTML = '确认并付款';
+            paySubmitRow.appendChild(payBtn);
+            payBtn.onclick = function(){
+                var pin = $$.trim( payPinInput.val() );
+                var code = $$.trim( bkCodeInput.val() );
+                var url = '';
+                var message = {};
+                if( payMode === 0 ){
+                    if( pin !== undefined && pin !== '' ){}
+                }
+                if( payMode === 1 ){
+                    if( code !== undefined && code !== '' ){}
+                }
+                if( payMode === 2 ){
+                    if( pin !== undefined && pin !== '' && code !== undefined && code !== '' ){
+
+                    }
+                }
+                callback.call(this, payresult = true);
+            }
+
+            if( payMode === 0 ){
+                paymentWrap.appendChildren( [splitLine, payPinRow, paySubmitRow] );
+            }
+            if( payMode === 1 ){
+                paymentWrap.appendChildren( [splitLine, bkInfoRow, bkCodeRow, paySubmitRow] );
+            }
+            if( payMode === 2 ){
+                paymentWrap.appendChildren( [splitLine, bkInfoRow, bkCodeRow, payPinRow, paySubmitRow] );
+            }
+            return paymentWrap;
+        },
+        /**
+         * @param payMode 0: credit only; 1:bank card only; 2 mixed;
+         */
+        initConfirmContainer: function( payMode ){
+            var $$ = defaultUtils;
+            _pierCfmContainer = $$.createElem( 'div', 'PIER-payment-container');
+
+            var cfmBody = $$.createElem( 'div', ['PIER-payment-body', 'PIER-text-left']);
+
+            var eroRow = $$.createElem('div', ['PIER-row', 'PIER-error', 'PIER-text-center']);
+            eroSpan = $$.createElem('span', 'errorMsg' );
+            eroRow.appendChild(eroSpan);
+            var confirmHead = $$.initHeader({
+                errorObj:eroSpan
             });
             
-            _pierPayCreditRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-md']);
-            _pierPayCreditRow.innerHTML = '<label>'+pierConst.pierCreditAmount+'</label>';
-            _pierPayCreditRowAmount = defaultUtils.createElem('span', ['PIER-right', 'PIER-money'] );
-            _pierPayCreditRowAmount.innerHTML = '￥2000'
-            _pierPayCreditRow.appendChild(_pierPayCreditRowAmount);
-            _pierPayInstalmentRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-xs']);
-            _pierPayInstalmentRow.innerHTML = '<label>分期选项</label>';
-            _pierPayInstalmentRowSelect = defaultUtils.createElem('select', ['PIER-right', 'PIER-instalment-select'] );
-            _pierPayInstalmentRowOp0 = defaultUtils.createElem('option');
-            _pierPayInstalmentRowOp0.innerHTML = '不分期';
-            _pierPayInstalmentRowOp1 = defaultUtils.createElem('option');
-            _pierPayInstalmentRowOp1.innerHTML = '三期';
-            _pierPayInstalmentRowOp2 = defaultUtils.createElem('option');
-            _pierPayInstalmentRowOp2.innerHTML = '六期';
-            _pierPayInstalmentRowSelect.appendChild(_pierPayInstalmentRowOp0);
-            _pierPayInstalmentRowSelect.appendChild(_pierPayInstalmentRowOp1);
-            _pierPayInstalmentRowSelect.appendChild(_pierPayInstalmentRowOp2);
-            _pierPayInstalmentRow.appendChild(_pierPayInstalmentRowSelect);
+            var row1 = $$.createElem('div', ['PIER-row', 'PIER-mT-xs']);
+            row1.innerHTML = '<label>'+pierConst.pierCreditAmount+'</label>';
+            var row1Amount = $$.createElem('span', ['PIER-right', 'PIER-money'] );
+            row1Amount.innerHTML = '￥2000'
+            row1.appendChild(row1Amount);
 
-            _pierPayAgreementRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-xs', 'PIER-dot-line']);
-            _pierPayAgreementRowInput = defaultUtils.createElem('input');
-            _pierPayAgreementRowInput.setAttrs( {'type':'checkbox'});
-            _pierPayAgreementRowSpan = defaultUtils.createElem('span', 'PIER-bottom-text');
-            _pierPayAgreementRowSpan.innerHTML = pierConst.agreeAndRead;
-            _pierPayAgreementRowSpan2 = defaultUtils.createElem('span', 'PIER-color');
-            _pierPayAgreementRowSpan2.innerHTML = pierConst.baomixieyi;
-            _pierPayAgreementRowSpan.appendChild(_pierPayAgreementRowSpan2);
-            _pierPayAgreementRow.appendChild(_pierPayAgreementRowInput);
-            _pierPayAgreementRow.appendChild(_pierPayAgreementRowSpan);
+            var row2 = $$.createElem('div', ['PIER-row', 'PIER-mT-xs']);
+            row2.innerHTML = '<label>分期选项</label>';
+            var row2Select = $$.createElem('select', ['PIER-right', 'PIER-instalment-select'] );
+            var row2SelectOp0 = $$.createElem('option');
+            row2SelectOp0.innerHTML = '不分期';
+            var row2SelectOp1 = $$.createElem('option');
+            row2SelectOp1.innerHTML = '三期';
+            var row2SelectOp2 = $$.createElem('option');
+            row2SelectOp2.innerHTML = '六期';
+            row2Select.appendChildren([row2SelectOp0,row2SelectOp1,row2SelectOp2]);
+            row2.appendChild(row2Select);
 
-            _pierPayBankRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-sm', 'PIER-dot-line']);
-            _pierPayBankRowSelect = defaultUtils.createElem('select', 'PIER-bankcard-select');
-            _pierPayBankRowOp0 = defaultUtils.createElem('option');
-            _pierPayBankRowOp0.innerHTML = '借记卡支付金额';
-            _pierPayBankRowOp0Span = defaultUtils.createElem('span');
-            _pierPayBankRowOp0Span.innerHTML = '（中国银行 尾号0003）';
-            _pierPayBankRowOp0.appendChild(_pierPayBankRowOp0Span);
-            _pierPayBankRowSelect.appendChild(_pierPayBankRowOp0);
-            _pierPayBankRow.appendChild(_pierPayBankRowSelect);
-            _pierPayBankRowAmount = defaultUtils.createElem('label', ['PIER-right', 'PIER-money']);
-            _pierPayBankRowAmount.innerHTML = '￥3000';
-            _pierPayBankRow.appendChild(_pierPayBankRowAmount);
+            var row3 = $$.createElem('div', ['PIER-row', 'PIER-mT-xs', 'PIER-dot-line']);
+            var row3Checkbox = $$.createElem('input');
+            row3Checkbox.setAttrs( {'type':'checkbox'});
+            var row3Span1 = $$.createElem('span', 'PIER-bottom-text');
+            row3Span1.innerHTML = pierConst.agreeAndRead;
+            var row3Span2 = $$.createElem('span', 'PIER-color');
+            row3Span2.innerHTML = pierConst.baomixieyi;
+            row3Span1.appendChild(row3Span2);
+            row3.appendChild(row3Checkbox);
+            row3.appendChild(row3Span1);
 
-            _pierPayTotalRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-sm']);
-            _pierPayTotalRow.innerHTML = '<label>商品总价</label>';
-            _pierPayTotalRowSpan = defaultUtils.createElem('span', ['PIER-right', 'PIER-money']);
-            _pierPayTotalRowSpan.innerHTML = '￥5000';
-            _pierPayTotalRow.appendChild(_pierPayTotalRowSpan);
+            var row4 = $$.createElem('div', ['PIER-row', 'PIER-mT-sm', 'PIER-dot-line']);
+            var row4Select = $$.createElem('select', 'PIER-bankcard-select');
+            var row4SelectOp0 = $$.createElem('option');
+            row4SelectOp0.innerHTML = '借记卡支付金额';//<img src="/images/tab-union.png" style="width:25px;height:25px;"/>
+            var row4SelectOp0Span = $$.createElem('span');
+            row4SelectOp0Span.innerHTML = '（中国银行 尾号0003）';
+            row4SelectOp0.appendChild(row4SelectOp0Span);
+            row4Select.appendChild(row4SelectOp0);
+            row4.appendChild(row4Select);
+            var row4Amount = $$.createElem('span', ['PIER-right', 'PIER-money']);
+            row4Amount.innerHTML = '￥3000';
+            row4.appendChild(row4Amount);
 
-            _pierPayExchangeRow = defaultUtils.createElem('div', ['PIER-row']); 
-            _pierPayExchangeRow.setAttrs({ 'style': 'height:60px;'});
-            _pierPayExchangeRowSpan1 = defaultUtils.createElem('div', ['PIER-right', 'PIER-font-sm']); 
-            _pierPayExchangeRowSpan1.innerHTML = '美元共计：$812.33';
-            _pierPayExchangeRowSpan2 = defaultUtils.createElem('div', ['PIER-right','PIER-font-xs','PIER-color-gray','PIER-mT-xs']); 
-            _pierPayExchangeRowSpan2.innerHTML = '中国银行上海分行：2015-12-18 10:15';
-            _pierPayExchangeRowSpan3 = defaultUtils.createElem('div', ['PIER-right','PIER-font-xs','PIER-color-gray']); 
-            _pierPayExchangeRowBr = defaultUtils.createElem('br'); 
-            _pierPayExchangeRowSpan3.innerHTML = '汇率：1USD = 6.47RMB';
-            _pierPayExchangeRow.appendChild(_pierPayExchangeRowSpan1);
-            _pierPayExchangeRow.appendChild(_pierPayExchangeRowSpan2);
-            _pierPayExchangeRow.appendChild(_pierPayExchangeRowBr);
-            _pierPayExchangeRow.appendChild(_pierPayExchangeRowSpan3);
+            var row5 = $$.createElem('div', ['PIER-row', 'PIER-mT-sm']);
+            row5.innerHTML = '<label>商品总价</label>';
+            var row5Span = $$.createElem('span', ['PIER-right', 'PIER-money']);
+            row5Span.innerHTML = '￥5000';
+            row5.appendChild(row5Span);
 
-            _pierPayBankInfoRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-sm', 'PIER-font-xs']); 
-            _pierPayBankInfoRowP = defaultUtils.createElem('p'); 
-            _pierPayBankInfoRowP.innerHTML = '借记卡（中国银行 尾号为0003）绑定的手机号为：186****123';
-            _pierPayBankInfoRow.appendChild(_pierPayBankInfoRowP);
+            var row6 = $$.createElem('div', ['PIER-row']); 
+            row6.setAttrs({ 'style': 'height:60px;'});
+            var row6Span1 = $$.createElem('div', ['PIER-right', 'PIER-font-sm']); 
+            row6Span1.innerHTML = '美元共计：￥812.33';
+            var row6Span2 = $$.createElem('div', ['PIER-right','PIER-font-xs','PIER-color-gray','PIER-mT-xs']); 
+            row6Span2.innerHTML = '中国银行上海分行：2015-12-18 10:15';
+            var row6Span3 = $$.createElem('div', ['PIER-right','PIER-font-xs','PIER-color-gray']); 
+            var row6Br = $$.createElem('br'); 
+            row6Span3.innerHTML = '汇率：1USD = 6.47RMB';
+            row6.appendChildren([row6Span1, row6Span2, row6Br, row6Span3]);
 
-            _pierPayValidCodeRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-font-xs']); 
-            _pierPayValidCodeRow.setAttrs({'style':'height:38px;'});
-            _pierPayValidCodeInput = defaultUtils.createElem('input', 'PIER-code-input'); 
-            _pierPayValidCodeInput.setAttrs( {'placeholder':'借记卡验证码'} );
-            _pierPayValidBtn = defaultUtils.createElem('div', ['PIER-font-xs', 'PIER-code-label']);
-            _pierPayValidBtn.innerHTML = '获取验证码';
-            _pierPayValidCodeRow.appendChild(_pierPayValidCodeInput);
-            _pierPayValidCodeRow.appendChild(_pierPayValidBtn);
+            var submitRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-md']);
+            var submitBtn = $$.createElem( 'button', ['PIER-submit-btn']);
+            submitBtn.innerHTML = '下一步';
+            submitRow.appendChild(submitBtn);
 
-            _pierPayPinRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-font-xs','PIER-mT-xs']);
-            _pierPayPinInput = defaultUtils.createElem( 'input', ['PIER-comm-input','PIER-clear']);
-            _pierPayPinInput.setAttrs( {'placeholder':'品而金融6位支付密码'});
-            _pierPayPinRow.appendChild(_pierPayPinInput);
-
-            _pierPaySubmitRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-md']);
-            _pierPaySubmitBtn = defaultUtils.createElem( 'button', ['PIER-submit-btn']);
-            _pierPaySubmitBtn.innerHTML = '下一步';
-            _pierPaySubmitRow.appendChild(_pierPaySubmitBtn);
-
-            _pierPayTimerRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-md']);
-            _pierPayTimerP = defaultUtils.createElem( 'p', ['PIER-bottom-text', 'PIER-text-center']);
-            _pierPayTimerP.innerHTML = '您可以在4分12秒内使用额度支付';
-            _pierPayTimerRow.appendChild(_pierPayTimerP);
-
+            var timerRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-md']);
+            var timerP = $$.createElem( 'p', ['PIER-bottom-text', 'PIER-text-center']);
+            timerP.innerHTML = '您可以在4分12秒内使用额度支付';
+            timerRow.appendChild(timerP);
 
             //append head and body
-            _pierPayContainer.appendChild(_pierPayHead);
-            _pierPayContainer.appendChild(_pierPayBody);
+            _pierCfmContainer.appendChildren([confirmHead, cfmBody]);
             //append body elem
-            _pierPayBody.appendChild(_pierPayErrorRow);
-            _pierPayBody.appendChild(_pierPayCreditRow);
-            _pierPayBody.appendChild(_pierPayInstalmentRow);
-            _pierPayBody.appendChild(_pierPayAgreementRow);
-            _pierPayBody.appendChild(_pierPayBankRow);
-            _pierPayBody.appendChild(_pierPayTotalRow);
-            _pierPayBody.appendChild(_pierPayExchangeRow);
-            _pierPayBody.appendChild(_pierPayBankInfoRow);
-            _pierPayBody.appendChild(_pierPayValidCodeRow);
-            _pierPayBody.appendChild(_pierPayPinRow);
-            _pierPayBody.appendChild(_pierPaySubmitRow);
-            _pierPayBody.appendChild(_pierPayTimerRow);
+            if( payMode === 0 ){
+                cfmBody.appendChildren([eroRow, row1, row2, row3, row5, row6, submitRow, timerRow ]);
+            }
+            if( payMode === 1 ){
+                cfmBody.appendChildren([eroRow,  row4, row5, row6, submitRow, timerRow ]);
+            }
+            if( payMode === 2 ){
+                cfmBody.appendChildren([eroRow, row1, row2, row3, row4, row5, row6, submitRow, timerRow ]);
+            }
+            submitBtn.onclick = function(){
+                var payWrap = $$.initPayContainer( payMode, function(){
+                    $$.initPayResultContainer();
+                    _pierCfmContainer.removeClass( 'PIERbounceInRight' );
+                    _pierCfmContainer.addClass( 'PIERbounceOutLeft' );
+                    _pierCfmContainer.removeClass( 'PIER-display-block' );
 
-            _pierPaySubmitBtn.onclick = function(){
-                defaultUtils.initPayResultContainer();
-                _pierPayContainer.removeClass( 'PIERbounceInRight' );
-                _pierPayContainer.addClass( 'PIERbounceOutLeft' );
-                _pierPayContainer.removeClass( 'PIER-display-block' );
-
-                _pierPayResultContainer.addClass( 'PIER-animated' );
-                _pierPayResultContainer.addClass( 'PIER-display-block' );
-                _pierPayResultContainer.addClass( 'PIERbounceInRight' );
-                _pierFlipContainer.appendChild(_pierPayResultContainer);
+                    _pierPayResultContainer.addClass( 'PIER-animated' );
+                    _pierPayResultContainer.addClass( 'PIER-display-block' );
+                    _pierPayResultContainer.addClass( 'PIERbounceInRight' );
+                    _pierFlipContainer.appendChild(_pierPayResultContainer);
+                });
+                cfmBody.removeChild(submitRow );
+                cfmBody.removeChild(timerRow);
+                cfmBody.appendChildren([payWrap, timerRow]);
             };
-            
         },
         initPayResultContainer:function(){
-            _pierPayResultContainer = defaultUtils.createElem( 'div', 'PIER-payresult-container');
+            var $$ = defaultUtils;
+            _pierPayResultContainer = $$.createElem( 'div', 'PIER-payresult-container');
             //pay result container header
-            _pierPayResultHead = defaultUtils.initHeader({
+            var payResultHead = $$.initHeader({
                 payResult: true
             });
             //pay result container body
-            _pierPayResultBody = defaultUtils.createElem( 'div', ['PIER-payresult-body', 'PIER-text-text']);
-            _pierPayResultQRRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-md']);
-            _pierPayResultQRImage = defaultUtils.createElem( 'img');
-            _pierPayResultQRImage.setAttrs({ 'src':'http://pierup.cn/images/getqrcode.jpg'});
-            _pierPayResultQRRow.appendChild(_pierPayResultQRImage);
+            var body = $$.createElem( 'div', ['PIER-payresult-body', 'PIER-text-center']);
+            var QRRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-md']);
+            var QRImage = $$.createElem( 'img');
+            QRImage.setAttrs({ 'src':'http://pierup.cn/images/getqrcode.jpg'});
+            QRRow.appendChild(QRImage);
 
-            _pierPayResultMsgRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-md']);
-            _pierPayResultMsgRow.innerHTML = '<p class="PIER-color">支付成功!</p>';
+            var msgRow = $$.createElem( 'div', ['PIER-row','PIER-mT-md']);
+            msgRow.innerHTML = '<p class="PIER-color">支付成功!</p>';
 
-            _pierPayResultDownRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-md']);
-            _pierPayResultDownRow.innerHTML = '<p>马上在各大市场下载品而金融APP，轻松提高和管理您的额度!</p>';
+            var downloadRow = $$.createElem( 'div', ['PIER-row','PIER-mT-md']);
+            downloadRow.innerHTML = '<p>马上在各大市场下载品而金融APP，轻松提高和管理您的额度!</p>';
 
-            _pierPayResultReturnRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-md']);
-            _pierPayResultReturnRow.innerHTML = '<p class="PIER-color-gray PIER-font-sm">正在返回商家……</p>';
+            var returnRow = $$.createElem( 'div', ['PIER-row','PIER-mT-md']);
+            returnRow.innerHTML = '<p class="PIER-color-gray PIER-font-sm">正在返回商家……</p>';
 
-
-            _pierPayResultContainer.appendChild(_pierPayResultHead);
-            _pierPayResultContainer.appendChild(_pierPayResultBody);
-            _pierPayResultBody.appendChild(_pierPayResultQRRow);
-            _pierPayResultBody.appendChild(_pierPayResultMsgRow);
-            _pierPayResultBody.appendChild(_pierPayResultDownRow);
-            _pierPayResultBody.appendChild(_pierPayResultReturnRow);
-
+            body.appendChildren([QRRow, msgRow, downloadRow, returnRow] );
+            _pierPayResultContainer.appendChildren([payResultHead, body]);
+            
         },
         initRegContainer: function(){
-            _pierRegContainer = defaultUtils.createElem( 'div', 'PIER-reg-container');
+            var $$ = defaultUtils;
+            _pierRegContainer = $$.createElem( 'div', 'PIER-reg-container');
             //pay result container header
 
-            _pierRegBody = defaultUtils.createElem( 'div', 'PIER-reg-body' );
+            var body = $$.createElem( 'div', 'PIER-reg-body' );
 
-            _pierRegErrorRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-error', 'PIER-text-center']);
-            _pierRegErrorSpan = defaultUtils.createElem('span', 'errorMsg' );
-            _pierRegErrorRow.appendChild(_pierRegErrorSpan);
-            _pierRegHead = defaultUtils.initHeader({
+            var eroRow = $$.createElem('div', ['PIER-row', 'PIER-error', 'PIER-text-center']);
+            eroSpan = $$.createElem('span', 'errorMsg' );
+            eroRow.appendChild(eroSpan);
+            var regHead = $$.initHeader({
                 regStatus: true,
                 regStep: 1,
-                errorObj: _pierRegErrorSpan
+                errorObj: eroSpan
             });
 
-            _pierRegSwitchRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-text-center']);
-            _pierRegUseCreditBtn = defaultUtils.createElem('button', ['PIER-switch-btn', 'left-btn']);
-            _pierRegUseCreditBtn.innerHTML = '使用信用';
-            _pierRegApplyCreditBtn = defaultUtils.createElem('button', ['PIER-switch-btn', 'active', 'right-btn']);
-            _pierRegApplyCreditBtn.innerHTML = '申请信用';
-            _pierRegSwitchRow.appendChildren([_pierRegUseCreditBtn, _pierRegApplyCreditBtn]);
+            var row1 = $$.createElem('div', ['PIER-row', 'PIER-text-center']),
+            creditBtn = $$.createElem('button', ['PIER-switch-btn', 'left-btn']);
+            creditBtn.innerHTML = '使用信用';
+            var applyBtn = $$.createElem('button', ['PIER-switch-btn', 'active', 'right-btn']);
+            applyBtn.innerHTML = '申请信用';
+            row1.appendChildren([creditBtn, applyBtn]);
 
-            _pierRegPhoneRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-md']);
-            _pierRegPhoneInput = defaultUtils.createElem('input', 'PIER-comm-input' );
-            _pierRegPhoneInput.setAttrs({'placeholder':'手机号'});
-            _pierRegPhoneRow.appendChild(_pierRegPhoneInput);
+            var row2 = $$.createElem('div', ['PIER-row', 'PIER-mT-md']);
+            phoneInput = $$.createElem('input', 'PIER-comm-input' );
+            phoneInput.setAttrs({'placeholder':'手机号'});
+            row2.appendChild(phoneInput);
 
-            _pierRegCodeRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-sm']),
-            _pierRegCodeInput = defaultUtils.createElem( 'input', 'PIER-code-input' );
-            _pierRegCodeInput.setAttrs({'placeholder':'短信验证码'});
-            _pierRegCodeBtn = defaultUtils.createElem( 'div', ['PIER-font-xs', 'PIER-code-label'] );
-            _pierRegCodeBtn.innerHTML = '获取验证码';
-            _pierRegCodeRow.css({'height':'32px'});
-            _pierRegCodeRow.appendChildren([_pierRegCodeInput, _pierRegCodeBtn]);
+            var row3 = $$.createElem( 'div', ['PIER-row','PIER-mT-sm']),
+            codeInput = $$.createElem( 'input', 'PIER-code-input' );
+            codeInput.setAttrs({'placeholder':'短信验证码'});
+            codeBtn = $$.createElem( 'div', ['PIER-font-xs', 'PIER-code-label'] );
+            codeBtn.innerHTML = '获取验证码';
+            row3.css({'height':'32px'});
+            row3.appendChildren([codeInput, codeBtn]);
 
-            _pierRegNameRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-sm']);
-            _pierRegNameInput = defaultUtils.createElem('input', 'PIER-comm-input' );
-            _pierRegNameInput.setAttrs({'placeholder':'真实姓名'});
-            _pierRegNameRow.appendChild(_pierRegNameInput);
+            var row4 = $$.createElem('div', ['PIER-row', 'PIER-mT-sm']);
+            nameInput = $$.createElem('input', 'PIER-comm-input' );
+            nameInput.setAttrs({'placeholder':'真实姓名'});
+            row4.appendChild(nameInput);
 
-            _pierRegIDRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-sm']);
-            _pierRegIDInput = defaultUtils.createElem('input', 'PIER-comm-input' );
-            _pierRegIDInput.setAttrs({'placeholder':'身份证'});
-            _pierRegIDRow.appendChild(_pierRegIDInput);
+            var row5 = $$.createElem('div', ['PIER-row', 'PIER-mT-sm']);
+            idInput = $$.createElem('input', 'PIER-comm-input' );
+            idInput.setAttrs({'placeholder':'身份证'});
+            row5.appendChild(idInput);
 
-            _pierRegAgreetmentRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-mT-xs']);
-            _pierRegAgreetmentInput = defaultUtils.createElem('input');
-            _pierRegAgreetmentInput.setAttrs({'type':'checkbox'});
-            _pierRegAgreetmentSpan = defaultUtils.createElem('span', ['PIER-bottom-text']);
-            _pierRegAgreetmentSpan.innerHTML = '同意<span class="PIER-color">《品而服务协议》</span>和<span class="PIER-color">《保密授权协议》</span>';
-            _pierRegAgreetmentRow.appendChildren([_pierRegAgreetmentInput,_pierRegAgreetmentSpan]);
+            var row6 = $$.createElem('div', ['PIER-row', 'PIER-mT-xs']);
+            var row6Checkbox = $$.createElem('input');
+            row6Checkbox.setAttrs({'type':'checkbox'});
+            var row6Span = $$.createElem('span', ['PIER-bottom-text']);
+            row6Span.innerHTML = '同意<span class="PIER-color">《品而服务协议》</span>和<span class="PIER-color">《保密授权协议》</span>';
+            row6.appendChildren([row6Checkbox,row6Span]);
 
-            _pierRegBtnRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm', 'PIER-mB-sm']);
-            _pierRegBtnNext = defaultUtils.createElem( 'button', 'PIER-submit-btn' );
-            _pierRegBtnNext.innerHTML = pierConst.next;
-            _pierRegBtnRow.appendChild(_pierRegBtnNext);
+            var submitRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm', 'PIER-mB-sm']);
+            submitBtn = $$.createElem( 'button', 'PIER-submit-btn' );
+            submitBtn.innerHTML = pierConst.next;
+            submitRow.appendChild(submitBtn);
             
-            _pierRegBody.appendChildren([_pierRegErrorRow, _pierRegSwitchRow, _pierRegPhoneRow, _pierRegCodeRow, _pierRegNameRow, _pierRegIDRow, _pierRegAgreetmentRow, _pierRegBtnRow ]);
+            body.appendChildren([eroRow, row1, row2, row3, row4, row5, row6, submitRow ]);
             
-            var _pierRegBankContainer = defaultUtils.initBankCardContainer();
-            _pierRegContainer.appendChildren([_pierRegHead, _pierRegBody, _pierRegBankContainer]);
+            var bankContainer = $$.initBankCardContainer();
+            _pierRegContainer.appendChildren([regHead, body, bankContainer]);
 
-            _pierRegUseCreditBtn.onclick = function(){
+            creditBtn.onclick = function(){
                 if( _pierLoginContainer.classList.contains('PIER-login-container-back') ){
-                    _pierLoginContainer.classList.remove('PIER-login-container-back');
+                    _pierLoginContainer.removeClass('PIER-login-container-back');
                 }else{
-                    _pierLoginContainer.classList.add('PIER-login-container-back');
+                    _pierLoginContainer.addClass('PIER-login-container-back');
                 }
                 if( _pierRegContainer.classList.contains('PIER-reg-container-back') ){
-                    _pierRegContainer.classList.remove('PIER-reg-container-back');
+                    _pierRegContainer.removeClass('PIER-reg-container-back');
                 }else{
-                    _pierRegContainer.classList.add('PIER-reg-container-back');
+                    _pierRegContainer.addClass('PIER-reg-container-back');
                 }
                 _pierRegContainer.destory();
             }
-            _pierRegBtnNext.onclick = function(){
-                defaultUtils.initApplyContainer();
+            submitBtn.onclick = function(){
+                $$.initApplyContainer();
                 _pierRegContainer.addClass( 'PIER-animated' );
-                _pierRegContainer.addClass( 'PIER-display-block' );
+                // _pierRegContainer.addClass( 'PIER-display-block' );
                 _pierRegContainer.addClass( 'PIERbounceOutLeft' );
                 _pierRegContainer.removeClass( 'PIER-reg-container-back' );
 
@@ -895,81 +848,83 @@
                 _pierApplyContainer.addClass( 'PIER-display-block' );
                 _pierApplyContainer.addClass( 'PIERbounceInRight' );
                 _pierFlipContainer.appendChild(_pierApplyContainer);
+                _pierLoginContainer.destory();
                 _pierRegContainer.destory();
             }
-            _pierRegCodeBtn.onclick = function(){
+            codeBtn.onclick = function(){
                 var _url = apiConfig.hostName + apiConfig.regActivationCode;
                 var _message = { phone: "13248269098" };
-                defaultUtils.apiTemplateCall( { url:_url, body:_message}, function( data ){
+                $$.apiTemplateCall( { url:_url, body:_message}, function( data ){
                     console.log('_message', data);
 
                 } );
             }
         },
         initApplyContainer: function(){
-            _pierApplyContainer = defaultUtils.createElem( 'div', 'PIER-apply-container');
+            var $$ = defaultUtils;
+            _pierApplyContainer = $$.createElem( 'div', 'PIER-apply-container');
             //pay result container header
-            _pierApplyBody = defaultUtils.createElem( 'div', 'PIER-apply-body' );
+            _pierApplyBody = $$.createElem( 'div', 'PIER-apply-body' );
 
-            _pierApplyErrorRow = defaultUtils.createElem('div', ['PIER-row', 'PIER-error', 'PIER-text-center']);
-            _pierApplyErrorSpan = defaultUtils.createElem('p');
+            _pierApplyErrorRow = $$.createElem('div', ['PIER-row', 'PIER-error', 'PIER-text-center']);
+            _pierApplyErrorSpan = $$.createElem('p');
             _pierApplyErrorRow.appendChild(_pierApplyErrorSpan);
 
-            _pierApplyHeader = defaultUtils.initHeader({
+            _pierApplyHeader = $$.initHeader({
                 regStatus: true,
                 regStep: 2,
                 errorObj: _pierApplyErrorSpan
             });
 
-            _pierApplyCardOwnerRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm'] );
-            _pierApplyCardOwnerLabel = defaultUtils.createElem( 'label' );
+            _pierApplyCardOwnerRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm'] );
+            _pierApplyCardOwnerLabel = $$.createElem( 'label' );
             _pierApplyCardOwnerLabel.innerHTML = '持卡人：';
-            _pierApplyCardOwnerName = defaultUtils.createElem( 'span', 'PIER-right' );
+            _pierApplyCardOwnerName = $$.createElem( 'span', 'PIER-right' );
             _pierApplyCardOwnerName.innerHTML = '张三';
             _pierApplyCardOwnerRow.appendChildren([_pierApplyCardOwnerLabel,_pierApplyCardOwnerName]);
 
-            _pierApplyCardRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-xs'] );
-            _pierApplyCardInput = defaultUtils.createElem( 'input', 'PIER-comm-input' );
+            _pierApplyCardRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-xs'] );
+            _pierApplyCardInput = $$.createElem( 'input', 'PIER-comm-input' );
             _pierApplyCardInput.setAttrs({'placeholder': '借记卡卡号'});
             _pierApplyCardRow.appendChild(_pierApplyCardInput);
 
-            _pierApplyCardTypeRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm'] );
-            _pierApplyCardTypeLabel = defaultUtils.createElem( 'label' );
+            _pierApplyCardTypeRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm'] );
+            _pierApplyCardTypeLabel = $$.createElem( 'label' );
             _pierApplyCardTypeLabel.innerHTML = '卡类型：';
-            _pierApplyCardTypeName = defaultUtils.createElem( 'span', 'PIER-right' );
+            _pierApplyCardTypeName = $$.createElem( 'span', 'PIER-right' );
             _pierApplyCardTypeName.innerHTML = '中国银行';
             _pierApplyCardTypeRow.appendChildren([_pierApplyCardTypeLabel,_pierApplyCardTypeName]);
 
-            _pierApplyCardPhoneRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-xs'] );
-            _pierApplyCardPhoneInput = defaultUtils.createElem( 'input', 'PIER-comm-input' );
+            _pierApplyCardPhoneRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-xs'] );
+            _pierApplyCardPhoneInput = $$.createElem( 'input', 'PIER-comm-input' );
             _pierApplyCardPhoneInput.setAttrs({'placeholder': '银行预留手机号'});
             _pierApplyCardPhoneRow.appendChild(_pierApplyCardPhoneInput);
 
-            _pierApplyAgreetmentRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-xs'] );
-            _pierApplyAgreetmentCheck = defaultUtils.createElem( 'input' );
+            _pierApplyAgreetmentRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-xs'] );
+            _pierApplyAgreetmentCheck = $$.createElem( 'input' );
             _pierApplyAgreetmentCheck.setAttrs({'type':'checkbox'});
-            _pierApplyAgreetmentSpan = defaultUtils.createElem( 'span', 'PIER-bottom-text' );
+            _pierApplyAgreetmentSpan = $$.createElem( 'span', 'PIER-bottom-text' );
             _pierApplyAgreetmentSpan.innerHTML = '同意<span class="PIER-color">《品而服务协议》</span>和<span class="PIER-color">《保密授权协议》</span>';
             _pierApplyAgreetmentRow.appendChildren([_pierApplyAgreetmentCheck,_pierApplyAgreetmentSpan]);
 
-            _pierApplyCodeRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm'] );
+            _pierApplyCodeRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm'] );
             _pierApplyCodeRow.css({'height':'32px'});
-            _pierApplyCodeInput = defaultUtils.createElem( 'input', 'PIER-code-input' );
+            _pierApplyCodeInput = $$.createElem( 'input', 'PIER-code-input' );
             _pierApplyCodeInput.setAttrs({'placeholder': '短信验证码'});
-            _pierApplyCodeBtn = defaultUtils.createElem( 'div', ['PIER-font-xs', 'PIER-code-label'] );
+            _pierApplyCodeBtn = $$.createElem( 'div', ['PIER-font-xs', 'PIER-code-label'] );
             _pierApplyCodeBtn.innerHTML = '获取验证码';
             _pierApplyCodeRow.appendChildren([_pierApplyCodeInput, _pierApplyCodeBtn]);
 
-            _pierApplyBtnRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm', 'PIER-mB-sm']);
-            _pierApplyBtnNext = defaultUtils.createElem( 'button', ['PIER-submit-btn', 'PIER-color'] );
+            _pierApplyBtnRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm', 'PIER-mB-sm']);
+            _pierApplyBtnNext = $$.createElem( 'button', ['PIER-submit-btn', 'PIER-color'] );
             _pierApplyBtnNext.innerHTML = '确认';
             _pierApplyBtnRow.appendChild(_pierApplyBtnNext);
 
             _pierApplyBtnNext.onclick = function(){
                 if( true ){
-                    var pierSettingPin = defaultUtils.initPinSettingPanel(function( pwd ){
+                    var pierSettingPin = $$.initPinSettingPanel(function( pwd ){
                         console.log( 'pin code ', pwd );
-                        defaultUtils.initApplyResultContainer();
+                        $$.initApplyResultContainer(true);
                         _pierApplyContainer.classList.remove( 'PIERbounceInRight' );
                         _pierApplyContainer.classList.add( 'PIERbounceOutLeft' );
                         _pierApplyContainer.classList.remove( 'PIER-display-block' );
@@ -983,47 +938,61 @@
                     _pierApplyBody.appendChild(  pierSettingPin );
                 }
             }
-            var _pierApplyBankContainer = defaultUtils.initBankCardContainer();
+            var _pierApplyBankContainer = $$.initBankCardContainer();
             //set apply body 
             _pierApplyBody.appendChildren([_pierApplyErrorRow, _pierApplyCardOwnerRow,_pierApplyCardRow, _pierApplyCardTypeRow, _pierApplyCardPhoneRow, _pierApplyAgreetmentRow, _pierApplyCodeRow, _pierApplyBtnRow ]);
             _pierApplyContainer.appendChildren( [_pierApplyHeader, _pierApplyBody, _pierApplyBankContainer]);
         },
         initApplyResultContainer:function( applyResult ){
+            var $$ = defaultUtils;
             // _pierApplyContainer, 
-            _pierApplyResultContainer = defaultUtils.createElem( 'div', 'PIER-applyresult-container');
-            var pierApplyResultHeader = defaultUtils.initHeader({
+            _pierApplyResultContainer = $$.createElem( 'div', 'PIER-applyresult-container');
+            var header = $$.initHeader({
                 regStatus: true,
-                regStep: 2
+                regStep: 2,
+                payResult:true
             });
-            var applyResultBody = defaultUtils.createElem( 'div', ['PIER-applyresult-body', 'PIER-text-center']);
-
-            var applyResultIconRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm']);
-            applyResultIconRow.innerHTML = '<img src="/images/approval.png">';
-            var applyResultTextRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-font-sm']); 
-            applyResultTextRow.innerHTML = '<p>申请成功!</p><p style="margin-top:-10px;">您的初步信用额度为：</p>';
-            var applyResultCreditRow = defaultUtils.createElem( 'div', ['PIER-row', 'PIER-mT-sm']),
-            applyResultCredit = defaultUtils.createElem( 'span', ['PIER-money', 'PIER-font-lg']);
-            applyResultCredit.innerHTML = '￥4000';
-            applyResultCreditRow.appendChild(applyResultCredit);
-            var applyResultText2Row = defaultUtils.createElem( 'div', 'PIER-row'); 
-            applyResultText2Row.innerHTML = '<p class="PIER-font-xs PIER-color-gray">新用户注册专用金额，仅限于此次消费</p>';
-            var applyResultBtnRow = defaultUtils.createElem( 'div', ['PIER-row','PIER-mT-sm']),
-            applyResultBtn = defaultUtils.createElem( 'button', ['PIER-submit-btn', 'PIER-color']),
-            applyResultBottomText = defaultUtils.createElem( 'p', 'PIER-font-xs');
-            applyResultBtn.innerHTML = '使用额度付款';
-            applyResultBottomText.innerHTML = '*若订单金额超出信用额度，不足部分可以用借记卡支付';
-            applyResultBtnRow.appendChildren([applyResultBtn,applyResultBottomText]);
-
-            applyResultBody.appendChildren([applyResultIconRow, applyResultTextRow, applyResultCreditRow, applyResultText2Row, applyResultBtnRow ]);
-            var _pierApplyBankContainer = defaultUtils.initBankCardContainer();
-            _pierApplyResultContainer.appendChildren([pierApplyResultHeader, applyResultBody, _pierApplyBankContainer]);
+            var body = $$.createElem( 'div', ['PIER-applyresult-body', 'PIER-text-center']);
+            if( applyResult ){
+                var iconRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm']);
+                iconRow.innerHTML = '<img src="/images/approval.png">';
+                var textRow = $$.createElem( 'div', ['PIER-row', 'PIER-font-sm']); 
+                textRow.innerHTML = '<p>申请成功!</p><p style="margin-top:-10px;">您的初步信用额度为：</p>';
+                var creditRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm']),
+                credit = $$.createElem( 'span', ['PIER-money', 'PIER-font-lg']);
+                credit.innerHTML = '￥4000';
+                creditRow.appendChild(credit);
+                var text2Row = $$.createElem( 'div', 'PIER-row'); 
+                text2Row.innerHTML = '<p class="PIER-font-xs PIER-color-gray">新用户注册专用金额，仅限于此次消费</p>';
+                var resultRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm']),
+                resultBtn = $$.createElem( 'button', ['PIER-submit-btn', 'PIER-color']),
+                bottomText = $$.createElem( 'p', 'PIER-font-xs');
+                resultBtn.innerHTML = '使用额度付款';
+                bottomText.innerHTML = '*若订单金额超出信用额度，不足部分可以用借记卡支付';
+                resultRow.appendChildren([resultBtn,bottomText]);
+                body.appendChildren([iconRow, textRow, creditRow, text2Row, resultRow ]);                
+            }else{
+                var iconRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm']);
+                iconRow.innerHTML = '<img src="/images/approval.png">';
+                var textRow = $$.createElem( 'div', ['PIER-row', 'PIER-font-sm']); 
+                textRow.innerHTML = '<p>基于目前的信息，我们暂时无法为您提供额度</p>';
+                var resultTable = $$.createElem( 'table', 'PIER-font-sm');
+                resultTable.css({'margin':'0 auto'});
+                resultTable.innerHTML = '<tr><td>您仍可以使用</td><td><img src="/images/tab-union.png" style="width:40px;height:40px;" /></td><td>借记卡完成支付</td></tr>';
+                var resultRow = $$.createElem( 'div', ['PIER-row','PIER-mT-md', 'PIER-mB-md']),
+                resultBtn = $$.createElem( 'button', ['PIER-submit-btn', 'PIER-color']);
+                resultBtn.innerHTML = '去支付';
+                resultRow.appendChild(resultBtn);
+                body.appendChildren([iconRow, textRow, resultTable, resultRow ]);                
+            }
+            
+            var bankContainer = $$.initBankCardContainer();
+            _pierApplyResultContainer.appendChildren([header, body, bankContainer]);
         },
         apiTemplateCall: function(){
             var _xhr = null;
             var _apiOpts = arguments[0];
-            // var _templateUrl = arguments[0];
-            // var _message = arguments[1];
-            var _apiCallback = arguments[2];
+            var _apiCallback = arguments[1];
             if ( window.XMLHttpRequest ) {
                 _xhr = new XMLHttpRequest();
             } else if ( window.ActiveXObject ) {
@@ -1046,23 +1015,21 @@
         version: '0.1.0',
     };
     PIER.initSDK = function(){
-        defaultUtils.init();
-        _OPTIONS = defaultUtils.setConfig( arguments[0], defaultSettings );
+        var $$ = defaultUtils;
+        $$.init();
+        _OPTIONS = $$.setConfig( arguments[0], defaultSettings );
         _callback = arguments[1];
 
         var _pierScriptBtn = document.querySelector("script[class='pier-button']");
         console.log('_pierScriptBtn', _pierScriptBtn);
-        var __pierPayBtn = defaultUtils.initPierBtn(_pierScriptBtn);
+        var __pierPayBtn = $$.initPierBtn(_pierScriptBtn);
 
         __pierPayBtn.onclick = function(){
-            _pierOverlay = defaultUtils.createElem( 'div','PIER-overlay' );
-            _pierFlipWrap = defaultUtils.createElem( 'div','PIER-flip-wrap' );
-            _pierFlipContainer = defaultUtils.createElem('div', ['PIER-flip-container', 'PIER-animated', 'PIERbounceInTop']);
-            // setTimeout(function(){
-            //     _pierFlipContainer.removeClass('PIER-animated');
-            // }, 1000);
+            _pierOverlay = $$.createElem( 'div','PIER-overlay' );
+            _pierFlipWrap = $$.createElem( 'div','PIER-flip-wrap' );
+            _pierFlipContainer = $$.createElem('div', ['PIER-flip-container', 'PIER-animated', 'PIERbounceInTop']);
             
-            defaultUtils.initLoginContainer();
+            $$.initLoginContainer();
             document.body.appendChild(_pierOverlay);
             document.body.appendChild(_pierFlipWrap);
         }
