@@ -10,7 +10,7 @@
     //for stylesheet and container
     var styleSheet, styleElem, _OPTIONS, _callback;
     var _pierPayBtn, _pierOverlay, _pierFlipWrap, _pierFlipContainer, 
-    _pierLoginContainer,
+    _pierExpressLoginContainer,
     _pierCfmContainer,
     _pierPayResultContainer,
     _pierRegContainer,
@@ -18,7 +18,7 @@
     _pierApplyResultContainer;
 
     var apiConfig = {
-        hostName: 'http://192.168.1.51:8088',
+        hostName: 'http://pierup.asuscomm.com:8686', //'http://pierup.asuscomm.com:8686',
         regCode: '/sdk_register_cn/v1/register/activation_code',
         regUser: '/sdk_register_cn/v1/register/register_user',
         setPin: '/sdk_register_cn/v1/register/forget_payment_password_reset',
@@ -27,7 +27,6 @@
         verifyCard: '/payment_api/verify_card',
         express:{
             prepay: '/payment_api/prepay_by_card',
-            payByCard: '/payment_api/pay_by_card'
         }
     };
     var userAuth = {
@@ -43,7 +42,11 @@
         payButtonId: '',
         merchantLogo: '',
         sdk_type: 'regular',
-        api_key: ''
+        api_key: '',
+        order_id: '',
+        user_id: '',
+        order_desc: '品而金融',
+        merchant_id:''
     },  pierConst = (function(){
         return {
             paramError: "配置参数格式错误！",
@@ -110,6 +113,7 @@
             styleSheet.addRule( '.PIER-close', "height:22px;width:22px;float:right;margin-top:-24px;margin-right:4px;cursor:pointer;background-size:100% 100%;background-image: url('data:image/png;base64,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');");
             styleSheet.addRule( '.PIER-login-body', 'height: 264px;width: 100%;border-top:1px solid #f5f5f5;');
             styleSheet.addRule( '.PIER-reg-body', 'height: 376px;width: 100%;border-top:1px solid #f5f5f5;');
+            styleSheet.addRule( '.PIER-cardPay-body', 'height: auto;width: 100%;border-top:1px solid #f5f5f5;');
             styleSheet.addRule( '.PIER-apply-body','height: auto;width: 100%;padding-bottom: 20px;border-top:1px solid #f5f5f5;');
             styleSheet.addRule( '.PIER-loading-body', 'height:290px;width:100%; text-align:center;padding-top:40px;background:#fff;')
             styleSheet.addRule( '.PIER-loading-body src', 'height:290px;width:100%; height:100px;width:100px;')
@@ -129,7 +133,7 @@
             styleSheet.addRule( '.PIER-bank-body', 'height:auto;width:100%;background:#fff;border-bottom-left-radius:6px;border-bottom-right-radius:6px;');
             styleSheet.addRule( '.PIER-bank-body table', 'margin: 0 auto;height: 80px;');
             styleSheet.addRule( '.PIER-bank-body table img', 'width: 40px;height: 40px;line-height: 80px;');
-            styleSheet.addRule( '.PIER-link-bank-panel', 'width:100%;transition:height .5s;-moz-transition:height .5s;-webkit-transition:height .5s;-o-transition:height .5s;height:0;overflow:hidden;');
+            styleSheet.addRule( '.PIER-link-bank-panel', 'width:100%;transition:height .5s;-moz-transition:height .5s;-webkit-transition:height .5s;-o-transition:height .5s;height:auto;overflow:hidden;');
 
             styleSheet.addRule( '.PIER-instalment-select', 'width: 168px;border-radius: 4px;height: 28px;outline: none;border: 1px solid rgb(220,220,220);');
             styleSheet.addRule( '.PIER-bankcard-select', 'width: 188px;border-radius: 4px;height: 28px;outline: none;border: 1px solid rgb(220,220,220);');
@@ -578,9 +582,9 @@
             body.appendChild(loadingImg);
             return body;
         },
-        initLoginContainer: function(){
+        initExpressLoginContainer: function(){
             var $$ = defaultUtils;
-            _pierLoginContainer = $$.createElem( 'div', 'PIER-login-container');
+            _pierExpressLoginContainer = $$.createElem( 'div', 'PIER-login-container');
 
             var body = $$.createElem('div', 'PIER-login-body');
 
@@ -591,14 +595,14 @@
             var loginHead = $$.initHeader({
                 errorObj: eroRowSpan,
                 logo: _OPTIONS.merchantLogo,
-                wording: '品而金融'
+                wording: _OPTIONS.order_desc
             });
 
             var switchRow = $$.createElem('div', ['PIER-row', 'PIER-text-center']),
             creditBtn = $$.createElem('button', ['PIER-switch-btn', 'active', 'left-btn']);
             creditBtn.innerHTML = '使用信用';
             applyBtn = $$.createElem('button', ['PIER-switch-btn', 'right-btn']);
-            applyBtn.innerHTML = '申请信用';
+            applyBtn.innerHTML = '银联卡支付';
             switchRow.appendChildren([creditBtn, applyBtn]);
 
             var phoneRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-md']),
@@ -618,13 +622,13 @@
             submitRow.appendChild(submitBtn);
 
             _pierFlipWrap.appendChild(_pierFlipContainer); 
-            _pierFlipContainer.appendChild(_pierLoginContainer);
+            _pierFlipContainer.appendChild(_pierExpressLoginContainer);
 
-            _pierLoginContainer.appendChildren([loginHead, body]);
+            _pierExpressLoginContainer.appendChildren([loginHead, body]);
             //set body
             body.appendChildren([eroRow, switchRow, phoneRow, pwdRow, submitRow] );
             // var bankContainer = $$.initBankCardContainer();
-            // _pierLoginContainer.appendChild(bankContainer);
+            // _pierExpressLoginContainer.appendChild(bankContainer);
 
             submitBtn.onclick = function(){
                 var ph = phoneInput.val(),
@@ -644,7 +648,7 @@
                     console.log('user login success', data);
                     $$.setUser({session_token:data.session_token, user_id:data.user_id, status_bit: data.status_bit });
                     $$.initConfirmContainer(2);
-                    _pierLoginContainer.addClass( ['PIER-animated', 'PIER-display-block', 'PIERbounceOutLeft'] );
+                    _pierExpressLoginContainer.addClass( ['PIER-animated', 'PIER-display-block', 'PIERbounceOutLeft'] );
                     _pierCfmContainer.addClass( ['PIER-animated','PIER-display-block', 'PIERbounceInRight' ]);
                     _pierFlipContainer.appendChild(_pierCfmContainer);
                 }, function( error ){
@@ -653,20 +657,178 @@
                 } );
             };
             applyBtn.onclick = function(){
-                $$.initRegContainer();
-                _pierFlipContainer.appendChild(_pierRegContainer);//add reg container for animate only
+                $$.initCardPayContainer();
+                _pierFlipContainer.appendChild(_pierCardPayContainer);//add reg container for animate only
                 setTimeout(function(){
-                    if( _pierLoginContainer.contains('PIER-login-container-back') ){
-                        _pierLoginContainer.removeClass('PIER-login-container-back');
+                    if( _pierExpressLoginContainer.contains('PIER-login-container-back') ){
+                        _pierExpressLoginContainer.removeClass('PIER-login-container-back');
                     }else{
-                        _pierLoginContainer.addClass('PIER-login-container-back');
+                        _pierExpressLoginContainer.addClass('PIER-login-container-back');
                     }
-                    if( _pierRegContainer.contains('PIER-reg-container-back') ){
-                        _pierRegContainer.removeClass('PIER-reg-container-back');
+                    if( _pierCardPayContainer.contains('PIER-reg-container-back') ){
+                        _pierCardPayContainer.removeClass('PIER-reg-container-back');
                     }else{
-                        _pierRegContainer.addClass('PIER-reg-container-back');
+                        _pierCardPayContainer.addClass('PIER-reg-container-back');
                     } 
                 }, 10);
+            }
+        },
+        initCardPayContainer: function(){
+            var $$ = defaultUtils;
+            _pierCardPayContainer = $$.createElem( 'div', 'PIER-reg-container');
+            //pay result container header
+
+            var body = $$.createElem( 'div', 'PIER-cardPay-body' );
+            var eroRow = $$.createElem('div', ['PIER-row', 'PIER-error', 'PIER-text-center']);
+            eroSpan = $$.createElem('span', 'errorMsg' );
+            eroRow.appendChild(eroSpan);
+            var regHead = $$.initHeader({
+                regStatus: true,
+                regStep: 1,
+                errorObj: eroSpan,
+                logo: _OPTIONS.merchantLogo,
+                wording: _OPTIONS.order_desc
+            });
+
+            var row1 = $$.createElem('div', ['PIER-row', 'PIER-text-center']),
+            creditBtn = $$.createElem('button', ['PIER-switch-btn', 'left-btn']);
+            creditBtn.innerHTML = '使用信用';
+            var applyBtn = $$.createElem('button', ['PIER-switch-btn', 'active', 'right-btn']);
+            applyBtn.innerHTML = '银联卡支付';
+            row1.appendChildren([creditBtn, applyBtn]);
+
+            var priceRow = $$.createElem('div', ['PIER-row', 'PIER-mT-md']);
+            priceRow.innerHTML = '<label class="PIER-font-sm">商品总价：</label>';
+            var priceSpan = $$.createElem('span', ['PIER-right', 'PIER-money']);
+            priceSpan.innerHTML = '￥'+_OPTIONS.amount;
+            priceRow.appendChild(priceSpan);
+
+            var orderInfoRow = $$.createElem('div', ['PIER-row']); 
+            orderInfoRow.setAttrs({ 'style': 'height:60px;margin-top:4px;'});
+            var orderSpan1 = $$.createElem('div', ['PIER-right', 'PIER-font-sm']); 
+            // orderSpan1.innerHTML = '美元共计：￥812.33';
+            var orderSpan2 = $$.createElem('div', ['PIER-right','PIER-font-xs','PIER-color-gray','PIER-mT-xs']); 
+            orderSpan2.innerHTML = '中国银行上海分行：2015-12-18 10:15';
+            var orderSpan3 = $$.createElem('div', ['PIER-right','PIER-font-xs','PIER-color-gray']); 
+            var orderBr = $$.createElem('br'); 
+            orderSpan3.innerHTML = '汇率：1USD = 6.47RMB';
+            orderInfoRow.appendChildren([orderSpan1, orderSpan2, orderBr, orderSpan3]);
+
+            var _pierLinkBankPanel = $$.createElem( 'div', ['PIER-link-bank-panel', 'PIER-mT-sm', 'PIER-mB-sm'] );
+
+            var _pierBankNameRow = $$.createElem( 'div', 'PIER-row' ),
+            _pierBankNameInput = $$.createElem( 'input', 'PIER-comm-input' );
+            _pierBankNameInput.setAttrs({'placeholder':'姓名'});
+            _pierBankNameRow.appendChild(_pierBankNameInput);
+
+            var _pierBankIDRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm'] ),
+            _pierBankIDInput = $$.createElem( 'input', 'PIER-comm-input' );
+            _pierBankIDInput.setAttrs({'placeholder':'身份证'});
+            _pierBankIDRow.appendChild(_pierBankIDInput);
+
+            var _pierBankCardRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm'] ),
+            _pierBankCardInput = $$.createElem( 'input', 'PIER-comm-input' );
+            _pierBankCardInput.setAttrs({'placeholder':'借记卡号'});
+            _pierBankCardRow.appendChild(_pierBankCardInput);
+
+            var _pierBankPhoneRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm'] ),
+            _pierBankPhoneInput = $$.createElem( 'input', 'PIER-comm-input' );
+            _pierBankPhoneInput.setAttrs({'placeholder':'银行卡预留手机号'});
+            _pierBankPhoneRow.appendChild(_pierBankPhoneInput);
+
+            var _pierCheckboxRow = $$.createElem('div', ['PIER-row', 'PIER-mT-xs']);
+            var _pierCheckbox = $$.createElem('input');
+            _pierCheckbox.setAttrs( {'type':'checkbox'});
+            var _pierCheckboxText = $$.createElem('span', 'PIER-bottom-text');
+            _pierCheckboxText.innerHTML = '同意<a class="PIER-color">《品而银行卡服务协议》</a>';
+            
+            _pierCheckboxRow.appendChild(_pierCheckbox);
+            _pierCheckboxRow.appendChild(_pierCheckboxText);
+
+            var _pierBankCodeRow = $$.createElem( 'div', ['PIER-row','PIER-mT-sm', 'PIER-font-xs']),
+            _pierBankCodeInput = $$.createElem( 'input', 'PIER-code-input' );
+            _pierBankCodeInput.setAttrs({'placeholder':'借记卡验证码'});
+            _pierBankCodeBtn = $$.createElem( 'button', ['PIER-font-xs', 'PIER-code-label'] );
+            _pierBankCodeBtn.innerHTML = '获取验证码';
+            _pierBankCodeRow.css({'height':'32px'});
+            _pierBankCodeRow.appendChildren([_pierBankCodeInput, _pierBankCodeBtn]);
+
+            var _pierBankErrorRow = $$.createElem( 'div', ['PIER-row', 'PIER-error2',  'PIER-text-center']),
+            _pierBankErrorMsg = $$.createElem( 'p' );
+            _pierBankErrorMsg.innerHTML = '';
+            _pierBankErrorRow.appendChild(_pierBankErrorMsg);
+
+            var _pierBankPayRow = $$.createElem( 'div', ['PIER-row', 'PIER-mT-sm' ,'PIER-mB-sm']),
+            _pierBankPayBtn = $$.createElem( 'button', 'PIER-submit-btn' );
+            _pierBankPayBtn.innerHTML = '支付';
+            _pierBankPayRow.appendChild(_pierBankPayBtn);
+
+            _pierLinkBankPanel.appendChildren([_pierBankNameRow, _pierBankIDRow, _pierBankCardRow, _pierBankPhoneRow, _pierCheckboxRow, _pierBankCodeRow, _pierBankErrorRow, _pierBankPayRow]);
+
+            
+            body.appendChildren([eroRow, row1, priceRow, orderInfoRow,  _pierLinkBankPanel ]);
+            
+            // var bankContainer = $$.initBankCardContainer();
+            _pierCardPayContainer.appendChildren([regHead, body]);
+
+            creditBtn.onclick = function(){
+                if( _pierExpressLoginContainer.contains('PIER-login-container-back') ){
+                    _pierExpressLoginContainer.removeClass('PIER-login-container-back');
+                }else{
+                    _pierExpressLoginContainer.addClass('PIER-login-container-back');
+                }
+                if( _pierCardPayContainer.contains('PIER-reg-container-back') ){
+                    _pierCardPayContainer.removeClass('PIER-reg-container-back');
+                }else{
+                    _pierCardPayContainer.addClass('PIER-reg-container-back');
+                }
+                _pierCardPayContainer.destory();
+            };
+
+            _pierBankCodeBtn.onclick = function(){
+                var name = _pierBankNameInput.val();
+                var idNo = _pierBankIDInput.val();
+                var cardNo = _pierBankCardInput.val();
+                var phone = _pierBankPhoneInput.val();
+                _pierBankErrorMsg.innerHTML = '';
+                var errorMsg = $$.notEmpty({ '姓名':name,'身份证号码': idNo, '借记卡号':cardNo, '预留手机号': phone });
+
+                if( errorMsg !== '' ){
+                    _pierBankErrorMsg.innerHTML = errorMsg;
+                    return;
+                }
+
+                var _url = apiConfig.hostName + apiConfig.express.prepay;
+                var _message = {
+                    user_id: _OPTIONS.user_id,
+                    merchant_id: _OPTIONS.merchant_id,
+                    no_order: _OPTIONS.order_id,
+                    money_order: _OPTIONS.amount,
+                    name_goods: _OPTIONS.order_desc,
+                    dt_order: '20160108113511',
+                    acct_name: name,
+                    id_no: idNo,
+                    card_no: cardNo,
+                    bind_mob: phone,
+                    notify_url: 'http://pierup.cn/notify_url',
+                    sign_type: 'RSA'
+                }
+                console.log( '_message', _message );
+                var payToken = '';
+                var no_order = '';
+
+                $$.http( { url:_url, body:_message, noAuth: true}, function( data ){
+                    console.log('get card pay code success', data);
+                    payToken = data.token;
+                    no_order = data.no_order;
+                    $$.timer(_pierBankCodeBtn);
+                }, function( error ){
+                    eroSpan.innerHTML = error.message;
+                    console.log('get card pay code failed', error);
+                } );
+            };
+            _pierBankPayBtn.onclick = function(){
+
             }
         },
         /**
@@ -744,7 +906,7 @@
             var confirmHead = $$.initHeader({
                 errorObj:eroSpan,
                 logo: _OPTIONS.merchantLogo,
-                wording: '品而金融'
+                wording:_OPTIONS.order_desc
             });
             
             var row1 = $$.createElem('div', ['PIER-row', 'PIER-mT-xs']);
@@ -862,7 +1024,7 @@
             var payResultHead = $$.initHeader({
                 payResult: true,
                 logo: _OPTIONS.merchantLogo,
-                wording: '品而金融'
+                wording: _OPTIONS.order_desc
             });
             //pay result container body
             var body = $$.createElem( 'div', ['PIER-payresult-body', 'PIER-text-center']);
@@ -950,10 +1112,10 @@
             _pierRegContainer.appendChildren([regHead, body]);
 
             creditBtn.onclick = function(){
-                if( _pierLoginContainer.contains('PIER-login-container-back') ){
-                    _pierLoginContainer.removeClass('PIER-login-container-back');
+                if( _pierExpressLoginContainer.contains('PIER-login-container-back') ){
+                    _pierExpressLoginContainer.removeClass('PIER-login-container-back');
                 }else{
-                    _pierLoginContainer.addClass('PIER-login-container-back');
+                    _pierExpressLoginContainer.addClass('PIER-login-container-back');
                 }
                 if( _pierRegContainer.contains('PIER-reg-container-back') ){
                     _pierRegContainer.removeClass('PIER-reg-container-back');
@@ -993,7 +1155,7 @@
                     _pierApplyContainer.addClass( 'PIER-display-block' );
                     _pierApplyContainer.addClass( 'PIERbounceInRight' );
                     _pierFlipContainer.appendChild(_pierApplyContainer);
-                    _pierLoginContainer.destory();
+                    _pierExpressLoginContainer.destory();
                     _pierRegContainer.destory();
                 }, function( error ){
                     eroSpan.innerHTML = error.message;
@@ -1031,7 +1193,7 @@
                 regStatus: true,
                 regStep: 2,
                 errorObj: eroRowSpan,
-                logo: pierConst.pierLogo,
+                ogo: pierConst.pierLogo,
                 wording: '品而额度申请<span class="PIER-color">2/2</span>'
             });
 
@@ -1223,8 +1385,10 @@
             var _apiOpts = arguments[0];
             var _successCallback = arguments[1];
             var _failedCallback = arguments[2];
-            _apiOpts.body.session_token = _userAuth.session_token;
-            _apiOpts.body.user_id = _userAuth.user_id;
+            if( !_apiOpts.noAuth ){
+                _apiOpts.body.session_token = _userAuth.session_token;
+                _apiOpts.body.user_id = _userAuth.user_id;
+            }
             if ( window.XMLHttpRequest ) {
                 _xhr = new XMLHttpRequest();
             } else if ( window.ActiveXObject ) {
@@ -1273,7 +1437,8 @@
             _pierFlipWrap = $$.createElem( 'div','PIER-flip-wrap' );
             _pierFlipContainer = $$.createElem('div', ['PIER-flip-container', 'PIER-animated', 'PIERbounceInTop']);
             
-            $$.initLoginContainer();
+            // $$.initLoginContainer();
+            $$.initExpressLoginContainer();
             document.body.appendChild(_pierOverlay);
             document.body.appendChild(_pierFlipWrap);
         }

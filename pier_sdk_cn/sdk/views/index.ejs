@@ -16,14 +16,34 @@
 
 <!--src="https://checkout.stripe.com/checkout.js" -->
 <form action="/charge" method="POST">
-  <script src="http://localhost:4000/js/js-sdk-v1.js" class="pier-button" ></script>
+  <script src="http://192.168.1.12:4000/js/js-sdk-v1.js" class="pier-button" ></script>
   <script type="text/javascript">
     PIER.initSDK({
       amount: '1000',
       currency: 'CNY',
       merchantId: 'MC0000000001',
       merchantLogo: 'http://pierup.cn/images/android-app-download.png',
-      
+      api_key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+      sdk_type: 'regular' 
+    }, function(){
+
+    });
+  </script>
+</form>
+
+<form action="/charge" method="POST" style="margin-left:300px;">
+  <script src="http://192.168.1.12:4000/js/js-sdk-express.js" class="pier-button" ></script>
+  <script type="text/javascript">
+    PIER.initSDK({
+      amount: '0.01',
+      currency: 'CNY',
+      merchant_id: 'MC0000000001',
+      merchantLogo: 'http://pierup.cn/images/android-app-download.png',
+      api_key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+      sdk_type: 'express', 
+      order_id: 'OR0000000001',
+      user_id: 'UR0000000002',
+      order_desc: '原装剑桥口罩'
     }, function(){
 
     });
