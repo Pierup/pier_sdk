@@ -18,13 +18,21 @@
 <form action="/charge" method="POST">
   <script src="http://192.168.1.12:4000/js/js-sdk-v1.js" class="pier-button" ></script>
   <script type="text/javascript">
+    var randomString = 'ORTest';
+    for(var i=0; i<6;i++){
+      randomString += Math.ceil( Math.random()*10 );
+    }
     PIER.initSDK({
-      amount: '1000',
+      amount: '0.1',
       currency: 'CNY',
-      merchantId: 'MC0000000001',
+      merchant_id: 'MC0000006975',
       merchantLogo: 'http://pierup.cn/images/android-app-download.png',
-      api_key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
-      sdk_type: 'regular' 
+      api_key: '91baaf6f-5157-11e5-be20-3beae5baf6a4',
+      sdk_type: 'regular', 
+      order_id: randomString,
+      user_id: 'UR0000000002',
+      order_desc: '原装剑桥口罩',
+      available_time: '10080'
     }, function(){
 
     });
@@ -32,18 +40,23 @@
 </form>
 
 <form action="/charge" method="POST" style="margin-left:300px;">
-  <script src="http://192.168.1.12:4000/js/js-sdk-express.js" class="pier-button" ></script>
+  <script src="http://192.168.1.12:4000/js/js-sdk-express.js" class="pier-button2" ></script>
   <script type="text/javascript">
+  var randomString = 'ORTest';
+  for(var i=0; i<6;i++){
+    randomString += Math.ceil( Math.random()*10 );
+  }
     PIER.initSDK({
-      amount: '0.01',
+      amount: '0.1',
       currency: 'CNY',
-      merchant_id: 'MC0000000001',
+      merchant_id: 'MC0000006975',
       merchantLogo: 'http://pierup.cn/images/android-app-download.png',
-      api_key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+      api_key: '91baaf6f-5157-11e5-be20-3beae5baf6a4',
       sdk_type: 'express', 
-      order_id: 'OR0000000001',
+      order_id: randomString,
       user_id: 'UR0000000002',
-      order_desc: '原装剑桥口罩'
+      order_desc: '原装剑桥口罩',
+      available_time: '10080'
     }, function(){
 
     });

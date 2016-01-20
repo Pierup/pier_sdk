@@ -26,7 +26,7 @@
     		ss.insertRule( selector+'{'+style+'}', index );
     	}
     }
-	ss.addRule( '.pier-banner-wrap', 'width:600px;' );
+	ss.addRule( '.pier-banner-wrap', 'width:620px;' );
 	ss.addRule( '.pier-banner-wrap table', 'width:100%;');
 	ss.addRule( '.pier-banner-wrap table tr td:first-child', 'width:42px;');
 	ss.addRule( '.pier-banner-wrap table tr td:nth-child(2)', 'width:88px;');
@@ -86,7 +86,6 @@
 		
 		var pPost = templateApiCall( url, message, function(httpObj){
 	    	var msg = JSON.parse( httpObj.responseText );
-	    	// console.log( 'aaaaaaaaa', JSON.parse( msg ));
 		    if( httpObj.status == 200 ){
 		    	initBanner(msg);
 		    }
