@@ -42,24 +42,24 @@ http://localhost:4000/js/stripe-checkout.js
   (function(){
     function bind(obj, fn) {
         return function () {
-            console.log( 'obj', obj );
-            console.log( 'fn', fn );
             return fn.apply(obj, arguments);
         };
     }
-    var foo = {
-        x: 3
-    }
-     
-    var bar = function(){
-      // this.x =5;
-      console.log(this.x);
-      console.log(this.x);
-    }
-    bar.apply(foo);
-    // bind( foo, bar );
 
-  })()
+    function testA(){
+      console.log( 'this.x', this.x );
+    }
+    function objectA(){
+      var objectA = {
+        x: 'object A',
+        y: 'object B'
+      };
+      return objectA;
+    };
+    objectA.x = 'mmmm';
+    console.log('objectA', objectA().x);
+    testA.apply( objectA );
+  })(this)
 </script>
 
 </body>
