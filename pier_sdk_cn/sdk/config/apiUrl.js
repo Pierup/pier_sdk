@@ -1,6 +1,6 @@
 // var hostName = ;
 var apiurl = {
-	hostName: 'https://pierup.asuscomm.com:443',//'https://121.40.19.24:8443',//'https://192.168.1.254:443',
+	hostName: 'https://pierup.asuscomm.com:443',//'https://121.40.19.24:8443',//'https://pierup.asuscomm.com:443',
 	port:'8686',
 	getCountries: {url: '/common_api/v1/query/get_countries', method: 'GET' },
 	

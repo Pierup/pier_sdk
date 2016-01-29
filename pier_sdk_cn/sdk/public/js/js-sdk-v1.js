@@ -24,12 +24,11 @@
         signIn: '/sdk_register_cn/v1/register/signin',
         bindCard: '/payment_api/bind_card',
         verifyCard: '/payment_api/verify_card?platform=1',
-        express:{
-            prepay: '/payment_api/prepay_by_card?platform=1',
-            payByCard: '/payment_api/pay_by_card?platform=1'
-        },
         savePaymentOrder: '/payment_api/save_payment_order?platform=1',
-        applyCredit: '/sdk_register_cn/v1/credit/apply_promotion_credit'
+        applyCredit: '/sdk_register_cn/v1/user/apply_promotion_credit',
+        saveInstalmentAndCard: '/payment_api/save_installment_card?platform=1',
+        getPaySMS: '/payment_api/get_sms_code',
+        updateBasic: '/sdk_register_cn/v1/user/update_user_basic'
     };
     var remoteAddr = 'http://pierup.cn';
 
@@ -40,6 +39,7 @@
         statusBit: '',
         name: ''
     };
+    var basicInfo = {};
     var payType = {
         credit: '1',
         bankCard: '2',
@@ -61,7 +61,8 @@
         user_id: '',
         order_desc: '品而金融',
         merchant_id:'',
-        available_time: '10080'
+        available_time: '10080',
+        sign_type: 'MD5'
     },  pierConst = (function(){
         return {
             paramError: "配置参数格式错误！",
@@ -84,7 +85,8 @@
             sendCode: '获取验证码',
             reSend: '重新发送',
             btnLoading: '<img src="http://pierup.cn:4000/images/sdk_loading.gif" style="width:22px;height:22px;display:inline;"/>',
-            btnLoading2: '<img src="/images/btn-loading.gif" style="width:20px;height:20px;display:inline;"/>'
+            btnLoading2: '<img src="/images/btn-loading.gif" style="width:20px;height:20px;display:inline;"/>',
+            originError: '请使用http://pierup.cn/js/js-sdk-v1.js作为外部加载文件。'
         }
     }()),  defaultUtils = {
         init: function(){
@@ -100,7 +102,7 @@
 
             var ss = styleSheet, _bind = function(fn, me) {
                 return function() {
-                    return fn.apply(me, arguments)
+                    return fn.apply(me, arguments);
                 }
             };
             var $ = _bind( ss.addRule, ss );
@@ -238,6 +240,12 @@
         getUser: function(){
             return userAuth;
         },
+        setBasic:function( info ){
+            basicInfo = info;
+        },
+        getBasic: function(){
+            return basicInfo;
+        },
         setConfig: function( target, original ){
             if( typeof target === 'object' && typeof original === 'object' ){
                 for(key in original){
@@ -290,13 +298,31 @@
         },
         digitalInputListener: function( event ){
             var obj = event.srcElement ? event.srcElement : event.target;
-            console.log('input',obj.value );
             var input = obj.value;
             if( typeof input === 'undefined' ) return;
 
             if( input.length > 0 ){
                 var output = input.replace( /[^0-9]/g, '' );
                 event.srcElement.value = output;
+            }
+        },
+        idCardListener: function( event ){
+            var obj = event.srcElement ? event.srcElement : event.target;
+            console.log('input',obj.value );
+            var input = obj.value;
+            if( typeof input === 'undefined' ) return;
+
+            if( input.length > 0 ){
+                var numberInput = input;
+                if( numberInput.length == 18 && ( numberInput.substr(17,1)=='X'||numberInput.substr(17,1)=='x' ) ){
+                    var tempInput = numberInput.substr(0,17);
+                    numberInput = tempInput.replace( /[^0-9]/g, '' ) + 'X';
+                }else{
+                    numberInput = input.replace( /[^0-9]/g, '' );
+                }
+                if ( numberInput != input ) {
+                    event.srcElement.value = numberInput;
+                }
             }
         },
         timer: function( btn ){
@@ -449,7 +475,6 @@
                 for( var i in _styles ){
                     _this.style[i] = _styles[i];
                 }
-                console.log( ' _this.style',  _this.style);
             };
             _this.destory = function( timeSec ){
                 setTimeout(function(){
@@ -491,7 +516,7 @@
             doc.body.removeChild(_flipWrap);
         },
         initPierBtn: function( parentNode ){
-            _pierPayBtn = defaultUtils.createElem( 'div', ['pier-payment-btn']);
+            var _pierPayBtn = defaultUtils.createElem( 'div', ['pier-payment-btn']);
             _pierPayBtn.html('<img  src="http://pierup.cn/images/pierlogo38.png" style="width:24px;margin-top:4px;margin-left:10px;margin-right:6px;float:left;">'+
        '<div style="font-size:14px;margin-top:10px;margin-left:50px;">品而付</div>');
             if( parentNode ){
@@ -635,6 +660,7 @@
             phoneInput = C( 'input', 'PIER-comm-input' );
             phoneInput.setAttrs({'placeholder':pierConst.phoneInputTip, 'maxlength':'11'});
             phoneRow.appendChild(phoneInput);
+            phoneInput.bind( 'keyup', $$.digitalInputListener );
 
             var pwdRow = C( 'div', ['PIER-row', 'PIER-mT-sm']),
             pwdInput = C( 'input', 'PIER-comm-input' );
@@ -699,13 +725,15 @@
          * @param payMode 0: credit only; 1:bank card only; 2 mixed;
          * @param callback send payment result to handler
          */
-        initPay:function( payMode, callback ){
+        initPay:function( options, callback ){
+            var payMode = options.payMode;
+            var bankInfo = options.bankInfo;
             var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
             var paymentWrap = C( 'div', 'PIER-set-pin'),
             splitLine = C( 'div', 'PIER-split-line'),
             bkInfoRow = C('div', ['PIER-row', 'PIER-mT-sm', 'PIER-font-xs']),
             bkInfoP = C('p');
-            bkInfoP.html( '借记卡（中国银行 尾号为0003）绑定的手机号为：186****123' );
+            bkInfoP.html( '借记卡（'+bankInfo.name+'）绑定的手机号为：'+bankInfo.phone );
             bkInfoRow.appendChild(bkInfoP);
 
             var bkCodeRow = C('div', ['PIER-row', 'PIER-font-xs']);  
@@ -725,6 +753,26 @@
             payBtn = C( 'button', ['PIER-submit-btn']);
             payBtn.html( '确认并付款' );
             paySubmitRow.appendChild(payBtn);
+
+            bkCodeBtn.bind( 'click', function(){
+                var _url = apiConfig.hostName + apiConfig.getPaySMS;
+                var _message = {
+                    trans_id: bankInfo.trans_id
+                };
+
+                var _this = bkCodeBtn;
+                var tempBtnCont = _this.html();
+                _this.html(pierConst.btnLoading2);
+
+                $$.http( { url:_url, body:_message }, function( data ){
+                    _this.html(tempBtnCont);
+                    $$.timer(_this);
+                    console.log( 'get bank code success', data );
+
+                }, function( error ){
+                    console.log( 'get bank code failed', error );
+                }) 
+            });
             payBtn.bind( 'click', function(){
                 var pin = $$.trim( payPinInput.val() );
                 var code = $$.trim( bkCodeInput.val() );
@@ -836,7 +884,7 @@
             var loadingBody = $$.initLoadingBody();
             _cfmContainer.appendChildren([confirmHead, loadingBody]);
 
-            var transactionId = '', tempPayMode = 1, totalAmount = 0;
+            var transactionId = '', tempPayMode = 1, totalAmount = 0, cards, split = '|';
 
             
             var saveOrder = function(){
@@ -846,7 +894,7 @@
                     no_order: _OPTIONS.order_id,
                     money_order: _OPTIONS.amount,
                     name_goods: _OPTIONS.order_desc,
-                    sign_type: 'RSA',
+                    sign_type: _OPTIONS.sign_type,
                     api_key: _OPTIONS.api_key,
                     user_id: _OPTIONS.user_id,
                     dt_order: '20160108113511',
@@ -879,13 +927,14 @@
                             row2Select.appendChild(tempOp);
                         }
                     }
-                    var cards;
+                    
                     if( $$.isArray( data.cards ) ){
                         cards = data.cards;
                         for( var i = 0; i<cards.length; i++ ){
                             var tailNo = cards[i].card_no.split('*')[cards[i].card_no.split('*').length-1];
                             var tempOp = C('option');
                             tempOp.html('借记卡支付金额');
+                            tempOp.setAttrs( { 'value': cards[i].card_id+ split + cards[i].bank_name+' 尾号'+tailNo +split+cards[i].bind_mob });
                             var tempOpSpan = C('span');
                             tempOpSpan.html( '（'+cards[i].bank_name+' 尾号'+tailNo+'）' );
                             tempOp.appendChild(tempOpSpan);
@@ -916,24 +965,45 @@
                 if( !row3Checkbox.checked ){
                     row3Checkbox.focus();
                     return;
-                } 
-                var payWrap = $$.initPay( tempPayMode, function(){
-                    $$.initPayRst();
-                    $$.switchPanel({
-                        origin: _cfmContainer,
-                        target: _payRstContainer,
-                        type: switchType.rightInLeftOut
+                };
+                var _cardId =  row4Select.val().split( split )[0];
+                var _url = apiConfig.hostName + apiConfig.saveInstalmentAndCard;
+                var _message = {
+                    term_id: row2Select.val(),
+                    card_id: _cardId,
+                    trans_id: transactionId
+                };
+                eroSpan.html('');
+                $$.http( { url:_url, body:_message }, function( data ){
+                    console.log( 'save order installment and card success', data );
+                    row2Select.setAttrs( {'disabled':'disabled'} );
+                    row3Checkbox.setAttrs( {'disabled':'disabled'} );
+                    row4Select.setAttrs( {'disabled':'disabled'} );
+                    var payOpts = {
+                        payMode: tempPayMode
+                    };
+                    if( tempPayMode === payType.bankCard || tempPayMode === payType.mixed ){
+                        payOpts.bankInfo = {
+                            name: row4Select.val().split( split )[1],
+                            phone: row4Select.val().split( split )[2],
+                            trans_id: transactionId
+                        }
+                    };
+                    var payWrap = $$.initPay( payOpts, function(){
+                        $$.initPayRst();
+                        $$.switchPanel({
+                            origin: _cfmContainer,
+                            target: _payRstContainer,
+                            type: switchType.rightInLeftOut
+                        });
                     });
-                    // _cfmContainer.removeClass( 'PIERbounceInRight' );
-                    // _cfmContainer.addClass( 'PIERbounceOutLeft' );
-                    // _cfmContainer.removeClass( 'PIER-display-block' );
-
-                    // _payRstContainer.addClass( ['PIER-animated', 'PIER-display-block', 'PIERbounceInRight'] );
-                    // _flipContainer.appendChild(_payRstContainer);
+                    cfmBody.removeChild(submitRow );
+                    cfmBody.removeChild(timerRow);
+                    cfmBody.appendChildren([payWrap, timerRow]);
+                }, function( error ){
+                    console.log( 'save order installment and card success', error );
+                    eroSpan.html(error.message);
                 });
-                cfmBody.removeChild(submitRow );
-                cfmBody.removeChild(timerRow);
-                cfmBody.appendChildren([payWrap, timerRow]);                
             } )
         },
         initPayRst:function(){
@@ -991,6 +1061,7 @@
             var row2 = C('div', ['PIER-row', 'PIER-mT-md']);
             phoneInput = C('input', 'PIER-comm-input' );
             phoneInput.setAttrs({'placeholder':'手机号','maxlength':'11'});
+            phoneInput.bind( 'keyup', $$.digitalInputListener )
             row2.appendChild(phoneInput);
 
             var row3 = C( 'div', ['PIER-row','PIER-mT-sm']),
@@ -1003,12 +1074,13 @@
 
             var row4 = C('div', ['PIER-row', 'PIER-mT-sm']);
             nameInput = C('input', 'PIER-comm-input' );
-            nameInput.setAttrs({'placeholder':'真实姓名', 'maxlength': '18'});
+            nameInput.setAttrs({'placeholder':'真实姓名'});
             row4.appendChild(nameInput);
 
             var row5 = C('div', ['PIER-row', 'PIER-mT-sm']);
             idInput = C('input', 'PIER-comm-input' );
-            idInput.setAttrs({'placeholder':'身份证'});
+            idInput.setAttrs({'placeholder':'身份证', 'maxlength':'18'});
+            idInput.bind( 'keyup', $$.idCardListener );
             row5.appendChild(idInput);
 
             var row6 = C('div', ['PIER-row', 'PIER-mT-xs']);
@@ -1035,11 +1107,11 @@
                 });
             });
             submitBtn.bind( 'click', function(){
-                var phone = phoneInput.val();
-                var username = nameInput.val();
-                var idNumber = idInput.val();
-                var code = codeInput.val();
-                eroSpan.html( $$.notEmpty({'手机号':phone, '验证码': code, '姓名': username, '银行卡号': idNumber}) );
+                var phone = $$.trim( phoneInput.val() );
+                var username = $$.trim( nameInput.val() );
+                var idNumber = $$.trim( idInput.val() );
+                var code = $$.trim( codeInput.val() );
+                eroSpan.html( $$.notEmpty({'手机号':phone, '验证码': code, '姓名': username, '身份证号': idNumber}) );
 
                 if( eroSpan.html() !== '' ){
                     return;
@@ -1056,6 +1128,7 @@
                 _this.html(pierConst.btnLoading);
                 $$.http( { url:_url, body:_message}, function( data ){
                     console.log('reg user success', data);
+                    $$.setBasic({username:username, idCard: idNumber });
                     $$.setUser({user_id:data.user_id, session_token:data.session_token, status_bit:data.status_bit, name: username});
                     $$.initApply();
                     $$.switchPanel({
@@ -1091,6 +1164,81 @@
                 }                
             })
         },
+        initUpdateInfo: function(){
+            var callback = arguments[0];
+            var errorMsg = arguments[1];
+            var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
+            var infoPanel = C( 'div', 'PIER-set-pin' );
+            var basicInfo = $$.getBasic();
+
+            var eroRow = C('div', ['PIER-row', 'PIER-error', 'PIER-text-center']),
+            eroRowSpan = C('p');
+            if( !errorMsg ){
+                eroRowSpan.html('您的身份信息有误，请重新修改。');
+            }else{
+                eroRowSpan.html(errorMsg);
+            }
+            
+            eroRow.appendChild(eroRowSpan);
+
+            var nameLabelRow = C( 'div', ['PIER-row', 'PIER-mT-sm'] );
+            var nameLabel = C( 'label' );
+            nameLabel.html( '姓名：' );
+            nameLabelRow.appendChild(nameLabel);
+
+            var nameRow = C( 'div', ['PIER-row', 'PIER-mT-xs'] );
+            var nameInput = C( 'input', 'PIER-comm-input' );
+            nameInput.setAttrs({'placeholder': '请填写您的真实姓名'});
+            nameInput.val(basicInfo.username);
+            nameRow.appendChild(nameInput);
+
+            var idLabelRow = C( 'div', ['PIER-row', 'PIER-mT-sm'] );
+            var idLabel = C( 'label' );
+            idLabel.html( '身份证：' );
+            idLabelRow.appendChild(idLabel);
+
+            var idRow = C( 'div', ['PIER-row', 'PIER-mT-xs'] );
+            var idInput = C( 'input', 'PIER-comm-input' );
+            idInput.setAttrs({'placeholder': '请填写您的真实身份证', 'maxlength': '18'});
+            idInput.val(basicInfo.idCard);
+            idInput.bind( 'keyup', $$.idCardListener );
+            idRow.appendChild(idInput);
+
+            var submitRow = C( 'div', ['PIER-row', 'PIER-mT-sm', 'PIER-mB-sm']);
+            var submitBtn = C( 'button', ['PIER-submit-btn', 'PIER-color'] );
+            submitBtn.html( '确认' );
+            submitRow.appendChild(submitBtn);
+
+            infoPanel.appendChildren([eroRow, nameLabelRow, nameRow, idLabelRow, idRow, submitRow]);
+
+            submitRow.bind( 'click', function(){
+                var _name = nameInput.val(), _id = idInput.val();
+                eroRowSpan.html( $$.notEmpty({ '姓名': _name, '身份证号':_id }) );
+                if( eroRowSpan.html() !== '' ){
+                    return;
+                }
+                var _url = apiConfig.hostName + apiConfig.updateBasic;
+                var _message = {
+                    name: _name, 
+                    id_number: _id
+                }
+                $$.http( { url:_url, body:_message}, function( data ){
+                    console.log( 'update user basic info success', data );
+                    $$.setUser({username: _name});
+                    $$.setBasic({username:_name, idCard: _id });
+                    callback.call( this, {
+                        name: _name
+                    })
+                }, function( error ){
+                    console.log( 'update user basic info failed', error );
+                    if( error.code == '1169' ){
+                        eroRow.addClass('PIER-h-auto');
+                    }
+                    eroRowSpan.html( error.message );
+                });
+            })
+            return infoPanel;
+        },
         initApply: function(){
             var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
 
@@ -1098,6 +1246,7 @@
             _applyContainer = C( 'div', 'PIER-apply-container');
             //pay result container header
             var body = C( 'div', 'PIER-apply-body' );
+            var bodyWrap = C( 'div' );
 
             var eroRow = C('div', ['PIER-row', 'PIER-error', 'PIER-text-center']),
             eroRowSpan = C('p');
@@ -1131,6 +1280,7 @@
             var cardPhoneRow = C( 'div', ['PIER-row', 'PIER-mT-xs'] );
             var cardPhoneInput = C( 'input', 'PIER-comm-input' );
             cardPhoneInput.setAttrs({'placeholder': '银行预留手机号'});
+            cardPhoneInput.bind( 'keyup', $$.digitalInputListener );
             cardPhoneRow.appendChild(cardPhoneInput);
 
             var agreetRow = C( 'div', ['PIER-row', 'PIER-mT-xs'] );
@@ -1152,6 +1302,7 @@
             var submitBtn = C( 'button', ['PIER-submit-btn', 'PIER-color'] );
             submitBtn.html( '确认' );
             submitRow.appendChild(submitBtn);
+
             var cardToken = '';
             var cardId = ''
             
@@ -1183,7 +1334,22 @@
                 }, function( error ){
                     console.log('bind card failed', error);
                     _this.html(tempBtnCont);
-                    eroRowSpan.html( error.message );
+                    if( error.code === '1004' || error.code === '1113' ){
+                        var erorTemp;
+                        if( error.code === '1113' ){
+                            erorTemp = error.message;
+                        }
+                        var updatePanel = $$.initUpdateInfo(function(data){
+                            console.log('data',data);
+                            cardOwnerName.html( data.name );
+                            body.removeChild(updatePanel);
+                            body.appendChild(bodyWrap);
+                        }, erorTemp);
+                        body.removeChild(bodyWrap);
+                        body.appendChild(updatePanel);
+                    }else{
+                        eroRowSpan.html( error.message );
+                    }
                 } );                
             });
             submitBtn.bind( 'click', function(){
@@ -1242,7 +1408,8 @@
                 } );                
             });
             //set apply body 
-            body.appendChildren([eroRow, cardOwnerRow,cardRow, cardTypeRow, cardPhoneRow, agreetRow, codeRow, submitRow ]);
+            bodyWrap.appendChildren([eroRow, cardOwnerRow,cardRow, cardTypeRow, cardPhoneRow, agreetRow, codeRow, submitRow ]);
+            body.appendChild(bodyWrap);
             _applyContainer.appendChildren( [applyHeader, body ]);
         },
         initApplyRst:function(){
@@ -1361,7 +1528,10 @@
         loadingSDK: function( pierBtn ){
             var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
             var scriptOri = pierBtn.src;
-            if( !$$.isOri( scriptOri ) ) return;
+            if( !$$.isOri( scriptOri ) ){
+                // throw new Error( pierConst.originError );
+                // return;
+            } 
             var __pierPayBtn = $$.initPierBtn(pierBtn);
             __pierPayBtn.bind( 'click', function(){
                 _pierOverlay = C( 'div','PIER-overlay' );
@@ -1375,13 +1545,12 @@
     },  PIER = this.PIER = {
         version: '0.1.0',
     };
-    PIER.initSDK = function(){
+    PIER.checkout = function(){
         var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
         $$.init();
         _OPTIONS = $$.setConfig( arguments[0], defaultSettings );
         _callback = arguments[1];
         var _pierScriptBtn = doc.querySelector("script[class='pier-button']");
-        console.log( '_pierScriptBtn', _pierScriptBtn.src );
         $$.loadingSDK(_pierScriptBtn);
     };
 })(window, document);
