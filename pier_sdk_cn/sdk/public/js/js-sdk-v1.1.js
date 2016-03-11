@@ -49,6 +49,5 @@
     };
 	/**util**/
     function Util(){};
-    Util.
 
 })(window)

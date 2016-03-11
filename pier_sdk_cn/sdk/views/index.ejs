@@ -27,7 +27,7 @@
           randomString += Math.ceil( Math.random()*10 );
         }
         PIER.checkout({
-          amount: '0.01',
+          amount: '.01',
           currency: 'CNY',
           merchant_id: 'MC0000006975',
           merchant_logo: 'http://pierup.cn/images/android-app-download.png',
@@ -37,11 +37,18 @@
           available_time: '10080',
           sign_type: 'RSA',
           pier_btn_id: 'payBtn'
-        }, function( result, error ){
+        }, function( result ){
           if( result === 'success' ){
-            //payment success
-          }else{
-            //payment error
+            //payment success handler
+            alert('支付成功')
+          } 
+          if( result === 'failed' ){
+            //payment failed  handler
+            alert('支付失败')
+          }
+          if( result === 'uncompleted' ){
+            //payment uncomplete handler
+            alert('支付未完成')
           }
         });    
   </script>

@@ -16,7 +16,7 @@
     _applyRstContainer;
 
     var apiConfig = {
-        hostName: 'http://pierup.asuscomm.com:8686', //'http://192.168.1.51:8088',
+        hostName: 'http://pierup.asuscomm.com:8686', 
         regCode: '/sdk_register_cn/v1/register/activation_code',
         regUser: '/sdk_register_cn/v1/register/register_user',
         setPin: '/sdk_register_cn/v1/register/forget_payment_password_reset',
@@ -44,11 +44,6 @@
         credit: '1',
         bankCard: '2',
         mixed: '3'
-    };
-    var payStatus = {
-        success: 'success',
-        uncompleted: 'uncompleted',
-        failed: 'failed'
     };
     var switchType = {
         rightInLeftOut: 'rightInLeftOut',
@@ -312,7 +307,6 @@
         },
         idCardListener: function( event ){
             var obj = event.srcElement ? event.srcElement : event.target;
-            console.log('input',obj.value );
             var input = obj.value;
             if( typeof input === 'undefined' ) return;
 
@@ -333,7 +327,6 @@
             if( typeof btn !== 'object' ) return;
             var countDown;
             var btnText = btn.html();
-            console.log( 'btnText', btnText );
             var tempCount = 60;
             if( parseFloat(btnText) === NaN ){
                 btnText = tempCount;
@@ -482,7 +475,6 @@
             };
             _this.destory = function( timeSec ){
                 setTimeout(function(){
-                    console.log( 'this.parentNode', _this.parentNode );
                     _this.parentNode.removeChild(_this);
                 }, timeSec ||　500);
             };
@@ -518,7 +510,6 @@
         destorySDK:function(){
             doc.body.removeChild(_pierOverlay);
             doc.body.removeChild(_flipWrap);
-
         },
         initPierBtn: function( parentNode ){
             var _pierPayBtn = defaultUtils.createElem( 'div', ['pier-payment-btn']);
@@ -534,9 +525,9 @@
         },
         initHeader:function( headerOpt ){
             var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
-            var payResult = payStatus.uncompleted; 
+            var payResult = false;
             if( headerOpt ){
-                payResult = headerOpt.payResult || payStatus.uncompleted;
+                payResult = headerOpt.payResult || false;
             }
             var _tempHead = C( 'div', 'PIER-panel-head' ),
             _tempHeadTable = C( 'table' ),
@@ -555,20 +546,13 @@
                         headerOpt.errorObj.parentNode.removeClass('PIER-h-auto')
                     }
                 }
-                if( payResult == payStatus.success ){
+                if( payResult ){
                     $$.destorySDK();
-                    _callback.call(this, payStatus.success )
-                };
-                if( payResult == payStatus.failed ){
-                    $$.destorySDK();
-                    _callback.call(this, payStatus.failed )
-                }
-                if( payResult == payStatus.uncompleted ){
+                }else{
                     _flipContainer.removeClass( 'PIER-buzz-class' );
                     setTimeout(function( ){
                         if( headerOpt.errorObj.html() == pierConst.exitTip ){
                             $$.destorySDK();
-                            _callback.call(this, payStatus.uncompleted )
                         }else{
                             _flipContainer.addClass( 'PIER-buzz-class' );
                             headerOpt.errorObj.html( pierConst.exitTip );
@@ -707,7 +691,6 @@
                     password: pwd
                 };
                 $$.http( { url:_url, body:_message}, function( data ){
-                    console.log('user login success', data);
                     $$.setUser({session_token:data.session_token, user_id:data.user_id, status_bit: data.status_bit });
                     $$.initConfirm();
                     $$.switchPanel({
@@ -716,7 +699,6 @@
                         type: switchType.rightInLeftOut
                     });
                 }, function( error ){
-                    console.log('user login failed', error);
                     eroRowSpan.html(error.message);
                     if( error.code === '1008' || error.code === '2009' ){
                         eroRow.addClass('PIER-h-auto');
@@ -785,10 +767,8 @@
                 $$.http( { url:_url, body:_message }, function( data ){
                     _this.html(tempBtnCont);
                     $$.timer(_this);
-                    console.log( 'get bank code success', data );
 
                 }, function( error ){
-                    console.log( 'get bank code failed', error );
                 }) 
             });
             payBtn.bind( 'click', function(){
@@ -804,11 +784,9 @@
                             pay_password: pin
                         };
                         $$.http( { url:_url, body:_message }, function( data ){
-                            console.log( 'pay by credit success', data );
                             callback.call(this, payresult = true);
 
                         }, function( error ){
-                            console.log( 'pay by credit failed', error );
                             eroSpan.html(error.message);
                         });
                     }
@@ -861,10 +839,6 @@
             var row2 = C('div', ['PIER-row', 'PIER-mT-xs']);
             row2.html( '<label>分期选项</label>' );
             var row2Select = C('select', ['PIER-right', 'PIER-instalment-select'] );
-            // var row2SelectOp0 = C('option');
-            // row2SelectOp0.html('不分期');
-            // row2SelectOp0.setAttrs({'value':'0'});
-            // row2Select.appendChild(row2SelectOp0);
             
             row2.appendChild(row2Select);
 
@@ -895,12 +869,12 @@
             var row6 = C('div', ['PIER-row']); 
             row6.setAttrs({ 'style': 'height:60px;'});
             var row6Span1 = C('div', ['PIER-right', 'PIER-font-sm']); 
-            // row6Span1.html( '美元共计：￥812.33' );
+            row6Span1.html( '美元共计：￥812.33' );
             var row6Span2 = C('div', ['PIER-right','PIER-font-xs','PIER-color-gray','PIER-mT-xs']); 
-            // row6Span2.html( '中国银行上海分行：2015-12-18 10:15' );
+            row6Span2.html( '中国银行上海分行：2015-12-18 10:15' );
             var row6Span3 = C('div', ['PIER-right','PIER-font-xs','PIER-color-gray']); 
             var row6Br = C('br'); 
-            // row6Span3.html( '汇率：1USD = 6.47RMB' );
+            row6Span3.html( '汇率：1USD = 6.47RMB' );
             row6.appendChildren([ row6Span2, row6Br, row6Span3]);
 
             var submitRow = C( 'div', ['PIER-row', 'PIER-mT-md']);
@@ -910,7 +884,7 @@
 
             var timerRow = C( 'div', ['PIER-row', 'PIER-mT-md']);
             var timerP = C( 'p', ['PIER-bottom-text', 'PIER-text-center']);
-            // timerP.html( '您可以在4分12秒内使用额度支付' );
+            timerP.html( '您可以在4分12秒内使用额度支付' );
             timerRow.appendChild(timerP);
 
             var loadingBody = $$.initLoadingBody();
@@ -934,7 +908,6 @@
                 };
                 $$.http( { url:_url, body:_message }, function( data ){
                     
-                    console.log('user save order success', data);
                     if( !$$.isUndefined( data.payment_type ) ){
                         tempPayMode = data.payment_type;
                     }
@@ -977,21 +950,14 @@
                     _cfmContainer.appendChild( cfmBody );
                     
                 }, function( error ){
-                    $$.initPayRst( 'error', error.message );
-                    $$.switchPanel({
-                        origin: _cfmContainer,
-                        target: _payRstContainer,
-                        type: switchType.rightInLeftOut
-                    });
-                    return;
+                    
                 } );
             }();
             //append head and body
             //append body elem
             var setCfmBody = function( payMode ){
                 if( payMode === payType.credit ){
-                    // cfmBody.appendChildren([eroRow, row1, row2, row3, row5, row6, submitRow, timerRow ]);
-                    cfmBody.appendChildren([eroRow, row1, row2, row3, row5, submitRow, timerRow ]);
+                    cfmBody.appendChildren([eroRow, row1, row2, row3, row5, row6, submitRow, timerRow ]);
                 }
                 if( payMode === payType.bankCard ){
                     cfmBody.appendChildren([eroRow,  row4, row5, row6, submitRow, timerRow ]);
@@ -1014,7 +980,6 @@
                 };
                 eroSpan.html('');
                 $$.http( { url:_url, body:_message }, function( data ){
-                    console.log( 'save order installment and card success', data );
                     row2Select.setAttrs( {'disabled':'disabled'} );
                     row3Checkbox.setAttrs( {'disabled':'disabled'} );
                     row4Select.setAttrs( {'disabled':'disabled'} );
@@ -1041,31 +1006,19 @@
                     cfmBody.removeChild(timerRow);
                     cfmBody.appendChildren([payWrap, timerRow]);
                 }, function( error ){
-                    console.log( 'save order installment and card success', error );
                     eroSpan.html(error.message);
                 });
             } )
         },
-        initPayRst:function( error, errMsg ){
+        initPayRst:function(){
             var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
             _payRstContainer = C( 'div', 'PIER-payresult-container');
-            var _payResult = payStatus.success,
-            _title = '支付成功!',
-            _reason = '马上在各大市场下载品而金融APP，轻松提高和管理您的额度!';
-
-            if( error == 'error' ){
-                _payResult = payStatus.failed;
-                _title = '支付失败!',
-                _reason = errMsg;
-            }
             //pay result container header
             var payResultHead = $$.initHeader({
-                payResult: _payResult,
+                payResult: true,
                 logo: _OPTIONS.merchant_logo,
                 wording: _OPTIONS.order_desc
             });
-            
-
             //pay result container body
             var body = C( 'div', ['PIER-payresult-body', 'PIER-text-center']);
             var QRRow = C( 'div', ['PIER-row', 'PIER-mT-md']);
@@ -1074,10 +1027,10 @@
             QRRow.appendChild(QRImage);
 
             var msgRow = C( 'div', ['PIER-row','PIER-mT-md']);
-            msgRow.html( '<p class="PIER-color">'+_title+'</p>' );
+            msgRow.html( '<p class="PIER-color">支付成功!</p>' );
 
             var downloadRow = C( 'div', ['PIER-row','PIER-mT-md']);
-            downloadRow.html( '<p>'+_reason+'</p>' );
+            downloadRow.html( '<p>马上在各大市场下载品而金融APP，轻松提高和管理您的额度!</p>' );
 
             var returnRow = C( 'div', ['PIER-row','PIER-mT-md']);
             returnRow.html( '<p class="PIER-color-gray PIER-font-sm">正在返回商家……</p>' );
@@ -1178,7 +1131,6 @@
                 var tempBtnCont = _this.html();
                 _this.html(pierConst.btnLoading);
                 $$.http( { url:_url, body:_message}, function( data ){
-                    console.log('reg user success', data);
                     $$.setBasic({username:username, idCard: idNumber });
                     $$.setUser({user_id:data.user_id, session_token:data.session_token, status_bit:data.status_bit, name: username});
                     $$.initApply();
@@ -1204,12 +1156,10 @@
                         _this.html(pierConst.btnLoading2);
                         $$.http( { url:_url, body:_message}, function( data ){
                             _this.html(tempBtnCont);
-                            console.log('get reg code success', data);
                             $$.timer(codeBtn);
                         }, function( error ){
                             _this.html(tempBtnCont);
                             eroSpan.html( error.message );
-                            console.log('get reg code failed', error);
                         } );
                     }
                 }                
@@ -1274,14 +1224,12 @@
                     id_number: _id
                 }
                 $$.http( { url:_url, body:_message}, function( data ){
-                    console.log( 'update user basic info success', data );
                     $$.setUser({username: _name});
                     $$.setBasic({username:_name, idCard: _id });
                     callback.call( this, {
                         name: _name
                     })
                 }, function( error ){
-                    console.log( 'update user basic info failed', error );
                     if( error.code == '1169' ){
                         eroRow.addClass('PIER-h-auto');
                     }
@@ -1377,13 +1325,11 @@
                 var tempBtnCont = _this.html();
                 _this.html(pierConst.btnLoading2);
                 $$.http( { url:_url, body:_message}, function( data ){
-                    console.log('bind card success', data);
                     _this.html(tempBtnCont);
                     cardToken = data.token;
                     cardId = data.card_id;
                     $$.timer(codeBtn);
                 }, function( error ){
-                    console.log('bind card failed', error);
                     _this.html(tempBtnCont);
                     if( error.code === '1004' || error.code === '1113' ){
                         var erorTemp;
@@ -1391,7 +1337,6 @@
                             erorTemp = error.message;
                         }
                         var updatePanel = $$.initUpdateInfo(function(data){
-                            console.log('data',data);
                             cardOwnerName.html( data.name );
                             body.removeChild(updatePanel);
                             body.appendChild(bodyWrap);
@@ -1427,18 +1372,15 @@
                 var tempBtnCont = _this.html();
                 _this.html(pierConst.btnLoading);
                 $$.http( { url:_url, body:_message}, function( data ){
-                    console.log('verify card success', data);
                     pinToken = data.token;
         
                     var pinPanel = $$.initPinSettingPanel(function( pwd ){
-                        console.log( 'pin code ', pwd );
                         var pinUrl = apiConfig.hostName + apiConfig.setPin;
                         var message = {
                             new_payment_password: pwd,
                             payment_password_token: pinToken,
                         };
                         $$.http( { url: pinUrl, body: message }, function(data){
-                            console.log( 'set pin success', data );
                             $$.initApplyRst();
                             $$.switchPanel({
                                 origin: _applyContainer,
@@ -1446,7 +1388,6 @@
                                 type: switchType.rightInLeftOut
                             });
                         }, function( error ){
-                            console.log('set pin failed', error);
                             eroRowSpan.html( error.message );
                         } )
                     });
@@ -1454,7 +1395,6 @@
                     body.appendChild(  pinPanel );
                 }, function( error ){
                     _this.html(tempBtnCont);
-                    console.log('verify card failed', error);
                     eroRowSpan.html( error.message );
                 } );                
             });
@@ -1468,7 +1408,7 @@
             // _applyContainer, 
             _applyRstContainer = C( 'div', 'PIER-applyresult-container');
             var header = $$.initHeader({
-                // payResult:true,
+                payResult:true,
                 logo: pierConst.pierLogo,
                 wording: '品而付额度申请'
             });
@@ -1604,6 +1544,8 @@
                     clearInterval(clickEvt);
                 }
             }, 100);
+
+
         }
     },  PIER = this.PIER = {
         version: '1.0.0',
