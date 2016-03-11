@@ -3,7 +3,6 @@
  * @version regular
  * @return PIER    PIER对象，用于支付的实例对象
  * @author Flower
- * @date
  */
 (function( win, doc ){
     //for stylesheet and container
@@ -25,12 +24,13 @@
         bindCard: '/payment_api/bind_card',
         verifyCard: '/payment_api/verify_card?platform=1',
         savePaymentOrder: '/payment_api/save_payment_order?platform=1',
-        applyCredit: '/sdk_register_cn/v1/user/apply_promotion_credit',
+        applyCredit: '/sdk_register_cn/v1/user/apply_credit',
         saveInstalmentAndCard: '/payment_api/save_installment_card?platform=1',
         getPaySMS: '/payment_api/get_sms_code',
+        payByCredit: '/payment_api/pay_by_credit',
         updateBasic: '/sdk_register_cn/v1/user/update_user_basic'
     };
-    var remoteAddr = 'http://pierup.cn';
+    var remoteAddr = 'http://pierup.cn', resourceAddr = 'http://pierup.cn/resource';
 
 
     var userAuth = {
@@ -53,16 +53,15 @@
         env: 'dev', //default 'dev' for testing, if 'pro',it will be production mode.
         totalAmount: 0, //the total amount to be paid, default 0
         currency: 'CNY', //default 'cny',
-        payButtonId: '',
-        merchantLogo: '',
+        merchant_logo: '',
         sdk_type: 'regular',
         api_key: '',
         order_id: '',
-        user_id: '',
         order_desc: '品而金融',
         merchant_id:'',
         available_time: '10080',
-        sign_type: 'MD5'
+        sign_type: 'MD5',
+        pier_btn_id: ''
     },  pierConst = (function(){
         return {
             paramError: "配置参数格式错误！",
@@ -70,7 +69,7 @@
             phoneInputTip: "请输入您的手机号",
             exitTip: "再次点击退出支付！",
             pwdInputTip: "请输入您的密码",
-            pierLogo: "http://pierup.cn/images/sdk-logo.png",
+            pierLogo: resourceAddr+"/sdk-logo.png",
             title: {
                 login:'品而金融',
                 payment: '支付',
@@ -84,8 +83,8 @@
             emptyPayBtn: '未指定支付按钮的ID',
             sendCode: '获取验证码',
             reSend: '重新发送',
-            btnLoading: '<img src="http://pierup.cn:4000/images/sdk_loading.gif" style="width:22px;height:22px;display:inline;"/>',
-            btnLoading2: '<img src="/images/btn-loading.gif" style="width:20px;height:20px;display:inline;"/>',
+            btnLoading: '<img src="'+resourceAddr+'/sdk_loading.gif" style="width:22px;height:22px;display:inline;"/>',
+            btnLoading2: '<img src="'+resourceAddr+'/btn-loading.gif" style="width:20px;height:20px;display:inline;"/>',
             originError: '请使用http://pierup.cn/js/js-sdk-v1.js作为外部加载文件。'
         }
     }()),  defaultUtils = {
@@ -93,8 +92,8 @@
             styleElem = doc.createElement( 'style' );//init style sheet for pier layout
             doc.head.appendChild( styleElem );//add pier stylesheet to head
             styleSheet = styleElem.sheet;
-            if( !styleSheet.addRul2e ){//for firefox not support function 'addRule', instead of insertRule.
-                styleSheet.addRul2e = function( selector, style ){
+            if( !styleSheet.addRule ){//for firefox not support function 'addRule', instead of insertRule.
+                styleSheet.addRule = function( selector, style ){
                     var index = styleSheet.cssRules.length; 
                     styleSheet.insertRule( selector+'{'+style+'}', index );
                 }
@@ -128,12 +127,12 @@
             $( '.PIER-payresult-body', 'padding-bottom: 40px;');
             $( '.PIER-payresult-body img', 'width: 90px;height: 90px;');
             
-            $( '.PIER-panel-head', 'text-align:center;width:100%;height:80px;border-top-right-radius:6px;border-top-left-radius:6px;filter:progid: DXImageTransform.Microsoft.gradient(startColorstr = "rgb(245,245,245)", endColorstr = "rgb(235,235,237)");-ms-filter:progid: DXImageTransform.Microsoft.gradient(startColorstr = "rgb(245,245,245)", endColorstr = "rgb(235,235,237)");background-image:-moz-linear-gradient(top,#f5f5f5,#ebebed);background-image:-ms-linear-gradient(top,#f5f5f5,#ebebed);background-image:-o-linear-gradient(top,#f5f5f5,#ebebed);background-image:-webkit-gradient(linear,center top,center bottom,from(#f5f5f5),to(#ebebed));background-image:-webkit-linear-gradient(top,#f5f5f5,#ebebed);background-image:linear-gradient(top,#f5f5f5,#ebebed);-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;border-bottom:0;border-bottom:1px solid silver;background:url(/images/top-bg.png) repeat-x;');
+            $( '.PIER-panel-head', 'text-align:center;width:100%;height:80px;border-top-right-radius:6px;border-top-left-radius:6px;filter:progid: DXImageTransform.Microsoft.gradient(startColorstr = "rgb(245,245,245)", endColorstr = "rgb(235,235,237)");-ms-filter:progid: DXImageTransform.Microsoft.gradient(startColorstr = "rgb(245,245,245)", endColorstr = "rgb(235,235,237)");background-image:-moz-linear-gradient(top,#f5f5f5,#ebebed);background-image:-ms-linear-gradient(top,#f5f5f5,#ebebed);background-image:-o-linear-gradient(top,#f5f5f5,#ebebed);background-image:-webkit-gradient(linear,center top,center bottom,from(#f5f5f5),to(#ebebed));background-image:-webkit-linear-gradient(top,#f5f5f5,#ebebed);background-image:linear-gradient(top,#f5f5f5,#ebebed);-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;border-bottom:0;border-bottom:1px solid silver;background:url(http://pierup.cn/resource/top-bg.png) repeat-x;');
             $( '.PIER-panel-head table', 'width: 100%;height: 75px;');
             $( '.PIER-panel-head table tr td:first-child', 'width:20%;');
-            $( '.PIER-panel-head table tr td:nth-child(2) img', 'height: 56px;width: 56px;border:2px solid #fff;border-radius: 28px;');
-            $( '.PIER-panel-head table tr td:nth-child(2) div', 'height:58px;width:58px;border:1px solid #c8c8c8;margin-top:-32px;border-radius:30px;display:inline-block;' );
-            $( '.PIER-panel-head table tr td:nth-child(2) h4', 'font-size: 16px;margin-top: -2px;letter-spacing: 2px;font-weight: lighter;');
+            $( '.PIER-panel-head table tr td:nth-child(2) img', 'height: 56px;width: 56px;border:2px solid #fff;border-radius: 28px;vertical-align: inherit;');
+            $( '.PIER-panel-head table tr td:nth-child(2) div', 'height:58px;width:58px;border:1px solid #c8c8c8;margin-top:-32px ;border-radius:30px;display:inline-block;' );
+            $( '.PIER-panel-head table tr td:nth-child(2) h4', 'font-size: 16px;margin-top: -2px;margin-bottom: 20px;letter-spacing: 2px;font-weight: lighter;');
             $( '.PIER-panel-head table tr td:nth-child(3)', 'width: 20%;');
             $( '.PIER-panel-head table tr td:nth-child(3) img', 'width:20px;height:20px;border-radius: 10px;border: 1px solid rgb(200,200,200);margin: 2px;');
             $( '.PIER-close', "height:22px;width:22px;float:right;margin-top:-24px;margin-right:4px;cursor:pointer;background-size:100% 100%;background-image: url('data:image/png;base64,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');");
@@ -517,8 +516,8 @@
         },
         initPierBtn: function( parentNode ){
             var _pierPayBtn = defaultUtils.createElem( 'div', ['pier-payment-btn']);
-            _pierPayBtn.html('<img  src="http://pierup.cn/images/pierlogo38.png" style="width:24px;margin-top:4px;margin-left:10px;margin-right:6px;float:left;">'+
-       '<div style="font-size:14px;margin-top:10px;margin-left:50px;">品而付</div>');
+            _pierPayBtn.html('<img  src="'+resourceAddr+'/pierlogo38.png" style="width:24px;margin-top:4px;margin-left:10px;margin-right:6px;float:left;">'+
+       '<div style="font-size:16px;margin-top:6px;margin-left:50px;">品而付</div>');
             if( parentNode ){
                 parentNode.parentNode.appendChild(_pierPayBtn);
             }else{
@@ -629,7 +628,7 @@
             var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
             var body = C( 'div', 'PIER-loading-body');
             var loadingImg = C( 'img');
-            loadingImg.setAttrs({ 'src': '/images/loading_page.gif'});
+            loadingImg.setAttrs({ 'src': resourceAddr+'/loading_page.gif'});
             body.appendChild(loadingImg);
             return body;
         },
@@ -645,7 +644,7 @@
 
             var loginHead = $$.initHeader({
                 errorObj: eroRowSpan,
-                logo: _OPTIONS.merchantLogo,
+                logo: _OPTIONS.merchant_logo,
                 wording: _OPTIONS.order_desc
             });
 
@@ -727,7 +726,9 @@
          */
         initPay:function( options, callback ){
             var payMode = options.payMode;
-            var bankInfo = options.bankInfo;
+            var transId = options.trans_id;
+            var bankInfo = options.bankInfo || {};
+
             var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
             var paymentWrap = C( 'div', 'PIER-set-pin'),
             splitLine = C( 'div', 'PIER-split-line'),
@@ -749,7 +750,11 @@
             payPinInput.setAttrs( {'placeholder':'品而金融6位支付密码','type':'password', 'maxlength': '6'});
             payPinRow.appendChild(payPinInput);
 
-            var paySubmitRow = C( 'div', ['PIER-row', 'PIER-mT-md']),
+            var eroRow = C('div', ['PIER-row', 'PIER-error', 'PIER-text-center']);
+            eroSpan = C('span', 'errorMsg' );
+            eroRow.appendChild(eroSpan);
+
+            var paySubmitRow = C( 'div', ['PIER-row']),
             payBtn = C( 'button', ['PIER-submit-btn']);
             payBtn.html( '确认并付款' );
             paySubmitRow.appendChild(payBtn);
@@ -779,7 +784,21 @@
                 var url = '';
                 var message = {};
                 if( payMode === payType.credit ){
-                    if( pin !== undefined && pin !== '' ){}
+                    if( pin !== undefined && pin !== '' ){
+                        var _url = apiConfig.hostName + apiConfig.payByCredit;
+                        var _message = {
+                            trans_id: transId,
+                            pay_password: pin
+                        };
+                        $$.http( { url:_url, body:_message }, function( data ){
+                            console.log( 'pay by credit success', data );
+                            callback.call(this, payresult = true);
+
+                        }, function( error ){
+                            console.log( 'pay by credit failed', error );
+                            eroSpan.html(error.message);
+                        });
+                    }
                 }
                 if( payMode === payType.bankCard ){
                     if( code !== undefined && code !== '' ){}
@@ -789,16 +808,16 @@
 
                     }
                 }
-                callback.call(this, payresult = true);                
-            })
+                           
+            });
             if( payMode === payType.credit ){
-                paymentWrap.appendChildren( [splitLine, payPinRow, paySubmitRow] );
+                paymentWrap.appendChildren( [splitLine, payPinRow, eroRow, paySubmitRow] );
             }
             if( payMode === payType.bankCard ){
-                paymentWrap.appendChildren( [splitLine, bkInfoRow, bkCodeRow, paySubmitRow] );
+                paymentWrap.appendChildren( [splitLine, bkInfoRow, bkCodeRow, eroRow, paySubmitRow] );
             }
             if( payMode === payType.mixed ){
-                paymentWrap.appendChildren( [splitLine, bkInfoRow, bkCodeRow, payPinRow, paySubmitRow] );
+                paymentWrap.appendChildren( [splitLine, bkInfoRow, bkCodeRow, payPinRow, eroRow, paySubmitRow] );
             }
             return paymentWrap;
         },
@@ -816,7 +835,7 @@
             eroRow.appendChild(eroSpan);
             var confirmHead = $$.initHeader({
                 errorObj:eroSpan,
-                logo: _OPTIONS.merchantLogo,
+                logo: _OPTIONS.merchant_logo,
                 wording: _OPTIONS.order_desc
             });
             
@@ -829,10 +848,10 @@
             var row2 = C('div', ['PIER-row', 'PIER-mT-xs']);
             row2.html( '<label>分期选项</label>' );
             var row2Select = C('select', ['PIER-right', 'PIER-instalment-select'] );
-            var row2SelectOp0 = C('option');
-            row2SelectOp0.html('不分期');
-            row2SelectOp0.setAttrs({'value':'0'});
-            row2Select.appendChild(row2SelectOp0);
+            // var row2SelectOp0 = C('option');
+            // row2SelectOp0.html('不分期');
+            // row2SelectOp0.setAttrs({'value':'0'});
+            // row2Select.appendChild(row2SelectOp0);
             
             row2.appendChild(row2Select);
 
@@ -980,7 +999,8 @@
                     row3Checkbox.setAttrs( {'disabled':'disabled'} );
                     row4Select.setAttrs( {'disabled':'disabled'} );
                     var payOpts = {
-                        payMode: tempPayMode
+                        payMode: tempPayMode,
+                        trans_id: transactionId
                     };
                     if( tempPayMode === payType.bankCard || tempPayMode === payType.mixed ){
                         payOpts.bankInfo = {
@@ -1012,14 +1032,14 @@
             //pay result container header
             var payResultHead = $$.initHeader({
                 payResult: true,
-                logo: _OPTIONS.merchantLogo,
+                logo: _OPTIONS.merchant_logo,
                 wording: _OPTIONS.order_desc
             });
             //pay result container body
             var body = C( 'div', ['PIER-payresult-body', 'PIER-text-center']);
             var QRRow = C( 'div', ['PIER-row', 'PIER-mT-md']);
             var QRImage = C( 'img');
-            QRImage.setAttrs({ 'src':'http://pierup.cn/images/getqrcode.jpg'});
+            QRImage.setAttrs({ 'src':resourceAddr+'/getqrcode.jpg'});
             QRRow.appendChild(QRImage);
 
             var msgRow = C( 'div', ['PIER-row','PIER-mT-md']);
@@ -1433,7 +1453,7 @@
                 $$.http( { url:_url, body:_message }, function( data ){
                     var creditLimit = data.credit_limit;
                     var iconRow = C( 'div', ['PIER-row', 'PIER-mT-sm']);
-                    iconRow.html('<img src="/images/approval.png">');
+                    iconRow.html('<img src="'+resourceAddr+'/approval.png">');
                     var textRow = C( 'div', ['PIER-row', 'PIER-font-sm']); 
                     textRow.html('<p>申请成功!</p><p style="margin-top:-10px;">您的初步信用额度为：</p>');
                     var creditRow = C( 'div', ['PIER-row', 'PIER-mT-sm']),
@@ -1462,12 +1482,12 @@
                 }, function( error ){
                     var errorMsg = error.message;
                     var iconRow = C( 'div', ['PIER-row', 'PIER-mT-sm']);
-                    iconRow.html( '<img src="/images/approval.png">' );
+                    iconRow.html( '<img src="'+resourceAddr+'/approval.png">' );
                     var textRow = C( 'div', ['PIER-row', 'PIER-font-sm']); 
                     textRow.html( '<p>'+errorMsg+'</p>' );
                     var resultTable = C( 'table', 'PIER-font-sm');
                     resultTable.css({'margin':'0 auto'});
-                    resultTable.html( '<tr><td>您仍可以使用</td><td><img src="/images/tab-union.png" style="width:40px;height:40px;" /></td><td>借记卡完成支付</td></tr>' );
+                    resultTable.html( '<tr><td>您仍可以使用</td><td><img src="'+resourceAddr+'/tab-union.png" style="width:40px;height:40px;" /></td><td>借记卡完成支付</td></tr>' );
                     var resultRow = C( 'div', ['PIER-row','PIER-mT-md', 'PIER-mB-md']),
                     resultBtn = C( 'button', ['PIER-submit-btn', 'PIER-color']);
                     resultBtn.html( '去支付' );
@@ -1526,21 +1546,35 @@
             _xhr.send( JSON.stringify( _apiOpts.body ) );           
         },
         loadingSDK: function( pierBtn ){
+            var __pierPayBtn;
             var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
             var scriptOri = pierBtn.src;
             if( !$$.isOri( scriptOri ) ){
                 // throw new Error( pierConst.originError );
                 // return;
-            } 
-            var __pierPayBtn = $$.initPierBtn(pierBtn);
-            __pierPayBtn.bind( 'click', function(){
-                _pierOverlay = C( 'div','PIER-overlay' );
-                _flipWrap = C( 'div','PIER-flip-wrap' );
-                _flipContainer = C('div', ['PIER-flip-container', 'PIER-animated', 'PIERbounceInTop']);
-                $$.initLogin();
-                doc.body.appendChild(_pierOverlay );
-                doc.body.appendChild( _flipWrap );
-            })
+            }
+            var clickEvt = setInterval(function(){
+                if( _OPTIONS.pier_btn_id !== '' ){
+                    __pierPayBtn = document.getElementById(_OPTIONS.pier_btn_id);
+                }else{
+                    __pierPayBtn = $$.initPierBtn(pierBtn);
+                }
+                if( __pierPayBtn == undefined || __pierPayBtn == null  ){
+                
+                }else{
+                    __pierPayBtn.onclick = function(){
+                        _pierOverlay = C( 'div','PIER-overlay' );
+                        _flipWrap = C( 'div','PIER-flip-wrap' );
+                        _flipContainer = C('div', ['PIER-flip-container', 'PIER-animated', 'PIERbounceInTop']);
+                        $$.initLogin();
+                        doc.body.appendChild(_pierOverlay );
+                        doc.body.appendChild( _flipWrap );
+                    };
+                    clearInterval(clickEvt);
+                }
+            }, 100);
+
+
         }
     },  PIER = this.PIER = {
         version: '0.1.0',

@@ -3,9 +3,11 @@
 <head>
 	<meta charset="UTF-8">
     <style type="text/css">
-        .pier-payment-btn{width:120px;height:32px;border:1px solid #ccc; cursor:pointer; overflow: hidden;}
-        .pier-payment-btn:hover{width:120px;height:32px;border:1px solid #7b37a6; cursor:pointer;'}
+/*        .pier-payment-btn{width:120px;height:32px;border:1px solid #ccc; cursor:pointer; overflow: hidden;}
+        .pier-payment-btn:hover{width:120px;height:32px;border:1px solid #7b37a6; cursor:pointer;'}*/
     </style>
+    <!-- <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 	<title>品而支付</title>
 	  <!--<script src="js/checkout.js"></script>-->
     <!--<script src="js/js-sdk-v1.js"></script>-->
@@ -15,35 +17,37 @@
 
 <!--src="https://checkout.stripe.com/checkout.js" -->
 <form action="/charge" method="POST">
-  <script src="/js/js-sdk-v1.js" class="pier-button" ></script>
-  <script type="text/javascript">
-    var randomString = 'ORTest';
-    for(var i=0; i<6;i++){
-      randomString += Math.ceil( Math.random()*10 );
-    }
-    PIER.checkout({
-      amount: '1111.01',
-      currency: 'CNY',
-      merchant_id: 'MC0000006975',
-      merchantLogo: 'http://pierup.cn/images/android-app-download.png',
-      api_key: '91baaf6f-5157-11e5-be20-3beae5baf6a4',
-      sdk_type: 'regular', 
-      order_id: randomString,
-      user_id: 'UR0000000002',
-      order_desc: '原装剑桥口罩',
-      available_time: '10080',
-      sign_type: 'RSA'
-    }, function( result, error ){
-      if( result === 'success' ){
-        //payment success
-      }else{
-        //payment error
-      }
-    });
-  </script>
-</form>
+  <!--<script src="/js/pier_sdk_v1.min.js" class="pier-button" ></script>-->
+  <script src="js/js-sdk-v1.js" class="pier-button"></script>
 
-<form action="/charge" method="POST" style="margin-left:300px;">
+</form>
+  <script type="text/javascript">
+        var randomString = 'ORTest';
+        for(var i=0; i<6;i++){
+          randomString += Math.ceil( Math.random()*10 );
+        }
+        PIER.checkout({
+          amount: '0.01',
+          currency: 'CNY',
+          merchant_id: 'MC0000006975',
+          merchant_logo: 'http://pierup.cn/images/android-app-download.png',
+          api_key: '91baaf6f-5157-11e5-be20-3beae5baf6a4',
+          order_id: randomString,
+          order_desc: '原装剑桥口罩',
+          available_time: '10080',
+          sign_type: 'RSA',
+          pier_btn_id: 'payBtn'
+        }, function( result, error ){
+          if( result === 'success' ){
+            //payment success
+          }else{
+            //payment error
+          }
+        });    
+  </script>
+<div style="width:100px;height:50px;background:#ccc" id="payBtn"></div>
+
+<!--<form action="/charge" method="POST" style="margin-left:300px;">
   <script src="/js/js-sdk-express.js" class="pier-button2" ></script>
   <script type="text/javascript">
   var randomString = 'ORTest';
@@ -58,7 +62,6 @@
       api_key: '91baaf6f-5157-11e5-be20-3beae5baf6a4',
       sdk_type: 'express', 
       order_id: randomString,
-      user_id: 'UR0000000002',
       order_desc: '原装剑桥口罩',
       available_time: '10080',
       sign_type: 'RSA'
@@ -66,7 +69,7 @@
 
     });
   </script>
-</form>
+</form>-->
 <!--</form>
    <script  
        pier-data-amount='1000' 
@@ -98,3 +101,4 @@ http://localhost:4000/js/stripe-checkout.js
     </div>  -->
 </body>
 </html>
+
