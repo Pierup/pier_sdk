@@ -11,7 +11,48 @@ var fs = require('fs');
 
 /* GET merchant  page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  var randomString = 'ORTest';
+  for(var i=0; i<6;i++){
+    randomString += Math.ceil( Math.random()*10 );
+  }
+  var urlPath = 'https://pierup.asuscomm.com:443/pier-merchant-cn/demo/pay/sign/MC0000001409';
+  var message = {
+    merchant_id: 'MC0000001409',
+    no_order: randomString,
+    money_order: '0.01',
+    name_goods: '测试商品',
+    info_order: '两只毛笔和一只铅笔',
+    dt_order: '20160311164511',
+    valid_order: '10080',
+    api_id: '787fa484-1a3f-11e5-ba25-3a22fd90d682',
+    api_secret_key: 'mk-test-787fa390-1a3f-11e5-ba25-3a22fd90d682',
+    charset: 'UTF-8',
+    sign_type: 'RSA'
+  };
+  request( {
+      url: urlPath,
+      method: "POST",
+      json:true,
+      body:message,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+  }, function(err, response, body){
+    res.render('index', {
+      merchant_id: message.merchant_id,
+      order_id: randomString,
+      amount: message.money_order,
+      api_id: message.api_id,
+      charset: message.charset,
+      name_goods: message.name_goods,
+      info_order: message.info_order,
+      dt_order: message.dt_order,
+      sign_type: message.sign_type,
+      sign: body.result.sign,
+      valid_order: message.valid_order
+    });
+  } );
+
 });
 router.get('/checkout/orderList', function(req, res, next){
   res.render('order-list');

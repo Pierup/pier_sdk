@@ -16,7 +16,8 @@
     _applyRstContainer;
 
     var apiConfig = {
-        hostName: 'http://pierup.asuscomm.com:8686', //'http://192.168.1.51:8088',
+        // hostName: 'http://pierup.asuscomm.com:8686',
+        hostName: 'https://stage.pierup.cn',
         regCode: '/sdk_register_cn/v1/register/activation_code',
         regUser: '/sdk_register_cn/v1/register/register_user',
         setPin: '/sdk_register_cn/v1/register/forget_payment_password_reset',
@@ -30,7 +31,8 @@
         payByCredit: '/payment_api/pay_by_credit',
         updateBasic: '/sdk_register_cn/v1/user/update_user_basic'
     };
-    var remoteAddr = 'http://pierup.cn', resourceAddr = 'http://pierup.cn/resource';
+    var BANK_INFO_URL = 'https://api.pierup.cn/common_api_cn/v1/query/bank_card_info?card_number=';
+    var remoteAddr = 'https://pierup.cn', resourceAddr = 'http://pierup.cn/resource';
 
 
     var userAuth = {
@@ -55,18 +57,18 @@
         filp: 'filp'
     };
     var defaultSettings = {
-        env: 'dev', //default 'dev' for testing, if 'pro',it will be production mode.
-        totalAmount: 0, //the total amount to be paid, default 0
-        currency: 'CNY', //default 'cny',
+        money_order: 0, 
         merchant_logo: '',
-        sdk_type: 'regular',
         api_key: '',
-        order_id: '',
-        order_desc: '品而金融',
+        no_order: '',
+        name_goods: '品而金融',
         merchant_id:'',
-        available_time: '10080',
+        valid_order: '10080',
         sign_type: 'MD5',
-        pier_btn_id: ''
+        sign:'',
+        dt_order: '',
+        pier_btn_id: '',
+        info_order: ''
     },  pierConst = (function(){
         return {
             paramError: "配置参数格式错误！",
@@ -84,13 +86,14 @@
             regRightNow: '马上注册',
             pierCreditAmount: '品而金融支付金额',
             agreeAndRead: '我已同意并阅读',
-            baomixieyi: '《保密授权协议》',
+            baomixieyi: '<a class="PIER-color" href="http://pierup.cn/mobile/privacy.html" target="_blank">《隐私条款》</a>',
+            serviceRule: '<a class="PIER-color" href="http://pierup.cn/mobile/serviceRule.html" target="_blank">《品而服务协议》</a>',
             emptyPayBtn: '未指定支付按钮的ID',
             sendCode: '获取验证码',
             reSend: '重新发送',
             btnLoading: '<img src="'+resourceAddr+'/sdk_loading.gif" style="width:22px;height:22px;display:inline;"/>',
             btnLoading2: '<img src="'+resourceAddr+'/btn-loading.gif" style="width:20px;height:20px;display:inline;"/>',
-            originError: '请使用http://pierup.cn/js/js-sdk-v1.js作为外部加载文件。'
+            originError: '请使用https://pierup.cn/lib//pier_sdk_v1.min.js作为外部加载文件。'
         }
     }()),  defaultUtils = {
         init: function(){
@@ -257,6 +260,18 @@
                         target[key] = original[key];
                     }
                 }
+                var err = defaultUtils.notEmpty({'money_order':target.money_order, 
+                                                 'merchant_id': target.merchant_id, 
+                                                 'api_key':target.api_key, 
+                                                 'no_order':target.no_order, 
+                                                 'name_goods': target.name_goods, 
+                                                 'sign_type': target.sign_type, 
+                                                 'sign': target.sign, 
+                                                 'charset': target.charset,
+                                                 'merchant_logo': target.merchant_logo });
+                if( err !== '' && err !== undefined ){
+                  throw new Error( err );  
+                }
                 return target;
             }else{
                 throw new Error( pierConst.paramError );
@@ -312,7 +327,6 @@
         },
         idCardListener: function( event ){
             var obj = event.srcElement ? event.srcElement : event.target;
-            console.log('input',obj.value );
             var input = obj.value;
             if( typeof input === 'undefined' ) return;
 
@@ -333,7 +347,6 @@
             if( typeof btn !== 'object' ) return;
             var countDown;
             var btnText = btn.html();
-            console.log( 'btnText', btnText );
             var tempCount = 60;
             if( parseFloat(btnText) === NaN ){
                 btnText = tempCount;
@@ -482,7 +495,6 @@
             };
             _this.destory = function( timeSec ){
                 setTimeout(function(){
-                    console.log( 'this.parentNode', _this.parentNode );
                     _this.parentNode.removeChild(_this);
                 }, timeSec ||　500);
             };
@@ -658,7 +670,7 @@
             var loginHead = $$.initHeader({
                 errorObj: eroRowSpan,
                 logo: _OPTIONS.merchant_logo,
-                wording: _OPTIONS.order_desc
+                wording: _OPTIONS.name_goods
             });
 
             var switchRow = C('div', ['PIER-row', 'PIER-text-center']),
@@ -849,7 +861,7 @@
             var confirmHead = $$.initHeader({
                 errorObj:eroSpan,
                 logo: _OPTIONS.merchant_logo,
-                wording: _OPTIONS.order_desc
+                wording: _OPTIONS.name_goods
             });
             
             var row1 = C('div', ['PIER-row', 'PIER-mT-xs']);
@@ -923,14 +935,17 @@
                 var _url = apiConfig.hostName + apiConfig.savePaymentOrder;
                 var _message = {
                     merchant_id: _OPTIONS.merchant_id,
-                    no_order: _OPTIONS.order_id,
-                    money_order: _OPTIONS.amount,
-                    name_goods: _OPTIONS.order_desc,
+                    no_order: _OPTIONS.no_order,
+                    money_order: _OPTIONS.money_order,
+                    name_goods: _OPTIONS.name_goods,
                     sign_type: _OPTIONS.sign_type,
-                    api_key: _OPTIONS.api_key,
+                    api_id: _OPTIONS.api_key,
                     user_id: _OPTIONS.user_id,
-                    dt_order: '20160108113511',
-                    valid_order: _OPTIONS.available_time
+                    dt_order: _OPTIONS.dt_order,
+                    sign: _OPTIONS.sign,
+                    valid_order: _OPTIONS.valid_order,
+                    info_order: _OPTIONS.info_order,
+                    charset: _OPTIONS.charset
                 };
                 $$.http( { url:_url, body:_message }, function( data ){
                     
@@ -1062,17 +1077,24 @@
             var payResultHead = $$.initHeader({
                 payResult: _payResult,
                 logo: _OPTIONS.merchant_logo,
-                wording: _OPTIONS.order_desc
+                wording: _OPTIONS.name_goods
             });
             
 
             //pay result container body
             var body = C( 'div', ['PIER-payresult-body', 'PIER-text-center']);
             var QRRow = C( 'div', ['PIER-row', 'PIER-mT-md']);
+            var QRImage = C( 'div', ['PIER-row', 'PIER-mT-md']);
             var QRImage = C( 'img');
-            QRImage.setAttrs({ 'src':resourceAddr+'/getqrcode.jpg'});
+            QRImage.setAttrs({ 'src':resourceAddr+'/android-app-download.png'});
             QRRow.appendChild(QRImage);
-
+            var QRImage2 = C( 'img');
+            QRImage2.setAttrs({ 'src':resourceAddr+'/ios-app-download.png'});
+            QRImage2.css({'margin-left':'20px'});
+            QRRow.appendChild(QRImage2);
+            var QRText = C('p');
+            QRText.html('<span >android</span><span style="margin-left: 75px;">iOS</span>');
+            QRText.css({'padding-left':'150px','text-align':'left'});
             var msgRow = C( 'div', ['PIER-row','PIER-mT-md']);
             msgRow.html( '<p class="PIER-color">'+_title+'</p>' );
 
@@ -1082,7 +1104,7 @@
             var returnRow = C( 'div', ['PIER-row','PIER-mT-md']);
             returnRow.html( '<p class="PIER-color-gray PIER-font-sm">正在返回商家……</p>' );
 
-            body.appendChildren([QRRow, msgRow, downloadRow, returnRow] );
+            body.appendChildren([QRRow, QRText, msgRow, downloadRow] );
             _payRstContainer.appendChildren([payResultHead, body]);
             
         },
@@ -1138,7 +1160,7 @@
             var row6Checkbox = C('input');
             row6Checkbox.setAttrs({'type':'checkbox'});
             var row6Span = C('span', ['PIER-bottom-text']);
-            row6Span.html( '同意<span class="PIER-color">《品而服务协议》</span>和<span class="PIER-color">《保密授权协议》</span>');
+            row6Span.html( '同意<span class="PIER-color">'+pierConst.serviceRule+'</span>和<span class="PIER-color">'+pierConst.baomixieyi+'</span>');
             row6.appendChildren([row6Checkbox,row6Span]);
 
             var submitRow = C( 'div', ['PIER-row', 'PIER-mT-sm', 'PIER-mB-sm']);
@@ -1325,12 +1347,12 @@
             var cardTypeLabel = C( 'label' );
             cardTypeLabel.html( '卡类型：' );
             var cardTypeName = C( 'span', 'PIER-right' );
-            cardTypeName.html( '中国银行' );
+            cardTypeName.html( '' );
             cardTypeRow.appendChildren([cardTypeLabel,cardTypeName]);
 
             var cardPhoneRow = C( 'div', ['PIER-row', 'PIER-mT-xs'] );
             var cardPhoneInput = C( 'input', 'PIER-comm-input' );
-            cardPhoneInput.setAttrs({'placeholder': '银行预留手机号'});
+            cardPhoneInput.setAttrs({'placeholder': '银行预留手机号', 'maxlength': '11'});
             cardPhoneInput.bind( 'keyup', $$.digitalInputListener );
             cardPhoneRow.appendChild(cardPhoneInput);
 
@@ -1338,7 +1360,7 @@
             var agreetCheck = C( 'input' );
             agreetCheck.setAttrs({'type':'checkbox'});
             var agreetSpan = C( 'span', 'PIER-bottom-text' );
-            agreetSpan.html( '同意<span class="PIER-color">《品而服务协议》</span>和<span class="PIER-color">《保密授权协议》</span>');
+            agreetSpan.html( '同意<span class="PIER-color">'+pierConst.serviceRule+'</span>和<span class="PIER-color">《保密授权协议》</span>');
             agreetRow.appendChildren([agreetCheck,agreetSpan]);
 
             var codeRow = C( 'div', ['PIER-row', 'PIER-mT-sm'] );
@@ -1356,6 +1378,17 @@
 
             var cardToken = '';
             var cardId = ''
+
+            cardInput.bind( 'blur', function(){
+                var cardNo = cardInput.val();
+                var _url = BANK_INFO_URL+cardNo;
+                $$.http( { url:_url, method: 'GET', body: {}}, function( data ){
+                    console.log('get card info success', data);
+                    cardTypeName.html( data.bank_name );
+                }, function( error ){
+
+                } );  
+            });
             
             codeBtn.bind( 'click', function(){
                 var cardNum = cardInput.val();
@@ -1391,7 +1424,6 @@
                             erorTemp = error.message;
                         }
                         var updatePanel = $$.initUpdateInfo(function(data){
-                            console.log('data',data);
                             cardOwnerName.html( data.name );
                             body.removeChild(updatePanel);
                             body.appendChild(bodyWrap);
@@ -1495,7 +1527,7 @@
                     text2Row.html( '<p class="PIER-font-xs PIER-color-gray">新用户注册专用金额，仅限于此次消费</p>' );
                     var resultRow = C( 'div', ['PIER-row','PIER-mT-sm']),
                     resultBtn = C( 'button', ['PIER-submit-btn', 'PIER-color']),
-                    bottomText = C( 'p', 'PIER-font-xs');
+                    bottomText = C( 'p', ['PIER-font-xs', 'PIER-mT-sm']);
                     resultBtn.html( '使用额度付款' );
                     bottomText.html( '*若订单金额超出信用额度，不足部分可以用借记卡支付' );
                     resultRow.appendChildren([resultBtn, bottomText]);
@@ -1554,7 +1586,7 @@
                 throw new Error( BROWSER_NOT_SUPPORT );
                 return;
             }
-            _xhr.open( 'POST', _apiOpts.url, true );
+            _xhr.open( _apiOpts.method || 'POST', _apiOpts.url, true );
 
             _xhr.setRequestHeader( 'Content-type', 'application/json' );
             _xhr.onreadystatechange = function(){
@@ -1562,10 +1594,10 @@
                     var _data = JSON.parse( _xhr.response );
                     if( _data.code == '200' ){
                         _successCallback.call( this, _data.result );
-                        if( _data.result.session_token !== '' || _data.result.session_token !== undefined ){
+                        if( _data.result.session_token !== '' && _data.result.session_token !== undefined  ){
                             $$.setUser({session_token: _data.result.session_token });
                         }
-                        if( _data.result.status_bit !== '' || _data.result.status_bit !== undefined ){
+                        if( _data.result.status_bit !== '' && _data.result.status_bit !== undefined ){
                             $$.setUser({status_bit: _data.result.status_bit });
                         }
                     }else{
@@ -1581,8 +1613,8 @@
             var $$ = defaultUtils, C = $$.extend( $$.createElem, $$ );
             var scriptOri = pierBtn.src;
             if( !$$.isOri( scriptOri ) ){
-                // throw new Error( pierConst.originError );
-                // return;
+                throw new Error( pierConst.originError );
+                return;
             }
             var clickEvt = setInterval(function(){
                 if( _OPTIONS.pier_btn_id !== '' ){

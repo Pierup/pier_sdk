@@ -2,10 +2,6 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-    <style type="text/css">
-/*        .pier-payment-btn{width:120px;height:32px;border:1px solid #ccc; cursor:pointer; overflow: hidden;}
-        .pier-payment-btn:hover{width:120px;height:32px;border:1px solid #7b37a6; cursor:pointer;'}*/
-    </style>
     <!-- <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">
 	<title>品而支付</title>
@@ -17,26 +13,25 @@
 
 <!--src="https://checkout.stripe.com/checkout.js" -->
 <form action="/charge" method="POST">
-  <!--<script src="/js/pier_sdk_v1.min.js" class="pier-button" ></script>-->
-  <script src="js/js-sdk-v1.js" class="pier-button"></script>
+  <!--<script src="/js/js-sdk-v1.js" class="pier-button" ></script>-->
+  <script src="https://pierup.cn/lib//pier_sdk_v1.min.js" class="pier-button"></script>
 
 </form>
   <script type="text/javascript">
-        var randomString = 'ORTest';
-        for(var i=0; i<6;i++){
-          randomString += Math.ceil( Math.random()*10 );
-        }
         PIER.checkout({
-          amount: '.01',
-          currency: 'CNY',
-          merchant_id: 'MC0000006975',
+          money_order: "<%=amount%>",
+          merchant_id: "<%=merchant_id%>",
           merchant_logo: 'http://pierup.cn/images/android-app-download.png',
-          api_key: '91baaf6f-5157-11e5-be20-3beae5baf6a4',
-          order_id: randomString,
-          order_desc: '原装剑桥口罩',
-          available_time: '10080',
-          sign_type: 'RSA',
-          pier_btn_id: 'payBtn'
+          api_key: "<%=api_id%>",
+          no_order: "<%=order_id%>",
+          name_goods: "<%=name_goods%>",
+          valid_order: "<%=valid_order%>",
+          sign_type: "<%=sign_type%>",
+          sign: "<%=sign%>",
+          dt_order: "<%=dt_order%>",
+          charset: "<%=charset%>",
+          info_order: "<%=info_order%>"
+          // pier_btn_id: 'payBtn'
         }, function( result ){
           if( result === 'success' ){
             //payment success handler
@@ -52,7 +47,7 @@
           }
         });    
   </script>
-<div style="width:100px;height:50px;background:#ccc" id="payBtn"></div>
+<!-- <div style="width:100px;height:50px;background:#ccc" id="payBtn"></div> -->
 
 <!--<form action="/charge" method="POST" style="margin-left:300px;">
   <script src="/js/js-sdk-express.js" class="pier-button2" ></script>
