@@ -16,8 +16,8 @@
     _applyRstContainer;
 
     var apiConfig = {
-        // hostName: 'http://pierup.asuscomm.com:8686',
-        hostName: 'https://stage.pierup.cn',
+        hostName: 'http://pierup.asuscomm.com:8686',
+        // hostName: 'https://manage.pierup.cn',
         regCode: '/sdk_register_cn/v1/register/activation_code',
         regUser: '/sdk_register_cn/v1/register/register_user',
         setPin: '/sdk_register_cn/v1/register/forget_payment_password_reset',
