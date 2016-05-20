@@ -75,8 +75,8 @@ public class TransactionConfig {
 			for (Field field : fields) {
 				field.setAccessible(true);
 				builder.append("\"").append(field.getName()).append("\":")
-						.append("\"").append(field.get(this)).append("\"")
-						.append(",");
+					   .append("\"").append(field.get(this)).append("\"")
+				       .append(",");
 			}
 			builder.deleteCharAt(builder.length() - 1);
 			builder.append("}");

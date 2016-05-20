@@ -36,8 +36,7 @@ public class HttpClientFactory {
 				Constructor< T> constructor= class1.getDeclaredConstructor(ClientConfig.class);
 				constructor.setAccessible(true);
 				return constructor.newInstance(config);
-			} catch (Exception e) {
-				// TODO: handle exception
+			}catch(Exception e){
 				logger.error("工厂构造DisableJsClient发生异常!", e);
 				return new DefaultDisableJsClient(config);
 			}

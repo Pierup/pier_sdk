@@ -14,7 +14,6 @@ import org.apache.http.protocol.HttpContext;
 public class ClientConnectionKeepAliveStrategy extends DefaultConnectionKeepAliveStrategy{
 	@Override
 	public long getKeepAliveDuration(HttpResponse response, HttpContext context) {
-		// TODO Auto-generated method stub
 		long keepAlive=super.getKeepAliveDuration(response, context);
 		if (keepAlive==-1) {
 			keepAlive=60*1000;

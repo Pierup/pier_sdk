@@ -36,7 +36,6 @@ public abstract class AbstractSDK implements SDKService {
 	@SuppressWarnings("unchecked")
 	@Override
 	public SDKResult transaction(TransactionConfig config) {
-		// TODO Auto-generated method stub
 		SDKResult result = new SDKResult();
 		try {
 			config.setMerchant_id(merchant_id);
@@ -51,19 +50,18 @@ public abstract class AbstractSDK implements SDKService {
 			Map<String, Object> map = gson.fromJson(responseJsonStr,
 					new TypeToken<Map<String, Object>>() {
 					}.getType());
-			if ("200".equals(map.get("code"))) {
-				result.setStatus(true);
-				result.setCode((String) map.get("code"));
-				result.setMessage((String) map.get("message"));
-				result.setResult((Map<String, String>) map.get("result"));
-			} else {
-				result.setStatus(false);
-				result.setCode((String) map.get("code"));
-				result.setMessage((String) map.get("message"));
-				result.setResult((Map<String, String>) map.get("result"));
+			if("200".equals(map.get("code"))){
+					result.setStatus(true);
+					result.setCode((String) map.get("code"));
+					result.setMessage((String) map.get("message"));
+					result.setResult((Map<String, String>) map.get("result"));
+			}else{
+					result.setStatus(false);
+					result.setCode((String) map.get("code"));
+					result.setMessage((String) map.get("message"));
+					result.setResult((Map<String, String>) map.get("result"));
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			result.setStatus(false);
 			result.setMessage(e.getMessage());
 		}
